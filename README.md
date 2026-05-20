@@ -1,7 +1,7 @@
 # FLORE Festival — Site officiel
 
 Site web du **FLORE Festival**, le premier festival musical et culinaire 100 % sans gluten
-et sans lactose. Une production de l'association **This is it Event**.
+et sans lactose. Une production de **MG Entertainment**.
 
 🌐 **Production :** https://flore-festival.fr
 📍 **Édition 2026 :** Lagnieu (Ain)
@@ -36,6 +36,40 @@ python3 -m http.server 8000   # puis http://localhost:8000
 ## Déploiement
 
 Tout push sur la branche `main` est publié automatiquement par GitHub Pages.
+
+- **Dépôt :** https://github.com/thisisit-event/flore-festival
+- **URL GitHub :** https://thisisit-event.github.io/flore-festival/
+- **Domaine cible :** https://flore-festival.fr
+
+## Connexion du domaine `flore-festival.fr`
+
+Le domaine est géré chez **Infomaniak**. Dans le *Gestionnaire de zone DNS*
+d'Infomaniak (Manager > Domaines > flore-festival.fr > Zone DNS) :
+
+1. **Supprimer** l'enregistrement `A` existant de `flore-festival.fr` (`@`)
+   qui pointe vers `172.66.0.70`.
+2. **Ajouter 4 enregistrements `A`** sur `@` (apex) vers GitHub Pages :
+   ```
+   185.199.108.153
+   185.199.109.153
+   185.199.110.153
+   185.199.111.153
+   ```
+3. *(Optionnel, IPv6)* ajouter 4 enregistrements `AAAA` sur `@` :
+   ```
+   2606:50c0:8000::153
+   2606:50c0:8001::153
+   2606:50c0:8002::153
+   2606:50c0:8003::153
+   ```
+4. **Sous-domaine `www`** : enregistrement `CNAME`
+   `www` → `thisisit-event.github.io.`
+5. **Ne pas toucher aux enregistrements `MX`** (`mta-gw.infomaniak.ch`) :
+   ils font fonctionner l'email `contact@flore-festival.fr`.
+
+Après propagation DNS (de quelques minutes à 24 h), GitHub vérifie le domaine,
+provisionne un certificat HTTPS, puis on active **Enforce HTTPS** dans
+*Settings > Pages* du dépôt.
 
 ## À compléter / confirmer
 
