@@ -1,4 +1,4 @@
-# FLORE Festival — Site officiel
+# FLORE Festival · Site officiel
 
 Site web du **FLORE Festival**, le premier festival musical et culinaire 100 % sans gluten
 et sans lactose. Une production de **MG Entertainment**.
