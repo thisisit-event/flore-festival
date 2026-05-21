@@ -39,9 +39,10 @@ h1,h2,h3,h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:7
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 section{position:relative}
 
-.sky-bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#D6EFFB,#BFE4F7 45%,#A9DAF2)}
+.sky-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(75% 50% at 80% 8%,rgba(255,236,194,.42),transparent 60%),linear-gradient(180deg,#D6EFFB,#BFE4F7 45%,#A9DAF2)}
+.grain{position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.4;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
 .clouds{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform}
+.cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform;filter:blur(3px)}
 @keyframes drift{from{transform:translateX(-42vw)}to{transform:translateX(142vw)}}
 .cloud.cA{top:10%;width:210px;opacity:.9;animation-duration:96s;animation-delay:-12s}
 .cloud.cB{top:34%;width:150px;opacity:.6;animation-duration:130s;animation-delay:-60s}
@@ -130,7 +131,8 @@ section{position:relative}
 
 /* Tarifs */
 .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.price{background:#fff;border:1.5px solid var(--line);border-radius:26px;padding:34px;position:relative;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.price{background:#fff;border:1.5px solid var(--line);border-radius:26px;padding:34px;position:relative;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.price .btn{margin-top:auto;width:100%}
 .price:hover{transform:translateY(-6px);box-shadow:0 24px 46px rgba(21,57,91,.12)}
 .price.feat{border-color:var(--sun);box-shadow:0 14px 36px rgba(240,168,28,.18)}
 .price .ribbon{position:absolute;top:-13px;right:26px;background:var(--sun);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.76rem;letter-spacing:.04em;padding:6px 14px;border-radius:100px}
@@ -181,6 +183,7 @@ section{position:relative}
 <body>
 
 <div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
 <div class="clouds" aria-hidden="true">
   <svg class="cloud cA"><use href="#cloud"/></svg>
   <svg class="cloud cB"><use href="#cloud"/></svg>
@@ -238,7 +241,7 @@ section{position:relative}
       <h1>Associez votre marque à une fête qui <em>rassemble</em></h1>
       <p>FLORE est le premier festival musical et culinaire 100 % sans gluten et sans lactose. Une communauté jeune, engagée et fidèle, et un événement porteur de sens dès sa première édition.</p>
       <div class="btn-row">
-        <a href="#tarifs" class="btn btn-sun">Voir les tarifs</a>
+        <a href="#offres" class="btn btn-sun">Découvrir les offres</a>
         <a href="#opportunites" class="btn btn-ghost-w">Les opportunités</a>
       </div>
     </div>
@@ -308,12 +311,12 @@ section{position:relative}
 </section>
 
 <!-- TARIFS -->
-<section class="sec" id="tarifs">
+<section class="sec" id="offres">
   <div class="wrap">
     <div class="sec-head" data-aos="fade-up">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Formats &amp; tarifs</span>
-      <h2>Choisissez votre <span class="hl">emplacement</span></h2>
-      <p>Des formats pour chaque budget et chaque ambition, du stand food à la signature complète du festival.</p>
+      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Les offres</span>
+      <h2>Choisissez votre <span class="hl">place</span></h2>
+      <p>Des formats pour chaque marque et chaque ambition, du stand food à la signature complète du festival. Les tarifs sont communiqués en privé, sur simple demande.</p>
     </div>
     <div class="price-grid">
 
@@ -321,11 +324,11 @@ section{position:relative}
         <span class="p-kicker">Le Jardin des Saveurs</span>
         <h3>Stand food</h3>
         <p class="desc">Votre stand au cœur du food court 100 % sans gluten et sans lactose. Idéal pour les chefs, artisans et marques food.</p>
-        <div class="amount">500 € <small>TTC</small></div>
         <div class="specs">
           <span class="spec">3 m × 2,50 m</span>
           <span class="spec">~13 stands</span>
         </div>
+        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Stand%20food">Recevoir cette offre</a>
       </div>
 
       <div class="price feat" data-aos="fade-up" data-aos-delay="100">
@@ -333,11 +336,11 @@ section{position:relative}
         <span class="p-kicker">Partenaire majeur</span>
         <h3>Stand XXL</h3>
         <p class="desc">Un emplacement d'exception au centre du Jardin des Saveurs, dans la zone réservée aux partenaires majeurs.</p>
-        <div class="amount">Sur-mesure</div>
         <div class="specs">
           <span class="spec">3 m × 3 m</span>
           <span class="spec">Zone centrale</span>
         </div>
+        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Stand%20XXL">Recevoir cette offre</a>
       </div>
 
       <div class="price" data-aos="fade-up">
@@ -345,46 +348,47 @@ section{position:relative}
         <h3>Emplacement boutique</h3>
         <p class="desc">Une vitrine éphémère sur 3 niveaux d'exposition. Emplacement de 1 m × 0,60 m.</p>
         <div class="tiers">
-          <div class="tier"><div class="t-name">Niveau milieu<span>Visibilité excellente</span></div><div class="t-price">350 €</div></div>
-          <div class="tier"><div class="t-name">Niveau haut<span>Bonne visibilité</span></div><div class="t-price">250 €</div></div>
-          <div class="tier"><div class="t-name">Niveau bas<span>Visibilité réduite</span></div><div class="t-price">150 €</div></div>
-          <div class="tier pack"><div class="t-name">Rack complet · 3 niveaux<span>Remise de 20 %</span></div><div class="t-price">600 € TTC</div></div>
+          <div class="tier"><div class="t-name">Niveau milieu<span>Visibilité excellente</span></div></div>
+          <div class="tier"><div class="t-name">Niveau haut<span>Bonne visibilité</span></div></div>
+          <div class="tier"><div class="t-name">Niveau bas<span>Visibilité réduite</span></div></div>
+          <div class="tier pack"><div class="t-name">Rack complet · 3 niveaux<span>Les 3 niveaux réunis</span></div></div>
         </div>
+        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Emplacement%20boutique">Recevoir cette offre</a>
       </div>
 
       <div class="price" data-aos="fade-up" data-aos-delay="100">
         <span class="p-kicker">La Scène Flore</span>
         <h3>Naming de la scène</h3>
         <p class="desc">Donnez votre nom à la scène musicale du festival, avec votre logo en plein cœur de la scène.</p>
-        <div class="amount">Sur-mesure</div>
         <div class="specs">
           <span class="spec">Logo 4 m × 8 m</span>
           <span class="spec">Communication officielle</span>
         </div>
+        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Naming%20de%20la%20sc%C3%A8ne">Recevoir cette offre</a>
       </div>
 
       <div class="price" data-aos="fade-up">
         <span class="p-kicker">La Scène Flore</span>
         <h3>Naming du bar central</h3>
         <p class="desc">Associez votre marque au bar central du festival : bières sans gluten et boissons inclusives.</p>
-        <div class="amount">Sur-mesure</div>
         <div class="specs">
           <span class="spec">Bar de la scène</span>
         </div>
+        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Naming%20du%20bar%20central">Recevoir cette offre</a>
       </div>
 
       <div class="price" data-aos="fade-up" data-aos-delay="100">
         <span class="p-kicker">Sponsors &amp; médias</span>
         <h3>Sponsoring &amp; partenariat média</h3>
         <p class="desc">Un format adapté aux institutions, médias et marques qui souhaitent soutenir un événement engagé.</p>
-        <div class="amount">Sur-mesure</div>
         <div class="specs">
-          <span class="spec">Sur devis</span>
+          <span class="spec">Format sur-mesure</span>
         </div>
+        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Sponsoring%20%26%20m%C3%A9dia">Recevoir cette offre</a>
       </div>
 
     </div>
-    <p class="price-note">Tarifs indicatifs issus du dossier 2026, susceptibles d'évoluer. Les marques et visuels présentés dans nos documents le sont à titre illustratif.</p>
+    <p class="price-note">Les tarifs sont communiqués en privé, sur simple demande. Les marques et visuels présentés dans nos documents le sont à titre illustratif.</p>
   </div>
 </section>
 
