@@ -117,12 +117,13 @@ section{position:relative}
 .mobile-menu .btn{margin-top:24px;justify-content:center}
 
 /* ===== Hero ===== */
-.hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 100px;background:linear-gradient(168deg,#7CC4ED 0%,#4DA9DF 46%,#2E7FB8 100%);border-radius:0 0 var(--r-xl) var(--r-xl);overflow:hidden}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:150px 0 100px;background:radial-gradient(120% 80% at 88% -6%,rgba(255,219,130,.5),rgba(255,219,130,0) 55%),radial-gradient(90% 55% at 50% 112%,rgba(255,255,255,.14),transparent 60%),linear-gradient(168deg,#7CC4ED 0%,#4DA9DF 46%,#2E7FB8 100%);border-radius:0 0 var(--r-xl) var(--r-xl);overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:overlay;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
 .hero .sun{position:absolute;top:-86px;right:-66px;width:320px;height:320px;z-index:1}
 .hero .sun .rays{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,224,138,.6) 0deg 5deg,transparent 5deg 30deg);-webkit-mask:radial-gradient(circle,transparent 44%,#000 46%,#000 60%,transparent 63%);mask:radial-gradient(circle,transparent 44%,#000 46%,#000 60%,transparent 63%);animation:spin 64s linear infinite}
 .hero .sun .core{position:absolute;inset:64px;border-radius:50%;background:radial-gradient(circle,#FFD75E 0%,var(--sun) 52%,rgba(255,196,46,.36) 74%,transparent 82%)}
 @keyframes spin{to{transform:rotate(360deg)}}
-.hero .h-cloud{position:absolute;color:#fff;animation:drift linear infinite;z-index:1}
+.hero .h-cloud{position:absolute;color:#fff;animation:drift linear infinite;z-index:1;filter:blur(2.5px)}
 .hc1{top:17%;width:210px;opacity:.95;animation-duration:82s;animation-delay:-8s}
 .hc2{top:64%;width:160px;opacity:.72;animation-duration:112s;animation-delay:-50s}
 .hc3{top:40%;width:115px;opacity:.55;animation-duration:134s;animation-delay:-92s}
