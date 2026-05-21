@@ -4,7 +4,7 @@ Site web du **FLORE Festival**, le premier festival musical et culinaire 100 % s
 et sans lactose. Une production de **MG Entertainment**.
 
 🌐 **Production :** https://flore-festival.fr
-📍 **Édition 2026 :** Lagnieu (Ain)
+📍 **Édition 2027 :** samedi 27 mars 2027, à Lagnieu (Ain)
 
 ## Stack
 
@@ -74,7 +74,6 @@ provisionne un certificat HTTPS, puis on active **Enforce HTTPS** dans
 ## À compléter / confirmer
 
 - Lieu exact et adresse à Lagnieu
-- Date précise de l'édition 2026
 - Programmation artistique (line-up)
 - Visuel de partage `og:image` pour les réseaux sociaux
 - Lien réel de billetterie (formulaire newsletter actuellement en `mailto:`)

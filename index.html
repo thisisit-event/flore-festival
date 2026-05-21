@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLORE Festival : le festival musical & culinaire 100 % sans gluten et sans lactose</title>
-<meta name="description" content="FLORE est le premier festival musical et culinaire 100 % sans gluten et sans lactose. Une journée festive et bienveillante à Lagnieu (Ain) en 2026 : concerts, food court d'artisans, boutique et causeries santé. Ici, chacun peut enfin éclore.">
+<meta name="description" content="FLORE est le premier festival musical et culinaire 100 % sans gluten et sans lactose. Une journée festive et bienveillante à Lagnieu (Ain) le 27 mars 2027 : concerts, food court d'artisans, boutique et causeries santé. Ici, chacun peut enfin éclore.">
 <meta name="keywords" content="festival sans gluten, festival sans lactose, festival inclusif, Lagnieu, Ain, festival musical, food festival, intolérance gluten, AFDIAG">
 <meta name="author" content="MG Entertainment">
 <meta name="robots" content="index, follow">
@@ -18,11 +18,11 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="FLORE Festival">
 <meta property="og:title" content="FLORE Festival : dansez sans gluten, savourez sans lactose">
-<meta property="og:description" content="Le premier festival musical & culinaire 100 % sans gluten et sans lactose. Lagnieu (Ain) · 2026. Ici, chacun peut enfin éclore.">
+<meta property="og:description" content="Le premier festival musical & culinaire 100 % sans gluten et sans lactose. Lagnieu (Ain) · 27 mars 2027. Ici, chacun peut enfin éclore.">
 <meta property="og:url" content="https://flore-festival.fr/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FLORE Festival : dansez sans gluten, savourez sans lactose">
-<meta name="twitter:description" content="Le premier festival musical & culinaire 100 % sans gluten et sans lactose. Lagnieu (Ain) · 2026.">
+<meta name="twitter:description" content="Le premier festival musical & culinaire 100 % sans gluten et sans lactose. Lagnieu (Ain) · 27 mars 2027.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -140,6 +140,13 @@ section{position:relative}
 .hero-meta .item svg{width:22px;height:22px;color:var(--sun)}
 .hero-meta .item small{display:block;font-size:.7rem;color:rgba(255,255,255,.8);font-family:'Bricolage Grotesque',sans-serif;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
 .hero-meta .item b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:var(--white)}
+.cd-intro{display:flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--sun);margin-bottom:11px}
+.cd-intro .daisy{width:17px;height:17px;color:var(--sun)}
+.countdown{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.cd-cell{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);border-radius:var(--r-sm);padding:13px 6px;min-width:76px;text-align:center;backdrop-filter:blur(4px)}
+.cd-num{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.05rem;color:var(--white);line-height:1;font-variant-numeric:tabular-nums}
+.cd-lab{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin-top:6px}
+.cd-done{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;color:var(--white)}
 .hero-visual{position:relative;height:490px;display:grid;place-items:center}
 .hero-visual .halo{position:absolute;width:410px;height:410px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.62),transparent 68%)}
 .florette-svg{position:relative;width:340px;height:auto;filter:drop-shadow(0 26px 34px rgba(11,24,50,.3));animation:bob 6s ease-in-out infinite}
@@ -329,6 +336,19 @@ section{position:relative}
 .signup-block{border-top:1px solid rgba(255,255,255,.26);padding-top:30px;max-width:540px;margin:0 auto}
 .signup-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.18rem;color:var(--white);margin-bottom:4px}
 .signup-block>p{color:rgba(255,255,255,.9);margin-bottom:16px;font-size:.98rem}
+.signup-perks{list-style:none;display:flex;flex-direction:column;gap:9px;max-width:330px;margin:0 auto 20px;text-align:left}
+.signup-perks li{display:flex;gap:9px;align-items:center;font-size:.93rem;color:rgba(255,255,255,.96);font-weight:500}
+.signup-perks li .daisy{width:15px;height:15px;color:var(--sun);flex-shrink:0}
+.signup-block .signup-fine{font-size:.8rem;color:rgba(255,255,255,.68);margin:14px 0 0}
+/* ===== FAQ ===== */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);box-shadow:var(--shadow-sm);overflow:hidden}
+.faq-item summary{list-style:none;cursor:pointer;padding:21px 24px;display:flex;align-items:center;gap:14px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.04rem;color:var(--ink)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .daisy{width:19px;height:19px;color:var(--sun);flex-shrink:0}
+.faq-item summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2.6px solid var(--sky);border-bottom:2.6px solid var(--sky);transform:rotate(45deg);transition:transform .3s var(--ease);flex-shrink:0}
+.faq-item[open] summary::after{transform:rotate(-135deg)}
+.faq-item .faq-a{padding:0 24px 22px 57px;color:var(--ink-soft);font-size:.99rem;line-height:1.6}
 
 /* ===== Footer ===== */
 .footer{background:var(--night);color:rgba(255,255,255,.7);padding:78px 0 32px;border-radius:var(--r-xl) var(--r-xl) 0 0;margin-top:32px;position:relative;overflow:hidden}
@@ -489,6 +509,13 @@ section{position:relative}
           </a>
           <a href="#festival" class="btn btn-ghost-w">Découvrir le festival</a>
         </div>
+        <div class="cd-intro"><svg class="daisy"><use href="#daisy"/></svg>FLORE éclot dans</div>
+        <div class="countdown" id="countdown" data-deadline="2027-03-27T11:00:00">
+          <div class="cd-cell"><span class="cd-num" id="cdD">--</span><span class="cd-lab">jours</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cdH">--</span><span class="cd-lab">heures</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cdM">--</span><span class="cd-lab">min</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cdS">--</span><span class="cd-lab">sec</span></div>
+        </div>
         <div class="hero-meta">
           <div class="item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -496,7 +523,7 @@ section{position:relative}
           </div>
           <div class="item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <div><small>Date</small><b>2026</b></div>
+            <div><small>Date</small><b>27 mars 2027</b></div>
           </div>
           <div class="item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -561,11 +588,11 @@ section{position:relative}
   <div class="wrap">
     <div class="lieu-grid">
       <div data-aos="fade-up">
-        <span class="kicker"><svg class="daisy"><use href="#daisy"/></svg>Le lieu · Édition 2026</span>
+        <span class="kicker"><svg class="daisy"><use href="#daisy"/></svg>Le lieu · Édition 2027</span>
         <div class="sec-head" style="margin-bottom:22px">
           <h2>FLORE pose ses valises à <span class="hl">Lagnieu</span></h2>
         </div>
-        <p>En 2026, le festival s'installe à <strong>Lagnieu, dans l'Ain</strong> : un nouvel écrin au cœur d'une nature généreuse, à deux pas de la Plaine de l'Ain et facilement accessible.</p>
+        <p>Le 27 mars 2027, le festival s'installe à <strong>Lagnieu, dans l'Ain</strong> : un nouvel écrin au cœur d'une nature généreuse, à deux pas de la Plaine de l'Ain et facilement accessible.</p>
         <p>Un site pensé pour accueillir la fête en plein air comme à l'abri : une scène vivante, un grand jardin gourmand, un espace boutique et un coin causeries, dans un cadre lumineux et apaisant.</p>
         <p class="note-soft">Le lieu exact et l'adresse complète seront dévoilés très prochainement.</p>
       </div>
@@ -777,8 +804,8 @@ section{position:relative}
       <div class="info-card" data-aos="fade-up">
         <div class="i-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
         <h4>Date &amp; horaires</h4>
-        <div class="big">2026</div>
-        <p>Date précise à confirmer<br>De 11h00 à 22h00</p>
+        <div class="big">27 mars 2027</div>
+        <p>Un samedi, de 11h00 à 22h00</p>
       </div>
       <div class="info-card" data-aos="fade-up" data-aos-delay="80">
         <div class="i-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -802,6 +829,51 @@ section{position:relative}
           <li>Concerts, DJ sets &amp; causeries</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Questions fréquentes</span>
+      <h2>Tout ce que tu veux <span class="hl">savoir</span></h2>
+      <p>Les réponses aux questions qu'on nous pose le plus souvent. Une autre question ? Écris-nous, on adore échanger.</p>
+    </div>
+    <div class="faq-list" data-aos="fade-up" data-aos-delay="80">
+      <details class="faq-item">
+        <summary><svg class="daisy"><use href="#daisy"/></svg>C'est quoi, FLORE ?</summary>
+        <div class="faq-a">Le premier festival musical et culinaire 100 % sans gluten et sans lactose. Une journée entière de concerts, DJ sets, food court et causeries bien-être, imaginée par MG Entertainment.</div>
+      </details>
+      <details class="faq-item">
+        <summary><svg class="daisy"><use href="#daisy"/></svg>Tout est vraiment sans gluten et sans lactose ?</summary>
+        <div class="faq-a">Oui, absolument tout. L'intégralité du food court, du bar et des stands est 100 % sans gluten et sans lactose. Tu peux goûter à tout les yeux fermés, sans vigilance ni renoncement.</div>
+      </details>
+      <details class="faq-item">
+        <summary><svg class="daisy"><use href="#daisy"/></svg>Faut-il être intolérant·e pour venir ?</summary>
+        <div class="faq-a">Pas du tout. FLORE est ouvert à tout le monde : curieux, gourmands, familles et amis. C'est avant tout une cuisine créative et une belle fête que chacun peut savourer.</div>
+      </details>
+      <details class="faq-item">
+        <summary><svg class="daisy"><use href="#daisy"/></svg>Où et quand se déroule le festival ?</summary>
+        <div class="faq-a">Le samedi 27 mars 2027, à Lagnieu, dans l'Ain, de 11h à 22h. L'adresse exacte et les modalités d'accès seront précisées prochainement.</div>
+      </details>
+      <details class="faq-item">
+        <summary><svg class="daisy"><use href="#daisy"/></svg>Comment réserver mon billet ?</summary>
+        <div class="faq-a">La billetterie ouvrira prochainement. Inscris-toi à la liste prioritaire en bas de page : tu seras prévenu·e en avant-première et tu profiteras du tarif early bird.</div>
+      </details>
+      <details class="faq-item">
+        <summary><svg class="daisy"><use href="#daisy"/></svg>Y a-t-il des tarifs réduits ?</summary>
+        <div class="faq-a">Oui : 9 € pour les moins de 16 ans, les étudiant·es, les demandeur·ses d'emploi et les personnes en situation de handicap. C'est gratuit pour les enfants de moins de 12 ans.</div>
+      </details>
+      <details class="faq-item">
+        <summary><svg class="daisy"><use href="#daisy"/></svg>Je viens en groupe, c'est possible ?</summary>
+        <div class="faq-a">Bien sûr, c'est même conseillé. Le Pass Tribu réunit 4 entrées journée à tarif doux : le plan parfait entre copines, en famille ou entre amis.</div>
+      </details>
+      <details class="faq-item">
+        <summary><svg class="daisy"><use href="#daisy"/></svg>Comment venir à FLORE ?</summary>
+        <div class="faq-a">Le festival se tient au cœur de l'Ain, à Lagnieu. Les informations d'accès, de transport et de stationnement seront communiquées à l'approche de l'événement.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -915,12 +987,18 @@ section{position:relative}
         </div>
         <p class="ticket-note">👨‍👩‍👧 Tarif réduit 9 € : moins de 16 ans, étudiant·e, demandeur·se d'emploi, situation de handicap &nbsp;·&nbsp; 🧒 Enfants de moins de 12 ans : gratuit</p>
         <div class="signup-block" id="prevenir">
-          <p class="signup-title">🔔 La billetterie n'est pas encore ouverte</p>
-          <p>Laisse ton e-mail : tu seras prévenu·e en avant-première de l'ouverture et de l'early bird.</p>
+          <p class="signup-title">🌸 Rejoins la liste prioritaire</p>
+          <p>La billetterie n'est pas encore ouverte. Inscris-toi pour passer devant tout le monde le jour de l'ouverture.</p>
+          <ul class="signup-perks">
+            <li><svg class="daisy"><use href="#daisy"/></svg>Le tarif early bird avant tout le monde</li>
+            <li><svg class="daisy"><use href="#daisy"/></svg>Prévenu·e en premier de l'ouverture</li>
+            <li><svg class="daisy"><use href="#daisy"/></svg>Les annonces du festival en avant-première</li>
+          </ul>
           <form class="signup" id="signupForm">
             <input type="email" name="email" placeholder="votre@email.fr" required aria-label="Votre adresse e-mail">
-            <button type="submit" class="btn btn-ink">Me prévenir</button>
+            <button type="submit" class="btn btn-ink">Je rejoins la liste</button>
           </form>
+          <p class="signup-fine">Zéro spam, juste l'essentiel. Désinscription en un clic.</p>
         </div>
       </div>
     </div>
@@ -1014,6 +1092,28 @@ section{position:relative}
       target.scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  const cd = document.getElementById('countdown');
+  if (cd) {
+    const deadline = new Date(cd.dataset.deadline).getTime();
+    const pad = n => String(n).padStart(2, '0');
+    const cdD = document.getElementById('cdD'), cdH = document.getElementById('cdH'),
+          cdM = document.getElementById('cdM'), cdS = document.getElementById('cdS');
+    const tick = () => {
+      const diff = deadline - Date.now();
+      if (diff <= 0) {
+        cd.innerHTML = '<div class="cd-done">FLORE, c\'est aujourd\'hui 🌸</div>';
+        clearInterval(timer);
+        return;
+      }
+      cdD.textContent = Math.floor(diff / 86400000);
+      cdH.textContent = pad(Math.floor(diff / 3600000) % 24);
+      cdM.textContent = pad(Math.floor(diff / 60000) % 60);
+      cdS.textContent = pad(Math.floor(diff / 1000) % 60);
+    };
+    const timer = setInterval(tick, 1000);
+    tick();
+  }
 
   document.getElementById('signupForm').addEventListener('submit', e => {
     e.preventDefault();
