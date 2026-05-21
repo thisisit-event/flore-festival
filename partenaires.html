@@ -7,7 +7,7 @@
 <meta name="description" content="Devenez partenaire du FLORE Festival : naming de la scène et du food court, stands food, emplacements boutique, sponsoring. Opportunités, formats et tarifs pour les marques, exposants et institutions.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#4DA9DF">
-<link rel="canonical" href="https://flore-festival.fr/partenaires.html">
+<link rel="canonical" href="https://flore-festival.fr/partenaires">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/favicon.svg">
 
@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="FLORE Festival">
 <meta property="og:title" content="Devenir partenaire · FLORE Festival">
 <meta property="og:description" content="Naming, stands food, boutique, sponsoring : associez votre marque au premier festival 100 % sans gluten et sans lactose.">
-<meta property="og:url" content="https://flore-festival.fr/partenaires.html">
+<meta property="og:url" content="https://flore-festival.fr/partenaires">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,9 +206,9 @@ section{position:relative}
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="index.html" class="logo"><svg class="daisy"><use href="#daisy"/></svg>FLORE&nbsp;<small>· Partenaires</small></a>
+    <a href="/" class="logo"><svg class="daisy"><use href="#daisy"/></svg>FLORE&nbsp;<small>· Partenaires</small></a>
     <div class="nav-right">
-      <a href="index.html" class="back">← Le festival</a>
+      <a href="/" class="back">← Le festival</a>
       <a href="mailto:contact@flore-festival.fr?subject=Partenariat%20FLORE%20Festival" class="btn btn-sun">Nous contacter</a>
     </div>
   </div>
@@ -401,8 +401,8 @@ section{position:relative}
 <!-- FOOTER -->
 <footer class="footer">
   <div class="wrap">
-    <a href="index.html" class="logo"><svg class="daisy"><use href="#daisy"/></svg>FLORE</a>
-    <p>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment · <a href="index.html">Retour au festival</a></p>
+    <a href="/" class="logo"><svg class="daisy"><use href="#daisy"/></svg>FLORE</a>
+    <p>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment · <a href="/">Retour au festival</a></p>
     <p class="footer-legal" style="margin-top:6px;justify-content:center">
       <button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button>
       <span aria-hidden="true">·</span>
@@ -413,12 +413,29 @@ section{position:relative}
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+  // URL propre : on retire l'extension .html de la barre d'adresse
+  try {
+    var _p = location.pathname,
+        _c = _p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    if (_c !== _p) history.replaceState(null, '', _c + location.search + location.hash);
+  } catch (e) {}
+
   AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:60 });
   document.getElementById('year').textContent = new Date().getFullYear();
   const nav = document.getElementById('nav');
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Défilement vers les sections sans inscrire de # dans l'URL
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 </script>
 <script src="legal.js" defer></script>
 </body>

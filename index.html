@@ -826,7 +826,7 @@ section{position:relative}
         <h3>Recevez le dossier partenaires complet</h3>
         <p>Opportunités détaillées, formats d'emplacement et tarifs des stands, de la boutique et du naming : tout est sur la page dédiée.</p>
         <div class="btn-row">
-          <a href="partenaires.html" class="btn btn-sun">Opportunités &amp; tarifs
+          <a href="/partenaires" class="btn btn-sun">Opportunités &amp; tarifs
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
           <a href="mailto:contact@flore-festival.fr?subject=Partenariat%20FLORE%20Festival" class="btn btn-ghost-w">Nous contacter</a>
@@ -937,7 +937,7 @@ section{position:relative}
         <ul>
           <li><a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></li>
           <li><a href="tel:+33744980015">07 44 98 00 15</a></li>
-          <li><a href="partenaires.html">Devenir partenaire</a></li>
+          <li><a href="/partenaires">Devenir partenaire</a></li>
           <li><a href="#billetterie">Billetterie</a></li>
         </ul>
       </div>
@@ -956,6 +956,13 @@ section{position:relative}
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+  // URL propre : on retire l'extension .html de la barre d'adresse
+  try {
+    var _p = location.pathname,
+        _c = _p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    if (_c !== _p) history.replaceState(null, '', _c + location.search + location.hash);
+  } catch (e) {}
+
   AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -974,6 +981,16 @@ section{position:relative}
     menu.classList.remove('open');
     document.body.style.overflow = '';
   }));
+
+  // Défilement vers les sections sans inscrire de # dans l'URL
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 
   document.getElementById('signupForm').addEventListener('submit', e => {
     e.preventDefault();
