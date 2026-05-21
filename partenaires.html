@@ -47,20 +47,33 @@ section{position:relative}
 .cloud.cB{top:34%;width:150px;opacity:.6;animation-duration:130s;animation-delay:-60s}
 .cloud.cC{top:60%;width:260px;opacity:.82;animation-duration:108s;animation-delay:-34s}
 .cloud.cD{top:82%;width:160px;opacity:.55;animation-duration:150s;animation-delay:-95s}
-@media(prefers-reduced-motion:reduce){.cloud{animation:none!important}}
+@media(prefers-reduced-motion:reduce){
+  .cloud{animation:none!important}
+  .btn::after{display:none}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:hover svg{transform:none}
+}
 
 .kicker{display:inline-flex;align-items:center;gap:9px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun-deep)}
 .kicker .daisy{width:18px;height:18px;color:var(--sun)}
 .kicker.on-blue{color:var(--sun)}
 .kicker.center{justify-content:center}
 
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1rem;padding:15px 30px;border-radius:100px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);cursor:pointer;border:none;white-space:nowrap}
-.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 10px 24px rgba(240,168,28,.36)}
-.btn-sun:hover{transform:translateY(-3px);background:var(--sun-deep)}
+/* Buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;padding:15px 30px;border-radius:100px;cursor:pointer;border:none;white-space:nowrap;overflow:hidden;transition:transform .32s cubic-bezier(.34,1.45,.5,1),box-shadow .3s var(--ease),background .3s var(--ease),color .3s var(--ease)}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-18deg);pointer-events:none;transition:left .6s var(--ease)}
+.btn:hover{transform:translateY(-3px) scale(1.03)}
+.btn:hover::after{left:150%}
+.btn:active{transform:translateY(-1px) scale(.97);transition-duration:.1s}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--sky-deep)}
+.btn svg{transition:transform .32s cubic-bezier(.34,1.45,.5,1)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 12px 28px rgba(240,168,28,.4)}
+.btn-sun:hover{background:var(--sun-deep);box-shadow:0 20px 44px rgba(240,168,28,.52)}
 .btn-ink{background:var(--ink);color:#fff}
-.btn-ink:hover{transform:translateY(-3px);background:var(--navy)}
-.btn-ghost-w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
-.btn-ghost-w:hover{background:#fff;color:var(--sky-deep);transform:translateY(-3px)}
+.btn-ink:hover{background:var(--navy);box-shadow:0 16px 34px rgba(11,24,50,.34)}
+.btn-ghost-w{background:rgba(255,255,255,.16);color:#fff;border:2px solid rgba(255,255,255,.6)}
+.btn-ghost-w:hover{background:#fff;color:var(--sky-deep)}
 
 .daisy{display:inline-block;color:var(--white)}
 
