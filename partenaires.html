@@ -86,6 +86,11 @@ section{position:relative}
 .logo{display:flex;align-items:center;gap:9px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.62rem;color:var(--white);letter-spacing:-.01em;transition:color .35s var(--ease)}
 .logo .daisy{width:30px;height:30px;flex-shrink:0}
 .nav.scrolled .logo{color:var(--ink)}
+.logo-img{height:34px;width:auto;display:block;filter:drop-shadow(0 2px 7px rgba(11,24,50,.22))}
+.logo-dark{display:none}
+.nav.scrolled .logo-light{display:none}
+.nav.scrolled .logo-dark{display:block}
+.footer .logo-img{height:40px;filter:none}
 .nav-links{display:flex;align-items:center;gap:30px}
 .nav-links a:not(.btn){font-weight:600;font-size:.96rem;color:var(--white);position:relative;transition:color .25s}
 .nav.scrolled .nav-links a:not(.btn){color:var(--ink)}
@@ -237,7 +242,7 @@ section{position:relative}
 <nav class="nav" id="nav">
   <div class="wrap">
     <div class="nav-inner">
-      <a href="/" class="logo" aria-label="FLORE Festival, accueil"><svg class="daisy"><use href="#daisy"/></svg>FLORE</a>
+      <a href="/" class="logo" aria-label="FLORE Festival, accueil"><img class="logo-img logo-light" src="/assets/logo-flore-white.png" alt="FLORE"><img class="logo-img logo-dark" src="/assets/logo-flore-black.png" alt="" aria-hidden="true"></a>
       <div class="nav-links">
         <a href="/#festival">Le festival</a>
         <a href="/#espaces">Les espaces</a>
@@ -448,7 +453,7 @@ section{position:relative}
 <!-- FOOTER -->
 <footer class="footer">
   <div class="wrap">
-    <a href="/" class="logo"><svg class="daisy"><use href="#daisy"/></svg>FLORE</a>
+    <a href="/" class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></a>
     <p>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment · <a href="/">Retour au festival</a></p>
     <p class="footer-legal" style="margin-top:6px;justify-content:center">
       <button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button>
