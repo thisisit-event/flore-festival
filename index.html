@@ -57,17 +57,17 @@ h1,h2,h3,h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:7
 section{position:relative}
 
 /* ===== Ciel + nuages ===== */
-.sky-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(75% 50% at 80% 8%,rgba(255,236,194,.42),transparent 60%),linear-gradient(180deg,#D6EFFB 0%,#BFE4F7 45%,#A9DAF2 100%)}
+.sky-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(75% 50% at 80% 8%,rgba(255,236,194,.42),transparent 60%),linear-gradient(180deg,#D5E4EE 0%,#C4D7E2 45%,#ABC4D4 100%)}
 .grain{position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.4;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
 .clouds{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform;filter:blur(3px)}
+.cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform;filter:blur(5px)}
 @keyframes drift{from{transform:translateX(-44vw)}to{transform:translateX(144vw)}}
-.cloud.cA{top:7%;width:220px;opacity:.95;animation-duration:94s;animation-delay:-12s}
-.cloud.cB{top:21%;width:135px;opacity:.6;animation-duration:130s;animation-delay:-66s}
-.cloud.cC{top:39%;width:290px;opacity:.88;animation-duration:106s;animation-delay:-34s}
-.cloud.cD{top:55%;width:165px;opacity:.5;animation-duration:152s;animation-delay:-95s}
-.cloud.cE{top:71%;width:240px;opacity:.82;animation-duration:118s;animation-delay:-48s}
-.cloud.cF{top:86%;width:145px;opacity:.58;animation-duration:140s;animation-delay:-20s}
+.cloud.cA{top:7%;width:220px;opacity:.4;animation-duration:94s;animation-delay:-12s}
+.cloud.cB{top:21%;width:135px;opacity:.26;animation-duration:130s;animation-delay:-66s}
+.cloud.cC{top:39%;width:290px;opacity:.36;animation-duration:106s;animation-delay:-34s}
+.cloud.cD{top:55%;width:165px;opacity:.22;animation-duration:152s;animation-delay:-95s}
+.cloud.cE{top:71%;width:240px;opacity:.34;animation-duration:118s;animation-delay:-48s}
+.cloud.cF{top:86%;width:145px;opacity:.26;animation-duration:140s;animation-delay:-20s}
 
 .daisy{display:inline-block;color:var(--white)}
 
@@ -124,7 +124,7 @@ section{position:relative}
 .mobile-menu .btn{margin-top:24px;justify-content:center}
 
 /* ===== Hero ===== */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:150px 0 100px;background:radial-gradient(120% 80% at 88% -6%,rgba(255,219,130,.5),rgba(255,219,130,0) 55%),radial-gradient(90% 55% at 50% 112%,rgba(255,255,255,.14),transparent 60%),linear-gradient(168deg,#7CC4ED 0%,#4DA9DF 46%,#2E7FB8 100%);border-radius:0 0 var(--r-xl) var(--r-xl);overflow:hidden}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:150px 0 100px;background:radial-gradient(120% 80% at 88% -6%,rgba(255,219,130,.5),rgba(255,219,130,0) 55%),radial-gradient(90% 55% at 50% 112%,rgba(255,255,255,.14),transparent 60%),linear-gradient(168deg,#56A2D2 0%,#3F93C4 46%,#29688F 100%);border-radius:0 0 var(--r-xl) var(--r-xl);overflow:hidden}
 .hero .sun{position:absolute;top:-86px;right:-66px;width:320px;height:320px;z-index:1}
 .hero .sun .rays{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,224,138,.6) 0deg 5deg,transparent 5deg 30deg);-webkit-mask:radial-gradient(circle,transparent 44%,#000 46%,#000 60%,transparent 63%);mask:radial-gradient(circle,transparent 44%,#000 46%,#000 60%,transparent 63%);animation:spin 64s linear infinite}
 .hero .sun .core{position:absolute;inset:64px;border-radius:50%;background:radial-gradient(circle,#FFD75E 0%,var(--sun) 52%,rgba(255,196,46,.36) 74%,transparent 82%)}

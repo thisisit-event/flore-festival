@@ -39,15 +39,15 @@ h1,h2,h3,h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:7
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 section{position:relative}
 
-.sky-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(75% 50% at 80% 8%,rgba(255,236,194,.42),transparent 60%),linear-gradient(180deg,#D6EFFB,#BFE4F7 45%,#A9DAF2)}
+.sky-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(75% 50% at 80% 8%,rgba(255,236,194,.42),transparent 60%),linear-gradient(180deg,#D5E4EE,#C4D7E2 45%,#ABC4D4)}
 .grain{position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.4;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
 .clouds{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform;filter:blur(3px)}
+.cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform;filter:blur(5px)}
 @keyframes drift{from{transform:translateX(-42vw)}to{transform:translateX(142vw)}}
-.cloud.cA{top:10%;width:210px;opacity:.9;animation-duration:96s;animation-delay:-12s}
-.cloud.cB{top:34%;width:150px;opacity:.6;animation-duration:130s;animation-delay:-60s}
-.cloud.cC{top:60%;width:260px;opacity:.82;animation-duration:108s;animation-delay:-34s}
-.cloud.cD{top:82%;width:160px;opacity:.55;animation-duration:150s;animation-delay:-95s}
+.cloud.cA{top:10%;width:210px;opacity:.38;animation-duration:96s;animation-delay:-12s}
+.cloud.cB{top:34%;width:150px;opacity:.26;animation-duration:130s;animation-delay:-60s}
+.cloud.cC{top:60%;width:260px;opacity:.34;animation-duration:108s;animation-delay:-34s}
+.cloud.cD{top:82%;width:160px;opacity:.24;animation-duration:150s;animation-delay:-95s}
 @media(prefers-reduced-motion:reduce){
   .cloud{animation:none!important}
   .btn::after{display:none}
@@ -107,7 +107,7 @@ section{position:relative}
 .mobile-menu .btn{margin-top:24px;justify-content:center}
 
 /* Hero */
-.phero{min-height:78vh;display:flex;align-items:center;padding:150px 0 90px;background:linear-gradient(180deg,#A6DBF5,var(--sky) 48%,var(--sky-deep));overflow:hidden;color:#fff}
+.phero{min-height:78vh;display:flex;align-items:center;padding:150px 0 90px;background:linear-gradient(180deg,#56A2D2,var(--sky) 48%,var(--sky-deep));overflow:hidden;color:#fff}
 .sun-deco{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,var(--sun) 42%,rgba(255,196,46,.3) 60%,transparent 75%)}
 .phero .sun-deco{top:-110px;right:-80px;width:360px;height:360px}
 .phero .daisy-bg{position:absolute;color:rgba(255,255,255,.12)}
