@@ -26,7 +26,7 @@
 <style>
 :root{
   --sky:#4DA9DF;--sky-deep:#2E7FB8;--sky-mid:#86C7EA;--sky-pale:#E7F4FB;
-  --sun:#FFC42E;--sun-deep:#F0A81C;--sun-pale:#FFE59C;--white:#FFFFFF;
+  --sun:#DAEF52;--sun-deep:#92A824;--sun-pale:#F7FBD0;--white:#FFFFFF;
   --ink:#15395B;--ink-soft:#5C7993;--navy:#0F2C46;--line:rgba(21,57,91,.12);
   --ease:cubic-bezier(.34,.1,.2,1);--shadow-sm:0 10px 26px rgba(21,57,91,.09);
 }
@@ -69,8 +69,8 @@ section{position:relative}
 .btn:focus-visible{outline:none;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--sky-deep)}
 .btn svg{transition:transform .32s cubic-bezier(.34,1.45,.5,1)}
 .btn:hover svg{transform:translateX(4px)}
-.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 12px 28px rgba(240,168,28,.4)}
-.btn-sun:hover{background:var(--sun-deep);box-shadow:0 20px 44px rgba(240,168,28,.52)}
+.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 12px 28px rgba(146,168,36,.4)}
+.btn-sun:hover{background:var(--sun-deep);box-shadow:0 20px 44px rgba(146,168,36,.52)}
 .btn-ink{background:var(--ink);color:#fff}
 .btn-ink:hover{background:var(--navy);box-shadow:0 16px 34px rgba(11,24,50,.34)}
 .btn-ghost-w{background:rgba(255,255,255,.16);color:#fff;border:2px solid rgba(255,255,255,.6)}
@@ -108,7 +108,7 @@ section{position:relative}
 
 /* Hero */
 .phero{min-height:78vh;display:flex;align-items:center;padding:150px 0 90px;background:linear-gradient(180deg,#56A2D2,var(--sky) 48%,var(--sky-deep));overflow:hidden;color:#fff}
-.sun-deco{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,var(--sun) 42%,rgba(255,196,46,.3) 60%,transparent 75%)}
+.sun-deco{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,var(--sun) 42%,rgba(218,239,82,.3) 60%,transparent 75%)}
 .phero .sun-deco{top:-110px;right:-80px;width:360px;height:360px}
 .phero .daisy-bg{position:absolute;color:rgba(255,255,255,.12)}
 .phero .pd1{bottom:30px;left:5%;width:120px}
@@ -149,7 +149,7 @@ section{position:relative}
 .price{background:#fff;border:1.5px solid var(--line);border-radius:26px;padding:34px;position:relative;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .price .btn{margin-top:auto;width:100%}
 .price:hover{transform:translateY(-6px);box-shadow:0 24px 46px rgba(21,57,91,.12)}
-.price.feat{border-color:var(--sun);box-shadow:0 14px 36px rgba(240,168,28,.18)}
+.price.feat{border-color:var(--sun);box-shadow:0 14px 36px rgba(146,168,36,.18)}
 .price .ribbon{position:absolute;top:-13px;right:26px;background:var(--sun);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.76rem;letter-spacing:.04em;padding:6px 14px;border-radius:100px}
 .price .p-kicker{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky)}
 .price h3{font-size:1.5rem;color:var(--ink);margin:5px 0 8px}
@@ -235,7 +235,7 @@ section{position:relative}
         <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
         <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
       </g>
-      <circle cx="50" cy="50" r="13.5" fill="#FFC42E"/>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
     </symbol>
   </defs>
 </svg>

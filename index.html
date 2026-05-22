@@ -34,7 +34,7 @@
   /* jour */
   --sky:#4DA9DF;--sky-deep:#2E7FB8;--sky-mid:#86C7EA;--sky-soft:#BFE4F7;--sky-pale:#E7F4FB;
   /* soleil */
-  --sun:#FFC42E;--sun-deep:#F0A81C;--sun-pale:#FFE59C;--gold:#FFB23E;
+  --sun:#DAEF52;--sun-deep:#92A824;--sun-pale:#F7FBD0;--gold:#F4EE34;
   /* crépuscule / nuit */
   --coral:#FF8B5E;--pink:#F2A0BE;--dusk:#5C4E92;--twilight:#27336A;--night:#0E1E3D;--navy:#0B1832;
   --white:#FFFFFF;--ink:#15395B;--ink-soft:#5C7993;
@@ -86,8 +86,8 @@ section{position:relative}
 .btn:focus-visible{outline:none;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--sky-deep)}
 .btn svg{transition:transform .32s cubic-bezier(.34,1.45,.5,1)}
 .btn:hover svg{transform:translateX(4px)}
-.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 12px 28px rgba(240,168,28,.4)}
-.btn-sun:hover{background:var(--sun-deep);box-shadow:0 20px 44px rgba(240,168,28,.52)}
+.btn-sun{background:var(--sun);color:var(--ink);box-shadow:0 12px 28px rgba(146,168,36,.4)}
+.btn-sun:hover{background:var(--sun-deep);box-shadow:0 20px 44px rgba(146,168,36,.52)}
 .btn-ink{background:var(--ink);color:var(--white)}
 .btn-ink:hover{background:var(--navy);box-shadow:0 16px 34px rgba(11,24,50,.34)}
 .btn-ghost-w{background:rgba(255,255,255,.16);color:var(--white);border:2px solid rgba(255,255,255,.6)}
@@ -127,7 +127,7 @@ section{position:relative}
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:150px 0 100px;background:radial-gradient(120% 80% at 88% -6%,rgba(255,219,130,.5),rgba(255,219,130,0) 55%),radial-gradient(90% 55% at 50% 112%,rgba(255,255,255,.14),transparent 60%),linear-gradient(168deg,#56A2D2 0%,#3F93C4 46%,#29688F 100%);border-radius:0 0 var(--r-xl) var(--r-xl);overflow:hidden}
 .hero .sun{position:absolute;top:-86px;right:-66px;width:320px;height:320px;z-index:1}
 .hero .sun .rays{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,224,138,.6) 0deg 5deg,transparent 5deg 30deg);-webkit-mask:radial-gradient(circle,transparent 44%,#000 46%,#000 60%,transparent 63%);mask:radial-gradient(circle,transparent 44%,#000 46%,#000 60%,transparent 63%);animation:spin 64s linear infinite}
-.hero .sun .core{position:absolute;inset:64px;border-radius:50%;background:radial-gradient(circle,#FFD75E 0%,var(--sun) 52%,rgba(255,196,46,.36) 74%,transparent 82%)}
+.hero .sun .core{position:absolute;inset:64px;border-radius:50%;background:radial-gradient(circle,#F8FC83 0%,var(--sun) 52%,rgba(218,239,82,.36) 74%,transparent 82%)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .hero .h-cloud{position:absolute;color:#fff;animation:drift linear infinite;z-index:1;filter:blur(2.5px)}
 .hc1{top:17%;width:210px;opacity:.95;animation-duration:82s;animation-delay:-8s}
@@ -173,7 +173,7 @@ section{position:relative}
 /* ===== Concept ===== */
 .concept-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-bottom:56px}
 .story-card{background:var(--white);border-radius:var(--r-lg);padding:44px;position:relative;box-shadow:var(--shadow);border-top:1px solid rgba(255,255,255,.9)}
-.story-card .big-daisy{position:absolute;top:-30px;right:-16px;width:88px;height:88px;color:var(--sun);filter:drop-shadow(0 8px 16px rgba(240,168,28,.3))}
+.story-card .big-daisy{position:absolute;top:-30px;right:-16px;width:88px;height:88px;color:var(--sun);filter:drop-shadow(0 8px 16px rgba(146,168,36,.3))}
 .story-card p{font-size:1.14rem;color:var(--ink)}
 .story-card p .em{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--sky-deep)}
 .values{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -190,7 +190,7 @@ section{position:relative}
 .note-soft{font-size:.88rem;color:var(--ink-soft);font-style:italic;margin-top:12px}
 .place-card{background:linear-gradient(155deg,var(--sky) 0%,var(--sky-deep) 70%,#1F5E96 100%);border-radius:var(--r-lg);padding:46px;color:var(--white);box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
 .place-card .pc-cloud{position:absolute;color:rgba(255,255,255,.16);width:170px;top:22px;right:-34px}
-.place-card .pin{width:68px;height:68px;border-radius:50%;background:var(--sun);display:grid;place-items:center;margin-bottom:20px;position:relative;box-shadow:0 10px 24px rgba(240,168,28,.4)}
+.place-card .pin{width:68px;height:68px;border-radius:50%;background:var(--sun);display:grid;place-items:center;margin-bottom:20px;position:relative;box-shadow:0 10px 24px rgba(146,168,36,.4)}
 .place-card h3{font-size:2.1rem;color:var(--white);margin-bottom:4px;position:relative}
 .place-card .sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--sun);margin-bottom:20px;position:relative}
 .tags{display:flex;gap:10px;flex-wrap:wrap;position:relative}
@@ -226,7 +226,7 @@ section{position:relative}
 @keyframes twinkle{0%,100%{opacity:.55}50%{opacity:1}}
 .florette-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;position:relative;z-index:2}
 .florette-stage{position:relative;display:grid;place-items:center;height:460px}
-.florette-stage .glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,196,46,.42),rgba(255,196,46,.1) 45%,transparent 68%)}
+.florette-stage .glow{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(218,239,82,.42),rgba(218,239,82,.1) 45%,transparent 68%)}
 .florette-stage .florette-svg{width:330px;filter:drop-shadow(0 0 40px rgba(255,210,120,.45)) drop-shadow(0 24px 30px rgba(0,0,0,.35));animation:bob 6.5s ease-in-out infinite}
 .florette-stage .fd{position:absolute;width:48px;color:var(--sun)}
 .twilight .kicker{color:var(--sun)}
@@ -337,7 +337,7 @@ section{position:relative}
 .ticket .t-btn{display:block;text-align:center;padding:14px;border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.92rem;background:var(--sky-pale);color:var(--sky-deep);cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease)}
 .ticket .t-btn:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(45,127,184,.32)}
 .ticket.feat .t-btn{background:var(--sun);color:var(--ink)}
-.ticket.feat .t-btn:hover{box-shadow:0 16px 32px rgba(240,168,28,.5)}
+.ticket.feat .t-btn:hover{box-shadow:0 16px 32px rgba(146,168,36,.5)}
 .ticket-note{color:rgba(255,255,255,.96);font-size:.93rem;margin-bottom:32px}
 .signup-block{border-top:1px solid rgba(255,255,255,.26);padding-top:30px;max-width:540px;margin:0 auto}
 .signup-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.18rem;color:var(--white);margin-bottom:4px}
@@ -446,7 +446,7 @@ section{position:relative}
         <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
         <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
       </g>
-      <circle cx="50" cy="50" r="13.5" fill="#FFC42E"/>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
     </symbol>  </defs>
 </svg>
 
