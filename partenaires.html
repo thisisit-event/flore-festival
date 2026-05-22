@@ -179,7 +179,9 @@ section{position:relative}
 .pcta .contacts svg{width:19px;height:19px;color:var(--sun)}
 
 /* Footer */
-.footer{background:var(--navy);color:rgba(255,255,255,.62);padding:46px 0;text-align:center}
+.footer{background:var(--navy);color:rgba(255,255,255,.62);padding:46px 0;text-align:center;position:relative;overflow:hidden;isolation:isolate}
+.footer::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.85;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
+.footer .wrap{position:relative;z-index:2}
 .footer .logo{justify-content:center;color:#fff;margin-bottom:12px}
 .footer .logo .daisy{color:var(--sun)}
 .footer p{font-size:.88rem}
