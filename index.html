@@ -316,8 +316,8 @@ section{position:relative}
 .signup input:focus{outline:3px solid var(--sun)}
 .cta-card .smallnote{font-size:.86rem;color:rgba(255,255,255,.86);margin-top:15px}
 /* billets */
-.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:40px 0 18px;text-align:left}
-.ticket{background:var(--white);border-radius:var(--r-lg);padding:34px 28px;position:relative;color:var(--ink);box-shadow:var(--shadow);transition:transform .32s var(--ease),box-shadow .32s var(--ease)}
+.tickets{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:40px 0 18px;text-align:left}
+.ticket{background:var(--white);border-radius:var(--r-lg);padding:30px 22px;position:relative;color:var(--ink);box-shadow:var(--shadow);transition:transform .32s var(--ease),box-shadow .32s var(--ease)}
 .ticket:hover{transform:translateY(-9px);box-shadow:0 32px 64px rgba(11,24,50,.32)}
 .ticket.feat{outline:3px solid var(--sun);box-shadow:0 34px 72px rgba(11,24,50,.4);transform:translateY(-12px)}
 .ticket.feat:hover{transform:translateY(-21px)}
@@ -325,10 +325,10 @@ section{position:relative}
 .ticket .t-ic{font-size:1.9rem;margin-bottom:8px}
 .ticket h3{font-size:1.45rem;color:var(--ink);margin-bottom:3px}
 .ticket .t-hours{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);margin-bottom:16px}
-.ticket .t-price{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-.ticket .t-price .amt{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.7rem;color:var(--ink);line-height:1}
-.ticket .t-price .was{font-size:1.15rem;font-weight:600;color:var(--ink-soft);text-decoration:line-through}
-.ticket .t-price .t-save{align-self:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.74rem;background:var(--sky-pale);color:var(--sky-deep);padding:5px 11px;border-radius:100px;white-space:nowrap}
+.ticket .t-price{line-height:1}
+.ticket .t-price .amt{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.4rem;color:var(--ink);line-height:1}
+.ticket .t-price .was{font-size:1.15rem;font-weight:600;color:var(--ink-soft);text-decoration:line-through;margin-left:9px}
+.ticket .t-price .t-save{display:block;width:fit-content;margin-top:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.74rem;background:var(--sky-pale);color:var(--sky-deep);padding:5px 11px;border-radius:100px;white-space:nowrap}
 .ticket.feat .t-price .t-save{background:var(--sun);color:var(--ink)}
 .ticket .t-full{font-size:.86rem;color:var(--ink-soft);margin:5px 0 18px}
 .ticket .t-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
@@ -388,6 +388,8 @@ section{position:relative}
   .values,.infos-grid,.part-types{grid-template-columns:repeat(2,1fr)}
   .espaces-grid{grid-template-columns:1fr}
   .public-grid{grid-template-columns:repeat(2,1fr)}
+  .tickets{grid-template-columns:repeat(2,1fr);gap:34px 16px}
+  .ticket.feat{transform:none}
 }
 @media(max-width:1024px){
   .nav-links{display:none}
@@ -848,8 +850,8 @@ section{position:relative}
         <div class="faq-a">Oui : 9 € pour les moins de 16 ans, les étudiant·es, les demandeur·ses d'emploi et les personnes en situation de handicap. C'est gratuit pour les enfants de moins de 12 ans.</div>
       </details>
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>Je viens en groupe, c'est possible ?</summary>
-        <div class="faq-a">Bien sûr, c'est même conseillé. Le Pass Tribu réunit 4 entrées journée à tarif doux : le plan parfait entre copines, en famille ou entre amis.</div>
+        <summary><svg class="daisy"><use href="#daisy"/></svg>Je viens à deux ou en groupe ?</summary>
+        <div class="faq-a">C'est même tout l'esprit de FLORE. Le Pass Duo réunit 2 entrées et le Pass Tribu 4 entrées, à tarif plus doux : le plan parfait entre copines, en famille ou entre amis.</div>
       </details>
       <details class="faq-item">
         <summary><svg class="daisy"><use href="#daisy"/></svg>Comment venir à FLORE ?</summary>
@@ -923,7 +925,7 @@ section{position:relative}
       <div class="inner">
         <span class="kicker center on-dark"><svg class="daisy"><use href="#daisy"/></svg>Billetterie</span>
         <h2 style="margin-top:14px">Choisis ta <em>formule</em></h2>
-        <p>Une journée entière de 11h à 22h : concerts, food court gourmand, boutique et causeries bien-être. Trois formules pour vivre FLORE comme tu l'aimes, et le meilleur plan reste de venir avec ta tribu.</p>
+        <p>Une journée entière de 11h à 22h : concerts, food court gourmand, boutique et causeries bien-être. Quatre formules pour vivre FLORE comme tu l'aimes, en solo, à deux ou en tribu : le plus beau, c'est de venir ensemble.</p>
         <div class="tickets">
           <div class="ticket">
             <div class="t-ic">🎟️</div>
@@ -935,6 +937,19 @@ section{position:relative}
               <li><svg class="daisy"><use href="#daisy"/></svg>Le festival en entier, de 11h à 22h</li>
               <li><svg class="daisy"><use href="#daisy"/></svg>Concerts, DJ sets et causeries bien-être</li>
               <li><svg class="daisy"><use href="#daisy"/></svg>Food court et boutique 100 % sans gluten ni lactose</li>
+            </ul>
+            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
+          </div>
+          <div class="ticket">
+            <div class="t-ic">👯</div>
+            <h3>Pass Duo</h3>
+            <div class="t-hours">2 Pass Journée</div>
+            <div class="t-price"><span class="amt">30 €</span><span class="was">36 €</span><span class="t-save">6 € offerts</span></div>
+            <div class="t-full">Soit 15 € par personne, l'entrée à deux</div>
+            <ul class="t-list">
+              <li><svg class="daisy"><use href="#daisy"/></svg>2 entrées journée, de 11h à 22h</li>
+              <li><svg class="daisy"><use href="#daisy"/></svg>Le plan parfait à deux, entre copines</li>
+              <li><svg class="daisy"><use href="#daisy"/></svg>Un seul billet, vous arrivez ensemble</li>
             </ul>
             <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
           </div>
