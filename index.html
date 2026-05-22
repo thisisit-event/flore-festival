@@ -356,8 +356,11 @@ section{position:relative}
 .faq-item[open] summary::after{transform:rotate(-135deg)}
 .faq-item .faq-a{padding:0 24px 22px 57px;color:var(--ink-soft);font-size:.99rem;line-height:1.6}
 
+/* ===== Coucher de soleil sur la billetterie ===== */
+#billetterie{background:linear-gradient(180deg,#BCD0DB 0%,#DCC59B 27%,#E0A47B 45%,#B07C86 63%,#4A4368 82%,#0E1E3D 100%)}
+
 /* ===== Footer ===== */
-.footer{background:var(--night);color:rgba(255,255,255,.7);padding:78px 0 32px;border-radius:var(--r-xl) var(--r-xl) 0 0;margin-top:32px;position:relative;overflow:hidden;isolation:isolate}
+.footer{background:var(--night);color:rgba(255,255,255,.7);padding:78px 0 32px;margin-top:0;position:relative;overflow:hidden;isolation:isolate}
 .footer::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.85;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
 .footer .f-stars{position:absolute;inset:0;opacity:.5;background-image:radial-gradient(1.5px 1.5px at 60px 40px,#fff,transparent),radial-gradient(1.5px 1.5px at 200px 90px,#fff,transparent),radial-gradient(1.5px 1.5px at 330px 50px,#fff,transparent),radial-gradient(1.4px 1.4px at 130px 130px,#fff,transparent);background-size:380px 200px}
 .footer .wrap{position:relative;z-index:2}
