@@ -233,32 +233,26 @@ section{position:relative}
 /* Décor picto dans en-têtes de section (Programme · Billetterie) */
 .sec-pic{display:block;width:88px;height:88px;object-fit:contain;margin:0 auto 14px;filter:drop-shadow(0 12px 22px rgba(21,57,91,.18))}
 
-/* ===== Prolonge ton week-end ===== */
-.sejour-sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.5rem;color:var(--ink);margin:64px 0 24px;display:flex;align-items:center;gap:12px}
-.sejour-sub::before{content:"";display:block;width:32px;height:2px;background:var(--sun);border-radius:2px}
-.lodging-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-@media(max-width:760px){.lodging-grid{grid-template-columns:1fr}}
-.lodging-card{background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column}
-.lodging-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
-.l-img{aspect-ratio:16/10;background-size:cover;background-position:center;position:relative;background-color:var(--sky-pale)}
-.l-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(11,24,50,.4) 100%)}
-.l-img .l-tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 12px;border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.05em;z-index:1;text-transform:uppercase}
-.l-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
-.l-distance{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:6px;display:inline-flex;align-items:center;gap:5px}
-.lodging-card h4{font-family:'Bricolage Grotesque',sans-serif;font-size:1.45rem;color:var(--ink);margin-bottom:10px;line-height:1.15}
-.lodging-card p{color:var(--ink-soft);font-size:.94rem;line-height:1.55;margin-bottom:16px;flex:1}
-.l-link{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--sky-deep);font-size:.86rem;text-decoration:none;border-bottom:2px solid transparent;align-self:flex-start;letter-spacing:.02em;transition:border-color .2s}
-.l-link:hover{border-bottom-color:var(--sky-deep)}
-
-.autour-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-@media(max-width:900px){.autour-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.autour-grid{grid-template-columns:1fr}}
-.autour-card{background:var(--white);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);display:flex;flex-direction:column;gap:8px}
-.autour-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.a-emoji{font-size:1.8rem;line-height:1}
-.a-dist{font-family:'Bricolage Grotesque',sans-serif;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--sky-deep);font-weight:700}
-.autour-card h5{font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;color:var(--ink);line-height:1.25}
-.autour-card p{color:var(--ink-soft);font-size:.85rem;line-height:1.5}
+/* ===== Prolonge ton week-end · teaser compact ===== */
+.sejour-teaser{background:var(--white);border-radius:var(--r-lg);padding:46px;box-shadow:var(--shadow);display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:center;overflow:hidden}
+@media(max-width:900px){.sejour-teaser{grid-template-columns:1fr;padding:34px 28px;gap:30px}}
+.st-body h2{font-size:clamp(1.8rem,3.6vw,2.4rem);color:var(--ink);margin:12px 0 14px;line-height:1.1}
+.st-body h2 .hl{color:var(--sky)}
+.st-body p{color:var(--ink-soft);font-size:1rem;line-height:1.6;margin-bottom:18px}
+.st-body p strong{color:var(--ink);font-weight:700}
+.st-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.st-tag{background:var(--sky-pale);color:var(--sky-deep);padding:6px 13px;border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.82rem;display:inline-flex;align-items:center;gap:6px}
+.st-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.st-link{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--sky-deep);font-size:.88rem;border-bottom:2px solid transparent;transition:border-color .2s}
+.st-link:hover{border-bottom-color:var(--sky-deep)}
+.st-visual{position:relative;height:280px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px}
+.st-card{border-radius:var(--r-md);padding:14px;display:flex;align-items:flex-end;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;letter-spacing:-.01em;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease)}
+.st-card:hover{transform:translateY(-4px)}
+.st-card-1{grid-column:1;grid-row:1}
+.st-card-2{grid-column:2;grid-row:1}
+.st-card-3{grid-column:1;grid-row:2}
+.st-card-4{grid-column:2;grid-row:2}
+@media(max-width:480px){.st-visual{height:220px}.st-card{font-size:.9rem}}
 
 /* ===== Florette · moment crépusculaire ===== */
 .twilight{background:linear-gradient(180deg,#3E4E92 0%,#2B3870 48%,#1A2550 100%);color:var(--white);overflow:hidden;border-radius:var(--r-xl)}
@@ -287,15 +281,14 @@ section{position:relative}
 .florette-txt .quote{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-left:5px solid var(--sun);border-radius:var(--r-md);padding:24px 28px;margin:22px 0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.28rem;color:var(--white);line-height:1.34}
 
 /* ===== Programme ===== */
-.timeline{max-width:790px;margin:0 auto;position:relative}
-.timeline::before{content:"";position:absolute;left:86px;top:18px;bottom:18px;width:3px;background:var(--white);border-radius:3px}
-.tl-row{display:grid;grid-template-columns:86px 1fr;gap:32px;padding:12px 0;position:relative}
-.tl-time{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.6rem;color:var(--sky-deep);text-align:right;padding-top:17px}
-.tl-card{background:var(--white);border-radius:var(--r-md);padding:22px 28px;position:relative;box-shadow:var(--shadow-sm)}
-.tl-card::before{content:"";position:absolute;left:-42px;top:23px;width:18px;height:18px;border-radius:50%;background:var(--sun);border:4px solid var(--white);box-shadow:0 0 0 3px var(--sky-soft)}
-.tl-card .tl-tag{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky)}
-.tl-card h4{font-size:1.3rem;color:var(--ink);margin:3px 0 4px}
-.tl-card p{font-size:.93rem;color:var(--ink-soft)}
+.timeline{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.tl-row{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;padding:4px 0}
+.tl-time{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink);background:var(--sun);padding:14px 22px;border-radius:100px;min-width:96px;text-align:center;box-shadow:0 10px 22px rgba(146,168,36,.32);letter-spacing:-.01em;line-height:1;align-self:flex-start;margin-top:8px}
+.tl-card{background:var(--white);border-radius:var(--r-md);padding:20px 26px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.tl-card:hover{transform:translateX(4px);box-shadow:var(--shadow)}
+.tl-card .tl-tag{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky-deep);display:inline-block}
+.tl-card h4{font-size:1.3rem;color:var(--ink);margin:6px 0 8px;line-height:1.18}
+.tl-card p{font-size:.94rem;color:var(--ink-soft);line-height:1.6}
 .prog-foot-wrap{text-align:center}
 .prog-foot{margin-top:42px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--ink);font-size:1rem;background:var(--white);border-radius:100px;padding:14px 30px;display:inline-block;box-shadow:var(--shadow-sm)}
 
@@ -466,10 +459,10 @@ section{position:relative}
 @media(max-width:680px){
   .values,.infos-grid,.public-grid,.part-types,.tickets{grid-template-columns:1fr}
   .hero{padding:126px 0 70px}
-  .timeline::before{left:58px}
-  .tl-row{grid-template-columns:58px 1fr;gap:18px}
-  .tl-time{font-size:1.25rem}
-  .tl-card::before{left:-29px}
+  .tl-row{grid-template-columns:auto 1fr;gap:14px}
+  .tl-time{font-size:1.1rem;padding:11px 16px;min-width:74px;margin-top:6px}
+  .tl-card{padding:15px 18px}
+  .tl-card h4{font-size:1.1rem}
   .footer-grid{grid-template-columns:1fr}
   .sec{padding:80px 0}
   .cta-card{padding:64px 26px 72px}
@@ -523,7 +516,7 @@ section{position:relative}
         <a href="#festival">Le festival</a>
         <a href="#espaces">Les espaces</a>
         <a href="#programme">Programme</a>
-        <a href="#infos">Infos pratiques</a>
+        <a href="/sejour/">Le week-end</a>
         <a href="/partenaires" class="btn btn-ink">Rejoindre l'aventure</a>
         <a href="#billetterie" class="btn btn-sun">Billetterie</a>
       </div>
@@ -536,6 +529,7 @@ section{position:relative}
   <a href="#festival">Le festival</a>
   <a href="#espaces">Les espaces</a>
   <a href="#programme">Programme</a>
+  <a href="/sejour/">Le week-end</a>
   <a href="#infos">Infos pratiques</a>
   <a href="/partenaires" class="btn btn-ink">Rejoindre l'aventure</a>
   <a href="#billetterie" class="btn btn-sun">Billetterie</a>
@@ -1050,86 +1044,34 @@ section{position:relative}
   </div>
 </section>
 
-<!-- ===================== PROLONGE TON WEEK-END ===================== -->
+<!-- ===================== PROLONGE TON WEEK-END (teaser) ===================== -->
 <section class="sec" id="sejour">
   <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
-      <h2>FLORE, <span class="hl">un samedi</span>. L'Ain, tout un séjour.</h2>
-      <p>À 40 min de Lyon, entre étangs des Dombes, vignobles du Bugey et Pérouges médiéval. Pose-toi du vendredi au dimanche en château, chalet ou cité pavée — l'Ain est THE destination week-end qu'on ne te vendait pas.</p>
-    </div>
-
-    <h3 class="sejour-sub" data-aos="fade-up">Où poser tes valises</h3>
-
-    <div class="lodging-grid">
-      <article class="lodging-card" data-aos="fade-up">
-        <div class="l-img" style="background-image:linear-gradient(135deg,#84C254,#5E9E3E)"><span class="l-tag">Chalet · spa</span></div>
-        <div class="l-body">
-          <span class="l-distance"><svg class="daisy" style="width:14px;height:14px"><use href="#daisy"/></svg>Chazey-sur-Ain · 10 min</span>
-          <h4>Chalet Maramour</h4>
-          <p>Spa, grosse cheminée, lit XL, ambiance bois et nature. Le réveil dimanche dans la plaine vaut tous les hôtels du monde.</p>
-          <a class="l-link" href="https://www.google.com/maps/search/?api=1&amp;query=Chalet+Maramour+Chazey-sur-Ain" target="_blank" rel="noopener">Voir sur Maps →</a>
+    <div class="sejour-teaser" data-aos="fade-up">
+      <div class="st-body">
+        <span class="kicker"><svg class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
+        <h2>FLORE, <span class="hl">un samedi</span>. L'Ain, tout un séjour.</h2>
+        <p>À 40 min de Lyon, entre étangs des Dombes, vignobles du Bugey et Pérouges médiéval. <strong>7 activités</strong> et <strong>4 hébergements de charme</strong> dans une page dédiée — pose-toi du vendredi au dimanche dans un château, un chalet ou une cité pavée.</p>
+        <div class="st-tags">
+          <span class="st-tag">🏰 Pérouges</span>
+          <span class="st-tag">🦩 Parc des Oiseaux</span>
+          <span class="st-tag">🥂 Vignobles Cerdon</span>
+          <span class="st-tag">🌆 Lyon</span>
+          <span class="st-tag">🏠 Chalets &amp; châteaux</span>
         </div>
-      </article>
-
-      <article class="lodging-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="l-img" style="background-image:linear-gradient(135deg,#F2A0BE,#DCA3C8)"><span class="l-tag">Château · insolite</span></div>
-        <div class="l-body">
-          <span class="l-distance"><svg class="daisy" style="width:14px;height:14px"><use href="#daisy"/></svg>Sainte-Julie · 20 min</span>
-          <h4>Les Chambres de la Renaissance</h4>
-          <p>Chambres d'hôtes dans un château renaissance, bain à remous, charme historique sans la pose. La nuit la plus stylée du séjour.</p>
-          <a class="l-link" href="https://www.leschambresdelarenaissance.fr/" target="_blank" rel="noopener">Découvrir →</a>
+        <div class="st-cta">
+          <a href="/sejour/" class="btn btn-ink">Découvrir la destination
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/sejour/#hebergements" class="st-link">Voir les hébergements directement →</a>
         </div>
-      </article>
-
-      <article class="lodging-card" data-aos="fade-up">
-        <div class="l-img" style="background-image:linear-gradient(135deg,#D5A06A,#A87340)"><span class="l-tag">Cité médiévale</span></div>
-        <div class="l-body">
-          <span class="l-distance"><svg class="daisy" style="width:14px;height:14px"><use href="#daisy"/></svg>Pérouges · 15 min</span>
-          <h4>Au cœur de Pérouges</h4>
-          <p>Dormir dans une ruelle pavée du XIIIᵉ, classée Plus Beaux Villages de France. Crêperies, boutiques, décor Pinterest validé.</p>
-          <a class="l-link" href="https://www.perouges-bugey-tourisme.com/" target="_blank" rel="noopener">Hébergements Pérouges →</a>
-        </div>
-      </article>
-
-      <article class="lodging-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="l-img" style="background-image:linear-gradient(135deg,#4DA9DF,#2E7FB8)"><span class="l-tag">Boutique hôtel · bohème</span></div>
-        <div class="l-body">
-          <span class="l-distance"><svg class="daisy" style="width:14px;height:14px"><use href="#daisy"/></svg>Ambronay · 15 min</span>
-          <h4>Le Bohôtel d'Ambronay</h4>
-          <p>Boutique hôtel d'inspiration bohème à deux pas de l'abbaye d'Ambronay. Chambres atypiques, brunch local au réveil.</p>
-          <a class="l-link" href="https://www.google.com/maps/search/?api=1&amp;query=Le+Bohotel+Ambronay" target="_blank" rel="noopener">Voir sur Maps →</a>
-        </div>
-      </article>
-    </div>
-
-    <h3 class="sejour-sub" data-aos="fade-up">Et le dimanche, on fait quoi ?</h3>
-
-    <div class="autour-grid">
-      <article class="autour-card" data-aos="fade-up">
-        <span class="a-emoji">🏰</span>
-        <span class="a-dist">Pérouges · 15 min</span>
-        <h5>La cité médiévale</h5>
-        <p>Pavés, galette au sucre, photo spot ultime. Plus Beau Village de France.</p>
-      </article>
-      <article class="autour-card" data-aos="fade-up" data-aos-delay="80">
-        <span class="a-emoji">🦩</span>
-        <span class="a-dist">Les Dombes · 30 min</span>
-        <h5>Les 1100 étangs</h5>
-        <p>Parc des oiseaux de Villars, balades nature, déconnexion totale.</p>
-      </article>
-      <article class="autour-card" data-aos="fade-up" data-aos-delay="160">
-        <span class="a-emoji">🥂</span>
-        <span class="a-dist">Cerdon · 30 min</span>
-        <h5>Vignobles du Bugey</h5>
-        <p>Le fameux rosé pétillant, route des vignes, dégustations entre copines.</p>
-      </article>
-      <article class="autour-card" data-aos="fade-up" data-aos-delay="240">
-        <span class="a-emoji">🌆</span>
-        <span class="a-dist">Lyon · 40 min</span>
-        <h5>La capitale des Gaules</h5>
-        <p>Vieux-Lyon, bouchons, Tête d'or, croisière Saône — le programme du dimanche.</p>
-      </article>
+      </div>
+      <div class="st-visual" aria-hidden="true">
+        <div class="st-card st-card-1" style="background:linear-gradient(135deg,#D5A06A,#A87340)"><span>Pérouges</span></div>
+        <div class="st-card st-card-2" style="background:linear-gradient(135deg,#84C254,#5E9E3E)"><span>Chalet</span></div>
+        <div class="st-card st-card-3" style="background:linear-gradient(135deg,#F2A0BE,#DCA3C8)"><span>Château</span></div>
+        <div class="st-card st-card-4" style="background:linear-gradient(135deg,#4DA9DF,#2E7FB8)"><span>Lyon</span></div>
+      </div>
     </div>
   </div>
 </section>
