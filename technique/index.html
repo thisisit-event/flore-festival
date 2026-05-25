@@ -9,9 +9,9 @@
     <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#15395B">
 
-    <link rel="icon" type="image/png" href="/assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="apple-touch-icon" href="/assets/favicon.svg">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,52 +21,54 @@
                 extend: {
                     colors: {
                         'cream': '#FBFBFD',
-                        'ink': '#0a0a0a',
+                        'ink': '#15395B',
                     },
                     fontFamily: {
-                        'geist': ['Geist', 'system-ui', 'sans-serif'],
+                        'sans': ['DM Sans', 'system-ui', 'sans-serif'],
+                        'display': ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
                         'bebas': ['Bebas Neue', 'sans-serif'],
                     },
                     boxShadow: {
-                        'card': '0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
-                        'card-hover': '0 2px 4px rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.06)',
+                        'card': '0 1px 2px rgba(21,57,91,0.04), 0 4px 16px rgba(21,57,91,0.05)',
+                        'card-hover': '0 2px 4px rgba(21,57,91,0.06), 0 12px 32px rgba(21,57,91,0.07)',
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
+            /* Base sobre dashboard · neutres tirés vers le bleu profond FLORE (ink) */
             --cream: #FBFBFD;
-            --section-alt: #F5F5F7;
-            --zinc-900: #18181b;
-            --zinc-700: #3f3f46;
-            --zinc-500: #71717a;
-            --zinc-400: #a1a1aa;
-            --zinc-300: #d4d4d8;
-            --zinc-200: #e4e4e7;
-            --zinc-100: #f4f4f5;
-            --warn: #d97706;
-            --warn-bg: #fffbeb;
-            --warn-border: #fde68a;
-            --danger: #dc2626;
-            --danger-bg: #fef2f2;
-            --danger-border: #fecaca;
-            --ok: #059669;
-            --ok-bg: #ecfdf5;
-            --ok-border: #a7f3d0;
-            --info: #2563eb;
-            --info-bg: #eff6ff;
-            --info-border: #bfdbfe;
+            --section-alt: #F4F7FA;
+            --zinc-900: #15395B;   /* FLORE ink */
+            --zinc-700: #2E4E6E;
+            --zinc-500: #5C7993;   /* FLORE ink-soft */
+            --zinc-400: #8FA6BD;
+            --zinc-300: #C2D0DD;
+            --zinc-200: #E1E8EF;
+            --zinc-100: #F0F4F7;
 
-            /* Couleurs par catégorie de section */
-            --cat-cadrage:    #2563eb; --cat-cadrage-soft:    #dbeafe; --cat-cadrage-bg:    #eff6ff;
-            --cat-lieu:       #d97706; --cat-lieu-soft:       #fef3c7; --cat-lieu-bg:       #fffbeb;
-            --cat-operations: #7c3aed; --cat-operations-soft: #ede9fe; --cat-operations-bg: #f5f3ff;
-            --cat-cadre:      #059669; --cat-cadre-soft:      #d1fae5; --cat-cadre-bg:      #ecfdf5;
+            /* États · tonalités assourdies, gardent l'esprit corpo */
+            --warn: #B7791F;        --warn-bg: #FEFAF0;     --warn-border: #F1DDB4;
+            --danger: #B23939;      --danger-bg: #FCF2F2;   --danger-border: #F3CACA;
+            --ok: #5E9E3E;          --ok-bg: #F1F7EB;       --ok-border: #C7E1B0;  /* FLORE leaf */
+            --info: #2E7FB8;        --info-bg: #EBF4FB;     --info-border: #BFDBED; /* FLORE sky-deep */
+
+            /* Couleurs par catégorie · accents FLORE (jour → soleil → crépuscule → nature) */
+            --cat-cadrage:    #2E7FB8; --cat-cadrage-soft:    #C7E1F2; --cat-cadrage-bg:    #EBF4FB; /* sky-deep */
+            --cat-lieu:       #92A824; --cat-lieu-soft:       #E7EFA8; --cat-lieu-bg:       #F7FBD0; /* sun-deep */
+            --cat-operations: #D26A40; --cat-operations-soft: #F8D6C5; --cat-operations-bg: #FDF1EB; /* coral assombri */
+            --cat-cadre:      #5E9E3E; --cat-cadre-soft:      #C7E1B0; --cat-cadre-bg:      #F1F7EB; /* leaf-deep */
+
+            /* Accents FLORE pour micro-éléments */
+            --flore-sky: #4DA9DF;
+            --flore-sun: #DAEF52;
+            --flore-coral: #FF8B5E;
+            --flore-night: #0E1E3D;
         }
 
         /* Variable couleur dynamique par section */
@@ -79,12 +81,18 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Geist', system-ui, sans-serif;
+            font-family: 'DM Sans', system-ui, sans-serif;
             background: var(--cream);
             color: var(--zinc-900);
             -webkit-font-smoothing: antialiased;
-            line-height: 1.55;
+            line-height: 1.6;
         }
+        /* Bricolage Grotesque pour les titres · cohérence avec le site principal FLORE */
+        h1, h2, h3, h4, .section-title, .hero-title, .welcome-title, .card-h {
+            font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+            letter-spacing: -0.015em;
+        }
+        ::selection { background: var(--flore-sun); color: var(--flore-night); }
 
         /* ── SIDEBAR ── */
         #sidebar {
@@ -93,12 +101,23 @@
             top: 0;
             bottom: 0;
             width: 260px;
-            background: #0a0a0a;
+            background: linear-gradient(180deg, #0E1E3D 0%, #15395B 100%);
             border-right: 1px solid rgba(255,255,255,0.08);
             z-index: 800;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+        }
+        .sidebar-head .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+        .sidebar-head .brand .b-daisy {
+            width: 22px;
+            height: 22px;
+            color: var(--flore-sun);
+            flex-shrink: 0;
         }
         .sidebar-head {
             padding: 1.5rem 1.25rem 1.1rem;
@@ -157,11 +176,11 @@
             border-left-color: var(--act, #fbbf24);
             font-weight: 600;
         }
-        .sidebar-link.active i { opacity: 1; color: var(--act, #fbbf24); }
-        .sidebar-link[data-cat="cadrage"].active    { --act: #60a5fa; }
-        .sidebar-link[data-cat="lieu"].active       { --act: #fbbf24; }
-        .sidebar-link[data-cat="operations"].active { --act: #a78bfa; }
-        .sidebar-link[data-cat="cadre"].active      { --act: #34d399; }
+        .sidebar-link.active i { opacity: 1; color: var(--act, var(--flore-sun)); }
+        .sidebar-link[data-cat="cadrage"].active    { --act: #86C7EA; }
+        .sidebar-link[data-cat="lieu"].active       { --act: var(--flore-sun); }
+        .sidebar-link[data-cat="operations"].active { --act: var(--flore-coral); }
+        .sidebar-link[data-cat="cadre"].active      { --act: #A8D87A; }
 
         .sidebar-section-label {
             font-size: 0.6rem;
@@ -181,10 +200,10 @@
             background: var(--lbl-color, rgba(255,255,255,0.4));
             box-shadow: 0 0 8px var(--lbl-color, transparent);
         }
-        .sidebar-section-label[data-cat="cadrage"]    { --lbl-color: #60a5fa; }
-        .sidebar-section-label[data-cat="lieu"]       { --lbl-color: #fbbf24; }
-        .sidebar-section-label[data-cat="operations"] { --lbl-color: #a78bfa; }
-        .sidebar-section-label[data-cat="cadre"]      { --lbl-color: #34d399; }
+        .sidebar-section-label[data-cat="cadrage"]    { --lbl-color: #86C7EA; }
+        .sidebar-section-label[data-cat="lieu"]       { --lbl-color: var(--flore-sun); }
+        .sidebar-section-label[data-cat="operations"] { --lbl-color: var(--flore-coral); }
+        .sidebar-section-label[data-cat="cadre"]      { --lbl-color: #A8D87A; }
 
         .sidebar-foot {
             padding: 1rem 1.25rem;
@@ -205,7 +224,7 @@
         #mobile-bar {
             position: sticky;
             top: 0;
-            background: rgba(10, 10, 10, 0.94);
+            background: rgba(14, 30, 61, 0.94);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -245,8 +264,8 @@
         }
         #mobile-bar .mobile-cta {
             display: inline-flex; align-items: center; gap: 0.4rem;
-            background: #fff;
-            color: #0a0a0a;
+            background: var(--flore-sun);
+            color: var(--flore-night);
             font-size: 0.75rem; font-weight: 600;
             padding: 0.5rem 0.85rem;
             border-radius: 999px;
@@ -287,7 +306,7 @@
             top: 0; left: 0; bottom: 0;
             width: 80%;
             max-width: 320px;
-            background: #0a0a0a;
+            background: linear-gradient(180deg, #0E1E3D 0%, #15395B 100%);
             display: flex;
             flex-direction: column;
             transform: translateX(-100%);
@@ -648,7 +667,7 @@
         }
         .hero-title em {
             font-style: normal;
-            background: linear-gradient(135deg, #f59e0b 0%, #dc2626 60%, #7c2d12 100%);
+            background: linear-gradient(135deg, #4DA9DF 0%, #2E7FB8 50%, #15395B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -750,7 +769,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            background: #0a0a0a;
+            background: var(--flore-night);
             color: #fff;
             font-weight: 600;
             font-size: 0.95rem;
@@ -764,7 +783,7 @@
             box-shadow: 0 4px 14px rgba(0,0,0,0.12);
         }
         .hero-cta:hover {
-            background: #1f1f1f;
+            background: #15395B;
             transform: translateY(-1px);
             box-shadow: 0 8px 22px rgba(0,0,0,0.18);
         }
@@ -788,7 +807,7 @@
             bottom: 1.5rem;
             right: 1.5rem;
             z-index: 700;
-            background: #0a0a0a;
+            background: var(--flore-night);
             color: #fff;
             font-weight: 600;
             font-size: 0.9rem;
@@ -807,7 +826,7 @@
             pointer-events: none;
         }
         #float-cta.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
-        #float-cta:hover { background: #1f1f1f; }
+        #float-cta:hover { background: #15395B; }
         #float-cta i { font-size: 0.95rem; }
         @media (max-width: 540px) {
             #float-cta { bottom: 1rem; right: 1rem; padding: 0.7rem 1rem 0.7rem 0.95rem; font-size: 0.85rem; }
@@ -1123,7 +1142,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.55rem;
-            background: #0a0a0a;
+            background: var(--flore-night);
             color: #fff;
             font-weight: 600;
             font-size: 0.92rem;
@@ -1135,7 +1154,7 @@
             box-shadow: 0 4px 14px rgba(0,0,0,0.12);
         }
         .btn-submit:hover {
-            background: #1f1f1f;
+            background: #15395B;
             transform: translateY(-1px);
             box-shadow: 0 8px 22px rgba(0,0,0,0.18);
         }
@@ -1202,8 +1221,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            background: #fff;
-            color: #0a0a0a;
+            background: var(--flore-sun);
+            color: var(--flore-night);
             font-weight: 600;
             font-size: 0.78rem;
             padding: 0.5rem 0.95rem;
@@ -1306,12 +1325,12 @@
         .welcome-icon {
             width: 50px; height: 50px;
             border-radius: 14px;
-            background: linear-gradient(135deg, var(--cat-cadrage) 0%, var(--cat-operations) 100%);
-            color: #fff;
+            background: linear-gradient(135deg, var(--flore-sky) 0%, var(--flore-night) 100%);
+            color: var(--flore-sun);
             display: flex; align-items: center; justify-content: center;
             font-size: 1.3rem;
             margin-bottom: 1.1rem;
-            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 4px 14px rgba(46, 127, 184, 0.3);
         }
         .welcome-greeting {
             font-size: 0.7rem;
@@ -1364,7 +1383,7 @@
             align-items: center;
             justify-content: center;
             gap: 0.55rem;
-            background: #0a0a0a;
+            background: var(--flore-night);
             color: #fff;
             font-weight: 600;
             font-size: 0.95rem;
@@ -1377,7 +1396,7 @@
             box-shadow: 0 4px 14px rgba(0,0,0,0.12);
         }
         .welcome-btn-primary:hover {
-            background: #1f1f1f;
+            background: #15395B;
             transform: translateY(-1px);
             box-shadow: 0 8px 22px rgba(0,0,0,0.18);
         }
@@ -1600,7 +1619,7 @@
             </div>
             <h1 class="hero-title">Dossier technique <em>FLORE 2027</em><br>Salle Polyvalente de Lagnieu.</h1>
             <p class="hero-sub">
-                Outil de travail partagé entre la production MGE, la régie de la salle et la mairie. Consolide les relevés terrain, les contraintes du lieu et les points à valider ensemble pour préparer l'édition 2027.
+                Outil de travail partagé entre la production <strong>MG Entertainment</strong>, la régie de la salle et la mairie. Consolide les relevés terrain, les contraintes du lieu et les points à valider ensemble pour préparer le <strong>samedi 27 mars 2027</strong>, festival musical et culinaire 100 % sans gluten et sans lactose.
             </p>
 
             <div class="hero-stats hero-stats-overview">
@@ -1615,17 +1634,17 @@
                 <div class="hero-stat">
                     <div class="hs-icon"><i class="fa-regular fa-calendar"></i></div>
                     <div class="hs-body">
-                        <div class="hs-l">Dates option</div>
-                        <div class="hs-v">25–27 mars 2027</div>
-                        <div class="hs-sub">Montage J-1 + 2 nuits public</div>
+                        <div class="hs-l">Date événement</div>
+                        <div class="hs-v">Sam. 27 mars 2027</div>
+                        <div class="hs-sub">11h00 → 22h00 · montage <strong>vendredi 26 mars</strong></div>
                     </div>
                 </div>
                 <div class="hero-stat">
                     <div class="hs-icon"><i class="fa-solid fa-people-group"></i></div>
                     <div class="hs-body">
                         <div class="hs-l">Capacité</div>
-                        <div class="hs-v">800 pax / soir</div>
-                        <div class="hs-sub">700 + 100, deux salles · <strong>+18 ans strict</strong></div>
+                        <div class="hs-v">800 pax</div>
+                        <div class="hs-sub">700 + 100, deux salles · <strong>tous publics, sans restriction d'âge</strong></div>
                     </div>
                 </div>
                 <div class="hero-stat">
@@ -1674,11 +1693,11 @@
                 <div class="card">
                     <div class="card-h"><i class="fa-solid fa-calendar-days"></i>Événement</div>
                     <dl class="kv">
-                        <dt>Édition</dt><dd>FLORE 2027 · Sans gluten, sans lactose</dd>
+                        <dt>Édition</dt><dd>FLORE 2027 · festival musical &amp; culinaire 100 % sans gluten &amp; sans lactose</dd>
                         <dt>Producteur</dt><dd>MG Entertainment (asso)</dd>
-                        <dt>Format</dt><dd>2 nuits événement + montage J-1</dd>
-                        <dt>Public</dt><dd><strong>+18 ans strict</strong> · pièce d'identité demandée à l'entrée</dd>
-                        <dt>Statut date</dt><dd><span class="badge badge-warn">À confirmer</span></dd>
+                        <dt>Format</dt><dd>Journée festival publique · <strong>11h00 → 22h00</strong> · montage J-1</dd>
+                        <dt>Public</dt><dd><strong>Tous publics</strong> · sans restriction ni limite d'âge · familles, amis, communauté</dd>
+                        <dt>Statut date</dt><dd><span class="badge badge-ok"><i class="fa-solid fa-check"></i>Date publique confirmée</span></dd>
                     </dl>
                 </div>
             </div>
@@ -1766,10 +1785,10 @@
                     <h2 class="section-title">Planning &amp; dates</h2>
                 </div>
             </div>
-            <p class="section-lead">Option en cours de validation. Trois jours d'occupation de la salle, du jeudi 25/03 au samedi 27/03 (dimanche matin à éviter).</p>
+            <p class="section-lead">FLORE 2027 est une <strong>journée festival publique</strong> calée sur le <strong>samedi 27 mars 2027</strong>, de 11h à 22h. Deux jours d'occupation de la salle&nbsp;: vendredi 26 mars pour le montage, samedi 27 mars pour le public puis le démontage.</p>
 
             <div class="card">
-                <div class="card-h"><i class="fa-regular fa-calendar"></i>Calendrier opérationnel · Option à confirmer</div>
+                <div class="card-h"><i class="fa-regular fa-calendar"></i>Calendrier opérationnel · 26 &amp; 27 mars 2027</div>
                 <div class="tbl-wrap">
                 <table class="tbl">
                     <thead>
@@ -1782,47 +1801,47 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Jeudi</td>
-                            <td>25 mars 2027</td>
-                            <td>Montage</td>
-                            <td>Journée complète</td>
-                        </tr>
-                        <tr>
                             <td>Vendredi</td>
                             <td>26 mars 2027</td>
-                            <td>Nuit 1 · Public</td>
-                            <td>20h–02h public · clean / sortie 4h max</td>
+                            <td>Montage</td>
+                            <td>Journée complète · accueil prestataires / livraisons / réglages</td>
                         </tr>
                         <tr>
                             <td>Samedi</td>
                             <td>27 mars 2027</td>
-                            <td>Nuit 2 · Public + démontage</td>
-                            <td>20h–02h public · démontage 2h–4h</td>
+                            <td>Festival · public</td>
+                            <td><strong>11h00 → 22h00</strong> · ouverture portes 11h · clôture 22h</td>
                         </tr>
                         <tr>
-                            <td>Dimanche</td>
+                            <td>Samedi soir</td>
+                            <td>27 mars 2027</td>
+                            <td>Démontage</td>
+                            <td>À partir de 22h · sortie technique &amp; clean salle</td>
+                        </tr>
+                        <tr>
+                            <td>Dimanche (alt.)</td>
                             <td>28 mars 2027</td>
-                            <td>Fin démontage (alt.)</td>
-                            <td>Matinée · à arbitrer ensemble</td>
+                            <td>Fin démontage si besoin</td>
+                            <td>Matinée · à arbitrer ensemble avec la régie</td>
                         </tr>
                     </tbody>
                 </table>
                 </div>
             </div>
 
-            <div class="alert alert-warn">
-                <i class="fa-solid fa-triangle-exclamation"></i>
+            <div class="alert alert-info">
+                <i class="fa-solid fa-circle-info"></i>
                 <div>
-                    <strong>Changement d'heure dans la nuit 2 · à anticiper ensemble.</strong>
-                    <p>Le passage à l'heure d'été a lieu dans la nuit du <strong>27 au 28 mars 2027</strong> : à 2h00 il devient 3h00. Deux points à clarifier ensemble en amont&nbsp;: la fin public à 2h se réfère-t-elle à l'heure légale ou à l'heure horloge ; la fenêtre de clean prévue 2h–4h doit être adaptée pour rester opérationnelle.</p>
+                    <strong>Format diurne · pas de débit nocturne d'alcool.</strong>
+                    <p>L'événement étant diurne (clôture 22h00), la question de l'autorisation jusqu'à 02h00 ne s'applique pas. La buvette ferme à l'heure de clôture publique. Les <strong>déclarations buvette temporaire</strong> classiques restent à déposer en mairie selon le calendrier réglementaire.</p>
                 </div>
             </div>
 
             <div class="alert alert-ok mt-4">
                 <i class="fa-solid fa-circle-check"></i>
                 <div>
-                    <strong>Débit d'alcool jusqu'à 02h00 · confirmé par Sébastien (11/05/26).</strong>
-                    <p>Plage autorisée <strong>02h00 avec autorisation de la mairie</strong> · un <strong>formulaire est à demander</strong> en amont. Cohérent avec la fin public 02h00 prévue les deux soirs. Dates 25·27 mars 2027 également confirmées disponibles côté salle.</p>
+                    <strong>Dates confirmées disponibles côté salle (Sébastien, 11/05/26).</strong>
+                    <p>Confirmation initiale portait sur 25·27 mars 2027. Format ajusté en interne MGE&nbsp;: <strong>journée publique 27 mars + montage 26 mars</strong>. À reconfirmer formellement auprès de la régie en parallèle de la convention.</p>
                 </div>
             </div>
         </section>
@@ -2056,7 +2075,7 @@
                         <li>Accès montage facile&nbsp;: backstage → scène en direct</li>
                         <li>Clé <strong>disponible sur place mais non remise</strong> · accès ouverts à la demande par le <strong>gardien présent</strong> <span class="badge badge-ok ml-1 inline-flex"><i class="fa-solid fa-check"></i>Sébastien 11/05/26</span></li>
                     </ul>
-                    <p class="text-xs text-zinc-500 mt-2"><i class="fa-solid fa-circle-info"></i> Implication planning&nbsp;: caler les <strong>créneaux d'accès gardien</strong> à l'avance (montage jeudi, livraisons fournisseurs, démontage dimanche) pour éviter d'être bloqués à la barrière.</p>
+                    <p class="text-xs text-zinc-500 mt-2"><i class="fa-solid fa-circle-info"></i> Implication planning&nbsp;: caler les <strong>créneaux d'accès gardien</strong> à l'avance (montage vendredi 26/03, livraisons fournisseurs, démontage samedi soir / dimanche matin) pour éviter d'être bloqués à la barrière.</p>
                 </div>
                 <div class="card">
                     <div class="card-h"><i class="fa-solid fa-box"></i>Retours fournisseurs · lundi matin</div>
@@ -2069,14 +2088,14 @@
                         <li>Demander <strong>ouverture du parking de l'esplanade JO Nallet</strong></li>
                         <li>Parking <strong>staff / production</strong> dédié</li>
                         <li>Parking <strong>VIP</strong> (sponsors + élus mairie)</li>
-                        <li>Dispatch via barrières Vauban + bénévoles · les 2 soirs</li>
+                        <li>Dispatch via barrières Vauban + bénévoles · journée du 27/03</li>
                     </ul>
                 </div>
                 <div class="card">
                     <div class="card-h"><i class="fa-solid fa-traffic-light"></i>Stationnement public</div>
                     <p class="text-sm text-zinc-700">Deux options à arbitrer ensemble avec la mairie&nbsp;:</p>
                     <ul class="dot mt-1">
-                        <li><strong>Arrêté municipal de stationnement</strong> les 2 soirs</li>
+                        <li><strong>Arrêté municipal de stationnement</strong> le samedi 27/03</li>
                         <li>OU panneaux dissuasifs en alternative</li>
                     </ul>
                 </div>
@@ -2122,7 +2141,7 @@
                 </div>
                 <div class="card">
                     <div class="card-h"><i class="fa-solid fa-broom"></i>Autolaveuse</div>
-                    <p class="text-sm text-zinc-700">Autolaveuse présente sur site. <strong>Demande&nbsp;:</strong> utilisation par un bénévole expert pour gérer la transition vendredi → samedi.</p>
+                    <p class="text-sm text-zinc-700">Autolaveuse présente sur site. <strong>Demande&nbsp;:</strong> utilisation par un bénévole formé MGE pour le clean complet de sortie le 27/03 au soir.</p>
                     <span class="badge badge-info mt-2 inline-flex"><i class="fa-solid fa-handshake"></i>Voir section nettoyage</span>
                 </div>
             </div>
@@ -2171,15 +2190,15 @@
                     <h2 class="section-title">Nettoyage &amp; sortie</h2>
                 </div>
             </div>
-            <p class="section-lead">Protocole de propreté et proposition de deal opérationnel avec la mairie.</p>
+            <p class="section-lead">Protocole de propreté pour le festival du samedi 27 mars et proposition de deal opérationnel avec la mairie.</p>
 
             <div class="card">
                 <div class="card-h"><i class="fa-solid fa-handshake"></i>Deal autolaveuse + clean complet · proposition</div>
                 <p class="text-sm text-zinc-700 mb-3">Modèle déjà éprouvé et validé sur l'événement <strong>Villieu 2026</strong>&nbsp;:</p>
                 <ul class="dot">
                     <li>Utilisation de l'autolaveuse de la salle par <strong>1 bénévole formé</strong> (production MGE)</li>
-                    <li>Permet de gérer la <strong>transition propre</strong> entre la nuit 1 (vendredi) et la nuit 2 (samedi)</li>
-                    <li>En contrepartie&nbsp;: notre équipe assure le <strong>clean complet de la salle</strong> en sortie</li>
+                    <li>Clean complet de la salle <strong>en sortie d'événement</strong>, samedi soir 27/03 après démontage</li>
+                    <li>Notre équipe MGE assure l'<strong>intégralité du clean</strong> (sols, sanitaires, espaces bar, loges)</li>
                     <li>Bénéfice mairie&nbsp;: les équipes municipales n'ont <strong>aucun travail le lundi matin</strong></li>
                 </ul>
                 <span class="badge badge-info mt-3 inline-flex"><i class="fa-solid fa-circle-info"></i>Proposition à valider ensemble</span>
@@ -2206,33 +2225,29 @@
                     <h2 class="section-title">Concept scénographique</h2>
                 </div>
             </div>
-            <p class="section-lead">Deux pistes scénographiques en cours d'étude pour 2027. Les implications techniques détaillées ci-dessous permettent à la régie de la salle d'anticiper les besoins communs aux deux pistes.</p>
+            <p class="section-lead">Édition <strong>inaugurale</strong> de FLORE&nbsp;: aucune scénographie de référence ne préexiste. La direction artistique est en cours d'élaboration côté MGE. Cette section recense pour l'instant les <strong>contraintes connues du lieu</strong> qui devront cadrer les pistes scénographiques à venir.</p>
 
             <div class="card">
-                <div class="card-h"><i class="fa-solid fa-sun"></i><span>Piste principale · Eternal Summer</span><span class="badge badge-info"><i class="fa-solid fa-star"></i>En cours d'étude</span></div>
-                <p class="text-sm text-zinc-700 mb-3"><strong>Idée directrice</strong> : créer le ressenti d'une <strong>journée d'été immersive au cœur d'une nuit de mars</strong>. Le contraste entre l'extérieur (nuit, froid) et l'intérieur (climat estival cohérent) constitue l'expérience signature de l'événement.</p>
+                <div class="card-h"><i class="fa-solid fa-pen-ruler"></i><span>Direction artistique · à définir</span><span class="badge badge-info"><i class="fa-solid fa-clock"></i>En réflexion · MGE</span></div>
+                <p class="text-sm text-zinc-700 mb-3">FLORE 2027 est la <strong>première édition</strong> du festival. Le concept scénographique sera précisé prochainement par Morgan Spirli (MGE), en lien avec Kevin Calard (direction technique · Night Animation).</p>
                 <ul class="dot">
-                    <li><strong>Scène</strong> · construction d'un <strong>mur en structure Layher</strong> côté plateau (partenariat BPS Lagnieu envisagé), avec ouvertures cadrant un disque solaire rétro-éclairé en arrière-plan.</li>
-                    <li><strong>Évolution lumière sur 6h</strong> · cycle de journée linéaire (lever → midi → couchant) piloté en console, lent et continu, calé sur la durée d'ouverture publique.</li>
-                    <li><strong>Show</strong> · 2 truss au-dessus du public (≈ 20 m chacune) avec lyres, LED et effets pyrotechniques.</li>
-                    <li><strong>Palette chromatique</strong> stricte : blancs solaires, dorés, ambres, rouges crépuscule. Pas de palette club froide.</li>
-                    <li><strong>Climat sensoriel</strong> · courbe de chauffage progressive paramétrée par la régie de la salle, ambiance sonore d'arrière-plan évocatrice.</li>
+                    <li><strong>Univers visuel de référence</strong>&nbsp;: charte FLORE (cf. site principal flore-festival.fr) · palette ciel · soleil · crépuscule · nuit, grain et matière assumés, identité chaleureuse et inclusive.</li>
+                    <li><strong>Communauté cible</strong>&nbsp;: public féminin majoritaire, communauté jeune, familles, intolérants &amp; cœliaques. Esthétique douce et festive plutôt que club froid.</li>
+                    <li><strong>Arc narratif de la journée</strong>&nbsp;: 11h ouverture jour → 18h golden hour → 22h clôture. La scénographie peut s'appuyer sur cette progression jour → coucher de soleil → fin de soirée.</li>
                 </ul>
+                <p class="text-xs text-zinc-500 mt-3"><i class="fa-solid fa-circle-info"></i> Les <strong>pistes scénographiques détaillées</strong> seront ajoutées à cette section dès que MGE aura arbitré la direction artistique.</p>
             </div>
 
             <div class="card mt-4">
-                <div class="card-h"><i class="fa-solid fa-shield-halved"></i><span>Option de repli · modèle 2026 reconduit</span><span class="badge badge-mute"><i class="fa-solid fa-circle"></i>Activable</span></div>
-                <p class="text-sm text-zinc-700 mb-3">Reconduction du format 2026 (écran LED en scène, DJ en scène, éclairages en salle), avec évolution des lights : <strong>lyres et LED</strong> en remplacement des néons utilisés en 2026. Activée si la piste Eternal Summer sort du budget à l'issue de l'étude.</p>
-            </div>
-
-            <div class="card mt-4">
-                <div class="card-h"><i class="fa-solid fa-list-check"></i>Implications techniques côté salle</div>
+                <div class="card-h"><i class="fa-solid fa-list-check"></i>Contraintes &amp; opportunités à prendre en compte côté salle</div>
+                <p class="text-sm text-zinc-700 mb-2">Indépendamment de la direction artistique retenue, plusieurs éléments du lieu structurent ce qui sera possible&nbsp;:</p>
                 <ul class="dot">
-                    <li><strong>Charge poutres</strong> pour les 2 truss public ≈ 20 m · note de calcul ou historique structure attendus (cf. section Plateau).</li>
-                    <li><strong>Hauteur sous plafond zone public</strong> à mesurer précisément (les 4,19 m relevés concernent uniquement la zone scène).</li>
-                    <li><strong>Layher au sol côté scène</strong> · emprise et accès à valider, partenariat BPS Lagnieu en cours.</li>
-                    <li><strong>Modulation chauffage</strong> · paramétrage progressif sur 6h, à arbitrer avec la régie (programmation salle ou chauffages d'appoint).</li>
-                    <li><strong>Pyrotechnie ou alternative</strong> · cadre ERP à finaliser ensemble (flammes vs étincelles froides), cf. section Lumière / Son / Effets.</li>
+                    <li><strong>Charge poutres</strong> · question de l'accroche de truss au-dessus du public conditionne toute scénographie aérienne (cf. section Plateau, note de calcul attendue).</li>
+                    <li><strong>Hauteur sous plafond zone public</strong> · à mesurer précisément (les 4,19 m relevés concernent uniquement la zone scène).</li>
+                    <li><strong>4 grandes fenêtres latérales</strong> · ≈ 2 × 8 m chacune, supports potentiels pour habillage textile, vidéoprojection ou décor (cf. section Espaces).</li>
+                    <li><strong>Brouillard / hazer / fumée</strong> · compatibles (pas de détecteur en salle).</li>
+                    <li><strong>Flammes &amp; effets pyrotechniques</strong> · à cadrer formellement avec la régie et la commission de sécurité avant validation de toute proposition.</li>
+                    <li><strong>Climatisation / chauffage</strong> · système fonctionnel, modulable selon scénographie sensorielle.</li>
                 </ul>
             </div>
         </section>
@@ -2246,18 +2261,43 @@
                     <h2 class="section-title">Partenariats opérationnels</h2>
                 </div>
             </div>
-            <p class="section-lead">Acteurs locaux à activer pour mutualiser ressources et budget.</p>
+            <p class="section-lead">Première édition&nbsp;: la cartographie des partenariats opérationnels est <strong>à redéfinir intégralement</strong> pour FLORE 2027. Seul le partenariat technique structurant est arrêté. Cette section recense la <strong>méthode</strong> et les <strong>familles de partenaires</strong> à activer.</p>
 
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-handshake"></i>BPS Lagnieu · structure Layher</div>
-                    <p class="text-sm text-zinc-700">Contact à prendre pour partenariat structure (échafaudage / scaffolding Layher). Acteur local&nbsp;: visibilité possible en échange de prêt ou tarif partenaire.</p>
-                    <span class="badge badge-info mt-3 inline-flex"><i class="fa-solid fa-circle-info"></i>À contacter</span>
+            <div class="card">
+                <div class="card-h"><i class="fa-solid fa-handshake-angle"></i><span>Partenaire technique principal · Night Animation</span><span class="badge badge-ok"><i class="fa-solid fa-check"></i>Engagé</span></div>
+                <p class="text-sm text-zinc-700">Partenaire technique <strong>son · lumière · vidéo</strong> de l'événement. Kevin Calard assure la <strong>direction technique</strong> de FLORE 2027 et est en copie de tous les échanges techniques avec la salle et la mairie.</p>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-h"><i class="fa-solid fa-list-check"></i>Familles de partenaires à activer · à redéfinir avec MGE</div>
+                <div class="grid-2">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-1">Acteurs locaux Lagnieu / Plaine de l'Ain</div>
+                        <ul class="dot text-zinc-700">
+                            <li>Commerçants &amp; artisans locaux</li>
+                            <li>Producteurs / coopératives Ain (food court)</li>
+                            <li>Hébergeurs &amp; restaurateurs (logistique équipes)</li>
+                            <li>Associations partenaires (sécurité, bénévoles)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-1">Écosystème FLORE</div>
+                        <ul class="dot text-zinc-700">
+                            <li>Marques sans gluten &amp; sans lactose (food court / boutique)</li>
+                            <li>Partenaires santé &amp; bien-être (AFDIAG, professionnels)</li>
+                            <li>Sponsors corporate (espace VIP)</li>
+                            <li>Médias &amp; influenceurs ciblés communauté</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-sliders"></i>Night Animation</div>
-                    <p class="text-sm text-zinc-700">Partenaire technique <strong>son · lumière · vidéo</strong> de l'événement. Kevin Calard assure la <strong>direction technique</strong> de FLORE 2027 et est en copie de tous les échanges techniques.</p>
-                    <span class="badge badge-ok mt-3 inline-flex"><i class="fa-solid fa-check"></i>Engagé</span>
+                <span class="badge badge-info mt-3 inline-flex"><i class="fa-solid fa-clock"></i>Liste opérationnelle à arbitrer avec MGE</span>
+            </div>
+
+            <div class="alert alert-info">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                    <strong>Pourquoi cette section reste ouverte.</strong>
+                    <p>FLORE 2027 étant la première édition, les partenariats opérationnels ne peuvent pas être reconduits d'une édition précédente. La grille définitive sera ajoutée ici dès que MGE aura cadré le plan partenariats, en lien avec la mairie pour les acteurs locaux.</p>
                 </div>
             </div>
         </section>
@@ -2319,12 +2359,14 @@
 
                 <div class="qa">
                     <div class="qa-q"><span class="qa-num">01</span><strong>Dates 25·27 mars 2027</strong> <span class="badge badge-ok ml-2 inline-flex"><i class="fa-solid fa-check"></i>Répondu</span></div>
-                    <p class="text-sm text-zinc-800 mt-2">Pour l'instant les dates sont disponibles.</p>
+                    <p class="text-sm text-zinc-800 mt-2">Pour l'instant les dates sont disponibles côté salle.</p>
+                    <p class="text-xs text-zinc-500 mt-2"><i class="fa-solid fa-circle-info"></i> Format ajusté en interne MGE&nbsp;: <strong>festival diurne le samedi 27/03 + montage le vendredi 26/03</strong>. À reconfirmer formellement.</p>
                 </div>
 
                 <div class="qa">
-                    <div class="qa-q"><span class="qa-num">02</span><strong>Heure max légale de débit d'alcool</strong> <span class="badge badge-ok ml-2 inline-flex"><i class="fa-solid fa-check"></i>Répondu</span></div>
-                    <p class="text-sm text-zinc-800 mt-2"><strong>02h00 avec autorisation de la mairie</strong> · formulaire à demander.</p>
+                    <div class="qa-q"><span class="qa-num">02</span><strong>Heure max légale de débit d'alcool</strong> <span class="badge badge-mute ml-2 inline-flex"><i class="fa-solid fa-circle-minus"></i>Sans objet</span></div>
+                    <p class="text-sm text-zinc-800 mt-2">Réponse initiale&nbsp;: <strong>02h00 avec autorisation de la mairie</strong> (formulaire à demander).</p>
+                    <p class="text-xs text-zinc-500 mt-2"><i class="fa-solid fa-circle-info"></i> Le format ayant évolué vers une <strong>clôture 22h00</strong>, la question d'une autorisation nocturne ne s'applique plus. Reste la <strong>déclaration de buvette temporaire</strong> classique en mairie · cf. Q02 du formulaire.</p>
                 </div>
 
                 <div class="qa">
@@ -2399,13 +2441,13 @@
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">01</span>Confirmez-vous l'option de dates <strong>25·27 mars 2027</strong> (montage jeudi, nuit 1 vendredi, nuit 2 samedi) ?</div>
+                        <div class="qa-q"><span class="qa-num">01</span>Confirmez-vous le format <strong>journée festival publique le samedi 27 mars 2027 (11h00 → 22h00)</strong> avec <strong>montage le vendredi 26 mars</strong> ?</div>
                         <input type="text" name="Q01_Dates_2027" placeholder="Réponse · confirmation, alternative, contraintes…">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">02</span><strong>Heure max légale de débit d'alcool</strong> sur l'événement · 1h, 2h ou autre ?</div>
-                        <input type="text" name="Q10_Heure_alcool" placeholder="Heure légale + texte de référence si possible">
+                        <div class="qa-q"><span class="qa-num">02</span><strong>Buvette temporaire</strong> · format de déclaration en mairie, délai à respecter, plage horaire de débit autorisée pour un événement diurne (clôture 22h00) ?</div>
+                        <input type="text" name="Q10_Buvette_temporaire" placeholder="Procédure mairie, délai, plage horaire">
                     </div>
 
                     <div class="qa">
