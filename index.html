@@ -233,6 +233,33 @@ section{position:relative}
 /* Décor picto dans en-têtes de section (Programme · Billetterie) */
 .sec-pic{display:block;width:88px;height:88px;object-fit:contain;margin:0 auto 14px;filter:drop-shadow(0 12px 22px rgba(21,57,91,.18))}
 
+/* ===== Prolonge ton week-end ===== */
+.sejour-sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.5rem;color:var(--ink);margin:64px 0 24px;display:flex;align-items:center;gap:12px}
+.sejour-sub::before{content:"";display:block;width:32px;height:2px;background:var(--sun);border-radius:2px}
+.lodging-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:760px){.lodging-grid{grid-template-columns:1fr}}
+.lodging-card{background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column}
+.lodging-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.l-img{aspect-ratio:16/10;background-size:cover;background-position:center;position:relative;background-color:var(--sky-pale)}
+.l-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(11,24,50,.4) 100%)}
+.l-img .l-tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 12px;border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.05em;z-index:1;text-transform:uppercase}
+.l-body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.l-distance{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:6px;display:inline-flex;align-items:center;gap:5px}
+.lodging-card h4{font-family:'Bricolage Grotesque',sans-serif;font-size:1.45rem;color:var(--ink);margin-bottom:10px;line-height:1.15}
+.lodging-card p{color:var(--ink-soft);font-size:.94rem;line-height:1.55;margin-bottom:16px;flex:1}
+.l-link{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--sky-deep);font-size:.86rem;text-decoration:none;border-bottom:2px solid transparent;align-self:flex-start;letter-spacing:.02em;transition:border-color .2s}
+.l-link:hover{border-bottom-color:var(--sky-deep)}
+
+.autour-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.autour-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.autour-grid{grid-template-columns:1fr}}
+.autour-card{background:var(--white);border-radius:var(--r-md);padding:24px 22px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);display:flex;flex-direction:column;gap:8px}
+.autour-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.a-emoji{font-size:1.8rem;line-height:1}
+.a-dist{font-family:'Bricolage Grotesque',sans-serif;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--sky-deep);font-weight:700}
+.autour-card h5{font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;color:var(--ink);line-height:1.25}
+.autour-card p{color:var(--ink-soft);font-size:.85rem;line-height:1.5}
+
 /* ===== Florette · moment crépusculaire ===== */
 .twilight{background:linear-gradient(180deg,#3E4E92 0%,#2B3870 48%,#1A2550 100%);color:var(--white);overflow:hidden;border-radius:var(--r-xl)}
 .stars{position:absolute;inset:0;pointer-events:none;animation:twinkle 5.5s ease-in-out infinite;
@@ -1019,6 +1046,90 @@ section{position:relative}
           <a href="mailto:contact@flore-festival.fr?subject=Partenariat%20FLORE%20Festival" class="btn btn-ghost-w">Nous contacter</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROLONGE TON WEEK-END ===================== -->
+<section class="sec" id="sejour">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
+      <h2>FLORE, <span class="hl">un samedi</span>. L'Ain, tout un séjour.</h2>
+      <p>À 40 min de Lyon, entre étangs des Dombes, vignobles du Bugey et Pérouges médiéval. Pose-toi du vendredi au dimanche en château, chalet ou cité pavée — l'Ain est THE destination week-end qu'on ne te vendait pas.</p>
+    </div>
+
+    <h3 class="sejour-sub" data-aos="fade-up">Où poser tes valises</h3>
+
+    <div class="lodging-grid">
+      <article class="lodging-card" data-aos="fade-up">
+        <div class="l-img" style="background-image:linear-gradient(135deg,#84C254,#5E9E3E)"><span class="l-tag">Chalet · spa</span></div>
+        <div class="l-body">
+          <span class="l-distance"><svg class="daisy" style="width:14px;height:14px"><use href="#daisy"/></svg>Chazey-sur-Ain · 10 min</span>
+          <h4>Chalet Maramour</h4>
+          <p>Spa, grosse cheminée, lit XL, ambiance bois et nature. Le réveil dimanche dans la plaine vaut tous les hôtels du monde.</p>
+          <a class="l-link" href="https://www.google.com/maps/search/?api=1&amp;query=Chalet+Maramour+Chazey-sur-Ain" target="_blank" rel="noopener">Voir sur Maps →</a>
+        </div>
+      </article>
+
+      <article class="lodging-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="l-img" style="background-image:linear-gradient(135deg,#F2A0BE,#DCA3C8)"><span class="l-tag">Château · insolite</span></div>
+        <div class="l-body">
+          <span class="l-distance"><svg class="daisy" style="width:14px;height:14px"><use href="#daisy"/></svg>Sainte-Julie · 20 min</span>
+          <h4>Les Chambres de la Renaissance</h4>
+          <p>Chambres d'hôtes dans un château renaissance, bain à remous, charme historique sans la pose. La nuit la plus stylée du séjour.</p>
+          <a class="l-link" href="https://www.leschambresdelarenaissance.fr/" target="_blank" rel="noopener">Découvrir →</a>
+        </div>
+      </article>
+
+      <article class="lodging-card" data-aos="fade-up">
+        <div class="l-img" style="background-image:linear-gradient(135deg,#D5A06A,#A87340)"><span class="l-tag">Cité médiévale</span></div>
+        <div class="l-body">
+          <span class="l-distance"><svg class="daisy" style="width:14px;height:14px"><use href="#daisy"/></svg>Pérouges · 15 min</span>
+          <h4>Au cœur de Pérouges</h4>
+          <p>Dormir dans une ruelle pavée du XIIIᵉ, classée Plus Beaux Villages de France. Crêperies, boutiques, décor Pinterest validé.</p>
+          <a class="l-link" href="https://www.perouges-bugey-tourisme.com/" target="_blank" rel="noopener">Hébergements Pérouges →</a>
+        </div>
+      </article>
+
+      <article class="lodging-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="l-img" style="background-image:linear-gradient(135deg,#4DA9DF,#2E7FB8)"><span class="l-tag">Boutique hôtel · bohème</span></div>
+        <div class="l-body">
+          <span class="l-distance"><svg class="daisy" style="width:14px;height:14px"><use href="#daisy"/></svg>Ambronay · 15 min</span>
+          <h4>Le Bohôtel d'Ambronay</h4>
+          <p>Boutique hôtel d'inspiration bohème à deux pas de l'abbaye d'Ambronay. Chambres atypiques, brunch local au réveil.</p>
+          <a class="l-link" href="https://www.google.com/maps/search/?api=1&amp;query=Le+Bohotel+Ambronay" target="_blank" rel="noopener">Voir sur Maps →</a>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="sejour-sub" data-aos="fade-up">Et le dimanche, on fait quoi ?</h3>
+
+    <div class="autour-grid">
+      <article class="autour-card" data-aos="fade-up">
+        <span class="a-emoji">🏰</span>
+        <span class="a-dist">Pérouges · 15 min</span>
+        <h5>La cité médiévale</h5>
+        <p>Pavés, galette au sucre, photo spot ultime. Plus Beau Village de France.</p>
+      </article>
+      <article class="autour-card" data-aos="fade-up" data-aos-delay="80">
+        <span class="a-emoji">🦩</span>
+        <span class="a-dist">Les Dombes · 30 min</span>
+        <h5>Les 1100 étangs</h5>
+        <p>Parc des oiseaux de Villars, balades nature, déconnexion totale.</p>
+      </article>
+      <article class="autour-card" data-aos="fade-up" data-aos-delay="160">
+        <span class="a-emoji">🥂</span>
+        <span class="a-dist">Cerdon · 30 min</span>
+        <h5>Vignobles du Bugey</h5>
+        <p>Le fameux rosé pétillant, route des vignes, dégustations entre copines.</p>
+      </article>
+      <article class="autour-card" data-aos="fade-up" data-aos-delay="240">
+        <span class="a-emoji">🌆</span>
+        <span class="a-dist">Lyon · 40 min</span>
+        <h5>La capitale des Gaules</h5>
+        <p>Vieux-Lyon, bouchons, Tête d'or, croisière Saône — le programme du dimanche.</p>
+      </article>
     </div>
   </div>
 </section>
