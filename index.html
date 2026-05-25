@@ -58,6 +58,18 @@ section{position:relative}
 
 /* ===== Ciel + nuages ===== */
 .sky-bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#6093BE 0%,#4A7FA8 50%,#2D5479 100%)}
+.sky-bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(1.6px 1.6px at 12% 14%,rgba(255,255,255,.5),transparent 60%),radial-gradient(1.2px 1.2px at 78% 32%,rgba(255,255,255,.35),transparent 60%),radial-gradient(2px 2px at 45% 68%,rgba(218,239,82,.28),transparent 60%),radial-gradient(1.4px 1.4px at 88% 84%,rgba(255,255,255,.42),transparent 60%),radial-gradient(1.2px 1.2px at 22% 92%,rgba(255,255,255,.3),transparent 60%),radial-gradient(1.6px 1.6px at 64% 22%,rgba(218,239,82,.22),transparent 60%);background-size:680px 900px;opacity:.85;animation:twinkleStars 9s ease-in-out infinite;pointer-events:none}
+@keyframes twinkleStars{0%,100%{opacity:.7}50%{opacity:.95}}
+
+/* ===== Scrollbar custom premium ===== */
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:rgba(11,24,50,.05)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--sky),var(--sky-deep));border-radius:10px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--sun),var(--sun-deep));background-clip:padding-box;border:2px solid transparent}
+html{scrollbar-width:thin;scrollbar-color:var(--sky-deep) rgba(11,24,50,.05)}
+
+/* ===== Focus rings universels ===== */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:6px}
 .grain{position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.4;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
 .clouds{display:none}
 .cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform;filter:blur(5px)}
@@ -178,7 +190,7 @@ section{position:relative}
 
 /* ===== Concept ===== */
 .concept-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;margin-bottom:56px}
-.story-card{background:var(--white);border-radius:var(--r-lg);padding:44px;position:relative;box-shadow:var(--shadow);border-top:1px solid rgba(255,255,255,.9)}
+.story-card{background:var(--white);border-radius:var(--r-lg);padding:44px;position:relative;box-shadow:0 32px 70px rgba(11,24,50,.22),0 1px 0 rgba(255,255,255,1) inset;border:1px solid rgba(21,57,91,.06)}
 .story-card .big-daisy{position:absolute;top:-30px;right:-16px;width:88px;height:88px;color:var(--sun);filter:drop-shadow(0 8px 16px rgba(146,168,36,.3))}
 .story-card p{font-size:1.14rem;color:var(--ink)}
 .story-card p .em{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--sky-deep)}
@@ -191,16 +203,17 @@ section{position:relative}
 
 /* ===== Lieu ===== */
 .lieu-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
-.lieu-grid p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:15px}
-.lieu-grid p strong{color:var(--ink);font-weight:700}
-.note-soft{font-size:.88rem;color:var(--ink-soft);font-style:italic;margin-top:12px}
+.lieu-grid p{color:rgba(255,255,255,.94);font-size:1.08rem;margin-bottom:15px}
+.lieu-grid p strong{color:var(--sun);font-weight:700}
+.note-soft{font-size:.88rem;color:rgba(255,255,255,.78);font-style:italic;margin-top:12px}
 .place-card{background:linear-gradient(155deg,var(--sky) 0%,var(--sky-deep) 70%,#1F5E96 100%);border-radius:var(--r-lg);padding:46px;color:var(--white);box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
 .place-card .pc-cloud{position:absolute;color:rgba(255,255,255,.16);width:170px;top:22px;right:-34px}
 .place-card .pin{width:68px;height:68px;border-radius:50%;background:var(--sun);display:grid;place-items:center;margin-bottom:20px;position:relative;box-shadow:0 10px 24px rgba(146,168,36,.4)}
 .place-card h3{font-size:2.1rem;color:var(--white);margin-bottom:4px;position:relative}
 .place-card .sub{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--sun);margin-bottom:20px;position:relative}
 .tags{display:flex;gap:10px;flex-wrap:wrap;position:relative}
-.tag-pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:8px 15px;border-radius:100px;font-size:.86rem;font-weight:600}
+.tag-pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:8px 15px;border-radius:100px;font-size:.86rem;font-weight:600;transition:transform .25s var(--ease),background .25s var(--ease)}
+.tag-pill:hover{transform:translateY(-2px);background:rgba(255,255,255,.26)}
 
 /* ===== Espaces ===== */
 .espaces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -208,7 +221,7 @@ section{position:relative}
 @media(max-width:640px){.espaces-grid{grid-template-columns:1fr}}
 .espace-card{background:var(--white);border-radius:var(--r-lg);padding:32px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .espace-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
-.espace-card .num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:4.4rem;color:var(--sky-pale);position:absolute;top:10px;right:22px;line-height:1;z-index:0}
+.espace-card .num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:4.8rem;background:linear-gradient(135deg,rgba(77,169,223,.22),rgba(218,239,82,.18));-webkit-background-clip:text;background-clip:text;color:transparent;position:absolute;top:10px;right:22px;line-height:1;z-index:0;letter-spacing:-.02em}
 .espace-card .e-ic{width:64px;height:64px;border-radius:var(--r-sm);display:grid;place-items:center;margin-bottom:18px;font-size:1.75rem;position:relative;z-index:1}
 .espace-card .e-pic{width:118px;height:118px;object-fit:contain;margin-bottom:14px;position:relative;z-index:1;filter:drop-shadow(0 14px 24px rgba(21,57,91,.18))}
 .espace-card .e-kicker{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);position:relative;z-index:1}
@@ -227,7 +240,7 @@ section{position:relative}
 .service-card .s-pic{width:96px;height:96px;object-fit:contain;margin-bottom:6px;filter:drop-shadow(0 12px 20px rgba(21,57,91,.16))}
 .service-card h4{font-size:1.15rem;color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:700}
 .service-card p{font-size:.86rem;color:var(--ink-soft);line-height:1.5}
-.service-card a.s-link{margin-top:auto;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.78rem;color:var(--sky-deep);letter-spacing:.04em;display:inline-flex;align-items:center;gap:5px;text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .2s}
+.service-card a.s-link,.service-card span.s-link{margin-top:auto;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.78rem;color:var(--sky-deep);letter-spacing:.04em;display:inline-flex;align-items:center;gap:5px;text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .2s;padding:6px 0;min-height:24px}
 .service-card a.s-link:hover{border-bottom-color:var(--sky-deep)}
 
 /* Décor picto dans en-têtes de section (Programme · Billetterie) */
@@ -241,7 +254,8 @@ section{position:relative}
 .st-body p{color:var(--ink-soft);font-size:1rem;line-height:1.6;margin-bottom:18px}
 .st-body p strong{color:var(--ink);font-weight:700}
 .st-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.st-tag{background:var(--sky-pale);color:var(--sky-deep);padding:6px 13px;border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.82rem;display:inline-flex;align-items:center;gap:6px}
+.st-tag{background:var(--sky-pale);color:var(--sky-deep);padding:6px 13px;border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.82rem;display:inline-flex;align-items:center;gap:6px;transition:transform .25s var(--ease),background .25s var(--ease)}
+.st-tag:hover{transform:translateY(-2px);background:var(--sun-pale);color:var(--sun-deep)}
 .st-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .st-link{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--sky-deep);font-size:.88rem;border-bottom:2px solid transparent;transition:border-color .2s}
 .st-link:hover{border-bottom-color:var(--sky-deep)}
@@ -280,7 +294,8 @@ section{position:relative}
 .twilight .sec-head h2{color:var(--white)}
 .twilight .sec-head h2 em{font-style:normal;color:var(--blush)}
 .florette-txt p{font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:15px}
-.florette-txt .quote{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-left:5px solid var(--sun);border-radius:var(--r-md);padding:24px 28px;margin:22px 0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.28rem;color:var(--white);line-height:1.34}
+.florette-txt .quote{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-md);padding:32px 36px 32px 64px;margin:22px 0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.28rem;color:var(--white);line-height:1.36;position:relative;backdrop-filter:blur(8px)}
+.florette-txt .quote::before{content:"\201C";position:absolute;top:-8px;left:18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:5.4rem;color:var(--sun);line-height:1;opacity:.95}
 
 /* ===== Programme ===== */
 .timeline{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
@@ -292,7 +307,8 @@ section{position:relative}
 .tl-card h4{font-size:1.3rem;color:var(--ink);margin:6px 0 8px;line-height:1.18}
 .tl-card p{font-size:.94rem;color:var(--ink-soft);line-height:1.6}
 .prog-foot-wrap{text-align:center}
-.prog-foot{margin-top:42px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--ink);font-size:1rem;background:var(--white);border-radius:100px;padding:14px 30px;display:inline-block;box-shadow:var(--shadow-sm)}
+.prog-foot{margin-top:50px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--ink);font-size:1.02rem;background:var(--white);border-radius:100px;padding:16px 34px;display:inline-block;box-shadow:0 18px 40px rgba(11,24,50,.16);border:1px solid rgba(255,255,255,.55)}
+@media(max-width:480px){.prog-foot{font-size:.92rem;padding:13px 24px;line-height:1.4}}
 
 /* ===== Public ===== */
 .public-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -304,10 +320,11 @@ section{position:relative}
 
 /* ===== Qui sommes-nous ===== */
 .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-.about-grid .txt p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:15px}
-.about-grid .txt p strong{color:var(--ink);font-weight:700}
+.about-grid .txt p{color:rgba(255,255,255,.94);font-size:1.08rem;margin-bottom:15px}
+.about-grid .txt p strong{color:var(--sun);font-weight:700}
 .about-grid .vals{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.about-grid .vals .v{background:var(--white);box-shadow:var(--shadow-sm);padding:11px 19px;border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.9rem}
+.about-grid .vals .v{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);box-shadow:var(--shadow-sm);padding:11px 19px;border-radius:100px;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.9rem;backdrop-filter:blur(8px);transition:transform .25s var(--ease),background .25s var(--ease)}
+.about-grid .vals .v:hover{transform:translateY(-2px);background:rgba(255,255,255,.26)}
 .manifesto{background:linear-gradient(150deg,var(--dusk),var(--twilight));border-radius:var(--r-lg);padding:46px;color:var(--white);box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
 .manifesto .m-stars{position:absolute;inset:0;opacity:.6;background-image:radial-gradient(1.5px 1.5px at 40px 30px,#fff,transparent),radial-gradient(1.5px 1.5px at 150px 90px,#fff,transparent),radial-gradient(1.5px 1.5px at 90px 140px,#fff,transparent);background-size:200px 180px}
 .manifesto .m-in{position:relative;z-index:2}
@@ -359,15 +376,16 @@ section{position:relative}
 .cta-card p{font-size:1.14rem;color:rgba(255,255,255,.95);max-width:33em;margin:0 auto 32px}
 .signup{display:flex;gap:11px;max-width:480px;margin:0 auto;flex-wrap:wrap}
 .signup input{flex:1;min-width:220px;padding:16px 24px;border-radius:100px;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;background:var(--white);color:var(--ink);box-shadow:var(--shadow)}
-.signup input:focus{outline:3px solid var(--sun)}
+.signup input::placeholder{color:rgba(21,57,91,.55)}
+.signup input:focus{outline:none;box-shadow:0 0 0 3px var(--sun),0 14px 30px rgba(11,24,50,.2)}
 .cta-card .smallnote{font-size:.86rem;color:rgba(255,255,255,.86);margin-top:15px}
 /* billets */
 .tickets{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:40px 0 18px;text-align:left}
 .ticket{background:var(--white);border-radius:var(--r-lg);padding:30px 22px;position:relative;color:var(--ink);box-shadow:var(--shadow);transition:transform .32s var(--ease),box-shadow .32s var(--ease)}
 .ticket:hover{transform:translateY(-9px);box-shadow:0 32px 64px rgba(11,24,50,.32)}
-.ticket.feat{outline:3px solid var(--sun);box-shadow:0 34px 72px rgba(11,24,50,.4);transform:translateY(-12px)}
+.ticket.feat{outline:none;border:3px solid var(--sun);box-shadow:0 0 0 8px rgba(218,239,82,.18),0 34px 72px rgba(11,24,50,.4);transform:translateY(-12px)}
 .ticket.feat:hover{transform:translateY(-21px)}
-.ticket .t-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--sun);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.04em;padding:6px 16px;border-radius:100px;white-space:nowrap}
+.ticket .t-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--sun),#C8E03A);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.04em;padding:7px 18px;border-radius:100px;white-space:nowrap;box-shadow:0 6px 18px rgba(146,168,36,.4),0 0 0 4px rgba(218,239,82,.18)}
 .ticket .t-ic{font-size:1.9rem;margin-bottom:8px}
 .ticket h3{font-size:1.45rem;color:var(--ink);margin-bottom:3px}
 .ticket .t-hours{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);margin-bottom:16px}
@@ -406,7 +424,7 @@ section{position:relative}
 #billetterie{background:linear-gradient(180deg,#BCD0DB 0%,#DCC59B 27%,#E0A47B 45%,#B07C86 63%,#4A4368 82%,#0E1E3D 100%)}
 
 /* ===== Footer ===== */
-.footer{background:var(--night);color:rgba(255,255,255,.7);padding:78px 0 32px;margin-top:0;position:relative;overflow:hidden;isolation:isolate}
+.footer{background:var(--night);color:rgba(255,255,255,.82);padding:78px 0 32px;margin-top:0;position:relative;overflow:hidden;isolation:isolate}
 .footer::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.85;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
 .footer .f-stars{position:absolute;inset:0;opacity:.5;background-image:radial-gradient(1.5px 1.5px at 60px 40px,#fff,transparent),radial-gradient(1.5px 1.5px at 200px 90px,#fff,transparent),radial-gradient(1.5px 1.5px at 330px 50px,#fff,transparent),radial-gradient(1.4px 1.4px at 130px 130px,#fff,transparent);background-size:380px 200px}
 .footer .wrap{position:relative;z-index:2}
@@ -416,13 +434,16 @@ section{position:relative}
 .footer p.about{font-size:.95rem;max-width:32em}
 .footer h5{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin-bottom:15px}
 .footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer ul a{font-size:.95rem;transition:color .2s}
+.footer ul a{font-size:.95rem;color:rgba(255,255,255,.92);transition:color .2s}
 .footer ul a:hover{color:var(--sun)}
+.footer p.about{color:rgba(255,255,255,.82)}
+.lgl-link{background:none;border:none;color:rgba(255,255,255,.78);font:inherit;cursor:pointer;padding:0;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px;transition:color .2s}
+.lgl-link:hover{color:var(--sun);text-decoration-color:var(--sun)}
 .socials{display:flex;gap:11px;margin-top:18px}
 .socials a{width:44px;height:44px;border-radius:var(--r-sm);background:rgba(255,255,255,.1);display:grid;place-items:center;transition:background .25s var(--ease),transform .25s var(--ease)}
 .socials a:hover{background:var(--sun);transform:translateY(-3px)}
 .socials a svg{width:20px;height:20px}
-.footer-bottom{display:flex;justify-content:space-between;gap:16px;padding-top:24px;font-size:.84rem;color:rgba(255,255,255,.5);flex-wrap:wrap}
+.footer-bottom{display:flex;justify-content:space-between;gap:16px;padding-top:24px;font-size:.84rem;color:rgba(255,255,255,.72);flex-wrap:wrap}
 
 [data-aos]{transition-property:transform,opacity}
 @media(prefers-reduced-motion:reduce){
@@ -477,12 +498,12 @@ section{position:relative}
 <div class="sky-bg"></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="clouds" aria-hidden="true">
-  <svg class="cloud cA"><use href="#cloud"/></svg>
-  <svg class="cloud cB"><use href="#cloud"/></svg>
-  <svg class="cloud cC"><use href="#cloud"/></svg>
-  <svg class="cloud cD"><use href="#cloud"/></svg>
-  <svg class="cloud cE"><use href="#cloud"/></svg>
-  <svg class="cloud cF"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cE"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cF"><use href="#cloud"/></svg>
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -540,18 +561,18 @@ section{position:relative}
 <!-- ===================== HERO ===================== -->
 <header class="hero" id="accueil">
   <div class="sun"><div class="rays"></div><div class="core"></div></div>
-  <svg class="h-cloud hc1"><use href="#cloud"/></svg>
-  <svg class="h-cloud hc2"><use href="#cloud"/></svg>
-  <svg class="h-cloud hc3"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="h-cloud hc1"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="h-cloud hc2"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="h-cloud hc3"><use href="#cloud"/></svg>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-text" data-aos="fade-up">
-        <span class="hero-tag"><svg class="daisy"><use href="#daisy"/></svg>Premier festival 100 % sans gluten &amp; sans lactose</span>
+        <span class="hero-tag"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Premier festival 100 % sans gluten &amp; sans lactose</span>
         <h1><img src="/assets/logo-flore-white.png" alt="FLORE"></h1>
         <p class="hero-tagline">Dansez sans gluten, savourez sans lactose.</p>
         <p class="lede">Le festival musical &amp; culinaire où la musique, la gastronomie et le bien-être se rencontrent. Ici, celles et ceux qu'on met d'habitude de côté trouvent enfin l'air et le soleil pour s'épanouir.</p>
 
-        <div class="cd-intro"><svg class="daisy"><use href="#daisy"/></svg>FLORE éclot dans</div>
+        <div class="cd-intro"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>FLORE éclot dans</div>
         <div class="countdown" id="countdown" data-deadline="2027-03-27T11:00:00">
           <div class="cd-cell"><span class="cd-num" id="cdD">--</span><span class="cd-lab">jours</span></div>
           <div class="cd-cell"><span class="cd-num" id="cdH">--</span><span class="cd-lab">heures</span></div>
@@ -585,9 +606,9 @@ section{position:relative}
       <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
         <div class="florette-wrap">
           <div class="halo"></div>
-          <svg class="daisy d-float hd1"><use href="#daisy"/></svg>
-          <svg class="daisy d-float hd2"><use href="#daisy"/></svg>
-          <svg class="daisy d-float hd3"><use href="#daisy"/></svg>
+          <svg aria-hidden="true" class="daisy d-float hd1"><use href="#daisy"/></svg>
+          <svg aria-hidden="true" class="daisy d-float hd2"><use href="#daisy"/></svg>
+          <svg aria-hidden="true" class="daisy d-float hd3"><use href="#daisy"/></svg>
           <img class="florette-svg" src="/assets/florette.png" alt="Florette, la mascotte du festival FLORE">
         </div>
       </div>
@@ -600,14 +621,14 @@ section{position:relative}
   <div class="wrap">
     <div class="concept-intro">
       <div data-aos="fade-up">
-        <span class="kicker"><svg class="daisy"><use href="#daisy"/></svg>Notre révolution inclusive</span>
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Notre révolution inclusive</span>
         <div class="sec-head" style="margin-bottom:0">
           <h2>Un festival où chacun peut enfin <span class="hl">éclore</span></h2>
           <p>FLORE est le premier festival musical et culinaire pensé de A à Z pour les personnes intolérantes, allergiques ou cœliaques, sans jamais rien sacrifier à la fête. Une journée entière où l'on profite, libre et serein.</p>
         </div>
       </div>
       <div class="story-card" data-aos="fade-up" data-aos-delay="120">
-        <svg class="daisy big-daisy"><use href="#daisy"/></svg>
+        <svg aria-hidden="true" class="daisy big-daisy"><use href="#daisy"/></svg>
         <p>Le fondateur de FLORE connaît trop bien cette frustration : se sentir <span class="em">exclu</span> de la plupart des événements musicaux et culinaires. FLORE est sa réponse : une fête où l'on ne demande pas ce que tu ne peux pas manger, mais <span class="em">ce qui te fait plaisir</span>.</p>
       </div>
     </div>
@@ -641,7 +662,7 @@ section{position:relative}
   <div class="wrap">
     <div class="lieu-grid">
       <div data-aos="fade-up">
-        <span class="kicker"><svg class="daisy"><use href="#daisy"/></svg>Le lieu · Édition 2027</span>
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le lieu · Édition 2027</span>
         <div class="sec-head" style="margin-bottom:22px">
           <h2>FLORE pose ses valises à <span class="hl">Lagnieu</span></h2>
         </div>
@@ -650,7 +671,7 @@ section{position:relative}
         <p class="note-soft">Le lieu exact et l'adresse complète seront dévoilés très prochainement.</p>
       </div>
       <div class="place-card" data-aos="fade-up" data-aos-delay="120">
-        <svg class="daisy pc-cloud"><use href="#cloud"/></svg>
+        <svg aria-hidden="true" class="daisy pc-cloud"><use href="#cloud"/></svg>
         <div class="pin">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#15395B" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
@@ -671,7 +692,7 @@ section{position:relative}
 <section class="sec" id="espaces">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Les espaces</span>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les espaces</span>
       <h2>Six mondes à <span class="hl">explorer</span></h2>
       <p>Une journée, six ambiances : on danse, on déguste, on déniche, on échange, on souffle, et on se met à l'abri si besoin.</p>
     </div>
@@ -683,9 +704,9 @@ section{position:relative}
         <h3>La Scène Flore</h3>
         <p>La scène musicale du festival : concerts live, DJ sets et une fosse débout, prolongée d'une zone assise décorée pour souffler.</p>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Concerts live &amp; DJ sets toute la journée</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Bar central : bières sans gluten &amp; boissons inclusives</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Fosse débout &amp; zone assise décorée</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Concerts live &amp; DJ sets toute la journée</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Bar central : bières sans gluten &amp; boissons inclusives</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Fosse débout &amp; zone assise décorée</li>
         </ul>
       </div>
       <div class="espace-card" data-aos="fade-up" data-aos-delay="80">
@@ -695,9 +716,9 @@ section{position:relative}
         <h3>Le Jardin des Saveurs</h3>
         <p>Un espace gourmand qui réunit une sélection de chefs et d'artisans. Sucré, salé, créatif, et toujours 100 % sans gluten et sans lactose.</p>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Une sélection de stands food, sucré &amp; salé</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Des chefs et artisans engagés</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Des recettes créatives et de saison</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Une sélection de stands food, sucré &amp; salé</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Des chefs et artisans engagés</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Des recettes créatives et de saison</li>
         </ul>
       </div>
       <div class="espace-card" data-aos="fade-up" data-aos-delay="160">
@@ -707,9 +728,9 @@ section{position:relative}
         <h3>La Boutique Flore</h3>
         <p>Une boutique éphémère dédiée aux produits sans gluten et sans lactose : on découvre, on goûte, et on repart avec ses coups de cœur.</p>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Des marques à découvrir ou redécouvrir</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Des produits à acheter sur place</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Une curation gourmande et exigeante</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Des marques à découvrir ou redécouvrir</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Des produits à acheter sur place</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Une curation gourmande et exigeante</li>
         </ul>
       </div>
       <div class="espace-card" data-aos="fade-up">
@@ -719,9 +740,9 @@ section{position:relative}
         <h3>Les Causeries Flore</h3>
         <p>Un espace cosy d'échanges et de talks autour de la santé et du mieux-vivre, en partenariat avec l'AFDIAG, dans une ambiance conviviale.</p>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Talks &amp; échanges santé tout au long du jour</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Professionnels de santé &amp; experts invités</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Un format intimiste et bienveillant</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Talks &amp; échanges santé tout au long du jour</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Professionnels de santé &amp; experts invités</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Un format intimiste et bienveillant</li>
         </ul>
       </div>
       <div class="espace-card" data-aos="fade-up" data-aos-delay="80">
@@ -731,9 +752,9 @@ section{position:relative}
         <h3>Le Salon</h3>
         <p>L'espace détente du festival : un cocon de fauteuils moelleux pour souffler, papoter ou recharger les batteries entre deux moments forts.</p>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Fauteuils doudou &amp; coussins marguerites</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Ambiance feutrée, lumière douce</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Zone de respiration pour soi ou entre amies</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Fauteuils doudou &amp; coussins marguerites</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ambiance feutrée, lumière douce</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Zone de respiration pour soi ou entre amies</li>
         </ul>
       </div>
       <div class="espace-card" data-aos="fade-up" data-aos-delay="160">
@@ -743,9 +764,9 @@ section{position:relative}
         <h3>Le Cocon</h3>
         <p>Un refuge calme et discret, encadré par des professionnels de santé. Pour reprendre son souffle, gérer un coup dur ou simplement souffler à l'abri.</p>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Présence de personnel médical sur place</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Espace calme, lumière tamisée</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Accueil sans question, sans jugement</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Présence de personnel médical sur place</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Espace calme, lumière tamisée</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Accueil sans question, sans jugement</li>
         </ul>
       </div>
     </div>
@@ -756,7 +777,7 @@ section{position:relative}
 <section class="sec" id="services">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Sur place</span>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Sur place</span>
       <h2>Tout est <span class="hl">prévu pour toi</span></h2>
       <p>Au-delà des espaces, FLORE c'est un écosystème complet : merch, accréditations pour les pros, infos pratiques et signalétique claire toute la journée.</p>
     </div>
@@ -796,12 +817,12 @@ section{position:relative}
     <div class="florette-grid">
       <div class="florette-stage" data-aos="zoom-in">
         <div class="glow"></div>
-        <svg class="daisy fd" style="top:12%;left:8%"><use href="#daisy"/></svg>
-        <svg class="daisy fd" style="bottom:14%;right:6%;width:36px"><use href="#daisy"/></svg>
+        <svg aria-hidden="true" class="daisy fd" style="top:12%;left:8%"><use href="#daisy"/></svg>
+        <svg aria-hidden="true" class="daisy fd" style="bottom:14%;right:6%;width:36px"><use href="#daisy"/></svg>
         <img class="florette-svg" src="/assets/florette.png" alt="Florette, la mascotte du festival FLORE" loading="lazy">
       </div>
       <div class="florette-txt" data-aos="fade-up">
-        <span class="kicker"><svg class="daisy"><use href="#daisy"/></svg>L'ambassadrice du festival</span>
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>L'ambassadrice du festival</span>
         <div class="sec-head" style="margin-bottom:14px">
           <h2>Rencontrez <em>Florette</em></h2>
         </div>
@@ -818,7 +839,7 @@ section{position:relative}
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <img class="sec-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-programmation.png" alt="" aria-hidden="true" loading="lazy">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Le déroulé</span>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le déroulé</span>
       <h2>Une journée FLORE, <span class="hl">heure par heure</span></h2>
       <p>De l'ouverture des portes au dernier morceau : un fil festif et gourmand, ponctué de causeries santé.</p>
     </div>
@@ -860,7 +881,7 @@ section{position:relative}
 <section class="sec" id="public">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Pour qui ?</span>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Pour qui ?</span>
       <h2>Une communauté qui vous <span class="hl">ressemble</span></h2>
       <p>FLORE rassemble une communauté engagée et bienveillante, en quête d'événements festifs et vraiment inclusifs.</p>
     </div>
@@ -880,7 +901,7 @@ section{position:relative}
   <div class="wrap">
     <div class="about-grid">
       <div class="txt" data-aos="fade-up">
-        <span class="kicker"><svg class="daisy"><use href="#daisy"/></svg>Qui sommes-nous</span>
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Qui sommes-nous</span>
         <div class="sec-head" style="margin-bottom:20px">
           <h2>Une fête imaginée par <span class="hl">MG Entertainment</span></h2>
         </div>
@@ -895,7 +916,7 @@ section{position:relative}
       <div class="manifesto" data-aos="fade-up" data-aos-delay="120">
         <div class="m-stars"></div>
         <div class="m-in">
-          <span class="tag"><svg class="daisy" style="width:16px;height:16px"><use href="#daisy"/></svg>Notre mission</span>
+          <span class="tag"><svg aria-hidden="true" class="daisy" style="width:16px;height:16px"><use href="#daisy"/></svg>Notre mission</span>
           <blockquote>« On ne devrait jamais avoir à choisir entre sa santé et le plaisir de faire la fête. FLORE existe pour qu'on n'ait plus à choisir. »</blockquote>
           <div class="sign">
             <div class="av">MS</div>
@@ -911,7 +932,7 @@ section{position:relative}
 <section class="sec" id="infos">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Infos pratiques</span>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Infos pratiques</span>
       <h2>L'essentiel à <span class="hl">retenir</span></h2>
       <p>Toutes les infos clés pour préparer votre venue. Les derniers détails arrivent très bientôt.</p>
     </div>
@@ -952,41 +973,41 @@ section{position:relative}
 <section class="sec" id="faq">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Questions fréquentes</span>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Questions fréquentes</span>
       <h2>Tout ce que tu veux <span class="hl">savoir</span></h2>
       <p>Les réponses aux questions qu'on nous pose le plus souvent. Une autre question ? Écris-nous, on adore échanger.</p>
     </div>
     <div class="faq-list" data-aos="fade-up" data-aos-delay="80">
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>C'est quoi, FLORE ?</summary>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>C'est quoi, FLORE ?</summary>
         <div class="faq-a">Le premier festival musical et culinaire 100 % sans gluten et sans lactose. Une journée entière de concerts, DJ sets, food court et causeries bien-être, imaginée par MG Entertainment.</div>
       </details>
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>Tout est vraiment sans gluten et sans lactose ?</summary>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Tout est vraiment sans gluten et sans lactose ?</summary>
         <div class="faq-a">Oui, absolument tout. L'intégralité du food court, du bar et des stands est 100 % sans gluten et sans lactose. Tu peux goûter à tout les yeux fermés, sans vigilance ni renoncement.</div>
       </details>
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>Faut-il être intolérant·e pour venir ?</summary>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Faut-il être intolérant·e pour venir ?</summary>
         <div class="faq-a">Pas du tout. FLORE est ouvert à tout le monde : curieux, gourmands, familles et amis. C'est avant tout une cuisine créative et une belle fête que chacun peut savourer.</div>
       </details>
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>Où et quand se déroule le festival ?</summary>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Où et quand se déroule le festival ?</summary>
         <div class="faq-a">Le samedi 27 mars 2027, à Lagnieu, dans l'Ain, de 11h à 22h. L'adresse exacte et les modalités d'accès seront précisées prochainement.</div>
       </details>
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>Comment réserver mon billet ?</summary>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Comment réserver mon billet ?</summary>
         <div class="faq-a">La billetterie ouvrira prochainement. Inscris-toi à la liste prioritaire en bas de page : tu seras prévenu·e en avant-première et tu profiteras du tarif early bird.</div>
       </details>
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>Y a-t-il des tarifs réduits ?</summary>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Y a-t-il des tarifs réduits ?</summary>
         <div class="faq-a">Oui : 9 € pour les moins de 16 ans, les étudiant·es, les demandeur·ses d'emploi et les personnes en situation de handicap. C'est gratuit pour les enfants de moins de 12 ans.</div>
       </details>
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>Je viens à deux ou en groupe ?</summary>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Je viens à deux ou en groupe ?</summary>
         <div class="faq-a">C'est même tout l'esprit de FLORE. Le Pass Duo réunit 2 entrées et le Pass Tribu 4 entrées, à tarif plus doux : le plan parfait entre copines, en famille ou entre amis.</div>
       </details>
       <details class="faq-item">
-        <summary><svg class="daisy"><use href="#daisy"/></svg>Comment venir à FLORE ?</summary>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Comment venir à FLORE ?</summary>
         <div class="faq-a">Le festival se tient au cœur de l'Ain, à Lagnieu. Les informations d'accès, de transport et de stationnement seront communiquées à l'approche de l'événement.</div>
       </details>
     </div>
@@ -997,7 +1018,7 @@ section{position:relative}
 <section class="sec" id="partenaires">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Marques · Exposants · Sponsors</span>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Marques · Exposants · Sponsors</span>
       <h2>Rejoindre <span class="hl">l'aventure</span></h2>
       <p>Stand au food court, vitrine à la boutique, naming ou sponsoring : il y a une place pour votre marque dès la première édition de FLORE. Une communauté jeune, engagée et fidèle, et un événement porteur de sens.</p>
     </div>
@@ -1006,32 +1027,32 @@ section{position:relative}
         <div class="pt-ic">⭐</div>
         <h3>Partenaires majeurs</h3>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Naming de la scène musicale ou du food court</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Espace central d'activation sur mesure</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Logo sur la communication officielle</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Naming de la scène musicale ou du food court</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Espace central d'activation sur mesure</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Logo sur la communication officielle</li>
         </ul>
       </div>
       <div class="part-type" data-aos="fade-up" data-aos-delay="100">
         <div class="pt-ic">🛍️</div>
         <h3>Marques &amp; exposants</h3>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Stands food au Jardin des Saveurs</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Emplacements à la Boutique Flore (3 niveaux)</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Animations et ateliers possibles</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Stands food au Jardin des Saveurs</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Emplacements à la Boutique Flore (3 niveaux)</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Animations et ateliers possibles</li>
         </ul>
       </div>
       <div class="part-type" data-aos="fade-up" data-aos-delay="200">
         <div class="pt-ic">📣</div>
         <h3>Sponsors &amp; médias</h3>
         <ul>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Image valorisée : santé, inclusion, innovation</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Présence presse &amp; influenceurs</li>
-          <li><svg class="daisy"><use href="#daisy"/></svg>Un événement porteur de sens</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Image valorisée : santé, inclusion, innovation</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Présence presse &amp; influenceurs</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Un événement porteur de sens</li>
         </ul>
       </div>
     </div>
     <div class="part-cta" data-aos="fade-up">
-      <svg class="daisy pc-cloud" style="right:-40px"><use href="#cloud"/></svg>
+      <svg aria-hidden="true" class="daisy pc-cloud" style="right:-40px"><use href="#cloud"/></svg>
       <div class="inner2">
         <h3>Découvrez toutes les offres</h3>
         <p>Formats d'emplacement, visibilité, naming, sponsoring : toutes les façons d'associer votre marque à FLORE sont sur la page dédiée. Les tarifs vous sont communiqués en privé.</p>
@@ -1051,7 +1072,7 @@ section{position:relative}
   <div class="wrap">
     <div class="sejour-teaser" data-aos="fade-up">
       <div class="st-body">
-        <span class="kicker"><svg class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
         <h2>FLORE, <span class="hl">un samedi</span>. L'Ain, tout un séjour.</h2>
         <p>À 40 min de Lyon, entre étangs des Dombes, vignobles du Bugey et Pérouges médiéval. <strong>7 activités</strong> et <strong>4 hébergements de charme</strong> dans une page dédiée — pose-toi du vendredi au dimanche dans un château, un chalet ou une cité pavée.</p>
         <div class="st-tags">
@@ -1083,12 +1104,12 @@ section{position:relative}
   <div class="wrap">
     <div class="cta-card" data-aos="fade-up">
       <div class="cta-stars"></div>
-      <svg class="daisy c-cloud cc1" style="left:-20px"><use href="#cloud"/></svg>
-      <svg class="daisy c-cloud cc2" style="right:-30px"><use href="#cloud"/></svg>
+      <svg aria-hidden="true" class="daisy c-cloud cc1" style="left:-20px"><use href="#cloud"/></svg>
+      <svg aria-hidden="true" class="daisy c-cloud cc2" style="right:-30px"><use href="#cloud"/></svg>
       <div class="set-sun"></div>
       <div class="inner">
         <img class="sec-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-ticket.png" alt="" aria-hidden="true" loading="lazy">
-        <span class="kicker center on-dark"><svg class="daisy"><use href="#daisy"/></svg>Billetterie</span>
+        <span class="kicker center on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Billetterie</span>
         <h2 style="margin-top:14px">Choisis ta <em>formule</em></h2>
         <p>Une journée entière de 11h à 22h : concerts, food court gourmand, boutique et causeries bien-être. Quatre formules pour vivre FLORE comme tu l'aimes, en solo, à deux ou en tribu : le plus beau, c'est de venir ensemble.</p>
         <div class="tickets">
@@ -1099,9 +1120,9 @@ section{position:relative}
             <div class="t-price"><span class="amt">12 €</span><span class="was">18 €</span><span class="t-save">-33 %</span></div>
             <div class="t-full">Tarif early bird, tant qu'il dure</div>
             <ul class="t-list">
-              <li><svg class="daisy"><use href="#daisy"/></svg>Le festival en entier, de 11h à 22h</li>
-              <li><svg class="daisy"><use href="#daisy"/></svg>Concerts, DJ sets et causeries bien-être</li>
-              <li><svg class="daisy"><use href="#daisy"/></svg>Food court et boutique 100 % sans gluten ni lactose</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le festival en entier, de 11h à 22h</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Concerts, DJ sets et causeries bien-être</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Food court et boutique 100 % sans gluten ni lactose</li>
             </ul>
             <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
           </div>
@@ -1112,9 +1133,9 @@ section{position:relative}
             <div class="t-price"><span class="amt">30 €</span><span class="was">36 €</span><span class="t-save">6 € offerts</span></div>
             <div class="t-full">Soit 15 € par personne, l'entrée à deux</div>
             <ul class="t-list">
-              <li><svg class="daisy"><use href="#daisy"/></svg>2 entrées journée, de 11h à 22h</li>
-              <li><svg class="daisy"><use href="#daisy"/></svg>Le plan parfait à deux, entre copines</li>
-              <li><svg class="daisy"><use href="#daisy"/></svg>Un seul billet, vous arrivez ensemble</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>2 entrées journée, de 11h à 22h</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le plan parfait à deux, entre copines</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Un seul billet, vous arrivez ensemble</li>
             </ul>
             <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
           </div>
@@ -1126,9 +1147,9 @@ section{position:relative}
             <div class="t-price"><span class="amt">56 €</span><span class="was">72 €</span><span class="t-save">16 € offerts</span></div>
             <div class="t-full">Soit 14 € par personne, le tarif le plus doux</div>
             <ul class="t-list">
-              <li><svg class="daisy"><use href="#daisy"/></svg>4 entrées journée, de 11h à 22h</li>
-              <li><svg class="daisy"><use href="#daisy"/></svg>Le plan parfait entre copines</li>
-              <li><svg class="daisy"><use href="#daisy"/></svg>Tout aussi sympa en famille ou entre amis</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>4 entrées journée, de 11h à 22h</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le plan parfait entre copines</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Tout aussi sympa en famille ou entre amis</li>
             </ul>
             <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
           </div>
@@ -1139,9 +1160,9 @@ section{position:relative}
             <div class="t-price"><span class="amt">9 €</span><span class="was">14 €</span><span class="t-save">-36 %</span></div>
             <div class="t-full">Tarif early bird, tant qu'il dure</div>
             <ul class="t-list">
-              <li><svg class="daisy"><use href="#daisy"/></svg>Les concerts du soir et le golden hour</li>
-              <li><svg class="daisy"><use href="#daisy"/></svg>La clôture en beauté sous les lumières</li>
-              <li><svg class="daisy"><use href="#daisy"/></svg>Bar et ambiance jusqu'à la nuit</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les concerts du soir et le golden hour</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>La clôture en beauté sous les lumières</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Bar et ambiance jusqu'à la nuit</li>
             </ul>
             <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
           </div>
@@ -1151,9 +1172,9 @@ section{position:relative}
           <p class="signup-title">🌸 Rejoins la liste prioritaire</p>
           <p>La billetterie n'est pas encore ouverte. Inscris-toi pour passer devant tout le monde le jour de l'ouverture.</p>
           <ul class="signup-perks">
-            <li><svg class="daisy"><use href="#daisy"/></svg>Le tarif early bird avant tout le monde</li>
-            <li><svg class="daisy"><use href="#daisy"/></svg>Prévenu·e en premier de l'ouverture</li>
-            <li><svg class="daisy"><use href="#daisy"/></svg>Les annonces du festival en avant-première</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le tarif early bird avant tout le monde</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Prévenu·e en premier de l'ouverture</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les annonces du festival en avant-première</li>
           </ul>
           <form class="signup" id="signupForm">
             <input type="email" name="email" placeholder="votre@email.fr" required aria-label="Votre adresse e-mail">
