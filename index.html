@@ -146,21 +146,22 @@ section{position:relative}
 .hero-meta .item svg{width:22px;height:22px;color:var(--sun)}
 .hero-meta .item small{display:block;font-size:.7rem;color:rgba(255,255,255,.8);font-family:'Bricolage Grotesque',sans-serif;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
 .hero-meta .item b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:var(--white)}
-.cd-intro{display:flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--sun);margin-bottom:11px}
+.cd-intro{display:flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--sun);margin:0}
 .cd-intro .daisy{width:17px;height:17px;color:var(--sun)}
-.countdown{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.countdown{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:0}
 .cd-cell{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);border-radius:var(--r-sm);padding:13px 6px;min-width:76px;text-align:center;backdrop-filter:blur(4px)}
 .cd-num{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.05rem;color:var(--white);line-height:1;font-variant-numeric:tabular-nums}
 .cd-lab{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin-top:6px}
 .cd-done{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;color:var(--white)}
-.hero-visual{position:relative;height:490px;display:grid;place-items:center}
-.hero-visual .halo{position:absolute;width:410px;height:410px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.62),transparent 68%)}
-.florette-svg{position:relative;width:340px;height:auto;filter:drop-shadow(0 26px 34px rgba(11,24,50,.3));animation:bob 6s ease-in-out infinite}
+.hero-visual{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;width:100%}
+.florette-wrap{position:relative;width:100%;max-width:410px;aspect-ratio:1;display:grid;place-items:center}
+.florette-wrap .halo{position:absolute;width:100%;height:100%;max-width:410px;max-height:410px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.62),transparent 68%)}
+.florette-svg{position:relative;width:82%;max-width:320px;height:auto;filter:drop-shadow(0 26px 34px rgba(11,24,50,.3));animation:bob 6s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-17px)}}
-.hero-visual .d-float{position:absolute;animation:bob 5s ease-in-out infinite}
-.hd1{top:6%;left:3%;width:64px;animation-delay:.4s}
-.hd2{bottom:13%;right:1%;width:84px;animation-delay:1.2s}
-.hd3{top:22%;right:9%;width:46px;animation-delay:2s}
+.florette-wrap .d-float{position:absolute;animation:bob 5s ease-in-out infinite}
+.hd1{top:4%;left:2%;width:58px;animation-delay:.4s}
+.hd2{bottom:8%;right:0%;width:76px;animation-delay:1.2s}
+.hd3{top:18%;right:6%;width:42px;animation-delay:2s}
 
 /* ===== Section ===== */
 .sec{padding:112px 0;position:relative}
@@ -387,7 +388,8 @@ section{position:relative}
 }
 @media(max-width:980px){
   .hero-grid,.concept-intro,.lieu-grid,.florette-grid,.about-grid{grid-template-columns:1fr}
-  .hero-visual{height:380px;order:-1}
+  .hero-visual{height:auto;order:-1;gap:18px}
+  .florette-wrap{max-width:320px}
   .florette-stage{height:340px}
   .values,.infos-grid,.part-types{grid-template-columns:repeat(2,1fr)}
   .espaces-grid{grid-template-columns:1fr}
@@ -490,19 +492,6 @@ section{position:relative}
         <h1><img src="/assets/logo-flore-white.png" alt="FLORE"></h1>
         <p class="hero-tagline">Dansez sans gluten, savourez sans lactose.</p>
         <p class="lede">Le festival musical &amp; culinaire où la musique, la gastronomie et le bien-être se rencontrent. Ici, celles et ceux qu'on met d'habitude de côté trouvent enfin l'air et le soleil pour s'épanouir.</p>
-        <div class="hero-cta">
-          <a href="#billetterie" class="btn btn-sun">Réserver ma place
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#festival" class="btn btn-ghost-w">Découvrir le festival</a>
-        </div>
-        <div class="cd-intro"><svg class="daisy"><use href="#daisy"/></svg>FLORE éclot dans</div>
-        <div class="countdown" id="countdown" data-deadline="2027-03-27T11:00:00">
-          <div class="cd-cell"><span class="cd-num" id="cdD">--</span><span class="cd-lab">jours</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cdH">--</span><span class="cd-lab">heures</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cdM">--</span><span class="cd-lab">min</span></div>
-          <div class="cd-cell"><span class="cd-num" id="cdS">--</span><span class="cd-lab">sec</span></div>
-        </div>
         <div class="hero-meta">
           <div class="item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -517,13 +506,28 @@ section{position:relative}
             <div><small>Horaires</small><b>11h – 22h</b></div>
           </div>
         </div>
+        <div class="hero-cta">
+          <a href="#billetterie" class="btn btn-sun">Réserver ma place
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#festival" class="btn btn-ghost-w">Découvrir le festival</a>
+        </div>
       </div>
       <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
-        <div class="halo"></div>
-        <svg class="daisy d-float hd1"><use href="#daisy"/></svg>
-        <svg class="daisy d-float hd2"><use href="#daisy"/></svg>
-        <svg class="daisy d-float hd3"><use href="#daisy"/></svg>
-        <img class="florette-svg" src="/assets/florette.png" alt="Florette, la mascotte du festival FLORE">
+        <div class="cd-intro"><svg class="daisy"><use href="#daisy"/></svg>FLORE éclot dans</div>
+        <div class="countdown" id="countdown" data-deadline="2027-03-27T11:00:00">
+          <div class="cd-cell"><span class="cd-num" id="cdD">--</span><span class="cd-lab">jours</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cdH">--</span><span class="cd-lab">heures</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cdM">--</span><span class="cd-lab">min</span></div>
+          <div class="cd-cell"><span class="cd-num" id="cdS">--</span><span class="cd-lab">sec</span></div>
+        </div>
+        <div class="florette-wrap">
+          <div class="halo"></div>
+          <svg class="daisy d-float hd1"><use href="#daisy"/></svg>
+          <svg class="daisy d-float hd2"><use href="#daisy"/></svg>
+          <svg class="daisy d-float hd3"><use href="#daisy"/></svg>
+          <img class="florette-svg" src="/assets/florette.png" alt="Florette, la mascotte du festival FLORE">
+        </div>
       </div>
     </div>
   </div>
