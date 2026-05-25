@@ -57,7 +57,7 @@ h1,h2,h3,h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:7
 section{position:relative}
 
 /* ===== Ciel + nuages ===== */
-.sky-bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(75% 50% at 80% 8%,rgba(255,236,194,.42),transparent 60%),linear-gradient(180deg,#D5E4EE 0%,#C4D7E2 45%,#ABC4D4 100%)}
+.sky-bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#6093BE 0%,#4A7FA8 50%,#2D5479 100%)}
 .grain{position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.4;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
 .clouds{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
 .cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform;filter:blur(5px)}
