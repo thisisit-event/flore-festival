@@ -643,17 +643,6 @@
             padding: 4rem 3rem 3rem;
             max-width: 1100px;
         }
-        .hero-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.85fr);
-            gap: 2.75rem;
-            align-items: start;
-        }
-        .hero-left { min-width: 0; }
-        .hero-right { min-width: 0; }
-        @media (max-width: 960px) {
-            .hero-layout { grid-template-columns: 1fr; gap: 1.75rem; }
-        }
         @media (max-width: 768px) {
             .hero { padding: 2.5rem 1.25rem 2rem; }
         }
@@ -673,7 +662,7 @@
             margin-bottom: 1.25rem;
         }
         .hero-title {
-            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-size: clamp(2rem, 4.6vw, 3rem);
             font-weight: 700;
             letter-spacing: -0.025em;
             line-height: 1.08;
@@ -687,30 +676,33 @@
             background-clip: text;
         }
         .hero-sub {
-            font-size: 0.98rem;
+            font-size: 1rem;
             color: var(--zinc-500);
+            max-width: 760px;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
         }
 
-        /* Carte d'identité projet · panneau droit du hero */
+        /* Carte d'identité projet · bande horizontale 4 cellules */
         .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             background: #fff;
             border: 1px solid var(--zinc-200);
             border-radius: 16px;
-            padding: 0.35rem 1.15rem;
             box-shadow: var(--card);
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 1.75rem;
+            overflow: hidden;
         }
         .hero-stat {
             display: flex;
             align-items: flex-start;
-            gap: 0.85rem;
-            padding: 0.9rem 0;
-            border-top: 1px solid var(--zinc-200);
+            gap: 0.75rem;
+            padding: 1.1rem 1.15rem;
+            border-left: 1px solid var(--zinc-200);
+            min-width: 0;
         }
-        .hero-stat:first-child { border-top: none; }
+        .hero-stat:first-child { border-left: none; }
         .hs-icon {
             width: 34px; height: 34px;
             border-radius: 9px;
@@ -741,6 +733,16 @@
             color: var(--zinc-500);
             margin-top: 0.15rem;
             line-height: 1.45;
+        }
+        @media (max-width: 900px) {
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+            .hero-stat:nth-child(3) { border-left: none; border-top: 1px solid var(--zinc-200); }
+            .hero-stat:nth-child(4) { border-top: 1px solid var(--zinc-200); }
+        }
+        @media (max-width: 540px) {
+            .hero-stats { grid-template-columns: 1fr; }
+            .hero-stat { border-left: none; }
+            .hero-stat:not(:first-child) { border-top: 1px solid var(--zinc-200); }
         }
 
         /* ── ANCRES ── */
@@ -1595,65 +1597,59 @@
 
         <!-- ============ HERO ============ -->
         <section class="hero">
-            <div class="hero-layout">
-                <div class="hero-left">
-                    <div class="hero-eyebrow">
-                        <i class="fa-solid fa-people-group text-[0.6rem]"></i>
-                        Document de travail collaboratif
-                    </div>
-                    <h1 class="hero-title">Dossier technique <em>FLORE 2027</em><br>Salle Polyvalente de Lagnieu.</h1>
-                    <p class="hero-sub">
-                        Outil de travail partagé entre la production <strong>MG Entertainment</strong>, la régie de la salle et la mairie. Consolide les relevés terrain, les contraintes du lieu et les points à valider ensemble pour préparer le <strong>samedi 27 mars 2027</strong>, festival musical et culinaire 100 % sans gluten et sans lactose.
-                    </p>
+            <div class="hero-eyebrow">
+                <i class="fa-solid fa-people-group text-[0.6rem]"></i>
+                Document de travail collaboratif
+            </div>
+            <h1 class="hero-title">Dossier technique <em>FLORE 2027</em><br>Salle Polyvalente de Lagnieu.</h1>
+            <p class="hero-sub">
+                Outil de travail partagé entre la production <strong>MG Entertainment</strong>, la régie de la salle et la mairie. Consolide les relevés terrain, les contraintes du lieu et les points à valider ensemble pour préparer le <strong>samedi 27 mars 2027</strong>, festival musical et culinaire 100 % sans gluten et sans lactose.
+            </p>
 
-                    <div class="flex items-center flex-wrap gap-y-1">
-                        <a href="#questions" class="hero-cta">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            Répondre au questionnaire en ligne
-                        </a>
-                        <span class="hero-cta-meta">
-                            <i class="fa-regular fa-clock"></i>
-                            7 questions · ~5 min · tous les champs sont optionnels
-                        </span>
+            <div class="hero-stats" role="group" aria-label="Carte d'identité du projet">
+                <div class="hero-stat">
+                    <div class="hs-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="hs-body">
+                        <div class="hs-l">Lieu</div>
+                        <div class="hs-v">Salle Polyvalente</div>
+                        <div class="hs-sub">Lagnieu (01) · ERP municipal</div>
                     </div>
                 </div>
-
-                <aside class="hero-right" aria-label="Carte d'identité du projet">
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <div class="hs-icon"><i class="fa-solid fa-location-dot"></i></div>
-                            <div class="hs-body">
-                                <div class="hs-l">Lieu</div>
-                                <div class="hs-v">Salle Polyvalente</div>
-                                <div class="hs-sub">Lagnieu (01) · ERP municipal</div>
-                            </div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hs-icon"><i class="fa-regular fa-calendar"></i></div>
-                            <div class="hs-body">
-                                <div class="hs-l">Date événement</div>
-                                <div class="hs-v">Sam. 27 mars 2027</div>
-                                <div class="hs-sub">11h00 → 22h00 · montage <strong>vendredi 26 mars</strong></div>
-                            </div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hs-icon"><i class="fa-solid fa-people-group"></i></div>
-                            <div class="hs-body">
-                                <div class="hs-l">Capacité</div>
-                                <div class="hs-v">800 pax</div>
-                                <div class="hs-sub">700 + 100, deux salles · <strong>tous publics, sans restriction d'âge</strong></div>
-                            </div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hs-icon"><i class="fa-solid fa-music"></i></div>
-                            <div class="hs-body">
-                                <div class="hs-l">Producteur</div>
-                                <div class="hs-v">MG Entertainment</div>
-                                <div class="hs-sub">Association · FLORE 2027</div>
-                            </div>
-                        </div>
+                <div class="hero-stat">
+                    <div class="hs-icon"><i class="fa-regular fa-calendar"></i></div>
+                    <div class="hs-body">
+                        <div class="hs-l">Date événement</div>
+                        <div class="hs-v">Sam. 27 mars 2027</div>
+                        <div class="hs-sub">11h00 → 22h00 · montage <strong>vendredi 26 mars</strong></div>
                     </div>
-                </aside>
+                </div>
+                <div class="hero-stat">
+                    <div class="hs-icon"><i class="fa-solid fa-people-group"></i></div>
+                    <div class="hs-body">
+                        <div class="hs-l">Capacité</div>
+                        <div class="hs-v">800 pax</div>
+                        <div class="hs-sub">700 + 100, deux salles · <strong>tous publics, sans restriction d'âge</strong></div>
+                    </div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hs-icon"><i class="fa-solid fa-music"></i></div>
+                    <div class="hs-body">
+                        <div class="hs-l">Producteur</div>
+                        <div class="hs-v">MG Entertainment</div>
+                        <div class="hs-sub">Association · FLORE 2027</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center flex-wrap gap-y-1">
+                <a href="#questions" class="hero-cta">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Répondre au questionnaire en ligne
+                </a>
+                <span class="hero-cta-meta">
+                    <i class="fa-regular fa-clock"></i>
+                    7 questions · ~5 min · tous les champs sont optionnels
+                </span>
             </div>
         </section>
 
