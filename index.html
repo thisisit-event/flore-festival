@@ -11,8 +11,8 @@
 <meta name="theme-color" content="#4DA9DF">
 <link rel="canonical" href="https://flore-festival.fr/">
 
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="apple-touch-icon" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="apple-touch-icon" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
@@ -198,17 +198,35 @@ section{position:relative}
 .tag-pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:8px 15px;border-radius:100px;font-size:.86rem;font-weight:600}
 
 /* ===== Espaces ===== */
-.espaces-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.espace-card{background:var(--white);border-radius:var(--r-lg);padding:40px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.espaces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:1024px){.espaces-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.espaces-grid{grid-template-columns:1fr}}
+.espace-card{background:var(--white);border-radius:var(--r-lg);padding:32px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .espace-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
-.espace-card .num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:5rem;color:var(--sky-pale);position:absolute;top:14px;right:28px;line-height:1}
-.espace-card .e-ic{width:64px;height:64px;border-radius:var(--r-sm);display:grid;place-items:center;margin-bottom:18px;font-size:1.75rem}
-.espace-card .e-kicker{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
-.espace-card h3{font-size:1.8rem;color:var(--ink);margin:5px 0 11px}
-.espace-card p{font-size:.97rem;color:var(--ink-soft);margin-bottom:18px}
-.espace-card ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.espace-card li{display:flex;align-items:flex-start;gap:11px;font-size:.93rem;font-weight:500}
+.espace-card .num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:4.4rem;color:var(--sky-pale);position:absolute;top:10px;right:22px;line-height:1;z-index:0}
+.espace-card .e-ic{width:64px;height:64px;border-radius:var(--r-sm);display:grid;place-items:center;margin-bottom:18px;font-size:1.75rem;position:relative;z-index:1}
+.espace-card .e-pic{width:118px;height:118px;object-fit:contain;margin-bottom:14px;position:relative;z-index:1;filter:drop-shadow(0 14px 24px rgba(21,57,91,.18))}
+.espace-card .e-kicker{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);position:relative;z-index:1}
+.espace-card h3{font-size:1.55rem;color:var(--ink);margin:5px 0 11px;position:relative;z-index:1}
+.espace-card p{font-size:.93rem;color:var(--ink-soft);margin-bottom:16px;position:relative;z-index:1}
+.espace-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;position:relative;z-index:1}
+.espace-card li{display:flex;align-items:flex-start;gap:11px;font-size:.88rem;font-weight:500}
 .espace-card li .daisy{width:18px;height:18px;color:var(--sky);flex-shrink:0;margin-top:2px}
+
+/* ===== Services & pratique (pictos plush) ===== */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:32px}
+@media(max-width:980px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.services-grid{grid-template-columns:1fr}}
+.service-card{background:var(--white);border-radius:var(--r-md);padding:26px 22px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);display:flex;flex-direction:column;align-items:center;gap:8px;min-height:240px}
+.service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.service-card .s-pic{width:96px;height:96px;object-fit:contain;margin-bottom:6px;filter:drop-shadow(0 12px 20px rgba(21,57,91,.16))}
+.service-card h4{font-size:1.15rem;color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:700}
+.service-card p{font-size:.86rem;color:var(--ink-soft);line-height:1.5}
+.service-card a.s-link{margin-top:auto;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.78rem;color:var(--sky-deep);letter-spacing:.04em;display:inline-flex;align-items:center;gap:5px;text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .2s}
+.service-card a.s-link:hover{border-bottom-color:var(--sky-deep)}
+
+/* Décor picto dans en-têtes de section (Programme · Billetterie) */
+.sec-pic{display:block;width:88px;height:88px;object-fit:contain;margin:0 auto 14px;filter:drop-shadow(0 12px 22px rgba(21,57,91,.18))}
 
 /* ===== Florette · moment crépusculaire ===== */
 .twilight{background:linear-gradient(180deg,#3E4E92 0%,#2B3870 48%,#1A2550 100%);color:var(--white);overflow:hidden;border-radius:var(--r-xl)}
@@ -610,13 +628,13 @@ section{position:relative}
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Les espaces</span>
-      <h2>Quatre mondes à <span class="hl">explorer</span></h2>
-      <p>Une journée, quatre ambiances : on danse, on déguste, on déniche et on échange.</p>
+      <h2>Six mondes à <span class="hl">explorer</span></h2>
+      <p>Une journée, six ambiances : on danse, on déguste, on déniche, on échange, on souffle, et on se met à l'abri si besoin.</p>
     </div>
     <div class="espaces-grid">
       <div class="espace-card" data-aos="fade-up">
         <span class="num">01</span>
-        <div class="e-ic" style="background:#FFF1CC">🎤</div>
+        <img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-floor-scene.png" alt="Picto La Scène Flore" loading="lazy">
         <span class="e-kicker">Le cœur de vie</span>
         <h3>La Scène Flore</h3>
         <p>La scène musicale du festival : concerts live, DJ sets et une fosse débout, prolongée d'une zone assise décorée pour souffler.</p>
@@ -626,9 +644,9 @@ section{position:relative}
           <li><svg class="daisy"><use href="#daisy"/></svg>Fosse débout &amp; zone assise décorée</li>
         </ul>
       </div>
-      <div class="espace-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="espace-card" data-aos="fade-up" data-aos-delay="80">
         <span class="num">02</span>
-        <div class="e-ic" style="background:#E4F2DA">🍴</div>
+        <img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="Picto Le Jardin des Saveurs" loading="lazy">
         <span class="e-kicker">Le food court</span>
         <h3>Le Jardin des Saveurs</h3>
         <p>Un espace gourmand qui réunit une sélection de chefs et d'artisans. Sucré, salé, créatif, et toujours 100 % sans gluten et sans lactose.</p>
@@ -638,9 +656,9 @@ section{position:relative}
           <li><svg class="daisy"><use href="#daisy"/></svg>Des recettes créatives et de saison</li>
         </ul>
       </div>
-      <div class="espace-card" data-aos="fade-up">
+      <div class="espace-card" data-aos="fade-up" data-aos-delay="160">
         <span class="num">03</span>
-        <div class="e-ic" style="background:#FCE2E9">🛍️</div>
+        <img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="Picto La Boutique Flore" loading="lazy">
         <span class="e-kicker">La vitrine éphémère</span>
         <h3>La Boutique Flore</h3>
         <p>Une boutique éphémère dédiée aux produits sans gluten et sans lactose : on découvre, on goûte, et on repart avec ses coups de cœur.</p>
@@ -650,9 +668,9 @@ section{position:relative}
           <li><svg class="daisy"><use href="#daisy"/></svg>Une curation gourmande et exigeante</li>
         </ul>
       </div>
-      <div class="espace-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="espace-card" data-aos="fade-up">
         <span class="num">04</span>
-        <div class="e-ic" style="background:#E7F4FB">💬</div>
+        <img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lescauseries.png" alt="Picto Les Causeries Flore" loading="lazy">
         <span class="e-kicker">Présenté avec l'AFDIAG</span>
         <h3>Les Causeries Flore</h3>
         <p>Un espace cosy d'échanges et de talks autour de la santé et du mieux-vivre, en partenariat avec l'AFDIAG, dans une ambiance conviviale.</p>
@@ -661,6 +679,67 @@ section{position:relative}
           <li><svg class="daisy"><use href="#daisy"/></svg>Professionnels de santé &amp; experts invités</li>
           <li><svg class="daisy"><use href="#daisy"/></svg>Un format intimiste et bienveillant</li>
         </ul>
+      </div>
+      <div class="espace-card" data-aos="fade-up" data-aos-delay="80">
+        <span class="num">05</span>
+        <img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-floor-lesalon.png" alt="Picto Le Salon" loading="lazy">
+        <span class="e-kicker">Pause &amp; déconnexion</span>
+        <h3>Le Salon</h3>
+        <p>L'espace détente du festival : un cocon de fauteuils moelleux pour souffler, papoter ou recharger les batteries entre deux moments forts.</p>
+        <ul>
+          <li><svg class="daisy"><use href="#daisy"/></svg>Fauteuils doudou &amp; coussins marguerites</li>
+          <li><svg class="daisy"><use href="#daisy"/></svg>Ambiance feutrée, lumière douce</li>
+          <li><svg class="daisy"><use href="#daisy"/></svg>Zone de respiration pour soi ou entre amies</li>
+        </ul>
+      </div>
+      <div class="espace-card" data-aos="fade-up" data-aos-delay="160">
+        <span class="num">06</span>
+        <img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lecocon.png" alt="Picto Le Cocon" loading="lazy">
+        <span class="e-kicker">Zone safe · soin</span>
+        <h3>Le Cocon</h3>
+        <p>Un refuge calme et discret, encadré par des professionnels de santé. Pour reprendre son souffle, gérer un coup dur ou simplement souffler à l'abri.</p>
+        <ul>
+          <li><svg class="daisy"><use href="#daisy"/></svg>Présence de personnel médical sur place</li>
+          <li><svg class="daisy"><use href="#daisy"/></svg>Espace calme, lumière tamisée</li>
+          <li><svg class="daisy"><use href="#daisy"/></svg>Accueil sans question, sans jugement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES & PRATIQUE ===================== -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Sur place</span>
+      <h2>Tout est <span class="hl">prévu pour toi</span></h2>
+      <p>Au-delà des espaces, FLORE c'est un écosystème complet : merch, accréditations pour les pros, infos pratiques et signalétique claire toute la journée.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up">
+        <img class="s-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-merch.png" alt="Picto Merch FLORE" loading="lazy">
+        <h4>Merch FLORE</h4>
+        <p>Tee-shirts, totes et goodies brandés FLORE pour ramener un bout de festival à la maison.</p>
+        <span class="s-link">Bientôt en ligne</span>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+        <img class="s-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-accredidation.png" alt="Picto Accréditation" loading="lazy">
+        <h4>Accréditations</h4>
+        <p>Presse, partenaires, professionnels de santé : demande ton pass dédié pour vivre FLORE côté coulisses.</p>
+        <a class="s-link" href="mailto:contact@mgentertainment.fr?subject=Demande%20d%27accr%C3%A9ditation%20FLORE%202027">Faire une demande →</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+        <img class="s-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-programmation.png" alt="Picto Programme" loading="lazy">
+        <h4>Programme</h4>
+        <p>Le déroulé complet de la journée, heure par heure. La programmation artistique se dévoile bientôt.</p>
+        <a class="s-link" href="#programme">Voir le déroulé →</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="240">
+        <img class="s-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-info.png" alt="Picto Info" loading="lazy">
+        <h4>Infos pratiques</h4>
+        <p>Lieu, horaires, accès, services sur place : tout ce qu'il faut savoir avant de venir.</p>
+        <a class="s-link" href="#infos">Tout savoir →</a>
       </div>
     </div>
   </div>
@@ -694,6 +773,7 @@ section{position:relative}
 <section class="sec" id="programme">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
+      <img class="sec-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-programmation.png" alt="" aria-hidden="true" loading="lazy">
       <span class="kicker center"><svg class="daisy"><use href="#daisy"/></svg>Le déroulé</span>
       <h2>Une journée FLORE, <span class="hl">heure par heure</span></h2>
       <p>De l'ouverture des portes au dernier morceau : un fil festif et gourmand, ponctué de causeries santé.</p>
@@ -931,6 +1011,7 @@ section{position:relative}
       <svg class="daisy c-cloud cc2" style="right:-30px"><use href="#cloud"/></svg>
       <div class="set-sun"></div>
       <div class="inner">
+        <img class="sec-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-ticket.png" alt="" aria-hidden="true" loading="lazy">
         <span class="kicker center on-dark"><svg class="daisy"><use href="#daisy"/></svg>Billetterie</span>
         <h2 style="margin-top:14px">Choisis ta <em>formule</em></h2>
         <p>Une journée entière de 11h à 22h : concerts, food court gourmand, boutique et causeries bien-être. Quatre formules pour vivre FLORE comme tu l'aimes, en solo, à deux ou en tribu : le plus beau, c'est de venir ensemble.</p>
