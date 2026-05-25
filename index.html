@@ -59,7 +59,7 @@ section{position:relative}
 /* ===== Ciel + nuages ===== */
 .sky-bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#6093BE 0%,#4A7FA8 50%,#2D5479 100%)}
 .grain{position:fixed;inset:0;z-index:98;pointer-events:none;opacity:.4;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.86'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
-.clouds{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.clouds{display:none}
 .cloud{position:absolute;color:#fff;left:0;animation:drift linear infinite;will-change:transform;filter:blur(5px)}
 @keyframes drift{from{transform:translateX(-44vw)}to{transform:translateX(144vw)}}
 .cloud.cA{top:7%;width:220px;opacity:.4;animation-duration:94s;animation-delay:-12s}
@@ -255,7 +255,9 @@ section{position:relative}
 @media(max-width:480px){.st-visual{height:220px}.st-card{font-size:.9rem}}
 
 /* ===== Florette · moment crépusculaire ===== */
-.twilight{background:linear-gradient(180deg,#3E4E92 0%,#2B3870 48%,#1A2550 100%);color:var(--white);overflow:hidden;border-radius:var(--r-xl)}
+.twilight{background:linear-gradient(180deg,#3E4E92 0%,#2B3870 48%,#1A2550 100%);color:var(--white);overflow:hidden;border-radius:var(--r-xl);max-width:1280px;margin:0 auto;box-shadow:0 32px 70px rgba(11,24,50,.22)}
+@media(max-width:1340px){.twilight{margin:0 24px}}
+@media(max-width:680px){.twilight{margin:0 12px;border-radius:var(--r-lg)}}
 .stars{position:absolute;inset:0;pointer-events:none;animation:twinkle 5.5s ease-in-out infinite;
   background-image:
    radial-gradient(1.7px 1.7px at 32px 44px,#fff,transparent),
