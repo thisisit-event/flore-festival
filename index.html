@@ -211,7 +211,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'DM Sans',system-ui,sans-serif;background:transparent;color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,#6093BE 0%,#4A7FA8 14%,#3F93C4 22%,#5187B5 32%,#5C7AAB 42%,#6A6FA5 52%,#7B6298 60%,#A4708A 68%,#D49474 75%,#B98166 79%,#7E608C 84%,#4A4673 89%,#252A56 94%,#0E1E3D 100%) no-repeat}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--sun);color:var(--ink)}
@@ -220,7 +220,7 @@ h1,h2,h3,h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:7
 section{position:relative}
 
 /* ===== Ciel + nuages ===== */
-.sky-bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#6093BE 0%,#4A7FA8 50%,#2D5479 100%)}
+.sky-bg{position:fixed;inset:0;z-index:-2;pointer-events:none}
 .sky-bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(1.6px 1.6px at 12% 14%,rgba(255,255,255,.5),transparent 60%),radial-gradient(1.2px 1.2px at 78% 32%,rgba(255,255,255,.35),transparent 60%),radial-gradient(2px 2px at 45% 68%,rgba(218,239,82,.28),transparent 60%),radial-gradient(1.4px 1.4px at 88% 84%,rgba(255,255,255,.42),transparent 60%),radial-gradient(1.2px 1.2px at 22% 92%,rgba(255,255,255,.3),transparent 60%),radial-gradient(1.6px 1.6px at 64% 22%,rgba(218,239,82,.22),transparent 60%);background-size:680px 900px;opacity:.85;animation:twinkleStars 9s ease-in-out infinite;pointer-events:none}
 @keyframes twinkleStars{0%,100%{opacity:.7}50%{opacity:.95}}
 
@@ -466,7 +466,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 /* ===== Programme ===== */
 .timeline{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
 .tl-row{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;padding:4px 0}
-.tl-time{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink);background:var(--sun);padding:14px 22px;border-radius:100px;min-width:96px;text-align:center;box-shadow:0 10px 22px rgba(146,168,36,.32);letter-spacing:-.01em;line-height:1;align-self:flex-start;margin-top:8px}
+.tl-time{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink);background:var(--sun);padding:14px 22px;border-radius:100px;min-width:96px;text-align:center;box-shadow:0 10px 22px rgba(146,168,36,.32);letter-spacing:-.01em;line-height:1;align-self:flex-start;margin-top:8px;transition:background .3s var(--ease)}
+/* Le ciel se couche sur la timeline · pastilles teintées par moment du jour */
+.timeline .tl-row:nth-child(4) .tl-time{background:linear-gradient(135deg,#F0E04A,#E9C440);box-shadow:0 10px 22px rgba(218,180,52,.36)}
+.timeline .tl-row:nth-child(5) .tl-time{background:linear-gradient(135deg,#F4B36C,#E88A52);color:var(--ink);box-shadow:0 10px 22px rgba(232,138,82,.42)}
+.timeline .tl-row:nth-child(6) .tl-time{background:linear-gradient(135deg,#DD8FAC,#B86A88);color:var(--white);box-shadow:0 10px 22px rgba(184,106,136,.42)}
+.timeline .tl-row:nth-child(7) .tl-time{background:linear-gradient(135deg,#5C4E92,#2E2C68);color:var(--white);box-shadow:0 10px 22px rgba(46,44,104,.5)}
 .tl-card{background:var(--white);border-radius:var(--r-md);padding:20px 26px;box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
 .tl-card:hover{transform:translateX(4px);box-shadow:var(--shadow)}
 .tl-card .tl-tag{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky-deep);display:inline-block}
@@ -907,7 +912,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
         <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Notre révolution inclusive</span>
         <div class="sec-head" style="margin-bottom:0">
           <h2>Un festival où chacun peut enfin <span class="hl">éclore</span></h2>
-          <p>FLORE est le premier festival musical et culinaire pensé de A à Z pour les personnes intolérantes, allergiques ou cœliaques, sans jamais rien sacrifier à la fête. Une journée entière où l'on profite, libre et serein.</p>
+          <p>FLORE est <strong>le premier festival musical et culinaire 100 % sans gluten et sans lactose</strong>. Concerts, DJ sets, food court, bar, boutique : tout ce qu'on aime dans un festival, sans les renoncements habituels. Une journée entière où l'on danse, savoure et profite sans se poser de question. Et où les intolérants, allergiques et cœliaques vivent enfin la fête à 100 %.</p>
         </div>
       </div>
       <div class="story-card" data-aos="fade-up" data-aos-delay="120">
@@ -929,7 +934,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
       <div class="value-card" data-aos="fade-up" data-aos-delay="160">
         <div class="v-ic" style="background:#FCE2E9">🎶</div>
         <h3>Musique &amp; food court</h3>
-        <p>Concerts live, DJ sets et une sélection de chefs et artisans gourmands.</p>
+        <p>Concerts live, DJ sets, food trucks et bar. La vibe festival, sans concession.</p>
       </div>
       <div class="value-card" data-aos="fade-up" data-aos-delay="240">
         <div class="v-ic" style="background:#E4F2DA">💚</div>
@@ -997,23 +1002,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
         <img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="Picto Le Jardin des Saveurs" loading="lazy">
         <span class="e-kicker">Le food court</span>
         <h3>Le Jardin des Saveurs</h3>
-        <p>Un espace gourmand qui réunit une sélection de chefs et d'artisans. Sucré, salé, créatif, et toujours 100 % sans gluten et sans lactose.</p>
+        <p>Le food court du festival, version libérée. Burgers, bao, tacos, crêpes, glace, food trucks et bar à bières. Tout ce qu'on aime trouver à un festival, sauf qu'ici, <strong>tu peux tout commander les yeux fermés</strong>.</p>
         <ul>
-          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Une sélection de stands food, sucré &amp; salé</li>
-          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Des chefs et artisans engagés</li>
-          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Des recettes créatives et de saison</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Food trucks &amp; stands : burgers, bao, tacos, crêpes, glace</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Bar central : bières sans gluten, vins nature, cocktails</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Sucré, salé, gourmand : la vibe food court, sans concession</li>
         </ul>
       </div>
       <div class="espace-card" data-aos="fade-up" data-aos-delay="160">
         <span class="num">03</span>
         <img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="Picto La Boutique Flore" loading="lazy">
-        <span class="e-kicker">La vitrine éphémère</span>
+        <span class="e-kicker">L'épicerie pop-up</span>
         <h3>La Boutique Flore</h3>
-        <p>Une boutique éphémère dédiée aux produits sans gluten et sans lactose : on découvre, on goûte, et on repart avec ses coups de cœur.</p>
+        <p>L'épicerie pop-up du festival. Tu flânes, tu goûtes, tu craques. Et <strong>tu rentres chez toi avec un panier plein de découvertes</strong> que tu ne croiseras jamais en supermarché.</p>
         <ul>
-          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Des marques à découvrir ou redécouvrir</li>
-          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Des produits à acheter sur place</li>
-          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Une curation gourmande et exigeante</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Sauces, biscuits, farines, snacks, alternatives gourmandes</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Tout à goûter sur place avant de craquer</li>
+          <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Un panier de découvertes à ramener à la maison</li>
         </ul>
       </div>
       <div class="espace-card" data-aos="fade-up">
@@ -1093,30 +1098,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   </div>
 </section>
 
-<!-- ===================== FLORETTE (crépuscule) ===================== -->
-<section class="sec twilight" id="florette">
-  <div class="stars"></div>
-  <div class="wrap">
-    <div class="florette-grid">
-      <div class="florette-stage" data-aos="zoom-in">
-        <div class="glow"></div>
-        <svg aria-hidden="true" class="daisy fd" style="top:12%;left:8%"><use href="#daisy"/></svg>
-        <svg aria-hidden="true" class="daisy fd" style="bottom:14%;right:6%;width:36px"><use href="#daisy"/></svg>
-        <img class="florette-svg" src="/assets/florette.png" alt="Florette, la mascotte du festival FLORE" loading="lazy">
-      </div>
-      <div class="florette-txt" data-aos="fade-up">
-        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>L'ambassadrice du festival</span>
-        <div class="sec-head" style="margin-bottom:14px">
-          <h2>Rencontrez <em>Florette</em></h2>
-        </div>
-        <p>Joyeuse et bienveillante, Florette est le symbole de FLORE Festival. Elle incarne toutes celles et ceux qui, intolérants, allergiques ou touchés par une maladie invisible, se sentent trop souvent exclus de la fête.</p>
-        <p class="quote">« Ici, on ne te demande pas ce que tu ne peux pas manger. On te demande ce qui te fait plaisir. »</p>
-        <p>Avec Florette, FLORE rappelle une promesse simple : la fête doit être accessible à tous, sans exception et sans étiquette.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===================== PROGRAMME ===================== -->
 <section class="sec" id="programme">
   <div class="wrap">
@@ -1169,12 +1150,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
       <p>FLORE rassemble une communauté engagée et bienveillante, en quête d'événements festifs et vraiment inclusifs.</p>
     </div>
     <div class="public-grid">
-      <div class="aud-card" data-aos="fade-up"><div class="a-ic">🌿</div><h4>Intolérants &amp; cœliaques</h4><p>Enfin un événement où l'on profite sans vigilance ni renoncement.</p></div>
-      <div class="aud-card" data-aos="fade-up" data-aos-delay="80"><div class="a-ic">👨‍👩‍👧</div><h4>Familles &amp; amis</h4><p>Une sortie où tout le monde mange à la même table, sans exception.</p></div>
-      <div class="aud-card" data-aos="fade-up" data-aos-delay="160"><div class="a-ic">🎶</div><h4>Amoureux de musique</h4><p>Concerts live et DJ sets dans un cadre festif et chaleureux.</p></div>
-      <div class="aud-card" data-aos="fade-up"><div class="a-ic">🥗</div><h4>Curieux &amp; gourmands</h4><p>Une cuisine créative à découvrir, même sans intolérance.</p></div>
-      <div class="aud-card" data-aos="fade-up" data-aos-delay="80"><div class="a-ic">💚</div><h4>Sensibles au bien-être</h4><p>Talks santé, mieux-vivre et conseils d'experts toute la journée.</p></div>
-      <div class="aud-card" data-aos="fade-up" data-aos-delay="160"><div class="a-ic">✨</div><h4>Festivaliers engagés</h4><p>Celles et ceux qui veulent une fête plus ouverte et plus juste.</p></div>
+      <div class="aud-card" data-aos="fade-up"><div class="a-ic">🎶</div><h4>Amoureux de musique</h4><p>Concerts live et DJ sets dans un cadre festif et chaleureux.</p></div>
+      <div class="aud-card" data-aos="fade-up" data-aos-delay="80"><div class="a-ic">🥗</div><h4>Curieux &amp; gourmands</h4><p>Une cuisine créative à découvrir, même sans intolérance.</p></div>
+      <div class="aud-card" data-aos="fade-up" data-aos-delay="160"><div class="a-ic">👨‍👩‍👧</div><h4>Familles &amp; amis</h4><p>Une sortie où tout le monde mange à la même table, sans exception.</p></div>
+      <div class="aud-card" data-aos="fade-up"><div class="a-ic">✨</div><h4>Festivaliers engagés</h4><p>Celles et ceux qui veulent une fête plus ouverte et plus juste.</p></div>
+      <div class="aud-card" data-aos="fade-up" data-aos-delay="80"><div class="a-ic">🌿</div><h4>Intolérants &amp; cœliaques</h4><p>Enfin un événement où l'on profite sans vigilance ni renoncement.</p></div>
+      <div class="aud-card" data-aos="fade-up" data-aos-delay="160"><div class="a-ic">💚</div><h4>Sensibles au bien-être</h4><p>Talks santé, mieux-vivre et conseils d'experts toute la journée.</p></div>
     </div>
   </div>
 </section>
@@ -1206,6 +1187,157 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
             <div><b>Morgan Spirli</b><span>Fondateur · MG Entertainment</span></div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FLORETTE (crépuscule) ===================== -->
+<section class="sec twilight" id="florette">
+  <div class="stars"></div>
+  <div class="wrap">
+    <div class="florette-grid">
+      <div class="florette-stage" data-aos="zoom-in">
+        <div class="glow"></div>
+        <svg aria-hidden="true" class="daisy fd" style="top:12%;left:8%"><use href="#daisy"/></svg>
+        <svg aria-hidden="true" class="daisy fd" style="bottom:14%;right:6%;width:36px"><use href="#daisy"/></svg>
+        <img class="florette-svg" src="/assets/florette.png" alt="Florette, la mascotte du festival FLORE" loading="lazy">
+      </div>
+      <div class="florette-txt" data-aos="fade-up">
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>L'ambassadrice du festival</span>
+        <div class="sec-head" style="margin-bottom:14px">
+          <h2>Le jour s'incline, <em>Florette</em> veille</h2>
+        </div>
+        <p>Quand la lumière baisse et que les guirlandes s'allument, Florette reste là. Joyeuse, bienveillante, elle est la silhouette qui rassemble. Elle incarne toutes celles et ceux qui, intolérants, allergiques ou touchés par une maladie invisible, se sentent trop souvent exclus de la fête.</p>
+        <p>Avec elle, FLORE rappelle une promesse simple : la fête doit être accessible à tous, sans exception et sans étiquette. Et la nuit, elle non plus, ne met personne de côté.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA / BILLETTERIE (golden hour) ===================== -->
+<section class="sec" id="billetterie">
+  <div class="wrap">
+    <div class="cta-card" data-aos="fade-up">
+      <div class="cta-stars"></div>
+      <svg aria-hidden="true" class="daisy c-cloud cc1" style="left:-20px"><use href="#cloud"/></svg>
+      <svg aria-hidden="true" class="daisy c-cloud cc2" style="right:-30px"><use href="#cloud"/></svg>
+      <div class="set-sun"></div>
+      <div class="inner">
+        <img class="sec-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-ticket.png" alt="" aria-hidden="true" loading="lazy">
+        <span class="kicker center on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Billetterie</span>
+        <h2 style="margin-top:14px">Choisis ta <em>formule</em></h2>
+        <p>Une journée entière de 11h à 22h : concerts, food court gourmand, boutique et causeries bien-être. Quatre formules pour vivre FLORE comme tu l'aimes, en solo, à deux ou en tribu : le plus beau, c'est de venir ensemble.</p>
+        <div class="tickets">
+          <div class="ticket">
+            <div class="t-ic">🎟️</div>
+            <h3>Pass Journée</h3>
+            <div class="t-hours">11h – 22h</div>
+            <div class="t-price"><span class="amt">12 €</span><span class="was">18 €</span><span class="t-save">-33 %</span></div>
+            <div class="t-full">Tarif early bird, tant qu'il dure</div>
+            <ul class="t-list">
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le festival en entier, de 11h à 22h</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Concerts, DJ sets et causeries bien-être</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Food court et boutique 100 % sans gluten ni lactose</li>
+            </ul>
+            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
+          </div>
+          <div class="ticket">
+            <div class="t-ic">👯</div>
+            <h3>Pass Duo</h3>
+            <div class="t-hours">2 Pass Journée</div>
+            <div class="t-price"><span class="amt">30 €</span><span class="was">36 €</span><span class="t-save">6 € offerts</span></div>
+            <div class="t-full">Soit 15 € par personne, l'entrée à deux</div>
+            <ul class="t-list">
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>2 entrées journée, de 11h à 22h</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le plan parfait à deux, entre copines</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Un seul billet, vous arrivez ensemble</li>
+            </ul>
+            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
+          </div>
+          <div class="ticket feat">
+            <div class="t-badge">⭐ Le plus malin</div>
+            <div class="t-ic">💛</div>
+            <h3>Pass Tribu</h3>
+            <div class="t-hours">4 Pass Journée</div>
+            <div class="t-price"><span class="amt">56 €</span><span class="was">72 €</span><span class="t-save">16 € offerts</span></div>
+            <div class="t-full">Soit 14 € par personne, le tarif le plus doux</div>
+            <ul class="t-list">
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>4 entrées journée, de 11h à 22h</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le plan parfait entre copines</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Tout aussi sympa en famille ou entre amis</li>
+            </ul>
+            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
+          </div>
+          <div class="ticket">
+            <div class="t-ic">🌅</div>
+            <h3>Pass Soirée</h3>
+            <div class="t-hours">18h – 22h</div>
+            <div class="t-price"><span class="amt">9 €</span><span class="was">14 €</span><span class="t-save">-36 %</span></div>
+            <div class="t-full">Tarif early bird, tant qu'il dure</div>
+            <ul class="t-list">
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les concerts du soir et le golden hour</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>La clôture en beauté sous les lumières</li>
+              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Bar et ambiance jusqu'à la nuit</li>
+            </ul>
+            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
+          </div>
+        </div>
+        <p class="ticket-note">👨‍👩‍👧 Tarif réduit 9 € : moins de 16 ans, étudiant·e, demandeur·se d'emploi, situation de handicap &nbsp;·&nbsp; 🧒 Enfants de moins de 12 ans : gratuit</p>
+        <div class="signup-block" id="prevenir">
+          <p class="signup-title">🌸 Rejoins la liste prioritaire</p>
+          <p>La billetterie n'est pas encore ouverte. Inscris-toi pour passer devant tout le monde le jour de l'ouverture.</p>
+          <ul class="signup-perks">
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le tarif early bird avant tout le monde</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Prévenu·e en premier de l'ouverture</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les annonces du festival en avant-première</li>
+          </ul>
+          <form class="signup" id="signupForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+            <input type="hidden" name="subject" value="🌼 Newsletter FLORE · Nouvelle inscription">
+            <input type="hidden" name="from_name" value="FLORE Festival · Liste prioritaire">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="email" name="email" placeholder="votre@email.fr" required aria-label="Votre adresse e-mail">
+            <button type="submit" class="btn btn-ink">Je rejoins la liste</button>
+          </form>
+          <div id="signupSuccess" class="signup-success" hidden>
+            <svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>
+            <p><strong>Bienvenue dans la communauté FLORE 🌼</strong><br><span>Tu seras prévenu·e en premier de l'ouverture de la billetterie.</span></p>
+          </div>
+          <p class="signup-fine">Zéro spam, juste l'essentiel. Désinscription en un clic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROLONGE TON WEEK-END (teaser) ===================== -->
+<section class="sec" id="sejour">
+  <div class="wrap">
+    <div class="sejour-teaser" data-aos="fade-up">
+      <div class="st-body">
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
+        <h2>FLORE, <span class="hl">un samedi</span>. L'Ain, tout un séjour.</h2>
+        <p>À 40 min de Lyon, entre étangs des Dombes, vignobles du Bugey et Pérouges médiéval. <strong>7 activités</strong> et <strong>4 hébergements de charme</strong> dans une page dédiée. Pose-toi du vendredi au dimanche dans un château, un chalet ou une cité pavée.</p>
+        <div class="st-tags">
+          <span class="st-tag">🏰 Pérouges</span>
+          <span class="st-tag">🦩 Parc des Oiseaux</span>
+          <span class="st-tag">🥂 Vignobles Cerdon</span>
+          <span class="st-tag">🌆 Lyon</span>
+          <span class="st-tag">🏠 Chalets &amp; châteaux</span>
+        </div>
+        <div class="st-cta">
+          <a href="/sejour/" class="btn btn-ink">Découvrir la destination
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/sejour/#hebergements" class="st-link">Voir les hébergements directement →</a>
+        </div>
+      </div>
+      <div class="st-visual" aria-hidden="true">
+        <div class="st-card st-card-1" style="background:linear-gradient(135deg,#D5A06A,#A87340)"><span>Pérouges</span></div>
+        <div class="st-card st-card-2" style="background:linear-gradient(135deg,#84C254,#5E9E3E)"><span>Chalet</span></div>
+        <div class="st-card st-card-3" style="background:linear-gradient(135deg,#F2A0BE,#DCA3C8)"><span>Château</span></div>
+        <div class="st-card st-card-4" style="background:linear-gradient(135deg,#4DA9DF,#2E7FB8)"><span>Lyon</span></div>
       </div>
     </div>
   </div>
@@ -1344,134 +1476,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
           <a href="mailto:contact@flore-festival.fr?subject=Partenariat%20FLORE%20Festival" class="btn btn-ghost-w">Nous contacter</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PROLONGE TON WEEK-END (teaser) ===================== -->
-<section class="sec" id="sejour">
-  <div class="wrap">
-    <div class="sejour-teaser" data-aos="fade-up">
-      <div class="st-body">
-        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
-        <h2>FLORE, <span class="hl">un samedi</span>. L'Ain, tout un séjour.</h2>
-        <p>À 40 min de Lyon, entre étangs des Dombes, vignobles du Bugey et Pérouges médiéval. <strong>7 activités</strong> et <strong>4 hébergements de charme</strong> dans une page dédiée — pose-toi du vendredi au dimanche dans un château, un chalet ou une cité pavée.</p>
-        <div class="st-tags">
-          <span class="st-tag">🏰 Pérouges</span>
-          <span class="st-tag">🦩 Parc des Oiseaux</span>
-          <span class="st-tag">🥂 Vignobles Cerdon</span>
-          <span class="st-tag">🌆 Lyon</span>
-          <span class="st-tag">🏠 Chalets &amp; châteaux</span>
-        </div>
-        <div class="st-cta">
-          <a href="/sejour/" class="btn btn-ink">Découvrir la destination
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-          <a href="/sejour/#hebergements" class="st-link">Voir les hébergements directement →</a>
-        </div>
-      </div>
-      <div class="st-visual" aria-hidden="true">
-        <div class="st-card st-card-1" style="background:linear-gradient(135deg,#D5A06A,#A87340)"><span>Pérouges</span></div>
-        <div class="st-card st-card-2" style="background:linear-gradient(135deg,#84C254,#5E9E3E)"><span>Chalet</span></div>
-        <div class="st-card st-card-3" style="background:linear-gradient(135deg,#F2A0BE,#DCA3C8)"><span>Château</span></div>
-        <div class="st-card st-card-4" style="background:linear-gradient(135deg,#4DA9DF,#2E7FB8)"><span>Lyon</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CTA / BILLETTERIE (golden hour) ===================== -->
-<section class="sec" id="billetterie">
-  <div class="wrap">
-    <div class="cta-card" data-aos="fade-up">
-      <div class="cta-stars"></div>
-      <svg aria-hidden="true" class="daisy c-cloud cc1" style="left:-20px"><use href="#cloud"/></svg>
-      <svg aria-hidden="true" class="daisy c-cloud cc2" style="right:-30px"><use href="#cloud"/></svg>
-      <div class="set-sun"></div>
-      <div class="inner">
-        <img class="sec-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-ticket.png" alt="" aria-hidden="true" loading="lazy">
-        <span class="kicker center on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Billetterie</span>
-        <h2 style="margin-top:14px">Choisis ta <em>formule</em></h2>
-        <p>Une journée entière de 11h à 22h : concerts, food court gourmand, boutique et causeries bien-être. Quatre formules pour vivre FLORE comme tu l'aimes, en solo, à deux ou en tribu : le plus beau, c'est de venir ensemble.</p>
-        <div class="tickets">
-          <div class="ticket">
-            <div class="t-ic">🎟️</div>
-            <h3>Pass Journée</h3>
-            <div class="t-hours">11h – 22h</div>
-            <div class="t-price"><span class="amt">12 €</span><span class="was">18 €</span><span class="t-save">-33 %</span></div>
-            <div class="t-full">Tarif early bird, tant qu'il dure</div>
-            <ul class="t-list">
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le festival en entier, de 11h à 22h</li>
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Concerts, DJ sets et causeries bien-être</li>
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Food court et boutique 100 % sans gluten ni lactose</li>
-            </ul>
-            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
-          </div>
-          <div class="ticket">
-            <div class="t-ic">👯</div>
-            <h3>Pass Duo</h3>
-            <div class="t-hours">2 Pass Journée</div>
-            <div class="t-price"><span class="amt">30 €</span><span class="was">36 €</span><span class="t-save">6 € offerts</span></div>
-            <div class="t-full">Soit 15 € par personne, l'entrée à deux</div>
-            <ul class="t-list">
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>2 entrées journée, de 11h à 22h</li>
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le plan parfait à deux, entre copines</li>
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Un seul billet, vous arrivez ensemble</li>
-            </ul>
-            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
-          </div>
-          <div class="ticket feat">
-            <div class="t-badge">⭐ Le plus malin</div>
-            <div class="t-ic">💛</div>
-            <h3>Pass Tribu</h3>
-            <div class="t-hours">4 Pass Journée</div>
-            <div class="t-price"><span class="amt">56 €</span><span class="was">72 €</span><span class="t-save">16 € offerts</span></div>
-            <div class="t-full">Soit 14 € par personne, le tarif le plus doux</div>
-            <ul class="t-list">
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>4 entrées journée, de 11h à 22h</li>
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le plan parfait entre copines</li>
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Tout aussi sympa en famille ou entre amis</li>
-            </ul>
-            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
-          </div>
-          <div class="ticket">
-            <div class="t-ic">🌅</div>
-            <h3>Pass Soirée</h3>
-            <div class="t-hours">18h – 22h</div>
-            <div class="t-price"><span class="amt">9 €</span><span class="was">14 €</span><span class="t-save">-36 %</span></div>
-            <div class="t-full">Tarif early bird, tant qu'il dure</div>
-            <ul class="t-list">
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les concerts du soir et le golden hour</li>
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>La clôture en beauté sous les lumières</li>
-              <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Bar et ambiance jusqu'à la nuit</li>
-            </ul>
-            <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
-          </div>
-        </div>
-        <p class="ticket-note">👨‍👩‍👧 Tarif réduit 9 € : moins de 16 ans, étudiant·e, demandeur·se d'emploi, situation de handicap &nbsp;·&nbsp; 🧒 Enfants de moins de 12 ans : gratuit</p>
-        <div class="signup-block" id="prevenir">
-          <p class="signup-title">🌸 Rejoins la liste prioritaire</p>
-          <p>La billetterie n'est pas encore ouverte. Inscris-toi pour passer devant tout le monde le jour de l'ouverture.</p>
-          <ul class="signup-perks">
-            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le tarif early bird avant tout le monde</li>
-            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Prévenu·e en premier de l'ouverture</li>
-            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les annonces du festival en avant-première</li>
-          </ul>
-          <form class="signup" id="signupForm" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
-            <input type="hidden" name="subject" value="🌼 Newsletter FLORE · Nouvelle inscription">
-            <input type="hidden" name="from_name" value="FLORE Festival · Liste prioritaire">
-            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-            <input type="email" name="email" placeholder="votre@email.fr" required aria-label="Votre adresse e-mail">
-            <button type="submit" class="btn btn-ink">Je rejoins la liste</button>
-          </form>
-          <div id="signupSuccess" class="signup-success" hidden>
-            <svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>
-            <p><strong>Bienvenue dans la communauté FLORE 🌼</strong><br><span>Tu seras prévenu·e en premier de l'ouverture de la billetterie.</span></p>
-          </div>
-          <p class="signup-fine">Zéro spam, juste l'essentiel. Désinscription en un clic.</p>
         </div>
       </div>
     </div>
