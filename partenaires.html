@@ -320,6 +320,45 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .price .amount{font-size:1.85rem}
   .opp h3{font-size:1.2rem}
 }
+
+/* ============================================================
+   MODAL CONTACT PARTENAIRES (Web3Forms)
+   ============================================================ */
+.modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex;animation:modalFade .25s ease}
+.modal-backdrop{position:absolute;inset:0;background:rgba(11,24,50,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.modal-card{position:relative;background:#fff;border-radius:var(--r-lg);max-width:540px;width:100%;padding:36px 36px 30px;box-shadow:0 30px 80px rgba(11,24,50,.4);max-height:90vh;overflow-y:auto;animation:modalSlide .35s cubic-bezier(.2,1.1,.6,1)}
+@keyframes modalFade{from{opacity:0}to{opacity:1}}
+@keyframes modalSlide{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:none;background:var(--sky-pale);color:var(--ink);cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;line-height:1;font-family:inherit;padding:0;transition:background .2s,transform .2s}
+.modal-close:hover{background:var(--line);transform:rotate(90deg)}
+.modal-kicker{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:6px}
+.modal-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.55rem;color:var(--ink);margin-bottom:8px;line-height:1.18}
+.modal-card .modal-lede{color:var(--ink-soft);font-size:.94rem;margin-bottom:22px;line-height:1.5}
+.modal-form{display:flex;flex-direction:column;gap:14px}
+.modal-form .field{display:flex;flex-direction:column;gap:5px}
+.modal-form label{font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft)}
+.modal-form input,.modal-form textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.modal-form textarea{resize:vertical;min-height:90px;line-height:1.5}
+.modal-form input:focus,.modal-form textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 3px rgba(77,169,223,.18)}
+.modal-form input::placeholder,.modal-form textarea::placeholder{color:rgba(21,57,91,.42)}
+.modal-form .row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.modal-form .row-2{grid-template-columns:1fr}}
+.modal-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:8px;flex-wrap:wrap}
+.modal-foot .modal-fine{font-size:.78rem;color:var(--ink-soft)}
+.modal-submit{background:var(--ink);color:#fff;border:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.95rem;padding:13px 26px;border-radius:100px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .25s cubic-bezier(.34,1.45,.5,1),box-shadow .25s}
+.modal-submit:hover{background:var(--navy);transform:translateY(-2px);box-shadow:0 16px 32px rgba(11,24,50,.3)}
+.modal-submit:disabled{opacity:.6;cursor:wait}
+.modal-success{display:none;text-align:center;padding:30px 12px}
+.modal-success.show{display:block;animation:modalFade .35s ease}
+.modal-success .check{width:64px;height:64px;border-radius:50%;background:var(--sun);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px;animation:bounceIn .5s cubic-bezier(.34,1.45,.5,1)}
+@keyframes bounceIn{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-success h3{color:var(--ink);margin-bottom:8px}
+.modal-success p{color:var(--ink-soft);font-size:.95rem;line-height:1.55}
+.modal-error{color:#B23939;font-size:.88rem;margin-top:8px;text-align:center;display:none}
+.modal-error.show{display:block}
+body.modal-open{overflow:hidden}
+@media(max-width:480px){.modal-card{padding:28px 22px 22px}.modal-card h3{font-size:1.3rem}}
 </style>
 </head>
 <body>
@@ -486,7 +525,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
           <span class="spec">3 m × 2,50 m</span>
           <span class="spec">~13 stands</span>
         </div>
-        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Stand%20food">Recevoir cette offre</a>
+        <button type="button" class="btn btn-sun js-partner-cta" data-offer="Stand food">Recevoir cette offre</button>
       </div>
 
       <div class="price feat" data-aos="fade-up" data-aos-delay="100">
@@ -498,7 +537,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
           <span class="spec">3 m × 3 m</span>
           <span class="spec">Zone centrale</span>
         </div>
-        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Stand%20XXL">Recevoir cette offre</a>
+        <button type="button" class="btn btn-sun js-partner-cta" data-offer="Stand XXL">Recevoir cette offre</button>
       </div>
 
       <div class="price" data-aos="fade-up">
@@ -511,7 +550,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
           <div class="tier"><div class="t-name">Niveau bas<span>Visibilité réduite</span></div></div>
           <div class="tier pack"><div class="t-name">Rack complet · 3 niveaux<span>Les 3 niveaux réunis</span></div></div>
         </div>
-        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Emplacement%20boutique">Recevoir cette offre</a>
+        <button type="button" class="btn btn-sun js-partner-cta" data-offer="Emplacement boutique">Recevoir cette offre</button>
       </div>
 
       <div class="price" data-aos="fade-up" data-aos-delay="100">
@@ -522,7 +561,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
           <span class="spec">Logo 4 m × 8 m</span>
           <span class="spec">Communication officielle</span>
         </div>
-        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Naming%20de%20la%20sc%C3%A8ne">Recevoir cette offre</a>
+        <button type="button" class="btn btn-sun js-partner-cta" data-offer="Naming de la scène">Recevoir cette offre</button>
       </div>
 
       <div class="price" data-aos="fade-up">
@@ -532,7 +571,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
         <div class="specs">
           <span class="spec">Bar de la scène</span>
         </div>
-        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Naming%20du%20bar%20central">Recevoir cette offre</a>
+        <button type="button" class="btn btn-sun js-partner-cta" data-offer="Naming du bar central">Recevoir cette offre</button>
       </div>
 
       <div class="price" data-aos="fade-up" data-aos-delay="100">
@@ -542,7 +581,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
         <div class="specs">
           <span class="spec">Format sur-mesure</span>
         </div>
-        <a class="btn btn-sun" href="mailto:contact@flore-festival.fr?subject=Offre%20FLORE%20Festival%20%3A%20Sponsoring%20%26%20m%C3%A9dia">Recevoir cette offre</a>
+        <button type="button" class="btn btn-sun js-partner-cta" data-offer="Sponsoring & partenariat média">Recevoir cette offre</button>
       </div>
 
     </div>
@@ -558,7 +597,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
       <span class="kicker on-blue center" style="justify-content:center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>On en discute ?</span>
       <h2>Construisons votre présence à FLORE</h2>
       <p>Parlez-nous de votre marque et de vos envies : nous reviendrons vers vous avec une proposition sur mesure et le dossier partenaires complet.</p>
-      <a href="mailto:contact@flore-festival.fr?subject=Partenariat%20FLORE%20Festival&body=Bonjour,%0D%0A%0D%0ANotre%20marque%20souhaite%20devenir%20partenaire%20de%20FLORE%20Festival.%0D%0A%0D%0ANom%20de%20la%20marque%20:%0D%0AType%20de%20partenariat%20envisag%C3%A9%20:%0D%0A%0D%0AMerci%20!" class="btn btn-sun">Demander le dossier partenaires</a>
+      <button type="button" class="btn btn-sun js-partner-cta" data-offer="Dossier partenaires complet">Demander le dossier partenaires</button>
       <div class="contacts">
         <a href="mailto:contact@flore-festival.fr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
@@ -586,6 +625,65 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   </div>
 </footer>
 
+<!-- ============ MODAL CONTACT PARTENAIRES ============ -->
+<div class="modal" id="partnerModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card">
+    <button type="button" class="modal-close" data-close aria-label="Fermer">×</button>
+    <div class="modal-form-wrap" id="modalFormWrap">
+      <div class="modal-kicker" id="modalKicker">Offre partenaire</div>
+      <h3 id="modalTitle">Recevoir cette offre</h3>
+      <p class="modal-lede">Laissez-nous vos coordonnées : nous revenons vers vous sous 48 h avec une proposition détaillée.</p>
+      <form class="modal-form" id="partnerForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+        <input type="hidden" name="subject" id="modalSubject" value="">
+        <input type="hidden" name="from_name" value="FLORE Festival · Demande partenaire">
+        <input type="hidden" name="Offre" id="modalOffre" value="">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="row-2">
+          <div class="field">
+            <label for="pf-nom">Votre nom</label>
+            <input type="text" id="pf-nom" name="Nom" placeholder="Prénom Nom" required>
+          </div>
+          <div class="field">
+            <label for="pf-marque">Marque / Structure</label>
+            <input type="text" id="pf-marque" name="Marque" placeholder="Nom de votre marque" required>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="pf-email">Email pro</label>
+            <input type="email" id="pf-email" name="Email" placeholder="vous@marque.fr" required>
+          </div>
+          <div class="field">
+            <label for="pf-tel">Téléphone (optionnel)</label>
+            <input type="tel" id="pf-tel" name="Telephone" placeholder="06 XX XX XX XX">
+          </div>
+        </div>
+        <div class="field">
+          <label for="pf-message">Message (optionnel)</label>
+          <textarea id="pf-message" name="Message" placeholder="Précisions, contraintes, objectifs..."></textarea>
+        </div>
+
+        <div class="modal-foot">
+          <span class="modal-fine">Données traitées par MGE uniquement</span>
+          <button type="submit" class="modal-submit">
+            Envoyer ma demande
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <p class="modal-error" id="modalError">Envoi impossible pour le moment. Réessayez ou écrivez à contact@flore-festival.fr.</p>
+      </form>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="check">✓</div>
+      <h3>Demande envoyée !</h3>
+      <p>Merci pour votre intérêt. L'équipe FLORE vous recontacte sous 48 h ouvrées.</p>
+    </div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   // URL propre : on retire l'extension .html de la barre d'adresse
@@ -612,6 +710,73 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
     menu.classList.remove('open');
     document.body.style.overflow = '';
   }));
+
+  // ============ MODAL CONTACT PARTENAIRES (Web3Forms) ============
+  const modal = document.getElementById('partnerModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalKicker = document.getElementById('modalKicker');
+  const modalSubject = document.getElementById('modalSubject');
+  const modalOffre = document.getElementById('modalOffre');
+  const modalFormWrap = document.getElementById('modalFormWrap');
+  const modalSuccess = document.getElementById('modalSuccess');
+  const modalError = document.getElementById('modalError');
+  const partnerForm = document.getElementById('partnerForm');
+
+  function openModal(offer) {
+    const isDossier = offer.toLowerCase().includes('dossier');
+    modalTitle.textContent = isDossier ? 'Demander le dossier partenaires' : 'Recevoir l’offre : ' + offer;
+    modalKicker.textContent = isDossier ? 'Dossier complet' : 'Offre partenaire';
+    modalSubject.value = isDossier
+      ? '🤝 Partenariat FLORE · Demande de dossier'
+      : '🤝 Partenariat FLORE · ' + offer;
+    modalOffre.value = offer;
+    modalFormWrap.style.display = '';
+    modalSuccess.classList.remove('show');
+    modalError.classList.remove('show');
+    partnerForm.reset();
+    modal.hidden = false;
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+    setTimeout(() => modal.querySelector('input[name="Nom"]').focus(), 200);
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    setTimeout(() => { modal.hidden = true; }, 300);
+  }
+
+  document.querySelectorAll('.js-partner-cta').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.offer || 'partenariat'));
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target.closest('[data-close]')) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  partnerForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const submitBtn = partnerForm.querySelector('.modal-submit');
+    const originalContent = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Envoi…';
+    modalError.classList.remove('show');
+    try {
+      const data = new FormData(partnerForm);
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.message || 'fail');
+      modalFormWrap.style.display = 'none';
+      modalSuccess.classList.add('show');
+    } catch (err) {
+      modalError.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalContent;
+    }
+  });
 
   // Défilement vers les sections sans inscrire de # dans l'URL
   document.querySelectorAll('a[href^="#"]').forEach(link => {
