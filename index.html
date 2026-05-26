@@ -657,6 +657,116 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .cta-card{padding:64px 26px 72px}
   .part-cta{padding:42px}
 }
+
+/* ============================================================
+   RESPONSIVE POLISH MOBILE & TABLETTE (audit complet)
+   ============================================================ */
+
+/* Tap targets & accessibilité (toutes tailles) */
+.lgl-link{padding:8px 6px;min-height:44px;display:inline-flex;align-items:center}
+.nav-toggle{padding:10px;min-width:44px;min-height:44px}
+.st-link{padding:8px 0;min-height:44px;display:inline-flex;align-items:center}
+.faq-item summary{min-height:44px}
+
+/* Typo lisible ≥ 12px partout */
+.cd-lab{font-size:.66rem}
+.hero-meta .item small{font-size:.66rem}
+.footer-bottom{font-size:.86rem}
+
+/* ===== TABLETTE (≤ 1024px) ===== */
+@media(max-width:1024px){
+  .sec{padding:88px 0}
+  .concept-intro,.about-grid{gap:36px}
+  .values{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ===== MOBILE LARGE (≤ 768px) ===== */
+@media(max-width:768px){
+  /* Performance : couper animations coûteuses */
+  .sky-bg::after,.stars,.m-stars,.cta-stars,.f-stars,.hero .sun .rays{animation:none}
+  .grain{opacity:.28}
+  /* Hero sun deco réduit */
+  .hero .sun{width:240px;height:240px;top:-66px;right:-54px}
+  .hero .sun .core{inset:48px}
+}
+
+/* ===== MOBILE STANDARD (≤ 680px) ===== */
+@media(max-width:680px){
+  /* Spacing cards */
+  .story-card{padding:32px 24px;border-radius:var(--r-md)}
+  .story-card .big-daisy{width:64px;height:64px;top:-22px;right:-8px}
+  .place-card,.manifesto{padding:32px 24px;border-radius:var(--r-md)}
+  .manifesto blockquote{font-size:1.18rem;line-height:1.36}
+  .place-card h3{font-size:1.7rem}
+  .florette-txt .quote{padding:24px 22px 24px 50px;font-size:1.1rem}
+  .florette-txt .quote::before{font-size:4.4rem;left:14px;top:-2px}
+  /* Ticket compact */
+  .ticket{padding:26px 22px}
+  .ticket h3{font-size:1.3rem}
+  .ticket.feat{box-shadow:0 0 0 5px rgba(218,239,82,.18),0 22px 44px rgba(11,24,50,.32)}
+}
+
+/* ===== PETIT MOBILE (≤ 480px) ===== */
+@media(max-width:480px){
+  /* Hero compact - tout doit tenir avant scroll */
+  .hero{padding:108px 0 56px;border-radius:0 0 24px 24px;min-height:auto}
+  .hero h1 img{width:clamp(160px,52vw,220px)}
+  .hero-tagline{font-size:clamp(1.1rem,5vw,1.4rem);margin-bottom:10px}
+  .hero p.lede{font-size:.95rem;margin-bottom:16px;line-height:1.5}
+  .hero-meta{gap:8px;margin-bottom:18px}
+  .hero-meta .item{padding:9px 12px;min-width:0;flex:1 1 47%}
+  .hero-cta{gap:8px;width:100%}
+  .hero-cta .btn{flex:1 1 auto;justify-content:center;font-size:.92rem;padding:13px 18px}
+  /* Countdown qui rentre sur 320-375px */
+  .countdown{gap:5px}
+  .cd-cell{min-width:0;flex:1 1 0;padding:9px 2px}
+  .cd-num{font-size:1.3rem}
+  .cd-lab{font-size:.6rem;letter-spacing:.04em;margin-top:4px}
+  .cd-intro{margin-bottom:8px}
+  /* Section spacing serré */
+  .sec{padding:56px 0}
+  /* Titres */
+  .value-card h3{font-size:1.18rem}
+  .espace-card{padding:24px 20px}
+  .espace-card h3{font-size:1.3rem}
+  .espace-card .num{font-size:3.4rem;top:6px;right:14px}
+  .aud-card h4{font-size:1.1rem}
+  /* Signup newsletter full width */
+  .signup{flex-direction:column}
+  .signup input{min-width:0;width:100%}
+  .signup .btn{width:100%;justify-content:center}
+  /* CTA card */
+  .cta-card{padding:48px 18px 56px;border-radius:var(--r-lg)}
+  .cta-card h2{font-size:clamp(1.9rem,8vw,2.4rem)}
+  /* Programme */
+  .timeline{gap:10px}
+  .tl-time{font-size:1rem;padding:10px 14px;min-width:64px}
+  .tl-card{padding:14px 16px}
+  .tl-card h4{font-size:1.05rem;margin:4px 0 6px}
+  .tl-card p{font-size:.9rem}
+  .tl-card .tl-tag{font-size:.65rem}
+  /* Tickets feat shadow plus discrète */
+  .ticket.feat{box-shadow:0 0 0 4px rgba(218,239,82,.18),0 16px 32px rgba(11,24,50,.28)}
+  /* About / Lieu textes plus compacts */
+  .story-card p{font-size:1.04rem;line-height:1.55}
+  .lieu-grid p{font-size:1rem}
+  /* Sejour teaser visual */
+  .st-visual{height:180px;gap:5px}
+  .st-card{font-size:.78rem;padding:10px 12px;border-radius:18px}
+  /* Twilight padding interne */
+  .twilight{margin:0 8px;border-radius:24px}
+  .twilight.sec{padding:64px 0}
+  /* Border-radius hero plus terre-à-terre */
+  .hero,.twilight{border-radius:0 0 24px 24px}
+}
+
+/* ===== TRÈS PETIT MOBILE (≤ 375px) ===== */
+@media(max-width:375px){
+  .hero-meta .item{flex:1 1 100%}
+  .hero-cta .btn{padding:13px 14px;font-size:.88rem}
+  .cd-num{font-size:1.2rem}
+  .nav .btn{padding:11px 16px;font-size:.86rem}
+}
 </style>
 </head>
 <body>

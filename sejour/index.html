@@ -226,8 +226,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .sec-head h2 .hl{color:var(--sun)}
 .sec-head p{font-size:1.05rem;color:rgba(255,255,255,.88)}
 
-/* TABS */
-.tabs{display:flex;justify-content:center;gap:10px;margin:-20px 0 50px;flex-wrap:wrap}
+/* TABS · sticky pour rester visibles au scroll */
+.tabs{display:flex;justify-content:center;gap:10px;margin:0 auto 40px;flex-wrap:wrap;position:sticky;top:80px;z-index:50;padding:14px 0;background:linear-gradient(180deg,rgba(74,127,168,.7) 0%,rgba(74,127,168,.92) 60%,rgba(74,127,168,.92) 100%);backdrop-filter:blur(14px);border-radius:100px;max-width:fit-content}
 .tab-btn{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;padding:14px 28px;border-radius:100px;border:1.5px solid transparent;background:#fff;color:var(--ink);cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease),color .25s var(--ease);box-shadow:0 10px 26px rgba(11,24,50,.18);display:inline-flex;align-items:center;gap:8px;min-height:44px}
 .tab-btn:hover{transform:translateY(-2px)}
 .tab-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -276,11 +276,61 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .nav-links{display:none}
   .nav-toggle{display:block}
 }
+
+/* ============================================================
+   RESPONSIVE POLISH MOBILE & TABLETTE
+   ============================================================ */
+
+/* Tap targets */
+.nav-toggle{padding:10px;min-width:44px;min-height:44px}
+.act-link{padding:10px 0;min-height:44px;display:inline-flex;align-items:center}
+.act-meta{font-size:.74rem}
+.a-tag{font-size:.72rem}
+
+/* TABLETTE (≤1024px) */
+@media(max-width:1024px){
+  .sec{padding:74px 0}
+  .tabs{top:70px}
+}
+
+/* MOBILE LARGE (≤768px) - perf */
+@media(max-width:768px){
+  .sky-bg::after{animation:none}
+  .grain{opacity:.28}
+}
+
+/* MOBILE STANDARD (≤680px) */
 @media(max-width:680px){
-  .sec{padding:60px 0}
+  .sec{padding:54px 0}
   .dhero{padding:120px 0 60px}
-  .tabs{margin:-10px 0 32px}
-  .tab-btn{font-size:.92rem;padding:11px 22px}
+  .dhero .sun-deco{width:230px;height:230px;top:-70px;right:-58px}
+  .tabs{top:60px;padding:10px 0;margin:0 auto 28px}
+  .tab-btn{font-size:.92rem;padding:12px 22px;min-height:44px}
+  .act-grid{gap:18px}
+  .act-body{padding:20px 22px 22px}
+  .act-card h3{font-size:1.25rem}
+  .final-cta{padding:60px 22px;margin:24px 12px;border-radius:var(--r-lg)}
+}
+
+/* PETIT MOBILE (≤480px) */
+@media(max-width:480px){
+  .dhero{padding:108px 0 50px;min-height:auto}
+  .dhero h1{font-size:clamp(1.9rem,8.5vw,2.6rem);line-height:1.06}
+  .dhero p{font-size:.98rem;margin-bottom:18px}
+  .dhero .btn-row{gap:8px;width:100%}
+  .dhero .btn-row .btn{flex:1 1 auto;justify-content:center;font-size:.92rem;padding:13px 18px}
+  .dhero .meta-row{gap:10px 18px;font-size:.84rem}
+  .tabs{margin:0 -12px 24px;border-radius:14px}
+  .tab-btn{font-size:.88rem;padding:11px 18px}
+  .tab-btn .count{font-size:.72rem}
+  .act-grid{gap:14px}
+  .act-img{aspect-ratio:3/2}
+  .act-body{padding:18px}
+  .act-card h3{font-size:1.18rem}
+  .act-card p{font-size:.9rem}
+  .final-cta{padding:48px 18px;margin:18px 8px}
+  .final-cta h2{font-size:clamp(1.9rem,8vw,2.4rem)}
+  .footer{padding:48px 0 32px}
 }
 </style>
 </head>
@@ -549,8 +599,8 @@ window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scr
 // Mobile menu
 const navToggle=document.getElementById('navToggle');
 const mobileMenu=document.getElementById('mobileMenu');
-navToggle.addEventListener('click',()=>{mobileMenu.classList.toggle('open')});
-mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+navToggle.addEventListener('click',()=>{mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');document.body.style.overflow=''}));
 
 // Tabs
 const tabBtns=document.querySelectorAll('.tab-btn');

@@ -266,13 +266,59 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .nav-links{display:none}
   .nav-toggle{display:block}
 }
-@media(max-width:980px){
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .opps,.price-grid{grid-template-columns:1fr}
+
+/* ============================================================
+   RESPONSIVE POLISH MOBILE & TABLETTE
+   ============================================================ */
+
+/* Tap targets globaux */
+.nav-toggle{padding:10px;min-width:44px;min-height:44px}
+.lgl-link,.footer a{padding:4px 2px;min-height:44px;display:inline-flex;align-items:center}
+
+/* TABLETTE (≤1024px) */
+@media(max-width:1024px){
+  .sec{padding:84px 0}
 }
+
+/* TABLETTE PORTRAIT (≤980px) - garder 2 cols pour éviter scroll long */
+@media(max-width:980px){
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .price-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .opps{grid-template-columns:repeat(2,1fr);gap:18px}
+  .opps .opp:last-child{grid-column:1/-1}
+}
+
+/* MOBILE LARGE (≤768px) - perf */
+@media(max-width:768px){
+  .sky-bg::after{animation:none}
+  .grain{opacity:.28}
+}
+
+/* MOBILE STANDARD (≤680px) */
 @media(max-width:680px){
-  .stats-grid{grid-template-columns:1fr}
-  .sec{padding:74px 0}
+  .stats-grid{grid-template-columns:1fr;gap:12px}
+  .stats{margin-top:-24px}
+  .stat{padding:22px 20px}
+  .stat .n{font-size:2.1rem}
+  .sec{padding:64px 0}
+  .opp,.price{padding:26px 22px}
+  .phero .sun-deco{width:240px;height:240px;top:-72px;right:-58px}
+  .pcta{margin:24px 12px;padding:64px 22px;border-radius:var(--r-lg)}
+  .pcta .contacts{gap:14px;flex-direction:column}
+}
+
+/* PETIT MOBILE (≤480px) */
+@media(max-width:480px){
+  .phero{padding:120px 0 60px;min-height:auto}
+  .phero h1{font-size:clamp(2.2rem,8vw,3rem);line-height:1.06}
+  .phero p{font-size:1rem}
+  .opps,.price-grid{grid-template-columns:1fr}
+  .sec{padding:54px 0}
+  .pcta{padding:54px 20px;margin:18px 10px}
+  .pcta h2{font-size:clamp(2rem,8.5vw,2.6rem)}
+  .price h3{font-size:1.3rem}
+  .price .amount{font-size:1.85rem}
+  .opp h3{font-size:1.2rem}
 }
 </style>
 </head>
