@@ -19,25 +19,91 @@
 <meta property="og:title" content="Destination Plaine de l'Ain · Prolongez votre week-end FLORE">
 <meta property="og:description" content="Activités, châteaux, chalets, cité médiévale : tout ce qu'il faut savoir pour rester le week-end autour du festival FLORE.">
 <meta property="og:url" content="https://flore-festival.fr/sejour/">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Destination Plaine de l'Ain - prolongez votre week-end FLORE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Destination Plaine de l'Ain · FLORE Festival 2027">
 <meta name="twitter:description" content="Que faire et où dormir autour du festival FLORE : Pérouges, Lyon, Dombes, Cerdon, châteaux et boutique hôtels.">
+<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta name="geo.region" content="FR-01">
+<meta name="geo.placename" content="Plaine de l'Ain, France">
+<link rel="alternate" hreflang="fr" href="https://flore-festival.fr/sejour/">
+<link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TouristDestination",
-  "name": "Plaine de l'Ain · Destination week-end FLORE Festival",
-  "description": "Activités et hébergements dans la Plaine de l'Ain autour du festival FLORE 2027 à Lagnieu.",
-  "url": "https://flore-festival.fr/sejour/",
-  "touristType": ["Festival goers", "Weekend travelers", "Cultural tourists"],
-  "includesAttraction": [
-    {"@type": "TouristAttraction", "name": "Cité médiévale de Pérouges"},
-    {"@type": "TouristAttraction", "name": "Parc des Oiseaux de Villars-les-Dombes"},
-    {"@type": "TouristAttraction", "name": "Vignobles du Bugey · Cerdon"},
-    {"@type": "TouristAttraction", "name": "Lyon, capitale des Gaules"},
-    {"@type": "TouristAttraction", "name": "Abbaye d'Ambronay"},
-    {"@type": "TouristAttraction", "name": "Voie Verte de la Plaine de l'Ain"}
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://flore-festival.fr/"},
+        {"@type": "ListItem", "position": 2, "name": "Le week-end · Plaine de l'Ain", "item": "https://flore-festival.fr/sejour/"}
+      ]
+    },
+    {
+      "@type": "TouristDestination",
+      "name": "Plaine de l'Ain · Destination week-end FLORE Festival",
+      "description": "Activités touristiques et hébergements de charme dans la Plaine de l'Ain autour du festival FLORE 2027 à Lagnieu. À 40 minutes de Lyon, entre étangs des Dombes, vignobles du Bugey et cité médiévale de Pérouges.",
+      "url": "https://flore-festival.fr/sejour/",
+      "image": "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+      "touristType": ["Festival goers", "Weekend travelers", "Cultural tourists", "Female travelers"],
+      "geo": {"@type": "GeoCoordinates", "latitude": 45.9069, "longitude": 5.3550},
+      "includesAttraction": [
+        {
+          "@type": "TouristAttraction",
+          "name": "Cité médiévale de Pérouges",
+          "description": "Plus Beau Village de France, ruelles pavées du XIIIᵉ siècle, à 15 min de Lagnieu.",
+          "address": {"@type": "PostalAddress", "addressLocality": "Pérouges", "addressRegion": "Ain", "addressCountry": "FR"}
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Parc des Oiseaux des Dombes",
+          "description": "3000 oiseaux du monde entier dans un parc immense, à 30 min de Lagnieu.",
+          "address": {"@type": "PostalAddress", "addressLocality": "Villars-les-Dombes", "addressRegion": "Ain", "addressCountry": "FR"}
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Vignobles &amp; Rosé de Cerdon",
+          "description": "Le fameux rosé pétillant AOC du Bugey, route panoramique des vignes.",
+          "address": {"@type": "PostalAddress", "addressLocality": "Cerdon", "addressRegion": "Ain", "addressCountry": "FR"}
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Lyon, capitale des Gaules",
+          "description": "Vieux-Lyon, bouchons traditionnels, parc de la Tête d'or, à 40 min de Lagnieu.",
+          "address": {"@type": "PostalAddress", "addressLocality": "Lyon", "addressRegion": "Rhône", "addressCountry": "FR"}
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Abbaye d'Ambronay",
+          "description": "Abbaye bénédictine du IXᵉ siècle, célèbre festival baroque.",
+          "address": {"@type": "PostalAddress", "addressLocality": "Ambronay", "addressRegion": "Ain", "addressCountry": "FR"}
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Voie Verte de la Plaine de l'Ain",
+          "description": "60 km de vélo sécurisé le long de l'ancienne voie ferrée."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Grottes du Cerdon",
+          "description": "Grottes préhistoriques avec parcours ludique et accrobranche."
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Hébergements de charme près de Lagnieu",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Chalet Maramour - Chazey-sur-Ain", "url": "https://www.google.com/maps/search/?api=1&query=Chalet+Maramour+Chazey-sur-Ain"},
+        {"@type": "ListItem", "position": 2, "name": "Les Chambres de la Renaissance - Sainte-Julie", "url": "https://www.leschambresdelarenaissance.fr/"},
+        {"@type": "ListItem", "position": 3, "name": "Hébergements de Pérouges", "url": "https://www.perouges-bugey-tourisme.com/"},
+        {"@type": "ListItem", "position": 4, "name": "Le Bohôtel d'Ambronay", "url": "https://www.google.com/maps/search/?api=1&query=Le+Bohotel+Ambronay"}
+      ]
+    }
   ]
 }
 </script>

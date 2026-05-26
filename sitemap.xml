@@ -1,18 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://flore-festival.fr/</loc>
+    <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/"/>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png</image:loc>
+      <image:title>FLORE Festival - logo</image:title>
+      <image:caption>FLORE Festival 2027 - le premier festival musical et culinaire sans gluten et sans lactose</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://flore-festival.fr/assets/florette.png</image:loc>
+      <image:title>Florette - mascotte FLORE Festival</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-floor-scene.png</image:loc>
+      <image:title>La Scène Flore - espace musical</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png</image:loc>
+      <image:title>Le Jardin des Saveurs - food court</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png</image:loc>
+      <image:title>La Boutique Flore - épicerie sans gluten et lactose</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-lescauseries.png</image:loc>
+      <image:title>Les Causeries Flore - talks santé AFDIAG</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-floor-lesalon.png</image:loc>
+      <image:title>Le Salon - espace détente</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-lecocon.png</image:loc>
+      <image:title>Le Cocon - zone safe</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://flore-festival.fr/sejour/</loc>
+    <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/sejour/"/>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png</image:loc>
+      <image:title>Destination Plaine de l'Ain - week-end FLORE Festival</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://flore-festival.fr/partenaires</loc>
+    <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/partenaires"/>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png</image:loc>
+      <image:title>Devenir partenaire FLORE Festival 2027</image:title>
+    </image:image>
   </url>
 </urlset>
