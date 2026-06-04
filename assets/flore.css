@@ -124,6 +124,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .mobile-menu .m-label{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun);margin:18px 0 2px;padding:0}
 .mobile-menu a.m-sub{font-size:1.35rem;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.16)}
 
+/* ===== Sélecteur de langue ===== */
+.nav-links a.lang-switch{display:inline-flex;align-items:center;gap:5px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.03em;color:var(--white);border:1.6px solid rgba(255,255,255,.45);padding:7px 12px;border-radius:100px;transition:background .25s,color .25s,border-color .25s}
+.nav.scrolled .nav-links a.lang-switch{color:var(--ink);border-color:rgba(21,57,91,.2)}
+.nav-links a.lang-switch:hover{background:var(--sun);color:var(--ink)!important;border-color:var(--sun)}
+.nav-links a.lang-switch::after{display:none!important}
+.mobile-menu a.lang-switch{margin-top:22px;align-self:flex-start;border:1.6px solid rgba(255,255,255,.5);border-radius:100px;padding:9px 18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:#fff;font-size:1rem}
+
 /* ===== Hero ===== */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:150px 0 100px;background:radial-gradient(120% 80% at 88% -6%,rgba(255,219,130,.5),rgba(255,219,130,0) 55%),radial-gradient(90% 55% at 50% 112%,rgba(255,255,255,.14),transparent 60%),linear-gradient(168deg,#56A2D2 0%,#3F93C4 46%,#29688F 100%);border-radius:0 0 var(--r-xl) var(--r-xl);overflow:hidden}
 .hero .sun{position:absolute;top:-86px;right:-66px;width:320px;height:320px;z-index:1}
