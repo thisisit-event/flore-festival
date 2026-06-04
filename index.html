@@ -697,9 +697,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   /* Performance : couper animations coûteuses */
   .sky-bg::after,.stars,.m-stars,.cta-stars,.f-stars,.hero .sun .rays{animation:none}
   .grain{opacity:.28}
-  /* Hero sun deco réduit */
-  .hero .sun{width:240px;height:240px;top:-66px;right:-54px}
-  .hero .sun .core{inset:48px}
+  /* Hero : on dégage la déco du logo blanc (sinon blanc sur blanc, illisible).
+     Nuages masqués + soleil rangé dans le coin au-dessus du logo. */
+  .hero .h-cloud{display:none}
+  .hero .sun{width:180px;height:180px;top:-78px;right:-58px;opacity:.85}
+  .hero .sun .core{inset:36px}
+  .hero h1 img{filter:drop-shadow(0 8px 22px rgba(11,24,50,.45))}
 }
 
 /* ===== MOBILE STANDARD (≤ 680px) ===== */
