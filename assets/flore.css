@@ -90,7 +90,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .logo-img{height:34px;width:auto;display:block;filter:drop-shadow(0 2px 7px rgba(11,24,50,.22))}
 .logo-dark{display:none}
 .nav.scrolled .logo-light{display:none}
-.nav.scrolled .logo-dark{display:block}
+.nav.scrolled .logo-dark{display:block;filter:brightness(0) invert(47%) sepia(64%) saturate(560%) hue-rotate(174deg) brightness(95%) contrast(90%)}
 .footer .logo-img{height:40px;filter:none}
 .nav-links{display:flex;align-items:center;gap:30px}
 .nav-links a:not(.btn){font-weight:600;font-size:.96rem;color:var(--white);position:relative;transition:color .25s}
