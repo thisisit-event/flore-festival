@@ -43,6 +43,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://flore-festival.fr/sans-gluten-sans-lactose/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/sans-gluten-sans-lactose/"/>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png</image:loc>
+      <image:title>Festival sans gluten et sans lactose - FLORE 2027</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/sejour/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
