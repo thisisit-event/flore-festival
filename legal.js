@@ -123,7 +123,7 @@
       '<span class="ck-emoji" aria-hidden="true">🍪</span>' +
       '<h4>On reste léger</h4>' +
     '</div>' +
-    '<p>Ce site n\'utilise aucun cookie publicitaire ni de pistage. Juste l\'essentiel pour que tout s\'affiche bien et que la fête puisse éclore.</p>' +
+    '<p>Le seul cookie de la maison est sans gluten ni lactose. Pas de pub, pas de pistage, juste l\'essentiel pour que la fête puisse éclore.</p>' +
     '<div class="ck-row">' +
       '<button type="button" class="ck-ok">Parfait !</button>' +
       '<button type="button" class="ck-more" data-legal="confidentialite">En savoir plus</button>' +
