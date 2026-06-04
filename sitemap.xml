@@ -54,6 +54,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://flore-festival.fr/infos-pratiques/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/infos-pratiques/"/>
+    <image:image>
+      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png</image:loc>
+      <image:title>Préparer sa venue - accès, transport et hébergement FLORE 2027</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/sejour/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
