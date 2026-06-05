@@ -123,6 +123,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 /* ===== Méga-menu (panneau développé avec emoji + description) ===== */
 .dropdown.mega{width:500px;min-width:0;left:0;transform:translateY(8px);display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:12px}
 .nav-item:hover .dropdown.mega,.nav-item:focus-within .dropdown.mega{transform:translateY(0)}
+.dropdown.dd-right{left:auto;right:0;transform:translateY(8px)}
+.nav-item:hover .dropdown.dd-right,.nav-item:focus-within .dropdown.dd-right{transform:translateY(0)}
+.nav-item.nav-cta{align-items:center}
 .nav-links .dropdown.mega a{display:flex;align-items:flex-start;gap:12px;padding:11px 13px;border-radius:13px}
 .dropdown.mega .dd-ico{font-size:1.4rem;line-height:1;flex:none;margin-top:1px;filter:saturate(1.1)}
 .dropdown.mega .dd-tt{display:flex;flex-direction:column;gap:2px;min-width:0}
@@ -443,6 +446,20 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .lu-name{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.32rem;color:#fff;filter:blur(7px);user-select:none;pointer-events:none}
 .lineup-foot{text-align:center;margin-top:32px;color:rgba(255,255,255,.9);font-family:'Bricolage Grotesque',sans-serif;font-weight:600}
 @media(max-width:768px){.lineup-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== Formulaire (bénévoles, contact…) ===== */
+.form-card{background:var(--white);border-radius:var(--r-lg);padding:40px;max-width:640px;margin:0 auto;box-shadow:var(--shadow);text-align:left}
+.form-row{margin-bottom:18px}
+.form-row label.fl{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.9rem;color:var(--ink);margin-bottom:7px}
+.form-row input[type=text],.form-row input[type=email],.form-row input[type=tel],.form-row textarea{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:var(--r-sm);font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--ink);background:#fff;transition:border-color .2s}
+.form-row input:focus,.form-row textarea:focus{border-color:var(--sky);outline:none}
+.form-row textarea{min-height:110px;resize:vertical}
+.form-checks{display:flex;flex-wrap:wrap;gap:10px}
+.form-checks label{display:inline-flex;align-items:center;gap:8px;background:var(--sky-pale);border:1.5px solid transparent;border-radius:100px;padding:10px 16px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;color:var(--ink);cursor:pointer;margin:0}
+.form-checks input{accent-color:var(--sky-deep);width:16px;height:16px}
+.form-card .btn{width:100%;justify-content:center;margin-top:8px}
+.form-success{background:rgba(218,239,82,.16);border:1px solid rgba(218,239,82,.45);border-radius:var(--r-md);padding:26px 28px;text-align:center;color:var(--ink);font-size:1.02rem;line-height:1.6}
+.form-success strong{font-family:'Bricolage Grotesque',sans-serif;color:var(--sun-deep)}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .signup-error{color:#FFB199;font-size:.92rem;margin:10px 0 0;text-align:center}
 /* ===== FAQ ===== */

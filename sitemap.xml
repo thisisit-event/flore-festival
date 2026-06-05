@@ -80,6 +80,13 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/a-propos/"/>
   </url>
   <url>
+    <loc>https://flore-festival.fr/benevoles/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/benevoles/"/>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/presse/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
