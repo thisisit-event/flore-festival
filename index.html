@@ -578,6 +578,24 @@
   </div>
 </section>
 
+<!-- ===================== GALERIE / AFTERMOVIE ===================== -->
+<section class="sec" id="galerie" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>En images</span>
+      <h2>Notre univers, <span class="hl">bientôt en mouvement</span></h2>
+      <p>Un monde de ciel, de fleurs et de bonne énergie. Les premières images et l'aftermovie de l'édition 2027 arriveront ici, dès la fête passée.</p>
+    </div>
+    <div class="media-frame" data-aos="zoom-in">
+      <svg aria-hidden="true" class="mf-cloud" style="top:14%;left:8%;width:160px"><use href="#cloud"/></svg>
+      <svg aria-hidden="true" class="mf-cloud" style="bottom:16%;right:10%;width:200px"><use href="#cloud"/></svg>
+      <span class="mf-soon">🎬 Bientôt</span>
+      <div class="mf-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="mf-label">Aftermovie · édition 2027</div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== PUBLIC ===================== -->
 <section class="sec" id="public">
   <div class="wrap">
@@ -641,12 +659,12 @@
         <img class="florette-svg" src="/assets/florette.png" alt="Florette, la mascotte du festival FLORE" loading="lazy">
       </div>
       <div class="florette-txt" data-aos="fade-up">
-        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>L'ambassadrice du festival</span>
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Coucou, moi c'est Florette</span>
         <div class="sec-head" style="margin-bottom:14px">
-          <h2>Le jour s'incline, <em>Florette</em> veille</h2>
+          <h2>Votre <em>complice</em> de la journée</h2>
         </div>
-        <p>Quand la lumière baisse et que les guirlandes s'allument, Florette reste là. Joyeuse, bienveillante, elle est la silhouette qui rassemble. Elle incarne toutes celles et ceux qui, intolérants, allergiques ou touchés par une maladie invisible, se sentent trop souvent exclus de la fête.</p>
-        <p>Avec elle, FLORE rappelle une promesse simple : la fête doit être accessible à tous, sans exception et sans étiquette. Et la nuit, elle non plus, ne met personne de côté.</p>
+        <div class="quote">Moi ? La petite fleur qui a poussé là où on disait que rien ne pousserait. Je veille sur la fête, je rassemble, et je n'oublie personne, surtout pas celles et ceux qu'on met d'habitude de côté. Le 27 mars, je vous attends pour éclore avec moi.</div>
+        <p>Joyeuse, bienveillante et un brin têtue, Florette incarne la promesse de FLORE : une fête accessible à tous, sans exception et sans étiquette. Suis-la, elle t'emmène partout dans le festival.</p>
       </div>
     </div>
   </div>
@@ -1121,6 +1139,22 @@
     };
     ticketCards.forEach(t => t.addEventListener('click', () => selectTicket(t)));
     selectTicket(document.querySelector('.tickets .ticket.feat') || ticketCards[0]);
+  }
+
+  // Hero plus vivant : léger parallaxe à la souris (desktop, hors reduced-motion)
+  const hero = document.getElementById('accueil');
+  if (hero && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const sun = hero.querySelector('.sun'), flo = hero.querySelector('.florette-wrap');
+    hero.addEventListener('mousemove', e => {
+      const r = hero.getBoundingClientRect();
+      const dx = (e.clientX - r.width / 2) / r.width, dy = (e.clientY - r.height / 2) / r.height;
+      if (sun) sun.style.transform = `translate(${dx * 16}px, ${dy * 12}px)`;
+      if (flo) flo.style.transform = `translate(${dx * -22}px, ${dy * -16}px)`;
+    });
+    hero.addEventListener('mouseleave', () => {
+      if (sun) sun.style.transform = '';
+      if (flo) flo.style.transform = '';
+    });
   }
 </script>
 <script src="/assets/transitions.js" defer></script>

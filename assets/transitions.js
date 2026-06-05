@@ -57,4 +57,26 @@
 
   // Retour navigateur (bfcache) : ne jamais rester couvert
   window.addEventListener('pageshow', function (ev) { if (ev.persisted) veil.classList.remove('fx-cover'); });
+
+  // Pétales au clic sur les boutons (petit effet d'univers)
+  var PETALS = ['🌼', '🌸', '✿'];
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.btn');
+    if (!b) return;
+    var n = 6;
+    for (var i = 0; i < n; i++) {
+      var p = document.createElement('span');
+      p.className = 'fx-petal';
+      p.textContent = PETALS[i % PETALS.length];
+      p.style.left = e.clientX + 'px';
+      p.style.top = e.clientY + 'px';
+      var ang = (Math.PI * 2 * i) / n + (i * 0.7);
+      var dist = 40 + (i * 9) % 50;
+      p.style.setProperty('--tx', Math.cos(ang) * dist + 'px');
+      p.style.setProperty('--ty', (Math.sin(ang) * dist - 30) + 'px');
+      p.style.setProperty('--rot', (i % 2 ? '' : '-') + (120 + i * 40) + 'deg');
+      document.body.appendChild(p);
+      (function (el) { setTimeout(function () { el.remove(); }, 950); })(p);
+    }
+  });
 })();

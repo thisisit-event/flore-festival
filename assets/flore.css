@@ -474,9 +474,22 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 @keyframes fxCloudOut{0%{transform:scale(1.7);opacity:1}100%{transform:translateY(-60px) scale(2.6);opacity:0}}
 @media(prefers-reduced-motion:reduce){.fx-veil{display:none!important}}
 
+/* pétales au clic */
+.fx-petal{position:fixed;z-index:9998;pointer-events:none;left:0;top:0;font-size:18px;line-height:1;will-change:transform,opacity;animation:petalPop .9s cubic-bezier(.2,.6,.3,1) forwards}
+@keyframes petalPop{0%{transform:translate(-50%,-50%) scale(.3) rotate(0);opacity:1}100%{transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(1) rotate(var(--rot));opacity:0}}
+
 /* effet tactile au clic */
 .btn:active{transform:translateY(1px) scale(.985)}
 .ticket:active,.value-card:active{transform:scale(.99)}
+
+/* ===== Galerie / aftermovie teaser ===== */
+.media-frame{position:relative;max-width:900px;margin:0 auto;aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(150deg,#56A2D2,#3F93C4 55%,#2E7FB8);box-shadow:var(--shadow-lg);display:grid;place-items:center;border:1px solid rgba(255,255,255,.25)}
+.media-frame .mf-cloud{position:absolute;color:rgba(255,255,255,.5);filter:blur(2px)}
+.media-frame .mf-play{position:relative;z-index:2;width:88px;height:88px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 16px 40px rgba(11,24,50,.3);transition:transform .3s var(--ease)}
+.media-frame:hover .mf-play{transform:scale(1.08)}
+.media-frame .mf-play svg{width:34px;height:34px;color:var(--sky-deep);margin-left:5px}
+.media-frame .mf-label{position:absolute;z-index:2;bottom:22px;left:0;right:0;text-align:center;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;text-shadow:0 4px 16px rgba(11,24,50,.4)}
+.media-frame .mf-soon{position:absolute;z-index:2;top:18px;right:18px;background:var(--sun);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.04em;padding:6px 14px;border-radius:100px}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .signup-error{color:#FFB199;font-size:.92rem;margin:10px 0 0;text-align:center}
 /* ===== FAQ ===== */
