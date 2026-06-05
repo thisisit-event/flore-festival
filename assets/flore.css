@@ -460,6 +460,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .form-card .btn{width:100%;justify-content:center;margin-top:8px}
 .form-success{background:rgba(218,239,82,.16);border:1px solid rgba(218,239,82,.45);border-radius:var(--r-md);padding:26px 28px;text-align:center;color:var(--ink);font-size:1.02rem;line-height:1.6}
 .form-success strong{font-family:'Bricolage Grotesque',sans-serif;color:var(--sun-deep)}
+
+/* ===== Transition de page · bouffée de nuages ===== */
+.fx-veil{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0;visibility:hidden;background:radial-gradient(circle at 50% 55%,#fff 0%,#fff 40%,rgba(231,244,251,.92) 64%,rgba(255,255,255,0) 84%)}
+.fx-veil .fx-cloud{position:absolute;color:#fff;filter:blur(2px);opacity:0;will-change:transform,opacity}
+.fx-veil.fx-cover{visibility:visible;pointer-events:all;animation:fxFadeIn .48s var(--ease) forwards}
+.fx-veil.fx-reveal{visibility:visible;opacity:1;animation:fxFadeOut .6s var(--ease) .05s forwards}
+@keyframes fxFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fxFadeOut{from{opacity:1}to{opacity:0;visibility:hidden}}
+.fx-veil.fx-cover .fx-cloud{animation:fxCloudIn .5s var(--ease) forwards}
+.fx-veil.fx-reveal .fx-cloud{animation:fxCloudOut .6s var(--ease) forwards}
+@keyframes fxCloudIn{0%{transform:translateY(50px) scale(.6);opacity:0}60%{opacity:1}100%{transform:translateY(0) scale(1.7);opacity:1}}
+@keyframes fxCloudOut{0%{transform:scale(1.7);opacity:1}100%{transform:translateY(-60px) scale(2.6);opacity:0}}
+@media(prefers-reduced-motion:reduce){.fx-veil{display:none!important}}
+
+/* effet tactile au clic */
+.btn:active{transform:translateY(1px) scale(.985)}
+.ticket:active,.value-card:active{transform:scale(.99)}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .signup-error{color:#FFB199;font-size:.92rem;margin:10px 0 0;text-align:center}
 /* ===== FAQ ===== */
