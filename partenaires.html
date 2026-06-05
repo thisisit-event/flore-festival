@@ -428,9 +428,9 @@ body.modal-open{overflow:hidden}
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat" data-aos="fade-up"><div class="n">1<sup>re</sup></div><div class="l">édition : devenez partenaire fondateur</div></div>
-      <div class="stat" data-aos="fade-up" data-aos-delay="80"><div class="n">91 %</div><div class="l">de femmes dans l'audience</div></div>
+      <div class="stat" data-aos="fade-up" data-aos-delay="80"><div class="n stat-num" data-count="91" data-suffix=" %">0 %</div><div class="l">de femmes dans l'audience</div></div>
       <div class="stat" data-aos="fade-up" data-aos-delay="160"><div class="n">25-44</div><div class="l">ans : le cœur de l'audience</div></div>
-      <div class="stat" data-aos="fade-up" data-aos-delay="240"><div class="n">32 000<sup>+</sup></div><div class="l">personnes dans la communauté Instagram</div></div>
+      <div class="stat" data-aos="fade-up" data-aos-delay="240"><div class="n stat-num" data-count="32000" data-suffix="+" data-thousands="1">0</div><div class="l">personnes dans la communauté Instagram</div></div>
     </div>
   </div>
 </section>
@@ -801,6 +801,27 @@ body.modal-open{overflow:hidden}
       target.scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  // Stats animées (count-up à l'apparition)
+  (function () {
+    var els = document.querySelectorAll('.stat-num[data-count]');
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    var fmt = function (n, th) { return th ? n.toLocaleString('fr-FR').replace(/ | /g, ' ') : String(n); };
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target; io.unobserve(el);
+        var target = parseInt(el.dataset.count, 10), suf = el.dataset.suffix || '', th = el.dataset.thousands;
+        var dur = 1400, t0 = performance.now();
+        (function loop(now) {
+          var p = Math.min((now - t0) / dur, 1);
+          el.textContent = fmt(Math.round((1 - Math.pow(1 - p, 3)) * target), th) + suf;
+          if (p < 1) requestAnimationFrame(loop);
+        })(t0);
+      });
+    }, { threshold: 0.4 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
 </script>
 <script src="/assets/transitions.js" defer></script>
 <script src="legal.js" defer></script>

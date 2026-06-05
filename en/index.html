@@ -373,7 +373,7 @@
         const data = new FormData(signupForm);
         const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
         const json = await res.json();
-        if (json.success) { signupForm.hidden = true; signupSuccess.hidden = false; }
+        if (json.success) { signupForm.hidden = true; signupSuccess.hidden = false; if (window.floreBurst) { const r = signupSuccess.getBoundingClientRect(); window.floreBurst(r.left + r.width/2, r.top + r.height/2, 16); } }
         else { throw new Error(json.message || 'Error'); }
       } catch (err) {
         btn.disabled = false; btn.textContent = original;

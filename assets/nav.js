@@ -75,4 +75,21 @@
   var mount = document.getElementById('site-nav');
   if (mount) mount.outerHTML = nav;
   else document.body.insertAdjacentHTML('afterbegin', nav);
+
+  // CTA flottant intelligent : apparaît après le hero, se cache près du bas
+  var cta = document.createElement('div');
+  cta.className = 'sticky-cta';
+  cta.innerHTML = '<a class="btn btn-sun" href="' + h('billetterie') + '">🎟️ Réserver ma place</a>';
+  function mountCta() { if (document.body && !cta.parentNode) document.body.appendChild(cta); }
+  if (document.body) mountCta(); else document.addEventListener('DOMContentLoaded', mountCta);
+  var shown = false;
+  function onScrollCta() {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    var nearBottom = (y + window.innerHeight) > (document.documentElement.scrollHeight - 480);
+    var show = y > 700 && !nearBottom;
+    if (show !== shown) { cta.classList.toggle('show', show); shown = show; }
+  }
+  window.addEventListener('scroll', onScrollCta, { passive: true });
+  window.addEventListener('resize', onScrollCta, { passive: true });
+  onScrollCta();
 })();

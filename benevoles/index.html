@@ -243,7 +243,7 @@
       try {
         const res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:new FormData(bnvForm) });
         const json = await res.json();
-        if (json.success) { bnvForm.hidden = true; bnvSuccess.hidden = false; }
+        if (json.success) { bnvForm.hidden = true; bnvSuccess.hidden = false; if (window.floreBurst) { const r = bnvSuccess.getBoundingClientRect(); window.floreBurst(r.left + r.width/2, r.top + r.height/2, 16); } }
         else throw new Error(json.message || 'Erreur');
       } catch (err) {
         btn.disabled = false; btn.textContent = original;
