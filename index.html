@@ -233,60 +233,8 @@
 </svg>
 
 <!-- ===================== NAV ===================== -->
-<nav class="nav" id="nav">
-  <div class="wrap">
-    <div class="nav-inner">
-      <a href="#accueil" class="logo" aria-label="FLORE Festival, accueil"><img class="logo-img logo-light" src="/assets/logo-flore-white.png" alt="FLORE"><img class="logo-img logo-dark" src="/assets/logo-flore-black.png" alt="" aria-hidden="true"></a>
-      <div class="nav-links">
-        <div class="nav-item">
-          <button class="nav-trigger" aria-expanded="false">Le festival <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown">
-            <a href="#festival">Le concept</a>
-            <a href="#espaces">Les espaces</a>
-            <a href="#programme">Le programme</a>
-            <a href="#public">Pour qui</a>
-            <a href="/a-propos/">Qui sommes-nous</a>
-          </div>
-        </div>
-        <div class="nav-item">
-          <button class="nav-trigger" aria-expanded="false">Préparer sa venue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown">
-            <a href="/infos-pratiques/#acces">Accès &amp; transport</a>
-            <a href="/infos-pratiques/#loger">Se loger</a>
-            <a href="/infos-pratiques/#sur-place">Sur place</a>
-            <a href="/infos-pratiques/#accessibilite">Accessibilité</a>
-            <a href="/infos-pratiques/#securite">Sécurité &amp; prévention</a>
-            <a href="/sejour/">Le week-end</a>
-          </div>
-        </div>
-        <a href="/sans-gluten-sans-lactose/">Sans gluten &amp; lactose</a>
-        <a href="/en/" class="lang-switch" aria-label="See the site in English">🌐 EN</a>
-        <a href="/partenaires" class="btn btn-ink">Rejoindre l'aventure</a>
-        <a href="#billetterie" class="btn btn-sun">Billetterie</a>
-      </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <span class="m-label">Le festival</span>
-  <a class="m-sub" href="#festival">Le concept</a>
-  <a class="m-sub" href="#espaces">Les espaces</a>
-  <a class="m-sub" href="#programme">Le programme</a>
-  <a class="m-sub" href="#public">Pour qui</a>
-  <span class="m-label">Préparer sa venue</span>
-  <a class="m-sub" href="/infos-pratiques/#acces">Accès &amp; transport</a>
-  <a class="m-sub" href="/infos-pratiques/#loger">Se loger</a>
-  <a class="m-sub" href="/infos-pratiques/#accessibilite">Accessibilité</a>
-  <a class="m-sub" href="/infos-pratiques/#securite">Sécurité &amp; prévention</a>
-  <a class="m-sub" href="/sejour/">Le week-end</a>
-  <span class="m-label">Et aussi</span>
-  <a class="m-sub" href="/sans-gluten-sans-lactose/">Sans gluten &amp; lactose</a>
-  <a href="/en/" class="lang-switch">🌐 English version</a>
-  <a href="/partenaires" class="btn btn-ink">Rejoindre l'aventure</a>
-  <a href="#billetterie" class="btn btn-sun">Billetterie</a>
-</div>
+<div id="site-nav"></div>
+<script src="/assets/nav.js"></script>
 
 <!-- ===================== HERO ===================== -->
 <header class="hero" id="accueil">
@@ -690,7 +638,7 @@
             </ul>
             <a href="#prevenir" class="t-btn">🔔 Me prévenir à l'ouverture</a>
           </div>
-          <div class="ticket feat">
+          <div class="ticket feat selected">
             <div class="t-badge">⭐ Le plus malin</div>
             <div class="t-ic">💛</div>
             <h3>Pass Tribu</h3>
@@ -1098,6 +1046,27 @@
         btn.textContent = original;
       }
     });
+  }
+
+  // Billetterie : sélection d'un pass au clic (la surbrillance verte suit le choix)
+  const ticketCards = document.querySelectorAll('.tickets .ticket');
+  if (ticketCards.length) {
+    const selectTicket = card => {
+      ticketCards.forEach(t => {
+        t.classList.remove('selected');
+        const p = t.querySelector('.t-pick');
+        if (p) p.remove();
+      });
+      card.classList.add('selected');
+      if (!card.classList.contains('feat')) {
+        const pick = document.createElement('div');
+        pick.className = 't-pick';
+        pick.textContent = '✓ Ton choix';
+        card.insertBefore(pick, card.firstChild);
+      }
+    };
+    ticketCards.forEach(t => t.addEventListener('click', () => selectTicket(t)));
+    selectTicket(document.querySelector('.tickets .ticket.feat') || ticketCards[0]);
   }
 </script>
 <script src="legal.js" defer></script>
