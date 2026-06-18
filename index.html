@@ -1118,12 +1118,16 @@
   const hero = document.getElementById('accueil');
   if (hero && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const sun = hero.querySelector('.sun'), flo = hero.querySelector('.florette-wrap');
+    let _raf = 0, _dx = 0, _dy = 0;
     hero.addEventListener('mousemove', e => {
       const r = hero.getBoundingClientRect();
-      const dx = (e.clientX - r.width / 2) / r.width, dy = (e.clientY - r.height / 2) / r.height;
-      if (sun) sun.style.transform = `translate(${dx * 16}px, ${dy * 12}px)`;
-      if (flo) flo.style.transform = `translate(${dx * -22}px, ${dy * -16}px)`;
-    });
+      _dx = (e.clientX - r.width / 2) / r.width; _dy = (e.clientY - r.height / 2) / r.height;
+      if (!_raf) _raf = requestAnimationFrame(() => {
+        _raf = 0;
+        if (sun) sun.style.transform = `translate(${_dx * 16}px, ${_dy * 12}px)`;
+        if (flo) flo.style.transform = `translate(${_dx * -22}px, ${_dy * -16}px)`;
+      });
+    }, { passive: true });
     hero.addEventListener('mouseleave', () => {
       if (sun) sun.style.transform = '';
       if (flo) flo.style.transform = '';

@@ -83,7 +83,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:all .35s var(--ease)}
 .nav.scrolled{padding:10px 0}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;border-radius:100px;padding:8px 8px 8px 24px;transition:background .35s var(--ease),box-shadow .35s var(--ease)}
-.nav.scrolled .nav-inner{background:rgba(255,255,255,.93);backdrop-filter:blur(16px);box-shadow:var(--shadow-sm)}
+.nav.scrolled .nav-inner{background:rgba(255,255,255,.96);box-shadow:var(--shadow-sm)}
 .logo{display:flex;align-items:center;gap:9px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.62rem;color:var(--white);letter-spacing:-.01em;transition:color .35s var(--ease)}
 .logo .daisy{width:30px;height:30px;flex-shrink:0}
 .nav.scrolled .logo{color:var(--ink)}
@@ -170,7 +170,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .cd-intro{display:inline-flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--sun);margin:0 0 9px}
 .cd-intro .daisy{width:16px;height:16px;color:var(--sun)}
 .countdown{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
-.cd-cell{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);border-radius:var(--r-sm);padding:10px 6px;min-width:68px;text-align:center;backdrop-filter:blur(4px)}
+.cd-cell{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.34);border-radius:var(--r-sm);padding:10px 6px;min-width:68px;text-align:center}
 .cd-num{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.65rem;color:var(--white);line-height:1;font-variant-numeric:tabular-nums}
 .cd-lab{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin-top:5px}
 .cd-done{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.4rem;color:var(--white)}
@@ -308,7 +308,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .twilight .sec-head h2{color:var(--white)}
 .twilight .sec-head h2 em{font-style:normal;color:var(--sun)}
 .florette-txt p{font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:15px}
-.florette-txt .quote{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-md);padding:32px 36px 32px 64px;margin:22px 0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.28rem;color:var(--white);line-height:1.36;position:relative;backdrop-filter:blur(8px)}
+.florette-txt .quote{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:var(--r-md);padding:32px 36px 32px 64px;margin:22px 0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:1.28rem;color:var(--white);line-height:1.36;position:relative}
 .florette-txt .quote::before{content:"\201C";position:absolute;top:-8px;left:18px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:5.4rem;color:var(--sun);line-height:1;opacity:.95}
 
 /* ===== Programme ===== */
@@ -340,7 +340,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .about-grid .txt p{color:rgba(255,255,255,.94);font-size:1.08rem;margin-bottom:15px}
 .about-grid .txt p strong{color:var(--sun);font-weight:700}
 .about-grid .vals{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.about-grid .vals .v{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);box-shadow:var(--shadow-sm);padding:11px 19px;border-radius:100px;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.9rem;backdrop-filter:blur(8px);transition:transform .25s var(--ease),background .25s var(--ease)}
+.about-grid .vals .v{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.3);box-shadow:var(--shadow-sm);padding:11px 19px;border-radius:100px;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.9rem;transition:transform .25s var(--ease),background .25s var(--ease)}
 .about-grid .vals .v:hover{transform:translateY(-2px);background:rgba(255,255,255,.26)}
 .manifesto{background:linear-gradient(150deg,#2E7FB8,#15395B);border-radius:var(--r-lg);padding:46px;color:var(--white);box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
 .manifesto .m-stars{position:absolute;inset:0;opacity:.6;background-image:radial-gradient(1.5px 1.5px at 40px 30px,#fff,transparent),radial-gradient(1.5px 1.5px at 150px 90px,#fff,transparent),radial-gradient(1.5px 1.5px at 90px 140px,#fff,transparent);background-size:200px 180px}
@@ -706,4 +706,24 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .hero-cta .btn{padding:13px 14px;font-size:.88rem}
   .cd-num{font-size:1.2rem}
   .nav .btn{padding:11px 16px;font-size:.86rem}
+}
+
+/* ============================================================
+   PERFORMANCE · rendu plus fluide (anti-lag)
+   ============================================================ */
+/* Accélération GPU : les éléments animés en transform passent sur leur
+   propre couche -> drift/bob composités, sans repaint coûteux. */
+.hero .h-cloud,.part-cta .pc-cloud,.cta-card .c-cloud,
+.florette-svg,.florette-stage .florette-svg,.florette-wrap .d-float{will-change:transform}
+
+@media(prefers-reduced-motion:reduce){
+  .fx-pollen,.fx-veil{display:none!important}
+  .florette-stage .florette-svg,.part-cta .pc-cloud,.cta-card .c-cloud,.sky-bg::after{animation:none!important}
+}
+
+/* Mobile : on coupe les animations continues restantes (coût > déco) */
+@media(max-width:768px){
+  .fx-pollen{display:none!important}
+  .florette-svg,.florette-stage .florette-svg,.florette-wrap .d-float{animation:none!important}
+  .part-cta .pc-cloud,.cta-card .c-cloud{animation:none!important}
 }

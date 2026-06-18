@@ -4,18 +4,11 @@
 # Documents sources internes (pitch deck partenaires) — non publiés sur le site
 assets/pdf/
 
-# Tarifs partenaires : document de travail privé, non publié
-TARIFS-INTERNE.md
-
-# Plan du village gourmand : document de travail privé, non publié
-VILLAGE-GOURMAND-INTERNE.md
-
-# Outil interne de remplissage boutique : privé, non publié
-outil-boutique.html
-
-# Business plan recettes : document financier privé, non publié
-BP-INTERNE.md
-
-# Tous les docs internes (-INTERNE) + outils privés : jamais publiés
+# ⚠️ Le cerveau privé (cockpit, BP, tarifs, plan village, kit, outils, tracker)
+# a migré le 2026-06-06 vers :  iCloud Drive / FLORE
+# → synchro Mac ↔ iPhone, jamais en ligne. Rien de tout ça ne doit revenir dans ce repo.
+# Filets de sécurité conservés au cas où un de ces fichiers réapparaîtrait ici :
 *-INTERNE.md
+outil-boutique.html
 tracker-prospects.html
+prod.html

@@ -65,7 +65,7 @@
     layer.className = 'fx-pollen';
     layer.setAttribute('aria-hidden', 'true');
     var html = '';
-    for (var i = 0; i < 12; i++) {
+    for (var i = 0; i < 6; i++) {
       var left = Math.round((i * 8.3 + (i * i * 13) % 9)) % 100;
       var size = 9 + (i * 7) % 12;
       var dur = 16 + (i * 11) % 16;
