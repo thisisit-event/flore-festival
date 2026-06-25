@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre stand au Jardin des Saveurs · FLORE Festival 2027</title>
+<meta name="description" content="Proposez votre cuisine au 1er festival 100 % sans gluten et sans lactose. 12 stands · 1 500 visiteurs ciblés · 299 € tout compris · Lagnieu, 27 mars 2027.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://flore-festival.fr/exposants/">
+<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:title" content="Votre stand au Jardin des Saveurs · FLORE Festival 2027">
+<meta property="og:description" content="12 stands · 1 500 visiteurs · 100 % sans gluten et sans lactose · 299 € tout compris.">
+<meta property="og:url" content="https://flore-festival.fr/exposants/">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css">
+<style>
+  /* ---- form candidature ---- */
+  .candi-wrap{background:#fff;border-radius:22px;padding:36px 32px;max-width:700px;margin:32px auto 0;box-shadow:0 12px 40px rgba(21,57,91,.13);text-align:left}
+  .candi-wrap h3{font-size:1.25rem;color:var(--ink,#15395B);margin:0 0 6px}
+  .candi-wrap .sub{font-size:.9rem;color:#4a6070;margin:0 0 26px;border-bottom:1px solid #e4edf5;padding-bottom:18px}
+  .f-row{display:grid;gap:16px;margin-bottom:16px}
+  .f-row.two{grid-template-columns:1fr 1fr}
+  @media(max-width:580px){.f-row.two{grid-template-columns:1fr}}
+  .f-field{display:flex;flex-direction:column;gap:5px}
+  .f-field label{font-size:.8rem;font-weight:700;color:#15395B;letter-spacing:.04em;text-transform:uppercase}
+  .f-field input,.f-field textarea,.f-field select{border:1.5px solid #d0dde8;border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:#15395B;background:#fafcfe;transition:border-color .18s}
+  .f-field input:focus,.f-field textarea:focus,.f-field select:focus{outline:none;border-color:#3F93C4;background:#fff}
+  .f-field textarea{min-height:82px;resize:vertical}
+  .f-radios{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+  .f-radios label{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.93rem;font-weight:600;color:#2d4a5e;background:#f0f7fc;border:1.5px solid #d0dde8;border-radius:100px;padding:8px 16px;transition:all .18s}
+  .f-radios input[type=radio]{display:none}
+  .f-radios input[type=radio]:checked + span{color:#15395B}
+  .f-radios label:has(input:checked){background:#DAEF52;border-color:#b5c93a;color:#15395B}
+  .f-checks{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .f-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.9rem;color:#2d4a5e;line-height:1.45}
+  .f-check input[type=checkbox]{width:18px;height:18px;border-radius:5px;accent-color:#3F93C4;flex:0 0 auto;margin-top:2px;cursor:pointer}
+  .f-required{color:#E5484D;margin-left:2px}
+  .btn-submit{width:100%;background:#DAEF52;color:#15395B;font:inherit;font-weight:800;font-size:1rem;border:none;border-radius:100px;padding:16px;cursor:pointer;margin-top:20px;transition:background .2s}
+  .btn-submit:hover{background:#c8da40}
+  .btn-submit:disabled{opacity:.6;cursor:not-allowed}
+  .form-msg{display:none;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:.92rem;font-weight:600}
+  .form-msg.ok{background:#e6f6ec;color:#1e7a43;display:block}
+  .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
+  /* ---- cards etc ---- */
+  .expose-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-top:32px}
+  .expose-card{background:#fff;border-radius:20px;padding:28px 26px;box-shadow:0 8px 28px rgba(21,57,91,.09);border:1px solid #e4edf5}
+  .expose-card .ic{font-size:2rem;margin-bottom:14px;display:block}
+  .expose-card h3{font-size:1.08rem;font-weight:700;color:var(--ink,#15395B);margin:0 0 8px}
+  .expose-card p{font-size:.93rem;color:#4a6070;line-height:1.6;margin:0}
+  .forfait-list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+  .forfait-list li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:#2d4a5e}
+  .forfait-list li .check{flex:0 0 auto;width:22px;height:22px;background:#DAEF52;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;margin-top:1px}
+  .oblig-list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+  .oblig-list li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:#2d4a5e;padding:10px 14px;background:#fff8f0;border-radius:12px;border-left:3px solid #E08A1E}
+  .oblig-list li .warn{flex:0 0 auto;font-size:1rem;margin-top:1px}
+  .horaires-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:24px}
+  .heure-card{background:#EAF4FB;border-radius:14px;padding:18px 20px;text-align:center}
+  .heure-card .h{font-size:1.5rem;font-weight:800;color:var(--sky,#3F93C4);font-family:'Bricolage Grotesque',sans-serif}
+  .heure-card .l{font-size:.82rem;color:#4a6070;margin-top:4px;line-height:1.4}
+  .prix-badge{display:inline-flex;align-items:center;gap:10px;background:#DAEF52;border-radius:100px;padding:10px 24px;font-weight:800;font-size:1.3rem;color:#15395B;margin:8px 0 24px}
+  .alerte-box{background:#fff0e0;border:1.5px solid #E08A1E;border-radius:16px;padding:22px 24px;margin:24px 0}
+  .alerte-box strong{color:#b96a00;display:block;margin-bottom:6px;font-size:1rem}
+  .alerte-box p{font-size:.92rem;color:#7a4200;line-height:1.65;margin:0}
+  .visi-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .visi-pill{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid #c8dcec;border-radius:100px;padding:8px 16px;font-size:.88rem;color:#2d4a5e;font-weight:600}
+  .cta-block{background:linear-gradient(135deg,#2E7FB8 0%,#15395B 100%);border-radius:24px;padding:40px 36px;text-align:center;margin-top:16px;color:#fff}
+  .cta-block h2{font-size:1.8rem;color:#fff;margin:0 0 10px}
+  .cta-block p{opacity:.92;margin:0 0 24px;font-size:1rem}
+  .cta-block .btn-sun{display:inline-block;background:#DAEF52;color:#15395B;font-weight:800;border-radius:100px;padding:14px 32px;font-size:1rem;text-decoration:none;transition:background .2s}
+  .cta-block .btn-sun:hover{background:#c8da40}
+  .encart-note{background:#EAF4FB;border-radius:14px;padding:16px 20px;font-size:.88rem;color:#2d4a5e;line-height:1.6;margin-top:12px}
+  .encart-note strong{color:#15395B}
+  @media(max-width:600px){.cta-block{padding:28px 20px}}
+</style>
+</head>
+<body>
+
+<div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="clouds" aria-hidden="true">
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cloud" viewBox="0 0 230 110">
+      <g fill="currentColor">
+        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
+        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
+        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
+      </g>
+    </symbol>
+    <symbol id="daisy" viewBox="0 0 100 100">
+      <g transform="translate(50 50)" fill="currentColor">
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
+      </g>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="site-nav"></div>
+<script src="/assets/nav.js"></script>
+
+<!-- ===================== HERO ===================== -->
+<header class="sec" id="top" style="padding-top:150px">
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Jardin des Saveurs · 12 stands</span>
+      <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);margin:14px 0">Proposez votre cuisine <span class="hl">à 1 500 gourmands</span></h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,.92);max-width:44em;margin:0 auto">FLORE est le 1er festival musical et culinaire 100 % sans gluten et sans lactose. Le 27 mars 2027, à Lagnieu, un public passionné et exigeant viendra déguster en toute confiance. Votre stand, leur table.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== L'OPPORTUNITÉ ===================== -->
+<section class="sec" id="opportunite" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Pourquoi être là</span>
+      <h2>Un public <span class="hl">qui vous cherche</span></h2>
+      <p>Les festivaliers de FLORE ne font pas que passer. Ils vivent pour découvrir des adresses qui comprennent leur mode de vie. 1 500 personnes qui mangent 100 % sans gluten et sans lactose au quotidien.</p>
+    </div>
+    <div class="expose-grid" data-aos="fade-up">
+      <div class="expose-card">
+        <span class="ic">🎯</span>
+        <h3>Audience ultra ciblée</h3>
+        <p>1 500 visiteurs, 90 % de femmes 25-44 ans, tous intolérants ou curieux du sans gluten et sans lactose. Vos produits sont exactement ce qu'ils cherchent.</p>
+      </div>
+      <div class="expose-card">
+        <span class="ic">🌿</span>
+        <h3>Confiance totale</h3>
+        <p>Un cadre 100 % certifié leur permet de commander les yeux fermés. Ils consomment plus librement que dans n'importe quel autre contexte.</p>
+      </div>
+      <div class="expose-card">
+        <span class="ic">🎫</span>
+        <h3>Le Passeport Gourmand</h3>
+        <p>Chaque festivalier est encouragé à visiter un maximum de stands grâce au passeport de découverte. Votre stand est dans leur parcours, pas un détour.</p>
+      </div>
+      <div class="expose-card">
+        <span class="ic">📣</span>
+        <h3>Visibilité avant et après</h3>
+        <p>Annonce sur les réseaux, page dédiée sur le site, plan du festival, programme. Votre présence est communiquée bien avant le jour J.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FORFAIT ===================== -->
+<section class="sec" id="forfait" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ce qui est inclus</span>
+      <h2>Un forfait <span class="hl">tout compris</span></h2>
+    </div>
+    <div data-aos="fade-up" style="max-width:680px;margin:0 auto">
+      <div style="text-align:center">
+        <div class="prix-badge">299 € TTC</div>
+        <p style="color:#4a6070;font-size:.95rem;margin:0 0 8px">Tarif unique · 12 stands disponibles seulement</p>
+      </div>
+      <ul class="forfait-list">
+        <li><span class="check">✓</span><span><strong>Emplacement dans le Jardin des Saveurs</strong> · surface ~9 m² (dimensions exactes à confirmer selon configuration de la salle)</span></li>
+        <li><span class="check">✓</span><span><strong>Tables avant et arrière fournies</strong> · pas de matériel de présentation supplémentaire à prévoir</span></li>
+        <li><span class="check">✓</span><span><strong>Signalétique à votre nom</strong> · panneau au-dessus de votre stand avec le nom de votre établissement, en typographie FLORE sur fond bleu FLORE · sobre, élégant, cohérent avec l'ensemble du festival</span></li>
+        <li><span class="check">✓</span><span><strong>Distribution électrique</strong> · 2 prises PC16 (16A) par stand · à confirmer selon vos besoins spécifiques</span></li>
+        <li><span class="check">✓</span><span><strong>Annonce sur les réseaux sociaux FLORE</strong> · présentation de votre stand avec lien vers vos réseaux</span></li>
+        <li><span class="check">✓</span><span><strong>Page sur flore-festival.fr</strong> · votre stand référencé avec lien vers vos réseaux sociaux ou site web</span></li>
+        <li><span class="check">✓</span><span><strong>Plan du festival</strong> · votre emplacement identifié sur le plan distribué à tous les visiteurs</span></li>
+        <li><span class="check">✓</span><span><strong>Programme + Passeport Gourmand</strong> · votre stand intégré dans le document unique remis à l'entrée · les festivaliers cochent leur visite pour gagner des récompenses</span></li>
+      </ul>
+      <div class="encart-note" style="margin-top:20px">
+        <strong>Carte de visite &amp; packaging :</strong> vous pouvez disposer vos cartes de visite et packaging à votre convenance sur votre stand. Aucune PLV, roll-up, banner ou signalétique propre en dehors de l'espace de votre stand.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OBLIGATIONS HYGIÈNE ===================== -->
+<section class="sec" id="hygiene" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Obligations · Hygiène alimentaire</span>
+      <h2>Exigence <span class="hl">absolue</span></h2>
+      <p>FLORE est un festival où le public mange en toute confiance. Cette confiance repose sur une chaîne sans faille. Chaque exposant en est un maillon essentiel.</p>
+    </div>
+    <div data-aos="fade-up" style="max-width:700px;margin:0 auto">
+      <div class="alerte-box">
+        <strong>⚠️ Niveau de risque maximum · Tolérance zéro</strong>
+        <p>Nos visiteurs comptent parmi les personnes les plus sensibles : cœliaques (maladie auto-immune déclenchée par des traces infimes de gluten), personnes intolérantes au lactose, et familles entières qui font confiance à notre label. Une contamination croisée peut avoir des conséquences graves sur leur santé. Ce n'est pas une contrainte — c'est la raison d'être de FLORE.</p>
+      </div>
+      <ul class="oblig-list">
+        <li><span class="warn">🌾</span><span><strong>100 % sans gluten certifié</strong> · tous vos produits doivent être sans gluten (&lt; 20 ppm, norme cœliaque). Attestation signée obligatoire avant le jour J.</span></li>
+        <li><span class="warn">🥛</span><span><strong>100 % sans lactose</strong> · tous vos produits doivent être sans lactose (produits délactosés, naturellement sans lactose ou alternatives végétales). Aucun produit laitier standard n'est autorisé.</span></li>
+        <li><span class="warn">🚫</span><span><strong>Zéro contamination croisée</strong> · ustensiles, plans de travail, friteuses et contenants entièrement dédiés. Aucun contact avec des produits contenant gluten ou lactose, même entre exposants.</span></li>
+        <li><span class="warn">📋</span><span><strong>14 allergènes affichés</strong> · chaque produit à la vente doit avoir ses allergènes clairement affichés selon la réglementation en vigueur.</span></li>
+        <li><span class="warn">✅</span><span><strong>Commission de contrôle à 10h</strong> · une inspection de votre stand, de votre matériel et de vos produits est effectuée avant ouverture au public. Tout stand non conforme ne sera pas autorisé à ouvrir.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OBLIGATIONS PRATIQUES ===================== -->
+<section class="sec" id="pratique" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Obligations · Format et logistique</span>
+      <h2>Simple, <span class="hl">efficace</span></h2>
+    </div>
+    <div data-aos="fade-up" style="max-width:700px;margin:0 auto">
+      <ul class="oblig-list">
+        <li><span class="warn">🍽️</span><span><strong>Mini formats obligatoires</strong> · chaque préparation doit être proposée en format dégustation. Le Passeport Gourmand incite les visiteurs à goûter un maximum de stands : vos mini portions sont leur principal outil de découverte.</span></li>
+        <li><span class="warn">🔥</span><span><strong>Réchauffage sur place uniquement</strong> · pas de cuisson avec dégagement de vapeur ou fumée importante (pas de friteuse ouverte, grill intense ou wok). Votre cuisine est préparée en amont, réchauffée et dressée sur place.</span></li>
+        <li><span class="warn">🎨</span><span><strong>Pas de PLV ni signalétique propre</strong> · aucun roll-up, banner, kakémono ou présentoir de marque en dehors de votre espace de stand. Le Jardin des Saveurs a une identité visuelle unifiée FLORE. Vos cartes de visite et votre packaging restent libres.</span></li>
+        <li><span class="warn">💳</span><span><strong>Cashless FLORE</strong> · les règlements se font via le système cashless du festival. Pas d'espèces ni de terminal de paiement propre. Les fonds vous sont reversés après l'événement (modalités dans le contrat).</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HORAIRES ===================== -->
+<section class="sec" id="horaires" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Horaires jour J · samedi 27 mars 2027</span>
+      <h2>Le calendrier <span class="hl">du jour</span></h2>
+    </div>
+    <div class="horaires-grid" data-aos="fade-up" style="max-width:800px;margin:24px auto 0">
+      <div class="heure-card">
+        <div class="h">6h – 9h</div>
+        <div class="l">Montage de votre stand · accès livraison · installation</div>
+      </div>
+      <div class="heure-card">
+        <div class="h">10h</div>
+        <div class="l">Passage de la commission de contrôle · hygiène &amp; conformité</div>
+      </div>
+      <div class="heure-card">
+        <div class="h">11h</div>
+        <div class="l">Ouverture au public · Jardin des Saveurs en service</div>
+      </div>
+      <div class="heure-card">
+        <div class="h">22h</div>
+        <div class="l">Clôture du festival · début du démontage uniquement après fermeture</div>
+      </div>
+    </div>
+    <div class="encart-note" data-aos="fade-up" style="max-width:700px;margin:20px auto 0">
+      <strong>Important :</strong> aucun démontage n'est autorisé avant 22h. Le Jardin des Saveurs reste ouvert jusqu'à la clôture. Merci de prévoir votre logistique en conséquence.
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VISIBILITÉ ===================== -->
+<section class="sec" id="visibilite" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Visibilité incluse</span>
+      <h2>Votre présence <span class="hl">partout</span></h2>
+      <p>Être exposant FLORE, c'est plus qu'un stand. Votre établissement est intégré à toute la communication du festival.</p>
+    </div>
+    <div class="visi-row" data-aos="fade-up" style="justify-content:center;max-width:700px;margin:0 auto">
+      <span class="visi-pill">📲 Annonce Instagram FLORE</span>
+      <span class="visi-pill">🌐 Page sur flore-festival.fr</span>
+      <span class="visi-pill">🗺️ Plan du festival</span>
+      <span class="visi-pill">🎫 Programme + Passeport Gourmand</span>
+      <span class="visi-pill">🏷️ Enseigne à votre nom sur stand</span>
+      <span class="visi-pill">🔗 Lien vers vos réseaux</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CANDIDATURE ===================== -->
+<section class="sec" id="candidature" style="padding-top:0;padding-bottom:80px">
+  <div class="wrap">
+    <div data-aos="fade-up" style="text-align:center;margin-bottom:10px">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Candidature stand</span>
+      <h2 style="color:var(--white)">Il reste <span class="hl">12 places</span></h2>
+      <p style="color:rgba(255,255,255,.88);max-width:44em;margin:0 auto">Les stands sont attribués par ordre de candidature, sous réserve de conformité SG/SL. Une seule catégorie culinaire par stand pour garantir la diversité du Jardin des Saveurs.</p>
+    </div>
+
+    <div class="candi-wrap" data-aos="fade-up">
+      <h3>Votre dossier de candidature</h3>
+      <p class="sub">Remplissez ce formulaire · nous vous répondons sous 5 jours ouvrés.<br>Champs marqués <span class="f-required">*</span> obligatoires.</p>
+
+      <form id="candi-form" novalidate>
+        <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+        <input type="hidden" name="subject" value="Candidature stand exposant · FLORE 2027">
+        <input type="hidden" name="from_name" value="Formulaire Exposants FLORE">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="f-row two">
+          <div class="f-field">
+            <label>Nom de l'établissement <span class="f-required">*</span></label>
+            <input type="text" name="etablissement" placeholder="Ex : Les Pépites de Léa" required>
+          </div>
+          <div class="f-field">
+            <label>Votre nom <span class="f-required">*</span></label>
+            <input type="text" name="responsable" placeholder="Prénom Nom" required>
+          </div>
+        </div>
+
+        <div class="f-row two">
+          <div class="f-field">
+            <label>Email <span class="f-required">*</span></label>
+            <input type="email" name="email" placeholder="vous@exemple.fr" required>
+          </div>
+          <div class="f-field">
+            <label>Téléphone</label>
+            <input type="tel" name="telephone" placeholder="06 XX XX XX XX">
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label>Type de stand <span class="f-required">*</span></label>
+            <div class="f-radios">
+              <label><input type="radio" name="type_stand" value="Salé" required><span>🧆 Salé</span></label>
+              <label><input type="radio" name="type_stand" value="Sucré"><span>🧁 Sucré</span></label>
+              <label><input type="radio" name="type_stand" value="Sucré et salé"><span>✨ Les deux</span></label>
+              <label><input type="radio" name="type_stand" value="Boissons"><span>🍵 Boissons</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label>Votre spécialité culinaire <span class="f-required">*</span></label>
+            <input type="text" name="specialite" placeholder="Ex : Burger, crêpes, tacos, pâtisserie japonaise, glaces artisanales..." required>
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label>Décrivez votre concept en quelques mots <span class="f-required">*</span></label>
+            <textarea name="concept" placeholder="Qui êtes-vous ? Qu'est-ce que vous proposeriez au Jardin des Saveurs ? Comment êtes-vous déjà 100% SG/SL ?" required></textarea>
+          </div>
+        </div>
+
+        <div class="f-row two">
+          <div class="f-field">
+            <label>Site web ou réseaux sociaux</label>
+            <input type="text" name="site" placeholder="https:// ou @instagram">
+          </div>
+          <div class="f-field">
+            <label>Ville / département</label>
+            <input type="text" name="localisation" placeholder="Ex : Lyon · 69">
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label>Besoins électriques particuliers</label>
+            <input type="text" name="elec" placeholder="Ex : four 3 kW, plaque à induction — laisser vide si 2 PC16 suffisent">
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label style="text-transform:none;letter-spacing:0;font-size:.88rem;margin-bottom:6px">Engagements <span class="f-required">*</span></label>
+            <div class="f-checks">
+              <label class="f-check">
+                <input type="checkbox" name="certif_sg" required>
+                <span><strong>Je certifie</strong> que l'intégralité des produits proposés seront <strong>100 % sans gluten</strong> (norme cœliaque &lt; 20 ppm).</span>
+              </label>
+              <label class="f-check">
+                <input type="checkbox" name="certif_sl" required>
+                <span><strong>Je certifie</strong> que l'intégralité des produits proposés seront <strong>100 % sans lactose</strong> (délactosés ou naturellement sans lactose).</span>
+              </label>
+              <label class="f-check">
+                <input type="checkbox" name="reglement" required>
+                <span>J'ai lu et j'accepte les <strong>conditions d'exposition</strong> : mini formats obligatoires, réchauffage uniquement, pas de PLV, démontage après fermeture.</span>
+              </label>
+              <label class="f-check">
+                <input type="checkbox" name="rgpd" required>
+                <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="candi-btn">Envoyer ma candidature &rarr;</button>
+        <div class="form-msg" id="candi-msg"></div>
+      </form>
+    </div>
+
+    <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.65);font-size:.85rem;margin-top:20px">Une question avant de candidater ? contact@flore-festival.fr · 07 44 98 00 15</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="f-stars"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
+        <p class="about">Le premier festival musical et culinaire 100 % sans gluten et sans lactose. Une production de MG Entertainment.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
+          </a>
+          <a href="mailto:contact@flore-festival.fr" aria-label="E-mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>Le festival</h5>
+        <ul>
+          <li><a href="/#festival">Le concept</a></li>
+          <li><a href="/a-propos/">Qui sommes-nous</a></li>
+          <li><a href="/sans-gluten-sans-lactose/">Sans gluten &amp; lactose</a></li>
+          <li><a href="/infos-pratiques/">Préparer sa venue</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></li>
+          <li><a href="tel:+33744980015">07 44 98 00 15</a></li>
+          <li><a href="/partenaires">Devenir partenaire</a></li>
+          <li><a href="/exposants/">Stand exposant</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment.</span>
+      <span class="footer-legal">
+        <button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button>
+        <span aria-hidden="true">·</span>
+        <button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button>
+      </span>
+      <span>Lagnieu, Ain · France · Dansez sans gluten, savourez sans lactose.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Formulaire candidature · Web3Forms
+  const form = document.getElementById('candi-form');
+  const btn  = document.getElementById('candi-btn');
+  const msg  = document.getElementById('candi-msg');
+  if(form){
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      // Validation checkboxes obligatoires
+      const checks = ['certif_sg','certif_sl','reglement','rgpd'];
+      for(const n of checks){
+        if(!form.elements[n].checked){
+          msg.className='form-msg err';
+          msg.textContent='Merci de cocher tous les engagements obligatoires.';
+          msg.scrollIntoView({behavior:'smooth',block:'center'});
+          return;
+        }
+      }
+      // Validation type_stand (radio)
+      if(!form.elements['type_stand'].value){
+        msg.className='form-msg err';
+        msg.textContent='Merci de sélectionner un type de stand.';
+        return;
+      }
+      btn.disabled=true;
+      btn.textContent='Envoi en cours…';
+      const data = Object.fromEntries(new FormData(form));
+      try{
+        const res = await fetch('https://api.web3forms.com/submit',{
+          method:'POST',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify(data)
+        });
+        const json = await res.json();
+        if(json.success){
+          msg.className='form-msg ok';
+          msg.textContent='Candidature reçue ! Nous vous répondons sous 5 jours ouvrés. À très bientôt.';
+          form.reset();
+          btn.textContent='Candidature envoyée ✓';
+        } else {
+          throw new Error('échec');
+        }
+      }catch(_){
+        msg.className='form-msg err';
+        msg.textContent='Une erreur est survenue. Réessayez ou écrivez-nous à contact@flore-festival.fr';
+        btn.disabled=false;
+        btn.textContent='Envoyer ma candidature →';
+      }
+      msg.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  }
+</script>
+</body>
+</html>
