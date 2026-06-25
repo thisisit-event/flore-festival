@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique FLORE · Référencez vos produits · FLORE 2027</title>
+<meta name="description" content="Faites vendre vos produits SG/SL à la Boutique FLORE. 120 € de droit fixe + 20% commission · 45 marques · 1 500 visiteurs ciblés · Lagnieu, 27 mars 2027.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://flore-festival.fr/exposants/boutique/">
+<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:title" content="Boutique FLORE · Référencez vos produits · FLORE 2027">
+<meta property="og:description" content="120 € + 20% commission · 45 marques · 1 500 visiteurs SG/SL · Lagnieu 27 mars 2027.">
+<meta property="og:url" content="https://flore-festival.fr/exposants/boutique/">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css">
+<style>
+  .back-link{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.75);font-size:.88rem;font-weight:600;text-decoration:none;margin-bottom:24px;transition:color .18s}
+  .back-link:hover{color:#DAEF52}
+  .exemples-row{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0}
+  .tag-ex{background:#fff;border:1.5px solid #d0dde8;border-radius:100px;padding:7px 15px;font-size:.88rem;color:#2d4a5e;font-weight:600}
+  .tarif-wrap{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:28px 0}
+  .tarif-item{background:#fff;border-radius:18px;padding:24px 32px;text-align:center;box-shadow:0 8px 28px rgba(21,57,91,.1);border:1px solid #e4edf5;min-width:160px}
+  .tarif-item .montant{font-size:2rem;font-weight:800;color:#15395B;font-family:'Bricolage Grotesque',sans-serif}
+  .tarif-item .label{font-size:.82rem;color:#4a6070;margin-top:6px;line-height:1.4}
+  .tarif-plus{font-size:1.6rem;color:#9ab5c8;align-self:center;font-weight:300}
+  .steps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:28px}
+  .step-card{background:#fff;border-radius:18px;padding:24px 20px;box-shadow:0 6px 22px rgba(21,57,91,.08);border:1px solid #e4edf5;text-align:center}
+  .step-card .s-num{width:38px;height:38px;background:#DAEF52;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#15395B;margin:0 auto 12px}
+  .step-card h4{font-size:1rem;font-weight:700;color:#15395B;margin:0 0 7px}
+  .step-card p{font-size:.88rem;color:#4a6070;line-height:1.55;margin:0}
+  .alerte-box{background:#fff0e0;border:1.5px solid #E08A1E;border-radius:16px;padding:22px 24px;margin:24px 0}
+  .alerte-box strong{color:#b96a00;display:block;margin-bottom:6px;font-size:1rem}
+  .alerte-box p{font-size:.92rem;color:#7a4200;line-height:1.65;margin:0}
+  .oblig-list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+  .oblig-list li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:#2d4a5e;padding:11px 14px;background:#fff8f0;border-radius:12px;border-left:3px solid #E08A1E}
+  .oblig-list li .warn{flex:0 0 auto;font-size:1rem;margin-top:1px}
+  .visi-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+  .visi-pill{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid #c8dcec;border-radius:100px;padding:8px 16px;font-size:.87rem;color:#2d4a5e;font-weight:600}
+  .encart-note{background:#EAF4FB;border-radius:14px;padding:15px 18px;font-size:.87rem;color:#2d4a5e;line-height:1.6;margin-top:12px}
+  .encart-note strong{color:#15395B}
+  /* form */
+  .candi-wrap{background:#fff;border-radius:22px;padding:36px 32px;max-width:700px;margin:32px auto 0;box-shadow:0 12px 40px rgba(21,57,91,.13);text-align:left}
+  .candi-wrap h3{font-size:1.22rem;color:#15395B;margin:0 0 6px}
+  .candi-wrap .sub{font-size:.9rem;color:#4a6070;margin:0 0 24px;border-bottom:1px solid #e4edf5;padding-bottom:16px}
+  .f-row{display:grid;gap:16px;margin-bottom:16px}
+  .f-row.two{grid-template-columns:1fr 1fr}
+  @media(max-width:560px){.f-row.two{grid-template-columns:1fr}}
+  .f-field{display:flex;flex-direction:column;gap:5px}
+  .f-field label{font-size:.78rem;font-weight:700;color:#15395B;letter-spacing:.04em;text-transform:uppercase}
+  .f-field input,.f-field textarea{border:1.5px solid #d0dde8;border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:#15395B;background:#fafcfe;transition:border-color .18s}
+  .f-field input:focus,.f-field textarea:focus{outline:none;border-color:#3F93C4;background:#fff}
+  .f-field textarea{min-height:86px;resize:vertical}
+  .f-checks{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .f-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.9rem;color:#2d4a5e;line-height:1.45}
+  .f-check input[type=checkbox]{width:18px;height:18px;border-radius:5px;accent-color:#3F93C4;flex:0 0 auto;margin-top:2px;cursor:pointer}
+  .f-required{color:#E5484D;margin-left:2px}
+  .btn-submit{width:100%;background:#DAEF52;color:#15395B;font:inherit;font-weight:800;font-size:1rem;border:none;border-radius:100px;padding:16px;cursor:pointer;margin-top:20px;transition:background .2s}
+  .btn-submit:hover{background:#c8da40}
+  .btn-submit:disabled{opacity:.6;cursor:not-allowed}
+  .form-msg{display:none;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:.92rem;font-weight:600}
+  .form-msg.ok{background:#e6f6ec;color:#1e7a43;display:block}
+  .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
+  @media(max-width:600px){.candi-wrap{padding:24px 18px}}
+</style>
+</head>
+<body>
+
+<div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="clouds" aria-hidden="true">
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cloud" viewBox="0 0 230 110">
+      <g fill="currentColor">
+        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
+        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
+        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
+      </g>
+    </symbol>
+    <symbol id="daisy" viewBox="0 0 100 100">
+      <g transform="translate(50 50)" fill="currentColor">
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
+      </g>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="site-nav"></div>
+<script src="/assets/nav.js"></script>
+
+<!-- HERO -->
+<header class="sec" id="top" style="padding-top:150px">
+  <div class="wrap">
+    <div data-aos="fade-up">
+      <a href="/exposants/" class="back-link">← Toutes les façons d'exposer</a>
+    </div>
+    <div class="sec-head" data-aos="fade-up">
+      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Boutique FLORE · 45 marques</span>
+      <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);margin:14px 0">Vos produits, <span class="hl">notre vitrine</span></h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,.92);max-width:44em;margin:0 auto">Vous avez des produits emballés, de l'épicerie fine ou des douceurs à faire découvrir ? Pas besoin d'être présent sur le festival. Vous expédiez vos produits, FLORE les vend pour vous devant 1 500 visiteurs 100 % sans gluten et sans lactose.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TARIF -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Modèle économique</span>
+      <h2>Simple et <span class="hl">transparent</span></h2>
+    </div>
+    <div class="tarif-wrap" data-aos="fade-up">
+      <div class="tarif-item">
+        <div class="montant">120 €</div>
+        <div class="label">Droit fixe de référencement<br>acquis à la réservation</div>
+      </div>
+      <div class="tarif-plus">+</div>
+      <div class="tarif-item">
+        <div class="montant">20 %</div>
+        <div class="label">Commission sur<br>les ventes réalisées</div>
+      </div>
+    </div>
+    <div class="encart-note" data-aos="fade-up" style="max-width:600px;margin:0 auto">
+      <strong>Pourquoi ce modèle ?</strong> 120 € pour toucher 1 500 personnes qui mangent 100 % SG/SL au quotidien. À titre de comparaison, un salon spécialisé coûte entre 800 € et 2 000 € pour un public similaire mais beaucoup plus restreint.
+    </div>
+  </div>
+</section>
+
+<!-- CE QUI CONVIENT -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Quels produits</span>
+      <h2>La Boutique FLORE, <span class="hl">c'est fait pour vous si...</span></h2>
+    </div>
+    <div data-aos="fade-up" style="max-width:720px;margin:0 auto">
+      <p style="font-weight:700;color:#15395B;margin-bottom:10px">Parfait pour ces catégories :</p>
+      <div class="exemples-row">
+        <span class="tag-ex">🍪 Biscuits &amp; gâteaux secs</span>
+        <span class="tag-ex">🍫 Chocolat</span>
+        <span class="tag-ex">🫙 Confiture &amp; pâte à tartiner</span>
+        <span class="tag-ex">🥣 Granola &amp; müesli</span>
+        <span class="tag-ex">🧂 Épicerie fine</span>
+        <span class="tag-ex">🍝 Pâtes &amp; farines SG</span>
+        <span class="tag-ex">🍵 Tisanes &amp; thés</span>
+        <span class="tag-ex">🧃 Boissons emballées</span>
+        <span class="tag-ex">🌿 Compléments alimentaires</span>
+        <span class="tag-ex">🧴 Cosmétiques SG/SL</span>
+        <span class="tag-ex">🍬 Confiserie</span>
+        <span class="tag-ex">🥫 Conserves &amp; sauces</span>
+      </div>
+      <div class="encart-note" style="margin-top:14px">
+        Vous avez un produit cuisiné à faire déguster sur place ? C'est la voie <a href="/exposants/stand-food/" style="color:#15395B;font-weight:700">Stand food festival</a> qu'il vous faut.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Comment ça marche</span>
+      <h2>Quatre étapes, <span class="hl">zéro logistique le jour J</span></h2>
+    </div>
+    <div class="steps-grid" data-aos="fade-up">
+      <div class="step-card">
+        <div class="s-num">1</div>
+        <h4>Vous candidatez</h4>
+        <p>Remplissez le formulaire ci-dessous. Nous validons votre candidature et votre conformité SG/SL sous 5 jours ouvrés.</p>
+      </div>
+      <div class="step-card">
+        <div class="s-num">2</div>
+        <h4>Vous expédiez</h4>
+        <p>Avant le festival, vous envoyez votre stock à l'adresse de livraison FLORE. Pas besoin d'être présent sur place.</p>
+      </div>
+      <div class="step-card">
+        <div class="s-num">3</div>
+        <h4>FLORE vend</h4>
+        <p>Vos produits sont exposés sur 60 m linéaires de boutique physique pendant toute la durée du festival.</p>
+      </div>
+      <div class="step-card">
+        <div class="s-num">4</div>
+        <h4>Vous percevez</h4>
+        <p>80 % des ventes vous reviennent, reversés après l'événement. Les invendus vous sont retournés ou détruits selon votre choix.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBLIGATIONS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Obligations</span>
+      <h2>Exigence <span class="hl">identique</span></h2>
+    </div>
+    <div data-aos="fade-up" style="max-width:700px;margin:0 auto">
+      <div class="alerte-box">
+        <strong>⚠️ 100 % SG/SL · Aucun compromis</strong>
+        <p>La Boutique FLORE est dans un espace 100 % sans gluten et sans lactose. Tous les produits vendus doivent l'être aussi. Nos visiteurs cœliaques font confiance à ce label : aucun produit ambigu ou insuffisamment certifié ne sera accepté.</p>
+      </div>
+      <ul class="oblig-list">
+        <li><span class="warn">🌾</span><span><strong>100 % sans gluten certifié</strong> · tous vos produits doivent être sans gluten (&lt; 20 ppm, norme cœliaque). Fiche produit avec attestation requise pour chaque référence.</span></li>
+        <li><span class="warn">🥛</span><span><strong>100 % sans lactose</strong> · délactosés ou naturellement sans lactose. Aucun produit laitier standard accepté.</span></li>
+        <li><span class="warn">📋</span><span><strong>Étiquetage allergènes conforme</strong> · chaque produit doit avoir ses allergènes clairement affichés selon la réglementation en vigueur.</span></li>
+        <li><span class="warn">📦</span><span><strong>Expédition en temps et en heure</strong> · vos produits doivent arriver avant la date limite communiquée lors de la validation de votre candidature.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- VISIBILITÉ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Visibilité incluse</span>
+      <h2>Votre marque <span class="hl">partout</span></h2>
+    </div>
+    <div class="visi-row" data-aos="fade-up" style="justify-content:center;max-width:700px;margin:0 auto">
+      <span class="visi-pill">📲 Annonce Instagram FLORE</span>
+      <span class="visi-pill">🌐 Page sur flore-festival.fr</span>
+      <span class="visi-pill">🗺️ Plan du festival</span>
+      <span class="visi-pill">🎫 Programme + Passeport</span>
+      <span class="visi-pill">🔗 Lien vers vos réseaux</span>
+    </div>
+  </div>
+</section>
+
+<!-- CANDIDATURE -->
+<section class="sec" id="candidature" style="padding-top:0;padding-bottom:80px">
+  <div class="wrap">
+    <div data-aos="fade-up" style="text-align:center;margin-bottom:10px">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Candidature Boutique FLORE</span>
+      <h2 style="color:var(--white)">Il reste <span class="hl">45 marques</span></h2>
+      <p style="color:rgba(255,255,255,.88);max-width:44em;margin:0 auto">Places attribuées par ordre de candidature, sous réserve de conformité SG/SL. Une seule marque par catégorie de produit pour garantir la diversité de la Boutique.</p>
+    </div>
+
+    <div class="candi-wrap" data-aos="fade-up">
+      <h3>Votre dossier de candidature</h3>
+      <p class="sub">Nous vous répondons sous 5 jours ouvrés. Champs <span class="f-required">*</span> obligatoires.</p>
+
+      <form id="candi-form" novalidate>
+        <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+        <input type="hidden" name="subject" value="Candidature Boutique FLORE 2027">
+        <input type="hidden" name="from_name" value="Formulaire Boutique FLORE">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="f-row two">
+          <div class="f-field">
+            <label>Nom de la marque <span class="f-required">*</span></label>
+            <input type="text" name="marque" placeholder="Ex : Biscuit & Sens" required>
+          </div>
+          <div class="f-field">
+            <label>Votre nom <span class="f-required">*</span></label>
+            <input type="text" name="responsable" placeholder="Prénom Nom" required>
+          </div>
+        </div>
+
+        <div class="f-row two">
+          <div class="f-field">
+            <label>Email <span class="f-required">*</span></label>
+            <input type="email" name="email" placeholder="vous@exemple.fr" required>
+          </div>
+          <div class="f-field">
+            <label>Téléphone</label>
+            <input type="tel" name="telephone" placeholder="06 XX XX XX XX">
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label>Catégorie de produits <span class="f-required">*</span></label>
+            <input type="text" name="categorie" placeholder="Ex : Biscuits &amp; pâtisserie sèche, Chocolat, Confiture, Granola..." required>
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label>Présentez votre marque et vos produits <span class="f-required">*</span></label>
+            <textarea name="concept" placeholder="Qui êtes-vous ? Quels produits souhaiteriez-vous référencer ? Combien de références environ ? Comment êtes-vous certifiés 100% SG/SL ?" required></textarea>
+          </div>
+        </div>
+
+        <div class="f-row two">
+          <div class="f-field">
+            <label>Site web ou réseaux sociaux</label>
+            <input type="text" name="site" placeholder="https:// ou @instagram">
+          </div>
+          <div class="f-field">
+            <label>Ville / département</label>
+            <input type="text" name="localisation" placeholder="Ex : Bordeaux · 33">
+          </div>
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label style="text-transform:none;letter-spacing:0;font-size:.88rem;margin-bottom:6px">Engagements <span class="f-required">*</span></label>
+            <div class="f-checks">
+              <label class="f-check">
+                <input type="checkbox" name="certif_sg" required>
+                <span><strong>Je certifie</strong> que l'intégralité des produits proposés sont <strong>100 % sans gluten</strong> (norme cœliaque &lt; 20 ppm).</span>
+              </label>
+              <label class="f-check">
+                <input type="checkbox" name="certif_sl" required>
+                <span><strong>Je certifie</strong> que l'intégralité des produits proposés sont <strong>100 % sans lactose</strong> (délactosés ou naturellement sans lactose).</span>
+              </label>
+              <label class="f-check">
+                <input type="checkbox" name="etiquetage" required>
+                <span>Je confirme que tous mes produits disposent d'un <strong>étiquetage allergènes conforme</strong> à la réglementation en vigueur.</span>
+              </label>
+              <label class="f-check">
+                <input type="checkbox" name="rgpd" required>
+                <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="candi-btn">Envoyer ma candidature &rarr;</button>
+        <div class="form-msg" id="candi-msg"></div>
+      </form>
+    </div>
+
+    <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.65);font-size:.85rem;margin-top:20px">Une question ? contact@flore-festival.fr · 07 44 98 00 15</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="f-stars"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
+        <p class="about">Le premier festival musical et culinaire 100 % sans gluten et sans lactose. Une production de MG Entertainment.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
+          </a>
+          <a href="mailto:contact@flore-festival.fr" aria-label="E-mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>Exposants</h5>
+        <ul>
+          <li><a href="/exposants/">Toutes les options</a></li>
+          <li><a href="/exposants/stand-food/">Stand food festival</a></li>
+          <li><a href="/exposants/boutique/">Boutique FLORE</a></li>
+          <li><a href="/partenaires">Devenir partenaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></li>
+          <li><a href="tel:+33744980015">07 44 98 00 15</a></li>
+          <li><a href="/a-propos/">Qui sommes-nous</a></li>
+          <li><a href="/#billetterie">Billetterie</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment.</span>
+      <span class="footer-legal">
+        <button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button>
+        <span aria-hidden="true">·</span>
+        <button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button>
+      </span>
+      <span>Lagnieu, Ain · France · Dansez sans gluten, savourez sans lactose.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  const form = document.getElementById('candi-form');
+  const btn  = document.getElementById('candi-btn');
+  const msg  = document.getElementById('candi-msg');
+  if(form){
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const checks = ['certif_sg','certif_sl','etiquetage','rgpd'];
+      for(const n of checks){
+        if(!form.elements[n].checked){
+          msg.className='form-msg err';
+          msg.style.display='block';
+          msg.textContent='Merci de cocher tous les engagements obligatoires.';
+          msg.scrollIntoView({behavior:'smooth',block:'center'});
+          return;
+        }
+      }
+      btn.disabled=true;
+      btn.textContent='Envoi en cours…';
+      const data = Object.fromEntries(new FormData(form));
+      try{
+        const res = await fetch('https://api.web3forms.com/submit',{
+          method:'POST',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body:JSON.stringify(data)
+        });
+        const json = await res.json();
+        if(json.success){
+          msg.className='form-msg ok';
+          msg.style.display='block';
+          msg.textContent='Candidature reçue ! Nous vous répondons sous 5 jours ouvrés. À très bientôt.';
+          form.reset();
+          btn.textContent='Candidature envoyée ✓';
+        } else { throw new Error(); }
+      }catch(_){
+        msg.className='form-msg err';
+        msg.style.display='block';
+        msg.textContent='Une erreur est survenue. Écrivez-nous à contact@flore-festival.fr';
+        btn.disabled=false;
+        btn.textContent='Envoyer ma candidature →';
+      }
+      msg.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  }
+</script>
+</body>
+</html>

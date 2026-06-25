@@ -112,6 +112,20 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/"/>
   </url>
   <url>
+    <loc>https://flore-festival.fr/exposants/stand-food/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/stand-food/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/exposants/boutique/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/boutique/"/>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/partenaires</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
