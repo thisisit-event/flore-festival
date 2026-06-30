@@ -61,7 +61,7 @@
     'Siège social : 7 rue Pierre Bernin, 01800 Meximieux.<br>' +
     'N° RNA : W012014876.<br>' +
     'E-mail : <a href="mailto:contact@mgentertainment.fr">contact@mgentertainment.fr</a><br>' +
-    'Téléphone : <a href="tel:+33744980015">07 44 98 00 15</a></p>' +
+    '</p>' +
 
     '<h3>Directeur de la publication</h3>' +
     '<p>Morgan Spirli, en qualité de président de l\'association.</p>' +
