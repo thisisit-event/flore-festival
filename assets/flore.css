@@ -449,7 +449,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 
 /* ===== Infos brouillées (date · lieu · tarifs) ===== */
 .blurred{filter:blur(6px);user-select:none;pointer-events:none}
-.amt,.was,.t-save,.t-full{filter:blur(6px);user-select:none;pointer-events:none}
+.amt,.was,.t-save,.t-full,.tl-time,.countdown,.cd-intro{filter:blur(6px);user-select:none;pointer-events:none}
 
 /* ===== Formulaire (bénévoles, contact…) ===== */
 .form-card{background:var(--white);border-radius:var(--r-lg);padding:40px;max-width:640px;margin:0 auto;box-shadow:var(--shadow);text-align:left}
