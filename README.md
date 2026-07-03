@@ -94,7 +94,17 @@ et les synchronise (survol d'une carte → ouverture du pin correspondant).
 
 ### Où sont les données
 
-`assets/data/guide-etablissements.json` — tableau d'objets, un par établissement :
+`assets/data/guide-etablissements.json` est **la base de données du Guide** :
+la source de vérité unique pour les infos ET les liens d'images de chaque
+fiche (pas seulement ce qui alimente les pins). Choix volontaire (2026-07-04) :
+même si le site reste 100 % statique et que ce fichier ne "génère" rien tout
+seul (voir plus haut, les cartes/fiches restent écrites à la main), tout doit
+être déclaré ici en premier — objectif : pouvoir migrer ce fichier tel quel
+vers une vraie base de données le jour où le Guide évolue vers une vraie appli
+(voir [[flore-vision-plateforme-marketplace]]), sans avoir à ressortir
+l'info d'un tas de fichiers HTML éparpillés.
+
+Tableau d'objets, un par établissement :
 
 ```json
 {
@@ -110,9 +120,21 @@ et les synchronise (survol d'une carte → ouverture du pin correspondant).
   "description": "1-2 phrases, ton FLORE, pas de tiret cadratin.",
   "site": "https://...",
   "instagram": "https://instagram.com/...",
-  "boutique_flore": false
+  "boutique_flore": false,
+  "images": {
+    "principale": "https://...",
+    "secondaires": ["https://...", "https://...", "https://...", "https://..."]
+  }
 }
 ```
+
+- `images.principale` : sert à la fois de photo de couverture et de grande
+  image dans `.fiche-gallery` (`.fg-main`).
+- `images.secondaires` : exactement 4 URLs (voir [[flore-guide-gratuit-confirme]]
+  pour la discipline de compression avant upload sur le CDN). Ce sont ces
+  mêmes URLs qui doivent être recopiées dans le `<img src>` de la galerie de
+  la fiche HTML — le JSON est déclaré en premier, la fiche en est la
+  restitution.
 
 - `type` : une des catégories du formulaire de candidature (`Restaurant`,
   `Boulangerie`, `Pâtisserie`, `Café`, `Hôtel`, `Traiteur`, `Boutique`,
@@ -156,8 +178,10 @@ elle est mise de côté pour l'instant.
 
 ### Ajouter un établissement validé par le Comité (4 étapes)
 
-1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json` (alimente
-   le pin sur la carte).
+1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json`, **images
+   comprises** (`images.principale` + les 4 `images.secondaires`, uploadées au
+   préalable sur le CDN, compressées). C'est la base de données de référence :
+   tout le reste (carte, fiche) n'en est qu'une restitution HTML.
 2. **Ajouter une `.guide-card`** dans `<div class="guide-list">` de
    `/guide/index.html` (copier un bloc existant, **avant** la carte
    `.guide-card-ghost` qui doit rester la dernière — elle n'est pas filtrée et

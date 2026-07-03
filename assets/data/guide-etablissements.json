@@ -11,6 +11,15 @@
     "lactose": "dedie",
     "description": "Le premier festival musical et culinaire 100 % sans gluten et sans lactose. Concerts, food court d'artisans et boutique éphémère, une journée entière pensée pour manger et danser sans y penser.",
     "site": "https://flore-festival.fr/",
-    "boutique_flore": true
+    "boutique_flore": true,
+    "images": {
+      "principale": "https://enjoylife.b-cdn.net/Flore/picto-floor-scene.png",
+      "secondaires": [
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png",
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png",
+        "https://flore-festival.fr/assets/florette.png",
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png"
+      ]
+    }
   }
 ]
