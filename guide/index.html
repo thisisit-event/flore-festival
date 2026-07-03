@@ -38,7 +38,7 @@
 }
 </script>
 <style>
-  .guide-toolbar{max-width:980px;margin:0 auto 26px;background:#fff;border-radius:22px;padding:22px 26px;box-shadow:0 12px 40px rgba(21,57,91,.13);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
+  .guide-toolbar{max-width:1100px;margin:0 auto 22px;background:#fff;border-radius:22px;padding:20px 26px;box-shadow:0 12px 40px rgba(21,57,91,.13);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
   .gt-toggle{display:inline-flex;align-items:center;gap:9px;border:2px solid #e4edf5;border-radius:100px;padding:10px 20px;font-weight:700;font-size:.92rem;color:#5C7993;cursor:pointer;transition:all .18s;background:#fafcfe}
   .gt-toggle .dot{width:16px;height:16px;border-radius:50%;flex:0 0 auto}
   .gt-toggle.gluten .dot{background:#DAEF52}
@@ -48,39 +48,43 @@
   .gt-select{border:2px solid #e4edf5;border-radius:100px;padding:10px 18px;font:inherit;font-weight:600;font-size:.9rem;color:#15395B;background:#fafcfe;cursor:pointer}
   .gt-check{display:inline-flex;align-items:center;gap:8px;font-size:.87rem;font-weight:600;color:#5C7993;cursor:pointer}
   .gt-check input{width:16px;height:16px;accent-color:#3F93C4;cursor:pointer}
+  .gt-count{width:100%;text-align:center;font-size:.85rem;font-weight:700;color:#3F93C4;margin-top:2px}
 
-  .guide-map-wrap{max-width:1100px;margin:0 auto;position:relative}
-  #flore-map{height:560px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
-  @media(max-width:640px){#flore-map{height:420px}}
-  .map-empty{display:none;position:absolute;inset:0;z-index:5;background:rgba(255,255,255,.96);border-radius:24px;align-items:center;justify-content:center;text-align:center;padding:40px}
-  .map-empty.show{display:flex}
-  .map-empty-inner{max-width:380px}
-  .map-empty-inner .ic{font-size:2.6rem;display:block;margin-bottom:14px}
-  .map-empty-inner h3{color:#15395B;font-size:1.2rem;margin-bottom:8px}
-  .map-empty-inner p{color:#5C7993;font-size:.92rem;line-height:1.6;margin-bottom:18px}
+  /* ===== Vue Airbnb : liste + carte ===== */
+  .guide-split{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:400px 1fr;gap:20px;align-items:start}
+  @media(max-width:900px){.guide-split{grid-template-columns:1fr}}
 
-  .pin{display:block;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 3px 10px rgba(21,57,91,.35)}
-  .pin-gluten{background:#DAEF52}
-  .pin-lactose{background:#1FA9A0}
-  .pin-bicolore{background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)}
+  .guide-list{display:flex;flex-direction:column;gap:14px;max-height:620px;overflow-y:auto;padding-right:4px}
+  @media(max-width:900px){.guide-list{max-height:none;order:2}}
+  .guide-map-wrap{position:sticky;top:110px}
+  @media(max-width:900px){.guide-map-wrap{position:static;order:1}}
+  #flore-map{height:620px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
+  @media(max-width:900px){#flore-map{height:380px}}
 
-  .fiche-pop{font-family:'DM Sans',sans-serif;min-width:220px}
-  .fiche-pop h4{font-family:'Bricolage Grotesque',sans-serif;font-size:1.02rem;color:#15395B;margin:0 0 4px}
-  .fiche-pop .fp-badge{display:inline-flex;align-items:center;gap:5px;background:#EAF4FB;color:#2d4a5e;font-size:.72rem;font-weight:700;border-radius:100px;padding:3px 10px;margin-bottom:8px}
-  .fiche-pop .fp-type{font-size:.78rem;color:#7c93a3;font-weight:600;margin-bottom:6px}
-  .fiche-pop .fp-status{font-size:.82rem;color:#4a6070;line-height:1.5;margin:6px 0}
-  .fiche-pop .fp-links{display:flex;flex-direction:column;gap:5px;margin-top:8px;font-size:.82rem}
-  .fiche-pop .fp-links a{color:#3F93C4;font-weight:600}
-  .fiche-pop .fp-boutique{display:inline-block;margin-top:9px;background:#DAEF52;color:#15395B;font-weight:700;font-size:.78rem;border-radius:100px;padding:6px 12px}
+  .guide-card{display:block;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 8px 26px rgba(21,57,91,.1);border:2px solid transparent;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .guide-card:hover,.guide-card.is-active{transform:translateY(-3px);border-color:#DAEF52;box-shadow:0 16px 36px rgba(21,57,91,.18)}
+  .gc-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .gc-pin{width:14px;height:14px;border-radius:50%;flex:0 0 auto;border:2px solid #fff;box-shadow:0 0 0 1px #e4edf5}
+  .gc-pin.pin-gluten{background:#DAEF52}
+  .gc-pin.pin-lactose{background:#1FA9A0}
+  .gc-pin.pin-bicolore{background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)}
+  .gc-type{font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c93a3}
+  .guide-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.08rem;color:#15395B;margin:0 0 6px}
+  .gc-status{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+  .gc-status span{background:#f0f7fc;border-radius:100px;padding:4px 10px;font-size:.76rem;font-weight:600;color:#2d4a5e}
+  .gc-desc{font-size:.87rem;color:#4a6070;line-height:1.55;margin:0 0 10px}
+  .gc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .gc-loc{font-size:.82rem;color:#5C7993;font-weight:600}
+  .gc-cta{font-size:.82rem;font-weight:700;color:#3F93C4}
+
+  .guide-list-empty{background:rgba(255,255,255,.94);border-radius:20px;padding:32px 26px;text-align:center}
+  .guide-list-empty .ic{font-size:2.2rem;display:block;margin-bottom:10px}
+  .guide-list-empty h3{color:#15395B;font-size:1.08rem;margin-bottom:6px}
+  .guide-list-empty p{color:#5C7993;font-size:.9rem;line-height:1.6;margin-bottom:14px}
 
   .legende-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
   .legende-item{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);border-radius:100px;padding:6px 14px;font-size:.82rem;color:#fff;font-weight:600}
   .legende-item .dot{width:12px;height:12px;border-radius:50%}
-
-  .guide-liste{list-style:none;padding:0;max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-  .guide-liste li{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:14px 20px;color:rgba(255,255,255,.9);font-size:.94rem}
-  .guide-liste li a{color:#DAEF52;font-weight:700}
-  .guide-liste-vide{text-align:center;background:transparent!important;border:none!important;color:rgba(255,255,255,.75)!important}
 </style>
 </head>
 <body>
@@ -138,7 +142,7 @@
   </div>
 </header>
 
-<!-- CARTE -->
+<!-- GUIDE : LISTE + CARTE -->
 <section class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="guide-toolbar" data-aos="fade-up">
@@ -155,41 +159,44 @@
         <option value="Festival">Festival</option>
       </select>
       <label class="gt-check"><input type="checkbox" id="filter-dedie">100 % dédié uniquement</label>
+      <span class="gt-count" id="guide-count"></span>
     </div>
 
-    <div class="guide-map-wrap" data-aos="fade-up">
-      <div id="flore-map"></div>
-      <div class="map-empty" id="map-empty">
-        <div class="map-empty-inner">
+    <!--
+      MAINTENANCE — chaque .guide-card est écrite à la main, en HTML pur (crawlable par
+      Google sans JS), et sert aussi de source de données pour la liste : le JS lit ses
+      attributs data-* pour filtrer/synchroniser la carte. Les pins de la carte, eux,
+      viennent de assets/data/guide-etablissements.json (fetch). À chaque établissement
+      validé, il faut mettre à jour LES DEUX : voir README.md, section "Guide FLORE".
+    -->
+    <div class="guide-split" data-aos="fade-up">
+      <div class="guide-list" id="guide-list">
+        <a class="guide-card" href="/guide/flore-festival-lagnieu/"
+           data-slug="flore-festival-lagnieu" data-type="Festival" data-gluten="dedie" data-lactose="dedie">
+          <div class="gc-top"><span class="gc-pin pin-bicolore"></span><span class="gc-type">Festival</span></div>
+          <h3>FLORE Festival</h3>
+          <div class="gc-status"><span>🌾 100 % sans gluten</span><span>🥛 100 % sans lactose</span></div>
+          <p class="gc-desc">Le premier festival musical et culinaire 100 % sans gluten et sans lactose. Concerts, food court d'artisans et boutique éphémère.</p>
+          <div class="gc-foot">
+            <span class="gc-loc">📍 <span class="blurred">Lagnieu, Ain</span></span>
+            <span class="gc-cta">Voir la fiche →</span>
+          </div>
+        </a>
+
+        <div class="guide-list-empty" id="guide-list-empty" hidden>
           <span class="ic">🌱</span>
-          <h3>Le Guide se construit</h3>
-          <p>Aucune adresse ne correspond à ces filtres pour l'instant. Le Comité FLORE valide de nouvelles fiches régulièrement, revenez bientôt.</p>
+          <h3>Aucune adresse pour ces filtres</h3>
+          <p>Le Comité FLORE valide de nouvelles fiches régulièrement, revenez bientôt.</p>
           <a href="/exposants/carte-guide/" class="btn btn-sun" style="display:inline-flex">Faire référencer mon établissement →</a>
         </div>
+      </div>
+
+      <div class="guide-map-wrap">
+        <div id="flore-map"></div>
       </div>
     </div>
 
     <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.7);font-size:.9rem;max-width:44em;margin:22px auto 0">Vous tenez un établissement ou une marque 100 % ou en partie sans gluten et sans lactose ? <a href="/exposants/carte-guide/" style="color:#DAEF52;font-weight:700">Rejoignez le Guide gratuitement →</a></p>
-  </div>
-</section>
-
-<!--
-  Liste statique en HTML pur : les popups de la carte sont générés en JS (fetch + Leaflet),
-  peu fiables pour l'indexation. Chaque établissement validé doit avoir une ligne ici en plus
-  de son entrée dans assets/data/guide-etablissements.json et de sa fiche /guide/{slug}/.
-  Voir README.md, section "Guide FLORE" pour le processus complet.
--->
-<section class="sec" id="toutes-les-adresses" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>L'annuaire</span>
-      <h2>Toutes les <span class="hl">adresses du Guide</span></h2>
-    </div>
-    <ul class="guide-liste" data-aos="fade-up">
-      <li><a href="/guide/flore-festival-lagnieu/">FLORE Festival · Festival · <span class="blurred">Lagnieu, Ain</span></a></li>
-      <!-- <li><a href="/guide/slug-etablissement/">Nom de l'établissement · Type · Ville</a></li> -->
-    </ul>
-    <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.7);font-size:.88rem;max-width:44em;margin:18px auto 0">D'autres adresses arrivent au fil des validations du Comité FLORE. <a href="/exposants/carte-guide/" style="color:#DAEF52;font-weight:700">Vous êtes concerné ? Candidatez ici →</a></p>
   </div>
 </section>
 
@@ -248,7 +255,7 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
 
-  // ============ CARTE GUIDE FLORE ============
+  // ============ GUIDE FLORE : liste + carte synchronisées ============
   (function(){
     const map = L.map('flore-map', { scrollWheelZoom:false }).setView([46.6, 2.4], 6);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -260,10 +267,13 @@
     const toggleLactose = document.getElementById('toggle-lactose');
     const selectCategorie = document.getElementById('filter-categorie');
     const checkDedie = document.getElementById('filter-dedie');
-    const mapEmpty = document.getElementById('map-empty');
+    const guideCount = document.getElementById('guide-count');
+    const guideListEmpty = document.getElementById('guide-list-empty');
+    const cards = Array.prototype.slice.call(document.querySelectorAll('.guide-card'));
 
     let etablissements = [];
-    let markerLayer = L.layerGroup().addTo(map);
+    const markerLayer = L.layerGroup().addTo(map);
+    const markersBySlug = {};
 
     function pinClass(item){
       if(item.gluten && item.lactose) return 'pin-bicolore';
@@ -283,21 +293,16 @@
 
     function ficheHtml(item){
       let html = '<div class="fiche-pop">';
-      html += '<span class="fp-badge">✅ Validé par le Comité FLORE</span>';
-      html += '<h4>' + item.nom + '</h4>';
-      html += '<div class="fp-type">' + item.type + ' · ' + (item.adresse || '') + '</div>';
-      html += '<div class="fp-status">' + statutTexte(item) + '</div>';
-      if(item.description) html += '<p style="font-size:.82rem;color:#4a6070;margin:6px 0">' + item.description + '</p>';
-      const links = [];
-      if(item.slug) links.push('<a href="/guide/' + item.slug + '/"><strong>Voir la fiche complète →</strong></a>');
-      if(item.site) links.push('<a href="' + item.site + '" target="_blank" rel="noopener">🌐 Site web</a>');
-      if(item.instagram) links.push('<a href="' + item.instagram + '" target="_blank" rel="noopener">📷 Instagram</a>');
-      if(links.length) html += '<div class="fp-links">' + links.join('') + '</div>';
-      if(item.boutique_flore) html += '<a href="/exposants/boutique/" class="fp-boutique">🛍️ Trouver leurs produits sur la Boutique Flore</a>';
+      html += '<h4 style="font-family:\'Bricolage Grotesque\',sans-serif;margin:0 0 4px">' + item.nom + '</h4>';
+      html += '<div style="font-size:.78rem;color:#7c93a3;font-weight:600;margin-bottom:6px">' + item.type + '</div>';
+      html += '<div style="font-size:.82rem;color:#4a6070;line-height:1.5">' + statutTexte(item) + '</div>';
+      if(item.slug) html += '<a href="/guide/' + item.slug + '/" style="display:inline-block;margin-top:8px;font-weight:700;color:#3F93C4">Voir la fiche complète →</a>';
       html += '</div>';
       return html;
     }
 
+    // ---- Filtres (corrigés : "100% dédié" s'applique à chaque garantie que l'établissement revendique,
+    //      indépendamment des interrupteurs gluten/lactose actifs) ----
     function passeFiltres(item){
       const glutenOn = toggleGluten.classList.contains('on');
       const lactoseOn = toggleLactose.classList.contains('on');
@@ -306,28 +311,58 @@
       const cat = selectCategorie.value;
       if(cat && item.type !== cat) return false;
       if(checkDedie.checked){
-        if(glutenOn && item.gluten !== 'dedie') return false;
-        if(lactoseOn && item.lactose !== 'dedie') return false;
-        if(!glutenOn && !lactoseOn && item.gluten !== 'dedie' && item.lactose !== 'dedie') return false;
+        if(item.gluten && item.gluten !== 'dedie') return false;
+        if(item.lactose && item.lactose !== 'dedie') return false;
       }
       return true;
     }
 
     function render(){
+      // Carte : reconstruit les pins depuis le JSON
       markerLayer.clearLayers();
-      const visibles = etablissements.filter(passeFiltres);
-      visibles.forEach(function(item){
+      Object.keys(markersBySlug).forEach(function(k){ delete markersBySlug[k]; });
+      const visiblesJson = etablissements.filter(passeFiltres);
+      visiblesJson.forEach(function(item){
         const icon = L.divIcon({
           className: '',
-          html: '<span class="pin ' + pinClass(item) + '"></span>',
-          iconSize: [22,22],
-          iconAnchor: [11,11],
-          popupAnchor: [0,-11]
+          html: '<span class="pin ' + pinClass(item) + '" style="display:block;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 3px 10px rgba(21,57,91,.35)"></span>',
+          iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-11]
         });
-        L.marker([item.lat, item.lng], { icon: icon }).addTo(markerLayer).bindPopup(ficheHtml(item));
+        const marker = L.marker([item.lat, item.lng], { icon: icon }).addTo(markerLayer).bindPopup(ficheHtml(item));
+        if(item.slug){
+          markersBySlug[item.slug] = marker;
+          marker.on('click', function(){ highlightCard(item.slug); });
+        }
       });
-      mapEmpty.classList.toggle('show', visibles.length === 0);
+
+      // Liste statique : filtre les cartes déjà présentes dans le DOM via leurs data-*
+      let visibleCount = 0;
+      cards.forEach(function(card){
+        const item = {
+          type: card.dataset.type,
+          gluten: card.dataset.gluten || null,
+          lactose: card.dataset.lactose || null
+        };
+        const show = passeFiltres(item);
+        card.hidden = !show;
+        if(show) visibleCount++;
+      });
+      guideListEmpty.hidden = visibleCount !== 0;
+      guideCount.textContent = visibleCount + (visibleCount > 1 ? ' adresses trouvées' : ' adresse trouvée');
     }
+
+    function highlightCard(slug){
+      cards.forEach(function(c){ c.classList.toggle('is-active', c.dataset.slug === slug); });
+      const card = cards.find(function(c){ return c.dataset.slug === slug; });
+      if(card) card.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    }
+
+    cards.forEach(function(card){
+      card.addEventListener('mouseenter', function(){
+        const marker = markersBySlug[card.dataset.slug];
+        if(marker) marker.openPopup();
+      });
+    });
 
     function bindToggle(btn){
       btn.addEventListener('click', function(){
@@ -346,6 +381,13 @@
       .then(function(data){
         etablissements = Array.isArray(data) ? data : [];
         render();
+        const hashSlug = location.hash.replace('#','');
+        if(hashSlug && markersBySlug[hashSlug]){
+          const m = markersBySlug[hashSlug];
+          map.setView(m.getLatLng(), 12);
+          m.openPopup();
+          highlightCard(hashSlug);
+        }
       })
       .catch(function(){
         etablissements = [];

@@ -73,12 +73,24 @@ provisionne un certificat HTTPS, puis on active **Enforce HTTPS** dans
 
 ## Guide FLORE · carte interactive
 
-`/guide/` est la carte publique des établissements sans gluten et sans lactose
-(Leaflet.js + fond OpenStreetMap, aucune clé API). Comme le reste du site,
-c'est **statique, sans backend, sans build** : les données vivent dans un
-fichier JSON versionné, et chaque établissement validé a sa propre page HTML
-pour être indexé individuellement par Google (objectif SEO : chaque fiche est
-une porte d'entrée possible sur le site).
+`/guide/` est la carte publique des établissements sans gluten et sans lactose,
+en vue « liste + carte » façon Airbnb (Leaflet.js + fond OpenStreetMap, aucune
+clé API). Comme le reste du site, c'est **statique, sans backend, sans build**.
+Chaque établissement validé a aussi sa propre page HTML (« mini-site »), pour
+être indexé individuellement par Google (objectif SEO : chaque fiche est une
+porte d'entrée possible sur le site).
+
+**Deux représentations à tenir synchronisées** (pas de build, donc pas de
+génération automatique) :
+- `assets/data/guide-etablissements.json` → alimente les **pins de la carte**
+  (fetch JS).
+- Une `.guide-card` écrite à la main dans `/guide/index.html` → alimente la
+  **liste** (HTML pur, crawlable même sans JS, et sert aussi de source pour le
+  filtrage côté liste via ses attributs `data-*`).
+
+Les deux doivent décrire le même établissement ; le filtrage JS applique les
+mêmes règles aux pins (depuis le JSON) et aux cartes (depuis leurs `data-*`),
+et les synchronise (survol d'une carte → ouverture du pin correspondant).
 
 ### Où sont les données
 
@@ -112,17 +124,16 @@ une porte d'entrée possible sur le site).
 
 ### Ajouter un établissement validé par le Comité (4 étapes)
 
-La carte (JS) et son popup ne suffisent pas pour le SEO : Google indexe mal du
-contenu qui n'apparaît qu'au clic sur un pin. D'où les 4 étapes, à faire à
-chaque validation :
-
-1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json`.
-2. **Créer la fiche** à `/guide/{slug}/index.html` à partir du template
+1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json` (alimente
+   le pin sur la carte).
+2. **Ajouter une `.guide-card`** dans `<div class="guide-list">` de
+   `/guide/index.html` (copier un bloc existant), avec les attributs
+   `data-slug` (identique au `slug` du JSON), `data-type`, `data-gluten`,
+   `data-lactose` à jour — c'est ce bloc qui est filtré/affiché dans la liste
+   et qui est crawlable par Google sans JS.
+3. **Créer la fiche** à `/guide/{slug}/index.html` à partir du template
    ci-dessous (title, meta description et JSON-LD uniques → indexation
-   individuelle, pas une simple sous-page du Guide).
-3. **Ajouter un lien statique** dans la liste `<ul class="guide-liste">` de
-   `/guide/index.html` (fallback HTML pur, garanti crawlable, contrairement
-   aux popups Leaflet).
+   individuelle, comme un mini-site pour cet établissement).
 4. **Ajouter l'URL de la fiche** dans `sitemap.xml`.
 
 ### Template de fiche `/guide/{slug}/index.html`
@@ -149,11 +160,21 @@ favicon) et remplacer le contenu par :
 </script>
 ```
 
-Corps de page : back-link vers `/guide/`, H1 avec le nom, statut de sécurité
-en clair (mêmes libellés que le popup de la carte), description, adresse,
-liens externes, et si `boutique_flore: true`, un bouton vers
-`/exposants/boutique/`. Même nav/footer que les autres pages `/guide/` et
-`/exposants/`.
+Corps de page (voir `/guide/flore-festival-lagnieu/index.html` comme référence
+concrète) : un vrai mini-site à sections, pas juste une carte compacte —
+
+1. **Hero** : back-link vers `/guide/`, badge « Validé par le Comité FLORE »,
+   H1 avec le nom, tagline, rangée de « facts » (catégorie, ville, date —
+   flouter tout ce qui doit l'être, voir [[flore-date-festival]]).
+2. **Statut de sécurité** : cartes gluten/lactose (mêmes libellés que le
+   popup de la carte).
+3. **À propos** : description plus longue que celle du JSON.
+4. **Infos pratiques** : petites cards (date, horaires, lieu, catégorie).
+5. **Actions** : site web, et si `boutique_flore: true` un bouton vers
+   `/exposants/boutique/`, plus un bouton retour carte vers
+   `/guide/#{{slug}}` (rouvre le pin correspondant automatiquement).
+
+Même nav/footer que les autres pages `/guide/` et `/exposants/`.
 
 ## À compléter / confirmer
 
