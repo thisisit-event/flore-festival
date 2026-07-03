@@ -465,19 +465,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .form-success{background:rgba(218,239,82,.16);border:1px solid rgba(218,239,82,.45);border-radius:var(--r-md);padding:26px 28px;text-align:center;color:var(--ink);font-size:1.02rem;line-height:1.6}
 .form-success strong{font-family:'Bricolage Grotesque',sans-serif;color:var(--sun-deep)}
 
-/* ===== Transition de page · bouffée de nuages ===== */
-.fx-veil{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0;visibility:hidden;background:radial-gradient(circle at 50% 55%,#fff 0%,#fff 40%,rgba(231,244,251,.92) 64%,rgba(255,255,255,0) 84%)}
-.fx-veil .fx-cloud{position:absolute;color:#fff;filter:blur(2px);opacity:0;will-change:transform,opacity}
-.fx-veil.fx-cover{visibility:visible;pointer-events:all;animation:fxFadeIn .48s var(--ease) forwards}
-.fx-veil.fx-reveal{visibility:visible;opacity:1;animation:fxFadeOut .6s var(--ease) .05s forwards}
-@keyframes fxFadeIn{from{opacity:0}to{opacity:1}}
-@keyframes fxFadeOut{from{opacity:1}to{opacity:0;visibility:hidden}}
-.fx-veil.fx-cover .fx-cloud{animation:fxCloudIn .5s var(--ease) forwards}
-.fx-veil.fx-reveal .fx-cloud{animation:fxCloudOut .6s var(--ease) forwards}
-@keyframes fxCloudIn{0%{transform:translateY(50px) scale(.6);opacity:0}60%{opacity:1}100%{transform:translateY(0) scale(1.7);opacity:1}}
-@keyframes fxCloudOut{0%{transform:scale(1.7);opacity:1}100%{transform:translateY(-60px) scale(2.6);opacity:0}}
-@media(prefers-reduced-motion:reduce){.fx-veil{display:none!important}}
-
 /* pétales au clic */
 .fx-petal{position:fixed;z-index:9998;pointer-events:none;left:0;top:0;font-size:18px;line-height:1;will-change:transform,opacity;animation:petalPop .9s cubic-bezier(.2,.6,.3,1) forwards}
 @keyframes petalPop{0%{transform:translate(-50%,-50%) scale(.3) rotate(0);opacity:1}100%{transform:translate(calc(-50% + var(--tx)),calc(-50% + var(--ty))) scale(1) rotate(var(--rot));opacity:0}}
@@ -721,7 +708,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .florette-svg,.florette-stage .florette-svg,.florette-wrap .d-float{will-change:transform}
 
 @media(prefers-reduced-motion:reduce){
-  .fx-pollen,.fx-veil{display:none!important}
+  .fx-pollen{display:none!important}
   .florette-stage .florette-svg,.part-cta .pc-cloud,.cta-card .c-cloud,.sky-bg::after{animation:none!important}
 }
 
