@@ -62,12 +62,13 @@
   @media(max-width:900px){#flore-map{height:380px}}
 
   .guide-card{display:block;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 8px 26px rgba(21,57,91,.1);border:2px solid transparent;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .guide-card[hidden]{display:none}
   .guide-card:hover,.guide-card.is-active{transform:translateY(-3px);border-color:#DAEF52;box-shadow:0 16px 36px rgba(21,57,91,.18)}
   .gc-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .pin-gluten{background:#DAEF52}
+  .pin-lactose{background:#1FA9A0}
+  .pin-bicolore{background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)}
   .gc-pin{width:14px;height:14px;border-radius:50%;flex:0 0 auto;border:2px solid #fff;box-shadow:0 0 0 1px #e4edf5}
-  .gc-pin.pin-gluten{background:#DAEF52}
-  .gc-pin.pin-lactose{background:#1FA9A0}
-  .gc-pin.pin-bicolore{background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)}
   .gc-type{font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c93a3}
   .guide-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.08rem;color:#15395B;margin:0 0 6px}
   .gc-status{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
@@ -128,7 +129,7 @@
 </svg>
 
 <div id="site-nav"></div>
-<script src="/assets/nav.js"></script>
+<script src="/assets/nav.js?v=20260704"></script>
 
 <!-- HERO -->
 <header class="sec" id="top" style="padding-top:150px">
@@ -265,14 +266,10 @@
   window.addEventListener('scroll', onScroll, { passive:true });
 
   // ============ GUIDE FLORE : liste + carte synchronisées ============
+  // La liste (filtres inclus) doit fonctionner même si Leaflet échoue à
+  // charger (bloqueur de pub, réseau) : l'init de la carte est isolée dans
+  // un try/catch et n'est jamais une condition pour que les filtres marchent.
   (function(){
-    const map = L.map('flore-map', { scrollWheelZoom:false }).setView([46.6, 2.4], 6);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(map);
-
     const toggleGluten = document.getElementById('toggle-gluten');
     const toggleLactose = document.getElementById('toggle-lactose');
     const selectCategorie = document.getElementById('filter-categorie');
@@ -282,7 +279,8 @@
     const cards = Array.prototype.slice.call(document.querySelectorAll('.guide-card:not(.guide-card-ghost)'));
 
     let etablissements = [];
-    const markerLayer = L.layerGroup().addTo(map);
+    let map = null;
+    let markerLayer = null;
     const markersBySlug = {};
 
     function pinClass(item){
@@ -327,25 +325,7 @@
       return true;
     }
 
-    function render(){
-      // Carte : reconstruit les pins depuis le JSON
-      markerLayer.clearLayers();
-      Object.keys(markersBySlug).forEach(function(k){ delete markersBySlug[k]; });
-      const visiblesJson = etablissements.filter(passeFiltres);
-      visiblesJson.forEach(function(item){
-        const icon = L.divIcon({
-          className: '',
-          html: '<span class="pin ' + pinClass(item) + '" style="display:block;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 3px 10px rgba(21,57,91,.35)"></span>',
-          iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-11]
-        });
-        const marker = L.marker([item.lat, item.lng], { icon: icon }).addTo(markerLayer).bindPopup(ficheHtml(item));
-        if(item.slug){
-          markersBySlug[item.slug] = marker;
-          marker.on('click', function(){ highlightCard(item.slug); });
-        }
-      });
-
-      // Liste statique : filtre les cartes déjà présentes dans le DOM via leurs data-*
+    function renderList(){
       let visibleCount = 0;
       cards.forEach(function(card){
         const item = {
@@ -360,6 +340,26 @@
       guideListEmpty.hidden = visibleCount !== 0;
       guideCount.textContent = visibleCount + (visibleCount > 1 ? ' adresses trouvées' : ' adresse trouvée');
     }
+
+    function renderMap(){
+      if(!map) return;
+      markerLayer.clearLayers();
+      Object.keys(markersBySlug).forEach(function(k){ delete markersBySlug[k]; });
+      etablissements.filter(passeFiltres).forEach(function(item){
+        const icon = L.divIcon({
+          className: '',
+          html: '<span class="pin ' + pinClass(item) + '" style="display:block;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 3px 10px rgba(21,57,91,.35)"></span>',
+          iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-11]
+        });
+        const marker = L.marker([item.lat, item.lng], { icon: icon }).addTo(markerLayer).bindPopup(ficheHtml(item));
+        if(item.slug){
+          markersBySlug[item.slug] = marker;
+          marker.on('click', function(){ highlightCard(item.slug); });
+        }
+      });
+    }
+
+    function render(){ renderList(); renderMap(); }
 
     function highlightCard(slug){
       cards.forEach(function(c){ c.classList.toggle('is-active', c.dataset.slug === slug); });
@@ -386,22 +386,41 @@
     selectCategorie.addEventListener('change', render);
     checkDedie.addEventListener('change', render);
 
+    // La liste doit s'afficher correctement dès le chargement, avant même
+    // la tentative d'initialisation de la carte.
+    renderList();
+
+    try {
+      map = L.map('flore-map', { scrollWheelZoom:false }).setView([46.6, 2.4], 6);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
+      markerLayer = L.layerGroup().addTo(map);
+    } catch(err){
+      map = null;
+      if(window.console) console.warn('Guide FLORE : carte indisponible, la liste reste fonctionnelle.', err);
+    }
+
     fetch('/assets/data/guide-etablissements.json')
       .then(function(r){ return r.json(); })
       .then(function(data){
         etablissements = Array.isArray(data) ? data : [];
         render();
-        const hashSlug = location.hash.replace('#','');
-        if(hashSlug && markersBySlug[hashSlug]){
-          const m = markersBySlug[hashSlug];
-          map.setView(m.getLatLng(), 12);
-          m.openPopup();
-          highlightCard(hashSlug);
+        if(map){
+          const hashSlug = location.hash.replace('#','');
+          if(hashSlug && markersBySlug[hashSlug]){
+            const m = markersBySlug[hashSlug];
+            map.setView(m.getLatLng(), 12);
+            m.openPopup();
+            highlightCard(hashSlug);
+          }
         }
       })
       .catch(function(){
         etablissements = [];
-        render();
+        renderList();
       });
   })();
 </script>
