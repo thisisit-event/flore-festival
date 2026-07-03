@@ -114,13 +114,31 @@ et les synchronise (survol d'une carte → ouverture du pin correspondant).
 }
 ```
 
-- `type` : une des 6 valeurs du formulaire de candidature (`Restaurant`,
-  `Boulangerie / Pâtisserie`, `Épicerie`, `Artisan`, `Marque 100% en ligne`,
-  `Producteur`).
+- `type` : une des catégories du formulaire de candidature (`Restaurant`,
+  `Boulangerie`, `Pâtisserie`, `Café`, `Hôtel`, `Traiteur`, `Boutique`,
+  `Épicerie`, `Producteur`, `Marque alimentaire`, `Entreprise`,
+  `Professionnel de santé`, `Association`, `Autre`), + `Festival` réservé à
+  la fiche FLORE elle-même. Doit correspondre exactement aux `<option>` du
+  filtre catégorie de `/guide/index.html`.
 - `gluten` / `lactose` : `"dedie"` (100 % dédié, zéro trace), `"options"`
   (cuisine mixte, contamination maîtrisée), ou absent si non concerné.
 - `boutique_flore` : `true` si la marque est aussi référencée à la Boutique
   Flore → un bouton apparaît sur sa fiche du Guide vers `/exposants/boutique/`.
+
+### Formulaire d'inscription pro `/exposants/carte-guide/`
+
+Wizard en 8 écrans (profil, infos générales, activité, sécurité alimentaire +
+demande de certification FLORE, services, galerie avec glisser-déposer,
+horaires, validation avec aperçu en direct de la fiche) — **toujours sans
+compte ni backend** : c'est un long formulaire côté navigateur, envoyé par
+email via Web3Forms comme les autres formulaires du site (voir
+[[flore-web3forms-key]]). Aucune donnée n'est stockée automatiquement ; le
+Comité reçoit l'email et suit ensuite le processus ci-dessous à la main.
+
+Volontairement pas de vrai tableau de bord pro (vues, clics, messages) ni de
+connexion : ça nécessiterait un backend, hors du cadre de ce site. Voir
+[[flore-vision-plateforme-marketplace]] pour la vision long terme et pourquoi
+elle est mise de côté pour l'instant.
 
 ### Ajouter un établissement validé par le Comité (4 étapes)
 

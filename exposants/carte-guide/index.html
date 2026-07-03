@@ -3,407 +3,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guide FLORE · Carte interactive sans gluten &amp; sans lactose · Référencement à l'année</title>
-<meta name="description" content="Référencez gratuitement votre établissement ou votre marque sur le Guide FLORE, la carte interactive des adresses sans gluten et sans lactose. Visible toute l'année, validé par le Comité FLORE.">
+<title>Rejoindre le Guide FLORE · Inscription professionnelle</title>
+<meta name="description" content="Référencez gratuitement votre établissement ou votre marque sur le Guide FLORE. Inscription guidée en quelques étapes, validée par le Comité FLORE.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://flore-festival.fr/exposants/carte-guide/">
 <link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
-<meta property="og:title" content="Guide FLORE · Carte interactive sans gluten &amp; sans lactose">
-<meta property="og:description" content="Référencement gratuit, à l'année, validé par le Comité FLORE · La carte des adresses sans gluten et sans lactose.">
+<meta property="og:title" content="Rejoindre le Guide FLORE · Inscription professionnelle">
+<meta property="og:description" content="Référencement gratuit, validé par le Comité FLORE · La carte des adresses sans gluten et sans lactose.">
 <meta property="og:url" content="https://flore-festival.fr/exposants/carte-guide/">
 <meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Guide FLORE - carte interactive sans gluten et sans lactose">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Guide FLORE · Carte interactive sans gluten &amp; sans lactose">
-<meta name="twitter:description" content="Référencement gratuit et permanent, validé par le Comité FLORE.">
-<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
-<meta name="twitter:image:alt" content="FLORE Festival - logo">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/flore.css?v=20260702">
 <style>
-  .back-link{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.75);font-size:.88rem;font-weight:600;text-decoration:none;margin-bottom:24px;transition:color .18s}
-  .back-link:hover{color:#DAEF52}
-  .expose-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;margin-top:28px}
-  .expose-card{background:#fff;border-radius:20px;padding:26px 24px;box-shadow:0 8px 28px rgba(21,57,91,.09);border:1px solid #e4edf5}
-  .expose-card .ic{font-size:2rem;margin-bottom:12px;display:block}
-  .expose-card h3{font-size:1.05rem;font-weight:700;color:#15395B;margin:0 0 7px}
-  .expose-card p{font-size:.9rem;color:#4a6070;line-height:1.6;margin:0}
-  .exemples-row{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0}
-  .tag-ex{background:#fff;border:1.5px solid #d0dde8;border-radius:100px;padding:7px 15px;font-size:.88rem;color:#2d4a5e;font-weight:600}
-  .encart-note{background:#EAF4FB;border-radius:14px;padding:15px 18px;font-size:.87rem;color:#2d4a5e;line-height:1.6;margin-top:12px}
-  .encart-note strong{color:#15395B}
-  .gratuit-badge{display:inline-flex;align-items:center;gap:10px;background:#DAEF52;border-radius:100px;padding:10px 24px;font-weight:800;font-size:1.15rem;color:#15395B;margin:8px 0 4px}
+  body{background:#fff}
+  .wiz-sheet{background:#fff;padding-top:118px}
+  .wiz-back{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);font-size:.88rem;font-weight:600;text-decoration:none;margin:22px 0 8px}
+  .wiz-back:hover{color:var(--sky-deep)}
+  .wiz-head h1{font-size:clamp(1.9rem,4vw,2.5rem);color:var(--ink);margin:8px 0 8px}
+  .wiz-head p{color:var(--ink-soft);font-size:1rem;max-width:44em;margin:0 0 28px}
 
-  /* Code couleur */
-  .code-couleur{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:24px}
-  .code-card{background:#fff;border-radius:18px;padding:22px 22px;box-shadow:0 8px 28px rgba(21,57,91,.09);border:1px solid #e4edf5;display:flex;gap:14px;align-items:flex-start}
-  .code-dot{flex:0 0 auto;width:26px;height:26px;border-radius:50%;margin-top:2px}
-  .code-dot.gluten{background:#DAEF52}
-  .code-dot.lactose{background:#1FA9A0}
-  .code-dot.bicolore{background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)}
-  .code-card h4{font-size:.98rem;font-weight:700;color:#15395B;margin:0 0 5px}
-  .code-card p{font-size:.86rem;color:#4a6070;line-height:1.55;margin:0}
-  .tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-  .tag-fixe,.tag-pointille{display:inline-flex;align-items:center;gap:8px;border-radius:100px;padding:8px 16px;font-size:.87rem;font-weight:700}
-  .tag-fixe{background:#eaf9ef;color:#1e7a43;border:1.5px solid #b7e6c6}
-  .tag-pointille{background:#fff8ee;color:#a9660b;border:1.5px dashed #e8b56a}
+  /* Progress bar */
+  .wiz-progress{display:flex;gap:6px;margin-bottom:36px}
+  .wiz-progress .seg{flex:1;height:6px;border-radius:100px;background:var(--line);transition:background .25s}
+  .wiz-progress .seg.done{background:var(--sun-deep)}
+  .wiz-progress .seg.current{background:var(--sun)}
+  .wiz-steplabel{font-size:.8rem;font-weight:700;color:var(--sky-deep);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
 
-  /* form */
-  .candi-wrap{background:#fff;border-radius:22px;padding:36px 32px;max-width:720px;margin:32px auto 0;box-shadow:0 12px 40px rgba(21,57,91,.13);text-align:left}
-  .candi-wrap h3{font-size:1.22rem;color:#15395B;margin:0 0 6px}
-  .candi-wrap .sub{font-size:.9rem;color:#4a6070;margin:0 0 24px;border-bottom:1px solid #e4edf5;padding-bottom:16px}
-  .f-section-label{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#3F93C4;margin:26px 0 12px}
-  .f-section-label:first-child{margin-top:0}
+  .wiz-layout{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start;padding-bottom:90px}
+  @media(max-width:960px){.wiz-layout{grid-template-columns:1fr}}
+
+  .wiz-step{display:none}
+  .wiz-step.active{display:block}
+
+  /* Step 0 : profil */
+  .profil-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .profil-card{border:2px solid var(--line);border-radius:16px;padding:20px 12px;text-align:center;cursor:pointer;background:#fff;transition:all .18s}
+  .profil-card .pc-ic{font-size:1.8rem;display:block;margin-bottom:8px}
+  .profil-card .pc-label{font-size:.86rem;font-weight:700;color:var(--ink)}
+  .profil-card:hover{border-color:var(--sky)}
+  .profil-card.selected{border-color:var(--sun-deep);background:var(--sun-pale)}
+
+  /* Fields (réutilise les conventions des autres formulaires du site) */
   .f-row{display:grid;gap:16px;margin-bottom:16px}
   .f-row.two{grid-template-columns:1fr 1fr}
-  @media(max-width:560px){.f-row.two{grid-template-columns:1fr}}
+  .f-row.three{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:640px){.f-row.two,.f-row.three{grid-template-columns:1fr}}
   .f-field{display:flex;flex-direction:column;gap:5px}
-  .f-field label{font-size:.78rem;font-weight:700;color:#15395B;letter-spacing:.04em;text-transform:uppercase}
-  .f-field input,.f-field textarea{border:1.5px solid #d0dde8;border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:#15395B;background:#fafcfe;transition:border-color .18s}
+  .f-field label{font-size:.78rem;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+  .f-field input,.f-field textarea,.f-field select{border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:var(--ink);background:#fafcfe;transition:border-color .18s}
   .f-field input[type=file]{padding:9px 10px;font-size:.85rem}
-  .f-field input:focus,.f-field textarea:focus{outline:none;border-color:#3F93C4;background:#fff}
-  .f-field textarea{min-height:86px;resize:vertical}
-  .f-field .hint{font-size:.78rem;color:#7c93a3;font-weight:500;text-transform:none;letter-spacing:0}
-  .f-radios{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
-  .f-radios label{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.92rem;font-weight:600;color:#2d4a5e;background:#f0f7fc;border:1.5px solid #d0dde8;border-radius:100px;padding:8px 16px;transition:all .18s}
-  .f-radios input[type=radio]{display:none}
-  .f-radios label:has(input:checked){background:#DAEF52;border-color:#b5c93a;color:#15395B}
-  .f-radios.stack{flex-direction:column;align-items:flex-start}
-  .f-radios.stack label{width:100%;border-radius:14px}
-  .f-checks{display:flex;flex-direction:column;gap:10px;margin-top:6px}
-  .f-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.9rem;color:#2d4a5e;line-height:1.45}
-  .f-check input[type=checkbox]{width:18px;height:18px;border-radius:5px;accent-color:#3F93C4;flex:0 0 auto;margin-top:2px;cursor:pointer}
+  .f-field input:focus,.f-field textarea:focus,.f-field select:focus{outline:none;border-color:var(--sky)}
+  .f-field textarea{min-height:90px;resize:vertical}
   .f-required{color:#E5484D;margin-left:2px}
-  .btn-submit{width:100%;background:#DAEF52;color:#15395B;font:inherit;font-weight:800;font-size:1rem;border:none;border-radius:100px;padding:16px;cursor:pointer;margin-top:20px;transition:background .2s}
-  .btn-submit:hover{background:#c8da40}
-  .btn-submit:disabled{opacity:.6;cursor:not-allowed}
+
+  .chip-grid{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px}
+  .chip{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#f0f7fc;border:1.5px solid var(--line);border-radius:100px;padding:9px 16px;transition:all .18s}
+  .chip input{display:none}
+  .chip:has(input:checked){background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+
+  .yn-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .yn-row:last-of-type{border-bottom:none}
+  .yn-row .q{font-size:.94rem;color:var(--ink);font-weight:600;max-width:65%}
+  .yn-toggle{display:flex;gap:8px}
+  .yn-toggle button{border:1.5px solid var(--line);background:#fff;border-radius:100px;padding:8px 18px;font:inherit;font-weight:700;font-size:.86rem;color:var(--ink-soft);cursor:pointer;transition:all .18s}
+  .yn-toggle button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+  .cert-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
+  .cert-box h3{font-size:1.05rem;color:var(--ink);margin:0 0 10px}
+  .cert-list{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px}
+  .cert-list li{font-size:.9rem;color:var(--ink-soft);display:flex;gap:8px}
+  .cert-radios{display:flex;flex-direction:column;gap:8px}
+  .cert-radios label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.92rem;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+  .cert-radios label:has(input:checked){border-color:var(--sun-deep)}
+
+  .drop-zone{border:2px dashed var(--line);border-radius:16px;padding:22px;text-align:center;background:#fafcfe;cursor:pointer;transition:border-color .18s}
+  .drop-zone.drag{border-color:var(--sky)}
+  .drop-zone p{font-size:.88rem;color:var(--ink-soft);margin:6px 0 0}
+  .thumb-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .thumb-row img{width:64px;height:64px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+
+  .horaire-row{display:grid;grid-template-columns:110px 1fr 1fr auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+  .horaire-row:last-of-type{border-bottom:none}
+  @media(max-width:640px){.horaire-row{grid-template-columns:1fr 1fr;row-gap:6px}}
+  .horaire-row .day{font-weight:700;font-size:.9rem;color:var(--ink)}
+  .horaire-row .closed-label{display:flex;align-items:center;gap:6px;font-size:.84rem;color:var(--ink-soft)}
+  .exception-row{display:grid;grid-template-columns:1fr 1.6fr auto;gap:10px;margin-bottom:10px}
+  @media(max-width:640px){.exception-row{grid-template-columns:1fr}}
+  .btn-add{background:none;border:1.5px dashed var(--line);border-radius:100px;padding:9px 18px;font:inherit;font-weight:700;font-size:.86rem;color:var(--sky-deep);cursor:pointer}
+  .btn-remove{background:none;border:none;color:#c0392b;font-weight:700;cursor:pointer;font-size:.85rem}
+
+  .wiz-summary section{padding:16px 0;border-bottom:1px solid var(--line)}
+  .wiz-summary h3{font-size:.98rem;color:var(--ink);margin:0 0 8px;display:flex;justify-content:space-between;align-items:center}
+  .wiz-summary h3 a{font-size:.8rem;font-weight:700;color:var(--sky-deep)}
+  .wiz-summary p{font-size:.9rem;color:var(--ink-soft);line-height:1.6;margin:0}
+
+  .wiz-nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+  .btn-prev{background:#fff;border:1.5px solid var(--line);color:var(--ink);font:inherit;font-weight:700;padding:14px 26px;border-radius:100px;cursor:pointer}
+  .btn-next,.btn-submit-wiz{background:var(--ink);color:#fff;border:none;font:inherit;font-weight:800;padding:14px 30px;border-radius:100px;cursor:pointer;transition:background .2s}
+  .btn-next:hover,.btn-submit-wiz:hover{background:var(--navy)}
   .form-msg{display:none;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:.92rem;font-weight:600}
   .form-msg.ok{background:#e6f6ec;color:#1e7a43;display:block}
   .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
-  @media(max-width:600px){.candi-wrap{padding:24px 18px}}
+
+  /* Aperçu en direct */
+  .preview-col{position:sticky;top:110px}
+  .preview-card{border:1.5px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
+  .preview-cover{height:150px;background:var(--sky-pale) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:.82rem;color:var(--ink-soft)}
+  .preview-body{padding:20px}
+  .preview-cat{display:inline-block;background:var(--sky-pale);color:var(--sky-deep);font-size:.74rem;font-weight:700;text-transform:uppercase;border-radius:100px;padding:4px 12px;margin-bottom:8px}
+  .preview-body h4{font-size:1.1rem;color:var(--ink);margin:0 0 6px}
+  .preview-loc{font-size:.86rem;color:var(--ink-soft);margin-bottom:10px}
+  .preview-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .preview-tags span{background:#f0f7fc;border-radius:100px;padding:4px 10px;font-size:.76rem;color:var(--ink-soft);font-weight:600}
+  .preview-desc{font-size:.86rem;color:var(--ink-soft);line-height:1.55;margin-bottom:10px}
+  .preview-security{display:flex;flex-direction:column;gap:6px;font-size:.84rem;color:var(--ink)}
+  .preview-label{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:12px}
 </style>
 </head>
 <body>
 
-<div class="sky-bg"></div>
-<div class="grain" aria-hidden="true"></div>
-<div class="clouds" aria-hidden="true">
-  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
-  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
-  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
-  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
-</div>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="cloud" viewBox="0 0 230 110">
-      <g fill="currentColor">
-        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
-        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
-        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
-      </g>
-    </symbol>
-    <symbol id="daisy" viewBox="0 0 100 100">
-      <g transform="translate(50 50)" fill="currentColor">
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
-      </g>
-      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
-    </symbol>
-  </defs>
-</svg>
-
 <div id="site-nav"></div>
 <script src="/assets/nav.js?v=20260704"></script>
 
-<!-- HERO -->
-<header class="sec" id="top" style="padding-top:150px">
+<div class="wiz-sheet">
   <div class="wrap">
-    <div data-aos="fade-up">
-      <a href="/exposants/" class="back-link">← Toutes les façons d'exposer</a>
-    </div>
-    <div class="sec-head" data-aos="fade-up">
-      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Guide FLORE · Référencement à l'année</span>
-      <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);margin:14px 0">Votre adresse, visible <span class="hl">toute l'année</span></h1>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,.92);max-width:44em;margin:0 auto">Le Guide FLORE est la carte interactive des restaurants, boulangeries, épiceries et marques sans gluten et sans lactose. Contrairement au stand food ou à la Boutique, ce référencement n'est pas lié au jour du festival : votre fiche vit à l'année, validée par le Comité FLORE.</p>
-    </div>
-  </div>
-</header>
-
-<!-- C'EST QUOI -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>C'est quoi le Guide FLORE ?</span>
-      <h2>Le repère <span class="hl">sans gluten et sans lactose</span></h2>
-      <p>Une carte interactive, filtrable par allergène, où chaque établissement affiche une fiche claire : statut de sécurité, spécialités, et le badge de validation du Comité FLORE. L'idée : que plus personne n'ait à appeler un restaurant à l'avance pour savoir s'il peut manger tranquille.</p>
-    </div>
-    <div class="encart-note" data-aos="fade-up" style="max-width:700px;margin:0 auto">
-      <strong>La carte est en ligne :</strong> consultez-la sur <a href="/guide/" style="color:#15395B;font-weight:700">flore-festival.fr/guide</a>. Votre fiche est préparée et validée par le Comité FLORE avant d'y apparaître. Candidater aujourd'hui, c'est être parmi les premiers référencés.
-    </div>
-  </div>
-</section>
-
-<!-- POURQUOI -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Pourquoi rejoindre le Guide</span>
-      <h2>Une vitrine <span class="hl">qui dure</span></h2>
-    </div>
-    <div class="expose-grid" data-aos="fade-up">
-      <div class="expose-card">
-        <span class="ic">📍</span>
-        <h3>Visible à l'année</h3>
-        <p>Votre fiche vit 365 jours par an, pas seulement le jour du festival. Une adresse de confiance que la communauté FLORE consulte toute l'année.</p>
-      </div>
-      <div class="expose-card">
-        <span class="ic">🛡️</span>
-        <h3>Le badge du Comité FLORE</h3>
-        <p>Chaque fiche est examinée par nos volontaires indépendants, sans intérêt commercial dans la niche. Un gage de confiance que la communauté reconnaît.</p>
-      </div>
-      <div class="expose-card">
-        <span class="ic">🛍️</span>
-        <h3>Le pont vers la Boutique</h3>
-        <p>Si vos produits sont aussi référencés à la <a href="/exposants/boutique/" style="color:#15395B;font-weight:700">Boutique FLORE</a>, votre fiche du Guide y renvoie directement.</p>
-      </div>
-      <div class="expose-card">
-        <span class="ic">🔍</span>
-        <h3>Référencement Google</h3>
-        <p>Une page dédiée sur flore-festival.fr, pensée pour remonter quand quelqu'un cherche une adresse sans gluten et sans lactose près de chez lui.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:24px" data-aos="fade-up">
-      <span class="gratuit-badge">🌿 Référencement 100 % gratuit</span>
-      <p style="color:rgba(255,255,255,.8);font-size:.9rem;max-width:44em;margin:8px auto 0">Le Guide reste indépendant de toute logique commerciale : c'est ce qui fait sa crédibilité auprès de la communauté cœliaque et intolérante.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CODE COULEUR -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le code couleur du Guide</span>
-      <h2>Une lecture <span class="hl">instantanée</span></h2>
-      <p>Sur la carte comme sur votre fiche, votre établissement est identifié par un repère de couleur. Ce code est le même partout sur le Guide et sur la Boutique FLORE.</p>
-    </div>
-    <div class="code-couleur" data-aos="fade-up" style="max-width:900px;margin:0 auto">
-      <div class="code-card">
-        <span class="code-dot gluten"></span>
-        <div><h4>Jaune · Sans gluten</h4><p>Épi de blé stylisé. Vos produits ou votre cuisine garantis sans gluten.</p></div>
-      </div>
-      <div class="code-card">
-        <span class="code-dot lactose"></span>
-        <div><h4>Bleu-vert · Sans lactose</h4><p>Fraîcheur et végétal. Vos produits ou votre cuisine garantis sans lactose.</p></div>
-      </div>
-      <div class="code-card">
-        <span class="code-dot bicolore"></span>
-        <div><h4>Bicolore · Les deux</h4><p>Repère mi-jaune mi-bleu-vert pour les établissements qui cumulent les deux garanties.</p></div>
-      </div>
-    </div>
-    <div style="max-width:700px;margin:26px auto 0" data-aos="fade-up">
-      <p style="font-weight:700;color:var(--white);margin-bottom:10px;text-align:center">Deux niveaux de garantie possibles pour chaque couleur :</p>
-      <div class="tag-row" style="justify-content:center">
-        <span class="tag-fixe">● 100 % dédié · zéro trace</span>
-        <span class="tag-pointille">◌ Options · cuisine mixte, contamination maîtrisée</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUI PEUT CANDIDATER -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Qui peut candidater</span>
-      <h2>Toutes les formes <span class="hl">d'engagement SG/SL</span></h2>
-    </div>
-    <div class="exemples-row" data-aos="fade-up" style="justify-content:center;max-width:760px;margin:0 auto">
-      <span class="tag-ex">🍽️ Restaurant</span>
-      <span class="tag-ex">🥐 Boulangerie / Pâtisserie</span>
-      <span class="tag-ex">🛒 Épicerie</span>
-      <span class="tag-ex">🎨 Artisan</span>
-      <span class="tag-ex">💻 Marque 100 % en ligne</span>
-      <span class="tag-ex">🌾 Producteur</span>
-    </div>
-  </div>
-</section>
-
-<!-- CANDIDATURE -->
-<section class="sec" id="candidature" style="padding-top:0;padding-bottom:80px">
-  <div class="wrap">
-    <div data-aos="fade-up" style="text-align:center;margin-bottom:10px">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Candidature Guide FLORE</span>
-      <h2 style="color:var(--white)">Votre fiche <span class="hl">sur le Guide</span></h2>
-      <p style="color:rgba(255,255,255,.88);max-width:44em;margin:0 auto">Chaque candidature est examinée par le Comité FLORE avant validation. Gratuit, à l'année, sans engagement.</p>
+    <a href="/guide/" class="wiz-back">← Le Guide FLORE</a>
+    <div class="wiz-head">
+      <h1>Rejoignez le Guide FLORE</h1>
+      <p>Inscrivez votre établissement, votre marque ou votre entreprise sur le Guide FLORE, la carte du sans gluten et sans lactose. Référencement gratuit, validé par le Comité FLORE. Ça prend quelques minutes.</p>
     </div>
 
-    <div class="candi-wrap" data-aos="fade-up">
-      <h3>Votre dossier de référencement</h3>
-      <p class="sub">Nous vous répondons sous 5 jours ouvrés. Champs <span class="f-required">*</span> obligatoires.</p>
+    <div class="wiz-progress" id="wiz-progress"></div>
 
-      <form id="candi-form" novalidate>
-        <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
-        <input type="hidden" name="subject" value="Candidature Guide FLORE · Carte interactive">
-        <input type="hidden" name="from_name" value="Formulaire Guide FLORE">
-        <input type="checkbox" name="botcheck" style="display:none">
+    <form id="wiz-form" novalidate>
+      <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+      <input type="hidden" name="subject" value="Candidature Guide FLORE · Inscription professionnelle">
+      <input type="hidden" name="from_name" value="Formulaire Guide FLORE">
+      <input type="checkbox" name="botcheck" style="display:none">
 
-        <div class="f-section-label">Informations générales</div>
+      <div class="wiz-layout">
+        <div class="wiz-main">
 
-        <div class="f-row two">
-          <div class="f-field">
-            <label>Établissement / marque <span class="f-required">*</span></label>
-            <input type="text" name="etablissement" placeholder="Ex : La Mie Sereine" required>
+          <!-- ÉTAPE 0 : PROFIL -->
+          <div class="wiz-step active" data-step="0">
+            <div class="wiz-steplabel">Étape 1 / 8 · Votre profil</div>
+            <h2 style="color:var(--ink);margin-bottom:16px">Quel type d'activité ?</h2>
+            <div class="profil-grid" id="profil-grid">
+              <div class="profil-card" data-value="Restaurant"><span class="pc-ic">🍽️</span><span class="pc-label">Restaurant</span></div>
+              <div class="profil-card" data-value="Boulangerie"><span class="pc-ic">🥖</span><span class="pc-label">Boulangerie</span></div>
+              <div class="profil-card" data-value="Pâtisserie"><span class="pc-ic">🧁</span><span class="pc-label">Pâtisserie</span></div>
+              <div class="profil-card" data-value="Café"><span class="pc-ic">☕</span><span class="pc-label">Café</span></div>
+              <div class="profil-card" data-value="Hôtel"><span class="pc-ic">🏨</span><span class="pc-label">Hôtel</span></div>
+              <div class="profil-card" data-value="Traiteur"><span class="pc-ic">🍱</span><span class="pc-label">Traiteur</span></div>
+              <div class="profil-card" data-value="Boutique"><span class="pc-ic">🛍️</span><span class="pc-label">Boutique</span></div>
+              <div class="profil-card" data-value="Épicerie"><span class="pc-ic">🛒</span><span class="pc-label">Épicerie</span></div>
+              <div class="profil-card" data-value="Producteur"><span class="pc-ic">🌾</span><span class="pc-label">Producteur</span></div>
+              <div class="profil-card" data-value="Marque alimentaire"><span class="pc-ic">🏷️</span><span class="pc-label">Marque alimentaire</span></div>
+              <div class="profil-card" data-value="Entreprise"><span class="pc-ic">🏢</span><span class="pc-label">Entreprise</span></div>
+              <div class="profil-card" data-value="Professionnel de santé"><span class="pc-ic">⚕️</span><span class="pc-label">Pro. de santé</span></div>
+              <div class="profil-card" data-value="Association"><span class="pc-ic">🤝</span><span class="pc-label">Association</span></div>
+              <div class="profil-card" data-value="Autre"><span class="pc-ic">✨</span><span class="pc-label">Autre</span></div>
+            </div>
+            <input type="hidden" name="profil" id="profil-value" required>
           </div>
-          <div class="f-field">
-            <label>Votre nom <span class="f-required">*</span></label>
-            <input type="text" name="responsable" placeholder="Prénom Nom" required>
-          </div>
-        </div>
 
-        <div class="f-row two">
-          <div class="f-field">
-            <label>Email <span class="f-required">*</span></label>
-            <input type="email" name="email" placeholder="vous@exemple.fr" required>
-          </div>
-          <div class="f-field">
-            <label>Téléphone</label>
-            <input type="tel" name="telephone" placeholder="06 XX XX XX XX">
-          </div>
-        </div>
-
-        <div class="f-row">
-          <div class="f-field">
-            <label>Type d'activité <span class="f-required">*</span></label>
-            <div class="f-radios">
-              <label><input type="radio" name="type_activite" value="Restaurant" required><span>🍽️ Restaurant</span></label>
-              <label><input type="radio" name="type_activite" value="Boulangerie / Pâtisserie"><span>🥐 Boulangerie / Pâtisserie</span></label>
-              <label><input type="radio" name="type_activite" value="Épicerie"><span>🛒 Épicerie</span></label>
-              <label><input type="radio" name="type_activite" value="Artisan"><span>🎨 Artisan</span></label>
-              <label><input type="radio" name="type_activite" value="Marque 100% en ligne"><span>💻 Marque 100 % en ligne</span></label>
-              <label><input type="radio" name="type_activite" value="Producteur"><span>🌾 Producteur</span></label>
+          <!-- ÉTAPE 1 : INFOS GÉNÉRALES -->
+          <div class="wiz-step" data-step="1">
+            <div class="wiz-steplabel">Étape 2 / 8 · Informations générales</div>
+            <h2 style="color:var(--ink);margin-bottom:16px">Parlez-nous de vous</h2>
+            <div class="f-row two">
+              <div class="f-field"><label>Nom de l'établissement <span class="f-required">*</span></label><input type="text" name="nom_etablissement" id="in-nom" required></div>
+              <div class="f-field"><label>Nom de l'entreprise</label><input type="text" name="nom_entreprise"></div>
+            </div>
+            <div class="f-row two">
+              <div class="f-field"><label>Logo</label><input type="file" id="in-logo" name="logo" accept="image/*"></div>
+              <div class="f-field"><label>Photo de couverture</label><input type="file" id="in-cover" name="photo_couverture" accept="image/*"></div>
+            </div>
+            <div class="f-row">
+              <div class="f-field"><label>Description <span class="f-required">*</span></label><textarea id="in-description" name="description" placeholder="Qui êtes-vous ? Votre histoire, vos spécialités..." required></textarea></div>
+            </div>
+            <div class="f-row">
+              <div class="f-field"><label>Adresse <span class="f-required">*</span></label><input type="text" id="in-adresse" name="adresse" required></div>
+            </div>
+            <div class="f-row three">
+              <div class="f-field"><label>Ville <span class="f-required">*</span></label><input type="text" id="in-ville" name="ville" required></div>
+              <div class="f-field"><label>Code postal</label><input type="text" name="code_postal"></div>
+              <div class="f-field"><label>Région</label><input type="text" name="region"></div>
+            </div>
+            <div class="f-row two">
+              <div class="f-field"><label>Pays</label><input type="text" name="pays" value="France"></div>
+              <div class="f-field"><label>Téléphone</label><input type="tel" name="telephone"></div>
+            </div>
+            <div class="f-row two">
+              <div class="f-field"><label>Email <span class="f-required">*</span></label><input type="email" id="in-email" name="email" required></div>
+              <div class="f-field"><label>Site internet</label><input type="text" id="in-site" name="site"></div>
+            </div>
+            <div class="f-row">
+              <div class="f-field"><label>Réseaux sociaux</label><input type="text" name="reseaux" placeholder="Instagram, Facebook..."></div>
             </div>
           </div>
-        </div>
 
-        <div class="f-row two">
-          <div class="f-field">
-            <label>Adresse physique <span class="f-required">*</span></label>
-            <input type="text" name="adresse" placeholder="Numéro, rue, ville, code postal" required>
-          </div>
-          <div class="f-field">
-            <label>Zone de livraison <span class="hint">(si vente en ligne)</span></label>
-            <input type="text" name="zone_livraison" placeholder="Ex : France entière, Rhône-Alpes...">
-          </div>
-        </div>
-
-        <div class="f-row two">
-          <div class="f-field">
-            <label>Site web</label>
-            <input type="text" name="site" placeholder="https://">
-          </div>
-          <div class="f-field">
-            <label>Instagram / Facebook</label>
-            <input type="text" name="reseaux" placeholder="@instagram ou lien Facebook">
-          </div>
-        </div>
-
-        <div class="f-section-label">Profil de sécurité &amp; allergènes</div>
-
-        <div class="f-row">
-          <div class="f-field">
-            <label>Côté gluten <span class="f-required">*</span></label>
-            <div class="f-radios stack">
-              <label><input type="radio" name="profil_gluten" value="100% sans gluten (zéro trace, établissement dédié / certifié AFDIAG)" required><span>● 100 % sans gluten — zéro trace, établissement dédié / certifié AFDIAG</span></label>
-              <label><input type="radio" name="profil_gluten" value="Options sans gluten (cuisine mixte, contamination croisée maîtrisée)"><span>◌ Options sans gluten — cuisine mixte, contamination croisée maîtrisée</span></label>
+          <!-- ÉTAPE 2 : ACTIVITÉ -->
+          <div class="wiz-step" data-step="2">
+            <div class="wiz-steplabel">Étape 3 / 8 · Activité</div>
+            <h2 style="color:var(--ink);margin-bottom:16px">Comment décririez-vous votre offre ?</h2>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:14px">Plusieurs choix possibles.</p>
+            <div class="chip-grid" id="activite-grid">
+              <label class="chip"><input type="checkbox" name="activite" value="Sans Gluten" data-ac="gluten"><span>🌾 Sans Gluten</span></label>
+              <label class="chip"><input type="checkbox" name="activite" value="Sans Lactose" data-ac="lactose"><span>🥛 Sans Lactose</span></label>
+              <label class="chip"><input type="checkbox" id="ac-les-deux"><span>🌿 Les deux</span></label>
+              <label class="chip"><input type="checkbox" name="activite" value="Vegan"><span>🌱 Vegan</span></label>
+              <label class="chip"><input type="checkbox" name="activite" value="Bio"><span>🍃 Bio</span></label>
+              <label class="chip"><input type="checkbox" name="activite" value="Artisan"><span>🎨 Artisan</span></label>
+              <label class="chip"><input type="checkbox" name="activite" value="Fabrication maison"><span>🏠 Fabrication maison</span></label>
+              <label class="chip"><input type="checkbox" name="activite" value="Vente en ligne"><span>💻 Vente en ligne</span></label>
+              <label class="chip"><input type="checkbox" name="activite" value="Livraison"><span>🚴 Livraison</span></label>
+              <label class="chip"><input type="checkbox" name="activite" value="Vente à emporter"><span>🥡 Vente à emporter</span></label>
             </div>
           </div>
-        </div>
 
-        <div class="f-row">
-          <div class="f-field">
-            <label>Côté lactose <span class="f-required">*</span></label>
-            <div class="f-radios stack">
-              <label><input type="radio" name="profil_lactose" value="100% sans lactose / végan" required><span>● 100 % sans lactose / végan</span></label>
-              <label><input type="radio" name="profil_lactose" value="Options sans lactose"><span>◌ Options sans lactose</span></label>
+          <!-- ÉTAPE 3 : SÉCURITÉ ALIMENTAIRE -->
+          <div class="wiz-step" data-step="3">
+            <div class="wiz-steplabel">Étape 4 / 8 · Sécurité alimentaire</div>
+            <h2 style="color:var(--ink);margin-bottom:6px">L'étape la plus importante</h2>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:6px">Nos visiteurs comptent parmi les personnes les plus sensibles au gluten et au lactose : soyez précis.</p>
+
+            <div class="yn-row"><span class="q">Êtes-vous totalement sans gluten ?</span><div class="yn-toggle" data-field="totalement_sg"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+            <div class="yn-row"><span class="q">Êtes-vous totalement sans lactose ?</span><div class="yn-toggle" data-field="totalement_sl"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+            <div class="yn-row"><span class="q">Disposez-vous d'une cuisine dédiée ?</span><div class="yn-toggle" data-field="cuisine_dediee"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+            <div class="yn-row"><span class="q">Existe-t-il un risque de contamination croisée ?</span><div class="yn-toggle" data-field="risque_contamination"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+            <div class="yn-row"><span class="q">Votre personnel est-il formé ?</span><div class="yn-toggle" data-field="personnel_forme"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+            <div class="yn-row"><span class="q">Disposez-vous de certifications ?</span><div class="yn-toggle" data-field="certifications_oui"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+
+            <input type="hidden" name="totalement_sg"><input type="hidden" name="totalement_sl"><input type="hidden" name="cuisine_dediee">
+            <input type="hidden" name="risque_contamination"><input type="hidden" name="personnel_forme"><input type="hidden" name="certifications_oui">
+
+            <div class="f-row" style="margin-top:16px">
+              <div class="f-field"><label>Quels protocoles appliquez-vous ?</label><textarea name="protocoles" placeholder="Ustensiles dédiés, plan de nettoyage, formation..."></textarea></div>
+            </div>
+            <div class="f-row">
+              <div class="f-field"><label>Documents, certificats, photos, rapports, attestations <span style="text-transform:none;letter-spacing:0;font-weight:500">(optionnel)</span></label><input type="file" name="justificatifs" multiple accept=".pdf,.jpg,.jpeg,.png"></div>
+            </div>
+
+            <div class="cert-box">
+              <h3>🌿 Demander la certification FLORE</h3>
+              <ul class="cert-list">
+                <li>✅ Badge <strong>🌿 Certifié FLORE</strong> visible sur votre fiche</li>
+                <li>✅ Meilleure visibilité et priorité dans les résultats</li>
+                <li>✅ Renforce la confiance des visiteurs du Guide</li>
+              </ul>
+              <div class="cert-radios">
+                <label><input type="radio" name="certification_flore" value="Demande immédiate" checked><span>Je souhaite demander la certification FLORE dès maintenant</span></label>
+                <label><input type="radio" name="certification_flore" value="Plus tard"><span>Je publie mon établissement sans certification pour l'instant, je déciderai plus tard</span></label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="f-row">
-          <div class="f-field">
-            <label>Justificatifs <span class="hint">(optionnel, valorisé : certifications, analyses labo, charte signée)</span></label>
-            <input type="file" name="justificatifs" multiple accept=".pdf,.jpg,.jpeg,.png">
+          <!-- ÉTAPE 4 : SERVICES -->
+          <div class="wiz-step" data-step="4">
+            <div class="wiz-steplabel">Étape 5 / 8 · Services</div>
+            <h2 style="color:var(--ink);margin-bottom:16px">Quels services proposez-vous ?</h2>
+            <div class="chip-grid">
+              <label class="chip"><input type="checkbox" name="services" value="Parking"><span>🅿️ Parking</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Terrasse"><span>☀️ Terrasse</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="PMR"><span>♿ PMR</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Wi-Fi"><span>📶 Wi-Fi</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Réservation"><span>📅 Réservation</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Livraison"><span>🚴 Livraison</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Click & Collect"><span>🛍️ Click &amp; Collect</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Climatisation"><span>❄️ Climatisation</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Animaux acceptés"><span>🐾 Animaux acceptés</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Paiement CB"><span>💳 Paiement CB</span></label>
+              <label class="chip"><input type="checkbox" name="services" value="Toilettes"><span>🚻 Toilettes</span></label>
+            </div>
           </div>
-        </div>
 
-        <div class="f-section-label">Médias &amp; description</div>
-
-        <div class="f-row">
-          <div class="f-field">
-            <label>Décrivez votre établissement ou votre marque <span class="f-required">*</span></label>
-            <textarea name="description" placeholder="Qui êtes-vous ? Votre histoire, vos spécialités, ce qui vous rend 100% SG/SL..." required></textarea>
+          <!-- ÉTAPE 5 : GALERIE -->
+          <div class="wiz-step" data-step="5">
+            <div class="wiz-steplabel">Étape 6 / 8 · Galerie</div>
+            <h2 style="color:var(--ink);margin-bottom:6px">Vos photos et vidéos</h2>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Produits, menus, intérieur, extérieur, équipe... Glissez vos fichiers ou cliquez pour parcourir.</p>
+            <div class="drop-zone" id="drop-zone">
+              <span style="font-size:1.6rem">📸</span>
+              <p><strong>Glissez-déposez</strong> vos photos et vidéos ici, ou cliquez pour parcourir</p>
+              <input type="file" id="galerie-input" name="galerie" multiple accept="image/*,video/*" style="display:none">
+            </div>
+            <div class="thumb-row" id="galerie-thumbs"></div>
           </div>
-        </div>
 
-        <div class="f-row two">
-          <div class="f-field">
-            <label>Logo</label>
-            <input type="file" name="logo" accept=".jpg,.jpeg,.png,.svg">
-          </div>
-          <div class="f-field">
-            <label>Photo devanture / équipe</label>
-            <input type="file" name="photo_devanture" accept=".jpg,.jpeg,.png">
-          </div>
-        </div>
+          <!-- ÉTAPE 6 : HORAIRES -->
+          <div class="wiz-step" data-step="6">
+            <div class="wiz-steplabel">Étape 7 / 8 · Horaires</div>
+            <h2 style="color:var(--ink);margin-bottom:16px">Vos horaires d'ouverture</h2>
+            <div id="horaires-list"></div>
 
-        <div class="f-row">
-          <div class="f-field">
-            <label>Photos produits phares <span class="hint">(jusqu'à 3)</span></label>
-            <input type="file" name="photos_produits" multiple accept=".jpg,.jpeg,.png">
+            <h3 style="font-size:1rem;color:var(--ink);margin:26px 0 10px">Fermetures exceptionnelles</h3>
+            <div id="exceptions-list"></div>
+            <button type="button" class="btn-add" id="btn-add-exception">+ Ajouter une fermeture exceptionnelle</button>
           </div>
-        </div>
 
-        <div class="f-row">
-          <div class="f-field">
-            <label style="text-transform:none;letter-spacing:0;font-size:.88rem;margin-bottom:6px">Engagements <span class="f-required">*</span></label>
-            <div class="f-checks">
-              <label class="f-check">
-                <input type="checkbox" name="certif_sincere" required>
-                <span><strong>Je certifie sincères</strong> les informations et le profil de sécurité déclarés ci-dessus.</span>
-              </label>
-              <label class="f-check">
-                <input type="checkbox" name="comite" required>
-                <span>J'accepte que ma candidature soit <strong>examinée par le Comité FLORE</strong> avant toute mise en ligne.</span>
-              </label>
-              <label class="f-check">
-                <input type="checkbox" name="rgpd" required>
+          <!-- ÉTAPE 7 : VALIDATION -->
+          <div class="wiz-step" data-step="7">
+            <div class="wiz-steplabel">Étape 8 / 8 · Validation</div>
+            <h2 style="color:var(--ink);margin-bottom:6px">Vérifiez votre fiche</h2>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:10px">Tout est correct ? Vous pouvez encore modifier chaque section avant l'envoi.</p>
+            <div class="wiz-summary" id="wiz-summary"></div>
+
+            <div style="margin-top:20px">
+              <label class="chip" style="width:100%;justify-content:flex-start">
+                <input type="checkbox" id="in-rgpd" required>
                 <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
               </label>
             </div>
+
+            <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma candidature →</button>
+            <div class="form-msg" id="wiz-msg"></div>
+          </div>
+
+          <div class="wiz-nav" id="wiz-nav">
+            <button type="button" class="btn-prev" id="btn-prev">← Précédent</button>
+            <button type="button" class="btn-next" id="btn-next">Continuer →</button>
           </div>
         </div>
 
-        <button type="submit" class="btn-submit" id="candi-btn">Envoyer ma candidature &rarr;</button>
-        <div class="form-msg" id="candi-msg"></div>
-      </form>
-    </div>
-
-    <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.65);font-size:.85rem;margin-top:20px">Une question ? Écris-nous à contact@flore-festival.fr — toutes les demandes sont traitées par email.</p>
+        <!-- APERÇU EN DIRECT -->
+        <div class="preview-col">
+          <div class="preview-card">
+            <div class="preview-cover" id="preview-cover">Photo de couverture</div>
+            <div class="preview-body">
+              <span class="preview-cat" id="preview-cat">Votre profil</span>
+              <h4 id="preview-nom">Nom de l'établissement</h4>
+              <div class="preview-loc" id="preview-loc">📍 Ville, pays</div>
+              <div class="preview-tags" id="preview-tags"></div>
+              <p class="preview-desc" id="preview-desc">Votre description apparaîtra ici au fil de votre saisie.</p>
+              <div class="preview-security" id="preview-security"></div>
+            </div>
+          </div>
+          <p class="preview-label">Aperçu de votre fiche, mis à jour en direct</p>
+        </div>
+      </div>
+    </form>
   </div>
-</section>
+</div>
 
 <footer class="footer">
   <div class="f-stars"></div>
@@ -427,8 +373,7 @@
           <li><a href="/exposants/">Toutes les options</a></li>
           <li><a href="/exposants/stand-food/">Stand food festival</a></li>
           <li><a href="/exposants/boutique/">Boutique FLORE</a></li>
-          <li><a href="/exposants/carte-guide/">Guide FLORE · Carte interactive</a></li>
-          <li><a href="/partenaires">Devenir partenaire</a></li>
+          <li><a href="/guide/">Guide FLORE · Carte interactive</a></li>
         </ul>
       </div>
       <div>
@@ -452,54 +397,255 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
   document.getElementById('year').textContent = new Date().getFullYear();
   const nav = document.getElementById('nav');
-  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive:true });
+  if (nav) nav.classList.add('scrolled');
 
-  const form = document.getElementById('candi-form');
-  const btn  = document.getElementById('candi-btn');
-  const msg  = document.getElementById('candi-msg');
-  if(form){
-    form.addEventListener('submit', async function(e){
-      e.preventDefault();
-      const checks = ['certif_sincere','comite','rgpd'];
-      for(const n of checks){
-        if(!form.elements[n].checked){
-          msg.className='form-msg err';
-          msg.style.display='block';
-          msg.textContent='Merci de cocher tous les engagements obligatoires.';
-          msg.scrollIntoView({behavior:'smooth',block:'center'});
-          return;
+  (function(){
+    const form = document.getElementById('wiz-form');
+    const STEP_COUNT = 8;
+    let current = 0;
+
+    const progressEl = document.getElementById('wiz-progress');
+    for (let i = 0; i < STEP_COUNT; i++) {
+      const seg = document.createElement('div');
+      seg.className = 'seg';
+      progressEl.appendChild(seg);
+    }
+    function renderProgress(){
+      Array.prototype.forEach.call(progressEl.children, function(seg, i){
+        seg.classList.toggle('done', i < current);
+        seg.classList.toggle('current', i === current);
+      });
+    }
+
+    const steps = Array.prototype.slice.call(document.querySelectorAll('.wiz-step'));
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const wizNav = document.getElementById('wiz-nav');
+
+    function showStep(i){
+      steps.forEach(function(s){ s.classList.toggle('active', Number(s.dataset.step) === i); });
+      btnPrev.style.visibility = i === 0 ? 'hidden' : 'visible';
+      const isLast = i === STEP_COUNT - 1;
+      btnNext.style.display = isLast ? 'none' : 'inline-flex';
+      renderProgress();
+      window.scrollTo({ top: document.querySelector('.wiz-head').offsetTop - 100, behavior:'smooth' });
+    }
+
+    function validateStep(i){
+      if (i === 0 && !document.getElementById('profil-value').value){
+        alert('Merci de choisir un profil pour continuer.');
+        return false;
+      }
+      if (i === 1){
+        const required = ['in-nom','in-description','in-adresse','in-ville','in-email'];
+        for (const id of required){
+          if (!document.getElementById(id).value.trim()){
+            alert('Merci de compléter les champs obligatoires avant de continuer.');
+            document.getElementById(id).focus();
+            return false;
+          }
         }
       }
-      btn.disabled=true;
-      btn.textContent='Envoi en cours…';
-      try{
+      return true;
+    }
+
+    btnNext.addEventListener('click', function(){
+      if (!validateStep(current)) return;
+      if (current < STEP_COUNT - 1) { current++; showStep(current); updatePreview(); }
+      if (current === STEP_COUNT - 1) buildSummary();
+    });
+    btnPrev.addEventListener('click', function(){
+      if (current > 0) { current--; showStep(current); }
+    });
+
+    // ---- Étape 0 : profil ----
+    const profilCards = document.querySelectorAll('.profil-card');
+    profilCards.forEach(function(card){
+      card.addEventListener('click', function(){
+        profilCards.forEach(function(c){ c.classList.remove('selected'); });
+        card.classList.add('selected');
+        document.getElementById('profil-value').value = card.dataset.value;
+        updatePreview();
+      });
+    });
+
+    // ---- Étape 2 : "Les deux" coche gluten + lactose ----
+    const acLesDeux = document.getElementById('ac-les-deux');
+    const acGluten = document.querySelector('[data-ac="gluten"]');
+    const acLactose = document.querySelector('[data-ac="lactose"]');
+    acLesDeux.addEventListener('change', function(){
+      acGluten.checked = acLesDeux.checked;
+      acLactose.checked = acLesDeux.checked;
+      updatePreview();
+    });
+
+    // ---- Étape 3 : toggles Oui/Non ----
+    document.querySelectorAll('.yn-toggle').forEach(function(toggle){
+      const field = toggle.dataset.field;
+      const hidden = form.querySelector('input[type=hidden][name="' + field + '"]');
+      toggle.querySelectorAll('button').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          toggle.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); });
+          btn.classList.add('on');
+          hidden.value = btn.dataset.val;
+          updatePreview();
+        });
+      });
+    });
+
+    // ---- Étape 5 : galerie drag & drop + aperçu ----
+    const dropZone = document.getElementById('drop-zone');
+    const galerieInput = document.getElementById('galerie-input');
+    const thumbRow = document.getElementById('galerie-thumbs');
+    dropZone.addEventListener('click', function(){ galerieInput.click(); });
+    ['dragover','dragleave','drop'].forEach(function(evt){
+      dropZone.addEventListener(evt, function(e){
+        e.preventDefault();
+        dropZone.classList.toggle('drag', evt === 'dragover');
+      });
+    });
+    dropZone.addEventListener('drop', function(e){
+      galerieInput.files = e.dataTransfer.files;
+      renderThumbs(e.dataTransfer.files);
+    });
+    galerieInput.addEventListener('change', function(){ renderThumbs(galerieInput.files); });
+    function renderThumbs(fileList){
+      thumbRow.innerHTML = '';
+      Array.prototype.slice.call(fileList).forEach(function(file){
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = function(e){
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          thumbRow.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // ---- Étape 1 : logo / couverture -> aperçu ----
+    document.getElementById('in-cover').addEventListener('change', function(e){
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(ev){
+        document.getElementById('preview-cover').style.backgroundImage = 'url(' + ev.target.result + ')';
+        document.getElementById('preview-cover').textContent = '';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // ---- Étape 6 : horaires ----
+    const jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+    const horairesList = document.getElementById('horaires-list');
+    jours.forEach(function(jour){
+      const row = document.createElement('div');
+      row.className = 'horaire-row';
+      row.innerHTML =
+        '<span class="day">' + jour + '</span>' +
+        '<input type="time" name="horaire_' + jour + '_debut" value="09:00">' +
+        '<input type="time" name="horaire_' + jour + '_fin" value="19:00">' +
+        '<label class="closed-label"><input type="checkbox" name="horaire_' + jour + '_ferme"> Fermé</label>';
+      horairesList.appendChild(row);
+    });
+
+    const exceptionsList = document.getElementById('exceptions-list');
+    let exceptionCount = 0;
+    document.getElementById('btn-add-exception').addEventListener('click', function(){
+      exceptionCount++;
+      const row = document.createElement('div');
+      row.className = 'exception-row';
+      row.innerHTML =
+        '<input type="date" name="exception_date_' + exceptionCount + '">' +
+        '<input type="text" name="exception_label_' + exceptionCount + '" placeholder="Ex : Fermeture annuelle, jour férié...">' +
+        '<button type="button" class="btn-remove">Retirer</button>';
+      row.querySelector('.btn-remove').addEventListener('click', function(){ row.remove(); });
+      exceptionsList.appendChild(row);
+    });
+
+    // ---- Aperçu en direct ----
+    function updatePreview(){
+      document.getElementById('preview-cat').textContent = document.getElementById('profil-value').value || 'Votre profil';
+      document.getElementById('preview-nom').textContent = document.getElementById('in-nom').value || 'Nom de l\'établissement';
+      const ville = document.getElementById('in-ville').value;
+      document.getElementById('preview-loc').textContent = '📍 ' + (ville ? ville + ', ' : '') + (form.querySelector('[name=pays]').value || 'France');
+      document.getElementById('preview-desc').textContent = document.getElementById('in-description').value || 'Votre description apparaîtra ici au fil de votre saisie.';
+
+      const tags = Array.prototype.slice.call(form.querySelectorAll('[name=activite]:checked')).map(function(el){ return el.value; });
+      document.getElementById('preview-tags').innerHTML = tags.map(function(t){ return '<span>' + t + '</span>'; }).join('');
+
+      const security = [];
+      const sg = form.querySelector('[name=totalement_sg]').value;
+      const sl = form.querySelector('[name=totalement_sl]').value;
+      if (sg === 'Oui') security.push('🌾 Totalement sans gluten');
+      if (sl === 'Oui') security.push('🥛 Totalement sans lactose');
+      document.getElementById('preview-security').innerHTML = security.map(function(s){ return '<span>' + s + '</span>'; }).join('');
+    }
+    form.addEventListener('input', updatePreview);
+
+    // ---- Étape 7 : résumé ----
+    function buildSummary(){
+      const profil = document.getElementById('profil-value').value;
+      const nom = document.getElementById('in-nom').value;
+      const desc = document.getElementById('in-description').value;
+      const adresse = document.getElementById('in-adresse').value;
+      const ville = document.getElementById('in-ville').value;
+      const email = document.getElementById('in-email').value;
+      const activite = Array.prototype.slice.call(form.querySelectorAll('[name=activite]:checked')).map(function(e){ return e.value; }).join(', ') || '—';
+      const services = Array.prototype.slice.call(form.querySelectorAll('[name=services]:checked')).map(function(e){ return e.value; }).join(', ') || '—';
+      const cert = form.querySelector('[name=certification_flore]:checked').value;
+
+      document.getElementById('wiz-summary').innerHTML =
+        '<section><h3>Profil <a href="#" data-goto="0">Modifier</a></h3><p>' + (profil || '—') + '</p></section>' +
+        '<section><h3>Informations générales <a href="#" data-goto="1">Modifier</a></h3><p>' + nom + ' · ' + adresse + ', ' + ville + ' · ' + email + '</p><p>' + desc + '</p></section>' +
+        '<section><h3>Activité <a href="#" data-goto="2">Modifier</a></h3><p>' + activite + '</p></section>' +
+        '<section><h3>Sécurité alimentaire <a href="#" data-goto="3">Modifier</a></h3><p>Certification FLORE : ' + cert + '</p></section>' +
+        '<section><h3>Services <a href="#" data-goto="4">Modifier</a></h3><p>' + services + '</p></section>';
+
+      document.querySelectorAll('[data-goto]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          current = Number(a.dataset.goto);
+          showStep(current);
+        });
+      });
+    }
+
+    // ---- Soumission ----
+    const msg = document.getElementById('wiz-msg');
+    const btnSubmit = document.getElementById('btn-submit');
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if (!document.getElementById('in-rgpd').checked){
+        msg.className = 'form-msg err';
+        msg.textContent = 'Merci d\'accepter le traitement de vos informations avant l\'envoi.';
+        return;
+      }
+      btnSubmit.disabled = true;
+      btnSubmit.textContent = 'Envoi en cours…';
+      try {
         const data = new FormData(form);
         const res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:data });
         const json = await res.json();
-        if(json.success){
-          msg.className='form-msg ok';
-          msg.style.display='block';
-          msg.textContent='Candidature reçue ! Le Comité FLORE l\'examine et vous répond sous 5 jours ouvrés.';
-          form.reset();
-          btn.textContent='Candidature envoyée ✓';
+        if (json.success){
+          msg.className = 'form-msg ok';
+          msg.textContent = 'Candidature reçue ! Le Comité FLORE l\'examine et vous répond sous 5 jours ouvrés.';
+          btnSubmit.textContent = 'Candidature envoyée ✓';
         } else { throw new Error(); }
-      }catch(_){
-        msg.className='form-msg err';
-        msg.style.display='block';
-        msg.textContent='Une erreur est survenue. Écrivez-nous à contact@flore-festival.fr';
-        btn.disabled=false;
-        btn.textContent='Envoyer ma candidature →';
+      } catch(_) {
+        msg.className = 'form-msg err';
+        msg.textContent = 'Une erreur est survenue. Écrivez-nous à contact@flore-festival.fr';
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = 'Envoyer ma candidature →';
       }
-      msg.scrollIntoView({behavior:'smooth',block:'center'});
+      msg.scrollIntoView({ behavior:'smooth', block:'center' });
     });
-  }
+
+    showStep(0);
+  })();
 </script>
 <script src="/assets/transitions.js" defer></script>
 <script src="/legal.js" defer></script>
