@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Guide FLORE · La carte du sans gluten et sans lactose</title>
+<meta name="description" content="La carte interactive des restaurants, boulangeries, épiceries et marques sans gluten et sans lactose, validés par le Comité FLORE. Filtrez par allergène, trouvez une adresse près de chez vous.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://flore-festival.fr/guide/">
+<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:title" content="Le Guide FLORE · La carte du sans gluten et sans lactose">
+<meta property="og:description" content="Restaurants, boulangeries, épiceries et marques sans gluten et sans lactose, validés par le Comité FLORE.">
+<meta property="og:url" content="https://flore-festival.fr/guide/">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Le Guide FLORE - carte du sans gluten et sans lactose">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le Guide FLORE · La carte du sans gluten et sans lactose">
+<meta name="twitter:description" content="La carte interactive des adresses sans gluten et sans lactose, validées par le Comité FLORE.">
+<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta name="twitter:image:alt" content="FLORE Festival - logo">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/assets/flore.css?v=20260702">
+<style>
+  .guide-toolbar{max-width:980px;margin:0 auto 26px;background:#fff;border-radius:22px;padding:22px 26px;box-shadow:0 12px 40px rgba(21,57,91,.13);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
+  .gt-toggle{display:inline-flex;align-items:center;gap:9px;border:2px solid #e4edf5;border-radius:100px;padding:10px 20px;font-weight:700;font-size:.92rem;color:#5C7993;cursor:pointer;transition:all .18s;background:#fafcfe}
+  .gt-toggle .dot{width:16px;height:16px;border-radius:50%;flex:0 0 auto}
+  .gt-toggle.gluten .dot{background:#DAEF52}
+  .gt-toggle.lactose .dot{background:#1FA9A0}
+  .gt-toggle.on.gluten{background:#f9fce0;border-color:#DAEF52;color:#7a8a1e}
+  .gt-toggle.on.lactose{background:#e6f8f6;border-color:#1FA9A0;color:#146b64}
+  .gt-select{border:2px solid #e4edf5;border-radius:100px;padding:10px 18px;font:inherit;font-weight:600;font-size:.9rem;color:#15395B;background:#fafcfe;cursor:pointer}
+  .gt-check{display:inline-flex;align-items:center;gap:8px;font-size:.87rem;font-weight:600;color:#5C7993;cursor:pointer}
+  .gt-check input{width:16px;height:16px;accent-color:#3F93C4;cursor:pointer}
+
+  .guide-map-wrap{max-width:1100px;margin:0 auto;position:relative}
+  #flore-map{height:560px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
+  @media(max-width:640px){#flore-map{height:420px}}
+  .map-empty{display:none;position:absolute;inset:0;z-index:5;background:rgba(255,255,255,.96);border-radius:24px;align-items:center;justify-content:center;text-align:center;padding:40px}
+  .map-empty.show{display:flex}
+  .map-empty-inner{max-width:380px}
+  .map-empty-inner .ic{font-size:2.6rem;display:block;margin-bottom:14px}
+  .map-empty-inner h3{color:#15395B;font-size:1.2rem;margin-bottom:8px}
+  .map-empty-inner p{color:#5C7993;font-size:.92rem;line-height:1.6;margin-bottom:18px}
+
+  .pin{display:block;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 3px 10px rgba(21,57,91,.35)}
+  .pin-gluten{background:#DAEF52}
+  .pin-lactose{background:#1FA9A0}
+  .pin-bicolore{background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)}
+
+  .fiche-pop{font-family:'DM Sans',sans-serif;min-width:220px}
+  .fiche-pop h4{font-family:'Bricolage Grotesque',sans-serif;font-size:1.02rem;color:#15395B;margin:0 0 4px}
+  .fiche-pop .fp-badge{display:inline-flex;align-items:center;gap:5px;background:#EAF4FB;color:#2d4a5e;font-size:.72rem;font-weight:700;border-radius:100px;padding:3px 10px;margin-bottom:8px}
+  .fiche-pop .fp-type{font-size:.78rem;color:#7c93a3;font-weight:600;margin-bottom:6px}
+  .fiche-pop .fp-status{font-size:.82rem;color:#4a6070;line-height:1.5;margin:6px 0}
+  .fiche-pop .fp-links{display:flex;flex-direction:column;gap:5px;margin-top:8px;font-size:.82rem}
+  .fiche-pop .fp-links a{color:#3F93C4;font-weight:600}
+  .fiche-pop .fp-boutique{display:inline-block;margin-top:9px;background:#DAEF52;color:#15395B;font-weight:700;font-size:.78rem;border-radius:100px;padding:6px 12px}
+
+  .legende-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+  .legende-item{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);border-radius:100px;padding:6px 14px;font-size:.82rem;color:#fff;font-weight:600}
+  .legende-item .dot{width:12px;height:12px;border-radius:50%}
+</style>
+</head>
+<body>
+
+<div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="clouds" aria-hidden="true">
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cloud" viewBox="0 0 230 110">
+      <g fill="currentColor">
+        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
+        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
+        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
+      </g>
+    </symbol>
+    <symbol id="daisy" viewBox="0 0 100 100">
+      <g transform="translate(50 50)" fill="currentColor">
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
+      </g>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="site-nav"></div>
+<script src="/assets/nav.js"></script>
+
+<!-- HERO -->
+<header class="sec" id="top" style="padding-top:150px">
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le Guide FLORE</span>
+      <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);margin:14px 0">La carte du <span class="hl">sans gluten et sans lactose</span></h1>
+      <p style="font-size:1.1rem;color:rgba(255,255,255,.92);max-width:44em;margin:0 auto">Restaurants, boulangeries, épiceries et marques passés au crible du Comité FLORE. Filtrez par allergène, trouvez une adresse de confiance près de chez vous.</p>
+    </div>
+    <div class="legende-row" data-aos="fade-up">
+      <span class="legende-item"><span class="dot" style="background:#DAEF52"></span>Sans gluten</span>
+      <span class="legende-item"><span class="dot" style="background:#1FA9A0"></span>Sans lactose</span>
+      <span class="legende-item"><span class="dot" style="background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)"></span>Les deux</span>
+    </div>
+  </div>
+</header>
+
+<!-- CARTE -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="guide-toolbar" data-aos="fade-up">
+      <button type="button" class="gt-toggle gluten on" id="toggle-gluten" aria-pressed="true"><span class="dot"></span>Sans gluten</button>
+      <button type="button" class="gt-toggle lactose on" id="toggle-lactose" aria-pressed="true"><span class="dot"></span>Sans lactose</button>
+      <select class="gt-select" id="filter-categorie">
+        <option value="">Toutes les catégories</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Boulangerie / Pâtisserie">Boulangerie / Pâtisserie</option>
+        <option value="Épicerie">Épicerie</option>
+        <option value="Artisan">Artisan</option>
+        <option value="Marque 100% en ligne">Marque 100 % en ligne</option>
+        <option value="Producteur">Producteur</option>
+      </select>
+      <label class="gt-check"><input type="checkbox" id="filter-dedie">100 % dédié uniquement</label>
+    </div>
+
+    <div class="guide-map-wrap" data-aos="fade-up">
+      <div id="flore-map"></div>
+      <div class="map-empty" id="map-empty">
+        <div class="map-empty-inner">
+          <span class="ic">🌱</span>
+          <h3>Le Guide se construit</h3>
+          <p>Aucune adresse ne correspond à ces filtres pour l'instant. Le Comité FLORE valide de nouvelles fiches régulièrement, revenez bientôt.</p>
+          <a href="/exposants/carte-guide/" class="btn btn-sun" style="display:inline-flex">Faire référencer mon établissement →</a>
+        </div>
+      </div>
+    </div>
+
+    <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.7);font-size:.9rem;max-width:44em;margin:22px auto 0">Vous tenez un établissement ou une marque 100 % ou en partie sans gluten et sans lactose ? <a href="/exposants/carte-guide/" style="color:#DAEF52;font-weight:700">Rejoignez le Guide gratuitement →</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="f-stars"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
+        <p class="about">Le premier festival musical et culinaire 100 % sans gluten et sans lactose. Une production de MG Entertainment.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
+          </a>
+          <a href="mailto:contact@flore-festival.fr" aria-label="E-mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>Le Guide</h5>
+        <ul>
+          <li><a href="/guide/">La carte interactive</a></li>
+          <li><a href="/exposants/carte-guide/">Rejoindre le Guide</a></li>
+          <li><a href="/exposants/boutique/">Boutique FLORE</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></li>
+          <li><a href="/a-propos/">Qui sommes-nous</a></li>
+          <li><a href="/#billetterie">Billetterie</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment.</span>
+      <span class="footer-legal">
+        <button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button>
+        <span aria-hidden="true">·</span>
+        <button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button>
+      </span>
+      <span><span class="blurred">Lagnieu, Ain</span> · France · Dansez sans gluten, savourez sans lactose.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // ============ CARTE GUIDE FLORE ============
+  (function(){
+    const map = L.map('flore-map', { scrollWheelZoom:false }).setView([46.6, 2.4], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18
+    }).addTo(map);
+
+    const toggleGluten = document.getElementById('toggle-gluten');
+    const toggleLactose = document.getElementById('toggle-lactose');
+    const selectCategorie = document.getElementById('filter-categorie');
+    const checkDedie = document.getElementById('filter-dedie');
+    const mapEmpty = document.getElementById('map-empty');
+
+    let etablissements = [];
+    let markerLayer = L.layerGroup().addTo(map);
+
+    function pinClass(item){
+      if(item.gluten && item.lactose) return 'pin-bicolore';
+      if(item.gluten) return 'pin-gluten';
+      if(item.lactose) return 'pin-lactose';
+      return 'pin-gluten';
+    }
+
+    function statutTexte(item){
+      const lignes = [];
+      if(item.gluten === 'dedie') lignes.push('🌾 100 % sans gluten · zéro trace, établissement dédié');
+      else if(item.gluten === 'options') lignes.push('🌾 Options sans gluten · cuisine mixte, contamination maîtrisée');
+      if(item.lactose === 'dedie') lignes.push('🥛 100 % sans lactose / végan');
+      else if(item.lactose === 'options') lignes.push('🥛 Options sans lactose');
+      return lignes.join('<br>');
+    }
+
+    function ficheHtml(item){
+      let html = '<div class="fiche-pop">';
+      html += '<span class="fp-badge">✅ Validé par le Comité FLORE</span>';
+      html += '<h4>' + item.nom + '</h4>';
+      html += '<div class="fp-type">' + item.type + ' · ' + (item.adresse || '') + '</div>';
+      html += '<div class="fp-status">' + statutTexte(item) + '</div>';
+      if(item.description) html += '<p style="font-size:.82rem;color:#4a6070;margin:6px 0">' + item.description + '</p>';
+      const links = [];
+      if(item.site) links.push('<a href="' + item.site + '" target="_blank" rel="noopener">🌐 Site web</a>');
+      if(item.instagram) links.push('<a href="' + item.instagram + '" target="_blank" rel="noopener">📷 Instagram</a>');
+      if(links.length) html += '<div class="fp-links">' + links.join('') + '</div>';
+      if(item.boutique_flore) html += '<a href="/exposants/boutique/" class="fp-boutique">🛍️ Trouver leurs produits sur la Boutique Flore</a>';
+      html += '</div>';
+      return html;
+    }
+
+    function passeFiltres(item){
+      const glutenOn = toggleGluten.classList.contains('on');
+      const lactoseOn = toggleLactose.classList.contains('on');
+      if(glutenOn && !item.gluten) return false;
+      if(lactoseOn && !item.lactose) return false;
+      const cat = selectCategorie.value;
+      if(cat && item.type !== cat) return false;
+      if(checkDedie.checked){
+        if(glutenOn && item.gluten !== 'dedie') return false;
+        if(lactoseOn && item.lactose !== 'dedie') return false;
+        if(!glutenOn && !lactoseOn && item.gluten !== 'dedie' && item.lactose !== 'dedie') return false;
+      }
+      return true;
+    }
+
+    function render(){
+      markerLayer.clearLayers();
+      const visibles = etablissements.filter(passeFiltres);
+      visibles.forEach(function(item){
+        const icon = L.divIcon({
+          className: '',
+          html: '<span class="pin ' + pinClass(item) + '"></span>',
+          iconSize: [22,22],
+          iconAnchor: [11,11],
+          popupAnchor: [0,-11]
+        });
+        L.marker([item.lat, item.lng], { icon: icon }).addTo(markerLayer).bindPopup(ficheHtml(item));
+      });
+      mapEmpty.classList.toggle('show', visibles.length === 0);
+    }
+
+    function bindToggle(btn){
+      btn.addEventListener('click', function(){
+        btn.classList.toggle('on');
+        btn.setAttribute('aria-pressed', btn.classList.contains('on'));
+        render();
+      });
+    }
+    bindToggle(toggleGluten);
+    bindToggle(toggleLactose);
+    selectCategorie.addEventListener('change', render);
+    checkDedie.addEventListener('change', render);
+
+    fetch('/assets/data/guide-etablissements.json')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        etablissements = Array.isArray(data) ? data : [];
+        render();
+      })
+      .catch(function(){
+        etablissements = [];
+        render();
+      });
+  })();
+</script>
+<script src="/assets/transitions.js" defer></script>
+<script src="/legal.js" defer></script>
+</body>
+</html>

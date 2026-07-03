@@ -43,6 +43,13 @@
     </image:image>
   </url>
   <url>
+    <loc>https://flore-festival.fr/guide/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/"/>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/sans-gluten-sans-lactose/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
