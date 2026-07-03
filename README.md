@@ -127,13 +127,27 @@ et les synchronise (survol d'une carte → ouverture du pin correspondant).
 
 ### Formulaire d'inscription pro `/exposants/carte-guide/`
 
-Wizard en 8 écrans (profil, infos générales, activité, sécurité alimentaire +
-demande de certification FLORE, services, galerie avec glisser-déposer,
-horaires, validation avec aperçu en direct de la fiche) — **toujours sans
-compte ni backend** : c'est un long formulaire côté navigateur, envoyé par
-email via Web3Forms comme les autres formulaires du site (voir
-[[flore-web3forms-key]]). Aucune donnée n'est stockée automatiquement ; le
-Comité reçoit l'email et suit ensuite le processus ci-dessous à la main.
+Wizard en 7 écrans (profil, infos générales, activité, sécurité alimentaire +
+demande de certification FLORE, services, galerie, validation avec aperçu en
+direct de la fiche) — **toujours sans compte ni backend** : c'est un long
+formulaire côté navigateur, envoyé par email via Web3Forms comme les autres
+formulaires du site (voir [[flore-web3forms-key]]). Aucune donnée n'est
+stockée automatiquement ; le Comité reçoit l'email et suit ensuite le
+processus ci-dessous à la main.
+
+**Pas d'étape Horaires** : retirée volontairement (2026-07-04). Demander des
+horaires précis créerait une attente de mise à jour permanente (chaque
+changement d'heure → sollicitation du Comité), intenable sur un site géré à
+la main. Les horaires restent l'affaire du site/réseaux sociaux du
+professionnel (déjà collectés à l'étape 2), pas du Guide.
+
+**Galerie : champs fichier individuels, jamais `multiple`** — le plan
+gratuit Web3Forms ne supporte que des fichiers uniques par champ ; l'upload
+multiple (plusieurs fichiers dans un seul `<input>`) est une fonctionnalité
+PRO payante (voir [docs Web3Forms](https://docs.web3forms.com/getting-started/pro-features/file-attachments)).
+D'où les 4 champs séparés `photo_secondaire_1` à `_4` (pas un input
+`multiple`), et `justificatif` en single-file. Ne pas réintroduire de champ
+`multiple` sur ce formulaire sans vérifier d'abord le plan Web3Forms actif.
 
 Volontairement pas de vrai tableau de bord pro (vues, clics, messages) ni de
 connexion : ça nécessiterait un backend, hors du cadre de ce site. Voir
