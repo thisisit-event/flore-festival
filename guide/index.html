@@ -26,6 +26,17 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="/assets/flore.css?v=20260702">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Le Guide FLORE",
+  "description": "Carte interactive des restaurants, boulangeries, épiceries et marques sans gluten et sans lactose, validés par le Comité FLORE.",
+  "url": "https://flore-festival.fr/guide/",
+  "isPartOf": { "@id": "https://flore-festival.fr/#website" },
+  "publisher": { "@id": "https://flore-festival.fr/#organization" }
+}
+</script>
 <style>
   .guide-toolbar{max-width:980px;margin:0 auto 26px;background:#fff;border-radius:22px;padding:22px 26px;box-shadow:0 12px 40px rgba(21,57,91,.13);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
   .gt-toggle{display:inline-flex;align-items:center;gap:9px;border:2px solid #e4edf5;border-radius:100px;padding:10px 20px;font-weight:700;font-size:.92rem;color:#5C7993;cursor:pointer;transition:all .18s;background:#fafcfe}
@@ -65,6 +76,11 @@
   .legende-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
   .legende-item{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);border-radius:100px;padding:6px 14px;font-size:.82rem;color:#fff;font-weight:600}
   .legende-item .dot{width:12px;height:12px;border-radius:50%}
+
+  .guide-liste{list-style:none;padding:0;max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .guide-liste li{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:14px 20px;color:rgba(255,255,255,.9);font-size:.94rem}
+  .guide-liste li a{color:#DAEF52;font-weight:700}
+  .guide-liste-vide{text-align:center;background:transparent!important;border:none!important;color:rgba(255,255,255,.75)!important}
 </style>
 </head>
 <body>
@@ -136,6 +152,7 @@
         <option value="Artisan">Artisan</option>
         <option value="Marque 100% en ligne">Marque 100 % en ligne</option>
         <option value="Producteur">Producteur</option>
+        <option value="Festival">Festival</option>
       </select>
       <label class="gt-check"><input type="checkbox" id="filter-dedie">100 % dédié uniquement</label>
     </div>
@@ -153,6 +170,26 @@
     </div>
 
     <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.7);font-size:.9rem;max-width:44em;margin:22px auto 0">Vous tenez un établissement ou une marque 100 % ou en partie sans gluten et sans lactose ? <a href="/exposants/carte-guide/" style="color:#DAEF52;font-weight:700">Rejoignez le Guide gratuitement →</a></p>
+  </div>
+</section>
+
+<!--
+  Liste statique en HTML pur : les popups de la carte sont générés en JS (fetch + Leaflet),
+  peu fiables pour l'indexation. Chaque établissement validé doit avoir une ligne ici en plus
+  de son entrée dans assets/data/guide-etablissements.json et de sa fiche /guide/{slug}/.
+  Voir README.md, section "Guide FLORE" pour le processus complet.
+-->
+<section class="sec" id="toutes-les-adresses" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>L'annuaire</span>
+      <h2>Toutes les <span class="hl">adresses du Guide</span></h2>
+    </div>
+    <ul class="guide-liste" data-aos="fade-up">
+      <li><a href="/guide/flore-festival-lagnieu/">FLORE Festival · Festival · <span class="blurred">Lagnieu, Ain</span></a></li>
+      <!-- <li><a href="/guide/slug-etablissement/">Nom de l'établissement · Type · Ville</a></li> -->
+    </ul>
+    <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.7);font-size:.88rem;max-width:44em;margin:18px auto 0">D'autres adresses arrivent au fil des validations du Comité FLORE. <a href="/exposants/carte-guide/" style="color:#DAEF52;font-weight:700">Vous êtes concerné ? Candidatez ici →</a></p>
   </div>
 </section>
 
@@ -252,6 +289,7 @@
       html += '<div class="fp-status">' + statutTexte(item) + '</div>';
       if(item.description) html += '<p style="font-size:.82rem;color:#4a6070;margin:6px 0">' + item.description + '</p>';
       const links = [];
+      if(item.slug) links.push('<a href="/guide/' + item.slug + '/"><strong>Voir la fiche complète →</strong></a>');
       if(item.site) links.push('<a href="' + item.site + '" target="_blank" rel="noopener">🌐 Site web</a>');
       if(item.instagram) links.push('<a href="' + item.instagram + '" target="_blank" rel="noopener">📷 Instagram</a>');
       if(links.length) html += '<div class="fp-links">' + links.join('') + '</div>';
