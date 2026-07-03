@@ -126,6 +126,13 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/boutique/"/>
   </url>
   <url>
+    <loc>https://flore-festival.fr/exposants/carte-guide/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/carte-guide/"/>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/partenaires</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
