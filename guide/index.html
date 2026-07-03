@@ -55,14 +55,6 @@
   .cat-pill.on .ic{filter:none;opacity:1}
 
   .guide-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;border-top:1px solid #e4edf5;padding-top:6px}
-  .gt-toggle{display:inline-flex;align-items:center;gap:9px;border:2px solid #e4edf5;border-radius:100px;padding:10px 20px;font-weight:700;font-size:.92rem;color:#5C7993;cursor:pointer;transition:all .18s;background:#fafcfe}
-  .gt-toggle .dot{width:16px;height:16px;border-radius:50%;flex:0 0 auto}
-  .gt-toggle.gluten .dot{background:#DAEF52}
-  .gt-toggle.lactose .dot{background:#1FA9A0}
-  .gt-toggle.on.gluten{background:#f9fce0;border-color:#DAEF52;color:#7a8a1e}
-  .gt-toggle.on.lactose{background:#e6f8f6;border-color:#1FA9A0;color:#146b64}
-  .gt-check{display:inline-flex;align-items:center;gap:8px;font-size:.87rem;font-weight:600;color:#5C7993;cursor:pointer}
-  .gt-check input{width:16px;height:16px;accent-color:#3F93C4;cursor:pointer}
   .gt-count{width:100%;text-align:center;font-size:.85rem;font-weight:700;color:#3F93C4;margin-top:2px}
 
   /* ===== Vue Airbnb : liste + carte ===== */
@@ -103,9 +95,6 @@
   .guide-list-empty .ic{font-size:2.2rem;display:block;margin-bottom:10px}
   .guide-list-empty h3{color:#15395B;font-size:1.08rem;margin-bottom:6px}
   .guide-list-empty p{color:#5C7993;font-size:.9rem;line-height:1.6;margin-bottom:14px}
-
-  .gt-caption{width:100%;text-align:center;font-size:.82rem;color:var(--ink-soft);margin-top:2px}
-  .gt-caption b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -186,11 +175,7 @@
       </div>
 
       <div class="guide-toolbar">
-        <button type="button" class="gt-toggle gluten on" id="toggle-gluten" aria-pressed="true"><span class="dot"></span>Sans gluten</button>
-        <button type="button" class="gt-toggle lactose on" id="toggle-lactose" aria-pressed="true"><span class="dot"></span>Sans lactose</button>
-        <label class="gt-check"><input type="checkbox" id="filter-dedie">100 % dédié uniquement</label>
         <span class="gt-count" id="guide-count"></span>
-        <span class="gt-caption">Sur la carte : <b>jaune</b> = sans gluten, <b>bleu-vert</b> = sans lactose, <b>bicolore</b> = les deux.</span>
       </div>
     </div>
 
@@ -299,9 +284,6 @@
   // charger (bloqueur de pub, réseau) : l'init de la carte est isolée dans
   // un try/catch et n'est jamais une condition pour que les filtres marchent.
   (function(){
-    const toggleGluten = document.getElementById('toggle-gluten');
-    const toggleLactose = document.getElementById('toggle-lactose');
-    const checkDedie = document.getElementById('filter-dedie');
     const searchInput = document.getElementById('search-input');
     const catPills = Array.prototype.slice.call(document.querySelectorAll('.cat-pill'));
     const guideCount = document.getElementById('guide-count');
@@ -340,18 +322,9 @@
       return html;
     }
 
-    // ---- Filtres (corrigés : "100% dédié" s'applique à chaque garantie que l'établissement revendique,
-    //      indépendamment des interrupteurs gluten/lactose actifs) ----
+    // ---- Filtres : catégorie + recherche texte ----
     function passeFiltres(item){
-      const glutenOn = toggleGluten.classList.contains('on');
-      const lactoseOn = toggleLactose.classList.contains('on');
-      if(glutenOn && !item.gluten) return false;
-      if(lactoseOn && !item.lactose) return false;
       if(currentCategory && item.type !== currentCategory) return false;
-      if(checkDedie.checked){
-        if(item.gluten && item.gluten !== 'dedie') return false;
-        if(item.lactose && item.lactose !== 'dedie') return false;
-      }
       const term = searchInput.value.trim().toLowerCase();
       if(term){
         const haystack = (item.nom + ' ' + item.type + ' ' + (item.adresse || '')).toLowerCase();
@@ -411,16 +384,6 @@
       });
     });
 
-    function bindToggle(btn){
-      btn.addEventListener('click', function(){
-        btn.classList.toggle('on');
-        btn.setAttribute('aria-pressed', btn.classList.contains('on'));
-        render();
-      });
-    }
-    bindToggle(toggleGluten);
-    bindToggle(toggleLactose);
-    checkDedie.addEventListener('change', render);
     searchInput.addEventListener('input', render);
 
     catPills.forEach(function(pill){
