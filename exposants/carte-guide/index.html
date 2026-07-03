@@ -268,9 +268,9 @@
           <div class="wiz-step" data-step="5">
             <div class="wiz-steplabel">Étape 6 / 7 · Galerie</div>
             <h2 style="color:var(--ink);margin-bottom:6px">Vos photos</h2>
-            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Ce formulaire n'envoie pas de fichiers : indiquez-nous un lien vers vos photos (Google Drive, Instagram, votre site...), on les récupère nous-mêmes.</p>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Ce formulaire n'envoie pas de fichiers : indiquez-nous un lien vers vos photos (Google Drive, Instagram, votre site...), on les récupère nous-mêmes. Sans photos, votre fiche ne peut pas être publiée sur le Guide.</p>
             <div class="f-row">
-              <div class="f-field"><label>Lien vers vos photos</label><input type="url" id="in-photos-lien" name="lien_photos" placeholder="https://drive.google.com/... ou https://instagram.com/monetablissement"></div>
+              <div class="f-field"><label>Lien vers vos photos <span class="f-required">*</span></label><input type="url" id="in-photos-lien" name="lien_photos" placeholder="https://drive.google.com/... ou https://instagram.com/monetablissement" required></div>
             </div>
             <div class="cert-box">
               <h3>📸 Ce qu'on recherche</h3>
@@ -279,8 +279,12 @@
                 <li>⭐ 1 photo principale (sert de couverture à votre fiche)</li>
                 <li>📸 4 photos secondaires (produits, intérieur, extérieur, équipe...)</li>
               </ul>
-              <p style="color:var(--ink-soft);font-size:.87rem;margin:0">Pas de lien sous la main ? Laissez le champ vide, le Comité vous recontactera pour les récupérer.</p>
+              <p style="color:var(--ink-soft);font-size:.87rem;margin:0">Pas encore de lien accessible ? Écrivez-nous à contact@flore-festival.fr avant de continuer.</p>
             </div>
+            <label class="consent-row" style="margin-top:16px">
+              <input type="checkbox" id="in-photos-droits" required>
+              <span>Je certifie être propriétaire des photos transmises (ou disposer des autorisations nécessaires) et j'autorise FLORE Festival / MG Entertainment à les utiliser pour la création et l'affichage de ma fiche sur le Guide FLORE.</span>
+            </label>
           </div>
 
           <!-- ÉTAPE 6 : VALIDATION -->
@@ -421,6 +425,16 @@
             document.getElementById(id).focus();
             return false;
           }
+        }
+      }
+      if (i === 5){
+        if (!document.getElementById('in-photos-lien').value.trim()){
+          alert('Merci d\'indiquer un lien vers vos photos pour continuer.');
+          return false;
+        }
+        if (!document.getElementById('in-photos-droits').checked){
+          alert('Merci de confirmer les droits sur vos photos pour continuer.');
+          return false;
         }
       }
       return true;

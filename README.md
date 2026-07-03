@@ -168,9 +168,13 @@ professionnel (déjà collectés à l'étape 2), pas du Guide.
 feature » — le compte Web3Forms actif n'inclut aucun upload de fichier, pas
 seulement le mode `multiple`). À la place, l'étape 6 (Galerie) demande un
 simple champ texte `lien_photos` (URL vers Google Drive, Instagram, le site du
-professionnel...), facultatif — s'il est vide, le Comité recontacte le
-candidat pour récupérer les visuels. Tout arrive donc en un seul envoi
-Web3Forms, sans email séparé à recoller manuellement. Le Comité ouvre le
+professionnel...), **obligatoire** — sans photos, pas de fiche publiable sur
+le Guide. Tout arrive donc en un seul envoi Web3Forms, sans email séparé à
+recoller manuellement. Une case à cocher dédiée (`#in-photos-droits`, distincte
+du RGPD) fait certifier au candidat qu'il possède les droits sur les photos
+transmises (ou l'autorisation de les utiliser) et qu'il autorise FLORE à les
+utiliser pour sa fiche — protection minimale contre un litige de droit à
+l'image. Le Comité ouvre le
 lien, télécharge logo + 1 photo principale + 4 photos secondaires, les
 compresse/héberge sur le CDN, puis ajoute les URLs dans
 `assets/data/guide-etablissements.json` (`images.principale` /
