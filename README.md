@@ -127,7 +127,9 @@ et les synchronise (survol d'une carte → ouverture du pin correspondant).
 1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json` (alimente
    le pin sur la carte).
 2. **Ajouter une `.guide-card`** dans `<div class="guide-list">` de
-   `/guide/index.html` (copier un bloc existant), avec les attributs
+   `/guide/index.html` (copier un bloc existant, **avant** la carte
+   `.guide-card-ghost` qui doit rester la dernière — elle n'est pas filtrée et
+   sert de CTA permanent « votre établissement ici »), avec les attributs
    `data-slug` (identique au `slug` du JSON), `data-type`, `data-gluten`,
    `data-lactose` à jour — c'est ce bloc qui est filtré/affiché dans la liste
    et qui est crawlable par Google sans JS.
@@ -163,9 +165,12 @@ favicon) et remplacer le contenu par :
 Corps de page (voir `/guide/flore-festival-lagnieu/index.html` comme référence
 concrète) : un vrai mini-site à sections, pas juste une carte compacte —
 
-1. **Hero** : back-link vers `/guide/`, badge « Validé par le Comité FLORE »,
-   H1 avec le nom, tagline, rangée de « facts » (catégorie, ville, date —
-   flouter tout ce qui doit l'être, voir [[flore-date-festival]]).
+1. **Hero** : reprendre le hero décoré `.fiche-phero` (dégradé bleu + soleil +
+   marguerites, copier le bloc CSS/HTML de `guide/flore-festival-lagnieu/`,
+   pas le header générique `.sec` utilisé sur le reste du site) — c'est ce qui
+   donne l'effet mini-site. Back-link vers `/guide/`, badge « Validé par le
+   Comité FLORE », H1 avec le nom, tagline, rangée de « facts » (catégorie,
+   ville, date — flouter tout ce qui doit l'être, voir [[flore-date-festival]]).
 2. **Statut de sécurité** : cartes gluten/lactose (mêmes libellés que le
    popup de la carte).
 3. **À propos** : description plus longue que celle du JSON.

@@ -40,6 +40,13 @@
   .back-link{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.75);font-size:.88rem;font-weight:600;text-decoration:none;margin-bottom:24px;transition:color .18s}
   .back-link:hover{color:#DAEF52}
 
+  .fiche-phero{position:relative;min-height:56vh;display:flex;align-items:center;padding:150px 0 64px;background:linear-gradient(180deg,#56A2D2,#4DA9DF 55%,#2E7FB8);overflow:hidden;color:#fff}
+  .fiche-phero .sun-deco{position:absolute;top:-120px;right:-90px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#DAEF52 0%,#DAEF52 42%,rgba(218,239,82,.3) 60%,transparent 75%);pointer-events:none}
+  .fiche-phero .daisy-bg{position:absolute;color:rgba(255,255,255,.14);pointer-events:none}
+  .fiche-phero .pd1{bottom:16px;left:6%;width:110px}
+  .fiche-phero .pd2{top:20%;right:12%;width:64px}
+  .fiche-phero .wrap{position:relative;z-index:2}
+
   .fiche-hero{max-width:900px;margin:0 auto;text-align:center}
   .fiche-hero .fp-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.4);color:#fff;font-size:.8rem;font-weight:700;border-radius:100px;padding:6px 16px;margin-bottom:14px}
   .fiche-facts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
@@ -103,7 +110,10 @@
 <script src="/assets/nav.js"></script>
 
 <!-- HERO -->
-<header class="sec" id="top" style="padding-top:150px">
+<header class="fiche-phero" id="top">
+  <span class="sun-deco" aria-hidden="true"></span>
+  <svg aria-hidden="true" class="daisy daisy-bg pd1"><use href="#daisy"/></svg>
+  <svg aria-hidden="true" class="daisy daisy-bg pd2"><use href="#daisy"/></svg>
   <div class="wrap">
     <div data-aos="fade-up">
       <a href="/guide/" class="back-link">← Retour au Guide FLORE</a>

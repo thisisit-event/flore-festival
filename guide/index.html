@@ -77,6 +77,10 @@
   .gc-loc{font-size:.82rem;color:#5C7993;font-weight:600}
   .gc-cta{font-size:.82rem;font-weight:700;color:#3F93C4}
 
+  .guide-card-ghost{border:2px dashed #cddce6;box-shadow:none;background:rgba(255,255,255,.55)}
+  .guide-card-ghost:hover{border-color:#DAEF52;box-shadow:0 10px 26px rgba(21,57,91,.1);background:#fff}
+  .gc-pin-ghost{background:transparent;border:2px dashed #9fb3c2}
+
   .guide-list-empty{background:rgba(255,255,255,.94);border-radius:20px;padding:32px 26px;text-align:center}
   .guide-list-empty .ic{font-size:2.2rem;display:block;margin-bottom:10px}
   .guide-list-empty h3{color:#15395B;font-size:1.08rem;margin-bottom:6px}
@@ -189,14 +193,19 @@
           <p>Le Comité FLORE valide de nouvelles fiches régulièrement, revenez bientôt.</p>
           <a href="/exposants/carte-guide/" class="btn btn-sun" style="display:inline-flex">Faire référencer mon établissement →</a>
         </div>
+
+        <a class="guide-card guide-card-ghost" href="/exposants/carte-guide/">
+          <div class="gc-top"><span class="gc-pin gc-pin-ghost"></span><span class="gc-type">Bientôt</span></div>
+          <h3>Votre établissement ici ?</h3>
+          <p class="gc-desc">Restaurant, boulangerie, épicerie, artisan ou marque : le Comité FLORE valide de nouvelles fiches en continu, toute l'année.</p>
+          <div class="gc-foot"><span class="gc-cta">Candidater gratuitement →</span></div>
+        </a>
       </div>
 
       <div class="guide-map-wrap">
         <div id="flore-map"></div>
       </div>
     </div>
-
-    <p data-aos="fade-up" style="text-align:center;color:rgba(255,255,255,.7);font-size:.9rem;max-width:44em;margin:22px auto 0">Vous tenez un établissement ou une marque 100 % ou en partie sans gluten et sans lactose ? <a href="/exposants/carte-guide/" style="color:#DAEF52;font-weight:700">Rejoignez le Guide gratuitement →</a></p>
   </div>
 </section>
 
@@ -258,9 +267,10 @@
   // ============ GUIDE FLORE : liste + carte synchronisées ============
   (function(){
     const map = L.map('flore-map', { scrollWheelZoom:false }).setView([46.6, 2.4], 6);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 18
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
     }).addTo(map);
 
     const toggleGluten = document.getElementById('toggle-gluten');
@@ -269,7 +279,7 @@
     const checkDedie = document.getElementById('filter-dedie');
     const guideCount = document.getElementById('guide-count');
     const guideListEmpty = document.getElementById('guide-list-empty');
-    const cards = Array.prototype.slice.call(document.querySelectorAll('.guide-card'));
+    const cards = Array.prototype.slice.call(document.querySelectorAll('.guide-card:not(.guide-card-ghost)'));
 
     let etablissements = [];
     const markerLayer = L.layerGroup().addTo(map);
