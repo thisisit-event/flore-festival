@@ -140,8 +140,15 @@ et les synchronise (survol d'une carte → ouverture du pin correspondant).
 
 ### Template de fiche `/guide/{slug}/index.html`
 
-Reprendre le head standard des pages exposants (fonts, AOS, `flore.css`,
-favicon) et remplacer le contenu par :
+**`/guide/flore-festival-lagnieu/index.html` EST le template** — dupliquer ce
+fichier à l'identique pour chaque nouvel établissement, ne pas réinventer la
+structure à chaque fois. C'est volontairement différent du reste du site :
+pas de fond ciel bleu / soleil / marguerites, pas d'AOS. Une fiche est une
+page neutre et structurée façon Airbnb (galerie photo + colonne info sticky),
+pensée pour qu'on puisse les uniformiser toutes et y mettre de vraies photos
+dès qu'un établissement candidate avec ses propres visuels.
+
+Adapter dans le duplicata :
 
 ```html
 <title>{{Nom}} · {{Type}} sans gluten et sans lactose à {{Ville}} · Guide FLORE</title>
@@ -162,24 +169,36 @@ favicon) et remplacer le contenu par :
 </script>
 ```
 
-Corps de page (voir `/guide/flore-festival-lagnieu/index.html` comme référence
-concrète) : un vrai mini-site à sections, pas juste une carte compacte —
+Structure du corps (toutes les classes existent déjà dans le fichier de
+référence, ne pas en réinventer d'autres) :
 
-1. **Hero** : reprendre le hero décoré `.fiche-phero` (dégradé bleu + soleil +
-   marguerites, copier le bloc CSS/HTML de `guide/flore-festival-lagnieu/`,
-   pas le header générique `.sec` utilisé sur le reste du site) — c'est ce qui
-   donne l'effet mini-site. Back-link vers `/guide/`, badge « Validé par le
-   Comité FLORE », H1 avec le nom, tagline, rangée de « facts » (catégorie,
-   ville, date — flouter tout ce qui doit l'être, voir [[flore-date-festival]]).
-2. **Statut de sécurité** : cartes gluten/lactose (mêmes libellés que le
-   popup de la carte).
-3. **À propos** : description plus longue que celle du JSON.
-4. **Infos pratiques** : petites cards (date, horaires, lieu, catégorie).
-5. **Actions** : site web, et si `boutique_flore: true` un bouton vers
-   `/exposants/boutique/`, plus un bouton retour carte vers
-   `/guide/#{{slug}}` (rouvre le pin correspondant automatiquement).
+1. **`.fiche-back`** : lien retour vers `/guide/`.
+2. **`.fiche-title-row`** : badge catégorie (`.fiche-cat-badge`), H1 avec le
+   nom, ligne meta (badge « Validé par le Comité FLORE » + ville — flouter
+   ce qui doit l'être, voir [[flore-date-festival]]).
+3. **`.fiche-gallery`** : grille de 5 images (1 grande + 4 petites), dans
+   l'ordre du formulaire de candidature — logo, photo devanture/équipe,
+   jusqu'à 3 photos produits. Tant qu'un établissement n'a pas fourni ses
+   propres photos, ne pas inventer de visuel : utiliser au pire les assets
+   de marque FLORE existants (voir [[flore-assets-cdn]]), jamais une photo
+   stock.
+4. **`.fiche-body`** (grille 2 colonnes, `.fiche-main-col` + `.fiche-side-col`
+   sticky) :
+   - `.fiche-main-col` : sections `<section>` séparées par une bordure —
+     « À propos » (texte), « Statut de sécurité » et « Ce qui vous attend »
+     en listes `.fiche-amenities` (icône + titre + description courte, pas
+     de grandes cards colorées).
+   - `.fiche-side-col` : `.fiche-card-sticky` avec les infos clés en lignes
+     `.fsc-row` (date, horaires, lieu, catégorie) puis les boutons d'action
+     (`.btn-fiche.primary/.sun/.ghost`) : site web, et si `boutique_flore:
+     true` un lien vers `/exposants/boutique/`, plus un retour carte vers
+     `/guide/#{{slug}}` (rouvre le pin correspondant automatiquement).
+5. **Nav forcée en mode "scrolled"** : la fiche a un fond blanc dès le haut,
+   donc script en bas de page `nav.classList.add('scrolled')` — sans ça le
+   logo et les liens de la nav sont blancs sur blanc, invisibles.
 
-Même nav/footer que les autres pages `/guide/` et `/exposants/`.
+Même nav/footer (chrome partagé) que les autres pages `/guide/` et
+`/exposants/`.
 
 ## À compléter / confirmer
 

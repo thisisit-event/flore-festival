@@ -23,7 +23,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/flore.css?v=20260702">
 <script type="application/ld+json">
 {
@@ -37,157 +36,130 @@
 }
 </script>
 <style>
-  .back-link{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.75);font-size:.88rem;font-weight:600;text-decoration:none;margin-bottom:24px;transition:color .18s}
-  .back-link:hover{color:#DAEF52}
+  /* ==========================================================
+     TEMPLATE DE FICHE GUIDE FLORE — neutre, structuré, façon
+     Airbnb. À dupliquer à l'identique pour chaque établissement.
+     Voir README.md, section "Guide FLORE".
+     ========================================================== */
+  body{background:#fff}
+  .fiche-sheet{background:#fff;padding-top:118px}
 
-  .fiche-phero{position:relative;min-height:56vh;display:flex;align-items:center;padding:150px 0 64px;background:linear-gradient(180deg,#56A2D2,#4DA9DF 55%,#2E7FB8);overflow:hidden;color:#fff}
-  .fiche-phero .sun-deco{position:absolute;top:-120px;right:-90px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,#DAEF52 0%,#DAEF52 42%,rgba(218,239,82,.3) 60%,transparent 75%);pointer-events:none}
-  .fiche-phero .daisy-bg{position:absolute;color:rgba(255,255,255,.14);pointer-events:none}
-  .fiche-phero .pd1{bottom:16px;left:6%;width:110px}
-  .fiche-phero .pd2{top:20%;right:12%;width:64px}
-  .fiche-phero .wrap{position:relative;z-index:2}
+  .fiche-back{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);font-size:.88rem;font-weight:600;text-decoration:none;margin:22px 0 18px;transition:color .18s}
+  .fiche-back:hover{color:var(--sky-deep)}
 
-  .fiche-hero{max-width:900px;margin:0 auto;text-align:center}
-  .fiche-hero .fp-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.4);color:#fff;font-size:.8rem;font-weight:700;border-radius:100px;padding:6px 16px;margin-bottom:14px}
-  .fiche-facts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
-  .fiche-fact{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.35);border-radius:100px;padding:8px 16px;font-size:.88rem;color:#fff;font-weight:600}
+  .fiche-title-row{margin-bottom:22px}
+  .fiche-cat-badge{display:inline-block;background:var(--sky-pale);color:var(--sky-deep);font-size:.76rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;border-radius:100px;padding:5px 14px;margin-bottom:12px}
+  .fiche-title-row h1{font-size:clamp(1.9rem,4vw,2.6rem);color:var(--ink);margin:0 0 10px}
+  .fiche-meta-row{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--ink-soft);font-size:.95rem;font-weight:600}
+  .fiche-meta-row .validated{color:#1e7a43}
 
-  .fiche-status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:820px;margin:0 auto}
-  .fiche-status-card{background:#fff;border-radius:20px;padding:26px 24px;box-shadow:0 10px 32px rgba(21,57,91,.1);display:flex;gap:14px;align-items:flex-start}
-  .fiche-status-card .dot{width:28px;height:28px;border-radius:50%;flex:0 0 auto;margin-top:2px}
-  .fiche-status-card .dot.gluten{background:#DAEF52}
-  .fiche-status-card .dot.lactose{background:#1FA9A0}
-  .fiche-status-card h3{font-size:1rem;color:#15395B;margin:0 0 5px}
-  .fiche-status-card p{font-size:.88rem;color:#4a6070;line-height:1.55;margin:0}
+  .fiche-gallery{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:8px;border-radius:22px;overflow:hidden;margin-bottom:44px;height:420px}
+  .fg-cell{background:var(--sky-pale);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .fg-cell img{width:100%;height:100%;object-fit:contain;padding:14%}
+  .fg-main{grid-row:1/3}
+  .fg-main img{padding:18%}
+  @media(max-width:860px){
+    .fiche-gallery{grid-template-columns:1fr 1fr;grid-template-rows:200px 130px;height:auto}
+    .fg-main{grid-column:1/3;grid-row:1}
+    .fg-cell:nth-child(4),.fg-cell:nth-child(5){display:none}
+  }
 
-  .fiche-desc{max-width:720px;margin:0 auto;font-size:1rem;color:rgba(255,255,255,.9);line-height:1.75;text-align:center}
+  .fiche-body{display:grid;grid-template-columns:1.6fr 1fr;gap:60px;padding-bottom:90px;align-items:start}
+  @media(max-width:900px){.fiche-body{grid-template-columns:1fr;gap:36px}}
 
-  .fiche-infos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;max-width:820px;margin:0 auto}
-  .fiche-info-card{background:#EAF4FB;border-radius:16px;padding:18px 18px;text-align:center}
-  .fiche-info-card .l{font-size:.76rem;color:#5C7993;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
-  .fiche-info-card .v{font-size:1.02rem;font-weight:800;color:#15395B;font-family:'Bricolage Grotesque',sans-serif}
+  .fiche-main-col section{padding:26px 0;border-bottom:1px solid var(--line)}
+  .fiche-main-col section:first-child{padding-top:0}
+  .fiche-main-col section:last-child{border-bottom:none}
+  .fiche-main-col h2{font-size:1.24rem;color:var(--ink);margin:0 0 14px}
+  .fiche-main-col p{color:var(--ink-soft);line-height:1.75;font-size:1rem;margin:0}
 
-  .fiche-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+  .fiche-amenities{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+  @media(max-width:520px){.fiche-amenities{grid-template-columns:1fr}}
+  .fiche-amenities li{display:flex;align-items:flex-start;gap:12px;font-size:.94rem;color:var(--ink)}
+  .fiche-amenities .am-ic{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--sky-pale);display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .fiche-amenities b{display:block;font-size:.94rem;color:var(--ink)}
+  .fiche-amenities span.d{display:block;font-size:.84rem;color:var(--ink-soft);margin-top:2px;line-height:1.5}
+
+  .fiche-side-col{position:sticky;top:112px}
+  .fiche-card-sticky{border:1.5px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow)}
+  .fsc-row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+  .fsc-row:last-of-type{border-bottom:none}
+  .fsc-row .l{color:var(--ink-soft);font-weight:600}
+  .fsc-row .v{color:var(--ink);font-weight:700;text-align:right}
+  .fiche-card-sticky .btn-fiche{display:block;text-align:center;width:100%;margin-top:12px;padding:14px;border-radius:100px;font-weight:700;font-size:.94rem;text-decoration:none;transition:transform .2s,box-shadow .2s}
+  .fiche-card-sticky .btn-fiche:hover{transform:translateY(-2px)}
+  .btn-fiche.primary{background:var(--ink);color:#fff}
+  .btn-fiche.sun{background:var(--sun);color:var(--ink)}
+  .btn-fiche.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
 </style>
 </head>
 <body>
 
-<div class="sky-bg"></div>
-<div class="grain" aria-hidden="true"></div>
-<div class="clouds" aria-hidden="true">
-  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
-  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
-  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
-  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
-</div>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="cloud" viewBox="0 0 230 110">
-      <g fill="currentColor">
-        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
-        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
-        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
-      </g>
-    </symbol>
-    <symbol id="daisy" viewBox="0 0 100 100">
-      <g transform="translate(50 50)" fill="currentColor">
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
-        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
-      </g>
-      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
-    </symbol>
-  </defs>
-</svg>
-
 <div id="site-nav"></div>
 <script src="/assets/nav.js?v=20260704"></script>
 
-<!-- HERO -->
-<header class="fiche-phero" id="top">
-  <span class="sun-deco" aria-hidden="true"></span>
-  <svg aria-hidden="true" class="daisy daisy-bg pd1"><use href="#daisy"/></svg>
-  <svg aria-hidden="true" class="daisy daisy-bg pd2"><use href="#daisy"/></svg>
+<div class="fiche-sheet">
   <div class="wrap">
-    <div data-aos="fade-up">
-      <a href="/guide/" class="back-link">← Retour au Guide FLORE</a>
-    </div>
-    <div class="fiche-hero" data-aos="fade-up">
-      <span class="fp-badge">✅ Validé par le Comité FLORE</span>
-      <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);margin:0 0 10px">FLORE Festival</h1>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,.92);max-width:44em;margin:0 auto">Le premier festival musical et culinaire 100 % sans gluten et sans lactose. Concerts, food court d'artisans et boutique éphémère.</p>
-      <div class="fiche-facts">
-        <span class="fiche-fact">🎪 Festival</span>
-        <span class="fiche-fact">📍 <span class="blurred">Lagnieu, Ain</span></span>
-        <span class="fiche-fact">📅 <span class="blurred">Samedi 27 mars 2027</span></span>
+    <a href="/guide/" class="fiche-back">← Le Guide FLORE</a>
+
+    <div class="fiche-title-row">
+      <span class="fiche-cat-badge">Festival</span>
+      <h1>FLORE Festival</h1>
+      <div class="fiche-meta-row">
+        <span class="validated">✅ Validé par le Comité FLORE</span>
+        <span>·</span>
+        <span>📍 <span class="blurred">Lagnieu, Ain</span></span>
       </div>
     </div>
-  </div>
-</header>
 
-<!-- STATUT -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Statut de sécurité</span>
-      <h2>100 % sans gluten, <span class="hl">100 % sans lactose</span></h2>
+    <!-- GALERIE : logo, photo devanture/équipe, photos produits — champs du formulaire de candidature -->
+    <div class="fiche-gallery">
+      <div class="fg-cell fg-main"><img src="https://enjoylife.b-cdn.net/Flore/picto-floor-scene.png" alt="La Scène FLORE" loading="lazy"></div>
+      <div class="fg-cell"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="Le Jardin des Saveurs" loading="lazy"></div>
+      <div class="fg-cell"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="La Boutique FLORE" loading="lazy"></div>
+      <div class="fg-cell"><img src="https://flore-festival.fr/assets/florette.png" alt="Florette, la mascotte FLORE" loading="lazy"></div>
+      <div class="fg-cell"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png" alt="Logo FLORE" loading="lazy"></div>
     </div>
-    <div class="fiche-status-grid" data-aos="fade-up">
-      <div class="fiche-status-card">
-        <span class="dot gluten"></span>
-        <div><h3>Sans gluten · zéro trace</h3><p>Tout le food court et le bar sont garantis sans gluten, cœliaques bienvenus les yeux fermés.</p></div>
+
+    <div class="fiche-body">
+      <div class="fiche-main-col">
+        <section>
+          <h2>À propos</h2>
+          <p>Concerts, DJ sets, food court d'artisans et boutique éphémère : FLORE est pensé comme n'importe quel grand festival, sauf qu'ici, tout le monde mange et boit sans se poser de question. Une fête accessible à tous, où le sans gluten et le sans lactose ne sont jamais un renoncement.</p>
+        </section>
+
+        <section>
+          <h2>Statut de sécurité</h2>
+          <ul class="fiche-amenities">
+            <li><span class="am-ic">🌾</span><span><b>Sans gluten · zéro trace</b><span class="d">Tout le food court et le bar sont garantis sans gluten.</span></span></li>
+            <li><span class="am-ic">🥛</span><span><b>Sans lactose / végan</b><span class="d">Aucun produit laitier standard sur le festival.</span></span></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Ce qui vous attend</h2>
+          <ul class="fiche-amenities">
+            <li><span class="am-ic">🎤</span><span><b>Concerts &amp; DJ sets</b><span class="d">La Scène FLORE, du live jusqu'au bout de la nuit.</span></span></li>
+            <li><span class="am-ic">🥗</span><span><b>Le Jardin des Saveurs</b><span class="d">Un food court d'artisans, 100 % SG/SL.</span></span></li>
+            <li><span class="am-ic">🛍️</span><span><b>Boutique éphémère</b><span class="d">Des marques à découvrir et à ramener chez vous.</span></span></li>
+          </ul>
+        </section>
       </div>
-      <div class="fiche-status-card">
-        <span class="dot lactose"></span>
-        <div><h3>Sans lactose / végan</h3><p>Aucun produit laitier standard sur le festival : desserts, snacks et boissons délactosés ou végétaux.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- À PROPOS -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>À propos</span>
-      <h2>Une journée <span class="hl">entière à vivre</span></h2>
-    </div>
-    <p class="fiche-desc" data-aos="fade-up">Concerts, DJ sets, food court d'artisans et boutique éphémère : FLORE est pensé comme n'importe quel grand festival, sauf qu'ici, tout le monde mange et boit sans se poser de question. Une fête accessible à tous, où le sans gluten et le sans lactose ne sont jamais un renoncement.</p>
-  </div>
-</section>
-
-<!-- INFOS PRATIQUES -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Infos pratiques</span>
-      <h2>Ce qu'il faut <span class="hl">savoir</span></h2>
-    </div>
-    <div class="fiche-infos-grid" data-aos="fade-up">
-      <div class="fiche-info-card"><div class="l">Date</div><div class="v blurred">27 mars 2027</div></div>
-      <div class="fiche-info-card"><div class="l">Horaires</div><div class="v blurred">11h – 22h</div></div>
-      <div class="fiche-info-card"><div class="l">Lieu</div><div class="v blurred">Lagnieu, Ain</div></div>
-      <div class="fiche-info-card"><div class="l">Catégorie</div><div class="v">Festival</div></div>
+      <aside class="fiche-side-col">
+        <div class="fiche-card-sticky">
+          <div class="fsc-row"><span class="l">Date</span><span class="v blurred">27 mars 2027</span></div>
+          <div class="fsc-row"><span class="l">Horaires</span><span class="v blurred">11h – 22h</span></div>
+          <div class="fsc-row"><span class="l">Lieu</span><span class="v blurred">Lagnieu, Ain</span></div>
+          <div class="fsc-row"><span class="l">Catégorie</span><span class="v">Festival</span></div>
+          <a href="https://flore-festival.fr/" class="btn-fiche primary">🌐 Le site du festival</a>
+          <a href="/exposants/boutique/" class="btn-fiche sun">🛍️ Boutique FLORE</a>
+          <a href="/guide/#flore-festival-lagnieu" class="btn-fiche ghost">🗺️ Voir sur la carte</a>
+        </div>
+      </aside>
     </div>
   </div>
-</section>
-
-<!-- ACTIONS -->
-<section class="sec" style="padding-top:0;padding-bottom:80px">
-  <div class="wrap">
-    <div class="fiche-actions" data-aos="fade-up">
-      <a href="https://flore-festival.fr/" class="btn btn-ink">🌐 Le site du festival</a>
-      <a href="/exposants/boutique/" class="btn btn-sun">🛍️ Découvrir la Boutique FLORE</a>
-      <a href="/guide/#flore-festival-lagnieu" class="btn btn-ghost-w">🗺️ Voir sur la carte interactive</a>
-    </div>
-  </div>
-</section>
+</div>
 
 <footer class="footer">
   <div class="f-stars"></div>
@@ -234,14 +206,12 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
   document.getElementById('year').textContent = new Date().getFullYear();
+  // Page à fond blanc dès le haut : la nav reste en permanence dans son état
+  // "scrolled" (fond clair, logo sombre), jamais transparente sur blanc.
   const nav = document.getElementById('nav');
-  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive:true });
+  if (nav) nav.classList.add('scrolled');
 </script>
 <script src="/assets/transitions.js" defer></script>
 <script src="/legal.js" defer></script>
