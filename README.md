@@ -194,12 +194,14 @@ référence, ne pas en réinventer d'autres) :
 2. **`.fiche-title-row`** : badge catégorie (`.fiche-cat-badge`), H1 avec le
    nom, ligne meta (badge « Validé par le Comité FLORE » + ville — flouter
    ce qui doit l'être, voir [[flore-date-festival]]).
-3. **`.fiche-gallery`** : grille de 5 images (1 grande + 4 petites), dans
-   l'ordre du formulaire de candidature — logo, photo devanture/équipe,
-   jusqu'à 3 photos produits. Tant qu'un établissement n'a pas fourni ses
-   propres photos, ne pas inventer de visuel : utiliser au pire les assets
-   de marque FLORE existants (voir [[flore-assets-cdn]]), jamais une photo
-   stock.
+3. **`.fiche-gallery`** : grille de 5 images (1 grande + 4 petites). Règle
+   fixe, imposée dès le formulaire de candidature (`/exposants/carte-guide/`,
+   étapes 2 et 6) : **1 photo principale** (sert aussi d'image de couverture,
+   `.fg-main`) + **exactement 4 photos secondaires** (produits, intérieur,
+   extérieur, équipe...). Le wizard bloque la validation tant que ce n'est
+   pas exactement 4. Tant qu'un établissement n'a pas fourni ses propres
+   photos, ne pas inventer de visuel : utiliser au pire les assets de marque
+   FLORE existants (voir [[flore-assets-cdn]]), jamais une photo stock.
 4. **`.fiche-body`** (grille 2 colonnes, `.fiche-main-col` + `.fiche-side-col`
    sticky) :
    - `.fiche-main-col` : sections `<section>` séparées par une bordure —
