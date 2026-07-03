@@ -87,9 +87,8 @@
   .guide-list-empty h3{color:#15395B;font-size:1.08rem;margin-bottom:6px}
   .guide-list-empty p{color:#5C7993;font-size:.9rem;line-height:1.6;margin-bottom:14px}
 
-  .legende-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
-  .legende-item{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);border-radius:100px;padding:6px 14px;font-size:.82rem;color:#fff;font-weight:600}
-  .legende-item .dot{width:12px;height:12px;border-radius:50%}
+  .gt-caption{width:100%;text-align:center;font-size:.82rem;color:var(--ink-soft);margin-top:2px}
+  .gt-caption b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -139,11 +138,6 @@
       <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);margin:14px 0">La carte du <span class="hl">sans gluten et sans lactose</span></h1>
       <p style="font-size:1.1rem;color:rgba(255,255,255,.92);max-width:44em;margin:0 auto">Restaurants, boulangeries, épiceries et marques passés au crible du Comité FLORE. Filtrez par allergène, trouvez une adresse de confiance près de chez vous.</p>
     </div>
-    <div class="legende-row" data-aos="fade-up">
-      <span class="legende-item"><span class="dot" style="background:#DAEF52"></span>Sans gluten</span>
-      <span class="legende-item"><span class="dot" style="background:#1FA9A0"></span>Sans lactose</span>
-      <span class="legende-item"><span class="dot" style="background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)"></span>Les deux</span>
-    </div>
   </div>
 </header>
 
@@ -173,6 +167,7 @@
       </select>
       <label class="gt-check"><input type="checkbox" id="filter-dedie">100 % dédié uniquement</label>
       <span class="gt-count" id="guide-count"></span>
+      <span class="gt-caption">Sur la carte : <b>jaune</b> = sans gluten, <b>bleu-vert</b> = sans lactose, <b>bicolore</b> = les deux.</span>
     </div>
 
     <!--
