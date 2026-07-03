@@ -264,24 +264,23 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 5 : GALERIE (par email, pas d'upload — voir README) -->
+          <!-- ÉTAPE 5 : GALERIE (lien vers photos hébergées, pas d'upload — voir README) -->
           <div class="wiz-step" data-step="5">
             <div class="wiz-steplabel">Étape 6 / 7 · Galerie</div>
-            <h2 style="color:var(--ink);margin-bottom:6px">Vos photos, par email</h2>
-            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Ce formulaire n'envoie pas de fichiers. Une fois votre candidature envoyée, merci de nous faire parvenir par email les visuels de votre fiche.</p>
+            <h2 style="color:var(--ink);margin-bottom:6px">Vos photos</h2>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Ce formulaire n'envoie pas de fichiers : indiquez-nous un lien vers vos photos (Google Drive, Instagram, votre site...), on les récupère nous-mêmes.</p>
+            <div class="f-row">
+              <div class="f-field"><label>Lien vers vos photos</label><input type="url" id="in-photos-lien" name="lien_photos" placeholder="https://drive.google.com/... ou https://instagram.com/monetablissement"></div>
+            </div>
             <div class="cert-box">
-              <h3>📧 À envoyer à contact@flore-festival.fr</h3>
+              <h3>📸 Ce qu'on recherche</h3>
               <ul class="cert-list">
                 <li>🖼️ Votre logo</li>
                 <li>⭐ 1 photo principale (sert de couverture à votre fiche)</li>
                 <li>📸 4 photos secondaires (produits, intérieur, extérieur, équipe...)</li>
               </ul>
-              <p style="color:var(--ink-soft);font-size:.87rem;margin:0 0 4px"><strong>Objet de l'email :</strong> « Photos Guide FLORE · <em>nom de votre établissement</em> »</p>
+              <p style="color:var(--ink-soft);font-size:.87rem;margin:0">Pas de lien sous la main ? Laissez le champ vide, le Comité vous recontactera pour les récupérer.</p>
             </div>
-            <label class="consent-row" style="margin-top:16px">
-              <input type="checkbox" id="in-photos-ack" required>
-              <span>J'ai compris, j'enverrai mes photos par email juste après cette candidature.</span>
-            </label>
           </div>
 
           <!-- ÉTAPE 6 : VALIDATION -->
@@ -309,7 +308,7 @@
         <!-- APERÇU EN DIRECT -->
         <div class="preview-col">
           <div class="preview-card">
-            <div class="preview-cover" id="preview-cover">📧 Photo à venir par email</div>
+            <div class="preview-cover" id="preview-cover">📸 Photos à venir</div>
             <div class="preview-body">
               <span class="preview-cat" id="preview-cat">Votre profil</span>
               <h4 id="preview-nom">Nom de l'établissement</h4>
@@ -423,10 +422,6 @@
             return false;
           }
         }
-      }
-      if (i === 5 && !document.getElementById('in-photos-ack').checked){
-        alert('Merci de cocher la case pour confirmer que vous enverrez vos photos par email.');
-        return false;
       }
       return true;
     }

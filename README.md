@@ -166,15 +166,25 @@ professionnel (déjà collectés à l'étape 2), pas du Guide.
 **Aucun champ fichier dans ce formulaire** (confirmé par un test réel le
 2026-07-04 : même un seul fichier renvoie « You are trying to use a Pro
 feature » — le compte Web3Forms actif n'inclut aucun upload de fichier, pas
-seulement le mode `multiple`). Les photos, le logo et les justificatifs sont
-donc envoyés **par email séparé** à contact@flore-festival.fr, avec
-instruction dans le formulaire (étape 6, objet suggéré « Photos Guide FLORE ·
-{nom} ») et une case à cocher de confirmation (`#in-photos-ack`) plutôt qu'un
-upload. Le Comité associe l'email reçu à la candidature via le nom
-d'établissement, puis ajoute les URLs dans `assets/data/guide-etablissements.json`
-(`images.principale` / `images.secondaires`) une fois les visuels hébergés
-sur le CDN. **Ne jamais réintroduire `<input type="file">` sur ce formulaire**
-sans re-vérifier d'abord que le plan Web3Forms le permet.
+seulement le mode `multiple`). À la place, l'étape 6 (Galerie) demande un
+simple champ texte `lien_photos` (URL vers Google Drive, Instagram, le site du
+professionnel...), facultatif — s'il est vide, le Comité recontacte le
+candidat pour récupérer les visuels. Tout arrive donc en un seul envoi
+Web3Forms, sans email séparé à recoller manuellement. Le Comité ouvre le
+lien, télécharge logo + 1 photo principale + 4 photos secondaires, les
+compresse/héberge sur le CDN, puis ajoute les URLs dans
+`assets/data/guide-etablissements.json` (`images.principale` /
+`images.secondaires`). **Ne jamais réintroduire `<input type="file">` sur ce
+formulaire** sans re-vérifier d'abord que le plan Web3Forms le permet.
+
+**Traitement des candidatures et demandes de modif par lots, pas en temps
+réel** : le même formulaire sert aussi bien pour une nouvelle inscription que
+pour une demande de modification ultérieure (pas de formulaire séparé à
+maintenir). Le Comité ne traite pas au fil de l'eau — il regroupe les emails
+reçus et les applique en une session périodique (hebdomadaire ou toutes les 2
+semaines), pour éviter qu'une fiche déjà publiée ne génère des sollicitations
+permanentes. Ce délai est annoncé au candidat dans le message de confirmation
+(« Le Comité FLORE l'examine et vous répond sous 5 jours ouvrés »).
 
 Volontairement pas de vrai tableau de bord pro (vues, clics, messages) ni de
 connexion : ça nécessiterait un backend, hors du cadre de ce site. Voir
