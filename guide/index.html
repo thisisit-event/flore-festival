@@ -38,7 +38,7 @@
 }
 </script>
 <style>
-  .guide-search-panel{max-width:1100px;margin:0 auto 26px;background:#fff;border-radius:26px;padding:22px 26px 14px;box-shadow:0 16px 46px rgba(21,57,91,.16)}
+  .guide-search-panel{max-width:1100px;margin:0 auto 12px;background:#fff;border-radius:26px;padding:10px 26px 4px;box-shadow:0 16px 46px rgba(21,57,91,.16)}
 
   .guide-search-bar{display:flex;align-items:center;gap:12px;background:#f0f7fc;border:1.5px solid #e4edf5;border-radius:100px;padding:14px 22px;margin-bottom:18px;transition:border-color .18s}
   .guide-search-bar:focus-within{border-color:#3F93C4}
@@ -46,7 +46,7 @@
   .guide-search-bar input{border:none;background:none;outline:none;font:inherit;font-size:1rem;color:#15395B;width:100%}
   .guide-search-bar input::placeholder{color:#8ba0b1}
 
-  .guide-categories{display:flex;gap:26px;overflow-x:auto;padding:2px 2px 16px;margin-bottom:8px;scrollbar-width:none}
+  .guide-categories{display:flex;gap:26px;overflow-x:auto;padding:2px 2px 10px;margin-bottom:4px;scrollbar-width:none}
   .guide-categories::-webkit-scrollbar{display:none}
   .cat-pill{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;padding:4px 2px 10px;cursor:pointer;color:#7c93a3;border-bottom:2.5px solid transparent;font:inherit;font-size:.76rem;font-weight:700;white-space:nowrap;transition:all .18s}
   .cat-pill .ic{font-size:1.35rem;filter:grayscale(.4);opacity:.75;transition:all .18s}
@@ -54,7 +54,7 @@
   .cat-pill.on{color:#15395B;border-bottom-color:#DAEF52}
   .cat-pill.on .ic{filter:none;opacity:1}
 
-  .guide-toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;border-top:1px solid #e4edf5;padding-top:16px}
+  .guide-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;border-top:1px solid #e4edf5;padding-top:6px}
   .gt-toggle{display:inline-flex;align-items:center;gap:9px;border:2px solid #e4edf5;border-radius:100px;padding:10px 20px;font-weight:700;font-size:.92rem;color:#5C7993;cursor:pointer;transition:all .18s;background:#fafcfe}
   .gt-toggle .dot{width:16px;height:16px;border-radius:50%;flex:0 0 auto}
   .gt-toggle.gluten .dot{background:#DAEF52}
@@ -69,11 +69,11 @@
   .guide-split{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:400px 1fr;gap:20px;align-items:start}
   @media(max-width:900px){.guide-split{grid-template-columns:1fr}}
 
-  .guide-list{display:flex;flex-direction:column;gap:14px;max-height:620px;overflow-y:auto;padding-right:4px}
+  .guide-list{display:flex;flex-direction:column;gap:14px;max-height:560px;overflow-y:auto;padding-right:4px}
   @media(max-width:900px){.guide-list{max-height:none;order:2}}
   .guide-map-wrap{position:sticky;top:110px}
   @media(max-width:900px){.guide-map-wrap{position:static;order:1}}
-  #flore-map{height:620px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
+  #flore-map{height:560px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
   @media(max-width:900px){#flore-map{height:380px}}
 
   .guide-card{display:block;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 8px 26px rgba(21,57,91,.1);border:2px solid transparent;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
@@ -146,12 +146,11 @@
 <script src="/assets/nav.js?v=20260704"></script>
 
 <!-- HERO -->
-<header class="sec" id="top" style="padding-top:150px;padding-bottom:36px">
+<header class="sec" id="top" style="padding-top:118px;padding-bottom:0">
   <div class="wrap">
-    <div class="sec-head" data-aos="fade-up">
+    <div class="sec-head" data-aos="fade-up" style="margin-bottom:0">
       <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le Guide FLORE</span>
-      <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);color:var(--white);margin:14px 0">La carte du <span class="hl">sans gluten et sans lactose</span></h1>
-      <p style="font-size:1.05rem;color:rgba(255,255,255,.92);max-width:42em;margin:0 auto">Restaurants, boulangeries, épiceries et marques passés au crible du Comité FLORE. Cherchez, filtrez, trouvez une adresse de confiance près de chez vous.</p>
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);margin:8px 0 0">La carte du <span class="hl">sans gluten et sans lactose</span></h1>
     </div>
   </div>
 </header>
