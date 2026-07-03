@@ -38,14 +38,29 @@
 }
 </script>
 <style>
-  .guide-toolbar{max-width:1100px;margin:0 auto 22px;background:#fff;border-radius:22px;padding:20px 26px;box-shadow:0 12px 40px rgba(21,57,91,.13);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
+  .guide-search-panel{max-width:1100px;margin:0 auto 26px;background:#fff;border-radius:26px;padding:22px 26px 14px;box-shadow:0 16px 46px rgba(21,57,91,.16)}
+
+  .guide-search-bar{display:flex;align-items:center;gap:12px;background:#f0f7fc;border:1.5px solid #e4edf5;border-radius:100px;padding:14px 22px;margin-bottom:18px;transition:border-color .18s}
+  .guide-search-bar:focus-within{border-color:#3F93C4}
+  .gsb-ic{font-size:1.1rem;flex:0 0 auto}
+  .guide-search-bar input{border:none;background:none;outline:none;font:inherit;font-size:1rem;color:#15395B;width:100%}
+  .guide-search-bar input::placeholder{color:#8ba0b1}
+
+  .guide-categories{display:flex;gap:26px;overflow-x:auto;padding:2px 2px 16px;margin-bottom:8px;scrollbar-width:none}
+  .guide-categories::-webkit-scrollbar{display:none}
+  .cat-pill{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;padding:4px 2px 10px;cursor:pointer;color:#7c93a3;border-bottom:2.5px solid transparent;font:inherit;font-size:.76rem;font-weight:700;white-space:nowrap;transition:all .18s}
+  .cat-pill .ic{font-size:1.35rem;filter:grayscale(.4);opacity:.75;transition:all .18s}
+  .cat-pill:hover{color:#15395B}
+  .cat-pill.on{color:#15395B;border-bottom-color:#DAEF52}
+  .cat-pill.on .ic{filter:none;opacity:1}
+
+  .guide-toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;border-top:1px solid #e4edf5;padding-top:16px}
   .gt-toggle{display:inline-flex;align-items:center;gap:9px;border:2px solid #e4edf5;border-radius:100px;padding:10px 20px;font-weight:700;font-size:.92rem;color:#5C7993;cursor:pointer;transition:all .18s;background:#fafcfe}
   .gt-toggle .dot{width:16px;height:16px;border-radius:50%;flex:0 0 auto}
   .gt-toggle.gluten .dot{background:#DAEF52}
   .gt-toggle.lactose .dot{background:#1FA9A0}
   .gt-toggle.on.gluten{background:#f9fce0;border-color:#DAEF52;color:#7a8a1e}
   .gt-toggle.on.lactose{background:#e6f8f6;border-color:#1FA9A0;color:#146b64}
-  .gt-select{border:2px solid #e4edf5;border-radius:100px;padding:10px 18px;font:inherit;font-weight:600;font-size:.9rem;color:#15395B;background:#fafcfe;cursor:pointer}
   .gt-check{display:inline-flex;align-items:center;gap:8px;font-size:.87rem;font-weight:600;color:#5C7993;cursor:pointer}
   .gt-check input{width:16px;height:16px;accent-color:#3F93C4;cursor:pointer}
   .gt-count{width:100%;text-align:center;font-size:.85rem;font-weight:700;color:#3F93C4;margin-top:2px}
@@ -131,12 +146,12 @@
 <script src="/assets/nav.js?v=20260704"></script>
 
 <!-- HERO -->
-<header class="sec" id="top" style="padding-top:150px">
+<header class="sec" id="top" style="padding-top:150px;padding-bottom:36px">
   <div class="wrap">
     <div class="sec-head" data-aos="fade-up">
       <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le Guide FLORE</span>
-      <h1 style="font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);margin:14px 0">La carte du <span class="hl">sans gluten et sans lactose</span></h1>
-      <p style="font-size:1.1rem;color:rgba(255,255,255,.92);max-width:44em;margin:0 auto">Restaurants, boulangeries, épiceries et marques passés au crible du Comité FLORE. Filtrez par allergène, trouvez une adresse de confiance près de chez vous.</p>
+      <h1 style="font-size:clamp(2rem,4.4vw,3.2rem);color:var(--white);margin:14px 0">La carte du <span class="hl">sans gluten et sans lactose</span></h1>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,.92);max-width:42em;margin:0 auto">Restaurants, boulangeries, épiceries et marques passés au crible du Comité FLORE. Cherchez, filtrez, trouvez une adresse de confiance près de chez vous.</p>
     </div>
   </div>
 </header>
@@ -144,30 +159,38 @@
 <!-- GUIDE : LISTE + CARTE -->
 <section class="sec" style="padding-top:0">
   <div class="wrap">
-    <div class="guide-toolbar" data-aos="fade-up">
-      <button type="button" class="gt-toggle gluten on" id="toggle-gluten" aria-pressed="true"><span class="dot"></span>Sans gluten</button>
-      <button type="button" class="gt-toggle lactose on" id="toggle-lactose" aria-pressed="true"><span class="dot"></span>Sans lactose</button>
-      <select class="gt-select" id="filter-categorie">
-        <option value="">Toutes les catégories</option>
-        <option value="Restaurant">Restaurant</option>
-        <option value="Boulangerie">Boulangerie</option>
-        <option value="Pâtisserie">Pâtisserie</option>
-        <option value="Café">Café</option>
-        <option value="Hôtel">Hôtel</option>
-        <option value="Traiteur">Traiteur</option>
-        <option value="Boutique">Boutique</option>
-        <option value="Épicerie">Épicerie</option>
-        <option value="Producteur">Producteur</option>
-        <option value="Marque alimentaire">Marque alimentaire</option>
-        <option value="Entreprise">Entreprise</option>
-        <option value="Professionnel de santé">Professionnel de santé</option>
-        <option value="Association">Association</option>
-        <option value="Autre">Autre</option>
-        <option value="Festival">Festival</option>
-      </select>
-      <label class="gt-check"><input type="checkbox" id="filter-dedie">100 % dédié uniquement</label>
-      <span class="gt-count" id="guide-count"></span>
-      <span class="gt-caption">Sur la carte : <b>jaune</b> = sans gluten, <b>bleu-vert</b> = sans lactose, <b>bicolore</b> = les deux.</span>
+    <div class="guide-search-panel" data-aos="fade-up">
+      <div class="guide-search-bar">
+        <span class="gsb-ic">🔍</span>
+        <input type="text" id="search-input" placeholder="Rechercher un établissement, une ville, une spécialité...">
+      </div>
+
+      <div class="guide-categories" id="guide-categories">
+        <button type="button" class="cat-pill on" data-cat=""><span class="ic">✨</span><span>Tout</span></button>
+        <button type="button" class="cat-pill" data-cat="Restaurant"><span class="ic">🍽️</span><span>Restaurant</span></button>
+        <button type="button" class="cat-pill" data-cat="Boulangerie"><span class="ic">🥖</span><span>Boulangerie</span></button>
+        <button type="button" class="cat-pill" data-cat="Pâtisserie"><span class="ic">🧁</span><span>Pâtisserie</span></button>
+        <button type="button" class="cat-pill" data-cat="Café"><span class="ic">☕</span><span>Café</span></button>
+        <button type="button" class="cat-pill" data-cat="Hôtel"><span class="ic">🏨</span><span>Hôtel</span></button>
+        <button type="button" class="cat-pill" data-cat="Traiteur"><span class="ic">🍱</span><span>Traiteur</span></button>
+        <button type="button" class="cat-pill" data-cat="Boutique"><span class="ic">🛍️</span><span>Boutique</span></button>
+        <button type="button" class="cat-pill" data-cat="Épicerie"><span class="ic">🛒</span><span>Épicerie</span></button>
+        <button type="button" class="cat-pill" data-cat="Producteur"><span class="ic">🌾</span><span>Producteur</span></button>
+        <button type="button" class="cat-pill" data-cat="Marque alimentaire"><span class="ic">🏷️</span><span>Marque</span></button>
+        <button type="button" class="cat-pill" data-cat="Entreprise"><span class="ic">🏢</span><span>Entreprise</span></button>
+        <button type="button" class="cat-pill" data-cat="Professionnel de santé"><span class="ic">⚕️</span><span>Pro. santé</span></button>
+        <button type="button" class="cat-pill" data-cat="Association"><span class="ic">🤝</span><span>Association</span></button>
+        <button type="button" class="cat-pill" data-cat="Autre"><span class="ic">✨</span><span>Autre</span></button>
+        <button type="button" class="cat-pill" data-cat="Festival"><span class="ic">🎪</span><span>Festival</span></button>
+      </div>
+
+      <div class="guide-toolbar">
+        <button type="button" class="gt-toggle gluten on" id="toggle-gluten" aria-pressed="true"><span class="dot"></span>Sans gluten</button>
+        <button type="button" class="gt-toggle lactose on" id="toggle-lactose" aria-pressed="true"><span class="dot"></span>Sans lactose</button>
+        <label class="gt-check"><input type="checkbox" id="filter-dedie">100 % dédié uniquement</label>
+        <span class="gt-count" id="guide-count"></span>
+        <span class="gt-caption">Sur la carte : <b>jaune</b> = sans gluten, <b>bleu-vert</b> = sans lactose, <b>bicolore</b> = les deux.</span>
+      </div>
     </div>
 
     <!--
@@ -275,8 +298,9 @@
   (function(){
     const toggleGluten = document.getElementById('toggle-gluten');
     const toggleLactose = document.getElementById('toggle-lactose');
-    const selectCategorie = document.getElementById('filter-categorie');
     const checkDedie = document.getElementById('filter-dedie');
+    const searchInput = document.getElementById('search-input');
+    const catPills = Array.prototype.slice.call(document.querySelectorAll('.cat-pill'));
     const guideCount = document.getElementById('guide-count');
     const guideListEmpty = document.getElementById('guide-list-empty');
     const cards = Array.prototype.slice.call(document.querySelectorAll('.guide-card:not(.guide-card-ghost)'));
@@ -284,6 +308,7 @@
     let etablissements = [];
     let map = null;
     let markerLayer = null;
+    let currentCategory = '';
     const markersBySlug = {};
 
     function pinClass(item){
@@ -319,11 +344,15 @@
       const lactoseOn = toggleLactose.classList.contains('on');
       if(glutenOn && !item.gluten) return false;
       if(lactoseOn && !item.lactose) return false;
-      const cat = selectCategorie.value;
-      if(cat && item.type !== cat) return false;
+      if(currentCategory && item.type !== currentCategory) return false;
       if(checkDedie.checked){
         if(item.gluten && item.gluten !== 'dedie') return false;
         if(item.lactose && item.lactose !== 'dedie') return false;
+      }
+      const term = searchInput.value.trim().toLowerCase();
+      if(term){
+        const haystack = (item.nom + ' ' + item.type + ' ' + (item.adresse || '')).toLowerCase();
+        if(haystack.indexOf(term) === -1) return false;
       }
       return true;
     }
@@ -332,9 +361,11 @@
       let visibleCount = 0;
       cards.forEach(function(card){
         const item = {
+          nom: card.querySelector('h3').textContent,
           type: card.dataset.type,
           gluten: card.dataset.gluten || null,
-          lactose: card.dataset.lactose || null
+          lactose: card.dataset.lactose || null,
+          adresse: card.querySelector('.gc-loc') ? card.querySelector('.gc-loc').textContent : ''
         };
         const show = passeFiltres(item);
         card.hidden = !show;
@@ -386,8 +417,17 @@
     }
     bindToggle(toggleGluten);
     bindToggle(toggleLactose);
-    selectCategorie.addEventListener('change', render);
     checkDedie.addEventListener('change', render);
+    searchInput.addEventListener('input', render);
+
+    catPills.forEach(function(pill){
+      pill.addEventListener('click', function(){
+        catPills.forEach(function(p){ p.classList.remove('on'); });
+        pill.classList.add('on');
+        currentCategory = pill.dataset.cat;
+        render();
+      });
+    });
 
     // La liste doit s'afficher correctement dès le chargement, avant même
     // la tentative d'initialisation de la carte.
