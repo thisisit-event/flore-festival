@@ -163,13 +163,18 @@ changement d'heure → sollicitation du Comité), intenable sur un site géré �
 la main. Les horaires restent l'affaire du site/réseaux sociaux du
 professionnel (déjà collectés à l'étape 2), pas du Guide.
 
-**Galerie : champs fichier individuels, jamais `multiple`** — le plan
-gratuit Web3Forms ne supporte que des fichiers uniques par champ ; l'upload
-multiple (plusieurs fichiers dans un seul `<input>`) est une fonctionnalité
-PRO payante (voir [docs Web3Forms](https://docs.web3forms.com/getting-started/pro-features/file-attachments)).
-D'où les 4 champs séparés `photo_secondaire_1` à `_4` (pas un input
-`multiple`), et `justificatif` en single-file. Ne pas réintroduire de champ
-`multiple` sur ce formulaire sans vérifier d'abord le plan Web3Forms actif.
+**Aucun champ fichier dans ce formulaire** (confirmé par un test réel le
+2026-07-04 : même un seul fichier renvoie « You are trying to use a Pro
+feature » — le compte Web3Forms actif n'inclut aucun upload de fichier, pas
+seulement le mode `multiple`). Les photos, le logo et les justificatifs sont
+donc envoyés **par email séparé** à contact@flore-festival.fr, avec
+instruction dans le formulaire (étape 6, objet suggéré « Photos Guide FLORE ·
+{nom} ») et une case à cocher de confirmation (`#in-photos-ack`) plutôt qu'un
+upload. Le Comité associe l'email reçu à la candidature via le nom
+d'établissement, puis ajoute les URLs dans `assets/data/guide-etablissements.json`
+(`images.principale` / `images.secondaires`) une fois les visuels hébergés
+sur le CDN. **Ne jamais réintroduire `<input type="file">` sur ce formulaire**
+sans re-vérifier d'abord que le plan Web3Forms le permet.
 
 Volontairement pas de vrai tableau de bord pro (vues, clics, messages) ni de
 connexion : ça nécessiterait un backend, hors du cadre de ce site. Voir

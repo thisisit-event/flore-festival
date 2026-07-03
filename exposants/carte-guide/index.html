@@ -56,7 +56,6 @@
   .f-field{display:flex;flex-direction:column;gap:5px}
   .f-field label{font-size:.78rem;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
   .f-field input,.f-field textarea,.f-field select{border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:var(--ink);background:#fafcfe;transition:border-color .18s}
-  .f-field input[type=file]{padding:9px 10px;font-size:.85rem}
   .f-field input:focus,.f-field textarea:focus,.f-field select:focus{outline:none;border-color:var(--sky)}
   .f-field textarea{min-height:90px;resize:vertical}
   .f-required{color:#E5484D;margin-left:2px}
@@ -80,13 +79,6 @@
   .cert-radios{display:flex;flex-direction:column;gap:8px}
   .cert-radios label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.92rem;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
   .cert-radios label:has(input:checked){border-color:var(--sun-deep)}
-
-  .galerie-slots{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  @media(max-width:480px){.galerie-slots{grid-template-columns:1fr}}
-  .galerie-slot{border:1.5px solid var(--line);border-radius:14px;padding:14px;background:#fafcfe}
-  .galerie-slot label{display:block;font-size:.78rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
-  .galerie-slot input[type=file]{width:100%;font-size:.8rem;padding:8px}
-  .slot-thumb img{width:100%;height:90px;object-fit:cover;border-radius:10px;display:block;margin-top:10px}
 
   .consent-row{display:flex;align-items:flex-start;gap:12px;background:#f0f7fc;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
   .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
@@ -175,10 +167,6 @@
               <div class="f-field"><label>Nom de l'établissement <span class="f-required">*</span></label><input type="text" name="nom_etablissement" id="in-nom" required></div>
               <div class="f-field"><label>Nom de l'entreprise</label><input type="text" name="nom_entreprise"></div>
             </div>
-            <div class="f-row two">
-              <div class="f-field"><label>Logo</label><input type="file" id="in-logo" name="logo" accept="image/*"></div>
-              <div class="f-field"><label>Photo principale <span style="text-transform:none;letter-spacing:0;font-weight:500">(image de couverture de votre fiche)</span></label><input type="file" id="in-cover" name="photo_couverture" accept="image/*"></div>
-            </div>
             <div class="f-row">
               <div class="f-field"><label>Description <span class="f-required">*</span></label><textarea id="in-description" name="description" placeholder="Qui êtes-vous ? Votre histoire, vos spécialités..." required></textarea></div>
             </div>
@@ -241,9 +229,7 @@
             <div class="f-row" style="margin-top:16px">
               <div class="f-field"><label>Quels protocoles appliquez-vous ?</label><textarea name="protocoles" placeholder="Ustensiles dédiés, plan de nettoyage, formation..."></textarea></div>
             </div>
-            <div class="f-row">
-              <div class="f-field"><label>Document justificatif <span style="text-transform:none;letter-spacing:0;font-weight:500">(certificat, attestation... optionnel, 1 fichier)</span></label><input type="file" name="justificatif" accept=".pdf,.jpg,.jpeg,.png"></div>
-            </div>
+            <p style="color:var(--ink-soft);font-size:.87rem;margin:0 0 16px">Un certificat ou une attestation à joindre ? Envoyez-le par email en même temps que vos photos (voir l'étape Galerie juste après).</p>
 
             <div class="cert-box">
               <h3>🌿 Demander la certification FLORE</h3>
@@ -278,18 +264,24 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 5 : GALERIE -->
+          <!-- ÉTAPE 5 : GALERIE (par email, pas d'upload — voir README) -->
           <div class="wiz-step" data-step="5">
             <div class="wiz-steplabel">Étape 6 / 7 · Galerie</div>
-            <h2 style="color:var(--ink);margin-bottom:6px">4 photos pour compléter votre fiche</h2>
-            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">En plus de votre photo principale, votre fiche affiche 4 photos secondaires (produits, intérieur, extérieur, équipe...). Une photo par case, 4 cases à remplir.</p>
-            <div class="galerie-slots">
-              <div class="galerie-slot"><label for="galerie-1">Photo 1</label><input type="file" id="galerie-1" name="photo_secondaire_1" accept="image/*"><div class="slot-thumb" id="thumb-1"></div></div>
-              <div class="galerie-slot"><label for="galerie-2">Photo 2</label><input type="file" id="galerie-2" name="photo_secondaire_2" accept="image/*"><div class="slot-thumb" id="thumb-2"></div></div>
-              <div class="galerie-slot"><label for="galerie-3">Photo 3</label><input type="file" id="galerie-3" name="photo_secondaire_3" accept="image/*"><div class="slot-thumb" id="thumb-3"></div></div>
-              <div class="galerie-slot"><label for="galerie-4">Photo 4</label><input type="file" id="galerie-4" name="photo_secondaire_4" accept="image/*"><div class="slot-thumb" id="thumb-4"></div></div>
+            <h2 style="color:var(--ink);margin-bottom:6px">Vos photos, par email</h2>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Ce formulaire n'envoie pas de fichiers. Une fois votre candidature envoyée, merci de nous faire parvenir par email les visuels de votre fiche.</p>
+            <div class="cert-box">
+              <h3>📧 À envoyer à contact@flore-festival.fr</h3>
+              <ul class="cert-list">
+                <li>🖼️ Votre logo</li>
+                <li>⭐ 1 photo principale (sert de couverture à votre fiche)</li>
+                <li>📸 4 photos secondaires (produits, intérieur, extérieur, équipe...)</li>
+              </ul>
+              <p style="color:var(--ink-soft);font-size:.87rem;margin:0 0 4px"><strong>Objet de l'email :</strong> « Photos Guide FLORE · <em>nom de votre établissement</em> »</p>
             </div>
-            <p class="form-msg" id="galerie-msg" style="display:none"></p>
+            <label class="consent-row" style="margin-top:16px">
+              <input type="checkbox" id="in-photos-ack" required>
+              <span>J'ai compris, j'enverrai mes photos par email juste après cette candidature.</span>
+            </label>
           </div>
 
           <!-- ÉTAPE 6 : VALIDATION -->
@@ -317,7 +309,7 @@
         <!-- APERÇU EN DIRECT -->
         <div class="preview-col">
           <div class="preview-card">
-            <div class="preview-cover" id="preview-cover">Photo de couverture</div>
+            <div class="preview-cover" id="preview-cover">📧 Photo à venir par email</div>
             <div class="preview-body">
               <span class="preview-cat" id="preview-cat">Votre profil</span>
               <h4 id="preview-nom">Nom de l'établissement</h4>
@@ -432,8 +424,8 @@
           }
         }
       }
-      if (i === 5 && galerieFilledCount() !== 4){
-        alert('Merci de sélectionner exactement 4 photos pour la galerie avant de continuer.');
+      if (i === 5 && !document.getElementById('in-photos-ack').checked){
+        alert('Merci de cocher la case pour confirmer que vous enverrez vos photos par email.');
         return false;
       }
       return true;
@@ -483,53 +475,6 @@
       });
     });
 
-    // ---- Étape 5 : galerie — 4 champs fichier individuels (pas de "multiple",
-    //      incompatible avec le plan gratuit Web3Forms) ----
-    const galerieMsg = document.getElementById('galerie-msg');
-    const galerieInputs = [1,2,3,4].map(function(n){ return document.getElementById('galerie-' + n); });
-    function galerieFilledCount(){
-      return galerieInputs.filter(function(inp){ return inp.files && inp.files.length > 0; }).length;
-    }
-    function updateGalerieMsg(){
-      const count = galerieFilledCount();
-      galerieMsg.style.display = 'block';
-      if (count === 4){
-        galerieMsg.className = 'form-msg ok';
-        galerieMsg.textContent = '4 photos sélectionnées ✓';
-      } else {
-        galerieMsg.className = 'form-msg err';
-        galerieMsg.textContent = count + ' photo' + (count > 1 ? 's' : '') + ' sélectionnée' + (count > 1 ? 's' : '') + ' — il en faut exactement 4.';
-      }
-    }
-    galerieInputs.forEach(function(inp, idx){
-      inp.addEventListener('change', function(){
-        const file = inp.files[0];
-        const thumbEl = document.getElementById('thumb-' + (idx + 1));
-        thumbEl.innerHTML = '';
-        if (file){
-          const reader = new FileReader();
-          reader.onload = function(e){
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            thumbEl.appendChild(img);
-          };
-          reader.readAsDataURL(file);
-        }
-        updateGalerieMsg();
-      });
-    });
-
-    // ---- Étape 1 : logo / couverture -> aperçu ----
-    document.getElementById('in-cover').addEventListener('change', function(e){
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(ev){
-        document.getElementById('preview-cover').style.backgroundImage = 'url(' + ev.target.result + ')';
-        document.getElementById('preview-cover').textContent = '';
-      };
-      reader.readAsDataURL(file);
-    });
 
     // ---- Aperçu en direct ----
     function updatePreview(){
