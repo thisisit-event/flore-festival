@@ -201,6 +201,23 @@ connexion : ça nécessiterait un backend, hors du cadre de ce site. Voir
 [[flore-vision-plateforme-marketplace]] pour la vision long terme et pourquoi
 elle est mise de côté pour l'instant.
 
+**Nav allégée sur tout l'écosystème Guide** (`/guide/*` et
+`/exposants/carte-guide/`, 2026-07-04) : `assets/nav.js` détecte ces chemins
+et monte une nav minimale (logo, un seul lien "🌱 Le Festival FLORE", EN,
+Billetterie) au lieu du mega-menu complet — le Guide est pensé comme un outil
+de recherche quasi indépendant (utile pour du SEO local hors-festival), sans
+pour autant couper le pont de découverte vers le festival. Le CTA flottant
+"Réserver ma place" est aussi désactivé sur ces pages. Toute la logique vit
+dans une seule fonction (`isGuideEcosystem` dans `nav.js`) : pas de fichier
+nav dupliqué à maintenir.
+
+Au passage, le clic sur le burger mobile (`#navToggle` → classe `.open` sur
+`#mobileMenu`) a été centralisé dans `nav.js` (`wireMobileToggle()`) : il
+était auparavant recopié dans le `<script>` de chaque page, et 6 pages
+(tout `/guide/*` et `/exposants/*`) ne l'avaient jamais reçu — le burger n'y
+faisait donc rien sur mobile. Ne plus dupliquer ce câblage dans une page ;
+laisser `nav.js` s'en charger.
+
 ### Formulaire de candidature `/exposants/boutique/`
 
 Un seul écran (pas un wizard), envoyé par email via Web3Forms comme les

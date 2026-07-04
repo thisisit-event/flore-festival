@@ -86,7 +86,7 @@
 
 <!-- ===================== NAV ===================== -->
 <div id="site-nav"></div>
-<script src="/assets/nav.js?v=20260704"></script>
+<script src="/assets/nav.js?v=20260704b"></script>
 
 <!-- ===================== INTRO ===================== -->
 <header class="sec" id="top" style="padding-top:150px">
@@ -237,16 +237,6 @@
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
-  const toggle = document.getElementById('navToggle');
-  const menu = document.getElementById('mobileMenu');
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('open');
-    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    document.body.style.overflow = '';
-  }));
 </script>
 <script src="/assets/transitions.js" defer></script>
 <script src="/legal.js" defer></script>

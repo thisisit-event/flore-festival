@@ -14,9 +14,55 @@
       '<span class="dd-tt"><b>' + title + '</b><em>' + desc + '</em></span></a>';
   }
 
+  var logo = '<a href="/" class="logo" aria-label="FLORE Festival, accueil"><img class="logo-img logo-light" src="/assets/logo-flore-white.png" alt="FLORE"><img class="logo-img logo-dark" src="/assets/logo-flore-black.png" alt="" aria-hidden="true"></a>';
+
+  // Ouverture/fermeture du menu mobile : centralisé ici (plutôt que dupliqué
+  // par page) pour ne plus jamais l'oublier sur une nouvelle page.
+  function wireMobileToggle() {
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('mobileMenu');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', function () {
+      menu.classList.toggle('open');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Le Guide FLORE (recherche SG/SL) est pensé comme un outil quasi indépendant :
+  // pas de mega-menu festival, juste un pont léger vers le site principal (2026-07-04).
+  var isGuideEcosystem = p.indexOf('/guide/') === 0 || p.indexOf('/exposants/carte-guide') === 0;
+  if (isGuideEcosystem) {
+    var navLite =
+      '<nav class="nav" id="nav"><div class="wrap"><div class="nav-inner">' +
+        logo +
+        '<div class="nav-links">' +
+          '<a href="/">🌱 Le Festival FLORE</a>' +
+          '<a href="/en/" class="lang-switch" aria-label="See the site in English">🌐 EN</a>' +
+          '<a href="' + h('billetterie') + '" class="btn btn-sun">Billetterie</a>' +
+        '</div>' +
+        '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>' +
+      '</div></div></nav>' +
+      '<div class="mobile-menu" id="mobileMenu">' +
+        '<a class="m-sub" href="/">🌱 Le Festival FLORE</a>' +
+        '<a href="/en/" class="lang-switch">🌐 English version</a>' +
+        '<a href="' + h('billetterie') + '" class="btn btn-sun">Billetterie</a>' +
+      '</div>';
+    var mountLite = document.getElementById('site-nav');
+    if (mountLite) mountLite.outerHTML = navLite;
+    else document.body.insertAdjacentHTML('afterbegin', navLite);
+    wireMobileToggle();
+    return;
+  }
+
   var nav =
     '<nav class="nav" id="nav"><div class="wrap"><div class="nav-inner">' +
-      '<a href="/" class="logo" aria-label="FLORE Festival, accueil"><img class="logo-img logo-light" src="/assets/logo-flore-white.png" alt="FLORE"><img class="logo-img logo-dark" src="/assets/logo-flore-black.png" alt="" aria-hidden="true"></a>' +
+      logo +
       '<div class="nav-links">' +
         '<div class="nav-item"><button class="nav-trigger" aria-expanded="false">Le festival ' + caret + '</button>' +
           '<div class="dropdown mega">' +
@@ -79,6 +125,7 @@
   var mount = document.getElementById('site-nav');
   if (mount) mount.outerHTML = nav;
   else document.body.insertAdjacentHTML('afterbegin', nav);
+  wireMobileToggle();
 
   // CTA flottant intelligent : apparaît après le hero, se cache près du bas
   var cta = document.createElement('div');
