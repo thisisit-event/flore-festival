@@ -69,7 +69,6 @@
             item(h('festival'), '🌱', 'Le concept', 'La promesse, en deux mots') +
             item(h('espaces'), '🎪', 'Les espaces', 'Les 6 mondes du festival') +
             item(h('lineup'), '🎤', 'Le line-up', 'La programmation artistique') +
-            item(h('programme'), '🎶', 'Le programme', 'Le déroulé heure par heure') +
             item(h('causeries'), '💬', 'Les causeries', 'Santé, bien-être &amp; échanges') +
             item(h('public'), '🌸', 'Pour qui ?', 'Une fête pour tout le monde') +
             item('/a-propos/', '🌟', 'Qui sommes-nous ?', 'L\'histoire &amp; l\'équipe') +
@@ -101,7 +100,6 @@
       '<a class="m-sub" href="' + h('festival') + '">Le concept</a>' +
       '<a class="m-sub" href="' + h('espaces') + '">Les espaces</a>' +
       '<a class="m-sub" href="' + h('lineup') + '">Le line-up</a>' +
-      '<a class="m-sub" href="' + h('programme') + '">Le programme</a>' +
       '<a class="m-sub" href="' + h('causeries') + '">Les causeries</a>' +
       '<a class="m-sub" href="' + h('public') + '">Pour qui ?</a>' +
       '<a class="m-sub" href="/a-propos/">Qui sommes-nous ?</a>' +

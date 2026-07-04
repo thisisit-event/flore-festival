@@ -430,6 +430,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .signup-perks li .daisy{width:15px;height:15px;color:var(--sun);flex-shrink:0}
 .signup-block .signup-fine{font-size:.8rem;color:rgba(255,255,255,.68);margin:14px 0 0}
 .signup-success{display:flex;align-items:center;gap:16px;background:rgba(218,239,82,.14);border:1px solid rgba(218,239,82,.38);border-radius:var(--r-md);padding:26px 30px;max-width:520px;margin:18px auto;animation:fadeIn .4s var(--ease)}
+.signup-success[hidden]{display:none}
 .signup-success p{line-height:1.6}
 .signup-success p strong{display:inline-block;margin-bottom:4px}
 .signup-success .daisy{width:28px;height:28px;color:var(--sun);flex-shrink:0;margin-top:2px}
