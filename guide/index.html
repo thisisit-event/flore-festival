@@ -91,7 +91,8 @@
   .gr-toggle-strict.on{background:#DAEF52;border-color:#DAEF52;color:#15395B}
 
   .guide-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;border-top:1px solid #e4edf5;padding-top:10px}
-  .gt-count{width:100%;text-align:center;font-size:.85rem;font-weight:700;color:#3F93C4;margin-top:2px}
+  .gt-count{width:100%;text-align:center;font-size:.85rem;font-weight:700;color:#3F93C4;margin-top:2px;background:none;border:none;font-family:inherit;cursor:pointer;padding:6px;border-radius:10px;transition:background .15s}
+  .gt-count:hover{background:#f0f7fc}
   .gt-locate{border:1.5px solid #e4edf5;background:#fff;color:#15395B;font:inherit;font-size:.82rem;font-weight:700;padding:8px 16px;border-radius:100px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .18s}
   .gt-locate:hover{border-color:#3F93C4;color:#3F93C4}
   .gt-locate.on{background:#15395B;border-color:#15395B;color:#fff}
@@ -276,7 +277,7 @@
         </div>
 
         <div class="guide-toolbar">
-          <span class="gt-count" id="guide-count"></span>
+          <button type="button" class="gt-count" id="guide-count"></button>
         </div>
       </div>
     </div>
@@ -515,7 +516,7 @@
       }
 
       guideListEmpty.hidden = visibleCount !== 0;
-      guideCount.textContent = visibleCount + (visibleCount > 1 ? ' adresses trouvées' : ' adresse trouvée');
+      guideCount.textContent = visibleCount + (visibleCount > 1 ? ' adresses trouvées' : ' adresse trouvée') + ' · voir sur la carte →';
     }
 
     function cardDistance(card){
@@ -755,6 +756,22 @@
       else map.setView([46.6, 2.4], 6);
     }
     if(btnMapReset) btnMapReset.addEventListener('click', fitMapToMarkers);
+
+    // ---- Le compteur de résultats ouvre la carte filtrée (mobile : replie
+    // le panneau qui la recouvre ; tous supports : recentre sur les résultats) ----
+    if(guideCount){
+      guideCount.addEventListener('click', function(){
+        if(panelBodyEl && !panelBodyEl.hidden){
+          panelBodyEl.hidden = true;
+          if(btnPanelExpand){
+            btnPanelExpand.classList.remove('open');
+            btnPanelExpand.setAttribute('aria-expanded', 'false');
+          }
+        }
+        setView('map');
+        fitMapToMarkers();
+      });
+    }
 
     // ---- Géolocalisation : trie la liste par proximité ----
     if(btnLocate){
