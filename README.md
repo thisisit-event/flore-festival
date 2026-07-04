@@ -115,6 +115,7 @@ Tableau d'objets, un par établissement :
   "lat": 45.123,
   "lng": 5.456,
   "adresse": "Ville · Département",
+  "ville": "Nom de la ville, sans accent superflu — sert au filtre ville",
   "gluten": "dedie",
   "lactose": "options",
   "description": "1-2 phrases, ton FLORE, pas de tiret cadratin.",
@@ -143,7 +144,13 @@ Tableau d'objets, un par établissement :
   la fiche FLORE elle-même. Doit correspondre exactement aux `<option>` du
   filtre catégorie de `/guide/index.html`.
 - `gluten` / `lactose` : `"dedie"` (100 % dédié, zéro trace), `"options"`
-  (cuisine mixte, contamination maîtrisée), ou absent si non concerné.
+  (cuisine mixte, contamination maîtrisée), ou absent si non concerné. Piloté
+  par les filtres 🌾/🥛 et le toggle "100 % dédié uniquement" de
+  `/guide/index.html` (2026-07-04).
+- `ville` : optionnel, alimente dynamiquement le `<select>` de filtre ville
+  (peuplé au chargement du JSON, pas de liste à maintenir à la main). Ne pas
+  renseigner tant que le lieu d'un établissement doit rester flouté (cas de
+  la fiche FLORE Festival elle-même, volontairement absent).
 - `boutique_flore` : `true` si la marque est aussi référencée à la Boutique
   Flore → un bouton apparaît sur sa fiche du Guide vers `/exposants/boutique/`.
 
@@ -250,8 +257,8 @@ lettres illisible sur les phrases longues. Corrigé en `.f-field>label`
    `.guide-card-ghost` qui doit rester la dernière — elle n'est pas filtrée et
    sert de CTA permanent « votre établissement ici »), avec les attributs
    `data-slug` (identique au `slug` du JSON), `data-type`, `data-gluten`,
-   `data-lactose` à jour — c'est ce bloc qui est filtré/affiché dans la liste
-   et qui est crawlable par Google sans JS.
+   `data-lactose`, `data-ville` (si renseigné) à jour — c'est ce bloc qui est
+   filtré/affiché dans la liste et qui est crawlable par Google sans JS.
 3. **Créer la fiche** à `/guide/{slug}/index.html` à partir du template
    ci-dessous (title, meta description et JSON-LD uniques → indexation
    individuelle, comme un mini-site pour cet établissement).
