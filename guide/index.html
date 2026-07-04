@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Le Guide FLORE · La carte du sans gluten et sans lactose</title>
 <meta name="description" content="La carte interactive des restaurants, boulangeries, épiceries et marques sans gluten et sans lactose, validés par le Comité FLORE. Filtrez par allergène, trouvez une adresse près de chez vous.">
 <meta name="robots" content="index, follow">
@@ -44,9 +44,9 @@
   .guide-search-row .guide-search-bar{flex:1;margin-bottom:0}
   .gsp-expand{display:none}
   @media(max-width:900px){
-    .gsp-expand{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex:0 0 auto;border-radius:50%;border:1.5px solid #e4edf5;background:#fff;cursor:pointer;font-size:1.1rem;color:#15395B;transition:all .18s}
+    .gsp-expand{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex:0 0 auto;border-radius:50%;border:1.5px solid #e4edf5;background:#fff;cursor:pointer;color:#15395B;transition:all .18s}
     .gsp-expand:hover{border-color:#3F93C4}
-    .gsp-expand .chev{display:inline-block;transition:transform .2s}
+    .gsp-expand .chev{display:block;transition:transform .2s}
     .gsp-expand.open .chev{transform:rotate(180deg)}
   }
   .guide-search-bar{display:flex;align-items:center;gap:12px;background:#f0f7fc;border:1.5px solid #e4edf5;border-radius:100px;padding:14px 22px;margin-bottom:18px;transition:border-color .18s}
@@ -234,7 +234,7 @@
           <button type="button" class="gsb-clear" id="search-clear" hidden aria-label="Effacer la recherche">✕</button>
         </div>
         <button type="button" class="gsp-expand" id="btn-panel-expand" aria-label="Afficher les filtres" aria-expanded="false">
-          <span class="chev">⌄</span>
+          <svg class="chev" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
       <div class="guide-suggest" id="guide-suggest" hidden role="listbox"></div>
@@ -799,10 +799,10 @@
     renderList();
 
     try {
-      map = L.map('flore-map', { scrollWheelZoom:false }).setView([46.6, 2.4], 6);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
+      map = L.map('flore-map', { scrollWheelZoom:true, touchZoom:true }).setView([46.6, 2.4], 6);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        subdomains: 'abc',
         maxZoom: 19
       }).addTo(map);
       markerLayer = L.layerGroup().addTo(map);

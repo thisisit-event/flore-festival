@@ -76,6 +76,18 @@ provisionne un certificat HTTPS, puis on active **Enforce HTTPS** dans
 `/guide/` est la carte publique des établissements sans gluten et sans lactose,
 en vue « liste + carte » façon Airbnb (Leaflet.js + fond OpenStreetMap, aucune
 clé API). Comme le reste du site, c'est **statique, sans backend, sans build**.
+
+**Fond de carte** : tuiles standard `tile.openstreetmap.org` (pas CARTO
+Positron/`light_all`, 2026-07-04) — le style CARTO affiche les noms de pays et
+de régions en anglais (ex. « Burgundy-Free County » pour Bourgogne-Franche-Comté,
+« Island of France » pour Île-de-France), car sa couche d'étiquettes vient d'un
+jeu de données Natural Earth en anglais. Les tuiles OSM standard utilisent le
+tag `name` (langue locale) d'OpenStreetMap, donc les régions françaises
+s'affichent dans leur vraie appellation. `scrollWheelZoom`/`touchZoom` activés
+(zoom facile à la souris et au doigt) ; la balise `viewport` de `/guide/index.html`
+a `maximum-scale=1, user-scalable=no` pour empêcher le pinch-to-zoom natif du
+navigateur de concurrencer le pinch-zoom de Leaflet sur la carte (sans ça, un
+pincement sur mobile zoomait la page entière au lieu de la carte).
 Chaque établissement validé a aussi sa propre page HTML (« mini-site »), pour
 être indexé individuellement par Google (objectif SEO : chaque fiche est une
 porte d'entrée possible sur le site).
