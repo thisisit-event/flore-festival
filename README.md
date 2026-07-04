@@ -326,7 +326,11 @@ référence, ne pas en réinventer d'autres) :
    - `.fiche-main-col` : sections `<section>` séparées par une bordure —
      « À propos » (texte), « Statut de sécurité » et « Ce qui vous attend »
      en listes `.fiche-amenities` (icône + titre + description courte, pas
-     de grandes cards colorées).
+     de grandes cards colorées). La section « Statut de sécurité » se
+     termine **toujours** par `.fiche-disclaimer` (2026-07-04, obligatoire
+     sur toute fiche dupliquée) : précise que l'info est auto-déclarée,
+     non vérifiée par FLORE sauf badge 🌿 Certifié FLORE — protection
+     légale, à ne jamais retirer.
    - `.fiche-side-col` : `.fiche-card-sticky` avec les infos clés en lignes
      `.fsc-row` (date, horaires, lieu, catégorie) puis les boutons d'action
      (`.btn-fiche.primary/.sun/.ghost`) : site web, plus un retour carte vers
@@ -343,6 +347,18 @@ référence, ne pas en réinventer d'autres) :
 Même nav/footer (chrome partagé) que les autres pages `/guide/` et
 `/exposants/` — nav allégée automatique via `nav.js` (voir plus haut,
 section nav Guide).
+
+### Avertissement légal du Guide (2026-07-04)
+
+`.guide-disclaimer` sous la liste/carte de `/guide/index.html` (et son
+équivalent `.fiche-disclaimer` sur chaque fiche, voir plus haut) :
+rappelle que le référencement est **libre et auto-déclaré**, que FLORE ne
+certifie pas les informations gluten/lactose des établissements listés et
+ne garantit pas l'absence de contamination croisée, sauf badge 🌿 Certifié
+FLORE (vérification physique du Comité). Élément permanent, ne pas
+retirer — c'est la protection qui permet de référencer librement sans
+engager la responsabilité de FLORE sur des infos qu'elle ne vérifie pas
+elle-même à ce stade.
 
 ### Fonctionnalités de recherche/carte `/guide/index.html` (2026-07-04)
 

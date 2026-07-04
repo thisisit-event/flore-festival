@@ -282,6 +282,7 @@
             </label>
 
             <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma candidature →</button>
+            <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Un oubli après l'envoi ? Écrivez-nous sur Instagram (@flore.festival) ou à contact@flore-festival.fr, on complète votre fiche.</p>
             <div class="form-msg" id="wiz-msg"></div>
           </div>
 
@@ -525,7 +526,7 @@
         const json = await res.json();
         if (json.success){
           msg.className = 'form-msg ok';
-          msg.textContent = 'Candidature reçue ! Le Comité FLORE l\'examine et vous répond sous 5 jours ouvrés.';
+          msg.textContent = 'Candidature reçue ! Le Comité FLORE l\'examine et vous répond sous 5 jours ouvrés. Un oubli ou une info à compléter ? Écrivez-nous sur Instagram (@flore.festival) ou à contact@flore-festival.fr.';
           btnSubmit.textContent = 'Candidature envoyée ✓';
         } else {
           throw new Error(json.message || 'Échec de l\'envoi (raison inconnue).');
