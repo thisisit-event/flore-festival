@@ -212,6 +212,20 @@ bulles natives du navigateur), donc toute contrainte de format doit être
 vérifiée à la main dans `validateStep()` — la validation HTML5 seule
 (`type="email"`, `required`) ne suffit pas si `novalidate` est présent.
 
+**Auto-remplissage** (2026-07-04) :
+- Attributs `autocomplete` corrects sur tous les champs de l'étape
+  Informations générales (`email`, `tel`, `organization`, `street-address`,
+  `address-level2`/`1`, `postal-code`, `country-name`, `url`) pour que le
+  navigateur propose ses propres suggestions enregistrées.
+- **Autocomplétion d'adresse réelle** sur le champ Adresse : appelle
+  l'API Adresse du gouvernement français (`api-adresse.data.gouv.fr`,
+  gratuite, sans clé, endpoint `/search/`), debounce 250 ms, affiche
+  jusqu'à 5 suggestions. Sélectionner une suggestion remplit
+  automatiquement Adresse, Ville, Code postal et Région (parsés depuis
+  `properties.context`, format "département, nom département, région").
+  Si l'API est indisponible, le champ reste utilisable en saisie libre
+  (échec silencieux, pas de blocage).
+
 **Traitement des candidatures et demandes de modif par lots, pas en temps
 réel** : le même formulaire sert aussi bien pour une nouvelle inscription que
 pour une demande de modification ultérieure (pas de formulaire séparé à

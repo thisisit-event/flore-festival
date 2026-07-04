@@ -72,6 +72,11 @@
   .f-field textarea{min-height:90px;resize:vertical}
   .f-required{color:#E5484D;margin-left:2px}
 
+  .addr-suggest{position:absolute;top:100%;left:0;right:0;z-index:30;margin-top:4px;background:#fff;border:1.5px solid var(--line);border-radius:14px;box-shadow:0 16px 34px rgba(21,57,91,.16);overflow:hidden}
+  .addr-suggest[hidden]{display:none}
+  .as-item{padding:11px 16px;font-size:.9rem;color:var(--ink);cursor:pointer;transition:background .15s}
+  .as-item:hover,.as-item.is-active{background:#f0f7fc}
+
   .chip-grid{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px}
   .chip{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#f0f7fc;border:1.5px solid var(--line);border-radius:100px;padding:9px 16px;transition:all .18s}
   .chip input{display:none}
@@ -166,30 +171,34 @@
             <div class="wiz-steplabel">Étape 2 / 7 · Informations générales</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Parlez-nous de vous</h2>
             <div class="f-row two">
-              <div class="f-field"><label>Nom de l'établissement <span class="f-required">*</span></label><input type="text" name="nom_etablissement" id="in-nom" required></div>
-              <div class="f-field"><label>Nom de l'entreprise</label><input type="text" name="nom_entreprise"></div>
+              <div class="f-field"><label>Nom de l'établissement <span class="f-required">*</span></label><input type="text" name="nom_etablissement" id="in-nom" autocomplete="organization" required></div>
+              <div class="f-field"><label>Nom de l'entreprise</label><input type="text" name="nom_entreprise" autocomplete="organization"></div>
             </div>
             <div class="f-row">
               <div class="f-field"><label>Description <span class="f-required">*</span></label><textarea id="in-description" name="description" placeholder="Qui êtes-vous ? Votre histoire, vos spécialités..." required></textarea></div>
             </div>
             <div class="f-row">
-              <div class="f-field"><label>Adresse <span class="f-required">*</span></label><input type="text" id="in-adresse" name="adresse" required></div>
+              <div class="f-field" style="position:relative">
+                <label>Adresse <span class="f-required">*</span></label>
+                <input type="text" id="in-adresse" name="adresse" placeholder="Commencez à taper, choisissez dans la liste..." autocomplete="off" required>
+                <div class="addr-suggest" id="addr-suggest" hidden></div>
+              </div>
             </div>
             <div class="f-row three">
-              <div class="f-field"><label>Ville <span class="f-required">*</span></label><input type="text" id="in-ville" name="ville" required></div>
-              <div class="f-field"><label>Code postal</label><input type="text" name="code_postal"></div>
-              <div class="f-field"><label>Région</label><input type="text" name="region"></div>
+              <div class="f-field"><label>Ville <span class="f-required">*</span></label><input type="text" id="in-ville" name="ville" autocomplete="address-level2" required></div>
+              <div class="f-field"><label>Code postal</label><input type="text" id="in-cp" name="code_postal" autocomplete="postal-code"></div>
+              <div class="f-field"><label>Région</label><input type="text" id="in-region" name="region" autocomplete="address-level1"></div>
             </div>
             <div class="f-row two">
-              <div class="f-field"><label>Pays</label><input type="text" name="pays" value="France"></div>
-              <div class="f-field"><label>Téléphone</label><input type="tel" name="telephone"></div>
+              <div class="f-field"><label>Pays</label><input type="text" name="pays" value="France" autocomplete="country-name"></div>
+              <div class="f-field"><label>Téléphone</label><input type="tel" name="telephone" autocomplete="tel"></div>
             </div>
             <div class="f-row two">
-              <div class="f-field"><label>Email <span class="f-required">*</span></label><input type="email" id="in-email" name="email" required></div>
-              <div class="f-field"><label>Site internet</label><input type="text" id="in-site" name="site"></div>
+              <div class="f-field"><label>Email <span class="f-required">*</span></label><input type="email" id="in-email" name="email" autocomplete="email" required></div>
+              <div class="f-field"><label>Site internet</label><input type="url" id="in-site" name="site" autocomplete="url"></div>
             </div>
             <div class="f-row">
-              <div class="f-field"><label>Réseaux sociaux</label><input type="text" name="reseaux" placeholder="Instagram, Facebook..."></div>
+              <div class="f-field"><label>Réseaux sociaux</label><input type="text" name="reseaux" placeholder="Instagram, Facebook..." autocomplete="off"></div>
             </div>
           </div>
 
@@ -487,6 +496,73 @@
     btnPrev.addEventListener('click', function(){
       if (current > 0) { current--; showStep(current); }
     });
+
+    // ---- Étape 1 : autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
+    const inAdresse = document.getElementById('in-adresse');
+    const addrSuggest = document.getElementById('addr-suggest');
+    let addrDebounce = null;
+    let addrAbort = null;
+    let addrActiveIndex = -1;
+
+    function hideAddrSuggest(){
+      addrSuggest.hidden = true;
+      addrSuggest.innerHTML = '';
+      addrActiveIndex = -1;
+    }
+
+    function selectAddrFeature(f){
+      const p = f.properties;
+      inAdresse.value = p.name || p.label || inAdresse.value;
+      if (p.city) document.getElementById('in-ville').value = p.city;
+      if (p.postcode) document.getElementById('in-cp').value = p.postcode;
+      if (p.context){
+        const parts = p.context.split(',').map(function(s){ return s.trim(); });
+        if (parts[2]) document.getElementById('in-region').value = parts[2];
+      }
+      hideAddrSuggest();
+      updatePreview();
+    }
+
+    inAdresse.addEventListener('input', function(){
+      const q = inAdresse.value.trim();
+      clearTimeout(addrDebounce);
+      if (q.length < 3){ hideAddrSuggest(); return; }
+      addrDebounce = setTimeout(function(){
+        if (addrAbort) addrAbort.abort();
+        addrAbort = new AbortController();
+        fetch('https://api-adresse.data.gouv.fr/search/?q=' + encodeURIComponent(q) + '&limit=5', { signal: addrAbort.signal })
+          .then(function(r){ return r.json(); })
+          .then(function(data){
+            const feats = (data && data.features) || [];
+            if (!feats.length){ hideAddrSuggest(); return; }
+            addrSuggest.innerHTML = feats.map(function(f, i){
+              return '<div class="as-item" data-idx="' + i + '">' + f.properties.label + '</div>';
+            }).join('');
+            addrSuggest.hidden = false;
+            addrActiveIndex = -1;
+            addrSuggest.querySelectorAll('.as-item').forEach(function(el, i){
+              el.addEventListener('mousedown', function(){ selectAddrFeature(feats[i]); });
+            });
+            addrSuggest._features = feats;
+          })
+          .catch(function(){ /* API indisponible : le champ reste utilisable en saisie libre */ });
+      }, 250);
+    });
+
+    inAdresse.addEventListener('keydown', function(e){
+      const items = Array.prototype.slice.call(addrSuggest.querySelectorAll('.as-item'));
+      if (addrSuggest.hidden || !items.length) return;
+      if (e.key === 'ArrowDown'){ e.preventDefault(); addrActiveIndex = Math.min(addrActiveIndex + 1, items.length - 1); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); addrActiveIndex = Math.max(addrActiveIndex - 1, 0); }
+      else if (e.key === 'Enter'){
+        if (addrActiveIndex >= 0){ e.preventDefault(); selectAddrFeature(addrSuggest._features[addrActiveIndex]); }
+        return;
+      } else if (e.key === 'Escape'){ hideAddrSuggest(); return; }
+      else { return; }
+      items.forEach(function(it, i){ it.classList.toggle('is-active', i === addrActiveIndex); });
+    });
+
+    inAdresse.addEventListener('blur', function(){ setTimeout(hideAddrSuggest, 150); });
 
     // ---- Étape 0 : profil ----
     const profilCards = document.querySelectorAll('.profil-card');
