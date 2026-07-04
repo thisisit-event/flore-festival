@@ -40,6 +40,15 @@
 <style>
   .guide-search-panel{margin:0 auto 12px;background:#fff;border-radius:26px;padding:10px 26px 4px;box-shadow:0 16px 46px rgba(21,57,91,.16)}
 
+  .guide-search-row{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .guide-search-row .guide-search-bar{flex:1;margin-bottom:0}
+  .gsp-expand{display:none}
+  @media(max-width:900px){
+    .gsp-expand{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex:0 0 auto;border-radius:50%;border:1.5px solid #e4edf5;background:#fff;cursor:pointer;font-size:1.1rem;color:#15395B;transition:all .18s}
+    .gsp-expand:hover{border-color:#3F93C4}
+    .gsp-expand .chev{display:inline-block;transition:transform .2s}
+    .gsp-expand.open .chev{transform:rotate(180deg)}
+  }
   .guide-search-bar{display:flex;align-items:center;gap:12px;background:#f0f7fc;border:1.5px solid #e4edf5;border-radius:100px;padding:14px 22px;margin-bottom:18px;transition:border-color .18s}
   .guide-search-bar:focus-within{border-color:#3F93C4}
   .gsb-ic{font-size:1.1rem;flex:0 0 auto}
@@ -69,14 +78,8 @@
   .cat-pill.on{color:#15395B;border-bottom-color:#DAEF52}
   .cat-pill.on .ic{filter:none;opacity:1}
 
-  .gr-more-toggle{display:none}
-  .guide-more-filters[hidden]{display:block}
-  @media(max-width:900px){
-    .gr-more-toggle{display:flex;width:100%;justify-content:center;align-items:center;gap:6px;border:none;background:none;color:#3F93C4;font:inherit;font-size:.84rem;font-weight:700;padding:8px 0;cursor:pointer;border-top:1px solid #e4edf5}
-    .gr-more-toggle .chev{display:inline-block;transition:transform .2s}
-    .gr-more-toggle.open .chev{transform:rotate(180deg)}
-    .guide-more-filters[hidden]{display:none}
-  }
+  .guide-panel-body[hidden]{display:block}
+  @media(max-width:900px){.guide-panel-body[hidden]{display:none}}
 
   .guide-refine{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding-top:10px;border-top:1px solid #e4edf5}
   @media(max-width:900px){.guide-refine{border-top:none;padding-top:6px}}
@@ -217,36 +220,39 @@
 <section class="sec guide-section" style="padding-top:0">
   <div class="wrap">
     <div class="guide-search-panel" id="guide-search-panel">
-      <div class="guide-view-toggle" id="guide-view-toggle">
-        <button type="button" class="gvt-btn on" data-view="map">🗺️ Carte</button>
-        <button type="button" class="gvt-btn" data-view="list">📋 Liste</button>
-      </div>
-
-      <div class="guide-search-bar">
-        <span class="gsb-ic">🔍</span>
-        <input type="text" id="search-input" placeholder="Rechercher un établissement, une ville, une spécialité..." autocomplete="off">
-        <button type="button" class="gsb-clear" id="search-clear" hidden aria-label="Effacer la recherche">✕</button>
+      <div class="guide-search-row">
+        <div class="guide-search-bar">
+          <span class="gsb-ic">🔍</span>
+          <input type="text" id="search-input" placeholder="Rechercher un établissement, une ville, une spécialité..." autocomplete="off">
+          <button type="button" class="gsb-clear" id="search-clear" hidden aria-label="Effacer la recherche">✕</button>
+        </div>
+        <button type="button" class="gsp-expand" id="btn-panel-expand" aria-label="Afficher les filtres" aria-expanded="false">
+          <span class="chev">⌄</span>
+        </button>
       </div>
       <div class="guide-suggest" id="guide-suggest" hidden role="listbox"></div>
 
-      <div class="guide-categories-wrap">
-        <div class="guide-categories" id="guide-categories">
-          <button type="button" class="cat-pill on" data-cat=""><span class="ic">✨</span><span>Tout</span></button>
-          <button type="button" class="cat-pill" data-cat="Restaurant"><span class="ic">🍽️</span><span>Restaurant</span></button>
-          <button type="button" class="cat-pill" data-cat="Traiteur"><span class="ic">🍱</span><span>Traiteur</span></button>
-          <button type="button" class="cat-pill" data-cat="Boutique"><span class="ic">🛍️</span><span>Boutique</span></button>
-          <button type="button" class="cat-pill" data-cat="Marque alimentaire"><span class="ic">🏷️</span><span>Marque</span></button>
-          <button type="button" class="cat-pill" data-cat="Professionnel de santé"><span class="ic">⚕️</span><span>Pro. santé</span></button>
-          <button type="button" class="cat-pill" data-cat="Association"><span class="ic">🤝</span><span>Association</span></button>
-          <button type="button" class="cat-pill" data-cat="Autre"><span class="ic">✨</span><span>Autre</span></button>
-          <button type="button" class="cat-pill" data-cat="Festival"><span class="ic">🎪</span><span>Festival</span></button>
+      <div class="guide-panel-body" id="guide-panel-body" hidden>
+        <div class="guide-view-toggle" id="guide-view-toggle">
+          <button type="button" class="gvt-btn on" data-view="map">🗺️ Carte</button>
+          <button type="button" class="gvt-btn" data-view="list">📋 Liste</button>
         </div>
-        <div class="gc-fade" aria-hidden="true"></div>
-      </div>
 
-      <button type="button" class="gr-more-toggle" id="btn-more-filters"><span class="lbl">Plus de filtres</span> <span class="chev">▾</span></button>
+        <div class="guide-categories-wrap">
+          <div class="guide-categories" id="guide-categories">
+            <button type="button" class="cat-pill on" data-cat=""><span class="ic">✨</span><span>Tout</span></button>
+            <button type="button" class="cat-pill" data-cat="Restaurant"><span class="ic">🍽️</span><span>Restaurant</span></button>
+            <button type="button" class="cat-pill" data-cat="Traiteur"><span class="ic">🍱</span><span>Traiteur</span></button>
+            <button type="button" class="cat-pill" data-cat="Boutique"><span class="ic">🛍️</span><span>Boutique</span></button>
+            <button type="button" class="cat-pill" data-cat="Marque alimentaire"><span class="ic">🏷️</span><span>Marque</span></button>
+            <button type="button" class="cat-pill" data-cat="Professionnel de santé"><span class="ic">⚕️</span><span>Pro. santé</span></button>
+            <button type="button" class="cat-pill" data-cat="Association"><span class="ic">🤝</span><span>Association</span></button>
+            <button type="button" class="cat-pill" data-cat="Autre"><span class="ic">✨</span><span>Autre</span></button>
+            <button type="button" class="cat-pill" data-cat="Festival"><span class="ic">🎪</span><span>Festival</span></button>
+          </div>
+          <div class="gc-fade" aria-hidden="true"></div>
+        </div>
 
-      <div class="guide-more-filters" id="guide-more-filters" hidden>
         <div class="guide-refine">
           <select class="gr-select" id="filter-ville" aria-label="Filtrer par ville">
             <option value="">Toutes les villes</option>
@@ -256,10 +262,10 @@
           <button type="button" class="gr-toggle gr-toggle-strict" id="filter-dedie" aria-pressed="false"><span class="ic">💯</span> 100 % dédié uniquement</button>
           <button type="button" class="gt-locate" id="btn-locate">📍 Utiliser ma position</button>
         </div>
-      </div>
 
-      <div class="guide-toolbar">
-        <span class="gt-count" id="guide-count"></span>
+        <div class="guide-toolbar">
+          <span class="gt-count" id="guide-count"></span>
+        </div>
       </div>
     </div>
 
@@ -643,15 +649,16 @@
       });
     });
 
-    // ---- Repli "Plus de filtres" (mobile) ----
-    const btnMoreFilters = document.getElementById('btn-more-filters');
-    const moreFiltersEl = document.getElementById('guide-more-filters');
-    if(btnMoreFilters){
-      btnMoreFilters.addEventListener('click', function(){
-        const show = moreFiltersEl.hidden;
-        moreFiltersEl.hidden = !show;
-        btnMoreFilters.classList.toggle('open', show);
-        btnMoreFilters.querySelector('.lbl').textContent = show ? 'Moins de filtres' : 'Plus de filtres';
+    // ---- Repli du panneau (mobile) : juste la barre de recherche par
+    // défaut, la flèche déplie tout le reste (vue, catégories, filtres).
+    const btnPanelExpand = document.getElementById('btn-panel-expand');
+    const panelBodyEl = document.getElementById('guide-panel-body');
+    if(btnPanelExpand){
+      btnPanelExpand.addEventListener('click', function(){
+        const show = panelBodyEl.hidden;
+        panelBodyEl.hidden = !show;
+        btnPanelExpand.classList.toggle('open', show);
+        btnPanelExpand.setAttribute('aria-expanded', String(show));
       });
     }
 

@@ -396,12 +396,16 @@ vit sur la même ligne (même conteneur `.guide-refine`).
   `position:fixed` par-dessus. La nav est forcée en mode `.scrolled`
   (fond blanc) via `onScroll()` — sans ça le logo transparent se mélange
   visuellement à la carte en dessous.
-- Le panneau flottant reste volontairement compact (recherche + catégories
-  seulement) : ville/gluten/lactose/dédié/position sont repliés derrière
-  un bouton "Plus de filtres" (`#btn-more-filters` / `#guide-more-filters`)
-  pour laisser un maximum de carte visible. Sur desktop, ce repli est
-  neutralisé (`.guide-more-filters[hidden]{display:block}` hors media
-  query mobile) : tout reste affiché en permanence.
+- Le panneau flottant ne montre par défaut que la barre de recherche
+  (2026-07-04, révisé après un premier essai encore trop encombrant) : un
+  bouton flèche rond (`#btn-panel-expand`) déplie/replie
+  `#guide-panel-body`, qui regroupe en un seul niveau la bascule
+  Carte/Liste, les catégories et les filtres ville/gluten/lactose/dédié/
+  position — plus de double repli imbriqué. `.guide-suggest` (les
+  suggestions) reste en dehors de ce conteneur pour s'afficher même
+  panneau replié. Sur desktop, le repli est neutralisé
+  (`.guide-panel-body[hidden]{display:block}` hors media query mobile) :
+  tout reste affiché en permanence, comme avant.
 - Contrôles de zoom Leaflet et bouton "Voir tout" décalés vers le bas
   (`top:80-84px`) en plein écran pour ne pas passer sous la nav désormais
   opaque.
