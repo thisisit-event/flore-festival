@@ -105,6 +105,11 @@
     .gvt-btn.on{background:#fff;color:#15395B;box-shadow:0 4px 12px rgba(21,57,91,.14)}
   }
 
+  .gp-cta{display:flex;align-items:center;gap:10px;background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:14px;padding:12px 16px;margin-bottom:14px;text-decoration:none;color:#15395B;font-size:.88rem;line-height:1.4;transition:all .18s}
+  .gp-cta:hover{border-color:var(--sun-deep);background:#fdf6d8}
+  .gp-cta-ic{font-size:1.2rem;flex:0 0 auto}
+  .gp-cta strong{color:#15395B}
+
   /* ===== Vue Airbnb : liste + carte ===== */
   .guide-split{display:grid;grid-template-columns:400px 1fr;gap:20px;align-items:stretch}
   @media(max-width:900px){.guide-split{grid-template-columns:1fr}}
@@ -239,6 +244,11 @@
           <button type="button" class="gvt-btn on" data-view="map">🗺️ Carte</button>
           <button type="button" class="gvt-btn" data-view="list">📋 Liste</button>
         </div>
+
+        <a href="/exposants/carte-guide/" class="gp-cta">
+          <span class="gp-cta-ic">✨</span>
+          <span>Vous êtes un établissement ? <strong>Référencez-vous gratuitement →</strong></span>
+        </a>
 
         <div class="guide-categories-wrap">
           <div class="guide-categories" id="guide-categories">
