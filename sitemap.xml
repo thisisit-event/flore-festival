@@ -108,10 +108,10 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/sejour/"/>
   </url>
   <url>
-    <loc>https://flore-festival.fr/exposants/carte-guide/</loc>
+    <loc>https://flore-festival.fr/guide/inscription/</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/carte-guide/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/inscription/"/>
   </url>
 </urlset>

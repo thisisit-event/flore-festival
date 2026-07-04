@@ -36,7 +36,7 @@
 
   // Le Guide FLORE (recherche SG/SL) est pensé comme un outil quasi indépendant :
   // pas de mega-menu festival, juste un pont léger vers le site principal (2026-07-04).
-  var isGuideEcosystem = p.indexOf('/guide/') === 0 || p.indexOf('/exposants/carte-guide') === 0;
+  var isGuideEcosystem = p.indexOf('/guide/') === 0;
   if (isGuideEcosystem) {
     var navLite =
       '<nav class="nav" id="nav"><div class="wrap"><div class="nav-inner">' +

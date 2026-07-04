@@ -156,7 +156,13 @@ Tableau d'objets, un par établissement :
 - `boutique_flore` : `true` si la marque est aussi référencée à la Boutique
   Flore → un bouton apparaît sur sa fiche du Guide vers `/exposants/boutique/`.
 
-### Formulaire d'inscription pro `/exposants/carte-guide/`
+### Formulaire d'inscription pro `/guide/inscription/`
+
+Anciennement `/exposants/carte-guide/`, renommé le 2026-07-04 : « exposants »
+évoquait un stand de festival, alors que ce formulaire sert à référencer
+n'importe quel établissement (restaurant, boutique, marque, asso...) sur le
+Guide, festival ou pas. `/guide/inscription/` colle mieux au Guide dont il
+dépend et sonne plus sérieux/durable.
 
 Wizard en 7 écrans (profil, infos générales, activité, sécurité alimentaire,
 services, galerie, validation avec aperçu en direct de la fiche) — **toujours
@@ -240,8 +246,8 @@ connexion : ça nécessiterait un backend, hors du cadre de ce site. Voir
 [[flore-vision-plateforme-marketplace]] pour la vision long terme et pourquoi
 elle est mise de côté pour l'instant.
 
-**Nav allégée sur tout l'écosystème Guide** (`/guide/*` et
-`/exposants/carte-guide/`, 2026-07-04) : `assets/nav.js` détecte ces chemins
+**Nav allégée sur tout l'écosystème Guide** (`/guide/*`, ce qui inclut
+`/guide/inscription/`, 2026-07-04) : `assets/nav.js` détecte ce préfixe
 et monte une nav minimale (logo, un seul lien "🌱 Le Festival FLORE", EN,
 Billetterie) au lieu du mega-menu complet — le Guide est pensé comme un outil
 de recherche quasi indépendant (utile pour du SEO local hors-festival), sans
