@@ -335,6 +335,38 @@ Même nav/footer (chrome partagé) que les autres pages `/guide/` et
 `/exposants/` — nav allégée automatique via `nav.js` (voir plus haut,
 section nav Guide).
 
+### Fonctionnalités de recherche/carte `/guide/index.html` (2026-07-04)
+
+Ajouts UX sur la page liste/carte, tous vanilla JS (pas de dépendance
+nouvelle) :
+
+- **Autocomplétion** : `#guide-suggest`, dropdown sous la barre de recherche
+  qui propose jusqu'à 6 correspondances (nom/type/adresse) au fil de la
+  frappe, avec surlignage du texte trouvé (`<mark>`), navigation clavier
+  (↑/↓/Entrée/Échap) et clic. Sélectionner une suggestion recentre la carte,
+  ouvre son marqueur et bascule sur l'onglet Carte en mobile.
+- **Case à effacer** (`#search-clear`) dans la barre de recherche.
+- **Géolocalisation** (`#btn-locate`) : trie la liste par proximité
+  (distance à vol d'oiseau, formule haversine) et pose un marqueur bleu
+  "vous êtes ici" ; bouton à bascule (re-clic = désactive le tri).
+- **Bascule Liste/Carte** (`#guide-view-toggle`) : visible uniquement en
+  dessous de 900px, remplace l'ancien empilement liste-puis-carte qui
+  imposait de scroller. Appelle `map.invalidateSize()` en passant sur
+  l'onglet Carte (Leaflet calcule mal sa taille tant que son conteneur est
+  `display:none`).
+- **Bouton "Voir tout"** (`#btn-map-reset`) sur la carte : `fitBounds` sur
+  tous les marqueurs visibles (ou recentre sur la France si aucun résultat).
+- **Indice de défilement** des pastilles de catégorie sur mobile (dégradé
+  qui disparaît en fin de scroll).
+
+Piège rencontré et corrigé : `.gsb-clear{display:flex}` avait la même
+spécificité que le sélecteur natif `[hidden]` et gagnait (bouton visible en
+permanence) — même famille de bug que `.guide-card`/`.signup-success`
+rencontrés plus tôt. Réflexe à avoir : **toute nouvelle classe utilisant
+`hidden` comme mécanisme d'affichage doit systématiquement recevoir sa règle
+`.ma-classe[hidden]{display:none}`** si elle définit elle-même une valeur de
+`display`.
+
 ## À compléter / confirmer
 
 - Lieu exact et adresse à Lagnieu
