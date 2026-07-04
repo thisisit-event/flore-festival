@@ -320,9 +320,12 @@ référence, ne pas en réinventer d'autres) :
      de grandes cards colorées).
    - `.fiche-side-col` : `.fiche-card-sticky` avec les infos clés en lignes
      `.fsc-row` (date, horaires, lieu, catégorie) puis les boutons d'action
-     (`.btn-fiche.primary/.sun/.ghost`) : site web, et si `boutique_flore:
-     true` un lien vers `/exposants/boutique/`, plus un retour carte vers
+     (`.btn-fiche.primary/.sun/.ghost`) : site web, plus un retour carte vers
      `/guide/#{{slug}}` (rouvre le pin correspondant automatiquement).
+     `boutique_flore` existe toujours dans le JSON mais **n'est plus branché
+     à rien** depuis la dépublication de `/exposants/boutique/` (2026-07-04,
+     voir [[flore-pages-depubliees-2026-07-04]]) — le champ ne doit pas
+     déclencher de lien tant que cette page n'est pas restaurée.
 5. **Nav standard au scroll** (`nav.classList.toggle('scrolled', window.scrollY
    > 30)`) : rien de spécial à faire, la fiche garde le ciel bleu FLORE en
    hero donc la nav transparente-puis-scrollée fonctionne normalement, comme

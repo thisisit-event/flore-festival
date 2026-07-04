@@ -94,13 +94,6 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/a-propos/"/>
   </url>
   <url>
-    <loc>https://flore-festival.fr/benevoles/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/benevoles/"/>
-  </url>
-  <url>
     <loc>https://flore-festival.fr/presse/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -109,35 +102,10 @@
   </url>
   <url>
     <loc>https://flore-festival.fr/sejour/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/sejour/"/>
-    <image:image>
-      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png</image:loc>
-      <image:title>Destination Plaine de l'Ain - week-end FLORE Festival</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://flore-festival.fr/exposants/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/"/>
-  </url>
-  <url>
-    <loc>https://flore-festival.fr/exposants/stand-food/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/stand-food/"/>
-  </url>
-  <url>
-    <loc>https://flore-festival.fr/exposants/boutique/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/boutique/"/>
   </url>
   <url>
     <loc>https://flore-festival.fr/exposants/carte-guide/</loc>
@@ -145,16 +113,5 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/carte-guide/"/>
-  </url>
-  <url>
-    <loc>https://flore-festival.fr/partenaires</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/partenaires"/>
-    <image:image>
-      <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png</image:loc>
-      <image:title>Devenir partenaire FLORE Festival 2027</image:title>
-    </image:image>
   </url>
 </urlset>

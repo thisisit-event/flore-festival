@@ -85,12 +85,6 @@
           '</div></div>' +
         '<a href="/sans-gluten-sans-lactose/"' + cur('/sans-gluten-sans-lactose/') + '>Sans gluten &amp; lactose</a>' +
         '<a href="/en/" class="lang-switch" aria-label="See the site in English">🌐 EN</a>' +
-        '<div class="nav-item nav-cta"><a href="/partenaires" class="btn btn-ink">Rejoindre l\'aventure</a>' +
-          '<div class="dropdown dd-right">' +
-            '<a href="/partenaires">🤝 Devenir partenaire</a>' +
-            '<a href="/exposants/">🍽️ Proposer un stand</a>' +
-            '<a href="/benevoles/">🌻 Devenir bénévole</a>' +
-          '</div></div>' +
         '<a href="' + h('billetterie') + '" class="btn btn-sun">Billetterie</a>' +
       '</div>' +
       '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>' +
@@ -112,11 +106,8 @@
       '<span class="m-label">Et aussi</span>' +
       '<a class="m-sub" href="/sans-gluten-sans-lactose/">Sans gluten &amp; lactose</a>' +
       '<a class="m-sub" href="/guide/">🗺️ Le Guide</a>' +
-      '<a class="m-sub" href="/exposants/">Proposer un stand</a>' +
-      '<a class="m-sub" href="/benevoles/">Devenir bénévole</a>' +
       '<a class="m-sub" href="/presse/">Espace presse</a>' +
       '<a href="/en/" class="lang-switch">🌐 English version</a>' +
-      '<a href="/partenaires" class="btn btn-ink">Rejoindre l\'aventure</a>' +
       '<a href="' + h('billetterie') + '" class="btn btn-sun">Billetterie</a>' +
     '</div>';
 
