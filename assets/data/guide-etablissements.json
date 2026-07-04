@@ -21,5 +21,30 @@
         "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png"
       ]
     }
+  },
+  {
+    "id": "la-graine-gourmande",
+    "slug": "la-graine-gourmande",
+    "nom": "La Graine Gourmande",
+    "type": "Autre",
+    "lat": 43.524714,
+    "lng": 6.939786,
+    "adresse": "Mandelieu-la-Napoule · Alpes-Maritimes",
+    "ville": "Mandelieu-la-Napoule",
+    "gluten": "options",
+    "lactose": "dedie",
+    "description": "Pâtisserie artisanale 100 % végétale, majoritairement sans gluten et bio, pensée pour allier plaisir gustatif et bien-être. Fabrication maison à Mandelieu-la-Napoule, ateliers et formations à la pâtisserie végétale.",
+    "site": "https://www.lagrainegourmande.fr",
+    "instagram": "https://www.instagram.com/lagrainegourmande/",
+    "boutique_flore": false,
+    "images": {
+      "principale": "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+      "secondaires": [
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png"
+      ]
+    }
   }
 ]
