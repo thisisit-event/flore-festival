@@ -138,10 +138,12 @@ Tableau d'objets, un par établissement :
   restitution.
 
 - `type` : une des catégories du formulaire de candidature (`Restaurant`,
-  `Boulangerie`, `Pâtisserie`, `Café`, `Hôtel`, `Traiteur`, `Boutique`,
-  `Épicerie`, `Producteur`, `Marque alimentaire`, `Entreprise`,
-  `Professionnel de santé`, `Association`, `Autre`), + `Festival` réservé à
-  la fiche FLORE elle-même. Doit correspondre exactement aux `<option>` du
+  `Traiteur`, `Boutique`, `Marque alimentaire`, `Professionnel de santé`,
+  `Association`, `Autre`), + `Festival` réservé à la fiche FLORE elle-même.
+  Liste volontairement resserrée (2026-07-04, retiré `Boulangerie`,
+  `Pâtisserie`, `Café`, `Hôtel`, `Épicerie`, `Producteur`, `Entreprise` —
+  trop de catégories pour la taille actuelle du Guide). Doit correspondre
+  exactement aux `<option>` du
   filtre catégorie de `/guide/index.html`.
 - `gluten` / `lactose` : `"dedie"` (100 % dédié, zéro trace), `"options"`
   (cuisine mixte, contamination maîtrisée), ou absent si non concerné. Piloté
