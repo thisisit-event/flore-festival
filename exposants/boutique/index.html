@@ -58,7 +58,7 @@
   .f-row.two{grid-template-columns:1fr 1fr}
   @media(max-width:560px){.f-row.two{grid-template-columns:1fr}}
   .f-field{display:flex;flex-direction:column;gap:5px}
-  .f-field label{font-size:.78rem;font-weight:700;color:#15395B;letter-spacing:.04em;text-transform:uppercase}
+  .f-field>label{font-size:.78rem;font-weight:700;color:#15395B;letter-spacing:.04em;text-transform:uppercase}
   .f-field input,.f-field textarea{border:1.5px solid #d0dde8;border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:#15395B;background:#fafcfe;transition:border-color .18s}
   .f-field input:focus,.f-field textarea:focus{outline:none;border-color:#3F93C4;background:#fff}
   .f-field textarea{min-height:86px;resize:vertical}
@@ -321,6 +321,14 @@
 
         <div class="f-row">
           <div class="f-field">
+            <label>Photos de vos produits</label>
+            <input type="text" name="lien_photos" placeholder="Lien Google Drive, Instagram... ou laissez vide">
+          </div>
+        </div>
+        <div class="encart-note" style="margin:-6px 0 16px">Pas de lien sous la main ? Envoyez-les par email à <a href="mailto:contact@flore-festival.fr" style="color:#15395B;font-weight:700">contact@flore-festival.fr</a>, en précisant le nom de votre marque.</div>
+
+        <div class="f-row">
+          <div class="f-field">
             <label style="text-transform:none;letter-spacing:0;font-size:.88rem;margin-bottom:6px">Engagements <span class="f-required">*</span></label>
             <div class="f-checks">
               <label class="f-check">
@@ -334,6 +342,10 @@
               <label class="f-check">
                 <input type="checkbox" name="etiquetage" required>
                 <span>Je confirme que tous mes produits disposent d'un <strong>étiquetage allergènes conforme</strong> à la réglementation en vigueur.</span>
+              </label>
+              <label class="f-check">
+                <input type="checkbox" name="droits_image" required>
+                <span>Je certifie être propriétaire des photos transmises (ou disposer des autorisations nécessaires) et j'autorise FLORE Festival / MG Entertainment à les utiliser pour présenter ma marque (site, réseaux, supports du festival).</span>
               </label>
               <label class="f-check">
                 <input type="checkbox" name="rgpd" required>
@@ -414,7 +426,7 @@
   if(form){
     form.addEventListener('submit', async function(e){
       e.preventDefault();
-      const checks = ['certif_sg','certif_sl','etiquetage','rgpd'];
+      const checks = ['certif_sg','certif_sl','etiquetage','droits_image','rgpd'];
       for(const n of checks){
         if(!form.elements[n].checked){
           msg.className='form-msg err';

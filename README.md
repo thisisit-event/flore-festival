@@ -149,13 +149,19 @@ Tableau d'objets, un par établissement :
 
 ### Formulaire d'inscription pro `/exposants/carte-guide/`
 
-Wizard en 7 écrans (profil, infos générales, activité, sécurité alimentaire +
-demande de certification FLORE, services, galerie, validation avec aperçu en
-direct de la fiche) — **toujours sans compte ni backend** : c'est un long
+Wizard en 7 écrans (profil, infos générales, activité, sécurité alimentaire,
+services, galerie, validation avec aperçu en direct de la fiche) — **toujours
+sans compte ni backend** : c'est un long
 formulaire côté navigateur, envoyé par email via Web3Forms comme les autres
 formulaires du site (voir [[flore-web3forms-key]]). Aucune donnée n'est
 stockée automatiquement ; le Comité reçoit l'email et suit ensuite le
 processus ci-dessous à la main.
+
+**Pas de demande de certification FLORE dans le formulaire** : retirée
+volontairement (2026-07-04). Le badge 🌿 Certifié FLORE n'est pas quelque
+chose que le candidat demande à la saisie ; il est attribué plus tard, après
+une vérification physique par un membre du Comité. En attendant, toute fiche
+est publiée librement, sans certification.
 
 **Pas d'étape Horaires** : retirée volontairement (2026-07-04). Demander des
 horaires précis créerait une attente de mise à jour permanente (chaque
@@ -194,6 +200,27 @@ Volontairement pas de vrai tableau de bord pro (vues, clics, messages) ni de
 connexion : ça nécessiterait un backend, hors du cadre de ce site. Voir
 [[flore-vision-plateforme-marketplace]] pour la vision long terme et pourquoi
 elle est mise de côté pour l'instant.
+
+### Formulaire de candidature `/exposants/boutique/`
+
+Un seul écran (pas un wizard), envoyé par email via Web3Forms comme les
+autres formulaires. Suit les mêmes principes que le formulaire Guide :
+- **Aucun champ fichier** : un champ texte facultatif `lien_photos` (URL vers
+  Drive, Instagram...) + une note invitant à envoyer les photos par email à
+  contact@flore-festival.fr si le candidat n'a pas de lien sous la main.
+- **Case dédiée aux droits d'image** (`droits_image`), distincte du RGPD et
+  des certifications SG/SL, sur le même modèle que le Guide.
+- **Pas de certification FLORE demandée ici non plus** : les cases
+  `certif_sg` / `certif_sl` / `etiquetage` sont de l'auto-déclaration du
+  candidat, pas une demande de badge FLORE — la vérification physique par le
+  Comité reste une étape ultérieure, hors formulaire.
+
+Piège corrigé au passage (2026-07-04) : `.f-field label{text-transform:
+uppercase}` s'appliquait par erreur à tous les `<label>` descendants, y
+compris les cases à cocher `.f-check` imbriquées dans un `.f-field` — le
+texte des engagements s'affichait tout en majuscules avec un espacement de
+lettres illisible sur les phrases longues. Corrigé en `.f-field>label`
+(enfant direct uniquement).
 
 ### Ajouter un établissement validé par le Comité (4 étapes)
 

@@ -76,9 +76,6 @@
   .cert-box h3{font-size:1.05rem;color:var(--ink);margin:0 0 10px}
   .cert-list{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px}
   .cert-list li{font-size:.9rem;color:var(--ink-soft);display:flex;gap:8px}
-  .cert-radios{display:flex;flex-direction:column;gap:8px}
-  .cert-radios label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.92rem;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
-  .cert-radios label:has(input:checked){border-color:var(--sun-deep)}
 
   .consent-row{display:flex;align-items:flex-start;gap:12px;background:#f0f7fc;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
   .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
@@ -232,16 +229,8 @@
             <p style="color:var(--ink-soft);font-size:.87rem;margin:0 0 16px">Un certificat ou une attestation à joindre ? Envoyez-le par email en même temps que vos photos (voir l'étape Galerie juste après).</p>
 
             <div class="cert-box">
-              <h3>🌿 Demander la certification FLORE</h3>
-              <ul class="cert-list">
-                <li>✅ Badge <strong>🌿 Certifié FLORE</strong> visible sur votre fiche</li>
-                <li>✅ Meilleure visibilité et priorité dans les résultats</li>
-                <li>✅ Renforce la confiance des visiteurs du Guide</li>
-              </ul>
-              <div class="cert-radios">
-                <label><input type="radio" name="certification_flore" value="Demande immédiate" checked><span>Je souhaite demander la certification FLORE dès maintenant</span></label>
-                <label><input type="radio" name="certification_flore" value="Plus tard"><span>Je publie mon établissement sans certification pour l'instant, je déciderai plus tard</span></label>
-              </div>
+              <h3>🌿 Certification FLORE</h3>
+              <p style="color:var(--ink-soft);font-size:.9rem;margin:0">Pas de démarche à faire ici : le badge <strong>🌿 Certifié FLORE</strong> est attribué plus tard, après une vérification physique par un membre du Comité. Votre fiche est publiée librement, sans certification, en attendant.</p>
             </div>
           </div>
 
@@ -515,13 +504,11 @@
       const email = document.getElementById('in-email').value;
       const activite = Array.prototype.slice.call(form.querySelectorAll('[name=activite]:checked')).map(function(e){ return e.value; }).join(', ') || '—';
       const services = Array.prototype.slice.call(form.querySelectorAll('[name=services]:checked')).map(function(e){ return e.value; }).join(', ') || '—';
-      const cert = form.querySelector('[name=certification_flore]:checked').value;
 
       document.getElementById('wiz-summary').innerHTML =
         '<section><h3>Profil <a href="#" data-goto="0">Modifier</a></h3><p>' + (profil || '—') + '</p></section>' +
         '<section><h3>Informations générales <a href="#" data-goto="1">Modifier</a></h3><p>' + nom + ' · ' + adresse + ', ' + ville + ' · ' + email + '</p><p>' + desc + '</p></section>' +
         '<section><h3>Activité <a href="#" data-goto="2">Modifier</a></h3><p>' + activite + '</p></section>' +
-        '<section><h3>Sécurité alimentaire <a href="#" data-goto="3">Modifier</a></h3><p>Certification FLORE : ' + cert + '</p></section>' +
         '<section><h3>Services <a href="#" data-goto="4">Modifier</a></h3><p>' + services + '</p></section>';
 
       document.querySelectorAll('[data-goto]').forEach(function(a){
