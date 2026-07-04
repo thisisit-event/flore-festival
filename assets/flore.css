@@ -473,11 +473,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .fx-pollen .pl{position:absolute;bottom:-50px;color:rgba(255,255,255,.55);animation:pollenRise linear infinite;will-change:transform,opacity}
 @keyframes pollenRise{0%{transform:translateY(0) translateX(0) rotate(0);opacity:0}12%{opacity:.65}88%{opacity:.6}100%{transform:translateY(-112vh) translateX(50px) rotate(240deg);opacity:0}}
 
-/* CTA flottant intelligent */
-.sticky-cta{position:fixed;z-index:90;left:50%;bottom:18px;transform:translateX(-50%) translateY(130px);opacity:0;transition:transform .42s var(--ease),opacity .3s var(--ease);pointer-events:none}
-.sticky-cta.show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
-.sticky-cta .btn{box-shadow:0 16px 44px rgba(11,24,50,.34)}
-@media(max-width:560px){.sticky-cta{left:14px;right:14px;bottom:14px;transform:translateY(130px)}.sticky-cta.show{transform:translateY(0)}.sticky-cta .btn{width:100%;justify-content:center}}
 
 /* compteur : pulsation à chaque tick */
 .cd-num.tick{animation:cdTick .55s var(--ease)}
