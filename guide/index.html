@@ -69,7 +69,17 @@
   .cat-pill.on{color:#15395B;border-bottom-color:#DAEF52}
   .cat-pill.on .ic{filter:none;opacity:1}
 
+  .gr-more-toggle{display:none}
+  .guide-more-filters[hidden]{display:block}
+  @media(max-width:900px){
+    .gr-more-toggle{display:flex;width:100%;justify-content:center;align-items:center;gap:6px;border:none;background:none;color:#3F93C4;font:inherit;font-size:.84rem;font-weight:700;padding:8px 0;cursor:pointer;border-top:1px solid #e4edf5}
+    .gr-more-toggle .chev{display:inline-block;transition:transform .2s}
+    .gr-more-toggle.open .chev{transform:rotate(180deg)}
+    .guide-more-filters[hidden]{display:none}
+  }
+
   .guide-refine{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding-top:10px;border-top:1px solid #e4edf5}
+  @media(max-width:900px){.guide-refine{border-top:none;padding-top:6px}}
   .gr-select{border:1.5px solid #e4edf5;background:#fff;color:#15395B;font:inherit;font-size:.82rem;font-weight:600;padding:8px 14px;border-radius:100px;cursor:pointer;transition:border-color .18s}
   .gr-select:hover{border-color:#3F93C4}
   .gr-toggle{border:1.5px solid #e4edf5;background:#fff;color:#5C7993;font:inherit;font-size:.82rem;font-weight:700;padding:8px 14px;border-radius:100px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .18s}
@@ -110,6 +120,22 @@
   .gm-reset{position:absolute;top:14px;right:14px;z-index:500;background:#fff;border:none;border-radius:100px;padding:9px 16px;font:inherit;font-size:.82rem;font-weight:700;color:#15395B;box-shadow:0 6px 18px rgba(21,57,91,.22);cursor:pointer;transition:transform .15s}
   .gm-reset:hover{transform:translateY(-2px)}
   @media(max-width:900px){#flore-map{height:calc(100vh - 320px);min-height:380px}}
+
+  /* ===== Mode plein écran mobile (façon Google Maps) : la carte occupe
+     tout l'écran, la recherche/les filtres flottent par-dessus. ===== */
+  @media(max-width:900px){
+    body.guide-map-full{overflow:hidden}
+    body.guide-map-full .guide-section{padding:0}
+    body.guide-map-full .guide-map-wrap{position:fixed;inset:0;z-index:50}
+    body.guide-map-full #flore-map{height:100vh;border-radius:0;box-shadow:none}
+    body.guide-map-full .guide-search-panel{
+      position:fixed;top:78px;left:12px;right:12px;z-index:90;margin:0;
+      max-height:calc(100vh - 160px);overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
+    }
+    body.guide-map-full .leaflet-top{top:80px}
+    body.guide-map-full .gm-reset{top:84px}
+  }
 
   .guide-card{display:block;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 8px 26px rgba(21,57,91,.1);border:2px solid transparent;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
   .guide-card[hidden]{display:none}
@@ -188,9 +214,14 @@
 </header>
 
 <!-- GUIDE : LISTE + CARTE -->
-<section class="sec" style="padding-top:0">
+<section class="sec guide-section" style="padding-top:0">
   <div class="wrap">
-    <div class="guide-search-panel" data-aos="fade-up">
+    <div class="guide-search-panel" id="guide-search-panel">
+      <div class="guide-view-toggle" id="guide-view-toggle">
+        <button type="button" class="gvt-btn on" data-view="map">🗺️ Carte</button>
+        <button type="button" class="gvt-btn" data-view="list">📋 Liste</button>
+      </div>
+
       <div class="guide-search-bar">
         <span class="gsb-ic">🔍</span>
         <input type="text" id="search-input" placeholder="Rechercher un établissement, une ville, une spécialité..." autocomplete="off">
@@ -220,24 +251,23 @@
         <div class="gc-fade" aria-hidden="true"></div>
       </div>
 
-      <div class="guide-refine">
-        <select class="gr-select" id="filter-ville" aria-label="Filtrer par ville">
-          <option value="">Toutes les villes</option>
-        </select>
-        <button type="button" class="gr-toggle" id="filter-gluten" aria-pressed="false"><span class="ic">🌾</span> Sans gluten</button>
-        <button type="button" class="gr-toggle" id="filter-lactose" aria-pressed="false"><span class="ic">🥛</span> Sans lactose</button>
-        <button type="button" class="gr-toggle gr-toggle-strict" id="filter-dedie" aria-pressed="false"><span class="ic">💯</span> 100 % dédié uniquement</button>
+      <button type="button" class="gr-more-toggle" id="btn-more-filters"><span class="lbl">Plus de filtres</span> <span class="chev">▾</span></button>
+
+      <div class="guide-more-filters" id="guide-more-filters" hidden>
+        <div class="guide-refine">
+          <select class="gr-select" id="filter-ville" aria-label="Filtrer par ville">
+            <option value="">Toutes les villes</option>
+          </select>
+          <button type="button" class="gr-toggle" id="filter-gluten" aria-pressed="false"><span class="ic">🌾</span> Sans gluten</button>
+          <button type="button" class="gr-toggle" id="filter-lactose" aria-pressed="false"><span class="ic">🥛</span> Sans lactose</button>
+          <button type="button" class="gr-toggle gr-toggle-strict" id="filter-dedie" aria-pressed="false"><span class="ic">💯</span> 100 % dédié uniquement</button>
+          <button type="button" class="gt-locate" id="btn-locate">📍 Utiliser ma position</button>
+        </div>
       </div>
 
       <div class="guide-toolbar">
-        <button type="button" class="gt-locate" id="btn-locate">📍 Utiliser ma position</button>
         <span class="gt-count" id="guide-count"></span>
       </div>
-    </div>
-
-    <div class="guide-view-toggle" id="guide-view-toggle">
-      <button type="button" class="gvt-btn on" data-view="list">📋 Liste</button>
-      <button type="button" class="gvt-btn" data-view="map">🗺️ Carte</button>
     </div>
 
     <!--
@@ -247,7 +277,7 @@
       viennent de assets/data/guide-etablissements.json (fetch). À chaque établissement
       validé, il faut mettre à jour LES DEUX : voir README.md, section "Guide FLORE".
     -->
-    <div class="guide-split view-list" data-aos="fade-up">
+    <div class="guide-split view-map">
       <div class="guide-list-outer">
       <div class="guide-list" id="guide-list">
         <a class="guide-card" href="/guide/flore-festival-lagnieu/"
@@ -333,7 +363,7 @@
   AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
   document.getElementById('year').textContent = new Date().getFullYear();
   const nav = document.getElementById('nav');
-  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30 || document.body.classList.contains('guide-map-full'));
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
 
@@ -620,6 +650,18 @@
       });
     });
 
+    // ---- Repli "Plus de filtres" (mobile) ----
+    const btnMoreFilters = document.getElementById('btn-more-filters');
+    const moreFiltersEl = document.getElementById('guide-more-filters');
+    if(btnMoreFilters){
+      btnMoreFilters.addEventListener('click', function(){
+        const show = moreFiltersEl.hidden;
+        moreFiltersEl.hidden = !show;
+        btnMoreFilters.classList.toggle('open', show);
+        btnMoreFilters.querySelector('.lbl').textContent = show ? 'Moins de filtres' : 'Plus de filtres';
+      });
+    }
+
     // ---- Filtre ville (peuplé dynamiquement depuis le JSON) ----
     const filterVilleEl = document.getElementById('filter-ville');
     filterVilleEl.addEventListener('change', function(){
@@ -661,7 +703,14 @@
       updateFade();
     }
 
-    // ---- Bascule Liste / Carte (mobile) ----
+    // ---- Bascule Liste / Carte (mobile) : la carte occupe alors tout
+    // l'écran, façon Google Maps, avec la recherche/les filtres flottant
+    // par-dessus (voir CSS body.guide-map-full).
+    function updateFullscreen(v){
+      const isMobile = window.innerWidth <= 900;
+      document.body.classList.toggle('guide-map-full', isMobile && v === 'map');
+      if(typeof onScroll === 'function') onScroll();
+    }
     function setView(v){
       if(!splitEl) return;
       splitEl.classList.remove('view-list', 'view-map');
@@ -669,6 +718,7 @@
       if(viewToggle){
         viewToggle.querySelectorAll('.gvt-btn').forEach(function(b){ b.classList.toggle('on', b.dataset.view === v); });
       }
+      updateFullscreen(v);
       if(v === 'map' && map) setTimeout(function(){ map.invalidateSize(); }, 260);
     }
     if(viewToggle){
@@ -676,6 +726,11 @@
         btn.addEventListener('click', function(){ setView(btn.dataset.view); });
       });
     }
+    updateFullscreen('map');
+    window.addEventListener('resize', function(){
+      const active = splitEl && splitEl.classList.contains('view-map') ? 'map' : 'list';
+      updateFullscreen(active);
+    });
 
     // ---- Recentrer la carte sur tous les résultats visibles ----
     function fitMapToMarkers(){

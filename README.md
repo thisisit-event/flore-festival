@@ -374,6 +374,36 @@ rencontrés plus tôt. Réflexe à avoir : **toute nouvelle classe utilisant
 `.ma-classe[hidden]{display:none}`** si elle définit elle-même une valeur de
 `display`.
 
+**Filtres ville / gluten / lactose / dédié** (2026-07-04) : ligne
+`.guide-refine` avec un `<select>` ville (peuplé dynamiquement depuis le
+champ `ville` du JSON, voir plus haut) et trois toggles (🌾/🥛/💯). Logique
+dans `passeFiltres()` : `filterGluten`/`filterLactose` montrent tout
+établissement ayant le champ renseigné (`"dedie"` ou `"options"`) ;
+`filterDedie` restreint alors aux seuls `"dedie"`. "Utiliser ma position"
+vit sur la même ligne (même conteneur `.guide-refine`).
+
+**Mode plein écran mobile façon Google Maps** (2026-07-04, sous 900px) :
+- Vue par défaut = Carte (`view-map`), pas Liste — la carte est ce qu'on
+  priorise. Onglets Carte/Liste déplacés à l'intérieur de
+  `.guide-search-panel` (pas un élément flottant séparé) : le bandeau
+  cookies (`z-index:9000`, ancré en bas) entrait en conflit avec un
+  toggle ancré en bas indépendant.
+- En vue Carte, `body.guide-map-full` est posé sur `<body>` : la carte
+  passe en `position:fixed;inset:0` plein viewport (coins carrés, plus
+  d'ombre), et `.guide-search-panel` devient une carte flottante
+  `position:fixed` par-dessus. La nav est forcée en mode `.scrolled`
+  (fond blanc) via `onScroll()` — sans ça le logo transparent se mélange
+  visuellement à la carte en dessous.
+- Le panneau flottant reste volontairement compact (recherche + catégories
+  seulement) : ville/gluten/lactose/dédié/position sont repliés derrière
+  un bouton "Plus de filtres" (`#btn-more-filters` / `#guide-more-filters`)
+  pour laisser un maximum de carte visible. Sur desktop, ce repli est
+  neutralisé (`.guide-more-filters[hidden]{display:block}` hors media
+  query mobile) : tout reste affiché en permanence.
+- Contrôles de zoom Leaflet et bouton "Voir tout" décalés vers le bas
+  (`top:80-84px`) en plein écran pour ne pas passer sous la nav désormais
+  opaque.
+
 ## À compléter / confirmer
 
 - Lieu exact et adresse à Lagnieu
