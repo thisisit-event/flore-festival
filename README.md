@@ -280,13 +280,22 @@ Adapter dans le duplicata :
   "@type": "{{Restaurant|Bakery|GroceryStore|LocalBusiness}}",
   "name": "{{Nom}}",
   "description": "{{description}}",
+  "image": "{{images.principale}}",
   "address": { "@type": "PostalAddress", "addressLocality": "{{Ville}}", "addressCountry": "FR" },
   "geo": { "@type": "GeoCoordinates", "latitude": {{lat}}, "longitude": {{lng}} },
+  "telephone": "{{telephone, si fourni — sinon omettre le champ}}",
   "url": "https://flore-festival.fr/guide/{{slug}}/",
-  "sameAs": ["{{site}}", "{{instagram}}"]
+  "sameAs": ["{{site}}", "{{instagram}}"],
+  "isPartOf": { "@id": "https://flore-festival.fr/#website" }
 }
 </script>
 ```
+
+`isPartOf` est ce qui fait le pont structuré retour vers FLORE : ça dit
+explicitement à Google que cette fiche `LocalBusiness` fait partie du site
+flore-festival.fr, pas juste un lien texte. `image` + `telephone` (si connu)
+améliorent les chances de rich snippet. Ne jamais omettre `isPartOf` : c'est
+la traduction technique du principe « si on les trouve, on trouve FLORE ».
 
 Structure du corps (toutes les classes existent déjà dans le fichier de
 référence, ne pas en réinventer d'autres) :
@@ -314,12 +323,14 @@ référence, ne pas en réinventer d'autres) :
      (`.btn-fiche.primary/.sun/.ghost`) : site web, et si `boutique_flore:
      true` un lien vers `/exposants/boutique/`, plus un retour carte vers
      `/guide/#{{slug}}` (rouvre le pin correspondant automatiquement).
-5. **Nav forcée en mode "scrolled"** : la fiche a un fond blanc dès le haut,
-   donc script en bas de page `nav.classList.add('scrolled')` — sans ça le
-   logo et les liens de la nav sont blancs sur blanc, invisibles.
+5. **Nav standard au scroll** (`nav.classList.toggle('scrolled', window.scrollY
+   > 30)`) : rien de spécial à faire, la fiche garde le ciel bleu FLORE en
+   hero donc la nav transparente-puis-scrollée fonctionne normalement, comme
+   sur le reste du site.
 
 Même nav/footer (chrome partagé) que les autres pages `/guide/` et
-`/exposants/`.
+`/exposants/` — nav allégée automatique via `nav.js` (voir plus haut,
+section nav Guide).
 
 ## À compléter / confirmer
 
