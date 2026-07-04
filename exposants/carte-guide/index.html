@@ -48,8 +48,20 @@
   .profil-card:hover{border-color:var(--sky)}
   .profil-card.selected{border-color:var(--sun-deep);background:var(--sun-pale)}
 
+  /* Étape Galerie : choix lien vs email */
+  .photo-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+  @media(max-width:640px){.photo-choice-grid{grid-template-columns:1fr}}
+  .photo-choice{position:relative;border:2px solid var(--line);border-radius:16px;padding:18px;text-align:center;cursor:pointer;background:#fff;transition:all .18s;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .photo-choice input{position:absolute;opacity:0;pointer-events:none}
+  .photo-choice:hover{border-color:var(--sky)}
+  .photo-choice:has(input:checked){border-color:var(--sun-deep);background:var(--sun-pale)}
+  .photo-choice .pc-ic{font-size:1.7rem}
+  .photo-choice .pc-label{font-size:.94rem;font-weight:700;color:var(--ink)}
+  .photo-choice .pc-sub{font-size:.8rem;color:var(--ink-soft)}
+
   /* Fields (réutilise les conventions des autres formulaires du site) */
   .f-row{display:grid;gap:16px;margin-bottom:16px}
+  .f-row[hidden]{display:none}
   .f-row.two{grid-template-columns:1fr 1fr}
   .f-row.three{grid-template-columns:1fr 1fr 1fr}
   @media(max-width:640px){.f-row.two,.f-row.three{grid-template-columns:1fr}}
@@ -246,14 +258,34 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 5 : GALERIE (lien vers photos hébergées, pas d'upload — voir README) -->
+          <!-- ÉTAPE 5 : GALERIE (lien vers photos hébergées OU email, pas d'upload — voir README) -->
           <div class="wiz-step" data-step="5">
             <div class="wiz-steplabel">Étape 6 / 7 · Galerie</div>
             <h2 style="color:var(--ink);margin-bottom:6px">Vos photos</h2>
-            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Ce formulaire n'envoie pas de fichiers : indiquez-nous un lien vers vos photos (Google Drive, Instagram, votre site...), on les récupère nous-mêmes. Sans photos, votre fiche ne peut pas être publiée sur le Guide.</p>
-            <div class="f-row">
-              <div class="f-field"><label>Lien vers vos photos <span class="f-required">*</span></label><input type="url" id="in-photos-lien" name="lien_photos" placeholder="https://drive.google.com/... ou https://instagram.com/monetablissement" required></div>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Ce formulaire n'envoie pas de fichiers. Choisissez comment nous faire parvenir vos photos. Sans photos, votre fiche ne peut pas être publiée sur le Guide.</p>
+
+            <div class="photo-choice-grid">
+              <label class="photo-choice">
+                <input type="radio" name="photo_mode" id="photo-mode-lien" value="lien" checked>
+                <span class="pc-ic">🔗</span>
+                <span class="pc-label">Ajouter un lien</span>
+                <span class="pc-sub">Google Drive, Instagram, votre site...</span>
+              </label>
+              <label class="photo-choice">
+                <input type="radio" name="photo_mode" id="photo-mode-email" value="email">
+                <span class="pc-ic">📧</span>
+                <span class="pc-label">Envoyer par email</span>
+                <span class="pc-sub">à contact@flore-festival.fr</span>
+              </label>
             </div>
+
+            <div class="f-row" id="photo-lien-row">
+              <div class="f-field"><label>Lien vers vos photos</label><input type="url" id="in-photos-lien" name="lien_photos" placeholder="https://drive.google.com/... ou https://instagram.com/monetablissement"></div>
+            </div>
+            <div class="cert-box" id="photo-email-note" hidden>
+              <p style="color:var(--ink-soft);font-size:.9rem;margin:0">Envoyez vos photos à <strong>contact@flore-festival.fr</strong> avec le nom de votre établissement en objet, dès que possible après cette candidature.</p>
+            </div>
+
             <div class="cert-box">
               <h3>📸 Ce qu'on recherche</h3>
               <ul class="cert-list">
@@ -261,7 +293,6 @@
                 <li>⭐ 1 photo principale (sert de couverture à votre fiche)</li>
                 <li>📸 4 photos secondaires (produits, intérieur, extérieur, équipe...)</li>
               </ul>
-              <p style="color:var(--ink-soft);font-size:.87rem;margin:0">Pas encore de lien accessible ? Écrivez-nous à contact@flore-festival.fr avant de continuer.</p>
             </div>
             <label class="consent-row" style="margin-top:16px">
               <input type="checkbox" id="in-photos-droits" required>
@@ -389,6 +420,10 @@
       window.scrollTo({ top: document.querySelector('.wiz-head').offsetTop - 100, behavior:'smooth' });
     }
 
+    function isValidEmail(v){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
     function validateStep(i){
       if (i === 0 && !document.getElementById('profil-value').value){
         alert('Merci de choisir un profil pour continuer.');
@@ -403,10 +438,37 @@
             return false;
           }
         }
+        if (document.getElementById('in-nom').value.trim().length < 2){
+          alert('Merci d\'indiquer un vrai nom d\'établissement.');
+          document.getElementById('in-nom').focus();
+          return false;
+        }
+        if (document.getElementById('in-description').value.trim().length < 10){
+          alert('Merci de rédiger une description un peu plus complète (quelques mots suffisent).');
+          document.getElementById('in-description').focus();
+          return false;
+        }
+        if (document.getElementById('in-adresse').value.trim().length < 4){
+          alert('Merci d\'indiquer une adresse valide.');
+          document.getElementById('in-adresse').focus();
+          return false;
+        }
+        if (document.getElementById('in-ville').value.trim().length < 2){
+          alert('Merci d\'indiquer une vraie ville.');
+          document.getElementById('in-ville').focus();
+          return false;
+        }
+        if (!isValidEmail(document.getElementById('in-email').value.trim())){
+          alert('Merci d\'indiquer une adresse email valide (exemple : vous@exemple.fr).');
+          document.getElementById('in-email').focus();
+          return false;
+        }
       }
       if (i === 5){
-        if (!document.getElementById('in-photos-lien').value.trim()){
-          alert('Merci d\'indiquer un lien vers vos photos pour continuer.');
+        const photoMode = form.querySelector('[name=photo_mode]:checked').value;
+        if (photoMode === 'lien' && !document.getElementById('in-photos-lien').value.trim()){
+          alert('Merci d\'indiquer un lien vers vos photos, ou choisissez l\'envoi par email.');
+          document.getElementById('in-photos-lien').focus();
           return false;
         }
         if (!document.getElementById('in-photos-droits').checked){
@@ -445,6 +507,19 @@
       acGluten.checked = acLesDeux.checked;
       acLactose.checked = acLesDeux.checked;
       updatePreview();
+    });
+
+    // ---- Étape 6 : choix lien vs email pour les photos ----
+    const photoLienRow = document.getElementById('photo-lien-row');
+    const photoEmailNote = document.getElementById('photo-email-note');
+    const photoLienInput = document.getElementById('in-photos-lien');
+    form.querySelectorAll('[name=photo_mode]').forEach(function(radio){
+      radio.addEventListener('change', function(){
+        const isLien = form.querySelector('[name=photo_mode]:checked').value === 'lien';
+        photoLienRow.hidden = !isLien;
+        photoEmailNote.hidden = isLien;
+        if (!isLien) photoLienInput.value = '';
+      });
     });
 
     // ---- Étape 3 : toggles Oui/Non ----

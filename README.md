@@ -196,6 +196,22 @@ compresse/héberge sur le CDN, puis ajoute les URLs dans
 `images.secondaires`). **Ne jamais réintroduire `<input type="file">` sur ce
 formulaire** sans re-vérifier d'abord que le plan Web3Forms le permet.
 
+Depuis le 2026-07-04, l'étape Galerie propose un vrai choix visible entre
+deux cases (`.photo-choice`, radio caché derrière un label cliquable comme
+`.chip`) : « Ajouter un lien » ou « Envoyer par email » — plutôt qu'un champ
+lien marqué d'un simple astérisque. Le mode email retire l'obligation du
+champ lien (`validateStep` vérifie `photo_mode` avant d'exiger le lien).
+
+**Validation de l'étape 2 (infos générales) renforcée** (2026-07-04) : un
+test réel a montré qu'un champ rempli d'une seule lettre passait la
+validation (elle ne vérifiait que `!value.trim()`, pas le format). Ajout
+d'une vraie vérification d'email (regex) et de longueurs minimales
+raisonnables sur nom/description/adresse/ville. Le formulaire garde
+`novalidate` sur la balise `<form>` (UI d'erreur custom plutôt que les
+bulles natives du navigateur), donc toute contrainte de format doit être
+vérifiée à la main dans `validateStep()` — la validation HTML5 seule
+(`type="email"`, `required`) ne suffit pas si `novalidate` est présent.
+
 **Traitement des candidatures et demandes de modif par lots, pas en temps
 réel** : le même formulaire sert aussi bien pour une nouvelle inscription que
 pour une demande de modification ultérieure (pas de formulaire séparé à
