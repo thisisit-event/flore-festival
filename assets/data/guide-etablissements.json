@@ -47,5 +47,30 @@
         "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png"
       ]
     }
+  },
+  {
+    "id": "holala-horchata",
+    "slug": "holala-horchata",
+    "nom": "Holala Horchata",
+    "type": "Marque alimentaire",
+    "lat": 44.150746,
+    "lng": 4.111662,
+    "adresse": "54c Chemin de la Massipe, 30340 Saint-Privat-des-Vieux",
+    "ville": "Saint-Privat-des-Vieux",
+    "gluten": "dedie",
+    "lactose": "dedie",
+    "description": "Lait végétal de souchet (horchata), sans sucre ajouté, sans gluten et sans lactose, né du besoin de sa fondatrice de mieux vivre avec la maladie de Crohn et le syndrome de l'intestin irritable. Naturellement sans les principaux allergènes, dont les fruits à coque.",
+    "site": "https://www.holala-horchata.com",
+    "email": "contact@holala-horchata.com",
+    "boutique_flore": false,
+    "images": {
+      "principale": "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+      "secondaires": [
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png"
+      ]
+    }
   }
 ]
