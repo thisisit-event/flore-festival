@@ -267,8 +267,8 @@
         </div>
 
         <div class="guide-refine">
-          <select class="gr-select" id="filter-ville" aria-label="Filtrer par ville">
-            <option value="">Toutes les villes</option>
+          <select class="gr-select" id="filter-region" aria-label="Filtrer par région">
+            <option value="">Toutes les régions</option>
           </select>
           <button type="button" class="gr-toggle" id="filter-gluten" aria-pressed="false"><span class="ic">🌾</span> Sans gluten</button>
           <button type="button" class="gr-toggle" id="filter-lactose" aria-pressed="false"><span class="ic">🥛</span> Sans lactose</button>
@@ -305,7 +305,7 @@
         </a>
 
         <a class="guide-card" href="/guide/la-graine-gourmande/"
-           data-slug="la-graine-gourmande" data-type="Autre" data-gluten="options" data-lactose="dedie" data-ville="Mandelieu-la-Napoule">
+           data-slug="la-graine-gourmande" data-type="Autre" data-gluten="options" data-lactose="dedie" data-region="Provence-Alpes-Côte d'Azur">
           <div class="gc-top"><span class="gc-pin pin-bicolore"></span><span class="gc-type">Autre</span></div>
           <h3>La Graine Gourmande</h3>
           <div class="gc-status"><span>🌾 Options sans gluten</span><span>🥛 100 % sans lactose</span></div>
@@ -317,7 +317,7 @@
         </a>
 
         <a class="guide-card" href="/guide/holala-horchata/"
-           data-slug="holala-horchata" data-type="Marque alimentaire" data-gluten="dedie" data-lactose="dedie" data-ville="Saint-Privat-des-Vieux">
+           data-slug="holala-horchata" data-type="Marque alimentaire" data-gluten="dedie" data-lactose="dedie" data-region="Occitanie">
           <div class="gc-top"><span class="gc-pin pin-bicolore"></span><span class="gc-type">Marque alimentaire</span></div>
           <h3>Holala Horchata</h3>
           <div class="gc-status"><span>🌾 100 % sans gluten</span><span>🥛 100 % sans lactose</span></div>
@@ -329,7 +329,7 @@
         </a>
 
         <a class="guide-card" href="/guide/la-goose/"
-           data-slug="la-goose" data-type="Autre" data-gluten="dedie" data-lactose="dedie" data-ville="Cros">
+           data-slug="la-goose" data-type="Autre" data-gluten="dedie" data-lactose="dedie" data-region="Occitanie">
           <div class="gc-top"><span class="gc-pin pin-bicolore"></span><span class="gc-type">Autre</span></div>
           <h3>La Goose</h3>
           <div class="gc-status"><span>🌾 100 % sans gluten</span><span>🥛 100 % sans lactose</span></div>
@@ -341,7 +341,7 @@
         </a>
 
         <a class="guide-card" href="/guide/sourire-en-sucre/"
-           data-slug="sourire-en-sucre" data-type="Marque alimentaire" data-gluten="dedie" data-ville="Josse">
+           data-slug="sourire-en-sucre" data-type="Marque alimentaire" data-gluten="dedie" data-region="Nouvelle-Aquitaine">
           <div class="gc-top"><span class="gc-pin pin-gluten"></span><span class="gc-type">Marque alimentaire</span></div>
           <h3>Sourire en sucre</h3>
           <div class="gc-status"><span>🌾 100 % sans gluten</span></div>
@@ -353,7 +353,7 @@
         </a>
 
         <a class="guide-card" href="/guide/glut/"
-           data-slug="glut" data-type="Restaurant" data-gluten="dedie" data-lactose="options" data-ville="Bordeaux">
+           data-slug="glut" data-type="Restaurant" data-gluten="dedie" data-lactose="options" data-region="Nouvelle-Aquitaine">
           <div class="gc-top"><span class="gc-pin pin-bicolore"></span><span class="gc-type">Restaurant</span></div>
           <h3>Glut</h3>
           <div class="gc-status"><span>🌾 100 % sans gluten</span><span>🥛 Options sans lactose</span></div>
@@ -467,7 +467,7 @@
     let markerLayer = null;
     let userMarker = null;
     let currentCategory = '';
-    let currentVille = '';
+    let currentRegion = '';
     let filterGluten = false;
     let filterLactose = false;
     let filterDedie = false;
@@ -529,10 +529,10 @@
       return escapeHtml(text.slice(0,i)) + '<mark>' + escapeHtml(text.slice(i,i+term.length)) + '</mark>' + escapeHtml(text.slice(i+term.length));
     }
 
-    // ---- Filtres : catégorie, ville, gluten/lactose, recherche texte ----
+    // ---- Filtres : catégorie, région, gluten/lactose, recherche texte ----
     function passeFiltres(item){
       if(currentCategory && item.type !== currentCategory) return false;
-      if(currentVille && item.ville !== currentVille) return false;
+      if(currentRegion && item.region !== currentRegion) return false;
       if(filterGluten){
         if(!item.gluten) return false;
         if(filterDedie && item.gluten !== 'dedie') return false;
@@ -557,7 +557,7 @@
           type: card.dataset.type,
           gluten: card.dataset.gluten || null,
           lactose: card.dataset.lactose || null,
-          ville: card.dataset.ville || null,
+          region: card.dataset.region || null,
           adresse: card.querySelector('.gc-loc') ? card.querySelector('.gc-loc').textContent : ''
         };
         const show = passeFiltres(item);
@@ -737,10 +737,10 @@
       });
     }
 
-    // ---- Filtre ville (peuplé dynamiquement depuis le JSON) ----
-    const filterVilleEl = document.getElementById('filter-ville');
-    filterVilleEl.addEventListener('change', function(){
-      currentVille = filterVilleEl.value;
+    // ---- Filtre région (peuplé dynamiquement depuis le JSON) ----
+    const filterRegionEl = document.getElementById('filter-region');
+    filterRegionEl.addEventListener('change', function(){
+      currentRegion = filterRegionEl.value;
       render();
     });
 
@@ -892,11 +892,11 @@
       .then(function(r){ return r.json(); })
       .then(function(data){
         etablissements = Array.isArray(data) ? data : [];
-        const villes = Array.from(new Set(etablissements.filter(function(e){ return e.ville; }).map(function(e){ return e.ville; }))).sort();
-        villes.forEach(function(v){
+        const regions = Array.from(new Set(etablissements.filter(function(e){ return e.region; }).map(function(e){ return e.region; }))).sort();
+        regions.forEach(function(r){
           const opt = document.createElement('option');
-          opt.value = v; opt.textContent = v;
-          filterVilleEl.appendChild(opt);
+          opt.value = r; opt.textContent = r;
+          filterRegionEl.appendChild(opt);
         });
         render();
         if(map){

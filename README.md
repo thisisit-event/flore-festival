@@ -161,10 +161,16 @@ Tableau d'objets, un par établissement :
   (cuisine mixte, contamination maîtrisée), ou absent si non concerné. Piloté
   par les filtres 🌾/🥛 et le toggle "100 % dédié uniquement" de
   `/guide/index.html` (2026-07-04).
-- `ville` : optionnel, alimente dynamiquement le `<select>` de filtre ville
-  (peuplé au chargement du JSON, pas de liste à maintenir à la main). Ne pas
-  renseigner tant que le lieu d'un établissement doit rester flouté (cas de
-  la fiche FLORE Festival elle-même, volontairement absent).
+- `ville` : optionnel, affichée sur la fiche et la carte de liste (`.gc-loc`).
+  Ne pas renseigner tant que le lieu d'un établissement doit rester flouté
+  (cas de la fiche FLORE Festival elle-même, volontairement absent).
+- `region` : optionnel, alimente dynamiquement le `<select>` de filtre région
+  de `/guide/index.html` (peuplé au chargement du JSON, pas de liste à
+  maintenir à la main — 2026-07-05, remplace un filtre par ville jugé trop
+  fin pour le nombre d'établissements du Guide). Reprendre tel quel le champ
+  "Region" du formulaire de candidature (nom de région française, ex.
+  "Nouvelle-Aquitaine", "Occitanie"). Même règle que `ville` : absent tant
+  que le lieu doit rester flouté.
 - `boutique_flore` : `true` si la marque est aussi référencée à la Boutique
   Flore → un bouton apparaît sur sa fiche du Guide vers `/exposants/boutique/`.
 
@@ -328,7 +334,7 @@ demander à l'utilisateur avant de publier plutôt que de publier par défaut.
    `.guide-card-ghost` qui doit rester la dernière — elle n'est pas filtrée et
    sert de CTA permanent « votre établissement ici »), avec les attributs
    `data-slug` (identique au `slug` du JSON), `data-type`, `data-gluten`,
-   `data-lactose`, `data-ville` (si renseigné) à jour — c'est ce bloc qui est
+   `data-lactose`, `data-region` (si renseigné) à jour — c'est ce bloc qui est
    filtré/affiché dans la liste et qui est crawlable par Google sans JS.
 3. **Créer la fiche** à `/guide/{slug}/index.html` à partir du template
    ci-dessous (title, meta description et JSON-LD uniques → indexation
@@ -467,13 +473,14 @@ rencontrés plus tôt. Réflexe à avoir : **toute nouvelle classe utilisant
 `.ma-classe[hidden]{display:none}`** si elle définit elle-même une valeur de
 `display`.
 
-**Filtres ville / gluten / lactose / dédié** (2026-07-04) : ligne
-`.guide-refine` avec un `<select>` ville (peuplé dynamiquement depuis le
-champ `ville` du JSON, voir plus haut) et trois toggles (🌾/🥛/💯). Logique
-dans `passeFiltres()` : `filterGluten`/`filterLactose` montrent tout
-établissement ayant le champ renseigné (`"dedie"` ou `"options"`) ;
-`filterDedie` restreint alors aux seuls `"dedie"`. "Utiliser ma position"
-vit sur la même ligne (même conteneur `.guide-refine`).
+**Filtres région / gluten / lactose / dédié** (2026-07-04, filtre ville
+remplacé par région le 2026-07-05) : ligne `.guide-refine` avec un `<select>`
+région (peuplé dynamiquement depuis le champ `region` du JSON, voir plus
+haut) et trois toggles (🌾/🥛/💯). Logique dans `passeFiltres()` :
+`filterGluten`/`filterLactose` montrent tout établissement ayant le champ
+renseigné (`"dedie"` ou `"options"`) ; `filterDedie` restreint alors aux
+seuls `"dedie"`. "Utiliser ma position" vit sur la même ligne (même
+conteneur `.guide-refine`).
 
 **Mode plein écran mobile façon Google Maps** (2026-07-04, sous 900px) :
 - Vue par défaut = Carte (`view-map`), pas Liste — la carte est ce qu'on
