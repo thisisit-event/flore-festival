@@ -129,5 +129,28 @@
       "principale": null,
       "secondaires": []
     }
+  },
+  {
+    "id": "chocandiz",
+    "slug": "chocandiz",
+    "nom": "Chocandiz",
+    "type": "Marque alimentaire",
+    "lat": 43.445945,
+    "lng": -1.573146,
+    "adresse": "23 Chemin de Manchulas, 64210 Bidart",
+    "ville": "Bidart",
+    "region": "Nouvelle-Aquitaine",
+    "gluten": "dedie",
+    "lactose": "dedie",
+    "description": "Chocolat artisanal Bean to Bar, fabriqué dans un atelier dédié garantissant l'absence des 14 allergènes majeurs, sans gluten et sans lactose. Tablettes, croquants, sucettes et cabosses gourmandes.",
+    "site": "https://www.chocandiz.com",
+    "instagram": "https://www.instagram.com/chocandiz/",
+    "email": "contact@chocandiz.fr",
+    "telephone": "07 66 69 44 27",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
   }
 ]
