@@ -388,13 +388,14 @@ référence, ne pas en réinventer d'autres) :
    `.fg-main`) + **exactement 4 photos secondaires** (produits, intérieur,
    extérieur, équipe...). Le wizard bloque la validation tant que ce n'est
    pas exactement 4. Tant qu'un établissement n'a pas fourni ses propres
-   photos (la majorité des candidatures, en pratique), ne rien mettre dans
-   les `.fg-cell` : pas d'`<img>` du tout, cases laissées vides (2026-07-05,
-   remplace l'usage antérieur du logo FLORE en placeholder). La grille
-   `.fiche-gallery` garde sa mise en page à 5 cases (fond `--sky-pale` uni,
-   pas de contenu) ; dès réception des vraies photos, ajouter les `<img>`
-   avec leurs URLs CDN. Jamais de photo stock, jamais le logo FLORE en
-   remplissage.
+   photos (la majorité des candidatures, en pratique) : **ne pas inclure le
+   bloc `.fiche-gallery` du tout** dans la fiche (2026-07-05, décidé après
+   deux essais : le logo FLORE en placeholder, puis des cases vides, jugées
+   toutes les deux moins bonnes qu'une fiche qui démarre directement sur
+   « À propos »). Dès réception des vraies photos, ajouter le bloc complet
+   (les classes CSS `.fiche-gallery`/`.fg-cell` restent définies dans le
+   `<style>` de chaque fiche même sans le bloc, prêtes à l'emploi). Jamais de
+   photo stock, jamais le logo FLORE en remplissage.
 4. **`.fiche-body`** (grille 2 colonnes, `.fiche-main-col` + `.fiche-side-col`
    sticky) :
    - `.fiche-main-col` : sections `<section>` séparées par une bordure —
