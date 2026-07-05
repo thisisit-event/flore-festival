@@ -39,13 +39,8 @@
     "email": "contact@lagrainegourmande.fr",
     "boutique_flore": false,
     "images": {
-      "principale": "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
-      "secondaires": [
-        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
-        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
-        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
-        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png"
-      ]
+      "principale": null,
+      "secondaires": []
     }
   },
   {
@@ -64,13 +59,8 @@
     "email": "contact@holala-horchata.com",
     "boutique_flore": false,
     "images": {
-      "principale": "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
-      "secondaires": [
-        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
-        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
-        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
-        "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png"
-      ]
+      "principale": null,
+      "secondaires": []
     }
   }
 ]

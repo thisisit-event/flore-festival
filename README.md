@@ -296,6 +296,27 @@ texte des engagements s'affichait tout en majuscules avec un espacement de
 lettres illisible sur les phrases longues. Corrigé en `.f-field>label`
 (enfant direct uniquement).
 
+### Critères de recevabilité d'une candidature (2026-07-05)
+
+Avant de traiter une candidature reçue via `/guide/inscription/`, vérifier ces
+deux critères. En cas de doute réel (pas tranché par les règles ci-dessous),
+demander à l'utilisateur avant de publier plutôt que de publier par défaut.
+
+- **SIRET actif obligatoire** : on référence des professionnels sérieux, pas
+  des « indépendants du dimanche ». Vérifier l'existence d'un SIRET actif via
+  l'API gratuite et sans clé `recherche-entreprises.api.gouv.fr` (chercher par
+  nom d'établissement/entreprise, puis par adresse exacte si rien ne remonte —
+  beaucoup de micro-entrepreneurs sont enregistrés sous leur nom personnel,
+  pas sous leur nom commercial). `etat_administratif: "A"` = actif. Pas de
+  SIRET actif trouvé → ne pas publier la fiche, ou vérifier avec l'utilisateur
+  si l'adresse/le nom pourrait être mal orthographié avant de refuser.
+- **Pertinence sans gluten / sans lactose** : le Guide reste un guide **sans
+  gluten et sans lactose**, pas un guide vegan/bio/healthy généraliste. Le
+  candidat doit avoir une offre réellement sans gluten et/ou sans lactose
+  (au moins l'un des deux, si possible les deux). Un candidat dont l'activité
+  est vegan/bio mais sans rapport clair avec le gluten ou le lactose n'est pas
+  recevable, même si son profil est par ailleurs sérieux.
+
 ### Ajouter un établissement validé par le Comité (4 étapes)
 
 1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json`, **images
@@ -367,8 +388,13 @@ référence, ne pas en réinventer d'autres) :
    `.fg-main`) + **exactement 4 photos secondaires** (produits, intérieur,
    extérieur, équipe...). Le wizard bloque la validation tant que ce n'est
    pas exactement 4. Tant qu'un établissement n'a pas fourni ses propres
-   photos, ne pas inventer de visuel : utiliser au pire les assets de marque
-   FLORE existants (voir [[flore-assets-cdn]]), jamais une photo stock.
+   photos (la majorité des candidatures, en pratique), ne rien mettre dans
+   les `.fg-cell` : pas d'`<img>` du tout, cases laissées vides (2026-07-05,
+   remplace l'usage antérieur du logo FLORE en placeholder). La grille
+   `.fiche-gallery` garde sa mise en page à 5 cases (fond `--sky-pale` uni,
+   pas de contenu) ; dès réception des vraies photos, ajouter les `<img>`
+   avec leurs URLs CDN. Jamais de photo stock, jamais le logo FLORE en
+   remplissage.
 4. **`.fiche-body`** (grille 2 colonnes, `.fiche-main-col` + `.fiche-side-col`
    sticky) :
    - `.fiche-main-col` : sections `<section>` séparées par une bordure —
