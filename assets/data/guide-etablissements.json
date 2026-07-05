@@ -62,5 +62,27 @@
       "principale": null,
       "secondaires": []
     }
+  },
+  {
+    "id": "la-goose",
+    "slug": "la-goose",
+    "nom": "La Goose",
+    "type": "Autre",
+    "lat": 43.997776,
+    "lng": 3.823274,
+    "adresse": "4712 Route de Saint Hippolyte du Fort, 30170 Cros",
+    "ville": "Cros",
+    "gluten": "dedie",
+    "lactose": "dedie",
+    "description": "Cuisine pédagogique 100 % sans gluten et sans lactose, rattachée à une chambre et table d'hôtes, avec production artisanale de pains sans gluten et restauration événementielle l'été.",
+    "site": "https://lagoose.fr/fr/accueil/",
+    "instagram": "https://www.instagram.com/lagoose.fr/",
+    "email": "jsteelentc@lagoose.fr",
+    "telephone": "06 40 46 86 39",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
   }
 ]
