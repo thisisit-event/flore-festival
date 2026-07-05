@@ -78,6 +78,20 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/la-goose/"/>
   </url>
   <url>
+    <loc>https://flore-festival.fr/guide/sourire-en-sucre/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/sourire-en-sucre/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/guide/glut/</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/glut/"/>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/sans-gluten-sans-lactose/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>

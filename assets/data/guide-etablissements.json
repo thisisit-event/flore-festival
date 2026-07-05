@@ -84,5 +84,45 @@
       "principale": null,
       "secondaires": []
     }
+  },
+  {
+    "id": "sourire-en-sucre",
+    "slug": "sourire-en-sucre",
+    "nom": "Sourire en sucre",
+    "type": "Marque alimentaire",
+    "lat": 43.643682,
+    "lng": -1.237052,
+    "adresse": "272 Route de Tambourin, 40230 Josse",
+    "ville": "Josse",
+    "gluten": "dedie",
+    "description": "Pâtisserie et biscuits artisanaux 100 % sans gluten, laboratoire et ustensiles entièrement dédiés, avec farine et graines bio certifiées sans gluten de Nouvelle-Aquitaine.",
+    "email": "sourireensucre@gmail.com",
+    "instagram": "https://www.instagram.com/sourireensucre/",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
+  },
+  {
+    "id": "glut",
+    "slug": "glut",
+    "nom": "Glut",
+    "type": "Restaurant",
+    "lat": 44.855667,
+    "lng": -0.569612,
+    "adresse": "66 Rue Barreyre, 33300 Bordeaux",
+    "ville": "Bordeaux",
+    "gluten": "dedie",
+    "lactose": "options",
+    "description": "Cantine 100 % sans gluten installée au Bali Studio à Bordeaux, cuisine maison portée par une cheffe cœliaque avec plus de 20 ans d'expérience.",
+    "email": "glutandsoul@gmail.com",
+    "telephone": "07 69 80 16 12",
+    "instagram": "https://www.instagram.com/glutfood_/",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
   }
 ]
