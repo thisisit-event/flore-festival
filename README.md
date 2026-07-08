@@ -141,13 +141,13 @@ Tableau d'objets, un par établissement :
 }
 ```
 
-- `images.principale` : sert à la fois de photo de couverture et de grande
-  image dans `.fiche-gallery` (`.fg-main`).
-- `images.secondaires` : exactement 4 URLs (voir [[flore-guide-gratuit-confirme]]
-  pour la discipline de compression avant upload sur le CDN). Ce sont ces
-  mêmes URLs qui doivent être recopiées dans le `<img src>` de la galerie de
-  la fiche HTML — le JSON est déclaré en premier, la fiche en est la
-  restitution.
+- `images` : champ vestigial, **plus jamais alimenté** (2026-07-08, voir plus
+  bas section Galerie) — le Comité n'a ni le temps ni l'espace de stockage
+  pour collecter/héberger des photos par établissement. Laissé à
+  `{ "principale": null, "secondaires": [] }` sur toutes les fiches,
+  conservé uniquement pour ne pas casser la structure si une vraie base de
+  données remplace ce fichier un jour (voir [[flore-vision-plateforme-marketplace]]).
+  Ne jamais recréer de formulaire ou d'étape demandant des photos.
 
 - `type` : une des catégories du formulaire de candidature (`Restaurant`,
   `Traiteur`, `Boutique`, `Marque alimentaire`, `Professionnel de santé`,
@@ -182,8 +182,8 @@ n'importe quel établissement (restaurant, boutique, marque, asso...) sur le
 Guide, festival ou pas. `/guide/inscription/` colle mieux au Guide dont il
 dépend et sonne plus sérieux/durable.
 
-Wizard en 7 écrans (profil, infos générales, activité, sécurité alimentaire,
-services, galerie, validation avec aperçu en direct de la fiche) — **toujours
+Wizard en 6 écrans (profil, infos générales, activité, sécurité alimentaire,
+services, validation avec aperçu en direct de la fiche) — **toujours
 sans compte ni backend** : c'est un long
 formulaire côté navigateur, envoyé par email via Web3Forms comme les autres
 formulaires du site (voir [[flore-web3forms-key]]). Aucune donnée n'est
@@ -205,26 +205,19 @@ professionnel (déjà collectés à l'étape 2), pas du Guide.
 **Aucun champ fichier dans ce formulaire** (confirmé par un test réel le
 2026-07-04 : même un seul fichier renvoie « You are trying to use a Pro
 feature » — le compte Web3Forms actif n'inclut aucun upload de fichier, pas
-seulement le mode `multiple`). À la place, l'étape 6 (Galerie) demande un
-simple champ texte `lien_photos` (URL vers Google Drive, Instagram, le site du
-professionnel...), **obligatoire** — sans photos, pas de fiche publiable sur
-le Guide. Tout arrive donc en un seul envoi Web3Forms, sans email séparé à
-recoller manuellement. Une case à cocher dédiée (`#in-photos-droits`, distincte
-du RGPD) fait certifier au candidat qu'il possède les droits sur les photos
-transmises (ou l'autorisation de les utiliser) et qu'il autorise FLORE à les
-utiliser pour sa fiche — protection minimale contre un litige de droit à
-l'image. Le Comité ouvre le
-lien, télécharge logo + 1 photo principale + 4 photos secondaires, les
-compresse/héberge sur le CDN, puis ajoute les URLs dans
-`assets/data/guide-etablissements.json` (`images.principale` /
-`images.secondaires`). **Ne jamais réintroduire `<input type="file">` sur ce
-formulaire** sans re-vérifier d'abord que le plan Web3Forms le permet.
+seulement le mode `multiple`).
 
-Depuis le 2026-07-04, l'étape Galerie propose un vrai choix visible entre
-deux cases (`.photo-choice`, radio caché derrière un label cliquable comme
-`.chip`) : « Ajouter un lien » ou « Envoyer par email » — plutôt qu'un champ
-lien marqué d'un simple astérisque. Le mode email retire l'obligation du
-champ lien (`validateStep` vérifie `photo_mode` avant d'exiger le lien).
+**Étape Galerie supprimée (2026-07-08)** : le formulaire comptait une étape
+« Galerie » (choix lien vs email, champ `lien_photos` obligatoire, case
+`#in-photos-droits`) qui rendait la publication d'une fiche conditionnée à la
+réception de photos, à charge pour le Comité de les télécharger, les
+compresser et les héberger manuellement sur le CDN. Retirée : Morgan n'a ni le
+temps ni l'espace de stockage pour tenir ce processus dans la durée. Le Guide
+reste désormais **volontairement sans photos**, ce n'est plus une étape
+transitoire en attendant que l'établissement les fournisse (ancienne
+doctrine du 2026-07-05, périmée) — c'est définitif. Toute fiche se limite au
+texte déclaré dans le formulaire. **Ne jamais réintroduire d'étape Galerie,
+de champ `lien_photos` ni de `<input type="file">` sur ce formulaire.**
 
 **Validation de l'étape 2 (infos générales) renforcée** (2026-07-04) : un
 test réel a montré qu'un champ rempli d'une seule lettre passait la
@@ -325,10 +318,11 @@ demander à l'utilisateur avant de publier plutôt que de publier par défaut.
 
 ### Ajouter un établissement validé par le Comité (4 étapes)
 
-1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json`, **images
-   comprises** (`images.principale` + les 4 `images.secondaires`, uploadées au
-   préalable sur le CDN, compressées). C'est la base de données de référence :
-   tout le reste (carte, fiche) n'en est qu'une restitution HTML.
+1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json`
+   (`images.principale`/`images.secondaires` restent `null`/`[]` — le Guide ne
+   collecte plus de photos, voir section Galerie plus haut). C'est la base de
+   données de référence : tout le reste (carte, fiche) n'en est qu'une
+   restitution HTML.
 2. **Ajouter une `.guide-card`** dans `<div class="guide-list">` de
    `/guide/index.html` (copier un bloc existant, **avant** la carte
    `.guide-card-ghost` qui doit rester la dernière — elle n'est pas filtrée et
@@ -347,9 +341,8 @@ demander à l'utilisateur avant de publier plutôt que de publier par défaut.
 fichier à l'identique pour chaque nouvel établissement, ne pas réinventer la
 structure à chaque fois. C'est volontairement différent du reste du site :
 pas de fond ciel bleu / soleil / marguerites, pas d'AOS. Une fiche est une
-page neutre et structurée façon Airbnb (galerie photo + colonne info sticky),
-pensée pour qu'on puisse les uniformiser toutes et y mettre de vraies photos
-dès qu'un établissement candidate avec ses propres visuels.
+page neutre et structurée façon Airbnb (colonne info sticky), sans galerie
+photo (voir section Galerie plus haut : le Guide ne collecte plus de photos).
 
 Adapter dans le duplicata :
 
@@ -388,20 +381,13 @@ référence, ne pas en réinventer d'autres) :
 2. **`.fiche-title-row`** : badge catégorie (`.fiche-cat-badge`), H1 avec le
    nom, ligne meta (badge « Validé par le Comité FLORE » + ville — flouter
    ce qui doit l'être, voir [[flore-date-festival]]).
-3. **`.fiche-gallery`** : grille de 5 images (1 grande + 4 petites). Règle
-   fixe, imposée dès le formulaire de candidature (`/exposants/carte-guide/`,
-   étapes 2 et 6) : **1 photo principale** (sert aussi d'image de couverture,
-   `.fg-main`) + **exactement 4 photos secondaires** (produits, intérieur,
-   extérieur, équipe...). Le wizard bloque la validation tant que ce n'est
-   pas exactement 4. Tant qu'un établissement n'a pas fourni ses propres
-   photos (la majorité des candidatures, en pratique) : **ne pas inclure le
-   bloc `.fiche-gallery` du tout** dans la fiche (2026-07-05, décidé après
-   deux essais : le logo FLORE en placeholder, puis des cases vides, jugées
-   toutes les deux moins bonnes qu'une fiche qui démarre directement sur
-   « À propos »). Dès réception des vraies photos, ajouter le bloc complet
-   (les classes CSS `.fiche-gallery`/`.fg-cell` restent définies dans le
-   `<style>` de chaque fiche même sans le bloc, prêtes à l'emploi). Jamais de
-   photo stock, jamais le logo FLORE en remplissage.
+3. **Pas de galerie photo** (2026-07-08, définitif — voir section Galerie
+   plus haut) : ne jamais inclure de bloc `.fiche-gallery` dans une fiche.
+   Les classes CSS `.fiche-gallery`/`.fg-cell` restent dans le `<style>` des
+   fiches existantes par simple historique (créées avant la décision), mais
+   ne doivent pas être reprises dans une nouvelle fiche. Jamais de photo
+   stock, jamais le logo FLORE en remplissage : une fiche démarre directement
+   sur « À propos ».
 4. **`.fiche-body`** (grille 2 colonnes, `.fiche-main-col` + `.fiche-side-col`
    sticky) :
    - `.fiche-main-col` : sections `<section>` séparées par une bordure —

@@ -48,17 +48,6 @@
   .profil-card:hover{border-color:var(--sky)}
   .profil-card.selected{border-color:var(--sun-deep);background:var(--sun-pale)}
 
-  /* Étape Galerie : choix lien vs email */
-  .photo-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
-  @media(max-width:640px){.photo-choice-grid{grid-template-columns:1fr}}
-  .photo-choice{position:relative;border:2px solid var(--line);border-radius:16px;padding:18px;text-align:center;cursor:pointer;background:#fff;transition:all .18s;display:flex;flex-direction:column;align-items:center;gap:4px}
-  .photo-choice input{position:absolute;opacity:0;pointer-events:none}
-  .photo-choice:hover{border-color:var(--sky)}
-  .photo-choice:has(input:checked){border-color:var(--sun-deep);background:var(--sun-pale)}
-  .photo-choice .pc-ic{font-size:1.7rem}
-  .photo-choice .pc-label{font-size:.94rem;font-weight:700;color:var(--ink)}
-  .photo-choice .pc-sub{font-size:.8rem;color:var(--ink-soft)}
-
   /* Fields (réutilise les conventions des autres formulaires du site) */
   .f-row{display:grid;gap:16px;margin-bottom:16px}
   .f-row[hidden]{display:none}
@@ -91,8 +80,6 @@
 
   .cert-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .cert-box h3{font-size:1.05rem;color:var(--ink);margin:0 0 10px}
-  .cert-list{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px}
-  .cert-list li{font-size:.9rem;color:var(--ink-soft);display:flex;gap:8px}
 
   .consent-row{display:flex;align-items:flex-start;gap:12px;background:#f0f7fc;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
   .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
@@ -114,7 +101,6 @@
   /* Aperçu en direct */
   .preview-col{position:sticky;top:110px}
   .preview-card{border:1.5px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
-  .preview-cover{height:150px;background:var(--sky-pale) center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:.82rem;color:var(--ink-soft)}
   .preview-body{padding:20px}
   .preview-cat{display:inline-block;background:var(--sky-pale);color:var(--sky-deep);font-size:.74rem;font-weight:700;text-transform:uppercase;border-radius:100px;padding:4px 12px;margin-bottom:8px}
   .preview-body h4{font-size:1.1rem;color:var(--ink);margin:0 0 6px}
@@ -156,7 +142,7 @@
 
           <!-- ÉTAPE 0 : PROFIL -->
           <div class="wiz-step active" data-step="0">
-            <div class="wiz-steplabel">Étape 1 / 7 · Votre profil</div>
+            <div class="wiz-steplabel">Étape 1 / 6 · Votre profil</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Quel type d'activité ?</h2>
             <div class="profil-grid" id="profil-grid">
               <div class="profil-card" data-value="Restaurant"><span class="pc-ic">🍽️</span><span class="pc-label">Restaurant</span></div>
@@ -172,7 +158,7 @@
 
           <!-- ÉTAPE 1 : INFOS GÉNÉRALES -->
           <div class="wiz-step" data-step="1">
-            <div class="wiz-steplabel">Étape 2 / 7 · Informations générales</div>
+            <div class="wiz-steplabel">Étape 2 / 6 · Informations générales</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Parlez-nous de vous</h2>
             <div class="f-row two">
               <div class="f-field"><label>Nom de l'établissement <span class="f-required">*</span></label><input type="text" name="nom_etablissement" id="in-nom" autocomplete="organization" required></div>
@@ -208,7 +194,7 @@
 
           <!-- ÉTAPE 2 : ACTIVITÉ -->
           <div class="wiz-step" data-step="2">
-            <div class="wiz-steplabel">Étape 3 / 7 · Activité</div>
+            <div class="wiz-steplabel">Étape 3 / 6 · Activité</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Comment décririez-vous votre offre ?</h2>
             <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:14px">Plusieurs choix possibles.</p>
             <div class="chip-grid" id="activite-grid">
@@ -227,7 +213,7 @@
 
           <!-- ÉTAPE 3 : SÉCURITÉ ALIMENTAIRE -->
           <div class="wiz-step" data-step="3">
-            <div class="wiz-steplabel">Étape 4 / 7 · Sécurité alimentaire</div>
+            <div class="wiz-steplabel">Étape 4 / 6 · Sécurité alimentaire</div>
             <h2 style="color:var(--ink);margin-bottom:6px">L'étape la plus importante</h2>
             <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:6px">Nos visiteurs comptent parmi les personnes les plus sensibles au gluten et au lactose : soyez précis.</p>
 
@@ -244,7 +230,7 @@
             <div class="f-row" style="margin-top:16px">
               <div class="f-field"><label>Quels protocoles appliquez-vous ?</label><textarea name="protocoles" placeholder="Ustensiles dédiés, plan de nettoyage, formation..."></textarea></div>
             </div>
-            <p style="color:var(--ink-soft);font-size:.87rem;margin:0 0 16px">Un certificat ou une attestation à joindre ? Envoyez-le par email en même temps que vos photos (voir l'étape Galerie juste après).</p>
+            <p style="color:var(--ink-soft);font-size:.87rem;margin:0 0 16px">Un certificat ou une attestation à joindre ? Envoyez-le par email à contact@flore-festival.fr avec le nom de votre établissement en objet.</p>
 
             <div class="cert-box">
               <h3>🌿 Certification FLORE</h3>
@@ -254,7 +240,7 @@
 
           <!-- ÉTAPE 4 : SERVICES -->
           <div class="wiz-step" data-step="4">
-            <div class="wiz-steplabel">Étape 5 / 7 · Services</div>
+            <div class="wiz-steplabel">Étape 5 / 6 · Services</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Quels services proposez-vous ?</h2>
             <div class="chip-grid">
               <label class="chip"><input type="checkbox" name="services" value="Parking"><span>🅿️ Parking</span></label>
@@ -271,51 +257,9 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 5 : GALERIE (lien vers photos hébergées OU email, pas d'upload — voir README) -->
+          <!-- ÉTAPE 5 : VALIDATION -->
           <div class="wiz-step" data-step="5">
-            <div class="wiz-steplabel">Étape 6 / 7 · Galerie</div>
-            <h2 style="color:var(--ink);margin-bottom:6px">Vos photos</h2>
-            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Ce formulaire n'envoie pas de fichiers. Choisissez comment nous faire parvenir vos photos. Sans photos, votre fiche ne peut pas être publiée sur le Guide.</p>
-
-            <div class="photo-choice-grid">
-              <label class="photo-choice">
-                <input type="radio" name="photo_mode" id="photo-mode-lien" value="lien" checked>
-                <span class="pc-ic">🔗</span>
-                <span class="pc-label">Ajouter un lien</span>
-                <span class="pc-sub">Google Drive, Instagram, votre site...</span>
-              </label>
-              <label class="photo-choice">
-                <input type="radio" name="photo_mode" id="photo-mode-email" value="email">
-                <span class="pc-ic">📧</span>
-                <span class="pc-label">Envoyer par email</span>
-                <span class="pc-sub">à contact@flore-festival.fr</span>
-              </label>
-            </div>
-
-            <div class="f-row" id="photo-lien-row">
-              <div class="f-field"><label>Lien vers vos photos</label><input type="url" id="in-photos-lien" name="lien_photos" placeholder="https://drive.google.com/... ou https://instagram.com/monetablissement"></div>
-            </div>
-            <div class="cert-box" id="photo-email-note" hidden>
-              <p style="color:var(--ink-soft);font-size:.9rem;margin:0">Envoyez vos photos à <strong>contact@flore-festival.fr</strong> avec le nom de votre établissement en objet, dès que possible après cette candidature.</p>
-            </div>
-
-            <div class="cert-box">
-              <h3>📸 Ce qu'on recherche</h3>
-              <ul class="cert-list">
-                <li>🖼️ Votre logo</li>
-                <li>⭐ 1 photo principale (sert de couverture à votre fiche)</li>
-                <li>📸 4 photos secondaires (produits, intérieur, extérieur, équipe...)</li>
-              </ul>
-            </div>
-            <label class="consent-row" style="margin-top:16px">
-              <input type="checkbox" id="in-photos-droits" required>
-              <span>Je certifie être propriétaire des photos transmises (ou disposer des autorisations nécessaires) et j'autorise FLORE Festival / MG Entertainment à les utiliser pour la création et l'affichage de ma fiche sur le Guide FLORE.</span>
-            </label>
-          </div>
-
-          <!-- ÉTAPE 6 : VALIDATION -->
-          <div class="wiz-step" data-step="6">
-            <div class="wiz-steplabel">Étape 7 / 7 · Validation</div>
+            <div class="wiz-steplabel">Étape 6 / 6 · Validation</div>
             <h2 style="color:var(--ink);margin-bottom:6px">Vérifiez votre fiche</h2>
             <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:10px">Tout est correct ? Vous pouvez encore modifier chaque section avant l'envoi.</p>
             <div class="wiz-summary" id="wiz-summary"></div>
@@ -339,7 +283,6 @@
         <!-- APERÇU EN DIRECT -->
         <div class="preview-col">
           <div class="preview-card">
-            <div class="preview-cover" id="preview-cover">📸 Photos à venir</div>
             <div class="preview-body">
               <span class="preview-cat" id="preview-cat">Votre profil</span>
               <h4 id="preview-nom">Nom de l'établissement</h4>
@@ -403,7 +346,7 @@
 
   (function(){
     const form = document.getElementById('wiz-form');
-    const STEP_COUNT = 7;
+    const STEP_COUNT = 6;
     let current = 0;
 
     const progressEl = document.getElementById('wiz-progress');
@@ -474,18 +417,6 @@
         if (!isValidEmail(document.getElementById('in-email').value.trim())){
           alert('Merci d\'indiquer une adresse email valide (exemple : vous@exemple.fr).');
           document.getElementById('in-email').focus();
-          return false;
-        }
-      }
-      if (i === 5){
-        const photoMode = form.querySelector('[name=photo_mode]:checked').value;
-        if (photoMode === 'lien' && !document.getElementById('in-photos-lien').value.trim()){
-          alert('Merci d\'indiquer un lien vers vos photos, ou choisissez l\'envoi par email.');
-          document.getElementById('in-photos-lien').focus();
-          return false;
-        }
-        if (!document.getElementById('in-photos-droits').checked){
-          alert('Merci de confirmer les droits sur vos photos pour continuer.');
           return false;
         }
       }
@@ -587,19 +518,6 @@
       acGluten.checked = acLesDeux.checked;
       acLactose.checked = acLesDeux.checked;
       updatePreview();
-    });
-
-    // ---- Étape 6 : choix lien vs email pour les photos ----
-    const photoLienRow = document.getElementById('photo-lien-row');
-    const photoEmailNote = document.getElementById('photo-email-note');
-    const photoLienInput = document.getElementById('in-photos-lien');
-    form.querySelectorAll('[name=photo_mode]').forEach(function(radio){
-      radio.addEventListener('change', function(){
-        const isLien = form.querySelector('[name=photo_mode]:checked').value === 'lien';
-        photoLienRow.hidden = !isLien;
-        photoEmailNote.hidden = isLien;
-        if (!isLien) photoLienInput.value = '';
-      });
     });
 
     // ---- Étape 3 : toggles Oui/Non ----
