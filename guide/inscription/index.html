@@ -563,11 +563,11 @@
       const adresse = document.getElementById('in-adresse').value;
       const ville = document.getElementById('in-ville').value;
       const email = document.getElementById('in-email').value;
-      const activite = Array.prototype.slice.call(form.querySelectorAll('[name=activite]:checked')).map(function(e){ return e.value; }).join(', ') || '—';
-      const services = Array.prototype.slice.call(form.querySelectorAll('[name=services]:checked')).map(function(e){ return e.value; }).join(', ') || '—';
+      const activite = Array.prototype.slice.call(form.querySelectorAll('[name=activite]:checked')).map(function(e){ return e.value; }).join(', ') || 'Non renseigné';
+      const services = Array.prototype.slice.call(form.querySelectorAll('[name=services]:checked')).map(function(e){ return e.value; }).join(', ') || 'Non renseigné';
 
       document.getElementById('wiz-summary').innerHTML =
-        '<section><h3>Profil <a href="#" data-goto="0">Modifier</a></h3><p>' + (profil || '—') + '</p></section>' +
+        '<section><h3>Profil <a href="#" data-goto="0">Modifier</a></h3><p>' + (profil || 'Non renseigné') + '</p></section>' +
         '<section><h3>Informations générales <a href="#" data-goto="1">Modifier</a></h3><p>' + nom + ' · ' + adresse + ', ' + ville + ' · ' + email + '</p><p>' + desc + '</p></section>' +
         '<section><h3>Activité <a href="#" data-goto="2">Modifier</a></h3><p>' + activite + '</p></section>' +
         '<section><h3>Services <a href="#" data-goto="4">Modifier</a></h3><p>' + services + '</p></section>';

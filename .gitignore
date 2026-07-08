@@ -1,7 +1,7 @@
 .DS_Store
 **/.DS_Store
 
-# Documents sources internes (pitch deck partenaires) — non publiés sur le site
+# Documents sources internes (pitch deck partenaires), non publiés sur le site
 assets/pdf/
 
 # ⚠️ Le cerveau privé (cockpit, BP, tarifs, plan village, kit, outils, tracker)
