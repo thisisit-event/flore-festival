@@ -78,7 +78,7 @@ en vue « liste + carte » façon Airbnb (Leaflet.js + fond OpenStreetMap, aucun
 clé API). Comme le reste du site, c'est **statique, sans backend, sans build**.
 
 **Fond de carte** : tuiles standard `tile.openstreetmap.org` (pas CARTO
-Positron/`light_all`, 2026-07-04) — le style CARTO affiche les noms de pays et
+Positron/`light_all`, 2026-07-04) : le style CARTO affiche les noms de pays et
 de régions en anglais (ex. « Burgundy-Free County » pour Bourgogne-Franche-Comté,
 « Island of France » pour Île-de-France), car sa couche d'étiquettes vient d'un
 jeu de données Natural Earth en anglais. Les tuiles OSM standard utilisent le
@@ -111,7 +111,7 @@ la source de vérité unique pour les infos ET les liens d'images de chaque
 fiche (pas seulement ce qui alimente les pins). Choix volontaire (2026-07-04) :
 même si le site reste 100 % statique et que ce fichier ne "génère" rien tout
 seul (voir plus haut, les cartes/fiches restent écrites à la main), tout doit
-être déclaré ici en premier — objectif : pouvoir migrer ce fichier tel quel
+être déclaré ici en premier, objectif : pouvoir migrer ce fichier tel quel
 vers une vraie base de données le jour où le Guide évolue vers une vraie appli
 (voir [[flore-vision-plateforme-marketplace]]), sans avoir à ressortir
 l'info d'un tas de fichiers HTML éparpillés.
@@ -127,7 +127,7 @@ Tableau d'objets, un par établissement :
   "lat": 45.123,
   "lng": 5.456,
   "adresse": "Ville · Département",
-  "ville": "Nom de la ville, sans accent superflu — sert au filtre ville",
+  "ville": "Nom de la ville, sans accent superflu, sert au filtre ville",
   "gluten": "dedie",
   "lactose": "options",
   "description": "1-2 phrases, ton FLORE, pas de tiret cadratin.",
@@ -142,7 +142,7 @@ Tableau d'objets, un par établissement :
 ```
 
 - `images` : champ vestigial, **plus jamais alimenté** (2026-07-08, voir plus
-  bas section Galerie) — le Comité n'a ni le temps ni l'espace de stockage
+  bas section Galerie), le Comité n'a ni le temps ni l'espace de stockage
   pour collecter/héberger des photos par établissement. Laissé à
   `{ "principale": null, "secondaires": [] }` sur toutes les fiches,
   conservé uniquement pour ne pas casser la structure si une vraie base de
@@ -153,7 +153,7 @@ Tableau d'objets, un par établissement :
   `Traiteur`, `Boutique`, `Marque alimentaire`, `Professionnel de santé`,
   `Association`, `Autre`), + `Festival` réservé à la fiche FLORE elle-même.
   Liste volontairement resserrée (2026-07-04, retiré `Boulangerie`,
-  `Pâtisserie`, `Café`, `Hôtel`, `Épicerie`, `Producteur`, `Entreprise` —
+  `Pâtisserie`, `Café`, `Hôtel`, `Épicerie`, `Producteur`, `Entreprise`,
   trop de catégories pour la taille actuelle du Guide). Doit correspondre
   exactement aux `<option>` du
   filtre catégorie de `/guide/index.html`.
@@ -166,7 +166,7 @@ Tableau d'objets, un par établissement :
   (cas de la fiche FLORE Festival elle-même, volontairement absent).
 - `region` : optionnel, alimente dynamiquement le `<select>` de filtre région
   de `/guide/index.html` (peuplé au chargement du JSON, pas de liste à
-  maintenir à la main — 2026-07-05, remplace un filtre par ville jugé trop
+  maintenir à la main (2026-07-05, remplace un filtre par ville jugé trop
   fin pour le nombre d'établissements du Guide). Reprendre tel quel le champ
   "Region" du formulaire de candidature (nom de région française, ex.
   "Nouvelle-Aquitaine", "Occitanie"). Même règle que `ville` : absent tant
@@ -183,7 +183,7 @@ Guide, festival ou pas. `/guide/inscription/` colle mieux au Guide dont il
 dépend et sonne plus sérieux/durable.
 
 Wizard en 6 écrans (profil, infos générales, activité, sécurité alimentaire,
-services, validation avec aperçu en direct de la fiche) — **toujours
+services, validation avec aperçu en direct de la fiche), **toujours
 sans compte ni backend** : c'est un long
 formulaire côté navigateur, envoyé par email via Web3Forms comme les autres
 formulaires du site (voir [[flore-web3forms-key]]). Aucune donnée n'est
@@ -204,7 +204,7 @@ professionnel (déjà collectés à l'étape 2), pas du Guide.
 
 **Aucun champ fichier dans ce formulaire** (confirmé par un test réel le
 2026-07-04 : même un seul fichier renvoie « You are trying to use a Pro
-feature » — le compte Web3Forms actif n'inclut aucun upload de fichier, pas
+feature » : le compte Web3Forms actif n'inclut aucun upload de fichier, pas
 seulement le mode `multiple`).
 
 **Étape Galerie supprimée (2026-07-08)** : le formulaire comptait une étape
@@ -215,7 +215,7 @@ compresser et les héberger manuellement sur le CDN. Retirée : Morgan n'a ni le
 temps ni l'espace de stockage pour tenir ce processus dans la durée. Le Guide
 reste désormais **volontairement sans photos**, ce n'est plus une étape
 transitoire en attendant que l'établissement les fournisse (ancienne
-doctrine du 2026-07-05, périmée) — c'est définitif. Toute fiche se limite au
+doctrine du 2026-07-05, périmée). C'est définitif. Toute fiche se limite au
 texte déclaré dans le formulaire. **Ne jamais réintroduire d'étape Galerie,
 de champ `lien_photos` ni de `<input type="file">` sur ce formulaire.**
 
@@ -226,7 +226,7 @@ d'une vraie vérification d'email (regex) et de longueurs minimales
 raisonnables sur nom/description/adresse/ville. Le formulaire garde
 `novalidate` sur la balise `<form>` (UI d'erreur custom plutôt que les
 bulles natives du navigateur), donc toute contrainte de format doit être
-vérifiée à la main dans `validateStep()` — la validation HTML5 seule
+vérifiée à la main dans `validateStep()` : la validation HTML5 seule
 (`type="email"`, `required`) ne suffit pas si `novalidate` est présent.
 
 **Auto-remplissage** (2026-07-04) :
@@ -246,7 +246,7 @@ vérifiée à la main dans `validateStep()` — la validation HTML5 seule
 **Traitement des candidatures et demandes de modif par lots, pas en temps
 réel** : le même formulaire sert aussi bien pour une nouvelle inscription que
 pour une demande de modification ultérieure (pas de formulaire séparé à
-maintenir). Le Comité ne traite pas au fil de l'eau — il regroupe les emails
+maintenir). Le Comité ne traite pas au fil de l'eau : il regroupe les emails
 reçus et les applique en une session périodique (hebdomadaire ou toutes les 2
 semaines), pour éviter qu'une fiche déjà publiée ne génère des sollicitations
 permanentes. Ce délai est annoncé au candidat dans le message de confirmation
@@ -260,7 +260,7 @@ elle est mise de côté pour l'instant.
 **Nav allégée sur tout l'écosystème Guide** (`/guide/*`, ce qui inclut
 `/guide/inscription/`, 2026-07-04) : `assets/nav.js` détecte ce préfixe
 et monte une nav minimale (logo, un seul lien "🌱 Le Festival FLORE", EN,
-Billetterie) au lieu du mega-menu complet — le Guide est pensé comme un outil
+Billetterie) au lieu du mega-menu complet : le Guide est pensé comme un outil
 de recherche quasi indépendant (utile pour du SEO local hors-festival), sans
 pour autant couper le pont de découverte vers le festival. Le CTA flottant
 "Réserver ma place" est aussi désactivé sur ces pages. Toute la logique vit
@@ -270,7 +270,7 @@ nav dupliqué à maintenir.
 Au passage, le clic sur le burger mobile (`#navToggle` → classe `.open` sur
 `#mobileMenu`) a été centralisé dans `nav.js` (`wireMobileToggle()`) : il
 était auparavant recopié dans le `<script>` de chaque page, et 6 pages
-(tout `/guide/*` et `/exposants/*`) ne l'avaient jamais reçu — le burger n'y
+(tout `/guide/*` et `/exposants/*`) ne l'avaient jamais reçu : le burger n'y
 faisait donc rien sur mobile. Ne plus dupliquer ce câblage dans une page ;
 laisser `nav.js` s'en charger.
 
@@ -285,12 +285,12 @@ autres formulaires. Suit les mêmes principes que le formulaire Guide :
   des certifications SG/SL, sur le même modèle que le Guide.
 - **Pas de certification FLORE demandée ici non plus** : les cases
   `certif_sg` / `certif_sl` / `etiquetage` sont de l'auto-déclaration du
-  candidat, pas une demande de badge FLORE — la vérification physique par le
+  candidat, pas une demande de badge FLORE : la vérification physique par le
   Comité reste une étape ultérieure, hors formulaire.
 
 Piège corrigé au passage (2026-07-04) : `.f-field label{text-transform:
 uppercase}` s'appliquait par erreur à tous les `<label>` descendants, y
-compris les cases à cocher `.f-check` imbriquées dans un `.f-field` — le
+compris les cases à cocher `.f-check` imbriquées dans un `.f-field` : le
 texte des engagements s'affichait tout en majuscules avec un espacement de
 lettres illisible sur les phrases longues. Corrigé en `.f-field>label`
 (enfant direct uniquement).
@@ -304,7 +304,7 @@ demander à l'utilisateur avant de publier plutôt que de publier par défaut.
 - **SIRET actif obligatoire** : on référence des professionnels sérieux, pas
   des « indépendants du dimanche ». Vérifier l'existence d'un SIRET actif via
   l'API gratuite et sans clé `recherche-entreprises.api.gouv.fr` (chercher par
-  nom d'établissement/entreprise, puis par adresse exacte si rien ne remonte —
+  nom d'établissement/entreprise, puis par adresse exacte si rien ne remonte,
   beaucoup de micro-entrepreneurs sont enregistrés sous leur nom personnel,
   pas sous leur nom commercial). `etat_administratif: "A"` = actif. Pas de
   SIRET actif trouvé → ne pas publier la fiche, ou vérifier avec l'utilisateur
@@ -319,16 +319,16 @@ demander à l'utilisateur avant de publier plutôt que de publier par défaut.
 ### Ajouter un établissement validé par le Comité (4 étapes)
 
 1. **Ajouter l'entrée** dans `assets/data/guide-etablissements.json`
-   (`images.principale`/`images.secondaires` restent `null`/`[]` — le Guide ne
+   (`images.principale`/`images.secondaires` restent `null`/`[]`, le Guide ne
    collecte plus de photos, voir section Galerie plus haut). C'est la base de
    données de référence : tout le reste (carte, fiche) n'en est qu'une
    restitution HTML.
 2. **Ajouter une `.guide-card`** dans `<div class="guide-list">` de
    `/guide/index.html` (copier un bloc existant, **avant** la carte
-   `.guide-card-ghost` qui doit rester la dernière — elle n'est pas filtrée et
+   `.guide-card-ghost` qui doit rester la dernière, elle n'est pas filtrée et
    sert de CTA permanent « votre établissement ici »), avec les attributs
    `data-slug` (identique au `slug` du JSON), `data-type`, `data-gluten`,
-   `data-lactose`, `data-region` (si renseigné) à jour — c'est ce bloc qui est
+   `data-lactose`, `data-region` (si renseigné) à jour : c'est ce bloc qui est
    filtré/affiché dans la liste et qui est crawlable par Google sans JS.
 3. **Créer la fiche** à `/guide/{slug}/index.html` à partir du template
    ci-dessous (title, meta description et JSON-LD uniques → indexation
@@ -337,7 +337,7 @@ demander à l'utilisateur avant de publier plutôt que de publier par défaut.
 
 ### Template de fiche `/guide/{slug}/index.html`
 
-**`/guide/flore-festival-lagnieu/index.html` EST le template** — dupliquer ce
+**`/guide/flore-festival-lagnieu/index.html` EST le template**, dupliquer ce
 fichier à l'identique pour chaque nouvel établissement, ne pas réinventer la
 structure à chaque fois. C'est volontairement différent du reste du site :
 pas de fond ciel bleu / soleil / marguerites, pas d'AOS. Une fiche est une
@@ -360,7 +360,7 @@ Adapter dans le duplicata :
   "image": "{{images.principale}}",
   "address": { "@type": "PostalAddress", "addressLocality": "{{Ville}}", "addressCountry": "FR" },
   "geo": { "@type": "GeoCoordinates", "latitude": {{lat}}, "longitude": {{lng}} },
-  "telephone": "{{telephone, si fourni — sinon omettre le champ}}",
+  "telephone": "{{telephone, si fourni, sinon omettre le champ}}",
   "url": "https://flore-festival.fr/guide/{{slug}}/",
   "sameAs": ["{{site}}", "{{instagram}}"],
   "isPartOf": { "@id": "https://flore-festival.fr/#website" }
@@ -379,9 +379,9 @@ référence, ne pas en réinventer d'autres) :
 
 1. **`.fiche-back`** : lien retour vers `/guide/`.
 2. **`.fiche-title-row`** : badge catégorie (`.fiche-cat-badge`), H1 avec le
-   nom, ligne meta (badge « Validé par le Comité FLORE » + ville — flouter
+   nom, ligne meta (badge « Validé par le Comité FLORE » + ville, flouter
    ce qui doit l'être, voir [[flore-date-festival]]).
-3. **Pas de galerie photo** (2026-07-08, définitif — voir section Galerie
+3. **Pas de galerie photo** (2026-07-08, définitif, voir section Galerie
    plus haut) : ne jamais inclure de bloc `.fiche-gallery` dans une fiche.
    Les classes CSS `.fiche-gallery`/`.fg-cell` restent dans le `<style>` des
    fiches existantes par simple historique (créées avant la décision), mais
@@ -390,13 +390,13 @@ référence, ne pas en réinventer d'autres) :
    sur « À propos ».
 4. **`.fiche-body`** (grille 2 colonnes, `.fiche-main-col` + `.fiche-side-col`
    sticky) :
-   - `.fiche-main-col` : sections `<section>` séparées par une bordure —
+   - `.fiche-main-col` : sections `<section>` séparées par une bordure :
      « À propos » (texte), « Statut de sécurité » et « Ce qui vous attend »
      en listes `.fiche-amenities` (icône + titre + description courte, pas
      de grandes cards colorées). La section « Statut de sécurité » se
      termine **toujours** par `.fiche-disclaimer` (2026-07-04, obligatoire
      sur toute fiche dupliquée) : précise que l'info est auto-déclarée,
-     non vérifiée par FLORE sauf badge 🌿 Certifié FLORE — protection
+     non vérifiée par FLORE sauf badge 🌿 Certifié FLORE (protection
      légale, à ne jamais retirer.
    - `.fiche-side-col` : `.fiche-card-sticky` avec les infos clés en lignes
      `.fsc-row` (date, horaires, lieu, catégorie) puis les boutons d'action
@@ -404,7 +404,7 @@ référence, ne pas en réinventer d'autres) :
      `/guide/#{{slug}}` (rouvre le pin correspondant automatiquement).
      `boutique_flore` existe toujours dans le JSON mais **n'est plus branché
      à rien** depuis la dépublication de `/exposants/boutique/` (2026-07-04,
-     voir [[flore-pages-depubliees-2026-07-04]]) — le champ ne doit pas
+     voir [[flore-pages-depubliees-2026-07-04]]). Le champ ne doit pas
      déclencher de lien tant que cette page n'est pas restaurée.
 5. **Nav standard au scroll** (`nav.classList.toggle('scrolled', window.scrollY
    > 30)`) : rien de spécial à faire, la fiche garde le ciel bleu FLORE en
@@ -412,7 +412,7 @@ référence, ne pas en réinventer d'autres) :
    sur le reste du site.
 
 Même nav/footer (chrome partagé) que les autres pages `/guide/` et
-`/exposants/` — nav allégée automatique via `nav.js` (voir plus haut,
+`/exposants/`, nav allégée automatique via `nav.js` (voir plus haut,
 section nav Guide).
 
 ### Avertissement légal du Guide (2026-07-04)
@@ -423,7 +423,7 @@ rappelle que le référencement est **libre et auto-déclaré**, que FLORE ne
 certifie pas les informations gluten/lactose des établissements listés et
 ne garantit pas l'absence de contamination croisée, sauf badge 🌿 Certifié
 FLORE (vérification physique du Comité). Élément permanent, ne pas
-retirer — c'est la protection qui permet de référencer librement sans
+retirer : c'est la protection qui permet de référencer librement sans
 engager la responsabilité de FLORE sur des infos qu'elle ne vérifie pas
 elle-même à ce stade.
 
@@ -453,7 +453,7 @@ nouvelle) :
 
 Piège rencontré et corrigé : `.gsb-clear{display:flex}` avait la même
 spécificité que le sélecteur natif `[hidden]` et gagnait (bouton visible en
-permanence) — même famille de bug que `.guide-card`/`.signup-success`
+permanence), même famille de bug que `.guide-card`/`.signup-success`
 rencontrés plus tôt. Réflexe à avoir : **toute nouvelle classe utilisant
 `hidden` comme mécanisme d'affichage doit systématiquement recevoir sa règle
 `.ma-classe[hidden]{display:none}`** si elle définit elle-même une valeur de
@@ -469,7 +469,7 @@ seuls `"dedie"`. "Utiliser ma position" vit sur la même ligne (même
 conteneur `.guide-refine`).
 
 **Mode plein écran mobile façon Google Maps** (2026-07-04, sous 900px) :
-- Vue par défaut = Carte (`view-map`), pas Liste — la carte est ce qu'on
+- Vue par défaut = Carte (`view-map`), pas Liste : la carte est ce qu'on
   priorise. Onglets Carte/Liste déplacés à l'intérieur de
   `.guide-search-panel` (pas un élément flottant séparé) : le bandeau
   cookies (`z-index:9000`, ancré en bas) entrait en conflit avec un
@@ -478,14 +478,14 @@ conteneur `.guide-refine`).
   passe en `position:fixed;inset:0` plein viewport (coins carrés, plus
   d'ombre), et `.guide-search-panel` devient une carte flottante
   `position:fixed` par-dessus. La nav est forcée en mode `.scrolled`
-  (fond blanc) via `onScroll()` — sans ça le logo transparent se mélange
+  (fond blanc) via `onScroll()` : sans ça le logo transparent se mélange
   visuellement à la carte en dessous.
 - Le panneau flottant ne montre par défaut que la barre de recherche
   (2026-07-04, révisé après un premier essai encore trop encombrant) : un
   bouton flèche rond (`#btn-panel-expand`) déplie/replie
   `#guide-panel-body`, qui regroupe en un seul niveau la bascule
   Carte/Liste, les catégories et les filtres ville/gluten/lactose/dédié/
-  position — plus de double repli imbriqué. `.guide-suggest` (les
+  position, plus de double repli imbriqué. `.guide-suggest` (les
   suggestions) reste en dehors de ce conteneur pour s'afficher même
   panneau replié. Sur desktop, le repli est neutralisé
   (`.guide-panel-body[hidden]{display:block}` hors media query mobile) :
