@@ -131,6 +131,70 @@
     }
   },
   {
+    "id": "koklico-mimoza-coffee",
+    "slug": "koklico-mimoza-coffee",
+    "nom": "Koklico & Mimoza Coffee",
+    "type": "Restaurant",
+    "lat": 43.123114,
+    "lng": 5.93138,
+    "adresse": "9 Rue César Vezzani, 83000 Toulon",
+    "ville": "Toulon",
+    "region": "Provence-Alpes-Côte d'Azur",
+    "gluten": "options",
+    "lactose": "dedie",
+    "description": "Coffee shop convivial autour de sandwichs gourmets, grilled cheese et douceurs sucrées, avec options végétariennes, véganes et sans gluten, entièrement sans lactose.",
+    "instagram": "https://www.instagram.com/koklico.mimoza.coffee/",
+    "email": "koklico.mimoza@gmail.com",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
+  },
+  {
+    "id": "la-sansglutenerie",
+    "slug": "la-sansglutenerie",
+    "nom": "La Sansglutenerie",
+    "type": "Autre",
+    "lat": 43.571302,
+    "lng": -0.929794,
+    "adresse": "167 Rue Centrale, 40290 Habas",
+    "ville": "Habas",
+    "region": "Nouvelle-Aquitaine",
+    "gluten": "dedie",
+    "description": "Pâtisserie 100 % sans gluten strict, née de l'histoire d'une maman devenue pâtissière après le diagnostic de la maladie cœliaque de sa fille. Matières premières rigoureusement sélectionnées, sans trace.",
+    "site": "https://lasansglutenerie.com",
+    "instagram": "https://www.instagram.com/la_sansglutenerie/",
+    "email": "lasansglutenerie@gmail.com",
+    "telephone": "06 12 27 52 64",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
+  },
+  {
+    "id": "ame-a-table",
+    "slug": "ame-a-table",
+    "nom": "Âme à Table",
+    "type": "Boutique",
+    "lat": 45.764967,
+    "lng": 4.843853,
+    "adresse": "19 Rue Vauban, 69006 Lyon",
+    "ville": "Lyon",
+    "region": "Auvergne-Rhône-Alpes",
+    "gluten": "dedie",
+    "description": "Épicerie 100 % sans gluten avec des options sans lactose et vegan, pour simplifier le quotidien et prouver qu'on peut être sans gluten tout en restant gourmand.",
+    "instagram": "https://www.instagram.com/ame_a_table/",
+    "email": "ame.a.table@gmail.com",
+    "telephone": "06 87 78 07 42",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
+  },
+  {
     "id": "chocandiz",
     "slug": "chocandiz",
     "nom": "Chocandiz",
