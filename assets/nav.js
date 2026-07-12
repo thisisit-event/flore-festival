@@ -83,7 +83,6 @@
             item('/sejour/', '🌿', 'Le week-end', 'Prolonger la fête dans l\'Ain') +
           '</div></div>' +
         '<a href="/sans-gluten-sans-lactose/"' + cur('/sans-gluten-sans-lactose/') + '>Sans gluten &amp; lactose</a>' +
-        '<a href="/guide/"' + cur('/guide/') + '>Le Guide FLORE</a>' +
         '<a href="/en/" class="lang-switch" aria-label="See the site in English">🌐 EN</a>' +
         '<a href="' + h('billetterie') + '" class="btn btn-sun">Billetterie</a>' +
       '</div>' +
@@ -105,7 +104,6 @@
       '<a class="m-sub" href="/sejour/">Le week-end</a>' +
       '<span class="m-label">Et aussi</span>' +
       '<a class="m-sub" href="/sans-gluten-sans-lactose/">Sans gluten &amp; lactose</a>' +
-      '<a class="m-sub" href="/guide/">🗺️ Le Guide</a>' +
       '<a class="m-sub" href="/presse/">Espace presse</a>' +
       '<a href="/en/" class="lang-switch">🌐 English version</a>' +
       '<a href="' + h('billetterie') + '" class="btn btn-sun">Billetterie</a>' +
