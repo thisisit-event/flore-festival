@@ -67,7 +67,7 @@
         '<div class="nav-item"><button class="nav-trigger" aria-expanded="false">Le festival ' + caret + '</button>' +
           '<div class="dropdown mega">' +
             item(h('festival'), '🌱', 'Le concept', 'La promesse, en deux mots') +
-            item(h('espaces'), '🎪', 'Les espaces', 'Les 6 mondes du festival') +
+            item(h('espaces'), '🎪', 'Les espaces', 'Les 4 univers du festival') +
             item(h('lineup'), '🎤', 'Le line-up', 'La programmation artistique') +
             item(h('causeries'), '💬', 'Les causeries', 'Santé, bien-être &amp; échanges') +
             item(h('public'), '🌸', 'Pour qui ?', 'Une fête pour tout le monde') +
