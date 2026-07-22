@@ -302,13 +302,21 @@ deux critères. En cas de doute réel (pas tranché par les règles ci-dessous),
 demander à l'utilisateur avant de publier plutôt que de publier par défaut.
 
 - **SIRET actif obligatoire** : on référence des professionnels sérieux, pas
-  des « indépendants du dimanche ». Vérifier l'existence d'un SIRET actif via
-  l'API gratuite et sans clé `recherche-entreprises.api.gouv.fr` (chercher par
-  nom d'établissement/entreprise, puis par adresse exacte si rien ne remonte,
-  beaucoup de micro-entrepreneurs sont enregistrés sous leur nom personnel,
-  pas sous leur nom commercial). `etat_administratif: "A"` = actif. Pas de
-  SIRET actif trouvé → ne pas publier la fiche, ou vérifier avec l'utilisateur
-  si l'adresse/le nom pourrait être mal orthographié avant de refuser.
+  des « indépendants du dimanche ». Le champ **SIRET est obligatoire dans le
+  formulaire** `/guide/inscription/` (2026-07-22, étape 2, validé côté client
+  au format 14 chiffres) : le candidat le fournit directement, ça évite la
+  recherche par nom/adresse à l'aveugle qui ne trouve rien pour une partie
+  des candidatures (nom commercial différent du nom déclaré au registre,
+  micro-entrepreneur enregistré sous son nom personnel...). **Toujours
+  revérifier ce SIRET déclaré avant publication** via l'API gratuite et sans
+  clé `recherche-entreprises.api.gouv.fr` (`etat_administratif: "A"` = actif) :
+  le champ obligatoire fiabilise la donnée de départ, il ne dispense pas de la
+  vérification, un candidat peut toujours saisir un numéro invalide ou inactif.
+  Pas de SIRET actif confirmé → ne pas publier la fiche, revenir vers le
+  candidat pour clarification avant de refuser. Pour un candidat étranger
+  (pas de SIRET par nature) ou une structure non enregistrée en France : cas
+  hors règle, à trancher au cas par cas avec Morgan plutôt que publier par
+  défaut.
 - **Pertinence sans gluten / sans lactose** : le Guide reste un guide **sans
   gluten et sans lactose**, pas un guide vegan/bio/healthy généraliste. Le
   candidat doit avoir une offre réellement sans gluten et/ou sans lactose

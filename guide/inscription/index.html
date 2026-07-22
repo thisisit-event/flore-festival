@@ -165,6 +165,13 @@
               <div class="f-field"><label>Nom de l'entreprise</label><input type="text" name="nom_entreprise" autocomplete="organization"></div>
             </div>
             <div class="f-row">
+              <div class="f-field">
+                <label>SIRET <span class="f-required">*</span></label>
+                <input type="text" id="in-siret" name="siret" placeholder="14 chiffres" inputmode="numeric" required>
+                <span style="font-size:.78rem;color:var(--ink-soft);font-weight:500;text-transform:none">Obligatoire : nous vérifions qu'il s'agit d'une structure active avant toute publication.</span>
+              </div>
+            </div>
+            <div class="f-row">
               <div class="f-field"><label>Description <span class="f-required">*</span></label><textarea id="in-description" name="description" placeholder="Qui êtes-vous ? Votre histoire, vos spécialités..." required></textarea></div>
             </div>
             <div class="f-row">
@@ -386,7 +393,7 @@
         return false;
       }
       if (i === 1){
-        const required = ['in-nom','in-description','in-adresse','in-ville','in-email'];
+        const required = ['in-nom','in-siret','in-description','in-adresse','in-ville','in-email'];
         for (const id of required){
           if (!document.getElementById(id).value.trim()){
             alert('Merci de compléter les champs obligatoires avant de continuer.');
@@ -397,6 +404,11 @@
         if (document.getElementById('in-nom').value.trim().length < 2){
           alert('Merci d\'indiquer un vrai nom d\'établissement.');
           document.getElementById('in-nom').focus();
+          return false;
+        }
+        if (!/^\d{14}$/.test(document.getElementById('in-siret').value.replace(/\s/g,''))){
+          alert('Merci d\'indiquer un SIRET valide (14 chiffres).');
+          document.getElementById('in-siret').focus();
           return false;
         }
         if (document.getElementById('in-description').value.trim().length < 10){
@@ -559,6 +571,7 @@
     function buildSummary(){
       const profil = document.getElementById('profil-value').value;
       const nom = document.getElementById('in-nom').value;
+      const siret = document.getElementById('in-siret').value;
       const desc = document.getElementById('in-description').value;
       const adresse = document.getElementById('in-adresse').value;
       const ville = document.getElementById('in-ville').value;
@@ -568,7 +581,7 @@
 
       document.getElementById('wiz-summary').innerHTML =
         '<section><h3>Profil <a href="#" data-goto="0">Modifier</a></h3><p>' + (profil || 'Non renseigné') + '</p></section>' +
-        '<section><h3>Informations générales <a href="#" data-goto="1">Modifier</a></h3><p>' + nom + ' · ' + adresse + ', ' + ville + ' · ' + email + '</p><p>' + desc + '</p></section>' +
+        '<section><h3>Informations générales <a href="#" data-goto="1">Modifier</a></h3><p>' + nom + ' · SIRET ' + siret + ' · ' + adresse + ', ' + ville + ' · ' + email + '</p><p>' + desc + '</p></section>' +
         '<section><h3>Activité <a href="#" data-goto="2">Modifier</a></h3><p>' + activite + '</p></section>' +
         '<section><h3>Services <a href="#" data-goto="4">Modifier</a></h3><p>' + services + '</p></section>';
 
