@@ -216,5 +216,71 @@
       "principale": null,
       "secondaires": []
     }
+  },
+  {
+    "id": "nanas-taco-truck",
+    "slug": "nanas-taco-truck",
+    "nom": "Nana's Taco Truck",
+    "type": "Restaurant",
+    "lat": 46.16051,
+    "lng": -1.176719,
+    "adresse": "Avenue Jean Guiton, 17000 La Rochelle",
+    "ville": "La Rochelle",
+    "region": "Nouvelle-Aquitaine",
+    "gluten": "options",
+    "lactose": "dedie",
+    "description": "Food truck mexicain végan à La Rochelle, avec un menu majoritairement sans gluten et entièrement sans lactose. Cuisine dédiée, personnel formé, pensé pour l'inclusion de tous les régimes.",
+    "instagram": "https://www.instagram.com/nanastacotruck/",
+    "email": "nanastacotruck@gmail.com",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
+  },
+  {
+    "id": "eden-libre-de-gluten",
+    "slug": "eden-libre-de-gluten",
+    "nom": "L'Eden libre de gluten",
+    "type": "Boutique",
+    "lat": 48.461809,
+    "lng": 7.481871,
+    "adresse": "2 Rue Dietrich, 67210 Obernai",
+    "ville": "Obernai",
+    "region": "Grand Est",
+    "gluten": "dedie",
+    "lactose": "options",
+    "description": "Boulangerie pâtisserie traiteur et salon de thé 100 % sans gluten, référence en Alsace depuis 11 ans.",
+    "site": "https://www.boulangerie-eden.fr",
+    "email": "contact@boulangerie-eden.fr",
+    "telephone": "03 88 97 24 80",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
+  },
+  {
+    "id": "althea-patisserie",
+    "slug": "althea-patisserie",
+    "nom": "Althea Patisserie",
+    "type": "Restaurant",
+    "lat": 44.821171,
+    "lng": -0.543687,
+    "adresse": "7 Rue de l'Orénoque, 33800 Bordeaux",
+    "ville": "Bordeaux",
+    "region": "Nouvelle-Aquitaine",
+    "gluten": "dedie",
+    "lactose": "dedie",
+    "description": "Pâtisserie artisanale 100 % sans gluten et sans lactose, sans trace ni contamination croisée, avec des options vegan. Expédition dans toute la France, click & collect à Bordeaux, entièrement sur commande.",
+    "site": "https://www.althea-patisserie.fr",
+    "instagram": "https://www.instagram.com/althea_patisserie/",
+    "email": "contact@althea-patisserie.fr",
+    "telephone": "06 75 48 62 92",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
   }
 ]

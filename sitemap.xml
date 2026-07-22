@@ -120,6 +120,27 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/ame-a-table/"/>
   </url>
   <url>
+    <loc>https://flore-festival.fr/guide/nanas-taco-truck/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/nanas-taco-truck/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/guide/eden-libre-de-gluten/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/eden-libre-de-gluten/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/guide/althea-patisserie/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/althea-patisserie/"/>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/sans-gluten-sans-lactose/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
