@@ -325,5 +325,27 @@
       "principale": null,
       "secondaires": []
     }
+  },
+  {
+    "id": "nocofi",
+    "slug": "nocofi",
+    "nom": "Nocofi",
+    "type": "Autre",
+    "lat": 48.85587,
+    "lng": 2.367426,
+    "adresse": "7 Rue du Pas de la Mule, 75004 Paris",
+    "ville": "Paris",
+    "region": "Île-de-France",
+    "gluten": "dedie",
+    "lactose": "options",
+    "description": "Shop de boissons alternatives au café, 100 % sans gluten en partenariat avec un laboratoire dédié, offre sucrée et salée. Les laits végétaux proposés sont naturellement sans lactose.",
+    "instagram": "https://www.instagram.com/nocofi.paris/",
+    "email": "contact@nocofishop.com",
+    "telephone": "06 16 64 95 92",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
   }
 ]
