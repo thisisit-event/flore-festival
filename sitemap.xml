@@ -141,6 +141,20 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/althea-patisserie/"/>
   </url>
   <url>
+    <loc>https://flore-festival.fr/guide/amone-toulouse/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/amone-toulouse/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/guide/caesarine/</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/guide/caesarine/"/>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/sans-gluten-sans-lactose/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>

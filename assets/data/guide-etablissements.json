@@ -282,5 +282,48 @@
       "principale": null,
       "secondaires": []
     }
+  },
+  {
+    "id": "amone-toulouse",
+    "slug": "amone-toulouse",
+    "nom": "AMONĒ Toulouse",
+    "type": "Restaurant",
+    "lat": 43.606261,
+    "lng": 1.442563,
+    "adresse": "36 Rue du Taur, 31000 Toulouse",
+    "ville": "Toulouse",
+    "region": "Occitanie",
+    "gluten": "options",
+    "description": "Cordon bleu revisité en version street food, produits frais et français, sans gluten à l'exception des desserts, cuits sur une plaque et avec des ustensiles dédiés pour éviter toute contamination croisée.",
+    "site": "https://restaurants-amone.com",
+    "instagram": "https://www.instagram.com/amone_toulouse/",
+    "email": "restaurant.toulouse@amone.fr",
+    "telephone": "06 35 13 32 11",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
+  },
+  {
+    "id": "caesarine",
+    "slug": "caesarine",
+    "nom": "Caesarine",
+    "type": "Restaurant",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "adresse": "France entière · food truck itinérant",
+    "gluten": "dedie",
+    "lactose": "options",
+    "description": "Food truck vegan et végétarien itinérant, produits français et souvent bio, recettes sans gluten pour certaines, sans lactose pour d'autres, circuits courts et savoir-faire local.",
+    "site": "http://www.hellocaesarine.fr",
+    "instagram": "https://www.instagram.com/hellocaesarine/",
+    "email": "bmelvine@hotmail.fr",
+    "telephone": "+33 7 85 90 55 79",
+    "boutique_flore": false,
+    "images": {
+      "principale": null,
+      "secondaires": []
+    }
   }
 ]
