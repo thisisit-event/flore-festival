@@ -117,16 +117,26 @@
 
     '<p class="lgl-updated">Dernière mise à jour : mai 2026.</p>';
 
-  /* ---------- Bandeau cookies ---------- */
+  /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
+     reste en français : contenu juridique d'une entité française, cf. README) ---------- */
+  var COOKIE_I18N = {
+    fr: { title: 'On reste léger', text: 'Le seul cookie de la maison est sans gluten ni lactose. Pas de pub, pas de pistage, juste l\'essentiel pour que la fête puisse éclore.', ok: 'Parfait !', more: 'En savoir plus', aria: 'Information cookies' },
+    en: { title: 'Keeping it light', text: 'The only cookie here is gluten-free and lactose-free. No ads, no tracking, just the essentials so the party can bloom.', ok: 'Sounds good!', more: 'Learn more', aria: 'Cookie information' },
+    it: { title: 'Restiamo leggeri', text: 'L\'unico cookie di casa è senza glutine e senza lattosio. Niente pubblicità, niente tracciamento, solo l\'essenziale perché la festa possa sbocciare.', ok: 'Perfetto!', more: 'Scopri di più', aria: 'Informazioni sui cookie' },
+    de: { title: 'Wir bleiben leicht', text: 'Der einzige Cookie im Haus ist glutenfrei und laktosefrei. Keine Werbung, kein Tracking, nur das Nötigste, damit das Fest aufblühen kann.', ok: 'Perfekt!', more: 'Mehr erfahren', aria: 'Cookie-Informationen' },
+    es: { title: 'Mantenemos la ligereza', text: 'La única cookie de la casa es sin gluten y sin lactosa. Sin publicidad, sin rastreo, solo lo esencial para que la fiesta pueda florecer.', ok: '¡Perfecto!', more: 'Saber más', aria: 'Información sobre cookies' }
+  };
+  var cookieLang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
+  var ct = COOKIE_I18N[cookieLang] || COOKIE_I18N.fr;
   var COOKIE =
     '<div class="ck-top">' +
       '<span class="ck-emoji" aria-hidden="true">🍪</span>' +
-      '<h4>On reste léger</h4>' +
+      '<h4>' + ct.title + '</h4>' +
     '</div>' +
-    '<p>Le seul cookie de la maison est sans gluten ni lactose. Pas de pub, pas de pistage, juste l\'essentiel pour que la fête puisse éclore.</p>' +
+    '<p>' + ct.text + '</p>' +
     '<div class="ck-row">' +
-      '<button type="button" class="ck-ok">Parfait !</button>' +
-      '<button type="button" class="ck-more" data-legal="confidentialite">En savoir plus</button>' +
+      '<button type="button" class="ck-ok">' + ct.ok + '</button>' +
+      '<button type="button" class="ck-more" data-legal="confidentialite">' + ct.more + '</button>' +
     '</div>';
 
   var STORE_KEY = 'flore_cookie_notice_v1';
@@ -208,7 +218,7 @@
 
     var banner = document.createElement('aside');
     banner.className = 'lgl-cookie';
-    banner.setAttribute('aria-label', 'Information cookies');
+    banner.setAttribute('aria-label', ct.aria);
     banner.innerHTML = COOKIE;
     document.body.appendChild(banner);
     window.setTimeout(function () { banner.classList.add('show'); }, 700);
