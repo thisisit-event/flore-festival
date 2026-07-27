@@ -111,27 +111,26 @@
   .gp-cta-ic{font-size:1.2rem;flex:0 0 auto}
   .gp-cta strong{color:#15395B}
 
-  /* ===== Vue façon Google Maps : carte en haut, fiches en bandeau
-     défilant horizontalement en dessous, les deux visibles dans le même
-     écran (desktop). Sur mobile, un seul des deux à la fois (toggle
-     Carte/Liste), voir plus bas. ===== */
+  /* ===== Vue façon Airbnb : fiches à gauche (colonne fixe, scroll
+     vertical interne), carte à droite (prend le reste de la largeur),
+     les deux visibles ensemble sur desktop. Sur mobile, un seul des deux
+     à la fois (toggle Carte/Liste), voir plus bas. ===== */
   .guide-split{display:flex;flex-direction:column;gap:16px}
+  @media(min-width:901px){.guide-split{display:grid;grid-template-columns:420px 1fr;gap:20px;align-items:stretch}}
 
-  .guide-map-wrap{position:static;order:1}
-  .guide-list-outer{order:2;background:rgba(255,255,255,.4);border-radius:24px;padding:10px}
+  .guide-map-wrap{position:static}
+  .guide-list-outer{background:rgba(255,255,255,.4);border-radius:24px;padding:10px}
   .guide-list{display:flex;flex-direction:column;gap:14px}
-
-  @media(min-width:901px){
-    .guide-list{flex-direction:row;overflow-x:auto;overflow-y:visible;padding-right:0;padding-bottom:6px;scrollbar-width:thin}
-    .guide-list .guide-card{flex:0 0 300px}
-  }
+  @media(min-width:901px){.guide-list{height:100%;overflow-y:auto;padding-right:4px}}
 
   @media(max-width:900px){
+    .guide-map-wrap{order:1}
+    .guide-list-outer{order:2}
     .guide-split.view-list .guide-map-wrap{display:none}
     .guide-split.view-map .guide-list-outer{display:none}
   }
   #flore-map{height:560px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
-  @media(min-width:901px){#flore-map{height:min(46vh,520px)}}
+  @media(min-width:901px){#flore-map{height:min(72vh,780px)}}
   .gm-reset{position:absolute;top:14px;right:14px;z-index:500;background:#fff;border:none;border-radius:100px;padding:9px 16px;font:inherit;font-size:.82rem;font-weight:700;color:#15395B;box-shadow:0 6px 18px rgba(21,57,91,.22);cursor:pointer;transition:transform .15s}
   .gm-reset:hover{transform:translateY(-2px)}
   @media(max-width:900px){#flore-map{height:calc(100vh - 320px);min-height:380px}}
