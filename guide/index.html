@@ -42,13 +42,10 @@
 
   .guide-search-row{display:flex;align-items:center;gap:10px;margin-bottom:18px}
   .guide-search-row .guide-search-bar{flex:1;margin-bottom:0}
-  .gsp-expand{display:none}
-  @media(max-width:900px){
-    .gsp-expand{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex:0 0 auto;border-radius:50%;border:1.5px solid #e4edf5;background:#fff;cursor:pointer;color:#15395B;transition:all .18s}
-    .gsp-expand:hover{border-color:#3F93C4}
-    .gsp-expand .chev{display:block;transition:transform .2s}
-    .gsp-expand.open .chev{transform:rotate(180deg)}
-  }
+  .gsp-expand{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex:0 0 auto;border-radius:50%;border:1.5px solid #e4edf5;background:#fff;cursor:pointer;color:#15395B;transition:all .18s}
+  .gsp-expand:hover{border-color:#3F93C4}
+  .gsp-expand .chev{display:block;transition:transform .2s}
+  .gsp-expand.open .chev{transform:rotate(180deg)}
   .guide-search-bar{display:flex;align-items:center;gap:12px;background:#f0f7fc;border:1.5px solid #e4edf5;border-radius:100px;padding:14px 22px;margin-bottom:18px;transition:border-color .18s}
   .guide-search-bar:focus-within{border-color:#3F93C4}
   .gsb-ic{font-size:1.1rem;flex:0 0 auto}
@@ -78,8 +75,11 @@
   .cat-pill.on{color:#15395B;border-bottom-color:#DAEF52}
   .cat-pill.on .ic{filter:none;opacity:1}
 
-  .guide-panel-body[hidden]{display:block}
-  @media(max-width:900px){.guide-panel-body[hidden]{display:none}}
+  /* Panneau replié par défaut (juste la barre de recherche), sur tous les
+     écrans : la flèche #btn-panel-expand déplie vue/catégories/filtres.
+     Comportement identique desktop/mobile depuis 2026-07-27 (avant : le
+     panneau restait toujours ouvert sur desktop, prenait toute la hauteur
+     utile et empêchait carte + liste de tenir dans un seul écran). */
 
   .guide-refine{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding-top:10px;border-top:1px solid #e4edf5}
   @media(max-width:900px){.guide-refine{border-top:none;padding-top:6px}}
@@ -111,21 +111,27 @@
   .gp-cta-ic{font-size:1.2rem;flex:0 0 auto}
   .gp-cta strong{color:#15395B}
 
-  /* ===== Vue Airbnb : liste + carte ===== */
-  .guide-split{display:grid;grid-template-columns:400px 1fr;gap:20px;align-items:stretch}
-  @media(max-width:900px){.guide-split{grid-template-columns:1fr}}
+  /* ===== Vue façon Google Maps : carte en haut, fiches en bandeau
+     défilant horizontalement en dessous, les deux visibles dans le même
+     écran (desktop). Sur mobile, un seul des deux à la fois (toggle
+     Carte/Liste), voir plus bas. ===== */
+  .guide-split{display:flex;flex-direction:column;gap:16px}
 
-  .guide-list-outer{background:rgba(255,255,255,.4);border-radius:24px;padding:10px}
-  @media(max-width:900px){.guide-list-outer{order:2}}
-  .guide-list{display:flex;flex-direction:column;gap:14px;height:100%;overflow-y:auto;padding-right:4px}
-  @media(max-width:900px){.guide-list{max-height:none;height:auto}}
-  .guide-map-wrap{position:sticky;top:110px}
+  .guide-map-wrap{position:static;order:1}
+  .guide-list-outer{order:2;background:rgba(255,255,255,.4);border-radius:24px;padding:10px}
+  .guide-list{display:flex;flex-direction:column;gap:14px}
+
+  @media(min-width:901px){
+    .guide-list{flex-direction:row;overflow-x:auto;overflow-y:visible;padding-right:0;padding-bottom:6px;scrollbar-width:thin}
+    .guide-list .guide-card{flex:0 0 300px}
+  }
+
   @media(max-width:900px){
-    .guide-map-wrap{position:static;order:1}
     .guide-split.view-list .guide-map-wrap{display:none}
     .guide-split.view-map .guide-list-outer{display:none}
   }
   #flore-map{height:560px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
+  @media(min-width:901px){#flore-map{height:min(46vh,520px)}}
   .gm-reset{position:absolute;top:14px;right:14px;z-index:500;background:#fff;border:none;border-radius:100px;padding:9px 16px;font:inherit;font-size:.82rem;font-weight:700;color:#15395B;box-shadow:0 6px 18px rgba(21,57,91,.22);cursor:pointer;transition:transform .15s}
   .gm-reset:hover{transform:translateY(-2px)}
   @media(max-width:900px){#flore-map{height:calc(100vh - 320px);min-height:380px}}
@@ -173,6 +179,17 @@
   .guide-list-empty p{color:#5C7993;font-size:.9rem;line-height:1.6;margin-bottom:14px}
 
   .guide-disclaimer{max-width:760px;margin:22px auto 0;text-align:center;font-size:.82rem;line-height:1.65;color:rgba(255,255,255,.75)}
+
+  /* Grand écran : le Guide a besoin de bien plus de largeur qu'une page de
+     contenu classique (carte + bandeau de fiches), le .wrap global (1180px)
+     laisse des marges énormes sur un écran large. Élargi pour ce header et
+     cette section uniquement, pas pour tout le site. */
+  @media(min-width:1300px){
+    #top .wrap, .guide-section .wrap{max-width:1720px}
+  }
+  @media(min-width:901px){
+    #top{padding-top:100px!important;padding-bottom:10px!important}
+  }
 </style>
 </head>
 <body>
