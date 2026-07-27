@@ -4,10 +4,15 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://flore-festival.fr/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flore-festival.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flore-festival.fr/italia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flore-festival.fr/deutschland/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flore-festival.fr/espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flore-festival.fr/"/>
     <image:image>
       <image:loc>https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png</image:loc>
       <image:title>FLORE Festival - logo</image:title>
@@ -185,11 +190,51 @@
   </url>
   <url>
     <loc>https://flore-festival.fr/en/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://flore-festival.fr/en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flore-festival.fr/italia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flore-festival.fr/deutschland/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flore-festival.fr/espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flore-festival.fr/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/italia/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flore-festival.fr/italia/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flore-festival.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flore-festival.fr/deutschland/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flore-festival.fr/espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flore-festival.fr/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/deutschland/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flore-festival.fr/deutschland/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flore-festival.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flore-festival.fr/italia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flore-festival.fr/espana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flore-festival.fr/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/espana/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://flore-festival.fr/espana/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flore-festival.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://flore-festival.fr/italia/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://flore-festival.fr/deutschland/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://flore-festival.fr/"/>
   </url>
   <url>
     <loc>https://flore-festival.fr/a-propos/</loc>

@@ -4,7 +4,7 @@ Site web du **FLORE Festival**, le premier festival musical et culinaire 100 % s
 et sans lactose. Une production de **MG Entertainment**.
 
 🌐 **Production :** https://flore-festival.fr
-📍 **Édition 2027 :** samedi 27 mars 2027, à Lagnieu (Ain)
+📍 **Édition 2027 :** samedi 17 avril 2027, à Ainterexpo (Bourg-en-Bresse, Ain) — date/lieu volontairement absents du site public tant que le reveal officiel n'a pas eu lieu, voir mémoire projet.
 
 ## Stack
 
@@ -18,9 +18,13 @@ Site statique, sans build : HTML/CSS/JS en un seul fichier ([index.html](index.h
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | Page unique du site (toutes les sections) |
+| `index.html` | Page d'accueil FR (site multi-pages, voir sections plus bas) |
+| `en/`, `italia/`, `deutschland/`, `espana/` | Pages langue, **générées** par `i18n/build.py`, jamais éditées à la main (voir section dédiée) |
+| `i18n/` | Template + contenu JSON + script de build des pages langue |
+| `guide/` | Le Guide FLORE, carte interactive des adresses SG/SL (voir section dédiée) |
 | `404.html` | Page d'erreur personnalisée |
-| `assets/favicon.svg` | Favicon (feuille Flore) |
+| `assets/nav.js` | Nav partagée injectée sur toutes les pages FR (méga-menu + Guide) |
+| `assets/flore.css` | Feuille de style partagée par tout le site |
 | `CNAME` | Domaine personnalisé GitHub Pages |
 | `robots.txt` | Indexation moteurs de recherche |
 | `.nojekyll` | Désactive le traitement Jekyll de GitHub Pages |
@@ -70,6 +74,61 @@ d'Infomaniak (Manager > Domaines > flore-festival.fr > Zone DNS) :
 Après propagation DNS (de quelques minutes à 24 h), GitHub vérifie le domaine,
 provisionne un certificat HTTPS, puis on active **Enforce HTTPS** dans
 *Settings > Pages* du dépôt.
+
+## Pages langue (EN / IT / DE / ES)
+
+Le site a 4 versions traduites, pensées comme des landing pages compactes
+(pas des répliques complètes de la homepage FR) : `/en/`, `/italia/`,
+`/deutschland/`, `/espana/`. Chacune a sa propre stratégie SEO par pays
+(mots-clés, section "pourquoi ce pays" avec des arguments de proximité
+réels — pas de fausse promesse de proximité pour l'Espagne, trop loin
+d'Ainterexpo) et sa propre FAQ (schema `FAQPage` inclus).
+
+**Ces 4 pages sont générées, jamais éditées à la main.** Le mécanisme
+vit dans `i18n/` :
+
+- `i18n/template.html` — structure HTML commune aux 4 langues (nav, hero,
+  concept, promesse, section géo, FAQ, billetterie, footer), avec des
+  tokens `{{COMME_CECI}}` à la place de tout texte traduisible.
+- `i18n/content/{en,it,de,es}.json` — le texte de chaque langue : mêmes
+  clés, valeurs traduites. C'est le seul fichier à modifier pour changer
+  le contenu d'une langue existante.
+- `i18n/build.py` — lit le template + les 4 JSON, génère `en/index.html`,
+  `italia/index.html`, `deutschland/index.html`, `espana/index.html`.
+  Génère aussi le bloc `hreflang` réciproque (les 5 langues + `x-default`)
+  identique sur les 4 pages, et le petit menu déroulant de langue dans la
+  nav (`🌐 XX ▾`, réutilise les classes `.nav-item`/`.dropdown` déjà
+  utilisées par le méga-menu FR).
+
+**Pour changer le contenu d'une langue existante** (texte, FAQ, cartes) :
+modifier le `.json` correspondant, puis :
+
+```bash
+python3 i18n/build.py
+```
+
+Ça régénère les 4 pages d'un coup, toujours structurellement identiques.
+
+**Pour ajouter une 5e langue** : dupliquer un `.json`, l'adapter (y
+compris la section géo — ne jamais inventer une proximité géographique
+fausse, s'adapter au pays réel), ajouter son entrée dans `LANGUAGES` et
+`LANGUAGE_LABELS` en haut de `i18n/build.py`, relancer le script. Il
+reste 3 choses à faire à la main à ce moment-là (le script les rappelle
+en fin d'exécution) : le hreflang de la page FR (`index.html`),
+`sitemap.xml` (bloc hreflang réciproque sur toutes les URLs langue), et
+`assets/nav.js` (le petit menu déroulant `🌐 FR ▾` du reste du site,
+séparé du template puisque les pages FR/Guide/etc. ne passent pas par
+`i18n/`).
+
+**Pourquoi un vrai script plutôt que du copier-coller entre 4 fichiers**
+(2026-07-27) : le site reste 100 % statique en production (GitHub Pages
+sert du HTML pré-généré, aucun build ne tourne côté serveur) — ce script
+ne casse pas ce principe, il tourne uniquement en local/en session avant
+de commit les fichiers générés. L'alternative (éditer 4 fichiers HTML
+quasi identiques à la main à chaque changement) est justement ce qui
+posait problème : un oubli sur une langue, un hreflang qui devient
+asymétrique, une nav qui diverge. Un seul JSON par langue + un script
+supprime cette classe d'erreurs.
 
 ## Guide FLORE · carte interactive
 

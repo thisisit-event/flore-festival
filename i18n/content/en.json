@@ -1,0 +1,143 @@
+{
+  "lang_code": "en",
+  "html_lang": "en",
+  "url_path": "/en/",
+  "og_locale": "en_GB",
+  "meta": {
+    "title": "FLORE Festival 2027 · 100% gluten-free & lactose-free festival in France",
+    "description": "FLORE is France's first 100% gluten-free and lactose-free festival, easily reachable from Switzerland, Italy and Germany. Date and venue coming soon. Concerts, food court and wellbeing where everyone eats at the same table.",
+    "keywords": "gluten free festival France, lactose free festival Europe, coeliac festival, gluten free music festival, allergy friendly festival Europe",
+    "og_title": "FLORE Festival 2027 · 100% gluten-free & lactose-free",
+    "og_description": "France's first 100% gluten-free and lactose-free festival. Date and venue coming soon. Where everyone eats at the same table.",
+    "og_image_alt": "FLORE Festival - first 100% gluten-free and lactose-free festival",
+    "jsonld_description": "France's first 100% gluten-free and lactose-free festival. Date and venue to be announced."
+  },
+  "nav": {
+    "festival": "The festival",
+    "gluten": "Gluten & lactose free",
+    "visit": "Plan your visit",
+    "faq": "FAQ",
+    "tickets": "Tickets",
+    "lang_switch_label": "Voir le site en français",
+    "menu_label": "Open menu",
+    "mobile_lang_switch": "Voir en français",
+    "other_languages_label": "Other languages"
+  },
+  "hero": {
+    "tag": "France's first 100% gluten-free & lactose-free festival",
+    "sr_title": "FLORE Festival, the first gluten-free and lactose-free festival",
+    "tagline": "Dance gluten-free, savour lactose-free.",
+    "lede": "A festival where everyone finally eats at the same table. Concerts, food court and wellbeing, all of it 100% gluten-free and lactose-free, no compromise.",
+    "countdown_intro": "Date, place & tickets: the announcement is coming soon",
+    "cta_primary": "Get notified",
+    "cta_secondary": "Discover the festival",
+    "florette_alt": "Florette, the FLORE Festival mascot"
+  },
+  "concept": {
+    "kicker": "An inclusive festival",
+    "title_pre": "A festival where everyone can finally ",
+    "title_hl": "bloom",
+    "intro": "FLORE is the first 100% gluten-free and lactose-free festival. Concerts, DJ sets, food court, bar and shop: everything we love about a festival, without the usual sacrifices. A full day to dance, taste and enjoy, no second-guessing.",
+    "cards": [
+      {
+        "icon": "🌾",
+        "bg": "#FFF1CC",
+        "title": "100% gluten-free",
+        "text": "The whole site, food court and bar included, is guaranteed gluten-free (below 20 ppm, the strictest standard). Safe even for coeliacs."
+      },
+      {
+        "icon": "🥛",
+        "bg": "#E7F4FB",
+        "title": "100% lactose-free",
+        "text": "Every dairy product is lactose-free or naturally without lactose, plus plant-based options. Real taste, no lactose."
+      },
+      {
+        "icon": "🎶",
+        "bg": "#FCE2E9",
+        "title": "Music & food court",
+        "text": "Live concerts, DJ sets, food trucks and a bar. The full festival vibe, no compromise."
+      }
+    ]
+  },
+  "manifesto": {
+    "tag": "The promise",
+    "quote": "FLORE isn't a festival for people on a diet. It's a festival, full stop, that happens to be 100% gluten-free and lactose-free, so no one ever has to choose between having fun and eating with peace of mind."
+  },
+  "geo": {
+    "kicker": "At the heart of Europe",
+    "title_pre": "A crossroads, not just a ",
+    "title_hl": "corner of France",
+    "text": "The venue is being chosen in eastern France, in a region built for travellers from all directions: an easy reach from Switzerland, northern Italy and southern Germany, as well as the rest of France.",
+    "chips": [
+      {
+        "icon": "🇨🇭",
+        "label": "Switzerland, close by"
+      },
+      {
+        "icon": "🇮🇹",
+        "label": "Northern Italy, a few hours away"
+      },
+      {
+        "icon": "🇩🇪",
+        "label": "Southern Germany, within reach"
+      }
+    ]
+  },
+  "visit": {
+    "kicker": "Plan your visit",
+    "title_pre": "Easy to reach, from ",
+    "title_hl": "anywhere",
+    "text": "The venue isn't announced yet, but it's being chosen to stay easy to reach by car, train and plane, from France and its neighbouring countries alike. Full access details will follow the announcement."
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Your questions, answered",
+    "items": [
+      {
+        "q": "What exactly is FLORE Festival?",
+        "a": "FLORE is a one-day music and food festival, entirely gluten-free and lactose-free: concerts, DJ sets, a food court, a shop and wellbeing spaces, all on one site, all safe to eat and drink without a second thought."
+      },
+      {
+        "q": "Is it only for people with allergies or intolerances?",
+        "a": "Not at all. FLORE is a festival for everyone, that happens to be 100% gluten-free and lactose-free. Think of it as any other festival: line-up, food, atmosphere, just without the usual dietary stress for those who need it."
+      },
+      {
+        "q": "When and where will it take place?",
+        "a": "The exact date and venue will be announced soon. Sign up to the priority list below to be the first to know, before it's public."
+      },
+      {
+        "q": "Are tickets on sale yet?",
+        "a": "Not yet. The priority list gives you early access and an early-bird price as soon as the box office opens."
+      },
+      {
+        "q": "Is the food really safe for coeliacs?",
+        "a": "Yes. The whole site, food court and bar included, follows a strict below-20ppm gluten standard, the threshold recognised for coeliac disease, with dedicated preparation to avoid cross-contamination."
+      },
+      {
+        "q": "Do I need to travel far to get there?",
+        "a": "No. The venue is being chosen in a region easily reached from Switzerland, northern Italy, southern Germany and all of France, by car, train or plane."
+      }
+    ]
+  },
+  "tickets": {
+    "kicker": "Tickets",
+    "title_pre": "Join the ",
+    "title_em": "priority list",
+    "text": "Tickets aren't on sale yet. Sign up to get the early-bird price and be the first to know when the box office opens.",
+    "email_placeholder": "your@email.com",
+    "email_label": "Your email address",
+    "submit": "Join the list",
+    "success": "You're on the list. See you in 2027!",
+    "smallnote": "Date & venue: announcement coming soon 🌸",
+    "sending": "Sending…",
+    "error": "Sorry, something went wrong. Please try again or email contact@flore-festival.fr.",
+    "from_name_label": "Priority list"
+  },
+  "footer": {
+    "about": "The first 100% gluten-free and lactose-free festival. A MG Entertainment production, because the party should be open to everyone.",
+    "contact_heading": "Contact",
+    "lang_switch": "Site en français",
+    "production_label": "A MG Entertainment production.",
+    "country_label": "France"
+  }
+}

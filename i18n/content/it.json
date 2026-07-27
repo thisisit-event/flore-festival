@@ -1,0 +1,143 @@
+{
+  "lang_code": "it",
+  "html_lang": "it",
+  "url_path": "/italia/",
+  "og_locale": "it_IT",
+  "meta": {
+    "title": "FLORE Festival 2027 · Il festival 100% senza glutine e senza lattosio, vicino all'Italia",
+    "description": "FLORE è il primo festival 100% senza glutine e senza lattosio di Francia, a poche ore dal Nord Italia. Data e luogo in arrivo presto. Concerti, food court e benessere, dove celiaci, intolleranti al lattosio e tutti gli altri mangiano allo stesso tavolo.",
+    "keywords": "festival senza glutine Italia, festival senza glutine Francia, festival senza lattosio, festival celiaci, evento per celiaci, festival senza glutine vicino Torino, festival senza glutine vicino Milano",
+    "og_title": "FLORE Festival 2027 · 100% senza glutine e senza lattosio",
+    "og_description": "Il primo festival 100% senza glutine e senza lattosio di Francia, a poche ore dal Nord Italia. Dove tutti mangiano allo stesso tavolo.",
+    "og_image_alt": "FLORE Festival - il primo festival 100% senza glutine e senza lattosio",
+    "jsonld_description": "Il primo festival 100% senza glutine e senza lattosio di Francia, a poche ore dal Nord Italia. Data e luogo da annunciare."
+  },
+  "nav": {
+    "festival": "Il festival",
+    "gluten": "Senza glutine e lattosio",
+    "visit": "Organizza la visita",
+    "faq": "Domande frequenti",
+    "tickets": "Biglietti",
+    "lang_switch_label": "Voir le site en français",
+    "menu_label": "Apri il menu",
+    "mobile_lang_switch": "Voir en français",
+    "other_languages_label": "Altre lingue"
+  },
+  "hero": {
+    "tag": "Il primo festival 100% senza glutine e senza lattosio di Francia",
+    "sr_title": "FLORE Festival, il primo festival senza glutine e senza lattosio",
+    "tagline": "Balla senza glutine, gusta senza lattosio.",
+    "lede": "Un festival dove tutti finalmente mangiano allo stesso tavolo. Concerti, food court e benessere, tutto rigorosamente senza glutine e senza lattosio, senza compromessi.",
+    "countdown_intro": "Data, luogo e biglietti: l'annuncio arriva presto",
+    "cta_primary": "Ricevi un avviso",
+    "cta_secondary": "Scopri il festival",
+    "florette_alt": "Florette, la mascotte del FLORE Festival"
+  },
+  "concept": {
+    "kicker": "Un festival inclusivo",
+    "title_pre": "Un festival dove tutti possono finalmente ",
+    "title_hl": "sbocciare",
+    "intro": "FLORE è il primo festival 100% senza glutine e senza lattosio. Concerti, DJ set, food court, bar e boutique: tutto ciò che amiamo di un festival, senza le solite rinunce. Una giornata intera per ballare, gustare e divertirsi, senza doverci pensare due volte.",
+    "cards": [
+      {
+        "icon": "🌾",
+        "bg": "#FFF1CC",
+        "title": "100% senza glutine",
+        "text": "L'intero sito, food court e bar compresi, è garantito senza glutine (sotto i 20 ppm, lo standard più rigoroso). Sicuro anche per i celiaci."
+      },
+      {
+        "icon": "🥛",
+        "bg": "#E7F4FB",
+        "title": "100% senza lattosio",
+        "text": "Ogni prodotto lattiero-caseario è delattosato o naturalmente privo di lattosio, con anche opzioni vegetali. Gusto vero, senza lattosio."
+      },
+      {
+        "icon": "🎶",
+        "bg": "#FCE2E9",
+        "title": "Musica & food court",
+        "text": "Concerti dal vivo, DJ set, stand gastronomici e bar. La vera atmosfera da festival, senza compromessi."
+      }
+    ]
+  },
+  "manifesto": {
+    "tag": "La promessa",
+    "quote": "FLORE non è un festival per chi segue una dieta. È un festival, punto e basta, che si dà il caso sia 100% senza glutine e senza lattosio, così nessuno deve più scegliere tra divertirsi e mangiare in tutta tranquillità."
+  },
+  "geo": {
+    "kicker": "Più vicino di quanto pensi",
+    "title_pre": "A poche ore dal ",
+    "title_hl": "Nord Italia",
+    "text": "Il luogo scelto si trova nella Francia dell'Est, in una zona pensata per accogliere anche chi arriva dall'estero: a poche ore da Torino e Milano, e vicino alla Svizzera.",
+    "chips": [
+      {
+        "icon": "🏔️",
+        "label": "Torino, a poche ore di auto"
+      },
+      {
+        "icon": "🏙️",
+        "label": "Milano, un weekend facile da organizzare"
+      },
+      {
+        "icon": "🇨🇭",
+        "label": "Svizzera, a un passo"
+      }
+    ]
+  },
+  "visit": {
+    "kicker": "Organizza la visita",
+    "title_pre": "Facile da raggiungere, da ",
+    "title_hl": "ovunque",
+    "text": "Il luogo non è ancora stato annunciato, ma sarà scelto per restare facilmente raggiungibile in auto, treno e aereo, anche dal Nord Italia. I dettagli completi sull'accesso seguiranno l'annuncio."
+  },
+  "faq": {
+    "kicker": "Domande frequenti",
+    "title": "Le tue domande, le nostre risposte",
+    "items": [
+      {
+        "q": "Cos'è esattamente il FLORE Festival?",
+        "a": "FLORE è un festival di musica e gastronomia di una giornata, interamente senza glutine e senza lattosio: concerti, DJ set, food court, boutique e spazi benessere, tutto sullo stesso sito, tutto sicuro da mangiare e bere senza pensarci due volte."
+      },
+      {
+        "q": "È un festival solo per intolleranti o celiaci?",
+        "a": "Assolutamente no. FLORE è un festival per tutti, che si dà il caso sia 100% senza glutine e senza lattosio. Line-up, cibo, atmosfera: un festival come un altro, semplicemente senza lo stress alimentare per chi ne ha bisogno."
+      },
+      {
+        "q": "Quando e dove si svolgerà?",
+        "a": "La data e il luogo esatti saranno annunciati presto. Iscriviti alla lista prioritaria qui sotto per saperlo per primo, prima dell'annuncio pubblico."
+      },
+      {
+        "q": "I biglietti sono già in vendita?",
+        "a": "Non ancora. La lista prioritaria ti garantisce un accesso anticipato e un prezzo early-bird non appena apre la biglietteria."
+      },
+      {
+        "q": "Il cibo è davvero sicuro per i celiaci?",
+        "a": "Sì. L'intero sito, food court e bar compresi, rispetta uno standard rigoroso sotto i 20 ppm di glutine, la soglia riconosciuta per la celiachia, con una preparazione dedicata per evitare ogni contaminazione crociata."
+      },
+      {
+        "q": "Devo venire da lontano per partecipare?",
+        "a": "No. Il luogo scelto si trova a poche ore dal Nord Italia (Torino, Milano) e dalla Svizzera, facilmente raggiungibile in auto, treno o aereo."
+      }
+    ]
+  },
+  "tickets": {
+    "kicker": "Biglietti",
+    "title_pre": "Entra nella ",
+    "title_em": "lista prioritaria",
+    "text": "I biglietti non sono ancora in vendita. Iscriviti per ottenere il prezzo early-bird e sapere per primo quando apre la biglietteria.",
+    "email_placeholder": "tua@email.com",
+    "email_label": "Il tuo indirizzo email",
+    "submit": "Iscriviti",
+    "success": "Sei in lista. Ci vediamo nel 2027!",
+    "smallnote": "Data e luogo: annuncio in arrivo 🌸",
+    "sending": "Invio…",
+    "error": "Si è verificato un errore. Riprova o scrivi a contact@flore-festival.fr.",
+    "from_name_label": "Lista prioritaria"
+  },
+  "footer": {
+    "about": "Il primo festival 100% senza glutine e senza lattosio. Una produzione MG Entertainment, perché la festa dev'essere per tutti.",
+    "contact_heading": "Contatti",
+    "lang_switch": "Site en français",
+    "production_label": "Una produzione MG Entertainment.",
+    "country_label": "Francia"
+  }
+}

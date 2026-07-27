@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="{{HTML_LANG}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{META_TITLE}}</title>
+<meta name="description" content="{{META_DESCRIPTION}}">
+<meta name="keywords" content="{{META_KEYWORDS}}">
+<meta name="author" content="MG Entertainment">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#2D5479">
+<link rel="canonical" href="{{CANONICAL_URL}}">
+{{HREFLANG_BLOCK}}
+
+<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="apple-touch-icon" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{OG_LOCALE}}">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:site_name" content="FLORE Festival">
+<meta property="og:title" content="{{OG_TITLE}}">
+<meta property="og:description" content="{{OG_DESCRIPTION}}">
+<meta property="og:url" content="{{CANONICAL_URL}}">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{OG_IMAGE_ALT}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{OG_TITLE}}">
+<meta name="twitter:description" content="{{OG_DESCRIPTION}}">
+<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta name="twitter:image:alt" content="FLORE Festival - logo">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css?v=20260702">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Festival",
+  "name": "FLORE Festival 2027",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "description": "{{JSONLD_DESCRIPTION}}",
+  "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressCountry": "FR" } },
+  "image": "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
+  "organizer": {"@type":"Organization","name":"MG Entertainment"},
+  "inLanguage": "{{HTML_LANG}}"
+}
+</script>
+{{FAQ_SCHEMA_BLOCK}}
+</head>
+<body>
+
+<div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="clouds" aria-hidden="true">
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cloud" viewBox="0 0 230 110">
+      <g fill="currentColor">
+        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
+        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
+        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
+      </g>
+    </symbol>
+    <symbol id="daisy" viewBox="0 0 100 100">
+      <g transform="translate(50 50)" fill="currentColor">
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
+      </g>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
+    </symbol>  </defs>
+</svg>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="{{URL_PATH}}" class="logo" aria-label="FLORE Festival, home"><img class="logo-img logo-light" src="/assets/logo-flore-white.png" alt="FLORE"><img class="logo-img logo-dark" src="/assets/logo-flore-black.png" alt="" aria-hidden="true"></a>
+      <div class="nav-links">
+        <a href="#festival">{{NAV_FESTIVAL}}</a>
+        <a href="#gluten">{{NAV_GLUTEN}}</a>
+        <a href="#visit">{{NAV_VISIT}}</a>
+        <a href="#faq">{{NAV_FAQ}}</a>
+        <div class="nav-item"><button class="nav-trigger" aria-expanded="false">🌐 {{LANG_CODE_UPPER}} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown dd-right">
+{{LANG_DROPDOWN_HTML}}
+          </div>
+        </div>
+        <a href="#tickets" class="btn btn-sun">{{NAV_TICKETS}}</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="{{NAV_MENU_LABEL}}"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <span class="m-label">Festival</span>
+  <a class="m-sub" href="#festival">{{NAV_FESTIVAL}}</a>
+  <a class="m-sub" href="#gluten">{{NAV_GLUTEN}}</a>
+  <a class="m-sub" href="#visit">{{NAV_VISIT}}</a>
+  <a class="m-sub" href="#faq">{{NAV_FAQ}}</a>
+  <a class="m-sub" href="#tickets">{{NAV_TICKETS}}</a>
+  <span class="m-label">{{NAV_OTHER_LANGUAGES_LABEL}}</span>
+{{MOBILE_LANG_LINKS_HTML}}
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="home">
+  <div class="sun"><div class="rays"></div><div class="core"></div></div>
+  <svg aria-hidden="true" class="h-cloud hc1"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="h-cloud hc2"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="h-cloud hc3"><use href="#cloud"/></svg>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text" data-aos="fade-up">
+        <span class="hero-tag"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{HERO_TAG}}</span>
+        <h1><img src="/assets/logo-flore-white.png" alt="FLORE Festival 2027"><span class="sr-only">{{HERO_SR_TITLE}}</span></h1>
+        <p class="hero-tagline">{{HERO_TAGLINE}}</p>
+        <p class="lede">{{HERO_LEDE}}</p>
+
+        <div class="cd-intro"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{HERO_COUNTDOWN_INTRO}}</div>
+
+        <div class="hero-cta">
+          <a href="#tickets" class="btn btn-sun">{{HERO_CTA_PRIMARY}}
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#festival" class="btn btn-ghost-w">{{HERO_CTA_SECONDARY}}</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
+        <div class="florette-wrap">
+          <div class="halo"></div>
+          <svg aria-hidden="true" class="daisy d-float hd1"><use href="#daisy"/></svg>
+          <svg aria-hidden="true" class="daisy d-float hd2"><use href="#daisy"/></svg>
+          <svg aria-hidden="true" class="daisy d-float hd3"><use href="#daisy"/></svg>
+          <img class="florette-svg" src="/assets/florette.png" alt="{{HERO_FLORETTE_ALT}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== CONCEPT ===================== -->
+<section class="sec" id="festival">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{CONCEPT_KICKER}}</span>
+      <h2>{{CONCEPT_TITLE_PRE}}<span class="hl">{{CONCEPT_TITLE_HL}}</span></h2>
+      <p>{{CONCEPT_INTRO}}</p>
+    </div>
+    <div class="public-grid">
+{{CONCEPT_CARDS_HTML}}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GLUTEN / PROMISE ===================== -->
+<section class="sec" id="gluten" style="padding-top:0">
+  <div class="wrap">
+    <div class="manifesto" data-aos="fade-up" style="max-width:900px;margin:0 auto;text-align:center">
+      <span class="tag" style="justify-content:center"><svg aria-hidden="true" class="daisy" style="width:16px;height:16px"><use href="#daisy"/></svg>{{MANIFESTO_TAG}}</span>
+      <blockquote>{{MANIFESTO_QUOTE}}</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GEO / WHY THIS COUNTRY ===================== -->
+<section class="sec" id="geo" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{GEO_KICKER}}</span>
+      <h2>{{GEO_TITLE_PRE}}<span class="hl">{{GEO_TITLE_HL}}</span></h2>
+      <p>{{GEO_TEXT}}</p>
+    </div>
+{{GEO_CHIPS_HTML}}
+  </div>
+</section>
+
+<!-- ===================== PLAN YOUR VISIT ===================== -->
+<section class="sec" id="visit" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{VISIT_KICKER}}</span>
+      <h2>{{VISIT_TITLE_PRE}}<span class="hl">{{VISIT_TITLE_HL}}</span></h2>
+      <p>{{VISIT_TEXT}}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{FAQ_KICKER}}</span>
+      <h2>{{FAQ_TITLE}}</h2>
+    </div>
+    <div class="faq-list" style="max-width:780px;margin:0 auto">
+{{FAQ_ITEMS_HTML}}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TICKETS ===================== -->
+<section class="sec" id="tickets" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-card" data-aos="fade-up">
+      <div class="cta-stars"></div>
+      <div class="set-sun"></div>
+      <div class="inner">
+        <span class="kicker center on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{TICKETS_KICKER}}</span>
+        <h2 style="margin-top:14px">{{TICKETS_TITLE_PRE}}<em>{{TICKETS_TITLE_EM}}</em></h2>
+        <p>{{TICKETS_TEXT}}</p>
+        <form class="signup" id="signupForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+          <input type="hidden" name="subject" value="🌼 FLORE Newsletter · New {{LANG_CODE_UPPER}} signup">
+          <input type="hidden" name="from_name" value="FLORE Festival · {{TICKETS_FROM_NAME_LABEL}} ({{LANG_CODE_UPPER}})">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="email" name="email" placeholder="{{TICKETS_EMAIL_PLACEHOLDER}}" required aria-label="{{TICKETS_EMAIL_LABEL}}">
+          <button type="submit" class="btn btn-ink">{{TICKETS_SUBMIT}}</button>
+        </form>
+        <div id="signupSuccess" class="signup-success" hidden>
+          <svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{TICKETS_SUCCESS}}
+        </div>
+        <p class="smallnote">{{TICKETS_SMALLNOTE}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="f-stars"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
+        <p class="about">{{FOOTER_ABOUT}}</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>Festival</h5>
+        <ul>
+          <li><a href="#festival">{{NAV_FESTIVAL}}</a></li>
+          <li><a href="#gluten">{{NAV_GLUTEN}}</a></li>
+          <li><a href="#visit">{{NAV_VISIT}}</a></li>
+          <li><a href="#faq">{{NAV_FAQ}}</a></li>
+          <li><a href="#tickets">{{NAV_TICKETS}}</a></li>
+          <li><a href="/">🇫🇷 {{FOOTER_LANG_SWITCH}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>{{FOOTER_CONTACT_HEADING}}</h5>
+        <ul>
+          <li><a href="tel:+33744980015">+33 7 44 98 00 15</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> FLORE Festival · {{FOOTER_PRODUCTION_LABEL}}</span>
+      <span>{{FOOTER_COUNTRY_LABEL}} · {{HERO_TAGLINE}}</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const signupForm = document.getElementById('signupForm');
+  const signupSuccess = document.getElementById('signupSuccess');
+  if (signupForm) {
+    signupForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = signupForm.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.disabled = true; btn.textContent = '{{TICKETS_SENDING}}';
+      try {
+        const data = new FormData(signupForm);
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const json = await res.json();
+        if (json.success) { signupForm.hidden = true; signupSuccess.hidden = false; if (window.floreBurst) { const r = signupSuccess.getBoundingClientRect(); window.floreBurst(r.left + r.width/2, r.top + r.height/2, 16); } }
+        else { throw new Error(json.message || 'Error'); }
+      } catch (err) {
+        btn.disabled = false; btn.textContent = original;
+        alert("{{TICKETS_ERROR}}");
+      }
+    });
+  }
+</script>
+<script src="/assets/transitions.js" defer></script>
+<script src="/legal.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+{
+  "lang_code": "de",
+  "html_lang": "de",
+  "url_path": "/deutschland/",
+  "og_locale": "de_DE",
+  "meta": {
+    "title": "FLORE Festival 2027 · Das 100% gluten- und laktosefreie Festival, nah an Süddeutschland",
+    "description": "FLORE ist Frankreichs erstes 100% glutenfreies und laktosefreies Festival, nur wenige Autostunden von Baden-Württemberg entfernt. Datum und Ort werden bald bekannt gegeben. Konzerte, Food Court und Wohlbefinden für alle an einem Tisch.",
+    "keywords": "glutenfreies Festival Frankreich, laktosefreies Festival, Festival für Zöliakie, glutenfreies Musikfestival, Festival Freiburg Umgebung, Festival Basel Umgebung",
+    "og_title": "FLORE Festival 2027 · 100% glutenfrei und laktosefrei",
+    "og_description": "Frankreichs erstes 100% glutenfreies und laktosefreies Festival, nah an Süddeutschland. Wo alle am selben Tisch essen.",
+    "og_image_alt": "FLORE Festival - das erste 100% glutenfreie und laktosefreie Festival",
+    "jsonld_description": "Frankreichs erstes 100% glutenfreies und laktosefreies Festival, nah an Süddeutschland. Datum und Ort werden noch bekannt gegeben."
+  },
+  "nav": {
+    "festival": "Das Festival",
+    "gluten": "Gluten- und laktosefrei",
+    "visit": "Anreise planen",
+    "faq": "FAQ",
+    "tickets": "Tickets",
+    "lang_switch_label": "Voir le site en français",
+    "menu_label": "Menü öffnen",
+    "mobile_lang_switch": "Voir en français",
+    "other_languages_label": "Andere Sprachen"
+  },
+  "hero": {
+    "tag": "Frankreichs erstes 100% glutenfreies & laktosefreies Festival",
+    "sr_title": "FLORE Festival, das erste glutenfreie und laktosefreie Festival",
+    "tagline": "Tanzen ohne Gluten, genießen ohne Laktose.",
+    "lede": "Ein Festival, auf dem endlich alle am selben Tisch essen. Konzerte, Food Court und Wohlbefinden, alles 100% glutenfrei und laktosefrei, ohne Kompromisse.",
+    "countdown_intro": "Datum, Ort und Tickets: die Ankündigung kommt bald",
+    "cta_primary": "Benachrichtigen lassen",
+    "cta_secondary": "Festival entdecken",
+    "florette_alt": "Florette, das Maskottchen des FLORE Festivals"
+  },
+  "concept": {
+    "kicker": "Ein Festival für alle",
+    "title_pre": "Ein Festival, auf dem endlich jeder ",
+    "title_hl": "aufblühen",
+    "intro": "FLORE ist das erste 100% glutenfreie und laktosefreie Festival. Konzerte, DJ-Sets, Food Court, Bar und Shop: alles, was wir an einem Festival lieben, ohne die üblichen Einschränkungen. Ein ganzer Tag zum Tanzen, Genießen und Feiern, ohne zweimal nachzudenken.",
+    "cards": [
+      {
+        "icon": "🌾",
+        "bg": "#FFF1CC",
+        "title": "100% glutenfrei",
+        "text": "Das gesamte Gelände, Food Court und Bar inklusive, ist garantiert glutenfrei (unter 20 ppm, der strengste Standard). Auch sicher für Menschen mit Zöliakie."
+      },
+      {
+        "icon": "🥛",
+        "bg": "#E7F4FB",
+        "title": "100% laktosefrei",
+        "text": "Jedes Milchprodukt ist laktosefrei oder von Natur aus ohne Laktose, dazu pflanzliche Alternativen. Echter Geschmack, ohne Laktose."
+      },
+      {
+        "icon": "🎶",
+        "bg": "#FCE2E9",
+        "title": "Musik & Food Court",
+        "text": "Live-Konzerte, DJ-Sets, Food Trucks und eine Bar. Echtes Festivalfeeling, ohne Kompromisse."
+      }
+    ]
+  },
+  "manifesto": {
+    "tag": "Das Versprechen",
+    "quote": "FLORE ist kein Festival für Menschen auf Diät. Es ist ein Festival, Punkt, das zufällig 100% glutenfrei und laktosefrei ist, damit niemand mehr zwischen Feiern und sorgenfreiem Essen wählen muss."
+  },
+  "geo": {
+    "kicker": "Näher als gedacht",
+    "title_pre": "Nur wenige Autostunden von ",
+    "title_hl": "Süddeutschland",
+    "text": "Der Veranstaltungsort liegt im Osten Frankreichs, in einer Region, die auch für Gäste aus dem Ausland gut erreichbar ist: nur wenige Autostunden von Freiburg, Basel und Stuttgart entfernt.",
+    "chips": [
+      {
+        "icon": "🌲",
+        "label": "Freiburg, nur wenige Autostunden entfernt"
+      },
+      {
+        "icon": "🇨🇭",
+        "label": "Basel, direkt an der Grenze"
+      },
+      {
+        "icon": "🏰",
+        "label": "Stuttgart, ein einfacher Wochenendtrip"
+      }
+    ]
+  },
+  "visit": {
+    "kicker": "Anreise planen",
+    "title_pre": "Einfach erreichbar, von ",
+    "title_hl": "überall",
+    "text": "Der Ort wurde noch nicht bekannt gegeben, wird aber so gewählt, dass er mit Auto, Zug und Flugzeug gut erreichbar bleibt, auch aus Süddeutschland. Alle Details zur Anreise folgen mit der Ankündigung."
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "title": "Eure Fragen, unsere Antworten",
+    "items": [
+      {
+        "q": "Was genau ist das FLORE Festival?",
+        "a": "FLORE ist ein eintägiges Musik- und Food-Festival, komplett glutenfrei und laktosefrei: Konzerte, DJ-Sets, ein Food Court, ein Shop und Wohlfühlbereiche, alles an einem Ort, alles bedenkenlos zu essen und zu trinken."
+      },
+      {
+        "q": "Ist das Festival nur für Allergiker oder Zöliakiebetroffene?",
+        "a": "Überhaupt nicht. FLORE ist ein Festival für alle, das zufällig 100% glutenfrei und laktosefrei ist. Line-up, Essen, Atmosphäre: ein Festival wie jedes andere, nur ohne den üblichen Ernährungsstress für diejenigen, die ihn brauchen."
+      },
+      {
+        "q": "Wann und wo findet es statt?",
+        "a": "Das genaue Datum und der Ort werden bald bekannt gegeben. Trag dich unten in die Warteliste ein, um es als Erste:r zu erfahren, noch vor der öffentlichen Ankündigung."
+      },
+      {
+        "q": "Sind Tickets schon erhältlich?",
+        "a": "Noch nicht. Die Warteliste sichert dir frühen Zugang und einen Frühbucherpreis, sobald der Vorverkauf startet."
+      },
+      {
+        "q": "Ist das Essen wirklich sicher für Menschen mit Zöliakie?",
+        "a": "Ja. Das gesamte Gelände, Food Court und Bar inklusive, hält einen strengen Standard unter 20 ppm Gluten ein, die anerkannte Schwelle für Zöliakie, mit dedizierter Zubereitung zur Vermeidung von Kreuzkontamination."
+      },
+      {
+        "q": "Muss ich von weit her anreisen?",
+        "a": "Nein. Der Veranstaltungsort liegt in einer Region, die von Freiburg, Basel und Stuttgart aus nur wenige Autostunden entfernt ist, gut erreichbar mit Auto, Zug oder Flugzeug."
+      }
+    ]
+  },
+  "tickets": {
+    "kicker": "Tickets",
+    "title_pre": "Tritt der ",
+    "title_em": "Warteliste",
+    "text": "Tickets sind noch nicht erhältlich. Trag dich ein, um den Frühbucherpreis zu sichern und als Erste:r zu erfahren, wann der Vorverkauf startet.",
+    "email_placeholder": "deine@email.de",
+    "email_label": "Deine E-Mail-Adresse",
+    "submit": "Eintragen",
+    "success": "Du bist auf der Liste. Bis 2027!",
+    "smallnote": "Datum & Ort: Ankündigung kommt bald 🌸",
+    "sending": "Wird gesendet…",
+    "error": "Es ist ein Fehler aufgetreten. Bitte versuche es erneut oder schreibe an contact@flore-festival.fr.",
+    "from_name_label": "Warteliste"
+  },
+  "footer": {
+    "about": "Das erste 100% glutenfreie und laktosefreie Festival. Eine Produktion von MG Entertainment, denn die Party sollte für alle offen sein.",
+    "contact_heading": "Kontakt",
+    "lang_switch": "Site en français",
+    "production_label": "Eine Produktion von MG Entertainment.",
+    "country_label": "Frankreich"
+  }
+}
