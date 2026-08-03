@@ -126,11 +126,11 @@
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
   var COOKIE_I18N = {
-    fr: { title: 'On reste léger', text: 'On utilise Google Analytics et le Pixel Meta (Facebook/Instagram) pour comprendre comment le site est visité et mesurer nos campagnes, jamais pour vous revendre à des tiers. Vous choisissez.', accept: 'Accepter', decline: 'Refuser', more: 'En savoir plus', aria: 'Information cookies' },
-    en: { title: 'Keeping it light', text: 'We use Google Analytics and the Meta Pixel (Facebook/Instagram) to understand how the site is visited and measure our campaigns, never to resell your data. Your choice.', accept: 'Accept', decline: 'Decline', more: 'Learn more', aria: 'Cookie information' },
-    it: { title: 'Restiamo leggeri', text: 'Utilizziamo Google Analytics e il Pixel Meta (Facebook/Instagram) per capire come viene visitato il sito e misurare le nostre campagne, mai per rivendere i tuoi dati. Scegli tu.', accept: 'Accetta', decline: 'Rifiuta', more: 'Scopri di più', aria: 'Informazioni sui cookie' },
-    de: { title: 'Wir bleiben leicht', text: 'Wir verwenden Google Analytics und den Meta-Pixel (Facebook/Instagram), um zu verstehen, wie die Website besucht wird, und um unsere Kampagnen zu messen, niemals um Ihre Daten weiterzuverkaufen. Sie entscheiden.', accept: 'Akzeptieren', decline: 'Ablehnen', more: 'Mehr erfahren', aria: 'Cookie-Informationen' },
-    es: { title: 'Mantenemos la ligereza', text: 'Usamos Google Analytics y el Píxel de Meta (Facebook/Instagram) para entender cómo se visita el sitio y medir nuestras campañas, nunca para revender tus datos. Tú decides.', accept: 'Aceptar', decline: 'Rechazar', more: 'Saber más', aria: 'Información sobre cookies' }
+    fr: { title: 'On reste léger', text: 'Ce site utilise des cookies de mesure d\'audience et publicitaires (Google, Meta). Vous choisissez.', accept: 'Accepter', decline: 'Refuser', more: 'En savoir plus', aria: 'Information cookies' },
+    en: { title: 'Keeping it light', text: 'This site uses audience measurement and advertising cookies (Google, Meta). Your choice.', accept: 'Accept', decline: 'Decline', more: 'Learn more', aria: 'Cookie information' },
+    it: { title: 'Restiamo leggeri', text: 'Questo sito utilizza cookie di misurazione del pubblico e pubblicitari (Google, Meta). Scegli tu.', accept: 'Accetta', decline: 'Rifiuta', more: 'Scopri di più', aria: 'Informazioni sui cookie' },
+    de: { title: 'Wir bleiben leicht', text: 'Diese Website verwendet Cookies zur Reichweitenmessung und für Werbung (Google, Meta). Sie entscheiden.', accept: 'Akzeptieren', decline: 'Ablehnen', more: 'Mehr erfahren', aria: 'Cookie-Informationen' },
+    es: { title: 'Mantenemos la ligereza', text: 'Este sitio usa cookies de medición de audiencia y publicidad (Google, Meta). Tú decides.', accept: 'Aceptar', decline: 'Rechazar', more: 'Saber más', aria: 'Información sobre cookies' }
   };
   var cookieLang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
   var ct = COOKIE_I18N[cookieLang] || COOKIE_I18N.fr;
