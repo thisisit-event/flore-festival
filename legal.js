@@ -112,9 +112,9 @@
     '<p>Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification, d\'effacement, d\'opposition et de portabilité de vos données. Pour les exercer, écrivez à <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>' +
 
     '<h3>6. Cookies et traceurs</h3>' +
-    '<p>Ce site n\'utilise <strong>aucun cookie publicitaire</strong> et ne fait <strong>aucun profilage</strong>. Il utilise en revanche <strong>Google Analytics</strong>, uniquement avec votre consentement, pour comprendre de façon anonymisée comment le site est visité (pages consultées, provenance, appareil) — jamais pour vous cibler avec de la publicité, jamais revendu à des tiers.</p>' +
+    '<p>Ce site ne fait <strong>aucun profilage</strong> et ne revend jamais vos données. Avec votre consentement, il utilise <strong>Google Analytics</strong> (comprendre de façon anonymisée comment le site est visité : pages consultées, provenance, appareil) et le <strong>Pixel Meta</strong> (Facebook/Instagram), qui mesure l\'efficacité de nos publications et campagnes sur ces réseaux et peut, si vous interagissez avec nos publicités, servir à évaluer leur performance.</p>' +
     '<ul>' +
-      '<li><strong>Google Analytics</strong> : déposé uniquement si vous cliquez « Accepter » sur le bandeau cookies. Vous pouvez refuser sans que cela affecte votre navigation.</li>' +
+      '<li><strong>Google Analytics</strong> et <strong>Pixel Meta</strong> : déposés uniquement si vous cliquez « Accepter » sur le bandeau cookies. Vous pouvez refuser sans que cela affecte votre navigation.</li>' +
       '<li><strong>Stockage local</strong> : nous mémorisons, sur votre appareil, votre choix (accepté/refusé) pour ne pas vous redemander à chaque visite. Cette donnée reste dans votre navigateur.</li>' +
       '<li><strong>Ressources externes</strong> : les polices d\'écriture (Google Fonts) et la bibliothèque d\'animations (AOS) sont chargées depuis des serveurs tiers, indépendamment de votre choix ci-dessus. Ceux-ci peuvent recevoir votre adresse IP, technique nécessaire pour livrer les fichiers, sans aucun suivi de votre navigation.</li>' +
     '</ul>' +
@@ -125,11 +125,11 @@
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
   var COOKIE_I18N = {
-    fr: { title: 'On reste léger', text: 'On utilise Google Analytics pour comprendre comment le site est visité (données anonymisées, jamais de pub ni de revente). Vous choisissez.', accept: 'Accepter', decline: 'Refuser', more: 'En savoir plus', aria: 'Information cookies' },
-    en: { title: 'Keeping it light', text: 'We use Google Analytics to understand how the site is visited (anonymized data, never for ads or resale). Your choice.', accept: 'Accept', decline: 'Decline', more: 'Learn more', aria: 'Cookie information' },
-    it: { title: 'Restiamo leggeri', text: 'Utilizziamo Google Analytics per capire come viene visitato il sito (dati anonimizzati, mai per pubblicità o rivendita). Scegli tu.', accept: 'Accetta', decline: 'Rifiuta', more: 'Scopri di più', aria: 'Informazioni sui cookie' },
-    de: { title: 'Wir bleiben leicht', text: 'Wir verwenden Google Analytics, um zu verstehen, wie die Website besucht wird (anonymisierte Daten, nie für Werbung oder Weiterverkauf). Sie entscheiden.', accept: 'Akzeptieren', decline: 'Ablehnen', more: 'Mehr erfahren', aria: 'Cookie-Informationen' },
-    es: { title: 'Mantenemos la ligereza', text: 'Usamos Google Analytics para entender cómo se visita el sitio (datos anonimizados, nunca para publicidad o reventa). Tú decides.', accept: 'Aceptar', decline: 'Rechazar', more: 'Saber más', aria: 'Información sobre cookies' }
+    fr: { title: 'On reste léger', text: 'On utilise Google Analytics et le Pixel Meta (Facebook/Instagram) pour comprendre comment le site est visité et mesurer nos campagnes, jamais pour vous revendre à des tiers. Vous choisissez.', accept: 'Accepter', decline: 'Refuser', more: 'En savoir plus', aria: 'Information cookies' },
+    en: { title: 'Keeping it light', text: 'We use Google Analytics and the Meta Pixel (Facebook/Instagram) to understand how the site is visited and measure our campaigns, never to resell your data. Your choice.', accept: 'Accept', decline: 'Decline', more: 'Learn more', aria: 'Cookie information' },
+    it: { title: 'Restiamo leggeri', text: 'Utilizziamo Google Analytics e il Pixel Meta (Facebook/Instagram) per capire come viene visitato il sito e misurare le nostre campagne, mai per rivendere i tuoi dati. Scegli tu.', accept: 'Accetta', decline: 'Rifiuta', more: 'Scopri di più', aria: 'Informazioni sui cookie' },
+    de: { title: 'Wir bleiben leicht', text: 'Wir verwenden Google Analytics und den Meta-Pixel (Facebook/Instagram), um zu verstehen, wie die Website besucht wird, und um unsere Kampagnen zu messen, niemals um Ihre Daten weiterzuverkaufen. Sie entscheiden.', accept: 'Akzeptieren', decline: 'Ablehnen', more: 'Mehr erfahren', aria: 'Cookie-Informationen' },
+    es: { title: 'Mantenemos la ligereza', text: 'Usamos Google Analytics y el Píxel de Meta (Facebook/Instagram) para entender cómo se visita el sitio y medir nuestras campañas, nunca para revender tus datos. Tú decides.', accept: 'Aceptar', decline: 'Rechazar', more: 'Saber más', aria: 'Información sobre cookies' }
   };
   var cookieLang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
   var ct = COOKIE_I18N[cookieLang] || COOKIE_I18N.fr;
@@ -150,6 +150,7 @@
      pas être réutilisée comme un vrai consentement à Google Analytics. */
   var STORE_KEY = 'flore_cookie_consent_v2';
   var GA_ID = 'G-PGW3GQF49M';
+  var META_PIXEL_ID = '1061377453086854';
   var lastFocus = null;
 
   /* Charge Google Analytics uniquement après un consentement explicite —
@@ -165,6 +166,23 @@
     window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
     window.gtag('config', GA_ID);
+  }
+
+  /* Charge le Pixel Meta (Facebook/Instagram) uniquement après consentement,
+     même logique que loadGA(). Sert à mesurer les campagnes publicitaires Meta. */
+  function loadMetaPixel() {
+    if (window.__floreMetaLoaded) return;
+    window.__floreMetaLoaded = true;
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', META_PIXEL_ID);
+    window.fbq('track', 'PageView');
   }
 
   function getConsent() {
@@ -253,7 +271,7 @@
     /* Bandeau cookies : choix mémorisé (granted/denied). Un consentement déjà
        donné charge Google Analytics immédiatement, sans réafficher le bandeau. */
     var consent = getConsent();
-    if (consent === 'granted') { loadGA(); return; }
+    if (consent === 'granted') { loadGA(); loadMetaPixel(); return; }
     if (consent === 'denied') return;
 
     var banner = document.createElement('aside');
@@ -265,7 +283,7 @@
 
     function respond(choice) {
       setConsent(choice);
-      if (choice === 'granted') loadGA();
+      if (choice === 'granted') { loadGA(); loadMetaPixel(); }
       banner.classList.remove('show');
       window.setTimeout(function () { banner.remove(); }, 550);
     }
