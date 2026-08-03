@@ -44,10 +44,14 @@
     '.lgl-cookie .ck-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}',
     '.lgl-cookie .ck-ok{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:var(--sun,#DAEF52);color:var(--ink,#15395B);border:none;cursor:pointer;padding:11px 22px;border-radius:100px;transition:transform .2s,background .2s}',
     '.lgl-cookie .ck-ok:hover{transform:translateY(-2px);background:var(--sun-deep,#92A824)}',
-    '.lgl-cookie .ck-more{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.84rem;font-weight:600;color:var(--sky-deep,#2E7FB8);background:none;border:none;cursor:pointer;text-decoration:underline}',
+    '.lgl-cookie .ck-decline{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:none;color:var(--ink-soft,#5C7993);border:1px solid rgba(21,57,91,.18);cursor:pointer;padding:10px 18px;border-radius:100px;transition:background .2s}',
+    '.lgl-cookie .ck-decline:hover{background:rgba(21,57,91,.06)}',
+    '.lgl-cookie .ck-more{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.84rem;font-weight:600;color:var(--sky-deep,#2E7FB8);background:none;border:none;cursor:pointer;text-decoration:underline;width:100%;text-align:center;margin-top:2px}',
     'body.lgl-locked{overflow:hidden}',
     '@media(max-width:480px){.lgl-cookie{left:14px;right:14px;bottom:14px;width:auto}.lgl-body{padding:42px 22px 28px}}',
-    '@media(prefers-reduced-motion:reduce){.lgl-overlay,.lgl-card,.lgl-cookie{transition:none}.lgl-close:hover{transform:none}}'
+    '@media(prefers-reduced-motion:reduce){.lgl-overlay,.lgl-card,.lgl-cookie{transition:none}.lgl-close:hover{transform:none}}',
+    '.lgl-manage-cookies{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.88rem;background:var(--sun,#DAEF52);color:var(--ink,#15395B);border:none;cursor:pointer;padding:10px 20px;border-radius:100px;transition:transform .2s,background .2s}',
+    '.lgl-manage-cookies:hover{transform:translateY(-2px);background:var(--sun-deep,#92A824)}'
   ].join('');
 
   /* ---------- Mentions légales ---------- */
@@ -108,23 +112,24 @@
     '<p>Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification, d\'effacement, d\'opposition et de portabilité de vos données. Pour les exercer, écrivez à <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>' +
 
     '<h3>6. Cookies et traceurs</h3>' +
-    '<p>Bonne nouvelle : ce site ne dépose <strong>aucun cookie publicitaire ni de mesure d\'audience</strong>. Pas de Google Analytics, pas de pixel de réseau social, aucun profilage.</p>' +
+    '<p>Ce site n\'utilise <strong>aucun cookie publicitaire</strong> et ne fait <strong>aucun profilage</strong>. Il utilise en revanche <strong>Google Analytics</strong>, uniquement avec votre consentement, pour comprendre de façon anonymisée comment le site est visité (pages consultées, provenance, appareil) — jamais pour vous cibler avec de la publicité, jamais revendu à des tiers.</p>' +
     '<ul>' +
-      '<li><strong>Stockage local</strong> : nous mémorisons uniquement, sur votre appareil, le fait que vous avez vu le bandeau d\'information. Cette donnée reste dans votre navigateur et ne nous est jamais transmise.</li>' +
-      '<li><strong>Ressources externes</strong> : les polices d\'écriture (Google Fonts) et la bibliothèque d\'animations (AOS) sont chargées depuis des serveurs tiers. Ceux-ci peuvent recevoir votre adresse IP, technique nécessaire pour livrer les fichiers, sans aucun suivi de votre navigation.</li>' +
+      '<li><strong>Google Analytics</strong> : déposé uniquement si vous cliquez « Accepter » sur le bandeau cookies. Vous pouvez refuser sans que cela affecte votre navigation.</li>' +
+      '<li><strong>Stockage local</strong> : nous mémorisons, sur votre appareil, votre choix (accepté/refusé) pour ne pas vous redemander à chaque visite. Cette donnée reste dans votre navigateur.</li>' +
+      '<li><strong>Ressources externes</strong> : les polices d\'écriture (Google Fonts) et la bibliothèque d\'animations (AOS) sont chargées depuis des serveurs tiers, indépendamment de votre choix ci-dessus. Ceux-ci peuvent recevoir votre adresse IP, technique nécessaire pour livrer les fichiers, sans aucun suivi de votre navigation.</li>' +
     '</ul>' +
-    '<p>Votre visite ne nécessitant aucun cookie de suivi, aucun consentement préalable n\'est requis pour naviguer sur ce site.</p>' +
+    '<p><button type="button" class="lgl-manage-cookies">Modifier mon choix sur les cookies</button></p>' +
 
-    '<p class="lgl-updated">Dernière mise à jour : mai 2026.</p>';
+    '<p class="lgl-updated">Dernière mise à jour : août 2026.</p>';
 
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
   var COOKIE_I18N = {
-    fr: { title: 'On reste léger', text: 'Le seul cookie de la maison est sans gluten ni lactose. Pas de pub, pas de pistage, juste l\'essentiel pour que la fête puisse éclore.', ok: 'Parfait !', more: 'En savoir plus', aria: 'Information cookies' },
-    en: { title: 'Keeping it light', text: 'The only cookie here is gluten-free and lactose-free. No ads, no tracking, just the essentials so the party can bloom.', ok: 'Sounds good!', more: 'Learn more', aria: 'Cookie information' },
-    it: { title: 'Restiamo leggeri', text: 'L\'unico cookie di casa è senza glutine e senza lattosio. Niente pubblicità, niente tracciamento, solo l\'essenziale perché la festa possa sbocciare.', ok: 'Perfetto!', more: 'Scopri di più', aria: 'Informazioni sui cookie' },
-    de: { title: 'Wir bleiben leicht', text: 'Der einzige Cookie im Haus ist glutenfrei und laktosefrei. Keine Werbung, kein Tracking, nur das Nötigste, damit das Fest aufblühen kann.', ok: 'Perfekt!', more: 'Mehr erfahren', aria: 'Cookie-Informationen' },
-    es: { title: 'Mantenemos la ligereza', text: 'La única cookie de la casa es sin gluten y sin lactosa. Sin publicidad, sin rastreo, solo lo esencial para que la fiesta pueda florecer.', ok: '¡Perfecto!', more: 'Saber más', aria: 'Información sobre cookies' }
+    fr: { title: 'On reste léger', text: 'On utilise Google Analytics pour comprendre comment le site est visité (données anonymisées, jamais de pub ni de revente). Vous choisissez.', accept: 'Accepter', decline: 'Refuser', more: 'En savoir plus', aria: 'Information cookies' },
+    en: { title: 'Keeping it light', text: 'We use Google Analytics to understand how the site is visited (anonymized data, never for ads or resale). Your choice.', accept: 'Accept', decline: 'Decline', more: 'Learn more', aria: 'Cookie information' },
+    it: { title: 'Restiamo leggeri', text: 'Utilizziamo Google Analytics per capire come viene visitato il sito (dati anonimizzati, mai per pubblicità o rivendita). Scegli tu.', accept: 'Accetta', decline: 'Rifiuta', more: 'Scopri di più', aria: 'Informazioni sui cookie' },
+    de: { title: 'Wir bleiben leicht', text: 'Wir verwenden Google Analytics, um zu verstehen, wie die Website besucht wird (anonymisierte Daten, nie für Werbung oder Weiterverkauf). Sie entscheiden.', accept: 'Akzeptieren', decline: 'Ablehnen', more: 'Mehr erfahren', aria: 'Cookie-Informationen' },
+    es: { title: 'Mantenemos la ligereza', text: 'Usamos Google Analytics para entender cómo se visita el sitio (datos anonimizados, nunca para publicidad o reventa). Tú decides.', accept: 'Aceptar', decline: 'Rechazar', more: 'Saber más', aria: 'Información sobre cookies' }
   };
   var cookieLang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
   var ct = COOKIE_I18N[cookieLang] || COOKIE_I18N.fr;
@@ -135,12 +140,40 @@
     '</div>' +
     '<p>' + ct.text + '</p>' +
     '<div class="ck-row">' +
-      '<button type="button" class="ck-ok">' + ct.ok + '</button>' +
+      '<button type="button" class="ck-ok" data-choice="granted">' + ct.accept + '</button>' +
+      '<button type="button" class="ck-decline" data-choice="denied">' + ct.decline + '</button>' +
       '<button type="button" class="ck-more" data-legal="confidentialite">' + ct.more + '</button>' +
     '</div>';
 
-  var STORE_KEY = 'flore_cookie_notice_v1';
+  /* Nouvelle clé (v2) : l'ancienne "flore_cookie_notice_v1" ne voulait dire
+     que "j'ai vu le bandeau" (aucun tracking n'existait alors) — elle ne peut
+     pas être réutilisée comme un vrai consentement à Google Analytics. */
+  var STORE_KEY = 'flore_cookie_consent_v2';
+  var GA_ID = 'G-PGW3GQF49M';
   var lastFocus = null;
+
+  /* Charge Google Analytics uniquement après un consentement explicite —
+     jamais au chargement de la page tant que l'utilisateur n'a pas cliqué "Accepter". */
+  function loadGA() {
+    if (window.__floreGaLoaded) return;
+    window.__floreGaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
+  }
+
+  function getConsent() {
+    try { return localStorage.getItem(STORE_KEY); } catch (err) { return null; }
+  }
+
+  function setConsent(value) {
+    try { localStorage.setItem(STORE_KEY, value); } catch (err) {}
+  }
 
   function buildModal(id, labelId, html) {
     var ov = document.createElement('div');
@@ -189,6 +222,12 @@
 
     /* Ouverture, fermeture (bouton, fond, touche Échap) */
     document.addEventListener('click', function (e) {
+      var manage = e.target.closest('.lgl-manage-cookies');
+      if (manage) {
+        try { localStorage.removeItem(STORE_KEY); } catch (err) {}
+        window.location.reload();
+        return;
+      }
       var trigger = e.target.closest('[data-legal]');
       if (trigger) {
         e.preventDefault();
@@ -211,10 +250,11 @@
       if (open) closeModal(open);
     });
 
-    /* Bandeau cookies : affiché une seule fois, choix mémorisé */
-    var seen = false;
-    try { seen = localStorage.getItem(STORE_KEY) === 'ok'; } catch (err) {}
-    if (seen) return;
+    /* Bandeau cookies : choix mémorisé (granted/denied). Un consentement déjà
+       donné charge Google Analytics immédiatement, sans réafficher le bandeau. */
+    var consent = getConsent();
+    if (consent === 'granted') { loadGA(); return; }
+    if (consent === 'denied') return;
 
     var banner = document.createElement('aside');
     banner.className = 'lgl-cookie';
@@ -223,11 +263,15 @@
     document.body.appendChild(banner);
     window.setTimeout(function () { banner.classList.add('show'); }, 700);
 
-    banner.querySelector('.ck-ok').addEventListener('click', function () {
-      try { localStorage.setItem(STORE_KEY, 'ok'); } catch (err) {}
+    function respond(choice) {
+      setConsent(choice);
+      if (choice === 'granted') loadGA();
       banner.classList.remove('show');
       window.setTimeout(function () { banner.remove(); }, 550);
-    });
+    }
+
+    banner.querySelector('.ck-ok').addEventListener('click', function () { respond('granted'); });
+    banner.querySelector('.ck-decline').addEventListener('click', function () { respond('denied'); });
   }
 
   if (document.readyState === 'loading') {
