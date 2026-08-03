@@ -42,11 +42,11 @@
     '.lgl-cookie h4{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:800;font-size:1.08rem;color:var(--ink,#15395B)}',
     '.lgl-cookie p{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.86rem;line-height:1.55;color:var(--ink-soft,#5C7993);margin-bottom:14px}',
     '.lgl-cookie .ck-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}',
-    '.lgl-cookie .ck-ok{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:var(--sun,#DAEF52);color:var(--ink,#15395B);border:none;cursor:pointer;padding:11px 22px;border-radius:100px;transition:transform .2s,background .2s}',
-    '.lgl-cookie .ck-ok:hover{transform:translateY(-2px);background:var(--sun-deep,#92A824)}',
+    '.lgl-cookie .ck-ok{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:var(--ink,#15395B);color:var(--white,#fff);border:none;cursor:pointer;padding:11px 22px;border-radius:100px;transition:transform .2s,background .2s}',
+    '.lgl-cookie .ck-ok:hover{transform:translateY(-2px);background:var(--navy,#0B1832)}',
     '.lgl-cookie .ck-decline{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:none;color:var(--ink-soft,#5C7993);border:1px solid rgba(21,57,91,.18);cursor:pointer;padding:10px 18px;border-radius:100px;transition:background .2s}',
     '.lgl-cookie .ck-decline:hover{background:rgba(21,57,91,.06)}',
-    '.lgl-cookie .ck-more{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.84rem;font-weight:600;color:var(--sky-deep,#2E7FB8);background:none;border:none;cursor:pointer;text-decoration:underline;width:100%;text-align:center;margin-top:2px}',
+    '.lgl-cookie .ck-more{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.84rem;font-weight:600;color:var(--ink-soft,#5C7993);background:none;border:none;cursor:pointer;text-decoration:underline;width:100%;text-align:center;margin-top:2px}',
     'body.lgl-locked{overflow:hidden}',
     '@media(max-width:480px){.lgl-cookie{left:14px;right:14px;bottom:14px;width:auto}.lgl-body{padding:42px 22px 28px}}',
     '@media(prefers-reduced-motion:reduce){.lgl-overlay,.lgl-card,.lgl-cookie{transition:none}.lgl-close:hover{transform:none}}',
@@ -126,11 +126,11 @@
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
   var COOKIE_I18N = {
-    fr: { title: 'On reste léger', text: 'Ce site utilise des cookies de mesure d\'audience et publicitaires (Google, Meta). Vous choisissez.', accept: 'Accepter', decline: 'Refuser', more: 'En savoir plus', aria: 'Information cookies' },
-    en: { title: 'Keeping it light', text: 'This site uses audience measurement and advertising cookies (Google, Meta). Your choice.', accept: 'Accept', decline: 'Decline', more: 'Learn more', aria: 'Cookie information' },
-    it: { title: 'Restiamo leggeri', text: 'Questo sito utilizza cookie di misurazione del pubblico e pubblicitari (Google, Meta). Scegli tu.', accept: 'Accetta', decline: 'Rifiuta', more: 'Scopri di più', aria: 'Informazioni sui cookie' },
-    de: { title: 'Wir bleiben leicht', text: 'Diese Website verwendet Cookies zur Reichweitenmessung und für Werbung (Google, Meta). Sie entscheiden.', accept: 'Akzeptieren', decline: 'Ablehnen', more: 'Mehr erfahren', aria: 'Cookie-Informationen' },
-    es: { title: 'Mantenemos la ligereza', text: 'Este sitio usa cookies de medición de audiencia y publicidad (Google, Meta). Tú decides.', accept: 'Aceptar', decline: 'Rechazar', more: 'Saber más', aria: 'Información sobre cookies' }
+    fr: { title: 'On reste léger', text: 'Nous utilisons des cookies pour mesurer l\'audience et améliorer votre expérience sur le site du FLORE Festival.', accept: 'Tout accepter', decline: 'Refuser', more: 'Personnaliser', aria: 'Information cookies' },
+    en: { title: 'Keeping it light', text: 'We use cookies to measure audience and improve your experience on the FLORE Festival website.', accept: 'Accept all', decline: 'Decline', more: 'Customize', aria: 'Cookie information' },
+    it: { title: 'Restiamo leggeri', text: 'Utilizziamo cookie per misurare il pubblico e migliorare la tua esperienza sul sito di FLORE Festival.', accept: 'Accetta tutto', decline: 'Rifiuta', more: 'Personalizza', aria: 'Informazioni sui cookie' },
+    de: { title: 'Wir bleiben leicht', text: 'Wir verwenden Cookies, um die Reichweite zu messen und Ihre Erfahrung auf der Website des FLORE Festival zu verbessern.', accept: 'Alle akzeptieren', decline: 'Ablehnen', more: 'Anpassen', aria: 'Cookie-Informationen' },
+    es: { title: 'Mantenemos la ligereza', text: 'Utilizamos cookies para medir la audiencia y mejorar tu experiencia en el sitio de FLORE Festival.', accept: 'Aceptar todo', decline: 'Rechazar', more: 'Personalizar', aria: 'Información sobre cookies' }
   };
   var cookieLang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
   var ct = COOKIE_I18N[cookieLang] || COOKIE_I18N.fr;
