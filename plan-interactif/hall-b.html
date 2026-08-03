@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PGW3GQF49M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PGW3GQF49M');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan interactif · Hall B · FLORE</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://flore-festival.fr/plan-interactif/hall-b.html">
+<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css?v=20260702">
+<style>
+  /* Page interne, pas encore reliée au site public (pas de lien nav, noindex).
+     Prête à être branchée au moment du reveal du lieu. */
+  .plan-sheet{padding-top:150px;padding-bottom:90px}
+  .plan-head{margin-bottom:26px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+  .plan-head h1{color:var(--white);font-size:clamp(1.8rem,4vw,2.5rem);margin:0 0 8px}
+  .plan-head p{color:rgba(255,255,255,.85);max-width:640px}
+  .plan-switch{display:flex;gap:8px}
+  .plan-switch a{padding:9px 18px;border-radius:100px;font-weight:700;font-size:.85rem;text-decoration:none;background:rgba(255,255,255,.16);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+  .plan-switch a.on{background:var(--sun);color:var(--ink);border-color:var(--sun)}
+
+  .plan-layout{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start}
+  @media(max-width:900px){.plan-layout{grid-template-columns:1fr}}
+
+  .plan-canvas{background:#fff;border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow)}
+  .plan-canvas svg{width:100%;height:auto;display:block}
+
+  .plan-zone{cursor:pointer;stroke:#fff;stroke-width:2;transition:opacity .15s,filter .15s}
+  .plan-zone:hover{opacity:.85;filter:brightness(1.06)}
+  .plan-zone.active{stroke:var(--ink);stroke-width:4}
+  .plan-label{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;fill:#fff;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
+  .plan-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;fill:#fff;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
+
+  .plan-legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+  .plan-legend span{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;color:var(--ink-soft);font-weight:600}
+  .plan-legend i{width:14px;height:14px;border-radius:4px;display:inline-block;flex:none}
+
+  .plan-panel{background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow);position:sticky;top:130px;min-height:280px}
+  .plan-panel h3{font-size:1.2rem;color:var(--ink);margin:0 0 6px}
+  .plan-panel .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;padding:4px 12px;border-radius:100px;margin-bottom:12px}
+  .plan-panel dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:.92rem;margin-top:14px}
+  .plan-panel dt{color:var(--ink-soft);font-weight:600}
+  .plan-panel dd{color:var(--ink);font-weight:700;text-align:right}
+  .plan-panel .empty{color:var(--ink-soft);text-align:center;padding:60px 10px}
+  .plan-panel .empty .ic{font-size:2.4rem;display:block;margin-bottom:10px}
+  .plan-panel .cta{display:block;text-align:center;margin-top:18px;padding:13px;border-radius:100px;background:var(--sun);color:var(--ink);font-weight:700;font-size:.9rem;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="clouds" aria-hidden="true">
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cloud" viewBox="0 0 230 110">
+      <g fill="currentColor">
+        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
+        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
+        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="site-nav"></div>
+<script src="/assets/nav.js?v=20260704b"></script>
+
+<div class="plan-sheet">
+  <div class="wrap">
+    <div class="plan-head">
+      <div>
+        <h1>Plan interactif — Hall B</h1>
+        <p>Clique une zone ou un stand pour voir le détail. Schéma indicatif (proportions approximatives, pas à l'échelle au centimètre près).</p>
+      </div>
+      <div class="plan-switch">
+        <a href="/plan-interactif/">Hall A</a>
+        <a href="/plan-interactif/hall-b.html" class="on">Hall B</a>
+      </div>
+    </div>
+
+    <div class="plan-layout">
+      <div class="plan-canvas">
+        <svg id="hallB" viewBox="0 0 630 450" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bar -->
+          <rect class="plan-zone" data-id="bar" x="270" y="20" width="90" height="30" fill="#F4EE34"/>
+          <text class="plan-label" x="315" y="38" font-size="11" fill="#15395B">🍹 Bar</text>
+
+          <!-- Espace assis, 2 blocs (37 tables au total) -->
+          <rect class="plan-zone" data-id="assis-g" x="20" y="20" width="240" height="120" fill="#4DA9DF"/>
+          <text class="plan-label" x="140" y="80" font-size="13">🪑 Espace assis</text>
+          <rect class="plan-zone" data-id="assis-d" x="380" y="20" width="80" height="120" fill="#4DA9DF"/>
+          <text class="plan-label" x="420" y="80" font-size="11" transform="rotate(-90 420 80)">🪑 Assis</text>
+
+          <!-- Cocon -->
+          <rect class="plan-zone" data-id="cocon" x="470" y="20" width="120" height="120" fill="#F2A7BB"/>
+          <text class="plan-label" x="530" y="80" font-size="15" fill="#5c2f42">🫧 Le Cocon</text>
+
+          <!-- Espace assis devant les stands Partenaires 1-2 -->
+          <rect class="plan-zone" data-id="assis-p" x="460" y="150" width="100" height="60" fill="#4DA9DF"/>
+          <text class="plan-label" x="510" y="180" font-size="10">🪑 Assis</text>
+
+          <!-- 3 blocs Boutique (40m x 4m, stands dos à dos = ligne centrale) -->
+          <g id="boutique-blocks"></g>
+
+          <!-- Colonne de droite : stands Partenaires (sous le Cocon) -->
+          <g id="stands-right"></g>
+          <!-- Rangée du bas : stands Partenaires -->
+          <g id="stands-bottom"></g>
+        </svg>
+
+        <div class="plan-legend">
+          <span><i style="background:#4DA9DF"></i>Espace assis</span>
+          <span><i style="background:#F4EE34"></i>Bar</span>
+          <span><i style="background:#F2A7BB"></i>Le Cocon</span>
+          <span><i style="background:#DAEF52"></i>Boutique</span>
+          <span><i style="background:#27336A"></i>Stands Partenaires</span>
+        </div>
+      </div>
+
+      <aside class="plan-panel" id="planPanel">
+        <div class="empty">
+          <span class="ic">🗺️</span>
+          Clique une zone du plan pour voir son détail ici.
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="f-stars"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
+        <p class="about">Le premier festival 100 % sans gluten et sans lactose. Une production de MG Entertainment.</p>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="/#billetterie">Billetterie</a></li>
+          <li><button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button></li>
+          <li><button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  /* ---- Données des zones fixes ---- */
+  const ZONES = {
+    bar: {
+      title:'Bar', tag:'Bar', color:'#F4EE34',
+      desc:'Point de bar du Hall B, proche de l\'espace assis.',
+      fields:{ 'Taille':'9m × 3m (27m²)' }
+    },
+    'assis-g': {
+      title:'Espace assis (bloc gauche)', tag:'Espace public', color:'#4DA9DF',
+      desc:'Une partie des 37 tables du Hall B (222 places assises au total sur l\'ensemble des blocs).',
+      fields:{ 'Places totales Hall B':'222 (37 tables)' }
+    },
+    'assis-d': {
+      title:'Espace assis (bloc droit)', tag:'Espace public', color:'#4DA9DF',
+      desc:'Une partie des 37 tables du Hall B (222 places assises au total sur l\'ensemble des blocs).',
+      fields:{ 'Places totales Hall B':'222 (37 tables)' }
+    },
+    cocon: {
+      title:'Le Cocon', tag:'Zone safe & soin', color:'#F2A7BB',
+      desc:'Zone médecins/psy en cas de stress ou de besoin, à l\'écart de l\'agitation.',
+      fields:{ 'Taille':'12m × 12m (144m²)' }
+    },
+    'assis-p': {
+      title:'Espace assis (devant Partenaires 1-2)', tag:'Espace public', color:'#4DA9DF',
+      desc:'Partie des 37 tables du Hall B, positionnée devant les premiers stands Partenaires.',
+      fields:{ 'Places totales Hall B':'222 (37 tables)' }
+    }
+  };
+
+  function boutiqueInfo(n){
+    return {
+      title:'Bloc Boutique #'+n, tag:'Boutique', color:'#DAEF52',
+      desc:'40m × 4m, stands dos à dos (2 rangées de 2m). Jusqu\'à 20 grands stands (8m²) ou 40 petits (4m²) sur ce bloc selon la demande.',
+      fields:{ 'Dimensions':'40m × 4m (160m²)', 'Petit stand':'2m × 2m — 199€', 'Grand stand':'2m × 4m — 299€' }
+    };
+  }
+  function partnerInfo(n, tier){
+    var d = tier==='M' ? {label:'Partenaire Majeur',price:'6 000€',size:'7m × 3m (21m²)'}
+          : tier==='O' ? {label:'Partenaire Officiel',price:'4 000€',size:'5m × 3m (15m²)'}
+          : {label:'Partenaire',price:'2 000€',size:'3m × 3m (9m²)'};
+    return {
+      title:d.label+' #'+n, tag:'Sponsoring', color: tier==='M' ? '#0B1832' : tier==='O' ? '#27336A' : '#9399B4',
+      desc:'Emplacement nu + accès élec. Le sponsor installe et finance sa propre activation.',
+      fields:{ 'Taille':d.size, 'Tarif':d.price }
+    };
+  }
+
+  /* ---- Génération ---- */
+  const svgNS='http://www.w3.org/2000/svg';
+  function mkZone(id,x,y,w,h,fill,data){
+    const r=document.createElementNS(svgNS,'rect');
+    r.setAttribute('class','plan-zone');
+    r.setAttribute('data-id',id);
+    r.setAttribute('x',x); r.setAttribute('y',y);
+    r.setAttribute('width',w); r.setAttribute('height',h);
+    r.setAttribute('fill',fill);
+    r.addEventListener('click',()=>selectZone(id,data));
+    return r;
+  }
+  function mkLabeledStand(id,x,y,w,h,fill,num,data){
+    const g=document.createElementNS(svgNS,'g');
+    g.appendChild(mkZone(id,x,y,w,h,fill,data));
+    const t=document.createElementNS(svgNS,'text');
+    t.setAttribute('class','plan-num');
+    t.setAttribute('x',x+w/2); t.setAttribute('y',y+h/2);
+    t.setAttribute('font-size','10');
+    t.textContent=num;
+    t.style.pointerEvents='none';
+    g.appendChild(t);
+    return g;
+  }
+
+  // 3 blocs Boutique, avec ligne centrale (dos à dos)
+  const boutiqueG=document.getElementById('boutique-blocks');
+  [170,250,330].forEach(function(y,i){
+    boutiqueG.appendChild(mkZone('boutique-'+(i+1), 20, y, 400, 40, '#DAEF52', boutiqueInfo(i+1)));
+    const line=document.createElementNS(svgNS,'line');
+    line.setAttribute('x1',20); line.setAttribute('x2',420);
+    line.setAttribute('y1',y+20); line.setAttribute('y2',y+20);
+    line.setAttribute('stroke','#b9cf3f'); line.setAttribute('stroke-width',1.5);
+    line.style.pointerEvents='none';
+    boutiqueG.appendChild(line);
+    const lbl=document.createElementNS(svgNS,'text');
+    lbl.setAttribute('class','plan-label'); lbl.setAttribute('x',220); lbl.setAttribute('y',y+20);
+    lbl.setAttribute('font-size','11'); lbl.setAttribute('fill','#5f7d12');
+    lbl.textContent='🛍️ Boutique — bloc '+(i+1)+' (dos à dos)';
+    lbl.style.pointerEvents='none';
+    boutiqueG.appendChild(lbl);
+  });
+
+  // Stands Partenaires, ordre P-P-P-P-O-O-M-M-O-O-O-P-P-P-P-P réparti en L (colonne droite + rangée basse)
+  const standsRight=document.getElementById('stands-right');
+  const standsBottom=document.getElementById('stands-bottom');
+  let pN=1, oN=1, mN=1, sN=1;
+  function nextLabel(tier){
+    if(tier==='P'){ return 'P'+(pN++); }
+    if(tier==='O'){ return 'O'+(oN++); }
+    return 'M'+(mN++);
+  }
+  const colorFor={P:'#9399B4',O:'#27336A',M:'#0B1832'};
+
+  // colonne de droite (sous le Cocon) : P,P,P,P,O,O
+  let ry=150;
+  ['P','P','P','P','O','O'].forEach(function(tier){
+    const h = tier==='O' ? 50 : 30;
+    standsRight.appendChild(mkLabeledStand('partner-'+sN, 560, ry, 30, h, colorFor[tier], nextLabel(tier), partnerInfo(sN,tier)));
+    sN++; ry+=h;
+  });
+
+  // rangée du bas : P,P,P,P,P,O,O,O,M,M (Majeur au coin, jonction avec la colonne)
+  let bx=20;
+  ['P','P','P','P','P','O','O','O','M','M'].forEach(function(tier){
+    const w = tier==='M' ? 70 : tier==='O' ? 50 : 30;
+    standsBottom.appendChild(mkLabeledStand('partner-'+sN, bx, 390, w, 30, colorFor[tier], nextLabel(tier), partnerInfo(sN,tier)));
+    sN++; bx+=w;
+  });
+
+  /* ---- Interaction : clic zone -> panneau ---- */
+  const panel=document.getElementById('planPanel');
+
+  function selectZone(id, data){
+    document.querySelectorAll('.plan-zone').forEach(function(z){z.classList.remove('active');});
+    var el=document.querySelector('[data-id="'+id+'"]');
+    if(el) el.classList.add('active');
+
+    var rowsHtml='';
+    Object.keys(data.fields).forEach(function(k){
+      rowsHtml+='<dt>'+k+'</dt><dd>'+data.fields[k]+'</dd>';
+    });
+
+    panel.innerHTML =
+      '<span class="tag" style="background:'+data.color+'">'+data.tag+'</span>'+
+      '<h3>'+data.title+'</h3>'+
+      '<p style="color:var(--ink-soft);font-size:.92rem;line-height:1.6">'+data.desc+'</p>'+
+      '<dl>'+rowsHtml+'</dl>'+
+      (data.tag==='Sponsoring' || data.tag==='Boutique'
+        ? '<a href="/guide/inscription/" class="cta">Candidater pour cet emplacement →</a>'
+        : '');
+  }
+
+  document.querySelectorAll('.plan-zone[data-id]').forEach(function(z){
+    var id=z.getAttribute('data-id');
+    if(ZONES[id]) z.addEventListener('click', function(){selectZone(id, ZONES[id]);});
+  });
+</script>
+<script src="/assets/transitions.js" defer></script>
+<script src="/legal.js" defer></script>
+</body>
+</html>

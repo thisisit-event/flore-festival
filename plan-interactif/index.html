@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PGW3GQF49M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PGW3GQF49M');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan interactif · Hall A · FLORE</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://flore-festival.fr/plan-interactif/">
+<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css?v=20260702">
+<style>
+  /* Page interne, pas encore reliée au site public (pas de lien nav, noindex).
+     Prête à être branchée au moment du reveal du lieu. */
+  .plan-sheet{padding-top:150px;padding-bottom:90px}
+  .plan-head{margin-bottom:26px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+  .plan-head h1{color:var(--white);font-size:clamp(1.8rem,4vw,2.5rem);margin:0 0 8px}
+  .plan-head p{color:rgba(255,255,255,.85);max-width:640px}
+  .plan-switch{display:flex;gap:8px}
+  .plan-switch a{padding:9px 18px;border-radius:100px;font-weight:700;font-size:.85rem;text-decoration:none;background:rgba(255,255,255,.16);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+  .plan-switch a.on{background:var(--sun);color:var(--ink);border-color:var(--sun)}
+
+  .plan-layout{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start}
+  @media(max-width:900px){.plan-layout{grid-template-columns:1fr}}
+
+  .plan-canvas{background:#fff;border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow)}
+  .plan-canvas svg{width:100%;height:auto;display:block}
+
+  .plan-zone{cursor:pointer;stroke:#fff;stroke-width:2;transition:opacity .15s,filter .15s}
+  .plan-zone:hover{opacity:.85;filter:brightness(1.06)}
+  .plan-zone.active{stroke:var(--ink);stroke-width:4}
+  .plan-label{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;fill:#fff;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
+  .plan-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;fill:#15395B;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
+  .plan-stand{fill:#DAEF52}
+
+  .plan-legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+  .plan-legend span{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;color:var(--ink-soft);font-weight:600}
+  .plan-legend i{width:14px;height:14px;border-radius:4px;display:inline-block;flex:none}
+
+  .plan-panel{background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow);position:sticky;top:130px;min-height:280px}
+  .plan-panel h3{font-size:1.2rem;color:var(--ink);margin:0 0 6px}
+  .plan-panel .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;padding:4px 12px;border-radius:100px;margin-bottom:12px}
+  .plan-panel dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:.92rem;margin-top:14px}
+  .plan-panel dt{color:var(--ink-soft);font-weight:600}
+  .plan-panel dd{color:var(--ink);font-weight:700;text-align:right}
+  .plan-panel .empty{color:var(--ink-soft);text-align:center;padding:60px 10px}
+  .plan-panel .empty .ic{font-size:2.4rem;display:block;margin-bottom:10px}
+  .plan-panel .cta{display:block;text-align:center;margin-top:18px;padding:13px;border-radius:100px;background:var(--sun);color:var(--ink);font-weight:700;font-size:.9rem;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="clouds" aria-hidden="true">
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cloud" viewBox="0 0 230 110">
+      <g fill="currentColor">
+        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
+        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
+        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="site-nav"></div>
+<script src="/assets/nav.js?v=20260704b"></script>
+
+<div class="plan-sheet">
+  <div class="wrap">
+    <div class="plan-head">
+      <div>
+        <h1>Plan interactif — Hall A</h1>
+        <p>Clique une zone ou un stand pour voir le détail. Schéma indicatif (proportions approximatives, pas à l'échelle au centimètre près).</p>
+      </div>
+      <div class="plan-switch">
+        <a href="/plan-interactif/" class="on">Hall A</a>
+        <a href="/plan-interactif/hall-b.html">Hall B</a>
+      </div>
+    </div>
+
+    <div class="plan-layout">
+      <div class="plan-canvas">
+        <svg id="hallA" viewBox="0 0 620 480" xmlns="http://www.w3.org/2000/svg">
+          <!-- Gradins (hors-cadre du PDF reçu, position provisoire à gauche — même hauteur que les stands) -->
+          <rect class="plan-zone" data-id="gradins" x="0" y="32" width="135" height="412" fill="#4DA9DF"/>
+          <text class="plan-label" x="67" y="230" font-size="15">🪑 Gradins</text>
+          <text class="plan-label" x="67" y="252" font-size="11" opacity=".85">700 places</text>
+
+          <!-- Rangée du haut : stands -->
+          <g id="stands-top"></g>
+
+          <!-- Régie (séparée, orientée en hauteur) -->
+          <rect class="plan-zone" data-id="regie" x="140" y="196" width="30" height="60" fill="#15395B"/>
+          <text class="plan-label" x="155" y="226" font-size="9" transform="rotate(-90 155 226)">Régie</text>
+
+          <!-- Scène -->
+          <rect class="plan-zone" data-id="scene" x="291" y="161" width="160" height="160" fill="#2E7FB8"/>
+          <rect x="321" y="191" width="100" height="100" fill="#1c649a" pointer-events="none"/>
+          <text class="plan-label" x="371" y="233" font-size="16">🎤 Scène</text>
+          <text class="plan-label" x="371" y="254" font-size="10" opacity=".85">centrale</text>
+
+          <!-- Espace assis (entre scène et bar) -->
+          <rect class="plan-zone" data-id="assis" x="456" y="116" width="67" height="250" fill="#4DA9DF"/>
+          <text class="plan-label" x="489" y="241" font-size="12" transform="rotate(-90 489 241)">🪑 Espace assis</text>
+
+          <!-- Bar (en haut à droite) -->
+          <rect class="plan-zone" data-id="bar" x="559" y="99" width="30" height="120" fill="#F4EE34"/>
+          <text class="plan-label" x="574" y="159" font-size="10" fill="#15395B" transform="rotate(-90 574 159)">🍺 Bar</text>
+
+          <!-- Colonne de droite (sous le bar) : stands -->
+          <g id="stands-right"></g>
+
+          <!-- Rangée du bas : stands -->
+          <g id="stands-bottom"></g>
+        </svg>
+
+        <div class="plan-legend">
+          <span><i style="background:#4DA9DF"></i>Gradins / espace assis</span>
+          <span><i style="background:#2E7FB8"></i>Scène / régie</span>
+          <span><i style="background:#92A824"></i>Jardin des Saveurs (foodcourt)</span>
+          <span><i style="background:#F4EE34"></i>Bar</span>
+        </div>
+      </div>
+
+      <aside class="plan-panel" id="planPanel">
+        <div class="empty">
+          <span class="ic">🗺️</span>
+          Clique une zone du plan pour voir son détail ici.
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="f-stars"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
+        <p class="about">Le premier festival 100 % sans gluten et sans lactose. Une production de MG Entertainment.</p>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="/#billetterie">Billetterie</a></li>
+          <li><button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button></li>
+          <li><button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  /* ---- Données des zones ---- */
+  const ZONES = {
+    gradins: {
+      title:'Gradins', tag:'Espace public', color:'#4DA9DF',
+      desc:'700 places assises face à la scène centrale, vue dégagée sur tout le concert.',
+      fields:{ 'Capacité':'700 places', 'Type':'Assis, gradins Ainterexpo' }
+    },
+    scene: {
+      title:'La Scène', tag:'Scène', color:'#2E7FB8',
+      desc:'Scène centrale, plateau surélevé, entourée par le Jardin des Saveurs sur 3 côtés et les gradins sur le 4ème.',
+      fields:{ 'Plateau':'10m × 10m (100m²)', 'Zone complète':'16m × 16m (256m²)', 'Format':'8 concerts de 45min' }
+    },
+    regie: {
+      title:'Régie', tag:'Scène', color:'#15395B',
+      desc:'Régie son/lumière, accolée à la scène.',
+      fields:{ 'Taille':'6m × 3m (18m²)' }
+    },
+    bar: {
+      title:'Bar', tag:'Bar', color:'#F4EE34',
+      desc:'Point de bar principal du Hall A, exploité en propre par l\'association.',
+      fields:{ 'Taille':'3m × 12m (36m²)' }
+    },
+    assis: {
+      title:'Espace assis', tag:'Espace public', color:'#4DA9DF',
+      desc:'16 tables de 6 places pour manger et discuter, en plus des gradins. 7 tables sont réservées aux partenaires Officiel/Majeur, 9 en accès public libre.',
+      fields:{ 'Tables':'16 (6 places chacune)', 'Places':'96', 'Public':'9 tables', 'Sponsors':'7 tables' }
+    }
+  };
+
+  function standInfo(n){
+    return {
+      title:'Stand Jardin des Saveurs #'+n, tag:'Foodcourt', color:'#92A824',
+      desc:'Emplacement food, structure truss aluminium, clé en main. Format mini-dégustation obligatoire (4-6€), sans commission.',
+      fields:{ 'Taille':'3m × 3m (9m²)', 'Élec':'10kW inclus', 'Tarif':'299€ TTC', 'Candidatures':'à partir du 1er septembre' }
+    };
+  }
+
+  /* ---- Génération des 13 stands (positions reprises du plan réel reçu) ---- */
+  const svgNS='http://www.w3.org/2000/svg';
+  function mkStand(n,x,y,w,h){
+    const g=document.createElementNS(svgNS,'g');
+    const r=document.createElementNS(svgNS,'rect');
+    r.setAttribute('class','plan-zone plan-stand');
+    r.setAttribute('data-id','stand-'+n);
+    r.setAttribute('x',x); r.setAttribute('y',y);
+    r.setAttribute('width',w); r.setAttribute('height',h);
+    r.setAttribute('fill','#92A824');
+    const t=document.createElementNS(svgNS,'text');
+    t.setAttribute('class','plan-num');
+    t.setAttribute('x',x+w/2); t.setAttribute('y',y+h/2);
+    t.setAttribute('font-size','13');
+    t.setAttribute('fill','#fff');
+    t.textContent=n;
+    g.appendChild(r); g.appendChild(t);
+    g.addEventListener('click',()=>selectZone('stand-'+n, standInfo(n)));
+    return g;
+  }
+
+  const standsTop=document.getElementById('stands-top');
+  const standsRight=document.getElementById('stands-right');
+  const standsBottom=document.getElementById('stands-bottom');
+
+  // rangée du haut : 6 stands
+  let sN=1;
+  [220,288,356,424,492,560].forEach(function(cx){ standsTop.appendChild(mkStand(sN, cx-16, 32, 32, 32)); sN++; });
+  // colonne de droite (sous le bar) : 3 stands (positions y reprises du plan réel)
+  [284,348,412].forEach(function(cy){ standsRight.appendChild(mkStand(sN, 559, cy-16, 30, 32)); sN++; });
+  // rangée du bas : 4 stands
+  [200,287,373,460].forEach(function(cx){ standsBottom.appendChild(mkStand(sN, cx-16, 412, 32, 32)); sN++; });
+
+  /* ---- Interaction : clic zone -> panneau ---- */
+  const panel=document.getElementById('planPanel');
+  let activeEl=null;
+
+  function selectZone(id, data){
+    document.querySelectorAll('.plan-zone').forEach(function(z){z.classList.remove('active');});
+    var el=document.querySelector('[data-id="'+id+'"]');
+    if(el) el.classList.add('active');
+
+    var rowsHtml='';
+    Object.keys(data.fields).forEach(function(k){
+      rowsHtml+='<dt>'+k+'</dt><dd>'+data.fields[k]+'</dd>';
+    });
+
+    panel.innerHTML =
+      '<span class="tag" style="background:'+data.color+'">'+data.tag+'</span>'+
+      '<h3>'+data.title+'</h3>'+
+      '<p style="color:var(--ink-soft);font-size:.92rem;line-height:1.6">'+data.desc+'</p>'+
+      '<dl>'+rowsHtml+'</dl>'+
+      (data.title.indexOf('Stand')===0
+        ? '<a href="/guide/inscription/" class="cta">Candidater pour ce stand →</a>'
+        : '');
+  }
+
+  document.querySelectorAll('.plan-zone[data-id]').forEach(function(z){
+    var id=z.getAttribute('data-id');
+    if(ZONES[id]) z.addEventListener('click', function(){selectZone(id, ZONES[id]);});
+  });
+</script>
+<script src="/assets/transitions.js" defer></script>
+<script src="/legal.js" defer></script>
+</body>
+</html>
