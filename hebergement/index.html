@@ -19,7 +19,7 @@
   /* ===== Nav minimale (page privée, non listée dans le méga-menu) ===== */
   .p-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);box-shadow:var(--shadow-sm)}
   .p-nav .wrap{display:flex;align-items:center;justify-content:space-between}
-  .p-nav .logo-img{height:32px;filter:none}
+  .p-nav .logo-mark{display:inline-block;height:32px;aspect-ratio:880/333;background-color:var(--sky-deep);-webkit-mask:url(/assets/logo-flore-black.png) center/contain no-repeat;mask:url(/assets/logo-flore-black.png) center/contain no-repeat}
   .p-nav .p-contact{font-size:.86rem;color:var(--ink-soft);font-weight:600}
   .p-nav .p-contact a{color:var(--sky-deep)}
   @media(max-width:640px){.p-nav .p-contact{display:none}}
@@ -155,7 +155,7 @@
 <!-- NAV -->
 <nav class="p-nav">
   <div class="wrap">
-    <a href="/" class="logo"><img class="logo-img" src="/assets/logo-flore-black.png" alt="FLORE Festival"></a>
+    <a href="/" class="logo"><span class="logo-mark" role="img" aria-label="FLORE Festival"></span></a>
     <span class="p-contact">Une question ? <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></span>
   </div>
 </nav>
