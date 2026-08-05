@@ -408,6 +408,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .cta-card h2 em{font-style:normal;color:var(--sun)}
 .cta-card p{font-size:1.14rem;color:rgba(255,255,255,.95);max-width:33em;margin:0 auto 32px}
 .signup{display:flex;gap:11px;max-width:480px;margin:0 auto;flex-wrap:wrap}
+.signup[hidden]{display:none}
 .signup input{flex:1;min-width:220px;padding:16px 24px;border-radius:100px;border:none;font-family:'DM Sans',sans-serif;font-size:1rem;background:var(--white);color:var(--ink);box-shadow:var(--shadow)}
 .signup input::placeholder{color:rgba(21,57,91,.55)}
 .signup input:focus{outline:none;box-shadow:0 0 0 3px var(--sun),0 14px 30px rgba(11,24,50,.2)}
