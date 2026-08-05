@@ -235,8 +235,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .tag-pill:hover{transform:translateY(-2px);background:rgba(255,255,255,.26)}
 
 /* ===== Espaces ===== */
-.espaces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-@media(max-width:1024px){.espaces-grid{grid-template-columns:1fr 1fr}}
+.espaces-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 @media(max-width:640px){.espaces-grid{grid-template-columns:1fr}}
 .espace-card{background:var(--white);border-radius:var(--r-lg);padding:32px 28px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .espace-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
@@ -732,4 +731,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .fx-pollen{display:none!important}
   .florette-svg,.florette-stage .florette-svg,.florette-wrap .d-float{animation:none!important}
   .part-cta .pc-cloud,.cta-card .c-cloud{animation:none!important}
+}
+
+/* Correctif d'ordre de cascade : la règle tablette (≤1024px, plus haut
+   dans ce fichier) repassait .values à 2 colonnes et écrasait la règle
+   mobile (≤680px) qui la précède dans le fichier mais perd à spécificité
+   égale sur un vrai téléphone (≤680px matche aussi ≤1024px). Cette règle,
+   volontairement placée en toute fin de fichier, gagne la cascade. */
+@media(max-width:680px){
+  .values{grid-template-columns:1fr}
 }
