@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devenez établissement partenaire · Kit hébergement FLORE Festival</title>
+<meta name="description" content="FLORE Festival référence des établissements offrant un accueil adapté au sans gluten et au sans lactose. Devenez établissement partenaire.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:title" content="Devenez établissement partenaire · Kit hébergement FLORE Festival">
+<meta property="og:description" content="Référencez votre établissement auprès des festivaliers FLORE en recherche d'un hébergement adapté au sans gluten et au sans lactose.">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css?v=20260702">
+<style>
+  /* ===== Nav minimale (page privée, non listée dans le méga-menu) ===== */
+  .p-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);box-shadow:var(--shadow-sm)}
+  .p-nav .wrap{display:flex;align-items:center;justify-content:space-between}
+  .p-nav .logo-img{height:32px;filter:none}
+  .p-nav .p-contact{font-size:.86rem;color:var(--ink-soft);font-weight:600}
+  .p-nav .p-contact a{color:var(--sky-deep)}
+  @media(max-width:640px){.p-nav .p-contact{display:none}}
+
+  /* ===== Hero ===== */
+  .h-hero{min-height:56vh;display:flex;align-items:center;padding:150px 0 70px;background:linear-gradient(180deg,#56A2D2,var(--sky) 50%,var(--sky-deep));overflow:hidden;color:#fff;border-radius:0 0 var(--r-xl) var(--r-xl);position:relative}
+  .h-hero .sun-deco{position:absolute;top:-110px;right:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,var(--sun) 42%,rgba(218,239,82,.3) 60%,transparent 75%)}
+  .h-hero-inner{max-width:760px;position:relative;z-index:2}
+  .h-hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);color:#fff;margin:16px 0 18px;line-height:1.05}
+  .h-hero h1 em{font-style:normal;color:var(--sun)}
+  .h-hero p{font-size:1.08rem;color:rgba(255,255,255,.94);max-width:42em;margin-bottom:16px}
+  .h-hero .btn-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
+  .h-note{display:inline-flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 16px;font-size:.86rem;color:rgba(255,255,255,.92);margin-top:24px;max-width:42em}
+
+  /* ===== Contenu clair ===== */
+  .h-sheet{background:#fff}
+  .h-sec{padding:70px 0;border-bottom:1px solid var(--line)}
+  .h-sec:last-of-type{border-bottom:none}
+  .h-sec h2{font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--ink);margin-bottom:16px}
+  .h-sec .lead{color:var(--ink-soft);font-size:1.02rem;max-width:52em;margin-bottom:28px;line-height:1.7}
+
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr}}
+  .why-card{background:var(--sky-pale);border-radius:20px;padding:26px 24px}
+  .why-card .ic{font-size:1.7rem;display:block;margin-bottom:10px}
+  .why-card h3{font-size:1.08rem;color:var(--ink);margin-bottom:8px}
+  .why-card p{font-size:.92rem;color:var(--ink-soft);line-height:1.6}
+
+  .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:24px 26px;margin-top:20px}
+  .info-box p{color:var(--ink-soft);font-size:.94rem;line-height:1.65;margin:0}
+  .info-box p+p{margin-top:12px}
+
+  .bp-cols{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;margin-top:8px}
+  @media(max-width:860px){.bp-cols{grid-template-columns:1fr}}
+  .bp-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .bp-list li{display:flex;gap:10px;font-size:.94rem;color:var(--ink);line-height:1.55}
+  .bp-list li::before{content:"✓";color:var(--sun-deep);font-weight:800;flex-shrink:0}
+  .bp-side h4{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:12px}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px}
+  .tag-row span{background:#f0f7fc;border-radius:100px;padding:7px 14px;font-size:.84rem;color:var(--ink);font-weight:600}
+  .bp-side+.bp-side{margin-top:24px}
+
+  /* ===== Formulaire (mêmes conventions que /guide/inscription/) ===== */
+  .f-row{display:grid;gap:16px;margin-bottom:16px}
+  .f-row.two{grid-template-columns:1fr 1fr}
+  .f-row.three{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:640px){.f-row.two,.f-row.three{grid-template-columns:1fr}}
+  .f-field{display:flex;flex-direction:column;gap:5px;position:relative}
+  .f-field label{font-size:.78rem;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+  .f-field .hint{font-size:.78rem;color:var(--ink-soft);font-weight:500;text-transform:none}
+  .f-field input,.f-field textarea,.f-field select{border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:var(--ink);background:#fafcfe;transition:border-color .18s}
+  .f-field input:focus,.f-field textarea:focus,.f-field select:focus{outline:none;border-color:var(--sky)}
+  .f-field textarea{min-height:90px;resize:vertical}
+  .f-required{color:#E5484D;margin-left:2px}
+  .f-field input[type=file]{padding:9px 10px;background:#fff;cursor:pointer}
+
+  .addr-suggest{position:absolute;top:100%;left:0;right:0;z-index:30;margin-top:4px;background:#fff;border:1.5px solid var(--line);border-radius:14px;box-shadow:0 16px 34px rgba(21,57,91,.16);overflow:hidden}
+  .addr-suggest[hidden]{display:none}
+  .as-item{padding:11px 16px;font-size:.9rem;color:var(--ink);cursor:pointer;transition:background .15s}
+  .as-item:hover,.as-item.is-active{background:#f0f7fc}
+
+  .chip-grid{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px}
+  .chip{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#f0f7fc;border:1.5px solid var(--line);border-radius:100px;padding:9px 16px;transition:all .18s}
+  .chip input{display:none}
+  .chip:has(input:checked){background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+
+  .yn-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:6px 0 18px}
+  .yn-row .q{font-size:1rem;color:var(--ink);font-weight:700;max-width:65%}
+  .yn-toggle{display:flex;gap:8px}
+  .yn-toggle button{border:1.5px solid var(--line);background:#fff;border-radius:100px;padding:8px 20px;font:inherit;font-weight:700;font-size:.86rem;color:var(--ink-soft);cursor:pointer;transition:all .18s}
+  .yn-toggle button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .offer-detail{display:none;border-top:1px solid var(--line);padding-top:18px;margin-top:4px}
+  .offer-detail.open{display:block}
+
+  .consent-row{display:flex;align-items:flex-start;gap:12px;background:#f0f7fc;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer;margin-top:8px}
+  .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
+  .consent-row span{font-size:.9rem;color:var(--ink);line-height:1.5}
+
+  .btn-submit{background:var(--ink);color:#fff;border:none;font:inherit;font-weight:800;padding:15px 30px;border-radius:100px;cursor:pointer;transition:background .2s;width:100%;font-size:1rem}
+  .btn-submit:hover{background:var(--navy)}
+  .btn-submit:disabled{opacity:.6;cursor:default}
+  .form-msg{display:none;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:.92rem;font-weight:600}
+  .form-msg.ok{background:#e6f6ec;color:#1e7a43;display:block}
+  .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
+
+  .h-sec-form{background:var(--sky-pale)}
+  .form-card{background:#fff;border-radius:var(--r-lg);padding:38px;box-shadow:var(--shadow)}
+  @media(max-width:640px){.form-card{padding:24px 20px}}
+  .form-card h3{font-size:1.15rem;color:var(--ink);margin:28px 0 14px}
+  .form-card h3:first-child{margin-top:0}
+</style>
+</head>
+<body style="background:#fff">
+
+<!-- NAV -->
+<nav class="p-nav">
+  <div class="wrap">
+    <a href="/" class="logo"><img class="logo-img" src="/assets/logo-flore-black.png" alt="FLORE Festival"></a>
+    <span class="p-contact">Une question ? <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="h-hero">
+  <div class="sun-deco"></div>
+  <div class="wrap">
+    <div class="h-hero-inner">
+      <span class="kicker on-dark">Kit partenaire hébergement</span>
+      <h1>Accueillez nos festivaliers, <em>en toute confiance</em></h1>
+      <p>FLORE Festival, premier festival 100&nbsp;% sans gluten &amp; sans lactose, aura lieu à <strong>Bourg-en-Bresse</strong> (Ain). En quelques semaines, notre communauté est passée d'une centaine d'abonnés à plus de 7&nbsp;000 personnes, et les pré-inscriptions rencontrent un fort succès : nous attendons plusieurs milliers de visiteurs venus de toute la France.</p>
+      <p>Afin d'accompagner nos festivaliers dans la préparation de leur séjour, nous référençons des établissements proposant un accueil adapté à leurs besoins alimentaires. En rejoignant notre réseau de partenaires, votre établissement bénéficie d'une visibilité auprès d'une clientèle ciblée, en recherche active d'un hébergement.</p>
+      <div class="btn-row">
+        <a href="#form" class="btn btn-sun">Devenir établissement partenaire</a>
+      </div>
+      <div class="h-note">🤫&nbsp;Cette page vous est transmise directement et n'est pas encore publique : merci de ne pas communiquer sur le nom du lieu avant notre annonce officielle (fin août 2026).</div>
+    </div>
+  </div>
+</header>
+
+<div class="h-sheet">
+
+  <!-- POURQUOI DEVENIR PARTENAIRE -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Pourquoi devenir partenaire ?</h2>
+      <p class="lead">En étant référencé sur notre site internet, vous bénéficiez :</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="ic">📋</span>
+          <h3>Une présentation sur mesure</h3>
+          <p>Une fiche présentant votre établissement, publiée sur le site du FLORE Festival.</p>
+        </div>
+        <div class="why-card">
+          <span class="ic">🔗</span>
+          <h3>Un lien direct vers vous</h3>
+          <p>Un lien vers votre site internet, pour transformer la visite en réservation.</p>
+        </div>
+        <div class="why-card">
+          <span class="ic">👀</span>
+          <h3>Une visibilité ciblée</h3>
+          <p>Des milliers de visiteurs, en recherche active d'un hébergement adapté, avant même l'événement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPRENDRE LA MALADIE COELIAQUE -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Comprendre la maladie cœliaque</h2>
+      <p class="lead">La maladie cœliaque est une maladie auto-immune. Chez les personnes atteintes, l'ingestion de gluten (présent notamment dans le blé, l'orge et le seigle) déclenche une réaction immunitaire qui endommage l'intestin grêle. Le seul traitement connu est un régime strict sans gluten, à vie.</p>
+      <div class="info-box">
+        <p>Même de très faibles quantités de gluten, ou une simple contamination croisée, peuvent suffire à provoquer des symptômes et des complications. Les personnes concernées recherchent donc des établissements capables de proposer des aliments adaptés et de limiter au maximum les risques de contamination.</p>
+        <p>Le sans lactose répond à une logique proche : sans être auto-immune, l'intolérance au lactose impose elle aussi une vigilance réelle sur les produits laitiers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PETIT-DEJEUNER BONNES PRATIQUES -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Petit-déjeuner : les bonnes pratiques</h2>
+      <p class="lead">Nous savons qu'il n'est pas toujours possible de proposer un buffet entièrement sans gluten. En revanche, quelques aménagements simples peuvent faire toute la différence.</p>
+      <div class="bp-cols">
+        <ul class="bp-list">
+          <li>Proposer du pain ou des viennoiseries sans gluten, emballés individuellement ou conservés séparément.</li>
+          <li>Utiliser des ustensiles dédiés.</li>
+          <li>Éviter tout contact avec des produits contenant du gluten.</li>
+          <li>Identifier clairement les produits sans gluten.</li>
+          <li>Proposer quelques produits naturellement sans gluten.</li>
+        </ul>
+        <div>
+          <div class="bp-side">
+            <h4>Naturellement sans gluten</h4>
+            <div class="tag-row">
+              <span>Fruits frais</span><span>Yaourts</span><span>Compotes</span><span>Œufs</span><span>Fromage</span><span>Confitures individuelles</span><span>Beurre</span><span>Céréales certifiées sans gluten</span>
+            </div>
+          </div>
+          <div class="bp-side">
+            <h4>Alternatives sans lactose</h4>
+            <div class="tag-row">
+              <span>Boissons végétales</span><span>Yaourts végétaux</span><span>Produits sans lactose</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE -->
+  <section class="h-sec h-sec-form" id="form">
+    <div class="wrap">
+      <h2>Nous aimerions connaître votre établissement</h2>
+      <p class="lead">Merci de nous communiquer les informations suivantes. Ça prend quelques minutes.</p>
+
+      <div class="form-card">
+        <!-- ⚠️ Remplacer l'access_key ci-dessous par la clé du formulaire "FLORE - Partenaires Hébergement"
+             créé sur le dashboard web3forms.com (plan Pro), avant mise en ligne réelle du lien. -->
+        <form id="hb-form" novalidate>
+          <input type="hidden" name="access_key" value="COLLER_ICI_LA_CLE_WEB3FORMS_HEBERGEMENT">
+          <input type="hidden" name="subject" value="Kit partenaire hébergement · Nouvelle candidature">
+          <input type="hidden" name="from_name" value="Formulaire Hébergement FLORE">
+          <input type="checkbox" name="botcheck" style="display:none">
+
+          <h3>Votre établissement</h3>
+          <div class="f-row two">
+            <div class="f-field"><label>Nom <span class="f-required">*</span></label><input type="text" name="nom_etablissement" id="hb-nom" autocomplete="organization" required></div>
+            <div class="f-field"><label>Distance jusqu'au festival</label><input type="text" name="distance" placeholder="ex. 10 min à pied, 15 min en voiture..."></div>
+          </div>
+          <div class="f-row">
+            <div class="f-field" style="position:relative">
+              <label>Adresse <span class="f-required">*</span></label>
+              <input type="text" id="hb-adresse" name="adresse" placeholder="Commencez à taper, choisissez dans la liste..." autocomplete="off" required>
+              <div class="addr-suggest" id="hb-addr-suggest" hidden></div>
+            </div>
+          </div>
+          <div class="f-row three">
+            <div class="f-field"><label>Ville</label><input type="text" id="hb-ville" name="ville" autocomplete="address-level2"></div>
+            <div class="f-field"><label>Code postal</label><input type="text" id="hb-cp" name="code_postal" autocomplete="postal-code"></div>
+            <div class="f-field"><label>Téléphone <span class="f-required">*</span></label><input type="tel" name="telephone" autocomplete="tel" required></div>
+          </div>
+          <div class="f-row two">
+            <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" id="hb-email" name="email" autocomplete="email" required></div>
+            <div class="f-field"><label>Site internet</label><input type="url" name="site" autocomplete="url" placeholder="https://"></div>
+          </div>
+
+          <h3>Petit-déjeuner</h3>
+          <div class="chip-grid">
+            <label class="chip"><input type="checkbox" name="petit_dej" value="Produits sans gluten"><span>🌾 Produits sans gluten</span></label>
+            <label class="chip"><input type="checkbox" name="petit_dej" value="Produits sans lactose"><span>🥛 Produits sans lactose</span></label>
+            <label class="chip"><input type="checkbox" name="petit_dej" value="Boissons végétales"><span>🌱 Boissons végétales</span></label>
+            <label class="chip"><input type="checkbox" name="petit_dej" value="Attention à la contamination croisée"><span>🧼 Attention contamination croisée</span></label>
+            <label class="chip"><input type="checkbox" name="petit_dej" value="Offre adaptable sur demande"><span>🍽️ Adaptable sur demande</span></label>
+          </div>
+          <div class="f-row" style="margin-top:12px">
+            <div class="f-field"><label>Précisez les produits proposés</label><textarea name="petit_dej_detail" placeholder="Optionnel"></textarea></div>
+          </div>
+
+          <h3>Offre pour les festivaliers</h3>
+          <div class="yn-row">
+            <span class="q">Seriez-vous prêt·e à proposer une offre préférentielle aux festivaliers FLORE ?</span>
+            <div class="yn-toggle" id="hb-offer-toggle">
+              <button type="button" data-val="Oui">Oui</button>
+              <button type="button" data-val="Non">Non</button>
+            </div>
+          </div>
+          <input type="hidden" name="offre_preferentielle" id="hb-offer-value">
+          <div class="offer-detail" id="hb-offer-detail">
+            <div class="chip-grid">
+              <label class="chip"><input type="checkbox" name="type_offre" value="Remise en %"><span>Remise en %</span></label>
+              <label class="chip"><input type="checkbox" name="type_offre" value="Code promotionnel"><span>Code promotionnel</span></label>
+              <label class="chip"><input type="checkbox" name="type_offre" value="Petit-déjeuner compris"><span>Petit-déjeuner compris</span></label>
+              <label class="chip"><input type="checkbox" name="type_offre" value="Surclassement"><span>Surclassement</span></label>
+            </div>
+            <div class="f-row two" style="margin-top:14px">
+              <div class="f-field"><label>Autre</label><input type="text" name="type_offre_autre" placeholder="Précisez si besoin"></div>
+            </div>
+            <div class="f-row">
+              <div class="f-field"><label>Conditions</label><textarea name="offre_conditions" placeholder="Dates, code d'accès, quota de chambres..."></textarea></div>
+            </div>
+          </div>
+
+          <h3>Votre présentation</h3>
+          <div class="f-row">
+            <div class="f-field"><label>Quelques lignes présentant votre établissement <span class="f-required">*</span></label><textarea name="presentation" id="hb-presentation" placeholder="Elles pourront être publiées sur notre site." required></textarea></div>
+          </div>
+
+          <h3>Vos visuels (optionnel)</h3>
+          <p style="font-size:.88rem;color:var(--ink-soft);margin-bottom:14px">Vous pouvez nous transmettre votre logo, 3 à 5 photos de votre établissement et une photo du petit-déjeuner. Vous pouvez aussi nous les envoyer plus tard par e-mail à <a href="mailto:contact@flore-festival.fr" style="color:var(--sky-deep)">contact@flore-festival.fr</a>.</p>
+          <div class="f-row three">
+            <div class="f-field"><label>Logo</label><input type="file" name="logo" accept="image/*"></div>
+            <div class="f-field"><label>Photos de l'établissement</label><input type="file" name="photos" accept="image/*" multiple></div>
+            <div class="f-field"><label>Photo du petit-déjeuner</label><input type="file" name="photo_petit_dej" accept="image/*"></div>
+          </div>
+
+          <label class="consent-row">
+            <input type="checkbox" id="hb-rgpd" required>
+            <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
+          </label>
+
+          <button type="submit" class="btn-submit" id="hb-submit" style="margin-top:22px">Envoyer ma candidature →</button>
+          <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Merci ! Nous serions ravis de compter votre établissement parmi nos partenaires.</p>
+          <div class="form-msg" id="hb-msg"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
+        <p class="about">Le premier festival 100&nbsp;% sans gluten et sans lactose. Une production de MG Entertainment.</p>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></li>
+          <li><a href="/">Retour à l'accueil</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Légal</h5>
+        <ul>
+          <li><button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button></li>
+          <li><button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="hb-year">2026</span> FLORE Festival · Une production MG Entertainment.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hb-year').textContent = new Date().getFullYear();
+
+(function(){
+  var form = document.getElementById('hb-form');
+
+  // Autocomplétion adresse (API Adresse gouv.fr, gratuite, sans clé)
+  var inAdresse = document.getElementById('hb-adresse');
+  var addrSuggest = document.getElementById('hb-addr-suggest');
+  var addrDebounce = null, addrAbort = null, addrActiveIndex = -1;
+
+  function hideAddrSuggest(){ addrSuggest.hidden = true; addrSuggest.innerHTML = ''; addrActiveIndex = -1; }
+
+  function selectAddrFeature(f){
+    var p = f.properties;
+    inAdresse.value = p.name || p.label || inAdresse.value;
+    if (p.city) document.getElementById('hb-ville').value = p.city;
+    if (p.postcode) document.getElementById('hb-cp').value = p.postcode;
+    hideAddrSuggest();
+  }
+
+  inAdresse.addEventListener('input', function(){
+    var q = inAdresse.value.trim();
+    clearTimeout(addrDebounce);
+    if (q.length < 3){ hideAddrSuggest(); return; }
+    addrDebounce = setTimeout(function(){
+      if (addrAbort) addrAbort.abort();
+      addrAbort = new AbortController();
+      fetch('https://api-adresse.data.gouv.fr/search/?q=' + encodeURIComponent(q) + '&limit=5', { signal: addrAbort.signal })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          var feats = (data && data.features) || [];
+          if (!feats.length){ hideAddrSuggest(); return; }
+          addrSuggest.innerHTML = feats.map(function(f, i){
+            return '<div class="as-item" data-idx="' + i + '">' + f.properties.label + '</div>';
+          }).join('');
+          addrSuggest.hidden = false;
+          addrActiveIndex = -1;
+          addrSuggest.querySelectorAll('.as-item').forEach(function(el, i){
+            el.addEventListener('mousedown', function(){ selectAddrFeature(feats[i]); });
+          });
+          addrSuggest._features = feats;
+        })
+        .catch(function(){ /* API indisponible : le champ reste utilisable en saisie libre */ });
+    }, 250);
+  });
+
+  inAdresse.addEventListener('keydown', function(e){
+    var items = Array.prototype.slice.call(addrSuggest.querySelectorAll('.as-item'));
+    if (addrSuggest.hidden || !items.length) return;
+    if (e.key === 'ArrowDown'){ e.preventDefault(); addrActiveIndex = Math.min(addrActiveIndex + 1, items.length - 1); }
+    else if (e.key === 'ArrowUp'){ e.preventDefault(); addrActiveIndex = Math.max(addrActiveIndex - 1, 0); }
+    else if (e.key === 'Enter'){
+      if (addrActiveIndex >= 0){ e.preventDefault(); selectAddrFeature(addrSuggest._features[addrActiveIndex]); }
+      return;
+    } else if (e.key === 'Escape'){ hideAddrSuggest(); return; }
+    else { return; }
+    items.forEach(function(it, i){ it.classList.toggle('is-active', i === addrActiveIndex); });
+  });
+  inAdresse.addEventListener('blur', function(){ setTimeout(hideAddrSuggest, 150); });
+
+  // Toggle offre préférentielle
+  var offerToggle = document.getElementById('hb-offer-toggle');
+  var offerValue = document.getElementById('hb-offer-value');
+  var offerDetail = document.getElementById('hb-offer-detail');
+  offerToggle.querySelectorAll('button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      offerToggle.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      offerValue.value = btn.dataset.val;
+      offerDetail.classList.toggle('open', btn.dataset.val === 'Oui');
+    });
+  });
+
+  // Soumission
+  var msg = document.getElementById('hb-msg');
+  var btnSubmit = document.getElementById('hb-submit');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if (!document.getElementById('hb-rgpd').checked){
+      msg.className = 'form-msg err';
+      msg.textContent = "Merci d'accepter le traitement de vos informations avant l'envoi.";
+      msg.scrollIntoView({ behavior:'smooth', block:'center' });
+      return;
+    }
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Envoi en cours…';
+    try {
+      var data = new FormData(form);
+      var res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:data });
+      var json = await res.json();
+      if (json.success){
+        msg.className = 'form-msg ok';
+        msg.textContent = "Candidature reçue ! Merci, nous revenons vers vous rapidement. Un oubli après l'envoi ? Écrivez-nous à contact@flore-festival.fr.";
+        btnSubmit.textContent = 'Candidature envoyée ✓';
+      } else {
+        throw new Error(json.message || "Échec de l'envoi (raison inconnue).");
+      }
+    } catch(err) {
+      msg.className = 'form-msg err';
+      var detail = (err && err.message) ? err.message : 'erreur inconnue';
+      msg.textContent = 'Envoi impossible (' + detail + '). Écrivez-nous à contact@flore-festival.fr si ça persiste.';
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Envoyer ma candidature →';
+    }
+    msg.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+})();
+</script>
+<script src="/assets/transitions.js" defer></script>
+<script src="/legal.js?v=20260803e" defer></script>
+</body>
+</html>
