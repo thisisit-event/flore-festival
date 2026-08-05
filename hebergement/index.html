@@ -107,9 +107,40 @@
 
   .h-sec-form{background:var(--sky-pale)}
   .form-card{background:#fff;border-radius:var(--r-lg);padding:38px;box-shadow:var(--shadow)}
-  @media(max-width:640px){.form-card{padding:24px 20px}}
   .form-card h3{font-size:1.15rem;color:var(--ink);margin:28px 0 14px}
   .form-card h3:first-child{margin-top:0}
+
+  /* ===== Mobile : plus d'air, moins de mur de champs ===== */
+  @media(max-width:680px){
+    .h-hero{padding:118px 0 56px;min-height:auto}
+    .h-hero h1{font-size:clamp(1.9rem,7.5vw,2.6rem)}
+    .h-hero p{font-size:1rem}
+    .h-note{display:block;margin-top:16px;padding:13px 15px}
+    .h-note+.h-note{margin-top:12px}
+    .h-sec{padding:52px 0}
+    .h-sec .lead{margin-bottom:24px}
+    .why-grid{gap:16px}
+    .why-card{padding:22px 20px}
+    .bp-cols{gap:28px}
+    .bp-list{gap:16px}
+    .bp-side+.bp-side{margin-top:28px}
+    .info-box{padding:20px 20px}
+    .info-box p+p{margin-top:14px}
+
+    .form-card{padding:28px 20px}
+    .form-card h3{margin:38px 0 18px;font-size:1.1rem}
+    .form-card h3:first-child{margin-top:0}
+    .f-row{gap:20px;margin-bottom:20px}
+    .f-field{gap:8px}
+    .f-field input,.f-field textarea,.f-field select{padding:14px 15px;font-size:1rem}
+    .chip-grid{gap:12px}
+    .chip{padding:11px 18px}
+    .yn-row{flex-direction:column;align-items:flex-start;gap:12px;padding:4px 0 20px}
+    .yn-row .q{max-width:100%}
+    .offer-detail{padding-top:20px}
+    .consent-row{padding:18px 16px;margin-top:14px}
+    .btn-submit{padding:16px 30px}
+  }
 </style>
 </head>
 <body style="background:#fff">
@@ -132,9 +163,10 @@
       <p>FLORE Festival, premier festival 100&nbsp;% sans gluten &amp; sans lactose, aura lieu à <strong>Bourg-en-Bresse</strong> (Ain). En quelques semaines, notre communauté est passée d'une centaine d'abonnés à plus de 7&nbsp;000 personnes, et les pré-inscriptions rencontrent un fort succès : nous attendons plusieurs milliers de visiteurs venus de toute la France.</p>
       <p>Afin d'accompagner nos festivaliers dans la préparation de leur séjour, nous référençons des établissements proposant un accueil adapté à leurs besoins alimentaires. En rejoignant notre réseau de partenaires, votre établissement bénéficie d'une visibilité auprès d'une clientèle ciblée, en recherche active d'un hébergement.</p>
       <div class="btn-row">
-        <a href="#form" class="btn btn-sun">Devenir établissement partenaire</a>
+        <a href="#form" class="btn btn-sun">Compléter notre fiche partenaire</a>
       </div>
-      <div class="h-note">🤫&nbsp;Cette page vous est transmise directement et n'est pas encore publique : merci de ne pas communiquer sur le nom du lieu avant notre annonce officielle (fin août 2026).</div>
+      <div class="h-note">🤝&nbsp;Cette page fait suite à notre échange téléphonique : elle nous permet de récupérer noir sur blanc les informations de votre établissement.</div>
+      <div class="h-note">🤫&nbsp;Elle vous est transmise directement et n'est pas encore publique : merci de ne pas communiquer sur le nom du lieu avant notre annonce officielle (fin août 2026).</div>
     </div>
   </div>
 </header>
@@ -212,13 +244,13 @@
   <!-- FORMULAIRE -->
   <section class="h-sec h-sec-form" id="form">
     <div class="wrap">
-      <h2>Nous aimerions connaître votre établissement</h2>
-      <p class="lead">Merci de nous communiquer les informations suivantes. Ça prend quelques minutes.</p>
+      <h2>Complétons la fiche de votre établissement</h2>
+      <p class="lead">Suite à notre échange, merci de nous communiquer les informations suivantes. Ça prend quelques minutes.</p>
 
       <div class="form-card">
         <form id="hb-form" novalidate>
           <input type="hidden" name="access_key" value="9db17d44-eafe-4c3a-995a-68ae4246a363">
-          <input type="hidden" name="subject" value="Kit partenaire hébergement · Nouvelle candidature">
+          <input type="hidden" name="subject" value="Kit partenaire hébergement · Informations établissement">
           <input type="hidden" name="from_name" value="Formulaire Hébergement FLORE">
           <input type="checkbox" name="botcheck" style="display:none">
 
@@ -294,11 +326,11 @@
 
           <label class="consent-row">
             <input type="checkbox" id="hb-rgpd" required>
-            <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
+            <span>J'accepte que ces informations soient utilisées par MG Entertainment / FLORE Festival dans le cadre de notre partenariat.</span>
           </label>
 
-          <button type="submit" class="btn-submit" id="hb-submit" style="margin-top:22px">Envoyer ma candidature →</button>
-          <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Merci ! Nous serions ravis de compter votre établissement parmi nos partenaires.</p>
+          <button type="submit" class="btn-submit" id="hb-submit" style="margin-top:22px">Envoyer nos informations →</button>
+          <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Merci ! Nous sommes ravis de vous compter parmi nos partenaires.</p>
           <div class="form-msg" id="hb-msg"></div>
         </form>
       </div>
@@ -428,8 +460,8 @@ document.getElementById('hb-year').textContent = new Date().getFullYear();
       var json = await res.json();
       if (json.success){
         msg.className = 'form-msg ok';
-        msg.textContent = "Candidature reçue ! Merci, nous revenons vers vous rapidement. Un oubli après l'envoi ? Écrivez-nous à contact@flore-festival.fr.";
-        btnSubmit.textContent = 'Candidature envoyée ✓';
+        msg.textContent = "Informations bien reçues, merci ! Un oubli après l'envoi ? Écrivez-nous à contact@flore-festival.fr.";
+        btnSubmit.textContent = 'Envoyé ✓';
       } else {
         throw new Error(json.message || "Échec de l'envoi (raison inconnue).");
       }
@@ -438,7 +470,7 @@ document.getElementById('hb-year').textContent = new Date().getFullYear();
       var detail = (err && err.message) ? err.message : 'erreur inconnue';
       msg.textContent = 'Envoi impossible (' + detail + '). Écrivez-nous à contact@flore-festival.fr si ça persiste.';
       btnSubmit.disabled = false;
-      btnSubmit.textContent = 'Envoyer ma candidature →';
+      btnSubmit.textContent = 'Envoyer nos informations →';
     }
     msg.scrollIntoView({ behavior:'smooth', block:'center' });
   });
