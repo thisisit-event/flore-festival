@@ -177,7 +177,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="/assets/flore.css?v=20260702">
+<link rel="stylesheet" href="/assets/flore.css?v=20260805">
 </head>
 <body>
 
@@ -775,7 +775,7 @@
       const btn = signupForm.querySelector('button[type="submit"]');
       const original = btn.textContent;
       btn.disabled = true;
-      btn.textContent = 'Envoi…';
+      btn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> Envoi…';
       // Retirer un éventuel message d'erreur précédent
       const oldErr = signupForm.parentElement.querySelector('.signup-error');
       if (oldErr) oldErr.remove();

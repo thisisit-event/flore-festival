@@ -42,7 +42,7 @@
 <link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="/assets/flore.css?v=20260702">
+<link rel="stylesheet" href="/assets/flore.css?v=20260805">
 
 <script type="application/ld+json">
 {
@@ -430,7 +430,7 @@
       e.preventDefault();
       const btn = signupForm.querySelector('button[type="submit"]');
       const original = btn.textContent;
-      btn.disabled = true; btn.textContent = 'Wird gesendet…';
+      btn.disabled = true; btn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> Wird gesendet…';
       try {
         const data = new FormData(signupForm);
         const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });

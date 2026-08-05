@@ -76,6 +76,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .btn-ink:hover{background:var(--navy);box-shadow:0 16px 34px rgba(11,24,50,.34)}
 .btn-ghost-w{background:rgba(255,255,255,.16);color:var(--white);border:2px solid rgba(255,255,255,.6)}
 .btn-ghost-w:hover{background:var(--white);color:var(--sky-deep)}
+
+/* Repère visuel "ça travaille" pour un bouton en cours d'envoi (évite l'impression de bouton figé/cassé) */
+.btn-spinner{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;opacity:.85;border-radius:50%;animation:btnspin .7s linear infinite;vertical-align:-2px;margin-right:2px}
+@keyframes btnspin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.btn-spinner{animation:none}}
 .btn-ghost{background:var(--white);color:var(--ink);border:2px solid var(--line)}
 .btn-ghost:hover{border-color:var(--sky);box-shadow:var(--shadow-sm,0 10px 26px rgba(21,57,91,.09))}
 
