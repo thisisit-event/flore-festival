@@ -32,6 +32,7 @@
   .h-hero h1 em{font-style:normal;color:var(--sun)}
   .h-hero p{font-size:1.08rem;color:rgba(255,255,255,.94);max-width:42em;margin-bottom:16px}
   .h-hero .btn-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
+  .h-hero .btn-row .btn{white-space:normal;text-align:center;max-width:100%}
   .h-note{display:inline-flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 16px;font-size:.86rem;color:rgba(255,255,255,.92);margin-top:24px;max-width:42em}
 
   /* ===== Contenu clair ===== */
@@ -81,10 +82,11 @@
   .as-item{padding:11px 16px;font-size:.9rem;color:var(--ink);cursor:pointer;transition:background .15s}
   .as-item:hover,.as-item.is-active{background:#f0f7fc}
 
-  .chip-grid{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px}
-  .chip{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#f0f7fc;border:1.5px solid var(--line);border-radius:100px;padding:9px 16px;transition:all .18s}
-  .chip input{display:none}
-  .chip:has(input:checked){background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+  .ck-list{display:flex;flex-direction:column;gap:10px;margin:6px 0 4px}
+  .ck-item{display:flex;align-items:flex-start;gap:12px;cursor:pointer;background:#f7fafc;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;transition:border-color .15s,background .15s}
+  .ck-item input{width:20px;height:20px;flex:0 0 auto;margin-top:1px;accent-color:var(--sky-deep);cursor:pointer}
+  .ck-item span{font-size:.94rem;color:var(--ink);line-height:1.5}
+  .ck-item:has(input:checked){background:var(--sun-pale);border-color:var(--sun-deep)}
 
   .yn-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:6px 0 18px}
   .yn-row .q{font-size:1rem;color:var(--ink);font-weight:700;max-width:65%}
@@ -110,8 +112,9 @@
   .form-card h3{font-size:1.15rem;color:var(--ink);margin:28px 0 14px}
   .form-card h3:first-child{margin-top:0}
 
-  /* ===== Mobile : plus d'air, moins de mur de champs ===== */
+  /* ===== Mobile : plus d'air, moins de mur de champs, texte plus large ===== */
   @media(max-width:680px){
+    .wrap{padding:0 18px}
     .h-hero{padding:118px 0 56px;min-height:auto}
     .h-hero h1{font-size:clamp(1.9rem,7.5vw,2.6rem)}
     .h-hero p{font-size:1rem}
@@ -120,26 +123,26 @@
     .h-sec{padding:52px 0}
     .h-sec .lead{margin-bottom:24px}
     .why-grid{gap:16px}
-    .why-card{padding:22px 20px}
+    .why-card{padding:20px 18px}
     .bp-cols{gap:28px}
     .bp-list{gap:16px}
     .bp-side+.bp-side{margin-top:28px}
-    .info-box{padding:20px 20px}
+    .info-box{padding:20px 18px}
     .info-box p+p{margin-top:14px}
 
-    .form-card{padding:28px 20px}
+    .form-card{padding:24px 16px}
     .form-card h3{margin:38px 0 18px;font-size:1.1rem}
     .form-card h3:first-child{margin-top:0}
     .f-row{gap:20px;margin-bottom:20px}
     .f-field{gap:8px}
     .f-field input,.f-field textarea,.f-field select{padding:14px 15px;font-size:1rem}
-    .chip-grid{gap:12px}
-    .chip{padding:11px 18px}
+    .ck-item{padding:13px 14px;gap:10px}
+    .ck-item span{font-size:.92rem}
     .yn-row{flex-direction:column;align-items:flex-start;gap:12px;padding:4px 0 20px}
     .yn-row .q{max-width:100%}
     .offer-detail{padding-top:20px}
     .consent-row{padding:18px 16px;margin-top:14px}
-    .btn-submit{padding:16px 30px}
+    .btn-submit{padding:16px 24px}
   }
 </style>
 </head>
@@ -277,14 +280,14 @@
           </div>
 
           <h3>Petit-déjeuner</h3>
-          <div class="chip-grid">
-            <label class="chip"><input type="checkbox" name="petit_dej" value="Produits sans gluten"><span>🌾 Produits sans gluten</span></label>
-            <label class="chip"><input type="checkbox" name="petit_dej" value="Produits sans lactose"><span>🥛 Produits sans lactose</span></label>
-            <label class="chip"><input type="checkbox" name="petit_dej" value="Boissons végétales"><span>🌱 Boissons végétales</span></label>
-            <label class="chip"><input type="checkbox" name="petit_dej" value="Attention à la contamination croisée"><span>🧼 Attention contamination croisée</span></label>
-            <label class="chip"><input type="checkbox" name="petit_dej" value="Offre adaptable sur demande"><span>🍽️ Adaptable sur demande</span></label>
+          <div class="ck-list">
+            <label class="ck-item"><input type="checkbox" name="petit_dej" value="Produits sans gluten"><span>Nous proposons du pain ou des viennoiseries sans gluten</span></label>
+            <label class="ck-item"><input type="checkbox" name="petit_dej" value="Produits sans lactose"><span>Nous proposons des produits sans lactose (lait, yaourts...)</span></label>
+            <label class="ck-item"><input type="checkbox" name="petit_dej" value="Boissons végétales"><span>Nous proposons des boissons végétales (amande, soja...)</span></label>
+            <label class="ck-item"><input type="checkbox" name="petit_dej" value="Attention à la contamination croisée"><span>Nous faisons attention à la contamination croisée (ustensiles dédiés, produits séparés)</span></label>
+            <label class="ck-item"><input type="checkbox" name="petit_dej" value="Offre adaptable sur demande"><span>Nous pouvons adapter notre offre sur demande</span></label>
           </div>
-          <div class="f-row" style="margin-top:12px">
+          <div class="f-row" style="margin-top:16px">
             <div class="f-field"><label>Précisez les produits proposés</label><textarea name="petit_dej_detail" placeholder="Optionnel"></textarea></div>
           </div>
 
@@ -298,11 +301,11 @@
           </div>
           <input type="hidden" name="offre_preferentielle" id="hb-offer-value">
           <div class="offer-detail" id="hb-offer-detail">
-            <div class="chip-grid">
-              <label class="chip"><input type="checkbox" name="type_offre" value="Remise en %"><span>Remise en %</span></label>
-              <label class="chip"><input type="checkbox" name="type_offre" value="Code promotionnel"><span>Code promotionnel</span></label>
-              <label class="chip"><input type="checkbox" name="type_offre" value="Petit-déjeuner compris"><span>Petit-déjeuner compris</span></label>
-              <label class="chip"><input type="checkbox" name="type_offre" value="Surclassement"><span>Surclassement</span></label>
+            <div class="ck-list">
+              <label class="ck-item"><input type="checkbox" name="type_offre" value="Remise en %"><span>Une remise en pourcentage</span></label>
+              <label class="ck-item"><input type="checkbox" name="type_offre" value="Code promotionnel"><span>Un code promotionnel dédié aux festivaliers</span></label>
+              <label class="ck-item"><input type="checkbox" name="type_offre" value="Petit-déjeuner compris"><span>Le petit-déjeuner compris</span></label>
+              <label class="ck-item"><input type="checkbox" name="type_offre" value="Surclassement"><span>Un surclassement (chambre supérieure) selon disponibilité</span></label>
             </div>
             <div class="f-row two" style="margin-top:14px">
               <div class="f-field"><label>Autre</label><input type="text" name="type_offre_autre" placeholder="Précisez si besoin"></div>
