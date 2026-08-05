@@ -16,7 +16,7 @@
   --r-sm:16px;--r-md:24px;--r-lg:32px;--r-xl:42px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,#4FA0D2 0%,#3F93C4 45%,#2E7FB8 100%) no-repeat}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -645,6 +645,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 
 /* ===== PETIT MOBILE (≤ 480px) ===== */
 @media(max-width:480px){
+  /* Sécurité anti-débordement : un bouton isolé au texte long (ex. "Notre promesse
+     sans gluten & sans lactose →") ne doit jamais forcer un scroll horizontal de page */
+  .btn{white-space:normal;text-align:center;max-width:100%}
   /* Hero compact - tout doit tenir avant scroll */
   .hero{padding:108px 0 56px;border-radius:0 0 24px 24px;min-height:auto}
   .hero h1 img{width:clamp(160px,52vw,220px)}
