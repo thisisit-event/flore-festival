@@ -44,6 +44,8 @@
 
   .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:860px){.why-grid{grid-template-columns:1fr}}
+  .cond-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:20px}
+  @media(max-width:720px){.cond-grid{grid-template-columns:1fr}}
   .why-card{background:var(--sky-pale);border-radius:20px;padding:26px 24px}
   .why-card .ic{font-size:1.7rem;display:block;margin-bottom:10px}
   .why-card h3{font-size:1.08rem;color:var(--ink);margin-bottom:8px}
@@ -125,6 +127,7 @@
     .h-sec .lead{margin-bottom:24px}
     .why-grid{gap:16px}
     .why-card{padding:20px 18px}
+    .cond-grid{gap:16px}
     .bp-cols{gap:28px}
     .bp-list{gap:16px}
     .bp-side+.bp-side{margin-top:28px}
@@ -202,14 +205,25 @@
     </div>
   </section>
 
-  <!-- COMPRENDRE LA MALADIE COELIAQUE -->
+  <!-- COMPRENDRE NOS DEUX EXIGENCES : SANS GLUTEN & SANS LACTOSE -->
   <section class="h-sec">
     <div class="wrap">
-      <h2>Comprendre la maladie cœliaque</h2>
-      <p class="lead">La maladie cœliaque est une maladie auto-immune. Chez les personnes atteintes, l'ingestion de gluten (présent notamment dans le blé, l'orge et le seigle) déclenche une réaction immunitaire qui endommage l'intestin grêle. Le seul traitement connu est un régime strict sans gluten, à vie.</p>
+      <h2>Comprendre nos deux exigences</h2>
+      <p class="lead">FLORE est un festival 100&nbsp;% sans gluten <strong>et</strong> sans lactose : deux conditions différentes, toutes deux à prendre au sérieux.</p>
+      <div class="cond-grid">
+        <div class="why-card">
+          <span class="ic">🌾</span>
+          <h3>La maladie cœliaque (sans gluten)</h3>
+          <p>Une maladie auto-immune. Chez les personnes atteintes, l'ingestion de gluten (blé, orge, seigle) déclenche une réaction immunitaire qui endommage l'intestin grêle. Le seul traitement connu est un régime strict sans gluten, à vie : même une très faible quantité, ou une simple contamination croisée, peut suffire à provoquer des symptômes et des complications.</p>
+        </div>
+        <div class="why-card">
+          <span class="ic">🥛</span>
+          <h3>L'intolérance au lactose (sans lactose)</h3>
+          <p>Une intolérance digestive, distincte de la maladie cœliaque : l'organisme ne produit pas assez de lactase, l'enzyme qui digère le sucre du lait. Les produits laitiers classiques (lait, crème, certains fromages et yaourts) provoquent alors ballonnements, douleurs et troubles digestifs. Sur FLORE, l'exigence est la même : une vigilance réelle, pas une simple option.</p>
+        </div>
+      </div>
       <div class="info-box">
-        <p>Même de très faibles quantités de gluten, ou une simple contamination croisée, peuvent suffire à provoquer des symptômes et des complications. Les personnes concernées recherchent donc des établissements capables de proposer des aliments adaptés et de limiter au maximum les risques de contamination.</p>
-        <p>Le sans lactose répond à une logique proche : sans être auto-immune, l'intolérance au lactose impose elle aussi une vigilance réelle sur les produits laitiers.</p>
+        <p>Dans les deux cas, les personnes concernées recherchent des établissements capables de proposer des aliments adaptés et de limiter au maximum les risques de contamination croisée.</p>
       </div>
     </div>
   </section>
