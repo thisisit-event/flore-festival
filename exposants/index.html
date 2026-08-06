@@ -339,7 +339,12 @@
             <span class="q">Vos recettes contiennent-elles de l'avoine ?</span>
             <div class="yn-toggle" data-field="jds_avoine"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div>
           </div>
-          <input type="hidden" name="jds_avoine">
+          <div class="yn-row">
+            <span class="q">Vos recettes sont-elles aussi 100 % végan ?</span>
+            <div class="yn-toggle" data-field="jds_vegan"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div>
+          </div>
+          <input type="hidden" name="jds_avoine"><input type="hidden" name="jds_vegan">
+          <p style="color:var(--ink-soft);font-size:.82rem;margin-top:-6px">Précisez si oui : on pourra le signaler aux festivaliers végans sur votre fiche stand.</p>
           <p style="color:var(--ink-soft);font-size:.9rem;margin:12px 0 8px">Matériel de cuisson que vous apportez (FLORE ne fournit aucun matériel de cuisson) :</p>
           <div class="chip-grid">
             <label class="chip"><input type="checkbox" name="jds_materiel" value="Plancha"><span>Plancha</span></label>
@@ -393,18 +398,28 @@
 
         <!-- Boutique -->
         <div class="wiz-formule-hidden" data-formule="Boutique">
-          <div class="f-row">
-            <div class="f-field"><label>Type de produits</label><input type="text" name="bq_type_produits" placeholder="Épicerie, cosmétique, textile..."></div>
+          <p style="color:var(--ink-soft);font-size:.9rem;margin:0 0 8px">La Boutique n'est pas réservée à l'alimentaire : toute activité en lien avec le sans gluten, le sans lactose ou les troubles digestifs est bienvenue.</p>
+          <div class="chip-grid">
+            <label class="chip"><input type="checkbox" name="bq_categorie" value="Alimentation (marque, producteur, artisan)"><span>🍽️ Alimentation</span></label>
+            <label class="chip"><input type="checkbox" name="bq_categorie" value="Santé (diététicien, médecin, association)"><span>⚕️ Santé</span></label>
+            <label class="chip"><input type="checkbox" name="bq_categorie" value="Cuisine (atelier, chef, démonstration)"><span>👩‍🍳 Cuisine</span></label>
+            <label class="chip"><input type="checkbox" name="bq_categorie" value="Services (application, coaching, livraison, accompagnement)"><span>🛎️ Services</span></label>
+            <label class="chip"><input type="checkbox" name="bq_categorie" value="Bien-être (compléments, naturopathie, hygiène de vie)"><span>🌿 Bien-être</span></label>
+            <label class="chip"><input type="checkbox" name="bq_categorie" value="Commerce (boutique, e-commerce, distributeur)"><span>🏪 Commerce</span></label>
           </div>
-          <p style="color:var(--ink-soft);font-size:.9rem;margin:4px 0 8px">Au moins une thématique obligatoire :</p>
+          <div class="f-row" style="margin-top:16px">
+            <div class="f-field"><label>Précisez votre activité</label><input type="text" name="bq_type_produits" placeholder="Ex. diététicienne spécialisée SII, marque de biscuits sans gluten, appli de livraison..."></div>
+          </div>
+          <p style="color:var(--ink-soft);font-size:.9rem;margin:12px 0 8px">Au moins une thématique obligatoire :</p>
           <div class="chip-grid">
             <label class="chip"><input type="checkbox" name="bq_thematique" value="Sans gluten"><span>🌾 Sans gluten</span></label>
             <label class="chip"><input type="checkbox" name="bq_thematique" value="Sans lactose"><span>🥛 Sans lactose</span></label>
+            <label class="chip"><input type="checkbox" name="bq_thematique" value="Troubles digestifs / SII"><span>🩺 Troubles digestifs / SII</span></label>
             <label class="chip"><input type="checkbox" name="bq_thematique" value="Vegan"><span>🌱 Vegan (complément)</span></label>
             <label class="chip"><input type="checkbox" name="bq_thematique" value="Bio"><span>🍃 Bio (complément)</span></label>
           </div>
           <div class="f-row two" style="margin-top:16px">
-            <div class="f-field"><label>Gamme de prix</label><input type="text" name="bq_gamme_prix" placeholder="Ex. 5 à 25€"></div>
+            <div class="f-field"><label>Gamme de prix (si applicable)</label><input type="text" name="bq_gamme_prix" placeholder="Ex. 5 à 25€"></div>
             <div class="f-field">
               <label>Taille de stand souhaitée <span class="f-required">*</span></label>
               <select name="bq_taille" id="bq-taille" class="cart-input" required>
@@ -472,32 +487,31 @@
         <!-- Jardin des Saveurs -->
         <div class="wiz-formule-hidden" data-formule="Jardin des Saveurs">
           <div class="ck-list">
-            <label class="ck-item"><input type="checkbox" required><span>Ma cuisine reste un format festival classique (crêpe, burger, tacos, bao...), sans positionnement "cuisine santé" ou salon.</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Je m'engage à ne vendre aucune boisson sur mon stand (exclusivité des bars FLORE).</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Je m'engage à proposer un format mini dégustation (4 à 6 €), pour permettre un parcours multi-stands.</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Je confirme que 100 % de mes produits sont sans gluten (&lt;20ppm) <b>et</b> sans lactose.</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Je comprends que FLORE ne fournit aucun matériel de cuisson : j'apporte le mien, dans le respect des règles ERP Ainterexpo (article T.38-1, max 20kW cumulés).</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>J'accepte le contrôle de la commission FLORE avant l'ouverture (check-list + sticker "Validé FLORE").</span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_cond_cuisine_classique" required><span>Ma cuisine reste un format festival classique (crêpe, burger, tacos, bao...), sans positionnement "cuisine santé" ou salon.</span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_cond_no_boissons" required><span>Je m'engage à ne vendre aucune boisson sur mon stand (exclusivité des bars FLORE).</span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_cond_format_mini" required><span>Je m'engage à proposer un format mini dégustation (4 à 6 €), pour permettre un parcours multi-stands.</span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_cond_100_sgsl" required><span>Je confirme que 100 % de mes produits sont sans gluten (&lt;20ppm) <b>et</b> sans lactose.</span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_cond_pas_materiel_fourni" required><span>Je comprends que FLORE ne fournit aucun matériel de cuisson : j'apporte le mien, dans le respect des règles ERP Ainterexpo (article T.38-1, max 20kW cumulés).</span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_cond_controle_commission" required><span>J'accepte le contrôle de la commission FLORE avant l'ouverture (check-list + sticker "Validé FLORE").</span></label>
           </div>
         </div>
 
         <!-- Boutique -->
         <div class="wiz-formule-hidden" data-formule="Boutique">
           <div class="ck-list">
-            <label class="ck-item"><input type="checkbox" required><span>Je confirme que mes produits sont emballés uniquement (pas de consommation sur place).</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Je confirme que mon SIRET est actif.</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Je confirme qu'au moins une thématique (sans gluten ou sans lactose) s'applique à 100 % des produits présentés.</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Je m'engage à être physiquement présent·e le jour J pour tenir mon stand (vente et encaissement).</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Si je propose des boissons, elles sont emballées et non prêtes à boire, sans aucun matériel de réfrigération/glaçage sur mon stand.</span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_cond_emballes" required><span>Si je vends des produits physiques, ils sont emballés uniquement (pas de consommation sur place).</span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_cond_thematique" required><span>Je confirme qu'au moins une thématique (sans gluten, sans lactose, ou troubles digestifs/SII) s'applique réellement à mon activité.</span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_cond_presence" required><span>Je m'engage à être physiquement présent·e le jour J pour tenir mon stand.</span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_cond_boissons" required><span>Si je propose des boissons, elles sont emballées et non prêtes à boire, sans aucun matériel de réfrigération/glaçage sur mon stand.</span></label>
           </div>
         </div>
 
         <!-- Stand P/M/G -->
         <div class="wiz-formule-hidden" data-formule="Stand P/M/G">
           <div class="ck-list">
-            <label class="ck-item"><input type="checkbox" required><span>Je m'engage à respecter les règles de sécurité ERP du site (Ainterexpo).</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Si j'active un produit alimentaire sur mon stand, je m'engage à étiqueter les 14 allergènes réglementaires et à en informer FLORE en amont.</span></label>
-            <label class="ck-item"><input type="checkbox" required><span>Je comprends que ce stand est nu : structure, mobilier et décoration sont à ma charge (sauf option clé en main prise séparément).</span></label>
+            <label class="ck-item"><input type="checkbox" name="pmg_cond_erp" required><span>Je m'engage à respecter les règles de sécurité ERP du site (Ainterexpo).</span></label>
+            <label class="ck-item"><input type="checkbox" name="pmg_cond_allergenes" required><span>Si j'active un produit alimentaire sur mon stand, je m'engage à étiqueter les 14 allergènes réglementaires et à en informer FLORE en amont.</span></label>
+            <label class="ck-item"><input type="checkbox" name="pmg_cond_stand_nu" required><span>Je comprends que ce stand est nu : structure, mobilier et décoration sont à ma charge (sauf option clé en main prise séparément).</span></label>
           </div>
         </div>
 
@@ -508,12 +522,20 @@
         </div>
         <div class="ck-list">
           <label class="ck-item">
-            <input type="checkbox" name="etiquetage_ack" required>
-            <span>Je m'engage à étiqueter les 14 allergènes réglementaires (Règlement UE n°1169/2011) sur mon stand, y compris ceux non liés au gluten/lactose.</span>
+            <input type="checkbox" name="siret_ack" required>
+            <span>Je confirme que mon SIRET est actif.</span>
           </label>
           <label class="ck-item">
             <input type="checkbox" name="assurance_ack" required>
             <span>Je dispose d'une assurance RC Pro valide (attestation à fournir avant validation).</span>
+          </label>
+          <label class="ck-item">
+            <input type="checkbox" name="lien_sgsl_ack" required>
+            <span>Mon activité a un lien réel avec le sans gluten et/ou le sans lactose (troubles digestifs, syndrome de l'intestin irritable, maladie cœliaque...).</span>
+          </label>
+          <label class="ck-item">
+            <input type="checkbox" name="etiquetage_ack" required>
+            <span>Si je présente des produits alimentaires, je m'engage à étiqueter les 14 allergènes réglementaires (Règlement UE n°1169/2011), y compris ceux non liés au gluten/lactose.</span>
           </label>
         </div>
       </div>
