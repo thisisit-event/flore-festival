@@ -324,65 +324,9 @@
         <input type="hidden" name="formule" id="formule-value" required>
       </div>
 
-      <!-- ÉTAPE 1 : INFOS GÉNÉRALES -->
+      <!-- ÉTAPE 1 : SPÉCIFICITÉS DE LA FORMULE -->
       <div class="wiz-step" data-step="1">
-        <div class="wiz-steplabel">Étape 2 / 6 · Informations générales</div>
-        <h3 style="color:var(--ink);margin-bottom:16px">Parlez-nous de votre structure</h3>
-        <div class="f-row two">
-          <div class="f-field"><label>Nom de l'entreprise / marque <span class="f-required">*</span></label><input type="text" name="nom_entreprise" id="in-nom" autocomplete="organization" required></div>
-          <div class="f-field">
-            <label>SIRET <span class="f-required">*</span></label>
-            <input type="text" id="in-siret" name="siret" placeholder="14 chiffres" inputmode="numeric" required>
-          </div>
-        </div>
-        <div class="f-row">
-          <div class="f-field"><label>Description de votre activité <span class="f-required">*</span></label><textarea id="in-description" name="description" placeholder="Vos produits, votre concept, ce qui vous rend unique..." required></textarea></div>
-        </div>
-        <div class="f-row">
-          <div class="f-field" style="position:relative">
-            <label>Adresse <span class="f-required">*</span></label>
-            <input type="text" id="in-adresse" name="adresse" placeholder="Commencez à taper, choisissez dans la liste..." autocomplete="off" required>
-            <div class="addr-suggest" id="addr-suggest" hidden></div>
-          </div>
-        </div>
-        <div class="f-row two">
-          <div class="f-field"><label>Ville</label><input type="text" id="in-ville" name="ville" autocomplete="address-level2"></div>
-          <div class="f-field"><label>Code postal</label><input type="text" id="in-cp" name="code_postal" autocomplete="postal-code"></div>
-        </div>
-        <div class="f-row two">
-          <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" id="in-email" name="email" autocomplete="email" required></div>
-          <div class="f-field"><label>Téléphone <span class="f-required">*</span></label><input type="tel" name="telephone" autocomplete="tel" required></div>
-        </div>
-        <div class="f-row two">
-          <div class="f-field"><label>Responsable du stand le jour J</label><input type="text" name="responsable_nom" placeholder="Nom et prénom" autocomplete="name"></div>
-          <div class="f-field"><label>Fonction</label><input type="text" name="responsable_fonction" placeholder="Gérant·e, associé·e..." autocomplete="off"></div>
-        </div>
-        <div class="f-row">
-          <div class="f-field"><label>Site internet</label><input type="url" name="site" autocomplete="url" placeholder="https://"></div>
-        </div>
-        <div class="f-row">
-          <div class="f-field">
-            <label>Réseaux sociaux actifs</label>
-            <div class="chip-grid">
-              <label class="chip"><input type="checkbox" name="reseaux" value="Instagram"><span>Instagram</span></label>
-              <label class="chip"><input type="checkbox" name="reseaux" value="Facebook"><span>Facebook</span></label>
-              <label class="chip"><input type="checkbox" name="reseaux" value="LinkedIn"><span>LinkedIn</span></label>
-              <label class="chip"><input type="checkbox" name="reseaux" value="TikTok"><span>TikTok</span></label>
-            </div>
-          </div>
-        </div>
-        <div class="f-row">
-          <div class="f-field"><label>Liens (Instagram, Facebook...)</label><input type="text" name="reseaux_liens" placeholder="@votrecompte ou liens directs" autocomplete="off"></div>
-        </div>
-        <div class="info-box">
-          <h4>📎 Logo, photo &amp; pièces justificatives</h4>
-          <p>Merci de nous envoyer par e-mail à <a href="mailto:contact@flore-festival.fr" style="color:var(--ink);font-weight:700">contact@flore-festival.fr</a> (objet : nom de votre structure) : votre logo, une photo (format carré, 500×500px minimum), votre extrait K-BIS ou D1 de moins de 3 mois, et votre attestation d'assurance RC Pro. Ces pièces sont nécessaires à la validation de votre candidature, mais pas à son dépôt — vous pouvez les envoyer juste après ce formulaire.</p>
-        </div>
-      </div>
-
-      <!-- ÉTAPE 2 : SPÉCIFICITÉS DE LA FORMULE -->
-      <div class="wiz-step" data-step="2">
-        <div class="wiz-steplabel">Étape 3 / 6 · Votre stand</div>
+        <div class="wiz-steplabel">Étape 2 / 6 · Votre stand</div>
         <h3 style="color:var(--ink);margin-bottom:16px">Quelques précisions sur votre stand</h3>
 
         <!-- Jardin des Saveurs -->
@@ -519,9 +463,9 @@
         </div>
       </div>
 
-      <!-- ÉTAPE 3 : CAHIER DES CHARGES -->
-      <div class="wiz-step" data-step="3">
-        <div class="wiz-steplabel">Étape 4 / 6 · Cahier des charges</div>
+      <!-- ÉTAPE 2 : CAHIER DES CHARGES -->
+      <div class="wiz-step" data-step="2">
+        <div class="wiz-steplabel">Étape 3 / 6 · Cahier des charges</div>
         <h3 style="color:var(--ink);margin-bottom:6px">Les conditions à accepter</h3>
         <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Toutes les cases ci-dessous sont obligatoires pour candidater — merci de tout lire et tout cocher avant de continuer.</p>
 
@@ -574,9 +518,9 @@
         </div>
       </div>
 
-      <!-- ÉTAPE 4 : SÉCURITÉ ALIMENTAIRE -->
-      <div class="wiz-step" data-step="4">
-        <div class="wiz-steplabel">Étape 5 / 6 · Sécurité alimentaire</div>
+      <!-- ÉTAPE 3 : SÉCURITÉ ALIMENTAIRE -->
+      <div class="wiz-step" data-step="3">
+        <div class="wiz-steplabel">Étape 4 / 6 · Sécurité alimentaire</div>
         <h3 style="color:var(--ink);margin-bottom:6px">Quelques précisions</h3>
         <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:6px">Nos visiteurs comptent parmi les personnes les plus sensibles au gluten et au lactose : soyez précis.</p>
 
@@ -585,6 +529,63 @@
         <div class="yn-row"><span class="q">Disposez-vous d'un matériel dédié (évite la contamination croisée) ?</span><div class="yn-toggle" data-field="materiel_dedie"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
 
         <input type="hidden" name="totalement_sg"><input type="hidden" name="totalement_sl"><input type="hidden" name="materiel_dedie">
+      </div>
+
+      <!-- ÉTAPE 4 : INFOS GÉNÉRALES (finalise la candidature) -->
+      <div class="wiz-step" data-step="4">
+        <div class="wiz-steplabel">Étape 5 / 6 · Informations générales</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Finalisons votre candidature</h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Vous avez choisi votre formule et accepté les conditions : dernière étape, vos coordonnées.</p>
+        <div class="f-row two">
+          <div class="f-field"><label>Nom de l'entreprise / marque <span class="f-required">*</span></label><input type="text" name="nom_entreprise" id="in-nom" autocomplete="organization" required></div>
+          <div class="f-field">
+            <label>SIRET <span class="f-required">*</span></label>
+            <input type="text" id="in-siret" name="siret" placeholder="14 chiffres" inputmode="numeric" required>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Description de votre activité <span class="f-required">*</span></label><textarea id="in-description" name="description" placeholder="Vos produits, votre concept, ce qui vous rend unique..." required></textarea></div>
+        </div>
+        <div class="f-row">
+          <div class="f-field" style="position:relative">
+            <label>Adresse <span class="f-required">*</span></label>
+            <input type="text" id="in-adresse" name="adresse" placeholder="Commencez à taper, choisissez dans la liste..." autocomplete="off" required>
+            <div class="addr-suggest" id="addr-suggest" hidden></div>
+          </div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>Ville</label><input type="text" id="in-ville" name="ville" autocomplete="address-level2"></div>
+          <div class="f-field"><label>Code postal</label><input type="text" id="in-cp" name="code_postal" autocomplete="postal-code"></div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" id="in-email" name="email" autocomplete="email" required></div>
+          <div class="f-field"><label>Téléphone <span class="f-required">*</span></label><input type="tel" name="telephone" autocomplete="tel" required></div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>Responsable du stand le jour J</label><input type="text" name="responsable_nom" placeholder="Nom et prénom" autocomplete="name"></div>
+          <div class="f-field"><label>Fonction</label><input type="text" name="responsable_fonction" placeholder="Gérant·e, associé·e..." autocomplete="off"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Site internet</label><input type="url" name="site" autocomplete="url" placeholder="https://"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-field">
+            <label>Réseaux sociaux actifs</label>
+            <div class="chip-grid">
+              <label class="chip"><input type="checkbox" name="reseaux" value="Instagram"><span>Instagram</span></label>
+              <label class="chip"><input type="checkbox" name="reseaux" value="Facebook"><span>Facebook</span></label>
+              <label class="chip"><input type="checkbox" name="reseaux" value="LinkedIn"><span>LinkedIn</span></label>
+              <label class="chip"><input type="checkbox" name="reseaux" value="TikTok"><span>TikTok</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Liens (Instagram, Facebook...)</label><input type="text" name="reseaux_liens" placeholder="@votrecompte ou liens directs" autocomplete="off"></div>
+        </div>
+        <div class="info-box">
+          <h4>📎 Logo, photo &amp; pièces justificatives</h4>
+          <p>Merci de nous envoyer par e-mail à <a href="mailto:contact@flore-festival.fr" style="color:var(--ink);font-weight:700">contact@flore-festival.fr</a> (objet : nom de votre structure) : votre logo, une photo (format carré, 500×500px minimum), votre extrait K-BIS ou D1 de moins de 3 mois, et votre attestation d'assurance RC Pro. Ces pièces sont nécessaires à la validation de votre candidature, mais pas à son dépôt — vous pouvez les envoyer juste après ce formulaire.</p>
+        </div>
       </div>
 
       <!-- ÉTAPE 5 : VALIDATION -->
@@ -704,7 +705,21 @@
         alert('Merci de choisir une formule pour continuer.');
         return false;
       }
-      if (i === 1){
+      if (i === 2){
+        const step2 = document.querySelector('.wiz-step[data-step="2"]');
+        const activeFormuleBlock = step2.querySelector('.wiz-formule-hidden.active');
+        const boxesToCheck = [];
+        if (activeFormuleBlock) boxesToCheck.push(...activeFormuleBlock.querySelectorAll('input[type=checkbox][required]'));
+        boxesToCheck.push(...step2.querySelectorAll(':scope > .ck-list input[type=checkbox][required]'));
+        for (const box of boxesToCheck){
+          if (!box.checked){
+            alert('Merci de cocher toutes les conditions du cahier des charges avant de continuer.');
+            box.closest('.ck-item').scrollIntoView({ behavior:'smooth', block:'center' });
+            return false;
+          }
+        }
+      }
+      if (i === 4){
         const required = ['in-nom','in-siret','in-description','in-adresse','in-email'];
         for (const id of required){
           if (!document.getElementById(id).value.trim()){
@@ -722,20 +737,6 @@
           alert('Merci d\'indiquer une adresse email valide.');
           document.getElementById('in-email').focus();
           return false;
-        }
-      }
-      if (i === 3){
-        const step3 = document.querySelector('.wiz-step[data-step="3"]');
-        const activeFormuleBlock = step3.querySelector('.wiz-formule-hidden.active');
-        const boxesToCheck = [];
-        if (activeFormuleBlock) boxesToCheck.push(...activeFormuleBlock.querySelectorAll('input[type=checkbox][required]'));
-        boxesToCheck.push(...step3.querySelectorAll(':scope > .ck-list input[type=checkbox][required]'));
-        for (const box of boxesToCheck){
-          if (!box.checked){
-            alert('Merci de cocher toutes les conditions du cahier des charges avant de continuer.');
-            box.closest('.ck-item').scrollIntoView({ behavior:'smooth', block:'center' });
-            return false;
-          }
         }
       }
       return true;
@@ -817,7 +818,7 @@
     form.addEventListener('change', function(e){ if (e.target.classList.contains('cart-input')) updateAllCarts(); });
     updateAllCarts();
 
-    // ---- Étape 1 : autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
+    // ---- Étape 4 (infos générales) : autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
     const inAdresse = document.getElementById('in-adresse');
     const addrSuggest = document.getElementById('addr-suggest');
     let addrDebounce = null;
@@ -878,8 +879,7 @@
     });
     inAdresse.addEventListener('blur', function(){ setTimeout(hideAddrSuggest, 150); });
 
-    // ---- Étape 2 : avoine (yn-toggle) ----
-    // ---- Étape 3 : toggles Oui/Non (générique, réutilisé pour jds_avoine et l'étape sécurité) ----
+    // ---- Toggles Oui/Non (avoine étape 1, sécurité étape 3) ----
     document.querySelectorAll('.yn-toggle').forEach(function(toggle){
       const field = toggle.dataset.field;
       const hidden = form.querySelector('input[type=hidden][name="' + field + '"]');
@@ -892,7 +892,7 @@
       });
     });
 
-    // ---- Étape 4 : résumé ----
+    // ---- Étape 5 (validation) : résumé ----
     function buildSummary(){
       const formule = document.getElementById('formule-value').value;
       const nom = document.getElementById('in-nom').value;
@@ -903,8 +903,8 @@
 
       document.getElementById('wiz-summary').innerHTML =
         '<section><h3>Formule <a href="#" data-goto="0">Modifier</a></h3><p>' + (formule || 'Non renseigné') + '</p></section>' +
-        '<section><h3>Informations générales <a href="#" data-goto="1">Modifier</a></h3><p>' + nom + ' · SIRET ' + siret + ' · ' + adresse + '</p><p>' + email + ' · ' + tel + '</p></section>' +
-        '<section><h3>Votre stand <a href="#" data-goto="2">Modifier</a></h3><p>Détails transmis avec votre candidature.</p></section>';
+        '<section><h3>Votre stand <a href="#" data-goto="1">Modifier</a></h3><p>Détails transmis avec votre candidature.</p></section>' +
+        '<section><h3>Informations générales <a href="#" data-goto="4">Modifier</a></h3><p>' + nom + ' · SIRET ' + siret + ' · ' + adresse + '</p><p>' + email + ' · ' + tel + '</p></section>';
 
       document.querySelectorAll('[data-goto]').forEach(function(a){
         a.addEventListener('click', function(e){
