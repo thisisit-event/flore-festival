@@ -304,8 +304,29 @@
           <div class="f-field"><label>Téléphone <span class="f-required">*</span></label><input type="tel" name="telephone" autocomplete="tel" required></div>
         </div>
         <div class="f-row two">
+          <div class="f-field"><label>Responsable du stand le jour J</label><input type="text" name="responsable_nom" placeholder="Nom et prénom" autocomplete="name"></div>
+          <div class="f-field"><label>Fonction</label><input type="text" name="responsable_fonction" placeholder="Gérant·e, associé·e..." autocomplete="off"></div>
+        </div>
+        <div class="f-row">
           <div class="f-field"><label>Site internet</label><input type="url" name="site" autocomplete="url" placeholder="https://"></div>
-          <div class="f-field"><label>Réseaux sociaux</label><input type="text" name="reseaux" placeholder="Instagram, Facebook..." autocomplete="off"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-field">
+            <label>Réseaux sociaux actifs</label>
+            <div class="chip-grid">
+              <label class="chip"><input type="checkbox" name="reseaux" value="Instagram"><span>Instagram</span></label>
+              <label class="chip"><input type="checkbox" name="reseaux" value="Facebook"><span>Facebook</span></label>
+              <label class="chip"><input type="checkbox" name="reseaux" value="LinkedIn"><span>LinkedIn</span></label>
+              <label class="chip"><input type="checkbox" name="reseaux" value="TikTok"><span>TikTok</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Liens (Instagram, Facebook...)</label><input type="text" name="reseaux_liens" placeholder="@votrecompte ou liens directs" autocomplete="off"></div>
+        </div>
+        <div class="info-box">
+          <h4>📎 Logo, photo &amp; pièces justificatives</h4>
+          <p>Merci de nous envoyer par e-mail à <a href="mailto:contact@flore-festival.fr" style="color:var(--ink);font-weight:700">contact@flore-festival.fr</a> (objet : nom de votre structure) : votre logo, une photo (format carré, 500×500px minimum), votre extrait K-BIS ou D1 de moins de 3 mois, et votre attestation d'assurance RC Pro. Ces pièces sont nécessaires à la validation de votre candidature, mais pas à son dépôt — vous pouvez les envoyer juste après ce formulaire.</p>
         </div>
       </div>
 
@@ -325,13 +346,42 @@
             <div class="yn-toggle" data-field="jds_avoine"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div>
           </div>
           <input type="hidden" name="jds_avoine">
-          <div class="f-row" style="margin-top:16px">
-            <div class="f-field"><label>Matériel de cuisson que vous apportez</label><input type="text" name="jds_materiel" placeholder="Plancha, friteuse, four, bonbonne gaz..."></div>
+          <p style="color:var(--ink-soft);font-size:.9rem;margin:12px 0 8px">Matériel de cuisson que vous apportez (FLORE ne fournit aucun matériel de cuisson) :</p>
+          <div class="chip-grid">
+            <label class="chip"><input type="checkbox" name="jds_materiel" value="Plancha"><span>Plancha</span></label>
+            <label class="chip"><input type="checkbox" name="jds_materiel" value="Friteuse"><span>Friteuse</span></label>
+            <label class="chip"><input type="checkbox" name="jds_materiel" value="Four"><span>Four</span></label>
+            <label class="chip"><input type="checkbox" name="jds_materiel" value="Induction"><span>Induction</span></label>
+            <label class="chip"><input type="checkbox" name="jds_materiel" value="Bonbonne gaz"><span>Bonbonne gaz</span></label>
+            <label class="chip"><input type="checkbox" name="jds_materiel" value="Autre"><span>Autre</span></label>
+          </div>
+          <div class="f-row two" style="margin-top:16px">
+            <div class="f-field"><label>Si gaz : type et quantité</label><input type="text" name="jds_gaz_detail" placeholder="Ex. 2 bonbonnes 13kg"></div>
+            <div class="f-field">
+              <label>Besoin électrique</label>
+              <select name="jds_elec">
+                <option value="">À déterminer</option>
+                <option value="4kVA (base)">4kVA (base)</option>
+                <option value="15kW triphasé (cuisson)">15kW triphasé (cuisson)</option>
+                <option value="Pas de besoin">Pas de besoin</option>
+              </select>
+            </div>
           </div>
           <label class="ck-item" style="margin-top:8px">
             <input type="checkbox" name="jds_format_mini_ack">
             <span>Je m'engage à proposer un format mini dégustation (4 à 6 €), pour permettre un parcours multi-stands.</span>
           </label>
+          <div class="f-row two" style="margin-top:16px">
+            <div class="f-field"><label>Expérience événementielle</label><input type="text" name="jds_experience" placeholder="Festivals, marchés déjà faits..."></div>
+            <div class="f-field"><label>Volume habituel géré</label><input type="text" name="jds_volume" placeholder="Ex. 150 couverts/jour"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-field"><label>Pourquoi candidater à FLORE ?</label><textarea name="jds_motivation" placeholder="Quelques lignes suffisent"></textarea></div>
+          </div>
+          <div class="info-box">
+            <h4>Options à la carte (en plus des 299€)</h4>
+            <p>Électricité 4kVA 170€ ou 15kW 280€ · Eau froide 150€ ou chaude 225€ · Spot 30€ · Table/buffet supplémentaire 25€ · Poubelle supplémentaire 10€. Rien n'est imposé d'office : le Comité vous propose le palier adapté selon votre matériel déclaré ci-dessus.</p>
+          </div>
         </div>
 
         <!-- Boutique -->
@@ -346,20 +396,39 @@
             <label class="chip"><input type="checkbox" name="bq_thematique" value="Vegan"><span>🌱 Vegan (complément)</span></label>
             <label class="chip"><input type="checkbox" name="bq_thematique" value="Bio"><span>🍃 Bio (complément)</span></label>
           </div>
-          <div class="f-row" style="margin-top:16px">
+          <div class="f-row two" style="margin-top:16px">
             <div class="f-field"><label>Gamme de prix</label><input type="text" name="bq_gamme_prix" placeholder="Ex. 5 à 25€"></div>
+            <div class="f-field">
+              <label>Taille de stand souhaitée</label>
+              <select name="bq_taille">
+                <option value="">À préciser</option>
+                <option value="Demi-stand 4m² · 59€">Demi-stand 4m² · 59€</option>
+                <option value="Stand plein 8m² · 99€">Stand plein 8m² · 99€</option>
+              </select>
+            </div>
           </div>
           <label class="ck-item" style="margin-top:8px">
             <input type="checkbox" name="bq_emballes_ack">
             <span>Je confirme que mes produits sont emballés uniquement (pas de consommation sur place).</span>
           </label>
+          <div class="f-row two" style="margin-top:16px">
+            <div class="f-field"><label>Expérience événementielle</label><input type="text" name="bq_experience" placeholder="Marchés, salons déjà faits..."></div>
+            <div class="f-field"><label>Points de vente existants</label><input type="text" name="bq_points_vente" placeholder="Boutique en ligne, magasins partenaires..."></div>
+          </div>
+          <div class="f-row">
+            <div class="f-field"><label>Pourquoi candidater à FLORE ?</label><textarea name="bq_motivation" placeholder="Quelques lignes suffisent"></textarea></div>
+          </div>
+          <div class="info-box">
+            <h4>Options à la carte (en plus du prix du stand)</h4>
+            <p>Réserve sécurisée 110€ · Électricité dédiée 250€ (par défaut, mutualisée) · Mange-debout 55€ · Tabouret haut 45€ · Buffet supplémentaire 25€ · Poubelle supplémentaire 10€. Pas de moquette ni de banque d'accueil : la Boutique reste volontairement brute, dans le même esprit qu'un vrai marché.</p>
+          </div>
         </div>
 
         <!-- Stand P/M/G -->
         <div class="wiz-formule-hidden" data-formule="Stand P/M/G">
           <div class="info-box" style="margin-top:0">
             <h4>Places très limitées</h4>
-            <p>La majorité des stands P/M/G est réservée d'office aux sponsors confirmés. Le nombre exact disponible en vente libre est connu après clôture des candidatures sponsors — nous revenons vers vous dès que la disponibilité est confirmée.</p>
+            <p>La majorité des stands P/M/G est réservée d'office aux sponsors confirmés. Le nombre exact disponible en vente libre est connu après clôture des candidatures sponsors — nous revenons vers vous dès que la disponibilité est confirmée. Pas de fenêtre de candidature fixe : on échange directement avec vous.</p>
           </div>
           <p style="color:var(--ink-soft);font-size:.9rem;margin:4px 0 8px">Taille souhaitée :</p>
           <div class="chip-grid">
@@ -369,6 +438,9 @@
           </div>
           <div class="f-row" style="margin-top:16px">
             <div class="f-field"><label>Utilisation prévue du stand</label><textarea name="pmg_utilisation" placeholder="Vente, démonstration, présentation de marque..."></textarea></div>
+          </div>
+          <div class="f-row">
+            <div class="f-field"><label>Pourquoi candidater à FLORE ?</label><textarea name="pmg_motivation" placeholder="Quelques lignes suffisent"></textarea></div>
           </div>
         </div>
       </div>
@@ -407,9 +479,14 @@
         <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:10px">Tout est correct ? Vous pouvez encore modifier chaque section avant l'envoi.</p>
         <div class="wiz-summary" id="wiz-summary"></div>
 
+        <div class="info-box">
+          <h4>Comment ça se passe après l'envoi</h4>
+          <p>Le Comité FLORE étudie votre dossier (SIRET actif + pertinence sans gluten/sans lactose) et revient vers vous sous 5 jours ouvrés. En cas de validation, le paiement intégral est demandé — jamais avant. Annulation : remboursement intégral à plus de 2 mois de l'événement, 50% entre 1 et 2 mois, aucun remboursement à moins d'1 mois ou en cas d'absence le jour J.</p>
+        </div>
+
         <label class="consent-row" style="margin-top:20px">
           <input type="checkbox" id="in-rgpd" required>
-          <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival. Paiement demandé uniquement après validation par le Comité, jamais avant.</span>
+          <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival, et j'ai pris connaissance des conditions de paiement et d'annulation ci-dessus.</span>
         </label>
 
         <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma candidature →</button>
