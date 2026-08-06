@@ -449,9 +449,18 @@
 
           <h4 class="cart-heading">Options à la carte</h4>
           <p style="color:var(--ink-soft);font-size:.88rem;margin:0 0 12px">Pas de moquette ni de banque d'accueil : la Boutique reste volontairement brute, dans le même esprit qu'un vrai marché. Le total se met à jour tout seul.</p>
-          <div class="ck-list">
+          <div class="f-row">
+            <div class="f-field">
+              <label>Électricité</label>
+              <select name="bq_elec_option" class="cart-input">
+                <option value="Pas besoin" data-price="0">Pas besoin</option>
+                <option value="Prise 1kVA mutualisée +45€" data-price="45">Prise 1kVA mutualisée (part d'un bloc partagé à 4 stands) +45€</option>
+                <option value="Bloc dédié 4kVA +250€" data-price="250">Bloc dédié 4kVA (rien que pour vous) +250€</option>
+              </select>
+            </div>
+          </div>
+          <div class="ck-list" style="margin-top:10px">
             <label class="ck-item"><input type="checkbox" name="bq_opt_reserve" class="cart-input" data-price="110" data-label="Réserve sécurisée (1m² + clé)"><span>Réserve sécurisée (1m² + clé) <b>+110€</b></span></label>
-            <label class="ck-item"><input type="checkbox" name="bq_opt_elec" class="cart-input" data-price="250" data-label="Électricité dédiée"><span>Électricité dédiée (par défaut, mutualisée) <b>+250€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_mange_debout" class="cart-input" data-price="55" data-label="Mange-debout"><span>Mange-debout <b>+55€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_tabouret" class="cart-input" data-price="45" data-label="Tabouret haut"><span>Tabouret haut <b>+45€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_buffet" class="cart-input" data-price="25" data-label="Buffet supplémentaire"><span>Buffet supplémentaire <b>+25€</b></span></label>
@@ -485,8 +494,18 @@
           </div>
 
           <h4 class="cart-heading">Options à la carte</h4>
-          <p style="color:var(--ink-soft);font-size:.88rem;margin:0 0 12px">Ce stand est nu : mobilier simple disponible en supplément (catalogue Ainterexpo).</p>
-          <div class="ck-list">
+          <p style="color:var(--ink-soft);font-size:.88rem;margin:0 0 12px">Ce stand est nu : électricité et mobilier simple disponibles en supplément (catalogue Ainterexpo).</p>
+          <div class="f-row">
+            <div class="f-field">
+              <label>Électricité</label>
+              <select name="pmg_elec_option" class="cart-input">
+                <option value="Pas besoin" data-price="0">Pas besoin</option>
+                <option value="Prise 1kVA mutualisée +45€" data-price="45">Prise 1kVA mutualisée (part d'un bloc partagé à 4 stands) +45€</option>
+                <option value="Bloc dédié 4kVA +250€" data-price="250">Bloc dédié 4kVA (rien que pour vous) +250€</option>
+              </select>
+            </div>
+          </div>
+          <div class="ck-list" style="margin-top:10px">
             <label class="ck-item"><input type="checkbox" name="pmg_opt_table_classique" class="cart-input" data-price="15" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+15€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="pmg_opt_chaise" class="cart-input" data-price="5" data-label="Chaise"><span>Chaise <b>+5€</b></span></label>
           </div>
