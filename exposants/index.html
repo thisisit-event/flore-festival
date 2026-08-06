@@ -298,7 +298,7 @@
 
       <!-- ÉTAPE 0 : FORMULE -->
       <div class="wiz-step active" data-step="0">
-        <div class="wiz-steplabel">Étape 1 / 5 · Votre formule</div>
+        <div class="wiz-steplabel">Étape 1 / 6 · Votre formule</div>
         <h3 style="color:var(--ink);margin-bottom:16px">Quelle formule vous intéresse ?</h3>
         <div class="profil-grid" id="profil-grid">
           <div class="profil-card profil-card--featured" data-value="Jardin des Saveurs">
@@ -326,7 +326,7 @@
 
       <!-- ÉTAPE 1 : INFOS GÉNÉRALES -->
       <div class="wiz-step" data-step="1">
-        <div class="wiz-steplabel">Étape 2 / 5 · Informations générales</div>
+        <div class="wiz-steplabel">Étape 2 / 6 · Informations générales</div>
         <h3 style="color:var(--ink);margin-bottom:16px">Parlez-nous de votre structure</h3>
         <div class="f-row two">
           <div class="f-field"><label>Nom de l'entreprise / marque <span class="f-required">*</span></label><input type="text" name="nom_entreprise" id="in-nom" autocomplete="organization" required></div>
@@ -382,7 +382,7 @@
 
       <!-- ÉTAPE 2 : SPÉCIFICITÉS DE LA FORMULE -->
       <div class="wiz-step" data-step="2">
-        <div class="wiz-steplabel">Étape 3 / 5 · Votre stand</div>
+        <div class="wiz-steplabel">Étape 3 / 6 · Votre stand</div>
         <h3 style="color:var(--ink);margin-bottom:16px">Quelques précisions sur votre stand</h3>
 
         <!-- Jardin des Saveurs -->
@@ -408,10 +408,6 @@
           <div class="f-row" style="margin-top:16px">
             <div class="f-field"><label>Si gaz : type et quantité</label><input type="text" name="jds_gaz_detail" placeholder="Ex. 2 bonbonnes 13kg"></div>
           </div>
-          <label class="ck-item" style="margin-top:8px">
-            <input type="checkbox" name="jds_format_mini_ack">
-            <span>Je m'engage à proposer un format mini dégustation (4 à 6 €), pour permettre un parcours multi-stands.</span>
-          </label>
           <div class="f-row two" style="margin-top:16px">
             <div class="f-field"><label>Expérience événementielle</label><input type="text" name="jds_experience" placeholder="Festivals, marchés déjà faits..."></div>
             <div class="f-field"><label>Volume habituel géré</label><input type="text" name="jds_volume" placeholder="Ex. 150 couverts/jour"></div>
@@ -474,10 +470,6 @@
               </select>
             </div>
           </div>
-          <label class="ck-item" style="margin-top:8px">
-            <input type="checkbox" name="bq_emballes_ack">
-            <span>Je confirme que mes produits sont emballés uniquement (pas de consommation sur place).</span>
-          </label>
           <div class="f-row two" style="margin-top:16px">
             <div class="f-field"><label>Expérience événementielle</label><input type="text" name="bq_experience" placeholder="Marchés, salons déjà faits..."></div>
             <div class="f-field"><label>Points de vente existants</label><input type="text" name="bq_points_vente" placeholder="Boutique en ligne, magasins partenaires..."></div>
@@ -527,10 +519,65 @@
         </div>
       </div>
 
-      <!-- ÉTAPE 3 : SÉCURITÉ ALIMENTAIRE -->
+      <!-- ÉTAPE 3 : CAHIER DES CHARGES -->
       <div class="wiz-step" data-step="3">
-        <div class="wiz-steplabel">Étape 4 / 5 · Sécurité alimentaire</div>
-        <h3 style="color:var(--ink);margin-bottom:6px">L'étape la plus importante</h3>
+        <div class="wiz-steplabel">Étape 4 / 6 · Cahier des charges</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Les conditions à accepter</h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Toutes les cases ci-dessous sont obligatoires pour candidater — merci de tout lire et tout cocher avant de continuer.</p>
+
+        <!-- Jardin des Saveurs -->
+        <div class="wiz-formule-hidden" data-formule="Jardin des Saveurs">
+          <div class="ck-list">
+            <label class="ck-item"><input type="checkbox" required><span>Ma cuisine reste un format festival classique (crêpe, burger, tacos, bao...), sans positionnement "cuisine santé" ou salon.</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Je m'engage à ne vendre aucune boisson sur mon stand (exclusivité des bars FLORE).</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Je m'engage à proposer un format mini dégustation (4 à 6 €), pour permettre un parcours multi-stands.</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Je confirme que 100 % de mes produits sont sans gluten (&lt;20ppm) <b>et</b> sans lactose.</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Je comprends que FLORE ne fournit aucun matériel de cuisson : j'apporte le mien, dans le respect des règles ERP Ainterexpo (article T.38-1, max 20kW cumulés).</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>J'accepte le contrôle de la commission FLORE avant l'ouverture (check-list + sticker "Validé FLORE").</span></label>
+          </div>
+        </div>
+
+        <!-- Boutique -->
+        <div class="wiz-formule-hidden" data-formule="Boutique">
+          <div class="ck-list">
+            <label class="ck-item"><input type="checkbox" required><span>Je confirme que mes produits sont emballés uniquement (pas de consommation sur place).</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Je confirme que mon SIRET est actif.</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Je confirme qu'au moins une thématique (sans gluten ou sans lactose) s'applique à 100 % des produits présentés.</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Je m'engage à être physiquement présent·e le jour J pour tenir mon stand (vente et encaissement).</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Si je propose des boissons, elles sont emballées et non prêtes à boire, sans aucun matériel de réfrigération/glaçage sur mon stand.</span></label>
+          </div>
+        </div>
+
+        <!-- Stand P/M/G -->
+        <div class="wiz-formule-hidden" data-formule="Stand P/M/G">
+          <div class="ck-list">
+            <label class="ck-item"><input type="checkbox" required><span>Je m'engage à respecter les règles de sécurité ERP du site (Ainterexpo).</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Si j'active un produit alimentaire sur mon stand, je m'engage à étiqueter les 14 allergènes réglementaires et à en informer FLORE en amont.</span></label>
+            <label class="ck-item"><input type="checkbox" required><span>Je comprends que ce stand est nu : structure, mobilier et décoration sont à ma charge (sauf option clé en main prise séparément).</span></label>
+          </div>
+        </div>
+
+        <h4 class="cart-heading" style="border-top:none;padding-top:0;margin-top:26px">Conditions communes, quelle que soit la formule</h4>
+        <div class="info-box" style="margin-top:12px">
+          <h4>Contamination croisée : le vrai risque</h4>
+          <p>Matériel de cuisson partagé, ustensiles, poussière de farine en suspension, gants non changés : ce sont les principales sources de contamination sur un stand qui se déclare "sans gluten" ou "sans lactose", même quand les ingrédients de base sont corrects.</p>
+        </div>
+        <div class="ck-list">
+          <label class="ck-item">
+            <input type="checkbox" name="etiquetage_ack" required>
+            <span>Je m'engage à étiqueter les 14 allergènes réglementaires (Règlement UE n°1169/2011) sur mon stand, y compris ceux non liés au gluten/lactose.</span>
+          </label>
+          <label class="ck-item">
+            <input type="checkbox" name="assurance_ack" required>
+            <span>Je dispose d'une assurance RC Pro valide (attestation à fournir avant validation).</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 4 : SÉCURITÉ ALIMENTAIRE -->
+      <div class="wiz-step" data-step="4">
+        <div class="wiz-steplabel">Étape 5 / 6 · Sécurité alimentaire</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Quelques précisions</h3>
         <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:6px">Nos visiteurs comptent parmi les personnes les plus sensibles au gluten et au lactose : soyez précis.</p>
 
         <div class="yn-row"><span class="q">Êtes-vous totalement sans gluten ?</span><div class="yn-toggle" data-field="totalement_sg"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
@@ -538,25 +585,11 @@
         <div class="yn-row"><span class="q">Disposez-vous d'un matériel dédié (évite la contamination croisée) ?</span><div class="yn-toggle" data-field="materiel_dedie"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
 
         <input type="hidden" name="totalement_sg"><input type="hidden" name="totalement_sl"><input type="hidden" name="materiel_dedie">
-
-        <div class="info-box">
-          <h4>Contamination croisée : le vrai risque</h4>
-          <p>Matériel de cuisson partagé, ustensiles, poussière de farine en suspension, gants non changés : ce sont les principales sources de contamination sur un stand qui se déclare "sans gluten" ou "sans lactose", même quand les ingrédients de base sont corrects. Une commission FLORE contrôle chaque stand avant l'ouverture (check-list + sticker "Validé FLORE").</p>
-        </div>
-
-        <label class="ck-item">
-          <input type="checkbox" name="etiquetage_ack" required>
-          <span>Je m'engage à étiqueter les 14 allergènes réglementaires (Règlement UE n°1169/2011) sur mon stand, y compris ceux non liés au gluten/lactose.</span>
-        </label>
-        <label class="ck-item" style="margin-top:10px">
-          <input type="checkbox" name="assurance_ack" required>
-          <span>Je dispose d'une assurance RC Pro valide (attestation à fournir avant validation).</span>
-        </label>
       </div>
 
-      <!-- ÉTAPE 4 : VALIDATION -->
-      <div class="wiz-step" data-step="4">
-        <div class="wiz-steplabel">Étape 5 / 5 · Validation</div>
+      <!-- ÉTAPE 5 : VALIDATION -->
+      <div class="wiz-step" data-step="5">
+        <div class="wiz-steplabel">Étape 6 / 6 · Validation</div>
         <h3 style="color:var(--ink);margin-bottom:6px">Vérifiez votre dossier</h3>
         <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:10px">Tout est correct ? Vous pouvez encore modifier chaque section avant l'envoi.</p>
         <div class="wiz-summary" id="wiz-summary"></div>
@@ -635,7 +668,7 @@
 
   (function(){
     const form = document.getElementById('wiz-form');
-    const STEP_COUNT = 5;
+    const STEP_COUNT = 6;
     let current = 0;
 
     const progressEl = document.getElementById('wiz-progress');
@@ -692,9 +725,17 @@
         }
       }
       if (i === 3){
-        if (!form.querySelector('[name=etiquetage_ack]').checked || !form.querySelector('[name=assurance_ack]').checked){
-          alert('Merci de confirmer l\'étiquetage des allergènes et votre assurance RC Pro avant de continuer.');
-          return false;
+        const step3 = document.querySelector('.wiz-step[data-step="3"]');
+        const activeFormuleBlock = step3.querySelector('.wiz-formule-hidden.active');
+        const boxesToCheck = [];
+        if (activeFormuleBlock) boxesToCheck.push(...activeFormuleBlock.querySelectorAll('input[type=checkbox][required]'));
+        boxesToCheck.push(...step3.querySelectorAll(':scope > .ck-list input[type=checkbox][required]'));
+        for (const box of boxesToCheck){
+          if (!box.checked){
+            alert('Merci de cocher toutes les conditions du cahier des charges avant de continuer.');
+            box.closest('.ck-item').scrollIntoView({ behavior:'smooth', block:'center' });
+            return false;
+          }
         }
       }
       return true;
