@@ -44,6 +44,9 @@
   .profil-card .pc-desc{font-size:.86rem;color:var(--ink-soft);line-height:1.5}
   .profil-card:hover{border-color:var(--sky)}
   .profil-card.selected{border-color:var(--sun-deep);background:var(--sun-pale)}
+  .profil-card--featured{border-color:#BEE8DD;background:#F2FBF9}
+  .profil-card--featured.selected{border-color:var(--sun-deep);background:var(--sun-pale)}
+  .pc-featured-tag{display:inline-block;background:var(--sun);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.03em;padding:4px 10px;border-radius:100px;margin-bottom:10px}
 
   .f-row{display:grid;gap:16px;margin-bottom:16px}
   .f-row.two{grid-template-columns:1fr 1fr}
@@ -83,6 +86,17 @@
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0}
 
+  .cart-heading{color:var(--ink);font-size:1.02rem;margin:26px 0 4px;padding-top:22px;border-top:1px solid var(--line)}
+  .cart-total{position:sticky;bottom:16px;background:#fff;border:1.5px solid var(--sky);border-radius:16px;padding:16px 18px;margin-top:16px;box-shadow:0 12px 28px rgba(21,57,91,.12)}
+  .cart-lines{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
+  .cart-lines .cline{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:var(--ink-soft)}
+  .cart-lines .cline b{color:var(--ink);font-weight:600}
+  .cart-lines .cline.base{color:var(--ink);font-weight:700}
+  .cart-lines:empty{display:none}
+  .cart-sum{display:flex;justify-content:space-between;align-items:baseline;padding-top:10px;border-top:1px dashed var(--line)}
+  .cart-sum span{font-family:'Bricolage Grotesque',sans-serif;font-size:.82rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.06em}
+  .cart-sum strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.6rem;color:var(--sky-deep)}
+
   .consent-row{display:flex;align-items:flex-start;gap:12px;background:#f0f7fc;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
   .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
   .consent-row span{font-size:.9rem;color:var(--ink);line-height:1.5}
@@ -105,6 +119,24 @@
 
   .wiz-formule-hidden{display:none}
   .wiz-formule-hidden.active{display:block}
+
+  /* ===== Jardin des Saveurs : carte vedette ===== */
+  .jds-feature{position:relative;background:linear-gradient(155deg,#E6F8F6 0%,#DCF3EE 100%);border:1.5px solid #BEE8DD;border-radius:var(--r-xl);padding:46px 48px;margin-bottom:20px;overflow:hidden}
+  .jds-badge{display:inline-flex;align-items:center;gap:6px;background:var(--sun);color:var(--ink);font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.82rem;letter-spacing:.02em;padding:8px 16px;border-radius:100px;margin-bottom:20px;box-shadow:0 8px 18px rgba(146,168,36,.3)}
+  .jds-feature-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center}
+  @media(max-width:860px){.jds-feature-grid{grid-template-columns:1fr}.jds-feature{padding:34px 26px}}
+  .jds-feature-text h3{font-size:clamp(1.7rem,3.4vw,2.3rem);color:var(--ink);margin-bottom:14px}
+  .jds-feature-text p{color:var(--ink-soft);font-size:1.02rem;line-height:1.65;margin-bottom:20px}
+  .jds-feature-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px}
+  .jds-feature-list li{display:flex;align-items:flex-start;gap:10px;font-size:.94rem;color:var(--ink);line-height:1.5}
+  .jds-feature-list li svg{width:16px;height:16px;color:var(--sun-deep);flex-shrink:0;margin-top:3px}
+  .jds-feature-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .jds-feature-price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:var(--ink);display:flex;flex-direction:column;line-height:1.1}
+  .jds-feature-price small{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+  .jds-feature-visual{font-size:9rem;text-align:center;filter:drop-shadow(0 20px 34px rgba(21,57,91,.14));line-height:1}
+  @media(max-width:860px){.jds-feature-visual{font-size:5rem}}
+
+  .sec-sub{text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 26px}
 </style>
 </head>
 <body>
@@ -201,26 +233,43 @@
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les formats</span>
       <h2>Quatre façons de <span class="hl">rejoindre FLORE</span></h2>
     </div>
+
+    <!-- Jardin des Saveurs : mis en avant, c'est le cœur du festival -->
+    <div class="jds-feature" data-aos="fade-up">
+      <span class="jds-badge">🌟 Le cœur du festival</span>
+      <div class="jds-feature-grid">
+        <div class="jds-feature-text">
+          <h3>Le Jardin des Saveurs</h3>
+          <p>Ce n'est pas un stand parmi d'autres : c'est <strong>l'attraction culinaire du festival</strong>, sous tente face à la scène, là où les festivaliers passent le plus de temps. C'est l'endroit où l'ADN de FLORE prend tout son sens — une vraie expérience gourmande, pas une simple vitrine.</p>
+          <ul class="jds-feature-list">
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Emplacement central, face à la scène, dans le flux principal des visiteurs</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Stand clé en main : tente, buffet comptoir, enseigne — vous arrivez, vous cuisinez</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>0 % de commission, 100 % de votre chiffre d'affaires gardé</li>
+          </ul>
+          <div class="jds-feature-cta">
+            <span class="jds-feature-price">299 €<small>18 places seulement</small></span>
+            <a href="#candidature" class="btn btn-sun" style="margin-top:0">Candidater →</a>
+          </div>
+        </div>
+        <div class="jds-feature-visual" aria-hidden="true">🌿</div>
+      </div>
+    </div>
+
+    <p class="sec-sub" data-aos="fade-up">D'autres façons de rejoindre FLORE</p>
     <div class="public-grid">
       <div class="value-card" data-aos="fade-up">
-        <div class="v-ic" style="background:#E6F8F6">🌿</div>
-        <h3>Le Jardin des Saveurs</h3>
-        <p>Un stand clé en main (tente, buffet, enseigne) pour restaurateurs, food-trucks et artisans sans gluten/sans lactose, sous tente 3×3m face à la scène. Vous gardez 100 % de votre chiffre d'affaires.</p>
-        <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">299 € · 18 places</p>
-      </div>
-      <div class="value-card" data-aos="fade-up" data-aos-delay="60">
         <div class="v-ic" style="background:#F7FBD0">🛍️</div>
         <h3>Boutique FLORE</h3>
         <p>Votre marque, physiquement présente, sur un stand produits emballés. Vous tenez votre stand, vous encaissez, vous gardez 100 % de votre chiffre d'affaires.</p>
         <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">À partir de 59 € (demi-stand) · 99 € (stand plein)</p>
       </div>
-      <div class="value-card" data-aos="fade-up" data-aos-delay="120">
+      <div class="value-card" data-aos="fade-up" data-aos-delay="60">
         <div class="v-ic" style="background:#E7F4FB">⭐</div>
         <h3>Stand Premium indépendant</h3>
         <p>Un stand nu Hall B (tailles P/M/G), en vente libre en dehors des packs sponsoring. Places très limitées : la majorité est réservée d'office aux sponsors confirmés.</p>
         <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">600 € à 1 300 € · disponibilité selon sponsors confirmés</p>
       </div>
-      <div class="value-card" data-aos="fade-up" data-aos-delay="180">
+      <div class="value-card" data-aos="fade-up" data-aos-delay="120">
         <div class="v-ic" style="background:#FFF1CC">🤝</div>
         <h3>Partenaires &amp; sponsors</h3>
         <p>Naming scène ou bar, présence officielle, activation sur mesure. On ne vend pas un stand, on construit une présence autour d'une cause et d'une audience.</p>
@@ -252,7 +301,8 @@
         <div class="wiz-steplabel">Étape 1 / 5 · Votre formule</div>
         <h3 style="color:var(--ink);margin-bottom:16px">Quelle formule vous intéresse ?</h3>
         <div class="profil-grid" id="profil-grid">
-          <div class="profil-card" data-value="Jardin des Saveurs">
+          <div class="profil-card profil-card--featured" data-value="Jardin des Saveurs">
+            <span class="pc-featured-tag">🌟 Cœur du festival</span>
             <span class="pc-ic">🌿</span>
             <span class="pc-label">Jardin des Saveurs</span>
             <span class="pc-price">299 € · 18 places</span>
@@ -355,17 +405,8 @@
             <label class="chip"><input type="checkbox" name="jds_materiel" value="Bonbonne gaz"><span>Bonbonne gaz</span></label>
             <label class="chip"><input type="checkbox" name="jds_materiel" value="Autre"><span>Autre</span></label>
           </div>
-          <div class="f-row two" style="margin-top:16px">
+          <div class="f-row" style="margin-top:16px">
             <div class="f-field"><label>Si gaz : type et quantité</label><input type="text" name="jds_gaz_detail" placeholder="Ex. 2 bonbonnes 13kg"></div>
-            <div class="f-field">
-              <label>Besoin électrique</label>
-              <select name="jds_elec">
-                <option value="">À déterminer</option>
-                <option value="4kVA (base)">4kVA (base)</option>
-                <option value="15kW triphasé (cuisson)">15kW triphasé (cuisson)</option>
-                <option value="Pas de besoin">Pas de besoin</option>
-              </select>
-            </div>
           </div>
           <label class="ck-item" style="margin-top:8px">
             <input type="checkbox" name="jds_format_mini_ack">
@@ -378,9 +419,35 @@
           <div class="f-row">
             <div class="f-field"><label>Pourquoi candidater à FLORE ?</label><textarea name="jds_motivation" placeholder="Quelques lignes suffisent"></textarea></div>
           </div>
-          <div class="info-box">
-            <h4>Options à la carte (en plus des 299€)</h4>
-            <p>Électricité 4kVA 170€ ou 15kW 280€ · Eau froide 150€ ou chaude 225€ · Spot 30€ · Table/buffet supplémentaire 25€ · Poubelle supplémentaire 10€. Rien n'est imposé d'office : le Comité vous propose le palier adapté selon votre matériel déclaré ci-dessus.</p>
+
+          <h4 class="cart-heading">Options à la carte</h4>
+          <p style="color:var(--ink-soft);font-size:.88rem;margin:0 0 12px">Rien n'est imposé d'office : cochez ce dont vous avez besoin, le total se met à jour tout seul.</p>
+          <div class="f-row two">
+            <div class="f-field">
+              <label>Électricité</label>
+              <select name="jds_elec_option" class="cart-input">
+                <option value="Pas besoin" data-price="0">Pas besoin</option>
+                <option value="4kVA (base) +170€" data-price="170">4kVA (base) +170€</option>
+                <option value="15kW triphasé (cuisson) +280€" data-price="280">15kW triphasé (cuisson) +280€</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label>Eau</label>
+              <select name="jds_eau_option" class="cart-input">
+                <option value="Pas besoin" data-price="0">Pas besoin</option>
+                <option value="Eau froide +150€" data-price="150">Eau froide +150€</option>
+                <option value="Eau chaude +225€" data-price="225">Eau chaude +225€</option>
+              </select>
+            </div>
+          </div>
+          <div class="ck-list" style="margin-top:10px">
+            <label class="ck-item"><input type="checkbox" name="jds_opt_spot" class="cart-input" data-price="30" data-label="Spot supplémentaire"><span>Spot supplémentaire <b>+30€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_opt_table" class="cart-input" data-price="25" data-label="Table/buffet supplémentaire"><span>Table/buffet supplémentaire <b>+25€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_opt_poubelle" class="cart-input" data-price="10" data-label="Poubelle supplémentaire"><span>Poubelle supplémentaire <b>+10€</b></span></label>
+          </div>
+          <div class="cart-total" data-base="299" data-base-label="Stand Jardin des Saveurs (9m²)">
+            <div class="cart-lines"></div>
+            <div class="cart-sum"><span>Total estimé</span><strong>299 €</strong></div>
           </div>
         </div>
 
@@ -399,11 +466,11 @@
           <div class="f-row two" style="margin-top:16px">
             <div class="f-field"><label>Gamme de prix</label><input type="text" name="bq_gamme_prix" placeholder="Ex. 5 à 25€"></div>
             <div class="f-field">
-              <label>Taille de stand souhaitée</label>
-              <select name="bq_taille">
-                <option value="">À préciser</option>
-                <option value="Demi-stand 4m² · 59€">Demi-stand 4m² · 59€</option>
-                <option value="Stand plein 8m² · 99€">Stand plein 8m² · 99€</option>
+              <label>Taille de stand souhaitée <span class="f-required">*</span></label>
+              <select name="bq_taille" id="bq-taille" class="cart-input" required>
+                <option value="" data-price="0">À préciser</option>
+                <option value="Demi-stand 4m² · 59€" data-price="59">Demi-stand 4m² · 59€</option>
+                <option value="Stand plein 8m² · 99€" data-price="99">Stand plein 8m² · 99€</option>
               </select>
             </div>
           </div>
@@ -418,9 +485,20 @@
           <div class="f-row">
             <div class="f-field"><label>Pourquoi candidater à FLORE ?</label><textarea name="bq_motivation" placeholder="Quelques lignes suffisent"></textarea></div>
           </div>
-          <div class="info-box">
-            <h4>Options à la carte (en plus du prix du stand)</h4>
-            <p>Réserve sécurisée 110€ · Électricité dédiée 250€ (par défaut, mutualisée) · Mange-debout 55€ · Tabouret haut 45€ · Buffet supplémentaire 25€ · Poubelle supplémentaire 10€. Pas de moquette ni de banque d'accueil : la Boutique reste volontairement brute, dans le même esprit qu'un vrai marché.</p>
+
+          <h4 class="cart-heading">Options à la carte</h4>
+          <p style="color:var(--ink-soft);font-size:.88rem;margin:0 0 12px">Pas de moquette ni de banque d'accueil : la Boutique reste volontairement brute, dans le même esprit qu'un vrai marché. Le total se met à jour tout seul.</p>
+          <div class="ck-list">
+            <label class="ck-item"><input type="checkbox" name="bq_opt_reserve" class="cart-input" data-price="110" data-label="Réserve sécurisée (1m² + clé)"><span>Réserve sécurisée (1m² + clé) <b>+110€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_opt_elec" class="cart-input" data-price="250" data-label="Électricité dédiée"><span>Électricité dédiée (par défaut, mutualisée) <b>+250€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_opt_mange_debout" class="cart-input" data-price="55" data-label="Mange-debout"><span>Mange-debout <b>+55€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_opt_tabouret" class="cart-input" data-price="45" data-label="Tabouret haut"><span>Tabouret haut <b>+45€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_opt_buffet" class="cart-input" data-price="25" data-label="Buffet supplémentaire"><span>Buffet supplémentaire <b>+25€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_opt_poubelle" class="cart-input" data-price="10" data-label="Poubelle supplémentaire"><span>Poubelle supplémentaire <b>+10€</b></span></label>
+          </div>
+          <div class="cart-total" data-base-select="bq_taille" data-base-label="Stand Boutique">
+            <div class="cart-lines"></div>
+            <div class="cart-sum"><span>Total estimé</span><strong>—</strong></div>
           </div>
         </div>
 
@@ -430,17 +508,21 @@
             <h4>Places très limitées</h4>
             <p>La majorité des stands P/M/G est réservée d'office aux sponsors confirmés. Le nombre exact disponible en vente libre est connu après clôture des candidatures sponsors — nous revenons vers vous dès que la disponibilité est confirmée. Pas de fenêtre de candidature fixe : on échange directement avec vous.</p>
           </div>
-          <p style="color:var(--ink-soft);font-size:.9rem;margin:4px 0 8px">Taille souhaitée :</p>
+          <p style="color:var(--ink-soft);font-size:.9rem;margin:4px 0 8px">Taille souhaitée (une seule) :</p>
           <div class="chip-grid">
-            <label class="chip"><input type="checkbox" name="pmg_taille" value="P · 9m² · 600€"><span>P · 9m² · 600€</span></label>
-            <label class="chip"><input type="checkbox" name="pmg_taille" value="M · 15m² · 900€"><span>M · 15m² · 900€</span></label>
-            <label class="chip"><input type="checkbox" name="pmg_taille" value="G · 21m² · 1300€"><span>G · 21m² · 1300€</span></label>
+            <label class="chip"><input type="radio" name="pmg_taille" class="cart-input" value="P · 9m² · 600€" data-price="600"><span>P · 9m² · 600€</span></label>
+            <label class="chip"><input type="radio" name="pmg_taille" class="cart-input" value="M · 15m² · 900€" data-price="900"><span>M · 15m² · 900€</span></label>
+            <label class="chip"><input type="radio" name="pmg_taille" class="cart-input" value="G · 21m² · 1300€" data-price="1300"><span>G · 21m² · 1300€</span></label>
           </div>
           <div class="f-row" style="margin-top:16px">
             <div class="f-field"><label>Utilisation prévue du stand</label><textarea name="pmg_utilisation" placeholder="Vente, démonstration, présentation de marque..."></textarea></div>
           </div>
           <div class="f-row">
             <div class="f-field"><label>Pourquoi candidater à FLORE ?</label><textarea name="pmg_motivation" placeholder="Quelques lignes suffisent"></textarea></div>
+          </div>
+          <div class="cart-total" data-base-radio="pmg_taille" data-base-label="Stand Premium indépendant">
+            <div class="cart-lines"></div>
+            <div class="cart-sum"><span>Total estimé</span><strong>—</strong></div>
           </div>
         </div>
       </div>
@@ -637,8 +719,62 @@
         const val = card.dataset.value;
         document.getElementById('formule-value').value = val;
         formuleBlocks.forEach(function(b){ b.classList.toggle('active', b.dataset.formule === val); });
+        updateAllCarts();
       });
     });
+
+    // ---- Panier / total en direct (une carte par formule) ----
+    function updateCart(block){
+      const cartTotal = block.querySelector('.cart-total');
+      if (!cartTotal) return;
+      const linesEl = cartTotal.querySelector('.cart-lines');
+      const sumEl = cartTotal.querySelector('.cart-sum strong');
+      const baseLabel = cartTotal.dataset.baseLabel || 'Stand';
+      let base = 0;
+      let baseKnown = true;
+
+      if (cartTotal.dataset.base) {
+        base = Number(cartTotal.dataset.base);
+      } else if (cartTotal.dataset.baseSelect) {
+        const sel = form.querySelector('[name="' + cartTotal.dataset.baseSelect + '"]');
+        const opt = sel ? sel.selectedOptions[0] : null;
+        base = opt ? Number(opt.dataset.price || 0) : 0;
+        baseKnown = !!(sel && sel.value);
+      } else if (cartTotal.dataset.baseRadio) {
+        const checked = block.querySelector('[name="' + cartTotal.dataset.baseRadio + '"]:checked');
+        base = checked ? Number(checked.dataset.price || 0) : 0;
+        baseKnown = !!checked;
+      }
+
+      let optionsTotal = 0;
+      const lines = [];
+      if (baseKnown) lines.push('<div class="cline base"><span>' + baseLabel + '</span><b>' + base + ' €</b></div>');
+
+      block.querySelectorAll('.cart-input').forEach(function(el){
+        if (el.name === cartTotal.dataset.baseSelect || el.name === cartTotal.dataset.baseRadio) return;
+        if (el.tagName === 'SELECT') {
+          const opt = el.selectedOptions[0];
+          const price = opt ? Number(opt.dataset.price || 0) : 0;
+          if (price > 0) {
+            optionsTotal += price;
+            lines.push('<div class="cline"><span>' + opt.textContent.split(' +')[0] + '</span><b>+' + price + ' €</b></div>');
+          }
+        } else if (el.type === 'checkbox' && el.checked) {
+          const price = Number(el.dataset.price || 0);
+          optionsTotal += price;
+          lines.push('<div class="cline"><span>' + (el.dataset.label || el.name) + '</span><b>+' + price + ' €</b></div>');
+        }
+      });
+
+      linesEl.innerHTML = lines.join('');
+      sumEl.textContent = baseKnown ? (base + optionsTotal) + ' €' : 'Choisissez une taille';
+    }
+    function updateAllCarts(){
+      formuleBlocks.forEach(updateCart);
+    }
+    form.addEventListener('input', function(e){ if (e.target.classList.contains('cart-input')) updateAllCarts(); });
+    form.addEventListener('change', function(e){ if (e.target.classList.contains('cart-input')) updateAllCarts(); });
+    updateAllCarts();
 
     // ---- Étape 1 : autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
     const inAdresse = document.getElementById('in-adresse');
