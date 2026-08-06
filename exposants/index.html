@@ -38,7 +38,8 @@
   .profil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   @media(max-width:720px){.profil-grid{grid-template-columns:1fr}}
   .profil-card{border:2px solid var(--line);border-radius:18px;padding:26px 20px;text-align:left;cursor:pointer;background:#fff;transition:all .18s}
-  .profil-card .pc-ic{font-size:1.9rem;display:block;margin-bottom:10px}
+  .profil-card .pc-ic{width:54px;height:54px;border-radius:15px;background:#F0F7FC;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:1.6rem}
+  .profil-card .pc-ic img{width:30px;height:30px;object-fit:contain}
   .profil-card .pc-label{font-size:1.05rem;font-weight:700;color:var(--ink);display:block;margin-bottom:6px}
   .profil-card .pc-price{font-size:.86rem;font-weight:700;color:var(--sky-deep);display:block;margin-bottom:8px}
   .profil-card .pc-desc{font-size:.86rem;color:var(--ink-soft);line-height:1.5}
@@ -133,10 +134,17 @@
   .jds-feature-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
   .jds-feature-price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:var(--ink);display:flex;flex-direction:column;line-height:1.1}
   .jds-feature-price small{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.76rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
-  .jds-feature-visual{font-size:9rem;text-align:center;filter:drop-shadow(0 20px 34px rgba(21,57,91,.14));line-height:1}
-  @media(max-width:860px){.jds-feature-visual{font-size:5rem}}
+  .jds-feature-visual{display:flex;align-items:center;justify-content:center}
+  .jds-feature-visual img{width:100%;max-width:230px;height:auto;object-fit:contain;filter:drop-shadow(0 20px 34px rgba(21,57,91,.16))}
+  @media(max-width:860px){.jds-feature-visual img{max-width:140px}}
 
-  .sec-sub{text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 26px}
+  .sec-sub{text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.88);margin:0 0 26px}
+
+  /* 4 cartes valeur : 4 colonnes symétriques sur desktop (au lieu des 3 par défaut
+     de .public-grid qui laissaient une 4e carte orpheline sur sa propre ligne) */
+  @media(min-width:1025px){
+    #valeur .public-grid{grid-template-columns:repeat(4,1fr)}
+  }
 </style>
 </head>
 <body>
@@ -251,14 +259,14 @@
             <a href="#candidature" class="btn btn-sun" style="margin-top:0">Candidater →</a>
           </div>
         </div>
-        <div class="jds-feature-visual" aria-hidden="true">🌿</div>
+        <div class="jds-feature-visual" aria-hidden="true"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt=""></div>
       </div>
     </div>
 
     <p class="sec-sub" data-aos="fade-up">D'autres façons de rejoindre FLORE</p>
     <div class="public-grid">
       <div class="value-card" data-aos="fade-up">
-        <div class="v-ic" style="background:#F7FBD0">🛍️</div>
+        <div class="v-ic" style="background:#F7FBD0"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="" style="width:32px;height:32px;object-fit:contain"></div>
         <h3>Boutique FLORE</h3>
         <p>Votre marque, physiquement présente, sur un stand produits emballés. Vous tenez votre stand, vous encaissez, vous gardez 100 % de votre chiffre d'affaires.</p>
         <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">À partir de 59 € (demi-stand) · 99 € (stand plein)</p>
@@ -303,13 +311,13 @@
         <div class="profil-grid" id="profil-grid">
           <div class="profil-card profil-card--featured" data-value="Jardin des Saveurs">
             <span class="pc-featured-tag">🌟 Cœur du festival</span>
-            <span class="pc-ic">🌿</span>
+            <span class="pc-ic"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt=""></span>
             <span class="pc-label">Jardin des Saveurs</span>
             <span class="pc-price">299 € · 18 places</span>
             <span class="pc-desc">Stand food clé en main, 9m², face à la scène.</span>
           </div>
           <div class="profil-card" data-value="Boutique">
-            <span class="pc-ic">🛍️</span>
+            <span class="pc-ic"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt=""></span>
             <span class="pc-label">Boutique FLORE</span>
             <span class="pc-price">59 à 99 €</span>
             <span class="pc-desc">Stand produits emballés, 4 à 8m².</span>
@@ -387,7 +395,9 @@
           </div>
           <div class="ck-list" style="margin-top:10px">
             <label class="ck-item"><input type="checkbox" name="jds_opt_spot" class="cart-input" data-price="30" data-label="Spot supplémentaire"><span>Spot supplémentaire <b>+30€</b></span></label>
-            <label class="ck-item"><input type="checkbox" name="jds_opt_table" class="cart-input" data-price="25" data-label="Table/buffet supplémentaire"><span>Table/buffet supplémentaire <b>+25€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_opt_buffet" class="cart-input" data-price="25" data-label="Buffet comptoir supplémentaire"><span>Buffet comptoir supplémentaire <b>+25€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_opt_table_classique" class="cart-input" data-price="12" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+12€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_opt_chaise" class="cart-input" data-price="5" data-label="Chaise"><span>Chaise <b>+5€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="jds_opt_poubelle" class="cart-input" data-price="10" data-label="Poubelle supplémentaire"><span>Poubelle supplémentaire <b>+10€</b></span></label>
           </div>
           <div class="cart-total" data-base="299" data-base-label="Stand Jardin des Saveurs (9m²)">
@@ -445,6 +455,8 @@
             <label class="ck-item"><input type="checkbox" name="bq_opt_mange_debout" class="cart-input" data-price="55" data-label="Mange-debout"><span>Mange-debout <b>+55€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_tabouret" class="cart-input" data-price="45" data-label="Tabouret haut"><span>Tabouret haut <b>+45€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_buffet" class="cart-input" data-price="25" data-label="Buffet supplémentaire"><span>Buffet supplémentaire <b>+25€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_opt_table_classique" class="cart-input" data-price="12" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+12€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_opt_chaise" class="cart-input" data-price="5" data-label="Chaise"><span>Chaise <b>+5€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_poubelle" class="cart-input" data-price="10" data-label="Poubelle supplémentaire"><span>Poubelle supplémentaire <b>+10€</b></span></label>
           </div>
           <div class="cart-total" data-base-select="bq_taille" data-base-label="Stand Boutique">
@@ -470,6 +482,13 @@
           </div>
           <div class="f-row">
             <div class="f-field"><label>Pourquoi candidater à FLORE ?</label><textarea name="pmg_motivation" placeholder="Quelques lignes suffisent"></textarea></div>
+          </div>
+
+          <h4 class="cart-heading">Options à la carte</h4>
+          <p style="color:var(--ink-soft);font-size:.88rem;margin:0 0 12px">Ce stand est nu : mobilier simple disponible en supplément (catalogue Ainterexpo).</p>
+          <div class="ck-list">
+            <label class="ck-item"><input type="checkbox" name="pmg_opt_table_classique" class="cart-input" data-price="12" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+12€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="pmg_opt_chaise" class="cart-input" data-price="5" data-label="Chaise"><span>Chaise <b>+5€</b></span></label>
           </div>
           <div class="cart-total" data-base-radio="pmg_taille" data-base-label="Stand Premium indépendant">
             <div class="cart-lines"></div>
@@ -717,7 +736,13 @@
       const isLast = i === STEP_COUNT - 1;
       btnNext.style.display = isLast ? 'none' : 'inline-flex';
       renderProgress();
-      window.scrollTo({ top: document.querySelector('.wiz-head').offsetTop - 100, behavior:'smooth' });
+      // Reste local à la fenêtre du formulaire : on ne remonte que si besoin, jusqu'à la
+      // barre de progression (pas jusqu'en haut de la page), pour un enchaînement qui ne
+      // "réactualise" pas visuellement toute la section.
+      const progressTop = progressEl.getBoundingClientRect().top;
+      if (progressTop < 0 || progressTop > 160) {
+        window.scrollTo({ top: progressEl.offsetTop - 110, behavior:'smooth' });
+      }
     }
 
     function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
