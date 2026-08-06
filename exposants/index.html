@@ -396,7 +396,7 @@
           <div class="ck-list" style="margin-top:10px">
             <label class="ck-item"><input type="checkbox" name="jds_opt_spot" class="cart-input" data-price="30" data-label="Spot supplémentaire"><span>Spot supplémentaire <b>+30€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="jds_opt_buffet" class="cart-input" data-price="25" data-label="Buffet comptoir supplémentaire"><span>Buffet comptoir supplémentaire <b>+25€</b></span></label>
-            <label class="ck-item"><input type="checkbox" name="jds_opt_table_classique" class="cart-input" data-price="12" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+12€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="jds_opt_table_classique" class="cart-input" data-price="15" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+15€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="jds_opt_chaise" class="cart-input" data-price="5" data-label="Chaise"><span>Chaise <b>+5€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="jds_opt_poubelle" class="cart-input" data-price="10" data-label="Poubelle supplémentaire"><span>Poubelle supplémentaire <b>+10€</b></span></label>
           </div>
@@ -455,7 +455,7 @@
             <label class="ck-item"><input type="checkbox" name="bq_opt_mange_debout" class="cart-input" data-price="55" data-label="Mange-debout"><span>Mange-debout <b>+55€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_tabouret" class="cart-input" data-price="45" data-label="Tabouret haut"><span>Tabouret haut <b>+45€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_buffet" class="cart-input" data-price="25" data-label="Buffet supplémentaire"><span>Buffet supplémentaire <b>+25€</b></span></label>
-            <label class="ck-item"><input type="checkbox" name="bq_opt_table_classique" class="cart-input" data-price="12" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+12€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="bq_opt_table_classique" class="cart-input" data-price="15" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+15€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_chaise" class="cart-input" data-price="5" data-label="Chaise"><span>Chaise <b>+5€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="bq_opt_poubelle" class="cart-input" data-price="10" data-label="Poubelle supplémentaire"><span>Poubelle supplémentaire <b>+10€</b></span></label>
           </div>
@@ -487,7 +487,7 @@
           <h4 class="cart-heading">Options à la carte</h4>
           <p style="color:var(--ink-soft);font-size:.88rem;margin:0 0 12px">Ce stand est nu : mobilier simple disponible en supplément (catalogue Ainterexpo).</p>
           <div class="ck-list">
-            <label class="ck-item"><input type="checkbox" name="pmg_opt_table_classique" class="cart-input" data-price="12" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+12€</b></span></label>
+            <label class="ck-item"><input type="checkbox" name="pmg_opt_table_classique" class="cart-input" data-price="15" data-label="Table classique"><span>Table classique (mobilier Ainterexpo) <b>+15€</b></span></label>
             <label class="ck-item"><input type="checkbox" name="pmg_opt_chaise" class="cart-input" data-price="5" data-label="Chaise"><span>Chaise <b>+5€</b></span></label>
           </div>
           <div class="cart-total" data-base-radio="pmg_taille" data-base-label="Stand Premium indépendant">
@@ -736,13 +736,8 @@
       const isLast = i === STEP_COUNT - 1;
       btnNext.style.display = isLast ? 'none' : 'inline-flex';
       renderProgress();
-      // Reste local à la fenêtre du formulaire : on ne remonte que si besoin, jusqu'à la
-      // barre de progression (pas jusqu'en haut de la page), pour un enchaînement qui ne
-      // "réactualise" pas visuellement toute la section.
-      const progressTop = progressEl.getBoundingClientRect().top;
-      if (progressTop < 0 || progressTop > 160) {
-        window.scrollTo({ top: progressEl.offsetTop - 110, behavior:'smooth' });
-      }
+      // Aucun scroll automatique : la page reste parfaitement statique, le formulaire
+      // s'enchaîne sur place comme une fenêtre, sans jamais remonter en haut de la page.
     }
 
     function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
