@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devenir exposant · FLORE Festival 2027</title>
-<meta name="description" content="Marques, restaurateurs et food-trucks sans gluten et sans lactose : rejoignez FLORE Festival, le 1er festival 100 % sans gluten et sans lactose de France. Visibilité, emplacement clé en main, investissement filière.">
+<meta name="description" content="Marques, restaurateurs et food-trucks sans gluten et sans lactose : rejoignez FLORE Festival, le 1er festival 100 % sans gluten et sans lactose de France. Jardin des Saveurs, Boutique, stands partenaires.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#2D5479">
 
@@ -18,6 +18,94 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/flore.css?v=20260805c">
+<style>
+  /* ===== Wizard de candidature (mêmes conventions que /guide/inscription/ et /hebergement/) ===== */
+  .wiz-sheet{background:#fff;padding-top:0}
+  .wiz-back{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);font-size:.88rem;font-weight:600;text-decoration:none;margin:0 0 8px}
+  .wiz-back:hover{color:var(--sky-deep)}
+  .wiz-head h2{font-size:clamp(1.9rem,4vw,2.5rem);color:var(--ink);margin:8px 0 8px}
+  .wiz-head p{color:var(--ink-soft);font-size:1rem;max-width:44em;margin:0 0 28px}
+
+  .wiz-progress{display:flex;gap:6px;margin-bottom:36px}
+  .wiz-progress .seg{flex:1;height:6px;border-radius:100px;background:var(--line);transition:background .25s}
+  .wiz-progress .seg.done{background:var(--sun-deep)}
+  .wiz-progress .seg.current{background:var(--sun)}
+  .wiz-steplabel{font-size:.8rem;font-weight:700;color:var(--sky-deep);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+
+  .wiz-step{display:none}
+  .wiz-step.active{display:block}
+
+  .profil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:720px){.profil-grid{grid-template-columns:1fr}}
+  .profil-card{border:2px solid var(--line);border-radius:18px;padding:26px 20px;text-align:left;cursor:pointer;background:#fff;transition:all .18s}
+  .profil-card .pc-ic{font-size:1.9rem;display:block;margin-bottom:10px}
+  .profil-card .pc-label{font-size:1.05rem;font-weight:700;color:var(--ink);display:block;margin-bottom:6px}
+  .profil-card .pc-price{font-size:.86rem;font-weight:700;color:var(--sky-deep);display:block;margin-bottom:8px}
+  .profil-card .pc-desc{font-size:.86rem;color:var(--ink-soft);line-height:1.5}
+  .profil-card:hover{border-color:var(--sky)}
+  .profil-card.selected{border-color:var(--sun-deep);background:var(--sun-pale)}
+
+  .f-row{display:grid;gap:16px;margin-bottom:16px}
+  .f-row.two{grid-template-columns:1fr 1fr}
+  .f-row.three{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:640px){.f-row.two,.f-row.three{grid-template-columns:1fr}}
+  .f-field{display:flex;flex-direction:column;gap:5px;position:relative}
+  .f-field label{font-size:.78rem;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+  .f-field input,.f-field textarea,.f-field select{border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:var(--ink);background:#fafcfe;transition:border-color .18s;width:100%;max-width:100%}
+  .f-field input:focus,.f-field textarea:focus,.f-field select:focus{outline:none;border-color:var(--sky)}
+  .f-field textarea{min-height:90px;resize:vertical}
+  .f-required{color:#E5484D;margin-left:2px}
+
+  .addr-suggest{position:absolute;top:100%;left:0;right:0;z-index:30;margin-top:4px;background:#fff;border:1.5px solid var(--line);border-radius:14px;box-shadow:0 16px 34px rgba(21,57,91,.16);overflow:hidden}
+  .addr-suggest[hidden]{display:none}
+  .as-item{padding:11px 16px;font-size:.9rem;color:var(--ink);cursor:pointer;transition:background .15s}
+  .as-item:hover,.as-item.is-active{background:#f0f7fc}
+
+  .chip-grid{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px}
+  .chip{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#f0f7fc;border:1.5px solid var(--line);border-radius:100px;padding:9px 16px;transition:all .18s}
+  .chip input{display:none}
+  .chip:has(input:checked){background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+
+  .ck-list{display:flex;flex-direction:column;gap:10px;margin:6px 0 4px}
+  .ck-item{display:flex;align-items:flex-start;gap:12px;cursor:pointer;background:#f7fafc;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;transition:border-color .15s,background .15s}
+  .ck-item input{width:20px;height:20px;flex:0 0 auto;margin-top:1px;accent-color:var(--sky-deep);cursor:pointer}
+  .ck-item span{font-size:.94rem;color:var(--ink);line-height:1.5}
+  .ck-item:has(input:checked){background:var(--sun-pale);border-color:var(--sun-deep)}
+
+  .yn-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .yn-row:last-of-type{border-bottom:none}
+  .yn-row .q{font-size:.94rem;color:var(--ink);font-weight:600;max-width:65%}
+  .yn-toggle{display:flex;gap:8px}
+  .yn-toggle button{border:1.5px solid var(--line);background:#fff;border-radius:100px;padding:8px 18px;font:inherit;font-weight:700;font-size:.86rem;color:var(--ink-soft);cursor:pointer;transition:all .18s}
+  .yn-toggle button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+  .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
+  .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
+  .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0}
+
+  .consent-row{display:flex;align-items:flex-start;gap:12px;background:#f0f7fc;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
+  .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
+  .consent-row span{font-size:.9rem;color:var(--ink);line-height:1.5}
+
+  .wiz-summary section{padding:16px 0;border-bottom:1px solid var(--line)}
+  .wiz-summary h3{font-size:.98rem;color:var(--ink);margin:0 0 8px;display:flex;justify-content:space-between;align-items:center}
+  .wiz-summary h3 a{font-size:.8rem;font-weight:700;color:var(--sky-deep)}
+  .wiz-summary p{font-size:.9rem;color:var(--ink-soft);line-height:1.6;margin:0}
+
+  .wiz-nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+  .btn-prev{background:#fff;border:1.5px solid var(--line);color:var(--ink);font:inherit;font-weight:700;padding:14px 26px;border-radius:100px;cursor:pointer}
+  .btn-next,.btn-submit-wiz{background:var(--ink);color:#fff;border:none;font:inherit;font-weight:800;padding:14px 30px;border-radius:100px;cursor:pointer;transition:background .2s}
+  .btn-next:hover,.btn-submit-wiz:hover{background:var(--navy)}
+  .btn-submit-wiz:disabled{opacity:.6;cursor:default}
+  .form-msg{display:none;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:.92rem;font-weight:600}
+  .form-msg.ok{background:#e6f6ec;color:#1e7a43;display:block}
+  .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
+  .btn-spinner{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;opacity:.85;border-radius:50%;animation:btnspin .7s linear infinite;vertical-align:-2px;margin-right:2px}
+  @keyframes btnspin{to{transform:rotate(360deg)}}
+
+  .wiz-formule-hidden{display:none}
+  .wiz-formule-hidden.active{display:block}
+</style>
 </head>
 <body>
 
@@ -64,9 +152,9 @@
     <div class="sec-head" data-aos="fade-up">
       <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Devenir exposant</span>
       <h1 style="font-size:clamp(2.4rem,5.4vw,4rem);color:var(--white);margin:14px 0">Vendez au <span class="hl">FLORE Festival</span></h1>
-      <p style="font-size:1.12rem;color:rgba(255,255,255,.92);max-width:44em">Le 1er festival 100 % sans gluten et sans lactose de France. Date et lieu bientôt annoncés — les emplacements se réservent dès maintenant.</p>
+      <p style="font-size:1.12rem;color:rgba(255,255,255,.92);max-width:44em">Le 1er festival 100 % sans gluten et sans lactose de France. Date et lieu bientôt annoncés — les candidatures se préparent dès maintenant.</p>
       <div class="hero-cta" style="margin-top:26px">
-        <a href="mailto:contact@flore-festival.fr?subject=Devenir%20exposant%20FLORE" class="btn btn-sun">Réserver un emplacement</a>
+        <a href="#candidature" class="btn btn-sun">Déposer ma candidature</a>
         <a href="#formats" class="btn btn-ghost-w">Voir les formats</a>
       </div>
     </div>
@@ -111,44 +199,229 @@
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Les formats</span>
-      <h2>Trois façons de <span class="hl">rejoindre FLORE</span></h2>
+      <h2>Quatre façons de <span class="hl">rejoindre FLORE</span></h2>
     </div>
     <div class="public-grid">
       <div class="value-card" data-aos="fade-up">
-        <div class="v-ic" style="background:#F7FBD0">🛍️</div>
-        <h3>Boutique Découverte</h3>
-        <p>Une campagne marketing physique clé en main : vous envoyez vos produits, FLORE les met en rayon et les vend devant un public ultra-ciblé. Zéro déplacement, zéro stand à tenir.</p>
-        <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">À partir de 99 €</p>
-      </div>
-      <div class="value-card" data-aos="fade-up" data-aos-delay="60">
         <div class="v-ic" style="background:#E6F8F6">🌿</div>
         <h3>Le Jardin des Saveurs</h3>
-        <p>Un stand clé en main (structure, habillage, élec fournis) pour restaurateurs, food-trucks et artisans sans gluten/sans lactose. Vous gardez 100 % de votre chiffre d'affaires.</p>
-        <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">299 € · places limitées</p>
+        <p>Un stand clé en main (tente, buffet, enseigne) pour restaurateurs, food-trucks et artisans sans gluten/sans lactose, sous tente 3×3m face à la scène. Vous gardez 100 % de votre chiffre d'affaires.</p>
+        <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">299 € · 18 places</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="v-ic" style="background:#F7FBD0">🛍️</div>
+        <h3>Boutique FLORE</h3>
+        <p>Votre marque, physiquement présente, sur un stand produits emballés. Vous tenez votre stand, vous encaissez, vous gardez 100 % de votre chiffre d'affaires.</p>
+        <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">À partir de 59 € (demi-stand) · 99 € (stand plein)</p>
       </div>
       <div class="value-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="v-ic" style="background:#E7F4FB">🏳️</div>
+        <h3>Stand Partenaire (P/M/G)</h3>
+        <p>Un stand nu Hall B, en vente libre en dehors des packs sponsoring. Places très limitées : la majorité est réservée d'office aux sponsors confirmés.</p>
+        <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">600 € à 1 300 € · disponibilité selon sponsors confirmés</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="180">
         <div class="v-ic" style="background:#FFF1CC">🤝</div>
         <h3>Partenaires &amp; sponsors</h3>
         <p>Naming scène ou bar, présence officielle, activation sur mesure. On ne vend pas un stand, on construit une présence autour d'une cause et d'une audience.</p>
-        <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">Formats sur-mesure</p>
+        <p style="margin-top:14px;color:var(--ink-soft);font-weight:600">Formats sur-mesure, nous contacter</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== CONTACT ===================== -->
-<section class="sec" id="contact" style="padding-top:0">
+<!-- ===================== CANDIDATURE (wizard) ===================== -->
+<section class="sec wiz-sheet" id="candidature" style="padding-top:0">
   <div class="wrap">
-    <div class="part-cta" data-aos="fade-up" style="max-width:900px;margin:0 auto">
-      <svg aria-hidden="true" class="daisy pc-cloud"><use href="#cloud"/></svg>
-      <div class="inner2">
-        <h3>On réserve votre place ?</h3>
-        <p>Dites-nous quel format vous intéresse, on vous envoie le dossier complet.</p>
-        <div class="btn-row">
-          <a href="mailto:contact@flore-festival.fr?subject=Devenir%20exposant%20FLORE" class="btn btn-sun">contact@flore-festival.fr</a>
+    <div class="wiz-head" data-aos="fade-up">
+      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Candidature</span>
+      <h2>Déposez votre candidature</h2>
+      <p>Jardin des Saveurs, Boutique ou stand partenaire : quelques minutes pour nous transmettre votre dossier. Le Comité FLORE l'étudie ensuite (SIRET actif + pertinence sans gluten/sans lactose obligatoires) avant toute validation.</p>
+    </div>
+
+    <div class="wiz-progress" id="wiz-progress"></div>
+
+    <form id="wiz-form" novalidate>
+      <input type="hidden" name="access_key" value="COLLER_ICI_LA_CLE_WEB3FORMS_EXPOSANTS">
+      <input type="hidden" name="subject" value="Candidature exposant FLORE">
+      <input type="hidden" name="from_name" value="Formulaire Exposants FLORE">
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <!-- ÉTAPE 0 : FORMULE -->
+      <div class="wiz-step active" data-step="0">
+        <div class="wiz-steplabel">Étape 1 / 5 · Votre formule</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Quelle formule vous intéresse ?</h3>
+        <div class="profil-grid" id="profil-grid">
+          <div class="profil-card" data-value="Jardin des Saveurs">
+            <span class="pc-ic">🌿</span>
+            <span class="pc-label">Jardin des Saveurs</span>
+            <span class="pc-price">299 € · 18 places</span>
+            <span class="pc-desc">Stand food clé en main, 9m², face à la scène.</span>
+          </div>
+          <div class="profil-card" data-value="Boutique">
+            <span class="pc-ic">🛍️</span>
+            <span class="pc-label">Boutique FLORE</span>
+            <span class="pc-price">59 à 99 €</span>
+            <span class="pc-desc">Stand produits emballés, 4 à 8m².</span>
+          </div>
+          <div class="profil-card" data-value="Stand P/M/G">
+            <span class="pc-ic">🏳️</span>
+            <span class="pc-label">Stand Partenaire (P/M/G)</span>
+            <span class="pc-price">600 à 1 300 €</span>
+            <span class="pc-desc">Stand nu Hall B, places très limitées.</span>
+          </div>
+        </div>
+        <input type="hidden" name="formule" id="formule-value" required>
+      </div>
+
+      <!-- ÉTAPE 1 : INFOS GÉNÉRALES -->
+      <div class="wiz-step" data-step="1">
+        <div class="wiz-steplabel">Étape 2 / 5 · Informations générales</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Parlez-nous de votre structure</h3>
+        <div class="f-row two">
+          <div class="f-field"><label>Nom de l'entreprise / marque <span class="f-required">*</span></label><input type="text" name="nom_entreprise" id="in-nom" autocomplete="organization" required></div>
+          <div class="f-field">
+            <label>SIRET <span class="f-required">*</span></label>
+            <input type="text" id="in-siret" name="siret" placeholder="14 chiffres" inputmode="numeric" required>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Description de votre activité <span class="f-required">*</span></label><textarea id="in-description" name="description" placeholder="Vos produits, votre concept, ce qui vous rend unique..." required></textarea></div>
+        </div>
+        <div class="f-row">
+          <div class="f-field" style="position:relative">
+            <label>Adresse <span class="f-required">*</span></label>
+            <input type="text" id="in-adresse" name="adresse" placeholder="Commencez à taper, choisissez dans la liste..." autocomplete="off" required>
+            <div class="addr-suggest" id="addr-suggest" hidden></div>
+          </div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>Ville</label><input type="text" id="in-ville" name="ville" autocomplete="address-level2"></div>
+          <div class="f-field"><label>Code postal</label><input type="text" id="in-cp" name="code_postal" autocomplete="postal-code"></div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" id="in-email" name="email" autocomplete="email" required></div>
+          <div class="f-field"><label>Téléphone <span class="f-required">*</span></label><input type="tel" name="telephone" autocomplete="tel" required></div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>Site internet</label><input type="url" name="site" autocomplete="url" placeholder="https://"></div>
+          <div class="f-field"><label>Réseaux sociaux</label><input type="text" name="reseaux" placeholder="Instagram, Facebook..." autocomplete="off"></div>
         </div>
       </div>
-    </div>
+
+      <!-- ÉTAPE 2 : SPÉCIFICITÉS DE LA FORMULE -->
+      <div class="wiz-step" data-step="2">
+        <div class="wiz-steplabel">Étape 3 / 5 · Votre stand</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Quelques précisions sur votre stand</h3>
+
+        <!-- Jardin des Saveurs -->
+        <div class="wiz-formule-hidden" data-formule="Jardin des Saveurs">
+          <div class="f-row two">
+            <div class="f-field"><label>Type de cuisine</label><input type="text" name="jds_type_cuisine" placeholder="Crêpes, burgers, tacos, bao..."></div>
+            <div class="f-field"><label>Chaud ou froid ?</label><input type="text" name="jds_chaud_froid" placeholder="Chaud, froid, les deux..."></div>
+          </div>
+          <div class="yn-row">
+            <span class="q">Vos recettes contiennent-elles de l'avoine ?</span>
+            <div class="yn-toggle" data-field="jds_avoine"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div>
+          </div>
+          <input type="hidden" name="jds_avoine">
+          <div class="f-row" style="margin-top:16px">
+            <div class="f-field"><label>Matériel de cuisson que vous apportez</label><input type="text" name="jds_materiel" placeholder="Plancha, friteuse, four, bonbonne gaz..."></div>
+          </div>
+          <label class="ck-item" style="margin-top:8px">
+            <input type="checkbox" name="jds_format_mini_ack">
+            <span>Je m'engage à proposer un format mini dégustation (4 à 6 €), pour permettre un parcours multi-stands.</span>
+          </label>
+        </div>
+
+        <!-- Boutique -->
+        <div class="wiz-formule-hidden" data-formule="Boutique">
+          <div class="f-row">
+            <div class="f-field"><label>Type de produits</label><input type="text" name="bq_type_produits" placeholder="Épicerie, cosmétique, textile..."></div>
+          </div>
+          <p style="color:var(--ink-soft);font-size:.9rem;margin:4px 0 8px">Au moins une thématique obligatoire :</p>
+          <div class="chip-grid">
+            <label class="chip"><input type="checkbox" name="bq_thematique" value="Sans gluten"><span>🌾 Sans gluten</span></label>
+            <label class="chip"><input type="checkbox" name="bq_thematique" value="Sans lactose"><span>🥛 Sans lactose</span></label>
+            <label class="chip"><input type="checkbox" name="bq_thematique" value="Vegan"><span>🌱 Vegan (complément)</span></label>
+            <label class="chip"><input type="checkbox" name="bq_thematique" value="Bio"><span>🍃 Bio (complément)</span></label>
+          </div>
+          <div class="f-row" style="margin-top:16px">
+            <div class="f-field"><label>Gamme de prix</label><input type="text" name="bq_gamme_prix" placeholder="Ex. 5 à 25€"></div>
+          </div>
+          <label class="ck-item" style="margin-top:8px">
+            <input type="checkbox" name="bq_emballes_ack">
+            <span>Je confirme que mes produits sont emballés uniquement (pas de consommation sur place).</span>
+          </label>
+        </div>
+
+        <!-- Stand P/M/G -->
+        <div class="wiz-formule-hidden" data-formule="Stand P/M/G">
+          <div class="info-box" style="margin-top:0">
+            <h4>Places très limitées</h4>
+            <p>La majorité des stands P/M/G est réservée d'office aux sponsors confirmés. Le nombre exact disponible en vente libre est connu après clôture des candidatures sponsors — nous revenons vers vous dès que la disponibilité est confirmée.</p>
+          </div>
+          <p style="color:var(--ink-soft);font-size:.9rem;margin:4px 0 8px">Taille souhaitée :</p>
+          <div class="chip-grid">
+            <label class="chip"><input type="checkbox" name="pmg_taille" value="P · 9m² · 600€"><span>P · 9m² · 600€</span></label>
+            <label class="chip"><input type="checkbox" name="pmg_taille" value="M · 15m² · 900€"><span>M · 15m² · 900€</span></label>
+            <label class="chip"><input type="checkbox" name="pmg_taille" value="G · 21m² · 1300€"><span>G · 21m² · 1300€</span></label>
+          </div>
+          <div class="f-row" style="margin-top:16px">
+            <div class="f-field"><label>Utilisation prévue du stand</label><textarea name="pmg_utilisation" placeholder="Vente, démonstration, présentation de marque..."></textarea></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 3 : SÉCURITÉ ALIMENTAIRE -->
+      <div class="wiz-step" data-step="3">
+        <div class="wiz-steplabel">Étape 4 / 5 · Sécurité alimentaire</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">L'étape la plus importante</h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:6px">Nos visiteurs comptent parmi les personnes les plus sensibles au gluten et au lactose : soyez précis.</p>
+
+        <div class="yn-row"><span class="q">Êtes-vous totalement sans gluten ?</span><div class="yn-toggle" data-field="totalement_sg"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+        <div class="yn-row"><span class="q">Êtes-vous totalement sans lactose ?</span><div class="yn-toggle" data-field="totalement_sl"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+        <div class="yn-row"><span class="q">Disposez-vous d'un matériel dédié (évite la contamination croisée) ?</span><div class="yn-toggle" data-field="materiel_dedie"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
+
+        <input type="hidden" name="totalement_sg"><input type="hidden" name="totalement_sl"><input type="hidden" name="materiel_dedie">
+
+        <div class="info-box">
+          <h4>Contamination croisée : le vrai risque</h4>
+          <p>Matériel de cuisson partagé, ustensiles, poussière de farine en suspension, gants non changés : ce sont les principales sources de contamination sur un stand qui se déclare "sans gluten" ou "sans lactose", même quand les ingrédients de base sont corrects. Une commission FLORE contrôle chaque stand avant l'ouverture (check-list + sticker "Validé FLORE").</p>
+        </div>
+
+        <label class="ck-item">
+          <input type="checkbox" name="etiquetage_ack" required>
+          <span>Je m'engage à étiqueter les 14 allergènes réglementaires (Règlement UE n°1169/2011) sur mon stand, y compris ceux non liés au gluten/lactose.</span>
+        </label>
+        <label class="ck-item" style="margin-top:10px">
+          <input type="checkbox" name="assurance_ack" required>
+          <span>Je dispose d'une assurance RC Pro valide (attestation à fournir avant validation).</span>
+        </label>
+      </div>
+
+      <!-- ÉTAPE 4 : VALIDATION -->
+      <div class="wiz-step" data-step="4">
+        <div class="wiz-steplabel">Étape 5 / 5 · Validation</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Vérifiez votre dossier</h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:10px">Tout est correct ? Vous pouvez encore modifier chaque section avant l'envoi.</p>
+        <div class="wiz-summary" id="wiz-summary"></div>
+
+        <label class="consent-row" style="margin-top:20px">
+          <input type="checkbox" id="in-rgpd" required>
+          <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival. Paiement demandé uniquement après validation par le Comité, jamais avant.</span>
+        </label>
+
+        <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma candidature →</button>
+        <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Un oubli après l'envoi ? Écrivez-nous à contact@flore-festival.fr.</p>
+        <div class="form-msg" id="wiz-msg"></div>
+      </div>
+
+      <div class="wiz-nav" id="wiz-nav">
+        <button type="button" class="btn-prev" id="btn-prev">← Précédent</button>
+        <button type="button" class="btn-next" id="btn-next">Continuer →</button>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -197,9 +470,232 @@
   AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
   document.getElementById('year').textContent = new Date().getFullYear();
   const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
+
+  (function(){
+    const form = document.getElementById('wiz-form');
+    const STEP_COUNT = 5;
+    let current = 0;
+
+    const progressEl = document.getElementById('wiz-progress');
+    for (let i = 0; i < STEP_COUNT; i++) {
+      const seg = document.createElement('div');
+      seg.className = 'seg';
+      progressEl.appendChild(seg);
+    }
+    function renderProgress(){
+      Array.prototype.forEach.call(progressEl.children, function(seg, i){
+        seg.classList.toggle('done', i < current);
+        seg.classList.toggle('current', i === current);
+      });
+    }
+
+    const steps = Array.prototype.slice.call(document.querySelectorAll('.wiz-step'));
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+
+    function showStep(i){
+      steps.forEach(function(s){ s.classList.toggle('active', Number(s.dataset.step) === i); });
+      btnPrev.style.visibility = i === 0 ? 'hidden' : 'visible';
+      const isLast = i === STEP_COUNT - 1;
+      btnNext.style.display = isLast ? 'none' : 'inline-flex';
+      renderProgress();
+      window.scrollTo({ top: document.querySelector('.wiz-head').offsetTop - 100, behavior:'smooth' });
+    }
+
+    function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    function validateStep(i){
+      if (i === 0 && !document.getElementById('formule-value').value){
+        alert('Merci de choisir une formule pour continuer.');
+        return false;
+      }
+      if (i === 1){
+        const required = ['in-nom','in-siret','in-description','in-adresse','in-email'];
+        for (const id of required){
+          if (!document.getElementById(id).value.trim()){
+            alert('Merci de compléter les champs obligatoires avant de continuer.');
+            document.getElementById(id).focus();
+            return false;
+          }
+        }
+        if (!/^\d{14}$/.test(document.getElementById('in-siret').value.replace(/\s/g,''))){
+          alert('Merci d\'indiquer un SIRET valide (14 chiffres).');
+          document.getElementById('in-siret').focus();
+          return false;
+        }
+        if (!isValidEmail(document.getElementById('in-email').value.trim())){
+          alert('Merci d\'indiquer une adresse email valide.');
+          document.getElementById('in-email').focus();
+          return false;
+        }
+      }
+      if (i === 3){
+        if (!form.querySelector('[name=etiquetage_ack]').checked || !form.querySelector('[name=assurance_ack]').checked){
+          alert('Merci de confirmer l\'étiquetage des allergènes et votre assurance RC Pro avant de continuer.');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    btnNext.addEventListener('click', function(){
+      if (!validateStep(current)) return;
+      if (current < STEP_COUNT - 1) { current++; showStep(current); }
+      if (current === STEP_COUNT - 1) buildSummary();
+    });
+    btnPrev.addEventListener('click', function(){
+      if (current > 0) { current--; showStep(current); }
+    });
+
+    // ---- Étape 0 : formule ----
+    const profilCards = document.querySelectorAll('.profil-card');
+    const formuleBlocks = document.querySelectorAll('.wiz-formule-hidden');
+    profilCards.forEach(function(card){
+      card.addEventListener('click', function(){
+        profilCards.forEach(function(c){ c.classList.remove('selected'); });
+        card.classList.add('selected');
+        const val = card.dataset.value;
+        document.getElementById('formule-value').value = val;
+        formuleBlocks.forEach(function(b){ b.classList.toggle('active', b.dataset.formule === val); });
+      });
+    });
+
+    // ---- Étape 1 : autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
+    const inAdresse = document.getElementById('in-adresse');
+    const addrSuggest = document.getElementById('addr-suggest');
+    let addrDebounce = null;
+    let addrAbort = null;
+    let addrActiveIndex = -1;
+
+    function hideAddrSuggest(){
+      addrSuggest.hidden = true;
+      addrSuggest.innerHTML = '';
+      addrActiveIndex = -1;
+    }
+
+    function selectAddrFeature(f){
+      const p = f.properties;
+      inAdresse.value = p.name || p.label || inAdresse.value;
+      if (p.city) document.getElementById('in-ville').value = p.city;
+      if (p.postcode) document.getElementById('in-cp').value = p.postcode;
+      hideAddrSuggest();
+    }
+
+    inAdresse.addEventListener('input', function(){
+      const q = inAdresse.value.trim();
+      clearTimeout(addrDebounce);
+      if (q.length < 3){ hideAddrSuggest(); return; }
+      addrDebounce = setTimeout(function(){
+        if (addrAbort) addrAbort.abort();
+        addrAbort = new AbortController();
+        fetch('https://api-adresse.data.gouv.fr/search/?q=' + encodeURIComponent(q) + '&limit=5', { signal: addrAbort.signal })
+          .then(function(r){ return r.json(); })
+          .then(function(data){
+            const feats = (data && data.features) || [];
+            if (!feats.length){ hideAddrSuggest(); return; }
+            addrSuggest.innerHTML = feats.map(function(f, i){
+              return '<div class="as-item" data-idx="' + i + '">' + f.properties.label + '</div>';
+            }).join('');
+            addrSuggest.hidden = false;
+            addrActiveIndex = -1;
+            addrSuggest.querySelectorAll('.as-item').forEach(function(el, i){
+              el.addEventListener('mousedown', function(){ selectAddrFeature(feats[i]); });
+            });
+            addrSuggest._features = feats;
+          })
+          .catch(function(){ /* API indisponible : le champ reste utilisable en saisie libre */ });
+      }, 250);
+    });
+
+    inAdresse.addEventListener('keydown', function(e){
+      const items = Array.prototype.slice.call(addrSuggest.querySelectorAll('.as-item'));
+      if (addrSuggest.hidden || !items.length) return;
+      if (e.key === 'ArrowDown'){ e.preventDefault(); addrActiveIndex = Math.min(addrActiveIndex + 1, items.length - 1); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); addrActiveIndex = Math.max(addrActiveIndex - 1, 0); }
+      else if (e.key === 'Enter'){
+        if (addrActiveIndex >= 0){ e.preventDefault(); selectAddrFeature(addrSuggest._features[addrActiveIndex]); }
+        return;
+      } else if (e.key === 'Escape'){ hideAddrSuggest(); return; }
+      else { return; }
+      items.forEach(function(it, i){ it.classList.toggle('is-active', i === addrActiveIndex); });
+    });
+    inAdresse.addEventListener('blur', function(){ setTimeout(hideAddrSuggest, 150); });
+
+    // ---- Étape 2 : avoine (yn-toggle) ----
+    // ---- Étape 3 : toggles Oui/Non (générique, réutilisé pour jds_avoine et l'étape sécurité) ----
+    document.querySelectorAll('.yn-toggle').forEach(function(toggle){
+      const field = toggle.dataset.field;
+      const hidden = form.querySelector('input[type=hidden][name="' + field + '"]');
+      toggle.querySelectorAll('button').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          toggle.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); });
+          btn.classList.add('on');
+          hidden.value = btn.dataset.val;
+        });
+      });
+    });
+
+    // ---- Étape 4 : résumé ----
+    function buildSummary(){
+      const formule = document.getElementById('formule-value').value;
+      const nom = document.getElementById('in-nom').value;
+      const siret = document.getElementById('in-siret').value;
+      const adresse = document.getElementById('in-adresse').value;
+      const email = document.getElementById('in-email').value;
+      const tel = form.querySelector('[name=telephone]').value;
+
+      document.getElementById('wiz-summary').innerHTML =
+        '<section><h3>Formule <a href="#" data-goto="0">Modifier</a></h3><p>' + (formule || 'Non renseigné') + '</p></section>' +
+        '<section><h3>Informations générales <a href="#" data-goto="1">Modifier</a></h3><p>' + nom + ' · SIRET ' + siret + ' · ' + adresse + '</p><p>' + email + ' · ' + tel + '</p></section>' +
+        '<section><h3>Votre stand <a href="#" data-goto="2">Modifier</a></h3><p>Détails transmis avec votre candidature.</p></section>';
+
+      document.querySelectorAll('[data-goto]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          current = Number(a.dataset.goto);
+          showStep(current);
+        });
+      });
+    }
+
+    // ---- Soumission ----
+    const msg = document.getElementById('wiz-msg');
+    const btnSubmit = document.getElementById('btn-submit');
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if (!document.getElementById('in-rgpd').checked){
+        msg.className = 'form-msg err';
+        msg.textContent = 'Merci d\'accepter le traitement de vos informations avant l\'envoi.';
+        return;
+      }
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> Envoi en cours…';
+      try {
+        const data = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:data });
+        const json = await res.json();
+        if (json.success){
+          msg.className = 'form-msg ok';
+          msg.textContent = 'Candidature reçue ! Le Comité FLORE l\'examine et vous répond sous 5 jours ouvrés.';
+          btnSubmit.textContent = 'Candidature envoyée ✓';
+        } else {
+          throw new Error(json.message || 'Échec de l\'envoi (raison inconnue).');
+        }
+      } catch(err) {
+        msg.className = 'form-msg err';
+        const detail = (err && err.message) ? err.message : 'erreur inconnue';
+        msg.textContent = 'Envoi impossible (' + detail + '). Écrivez-nous à contact@flore-festival.fr si ça persiste.';
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = 'Envoyer ma candidature →';
+      }
+      msg.scrollIntoView({ behavior:'smooth', block:'center' });
+    });
+
+    showStep(0);
+  })();
 </script>
 <script src="/assets/transitions.js" defer></script>
 <script src="/legal.js?v=20260803e" defer></script>
