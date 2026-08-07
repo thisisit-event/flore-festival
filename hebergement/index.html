@@ -65,6 +65,35 @@
   .tag-row span{background:#f0f7fc;border-radius:100px;padding:7px 14px;font-size:.84rem;color:var(--ink);font-weight:600}
   .bp-side+.bp-side{margin-top:24px}
 
+  .h-sec h3.sub{font-size:1.25rem;color:var(--ink);margin:40px 0 16px}
+
+  .dont-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .dont-list li{display:flex;gap:10px;font-size:.94rem;color:var(--ink);line-height:1.55}
+  .dont-list li::before{content:"✕";color:#c0392b;font-weight:800;flex-shrink:0}
+
+  .rule-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:8px}
+  @media(max-width:720px){.rule-cols{grid-template-columns:1fr}}
+  .rule-cols h4{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+
+  .phrase-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+  @media(max-width:720px){.phrase-grid{grid-template-columns:1fr}}
+  .phrase-col{border-radius:18px;padding:24px 26px}
+  .phrase-col.yes{background:#e6f6ec}
+  .phrase-col.no{background:#fbeaea}
+  .phrase-col h4{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+  .phrase-col.yes h4{color:#1e7a43}
+  .phrase-col.no h4{color:#c0392b}
+  .phrase-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .phrase-col ul li{font-size:.92rem;color:var(--ink);line-height:1.5;font-style:italic}
+
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:860px){.steps-grid{grid-template-columns:1fr}}
+  .step-card{background:var(--sky-pale);border-radius:20px;padding:26px 24px}
+  .step-card .step-tag{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:12px}
+  .step-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .step-card ul li{display:flex;gap:8px;font-size:.9rem;color:var(--ink-soft);line-height:1.55}
+  .step-card ul li::before{content:"•";color:var(--sun-deep);font-weight:800;flex-shrink:0}
+
   /* ===== Formulaire (mêmes conventions que /guide/inscription/) ===== */
   .f-row{display:grid;gap:16px;margin-bottom:16px}
   .f-row.two{grid-template-columns:1fr 1fr}
@@ -133,6 +162,12 @@
     .bp-side+.bp-side{margin-top:28px}
     .info-box{padding:20px 18px}
     .info-box p+p{margin-top:14px}
+    .h-sec h3.sub{margin:32px 0 14px;font-size:1.1rem}
+    .rule-cols{gap:24px}
+    .phrase-grid{gap:16px}
+    .phrase-col{padding:20px 18px}
+    .steps-grid{gap:16px}
+    .step-card{padding:20px 18px}
 
     .form-card{padding:24px 16px}
     .form-card h3{margin:38px 0 18px;font-size:1.1rem}
@@ -180,27 +215,13 @@
 
 <div class="h-sheet">
 
-  <!-- POURQUOI DEVENIR PARTENAIRE -->
+  <!-- OBJECTIF DE LA DEMARCHE -->
   <section class="h-sec">
     <div class="wrap">
-      <h2>Pourquoi devenir partenaire ?</h2>
-      <p class="lead">En étant référencé sur notre site internet, vous bénéficiez :</p>
-      <div class="why-grid">
-        <div class="why-card">
-          <span class="ic">📋</span>
-          <h3>Une présentation sur mesure</h3>
-          <p>Une fiche présentant votre établissement, publiée sur le site du FLORE Festival.</p>
-        </div>
-        <div class="why-card">
-          <span class="ic">🔗</span>
-          <h3>Un lien direct vers vous</h3>
-          <p>Un lien vers votre site internet, pour transformer la visite en réservation.</p>
-        </div>
-        <div class="why-card">
-          <span class="ic">👀</span>
-          <h3>Une visibilité ciblée</h3>
-          <p>Des milliers de visiteurs, en recherche active d'un hébergement adapté, avant même l'événement.</p>
-        </div>
+      <h2>L'objectif de cette démarche</h2>
+      <p class="lead">Permettre aux personnes atteintes de la maladie cœliaque et/ou intolérantes au lactose de séjourner chez vous et de prendre leur petit-déjeuner en toute confiance.</p>
+      <div class="info-box">
+        <p>Il ne s'agit pas de transformer votre établissement : la plupart des ajustements sont simples à mettre en place. Ce qui compte, c'est une équipe qui sait comment réagir, et une offre réellement adaptée, pas juste symbolique.</p>
       </div>
     </div>
   </section>
@@ -214,16 +235,36 @@
         <div class="why-card">
           <span class="ic">🌾</span>
           <h3>La maladie cœliaque (sans gluten)</h3>
-          <p>Une maladie auto-immune. Chez les personnes atteintes, l'ingestion de gluten (blé, orge, seigle) déclenche une réaction immunitaire qui endommage l'intestin grêle. Le seul traitement connu est un régime strict sans gluten, à vie : même une très faible quantité, ou une simple contamination croisée, peut suffire à provoquer des symptômes et des complications.</p>
+          <p>Une maladie auto-immune chronique : chez les personnes atteintes, l'ingestion de gluten (présent dans le blé, l'orge, le seigle, l'épeautre, le kamut et leurs dérivés) déclenche une réaction immunitaire qui endommage l'intestin grêle. Ce n'est ni une préférence alimentaire, ni un régime de confort, ni une allergie classique : le régime doit être strict, et une faible contamination peut suffire à provoquer des symptômes et des complications.</p>
         </div>
         <div class="why-card">
           <span class="ic">🥛</span>
           <h3>L'intolérance au lactose (sans lactose)</h3>
-          <p>Une intolérance digestive, distincte de la maladie cœliaque : l'organisme ne produit pas assez de lactase, l'enzyme qui digère le sucre du lait. Les produits laitiers classiques (lait, crème, certains fromages et yaourts) provoquent alors ballonnements, douleurs et troubles digestifs. Sur FLORE, l'exigence est la même : une vigilance réelle, pas une simple option.</p>
+          <p>Le lactose est le sucre naturellement présent dans le lait. En cas d'intolérance, l'organisme ne produit pas assez de lactase, l'enzyme qui le digère : des symptômes digestifs apparaissent alors (ballonnements, douleurs, troubles du transit). Contrairement à la maladie cœliaque, ce n'est pas une réaction immunitaire, et la tolérance varie selon les personnes. Sur FLORE, l'exigence reste la même : une vigilance réelle, pas une simple option.</p>
         </div>
       </div>
       <div class="info-box">
         <p>Dans les deux cas, les personnes concernées recherchent des établissements capables de proposer des aliments adaptés et de limiter au maximum les risques de contamination croisée.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LE BON ACCUEIL -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Le bon accueil, dès l'arrivée</h2>
+      <p class="lead">La façon dont votre équipe réagit compte souvent plus que la carte elle-même.</p>
+      <div class="cond-grid">
+        <div class="why-card">
+          <span class="ic">👂</span>
+          <h3>Les bons réflexes</h3>
+          <p>Remercier le client de l'avoir signalé, écouter précisément sa demande, ne jamais minimiser. En cas de doute, vérifier et demander confirmation au responsable ou à la cuisine si nécessaire. La règle d'or : ne jamais répondre au hasard.</p>
+        </div>
+        <div class="why-card">
+          <span class="ic">🎁</span>
+          <h3>Aller plus loin</h3>
+          <p>Un établissement partenaire peut aller au-delà du minimum : une petite sélection ou un panier de produits compatibles à l'arrivée, par exemple. L'idée est de créer une expérience accueillante, pas seulement de gérer une contrainte.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -233,30 +274,185 @@
     <div class="wrap">
       <h2>Petit-déjeuner : les bonnes pratiques</h2>
       <p class="lead">Nous savons qu'il n'est pas toujours possible de proposer un buffet entièrement sans gluten et sans lactose. En revanche, quelques aménagements simples peuvent faire toute la différence.</p>
-      <div class="bp-cols">
+
+      <div class="info-box">
+        <p><strong>La contamination croisée :</strong> un produit naturellement sans gluten peut devenir inadapté s'il entre en contact avec du gluten.</p>
+      </div>
+      <div class="tag-row" style="margin-top:14px">
+        <span>Miettes de pain</span><span>Farine</span><span>Grille-pain partagé</span><span>Planches</span><span>Couteaux</span><span>Pinces de service</span><span>Huile de friture (produits panés)</span>
+      </div>
+
+      <div class="bp-cols" style="margin-top:32px">
         <ul class="bp-list">
-          <li>Proposer du pain ou des viennoiseries sans gluten, emballés individuellement ou conservés séparément.</li>
-          <li>Proposer du lait sans lactose et/ou des boissons végétales pour le café et le thé.</li>
-          <li>Utiliser des ustensiles dédiés.</li>
-          <li>Éviter tout contact avec des produits contenant du gluten ou du lactose.</li>
-          <li>Identifier clairement les produits sans gluten et sans lactose.</li>
-          <li>Proposer quelques produits naturellement adaptés (voir ci-contre).</li>
+          <li>Lavage des mains avant la préparation.</li>
+          <li>Plan de travail nettoyé.</li>
+          <li>Ustensiles et planche dédiés, propres.</li>
+          <li>Beurre neuf ou portion individuelle.</li>
+          <li>Produits sans gluten conservés dans leur emballage d'origine.</li>
+          <li>Si possible, préparer la commande sans gluten avant les autres.</li>
         </ul>
         <div>
           <div class="bp-side">
-            <h4>Naturellement sans gluten</h4>
+            <h4>Petit-déjeuner sans gluten</h4>
             <div class="tag-row">
-              <span>Fruits frais</span><span>Yaourts</span><span>Compotes</span><span>Œufs</span><span>Fromage</span><span>Confitures individuelles</span><span>Beurre</span><span>Céréales certifiées sans gluten</span>
+              <span>Pain individuel emballé</span><span>Biscottes sans gluten</span><span>Céréales certifiées sans gluten</span><span>Crackers</span><span>Galettes de riz</span>
             </div>
           </div>
           <div class="bp-side">
-            <h4>Alternatives sans lactose</h4>
+            <h4>Petit-déjeuner sans lactose</h4>
             <div class="tag-row">
-              <span>Boissons végétales</span><span>Yaourts végétaux</span><span>Produits sans lactose</span>
+              <span>Lait sans lactose</span><span>Boissons végétales (amande, soja, riz, avoine certifiée SG)</span><span>Yaourts sans lactose</span>
+            </div>
+          </div>
+          <div class="bp-side">
+            <h4>Naturellement adaptés</h4>
+            <div class="tag-row">
+              <span>Fruits frais</span><span>Compotes</span><span>Œufs</span><span>Jambon</span><span>Fromage sans lactose</span><span>Beurre ou margarine sans lactose</span><span>Confitures individuelles</span><span>Miel</span><span>Jus de fruits</span>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="info-box" style="margin-top:28px">
+        <p><strong>Ce que nous attendons :</strong> une vraie offre, avec du choix, pas simplement un paquet de biscuits sans gluten posé à part.</p>
+      </div>
+
+      <h3 class="sub">Les règles d'or du pain sans gluten</h3>
+      <div class="rule-cols">
+        <div>
+          <h4 style="color:#c0392b">Jamais</h4>
+          <ul class="dont-list">
+            <li>Directement dans une corbeille ayant contenu du pain traditionnel</li>
+            <li>Coupé avec un couteau déjà utilisé</li>
+            <li>Toasté dans un grille-pain classique partagé</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--sky-deep)">À privilégier</h4>
+          <ul class="bp-list">
+            <li>Emballage individuel</li>
+            <li>Ustensiles propres, dédiés</li>
+            <li>Une méthode de chauffe évitant la contamination</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOTRE EQUIPE, EN PRATIQUE -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Votre équipe, en pratique</h2>
+      <p class="lead">Le personnel de service n'a pas besoin d'être expert, mais doit savoir où sont les limites.</p>
+      <div class="info-box">
+        <p>Dans l'idéal, votre équipe connaît les ingrédients et les principaux allergènes de la carte, et sait identifier les sauces, desserts ou préparations pouvant contenir du gluten ou du lactose. En cas de doute : on demande confirmation, on ne devine pas.</p>
+      </div>
+
+      <h3 class="sub">Les mots qui rassurent (et ceux à éviter)</h3>
+      <div class="phrase-grid">
+        <div class="phrase-col yes">
+          <h4>À privilégier</h4>
+          <ul>
+            <li>« Merci de nous l'avoir signalé »</li>
+            <li>« Nous allons vérifier ensemble »</li>
+            <li>« Nous avons des solutions adaptées »</li>
+            <li>« Je vais confirmer les ingrédients auprès de notre cuisine / responsable »</li>
+          </ul>
+        </div>
+        <div class="phrase-col no">
+          <h4>À éviter</h4>
+          <ul>
+            <li>« Il y en a très peu »</li>
+            <li>« Vous pouvez simplement retirer le pain »</li>
+            <li>« Je pense que c'est bon »</li>
+            <li>« C'est juste une mode ? »</li>
+            <li>« Vous pouvez faire un petit écart »</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top:28px">
+        <p><strong>En cas d'erreur :</strong> informer immédiatement le client, s'excuser avec transparence, et remplacer entièrement la préparation ou le produit concerné. Ne jamais se contenter de retirer l'ingrédient problématique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECK-LIST RAPIDE -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Check-list rapide pour l'équipe</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-tag">Avant le service</span>
+          <ul>
+            <li>Produits sans gluten et sans lactose disponibles</li>
+            <li>Ustensiles propres et identifiés</li>
+            <li>Équipe informée</li>
+          </ul>
+        </div>
+        <div class="step-card">
+          <span class="step-tag">Pendant le service</span>
+          <ul>
+            <li>Écouter, vérifier</li>
+            <li>Éviter les contaminations</li>
+            <li>Informer clairement</li>
+          </ul>
+        </div>
+        <div class="step-card">
+          <span class="step-tag">Après le service</span>
+          <ul>
+            <li>Signaler les difficultés rencontrées</li>
+            <li>Faire remonter les besoins pour améliorer le dispositif</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI DEVENIR PARTENAIRE -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Pourquoi devenir partenaire ?</h2>
+      <p class="lead">En rejoignant notre réseau, vous gagnez en visibilité auprès d'une clientèle ciblée, en recherche active d'un hébergement adapté, avant même l'événement.</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="ic">📋</span>
+          <h3>Une présentation sur mesure</h3>
+          <p>Une fiche présentant votre établissement, référencé comme Hébergement partenaire FLORE, publiée sur notre site.</p>
+        </div>
+        <div class="why-card">
+          <span class="ic">🔗</span>
+          <h3>Un lien direct vers vous</h3>
+          <p>Un lien vers votre site internet, pour transformer la visite en réservation.</p>
+        </div>
+        <div class="why-card">
+          <span class="ic">👀</span>
+          <h3>Une visibilité ciblée</h3>
+          <p>Une présentation auprès de notre communauté, une mise en avant sur Instagram, et une présence directe auprès des milliers de festivaliers en recherche active d'un hébergement.</p>
+        </div>
+      </div>
+      <div class="info-box" style="margin-top:24px">
+        <p><strong>Aucune participation financière n'est demandée.</strong> Ce partenariat repose uniquement sur votre engagement à proposer un accueil et des solutions réellement adaptés.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOURNISSEURS -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Des fournisseurs pour vous aider</h2>
+      <p class="lead">Une liste indicative et non exhaustive, si vous cherchez des fournisseurs pour vos produits sans gluten et sans lactose.</p>
+      <div class="tag-row">
+        <span>Le Petit Minotier</span><span>Transgourmet</span><span>Calicote sans gluten</span><span>Biocoop</span><span>La Compagnie des Desserts</span><span>Esprit Gourmand</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="h-sec">
+    <div class="wrap">
+      <h2>Faire de Bourg-en-Bresse une destination exemplaire</h2>
+      <p class="lead">Quelques attentions, une équipe sensibilisée et des produits adaptés peuvent transformer une nuit d'hôtel en expérience mémorable. C'est cette ambition que nous voulons construire ensemble, avec vous.</p>
     </div>
   </section>
 
@@ -264,7 +460,7 @@
   <section class="h-sec h-sec-form" id="form">
     <div class="wrap">
       <h2>Complétons la fiche de votre établissement</h2>
-      <p class="lead">Suite à notre échange, merci de nous communiquer les informations suivantes. Ça prend quelques minutes.</p>
+      <p class="lead">Suite à notre échange, merci de nous communiquer les informations suivantes. Ça prend quelques minutes. Après réception, nous reprenons contact directement avec vous pour valider ensemble les solutions que vous pouvez réellement proposer.</p>
 
       <div class="form-card">
         <form id="hb-form" novalidate>
