@@ -25,15 +25,30 @@
   @media(max-width:640px){.p-nav .p-contact{display:none}}
 
   /* ===== Hero ===== */
-  .h-hero{min-height:56vh;display:flex;align-items:center;padding:150px 0 70px;background:linear-gradient(180deg,#56A2D2,var(--sky) 50%,var(--sky-deep));overflow:hidden;color:#fff;border-radius:0 0 var(--r-xl) var(--r-xl);position:relative}
+  .h-hero{padding:146px 0 0;background:linear-gradient(180deg,#56A2D2,var(--sky) 50%,var(--sky-deep));overflow:hidden;color:#fff;border-radius:0 0 var(--r-xl) var(--r-xl);position:relative}
   .h-hero .sun-deco{position:absolute;top:-110px;right:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,var(--sun) 42%,rgba(218,239,82,.3) 60%,transparent 75%)}
-  .h-hero-inner{max-width:760px;position:relative;z-index:2}
-  .h-hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);color:#fff;margin:16px 0 18px;line-height:1.05}
+  .h-hero-wrap{display:flex;align-items:flex-end;gap:56px}
+  .h-hero-inner{max-width:560px;position:relative;z-index:2;padding-bottom:60px;flex:1 1 auto}
+  .h-hero h1{font-size:clamp(2.1rem,4.6vw,3.2rem);color:#fff;margin:16px 0 16px;line-height:1.08}
   .h-hero h1 em{font-style:normal;color:var(--sun)}
-  .h-hero p{font-size:1.08rem;color:rgba(255,255,255,.94);max-width:42em;margin-bottom:16px}
-  .h-hero .btn-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
+  .h-hero p{font-size:1.05rem;color:rgba(255,255,255,.94);max-width:42em;margin-bottom:16px;line-height:1.6}
+  .h-hero .btn-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:20px}
   .h-hero .btn-row .btn{white-space:normal;text-align:center;max-width:100%}
-  .h-note{display:inline-flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 16px;font-size:.86rem;color:rgba(255,255,255,.92);margin-top:24px;max-width:42em}
+  .h-note{display:inline-flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 16px;font-size:.85rem;color:rgba(255,255,255,.92);margin-top:22px;max-width:42em}
+
+  .h-hero-media{flex:0 0 400px;align-self:stretch;position:relative;max-width:400px;min-width:0}
+  .h-hero-media .h-media-frame{position:relative;height:100%;min-height:440px;border-radius:22px 22px 0 0;overflow:hidden;box-shadow:0 30px 60px rgba(8,28,48,.32)}
+  .h-hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;display:block}
+  .h-hero-media .h-media-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,24,50,0) 45%,rgba(9,32,54,.5) 100%)}
+  .h-hero-media .media-tag{position:absolute;left:18px;bottom:18px;z-index:2;background:rgba(255,255,255,.16);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:8px 16px;font-size:.8rem;font-weight:600;color:#fff}
+
+  @media(max-width:960px){
+    .h-hero{padding-top:118px}
+    .h-hero-wrap{flex-direction:column;align-items:stretch;gap:0}
+    .h-hero-media{order:-1;flex:none;width:100%;max-width:100%;margin:0 -24px}
+    .h-hero-media .h-media-frame{height:320px;min-height:0;border-radius:0}
+    .h-hero-inner{max-width:100%;padding:28px 0 48px}
+  }
 
   /* ===== Contenu clair ===== */
   .h-sheet{background:#fff}
@@ -147,9 +162,12 @@
   /* ===== Mobile : plus d'air, moins de mur de champs, texte plus large ===== */
   @media(max-width:680px){
     .wrap{padding:0 18px}
-    .h-hero{padding:118px 0 56px;min-height:auto}
+    .h-hero{padding-top:104px}
     .h-hero h1{font-size:clamp(1.9rem,7.5vw,2.6rem)}
     .h-hero p{font-size:1rem}
+    .h-hero-media{margin:0 -18px}
+    .h-hero-media .h-media-frame{height:240px}
+    .h-hero-inner{padding:22px 0 40px}
     .h-note{display:block;margin-top:16px;padding:13px 15px}
     .h-note+.h-note{margin-top:12px}
     .h-sec{padding:52px 0}
@@ -198,17 +216,21 @@
 <!-- HERO -->
 <header class="h-hero">
   <div class="sun-deco"></div>
-  <div class="wrap">
+  <div class="wrap h-hero-wrap">
     <div class="h-hero-inner">
       <span class="kicker on-dark">Kit partenaire hébergement</span>
       <h1>Accueillez nos festivaliers, <em>en toute confiance</em></h1>
-      <p>FLORE Festival, premier festival 100&nbsp;% sans gluten &amp; sans lactose, aura lieu à <strong>Bourg-en-Bresse</strong> (Ain). En quelques semaines, notre communauté est passée d'une centaine d'abonnés à plus de 7&nbsp;000 personnes, et les pré-inscriptions rencontrent un fort succès : nous attendons plusieurs milliers de visiteurs venus de toute la France.</p>
-      <p>Afin d'accompagner nos festivaliers dans la préparation de leur séjour, nous référençons des établissements proposant un accueil adapté à leurs besoins alimentaires. En rejoignant notre réseau de partenaires, votre établissement bénéficie d'une visibilité auprès d'une clientèle ciblée, en recherche active d'un hébergement.</p>
+      <p>FLORE Festival, premier festival 100&nbsp;% sans gluten &amp; sans lactose, aura lieu à <strong>Bourg-en-Bresse</strong> (Ain). Nous référençons des établissements offrant un accueil adapté aux festivaliers en recherche d'un hébergement pour leur séjour.</p>
       <div class="btn-row">
         <a href="#form" class="btn btn-sun">Compléter notre fiche partenaire</a>
       </div>
-      <div class="h-note">🤝&nbsp;Cette page fait suite à notre échange téléphonique : elle nous permet de récupérer noir sur blanc les informations de votre établissement.</div>
-      <div class="h-note">🤫&nbsp;Elle vous est transmise directement et n'est pas encore publique : merci de ne pas communiquer sur le nom du lieu avant notre annonce officielle (fin août 2026).</div>
+      <div class="h-note">🤝&nbsp;Cette page fait suite à notre échange téléphonique, et n'est pas encore publique : merci de ne pas communiquer sur le nom du lieu avant notre annonce officielle (fin août 2026).</div>
+    </div>
+    <div class="h-hero-media">
+      <div class="h-media-frame">
+        <img src="https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?auto=format&fit=crop&w=900&h=1100&q=75" alt="Chambre d'hôtel confortable et lumineuse" loading="eager" width="900" height="1100">
+      </div>
+      <span class="media-tag">🏨&nbsp;Un accueil qui fait la différence</span>
     </div>
   </div>
 </header>
@@ -413,7 +435,7 @@
   <section class="h-sec">
     <div class="wrap">
       <h2>Pourquoi devenir partenaire ?</h2>
-      <p class="lead">En rejoignant notre réseau, vous gagnez en visibilité auprès d'une clientèle ciblée, en recherche active d'un hébergement adapté, avant même l'événement.</p>
+      <p class="lead">En rejoignant notre réseau, vous gagnez en visibilité auprès d'une clientèle ciblée, en recherche active d'un hébergement adapté, avant même l'événement. En quelques semaines, notre communauté est passée d'une centaine d'abonnés à plus de 7&nbsp;000 personnes, et nous attendons plusieurs milliers de visiteurs venus de toute la France.</p>
       <div class="why-grid">
         <div class="why-card">
           <span class="ic">📋</span>
