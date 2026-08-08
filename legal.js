@@ -64,6 +64,9 @@
     '<p><strong>MG Entertainment</strong>, association régie par la loi du 1<sup>er</sup> juillet 1901.<br>' +
     'Siège social : 7 rue Pierre Bernin, 01800 Meximieux.<br>' +
     'N° RNA : W012014876.<br>' +
+    'SIREN : 889 266 037.<br>' +
+    'SIRET : 889 266 037 00023.<br>' +
+    'Téléphone : 07 44 98 00 15.<br>' +
     'E-mail : <a href="mailto:contact@mgentertainment.fr">contact@mgentertainment.fr</a><br>' +
     '</p>' +
 
@@ -96,17 +99,18 @@
     '<p>MG Entertainment, association loi 1901. Contact : <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>.</p>' +
 
     '<h3>2. Données collectées</h3>' +
-    '<p>Ce site est volontairement minimaliste et n\'enregistre aucune donnée sur un serveur.</p>' +
+    '<p>Ce site est volontairement minimaliste. Selon le formulaire utilisé :</p>' +
     '<ul>' +
-      '<li>Formulaire « Être prévenu·e » : il ouvre simplement votre logiciel de messagerie avec un e-mail pré-rempli. Votre adresse ne nous parvient que si vous décidez d\'envoyer cet e-mail.</li>' +
-      '<li>Contact direct : si vous nous écrivez, nous conservons votre message le temps nécessaire pour vous répondre.</li>' +
+      '<li><strong>Inscription à l\'actualité et formulaires de candidature</strong> (exposants, artistes, causeries, hébergement, guide FLORE...) : les informations que vous saisissez (nom, e-mail, et selon le formulaire téléphone, adresse, présentation de votre activité) sont transmises via notre prestataire technique <strong>Web3Forms</strong>, qui nous les fait parvenir par e-mail.</li>' +
+      '<li><strong>« Être prévenu·e »</strong> (certaines pages) : ce bouton ouvre votre logiciel de messagerie avec un e-mail pré-rempli. Votre adresse ne nous parvient que si vous décidez d\'envoyer cet e-mail.</li>' +
+      '<li><strong>Contact direct</strong> : si vous nous écrivez, nous conservons votre message le temps nécessaire pour vous répondre.</li>' +
     '</ul>' +
 
     '<h3>3. Finalité et base légale</h3>' +
-    '<p>Vos données servent uniquement à répondre à votre demande ou à vous informer de l\'ouverture de la billetterie, sur la base de votre consentement. Elles ne sont ni vendues, ni cédées, ni transmises à des tiers à des fins commerciales.</p>' +
+    '<p>Vos données servent uniquement à répondre à votre demande, instruire votre candidature ou vous informer de l\'ouverture de la billetterie, sur la base de votre consentement ou de l\'exécution de mesures précontractuelles. Elles ne sont ni vendues, ni cédées, ni transmises à des tiers à des fins commerciales.</p>' +
 
     '<h3>4. Durée de conservation</h3>' +
-    '<p>Les échanges par e-mail sont conservés le temps nécessaire à la relation, puis supprimés. Pour les inscriptions à l\'actualité du festival : jusqu\'à votre demande de désinscription.</p>' +
+    '<p>Les échanges par e-mail et les candidatures sont conservés le temps nécessaire à leur traitement, puis supprimés. Pour les inscriptions à l\'actualité du festival : jusqu\'à votre demande de désinscription.</p>' +
 
     '<h3>5. Vos droits</h3>' +
     '<p>Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification, d\'effacement, d\'opposition et de portabilité de vos données. Pour les exercer, écrivez à <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>' +
@@ -115,13 +119,12 @@
     '<p>Ce site ne fait aucun profilage à des fins autres que la mesure d\'audience et publicitaire décrites ici, et ne revend jamais vos données. Avec votre consentement, il utilise <strong>Google Analytics</strong> (comprendre de façon anonymisée comment le site est visité : pages consultées, provenance, appareil) et le <strong>Pixel Meta</strong> (Facebook/Instagram), qui mesure l\'efficacité de nos publications et campagnes sur ces réseaux.</p>' +
     '<ul>' +
       '<li><strong>Google Analytics</strong> et <strong>Pixel Meta</strong> : déposés uniquement si vous cliquez « Accepter » sur le bandeau cookies. Vous pouvez refuser sans que cela affecte votre navigation.</li>' +
-      '<li><strong>Correspondance avancée (Pixel Meta)</strong> : si vous remplissez un formulaire sur ce site (contact, candidature, inscription), votre e-mail ou numéro de téléphone peut être transmis à Meta sous forme hachée (cryptée), afin de mieux évaluer et cibler nos campagnes publicitaires Facebook/Instagram. Cette transmission ne se produit que si vous avez accepté les cookies.</li>' +
       '<li><strong>Stockage local</strong> : nous mémorisons, sur votre appareil, votre choix (accepté/refusé) pour ne pas vous redemander à chaque visite. Cette donnée reste dans votre navigateur.</li>' +
       '<li><strong>Ressources externes</strong> : les polices d\'écriture (Google Fonts) et la bibliothèque d\'animations (AOS) sont chargées depuis des serveurs tiers, indépendamment de votre choix ci-dessus. Ceux-ci peuvent recevoir votre adresse IP, technique nécessaire pour livrer les fichiers, sans aucun suivi de votre navigation.</li>' +
     '</ul>' +
     '<p><button type="button" class="lgl-manage-cookies">Modifier mon choix sur les cookies</button></p>' +
 
-    '<p class="lgl-updated">Dernière mise à jour : août 2026.</p>';
+    '<p class="lgl-updated">Dernière mise à jour : 8 août 2026.</p>';
 
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
