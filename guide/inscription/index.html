@@ -8,18 +8,19 @@
 <meta name="description" content="Référencez gratuitement votre établissement ou votre marque sur le Guide FLORE. Inscription guidée en quelques étapes, validée par le Comité FLORE.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://flore-festival.fr/guide/inscription/">
-<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="icon" href="/guide/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/guide/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/guide/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/guide/apple-touch-icon.png">
+<link rel="manifest" href="/guide/site.webmanifest">
 <meta property="og:title" content="Rejoindre le Guide FLORE · Inscription professionnelle">
 <meta property="og:description" content="Référencement gratuit, validé par le Comité FLORE · La carte des adresses sans gluten et sans lactose.">
 <meta property="og:url" content="https://flore-festival.fr/guide/inscription/">
-<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/flore.css?v=20260805c">
+<link rel="stylesheet" href="/assets/flore.css?v=20260821d">
 <style>
   body{background:#fff}
   .wiz-sheet{background:#fff;padding-top:118px}
@@ -29,19 +30,15 @@
   .wiz-head p{color:var(--ink-soft);font-size:1rem;max-width:44em;margin:0 0 28px}
 
   /* Progress bar */
-  .wiz-progress{display:flex;gap:6px;margin-bottom:36px}
-  .wiz-progress .seg{flex:1;height:6px;border-radius:100px;background:var(--line);transition:background .25s}
-  .wiz-progress .seg.done{background:var(--sun-deep)}
-  .wiz-progress .seg.current{background:var(--sun)}
   .wiz-steplabel{font-size:.8rem;font-weight:700;color:var(--sky-deep);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
 
   .wiz-layout{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start;padding-bottom:90px}
   @media(max-width:960px){.wiz-layout{grid-template-columns:1fr}}
 
-  .wiz-step{display:none}
-  .wiz-step.active{display:block}
+  .wiz-block{padding-top:36px;margin-top:36px;border-top:1.5px solid var(--line)}
+  .wiz-block:first-of-type{padding-top:0;margin-top:0;border-top:none}
 
-  /* Step 0 : profil */
+  /* Profil */
   .profil-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
   .profil-card{border:2px solid var(--line);border-radius:16px;padding:20px 12px;text-align:center;cursor:pointer;background:#fff;transition:all .18s}
   .profil-card .pc-ic{font-size:1.8rem;display:block;margin-bottom:8px}
@@ -86,15 +83,8 @@
   .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
   .consent-row span{font-size:.9rem;color:var(--ink);line-height:1.5}
 
-  .wiz-summary section{padding:16px 0;border-bottom:1px solid var(--line)}
-  .wiz-summary h3{font-size:.98rem;color:var(--ink);margin:0 0 8px;display:flex;justify-content:space-between;align-items:center}
-  .wiz-summary h3 a{font-size:.8rem;font-weight:700;color:var(--sky-deep)}
-  .wiz-summary p{font-size:.9rem;color:var(--ink-soft);line-height:1.6;margin:0}
-
-  .wiz-nav{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
-  .btn-prev{background:#fff;border:1.5px solid var(--line);color:var(--ink);font:inherit;font-weight:700;padding:14px 26px;border-radius:100px;cursor:pointer}
-  .btn-next,.btn-submit-wiz{background:var(--ink);color:#fff;border:none;font:inherit;font-weight:800;padding:14px 30px;border-radius:100px;cursor:pointer;transition:background .2s}
-  .btn-next:hover,.btn-submit-wiz:hover{background:var(--navy)}
+  .btn-submit-wiz{background:var(--ink);color:#fff;border:none;font:inherit;font-weight:800;padding:14px 30px;border-radius:100px;cursor:pointer;transition:background .2s}
+  .btn-submit-wiz:hover{background:var(--navy)}
   .form-msg{display:none;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:.92rem;font-weight:600}
   .form-msg.ok{background:#e6f6ec;color:#1e7a43;display:block}
   .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
@@ -116,7 +106,8 @@
 <body>
 
 <div id="site-nav"></div>
-<script src="/assets/nav.js?v=20260704b"></script>
+<script src="/assets/gate.js?v=3"></script>
+<script src="/assets/nav.js?v=20260811l"></script>
 
 <div class="wiz-sheet">
   <div class="wrap">
@@ -130,8 +121,6 @@
       </div>
     </div>
 
-    <div class="wiz-progress" id="wiz-progress"></div>
-
     <form id="wiz-form" novalidate>
       <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
       <input type="hidden" name="subject" value="Candidature Guide FLORE · Inscription professionnelle">
@@ -141,9 +130,8 @@
       <div class="wiz-layout">
         <div class="wiz-main">
 
-          <!-- ÉTAPE 0 : PROFIL -->
-          <div class="wiz-step active" data-step="0">
-            <div class="wiz-steplabel">Étape 1 / 6 · Votre profil</div>
+          <div class="wiz-block">
+            <div class="wiz-steplabel">Votre profil</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Quel type d'activité ?</h2>
             <div class="profil-grid" id="profil-grid">
               <div class="profil-card" data-value="Restaurant"><span class="pc-ic">🍽️</span><span class="pc-label">Restaurant</span></div>
@@ -154,12 +142,11 @@
               <div class="profil-card" data-value="Association"><span class="pc-ic">🤝</span><span class="pc-label">Association</span></div>
               <div class="profil-card" data-value="Autre"><span class="pc-ic">✨</span><span class="pc-label">Autre</span></div>
             </div>
-            <input type="hidden" name="profil" id="profil-value" required>
+            <input type="hidden" name="profil" id="profil-value">
           </div>
 
-          <!-- ÉTAPE 1 : INFOS GÉNÉRALES -->
-          <div class="wiz-step" data-step="1">
-            <div class="wiz-steplabel">Étape 2 / 6 · Informations générales</div>
+          <div class="wiz-block">
+            <div class="wiz-steplabel">Informations générales</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Parlez-nous de vous</h2>
             <div class="f-row two">
               <div class="f-field"><label>Nom de l'établissement <span class="f-required">*</span></label><input type="text" name="nom_etablissement" id="in-nom" autocomplete="organization" required></div>
@@ -200,9 +187,8 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 2 : ACTIVITÉ -->
-          <div class="wiz-step" data-step="2">
-            <div class="wiz-steplabel">Étape 3 / 6 · Activité</div>
+          <div class="wiz-block">
+            <div class="wiz-steplabel">Activité</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Comment décririez-vous votre offre ?</h2>
             <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:14px">Plusieurs choix possibles.</p>
             <div class="chip-grid" id="activite-grid">
@@ -219,10 +205,9 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 3 : SÉCURITÉ ALIMENTAIRE -->
-          <div class="wiz-step" data-step="3">
-            <div class="wiz-steplabel">Étape 4 / 6 · Sécurité alimentaire</div>
-            <h2 style="color:var(--ink);margin-bottom:6px">L'étape la plus importante</h2>
+          <div class="wiz-block">
+            <div class="wiz-steplabel">Sécurité alimentaire</div>
+            <h2 style="color:var(--ink);margin-bottom:6px">L'info la plus importante</h2>
             <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:6px">Nos visiteurs comptent parmi les personnes les plus sensibles au gluten et au lactose : soyez précis.</p>
 
             <div class="yn-row"><span class="q">Êtes-vous totalement sans gluten ?</span><div class="yn-toggle" data-field="totalement_sg"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="Non">Non</button></div></div>
@@ -246,9 +231,8 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 4 : SERVICES -->
-          <div class="wiz-step" data-step="4">
-            <div class="wiz-steplabel">Étape 5 / 6 · Services</div>
+          <div class="wiz-block">
+            <div class="wiz-steplabel">Services</div>
             <h2 style="color:var(--ink);margin-bottom:16px">Quels services proposez-vous ?</h2>
             <div class="chip-grid">
               <label class="chip"><input type="checkbox" name="services" value="Parking"><span>🅿️ Parking</span></label>
@@ -265,26 +249,19 @@
             </div>
           </div>
 
-          <!-- ÉTAPE 5 : VALIDATION -->
-          <div class="wiz-step" data-step="5">
-            <div class="wiz-steplabel">Étape 6 / 6 · Validation</div>
-            <h2 style="color:var(--ink);margin-bottom:6px">Vérifiez votre fiche</h2>
-            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:10px">Tout est correct ? Vous pouvez encore modifier chaque section avant l'envoi.</p>
-            <div class="wiz-summary" id="wiz-summary"></div>
+          <div class="wiz-block">
+            <div class="wiz-steplabel">Validation</div>
+            <h2 style="color:var(--ink);margin-bottom:6px">Prêt·e à envoyer ?</h2>
+            <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:10px">Vérifiez l'aperçu de votre fiche ci-contre avant l'envoi.</p>
 
             <label class="consent-row" style="margin-top:20px">
-              <input type="checkbox" id="in-rgpd" required>
+              <input type="checkbox" id="in-rgpd">
               <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
             </label>
 
             <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma candidature →</button>
             <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Un oubli après l'envoi ? Écrivez-nous sur Instagram (@flore.festival) ou à contact@flore-festival.fr, on complète votre fiche.</p>
             <div class="form-msg" id="wiz-msg"></div>
-          </div>
-
-          <div class="wiz-nav" id="wiz-nav">
-            <button type="button" class="btn-prev" id="btn-prev">← Précédent</button>
-            <button type="button" class="btn-next" id="btn-next">Continuer →</button>
           </div>
         </div>
 
@@ -350,98 +327,59 @@
 
   (function(){
     const form = document.getElementById('wiz-form');
-    const STEP_COUNT = 6;
-    let current = 0;
-
-    const progressEl = document.getElementById('wiz-progress');
-    for (let i = 0; i < STEP_COUNT; i++) {
-      const seg = document.createElement('div');
-      seg.className = 'seg';
-      progressEl.appendChild(seg);
-    }
-    function renderProgress(){
-      Array.prototype.forEach.call(progressEl.children, function(seg, i){
-        seg.classList.toggle('done', i < current);
-        seg.classList.toggle('current', i === current);
-      });
-    }
-
-    const steps = Array.prototype.slice.call(document.querySelectorAll('.wiz-step'));
-    const btnPrev = document.getElementById('btn-prev');
-    const btnNext = document.getElementById('btn-next');
-    const wizNav = document.getElementById('wiz-nav');
-
-    function showStep(i){
-      steps.forEach(function(s){ s.classList.toggle('active', Number(s.dataset.step) === i); });
-      btnPrev.style.visibility = i === 0 ? 'hidden' : 'visible';
-      const isLast = i === STEP_COUNT - 1;
-      btnNext.style.display = isLast ? 'none' : 'inline-flex';
-      renderProgress();
-      window.scrollTo({ top: document.querySelector('.wiz-head').offsetTop - 100, behavior:'smooth' });
-    }
 
     function isValidEmail(v){
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
     }
 
-    function validateStep(i){
-      if (i === 0 && !document.getElementById('profil-value').value){
-        alert('Merci de choisir un profil pour continuer.');
+    function validateForm(){
+      if (!document.getElementById('profil-value').value){
+        alert('Merci de choisir un profil.');
         return false;
       }
-      if (i === 1){
-        const required = ['in-nom','in-siret','in-description','in-adresse','in-ville','in-email'];
-        for (const id of required){
-          if (!document.getElementById(id).value.trim()){
-            alert('Merci de compléter les champs obligatoires avant de continuer.');
-            document.getElementById(id).focus();
-            return false;
-          }
-        }
-        if (document.getElementById('in-nom').value.trim().length < 2){
-          alert('Merci d\'indiquer un vrai nom d\'établissement.');
-          document.getElementById('in-nom').focus();
+      const required = ['in-nom','in-siret','in-description','in-adresse','in-ville','in-email'];
+      for (const id of required){
+        if (!document.getElementById(id).value.trim()){
+          alert('Merci de compléter les champs obligatoires avant l\'envoi.');
+          document.getElementById(id).focus();
+          document.getElementById(id).scrollIntoView({ behavior:'smooth', block:'center' });
           return false;
         }
-        if (!/^\d{14}$/.test(document.getElementById('in-siret').value.replace(/\s/g,''))){
-          alert('Merci d\'indiquer un SIRET valide (14 chiffres).');
-          document.getElementById('in-siret').focus();
-          return false;
-        }
-        if (document.getElementById('in-description').value.trim().length < 10){
-          alert('Merci de rédiger une description un peu plus complète (quelques mots suffisent).');
-          document.getElementById('in-description').focus();
-          return false;
-        }
-        if (document.getElementById('in-adresse').value.trim().length < 4){
-          alert('Merci d\'indiquer une adresse valide.');
-          document.getElementById('in-adresse').focus();
-          return false;
-        }
-        if (document.getElementById('in-ville').value.trim().length < 2){
-          alert('Merci d\'indiquer une vraie ville.');
-          document.getElementById('in-ville').focus();
-          return false;
-        }
-        if (!isValidEmail(document.getElementById('in-email').value.trim())){
-          alert('Merci d\'indiquer une adresse email valide (exemple : vous@exemple.fr).');
-          document.getElementById('in-email').focus();
-          return false;
-        }
+      }
+      if (document.getElementById('in-nom').value.trim().length < 2){
+        alert('Merci d\'indiquer un vrai nom d\'établissement.');
+        document.getElementById('in-nom').focus();
+        return false;
+      }
+      if (!/^\d{14}$/.test(document.getElementById('in-siret').value.replace(/\s/g,''))){
+        alert('Merci d\'indiquer un SIRET valide (14 chiffres).');
+        document.getElementById('in-siret').focus();
+        return false;
+      }
+      if (document.getElementById('in-description').value.trim().length < 10){
+        alert('Merci de rédiger une description un peu plus complète (quelques mots suffisent).');
+        document.getElementById('in-description').focus();
+        return false;
+      }
+      if (document.getElementById('in-adresse').value.trim().length < 4){
+        alert('Merci d\'indiquer une adresse valide.');
+        document.getElementById('in-adresse').focus();
+        return false;
+      }
+      if (document.getElementById('in-ville').value.trim().length < 2){
+        alert('Merci d\'indiquer une vraie ville.');
+        document.getElementById('in-ville').focus();
+        return false;
+      }
+      if (!isValidEmail(document.getElementById('in-email').value.trim())){
+        alert('Merci d\'indiquer une adresse email valide (exemple : vous@exemple.fr).');
+        document.getElementById('in-email').focus();
+        return false;
       }
       return true;
     }
 
-    btnNext.addEventListener('click', function(){
-      if (!validateStep(current)) return;
-      if (current < STEP_COUNT - 1) { current++; showStep(current); updatePreview(); }
-      if (current === STEP_COUNT - 1) buildSummary();
-    });
-    btnPrev.addEventListener('click', function(){
-      if (current > 0) { current--; showStep(current); }
-    });
-
-    // ---- Étape 1 : autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
+    // ---- Autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
     const inAdresse = document.getElementById('in-adresse');
     const addrSuggest = document.getElementById('addr-suggest');
     let addrDebounce = null;
@@ -564,38 +502,12 @@
     }
     form.addEventListener('input', updatePreview);
 
-    // ---- Étape 7 : résumé ----
-    function buildSummary(){
-      const profil = document.getElementById('profil-value').value;
-      const nom = document.getElementById('in-nom').value;
-      const siret = document.getElementById('in-siret').value;
-      const desc = document.getElementById('in-description').value;
-      const adresse = document.getElementById('in-adresse').value;
-      const ville = document.getElementById('in-ville').value;
-      const email = document.getElementById('in-email').value;
-      const activite = Array.prototype.slice.call(form.querySelectorAll('[name=activite]:checked')).map(function(e){ return e.value; }).join(', ') || 'Non renseigné';
-      const services = Array.prototype.slice.call(form.querySelectorAll('[name=services]:checked')).map(function(e){ return e.value; }).join(', ') || 'Non renseigné';
-
-      document.getElementById('wiz-summary').innerHTML =
-        '<section><h3>Profil <a href="#" data-goto="0">Modifier</a></h3><p>' + (profil || 'Non renseigné') + '</p></section>' +
-        '<section><h3>Informations générales <a href="#" data-goto="1">Modifier</a></h3><p>' + nom + ' · SIRET ' + siret + ' · ' + adresse + ', ' + ville + ' · ' + email + '</p><p>' + desc + '</p></section>' +
-        '<section><h3>Activité <a href="#" data-goto="2">Modifier</a></h3><p>' + activite + '</p></section>' +
-        '<section><h3>Services <a href="#" data-goto="4">Modifier</a></h3><p>' + services + '</p></section>';
-
-      document.querySelectorAll('[data-goto]').forEach(function(a){
-        a.addEventListener('click', function(e){
-          e.preventDefault();
-          current = Number(a.dataset.goto);
-          showStep(current);
-        });
-      });
-    }
-
     // ---- Soumission ----
     const msg = document.getElementById('wiz-msg');
     const btnSubmit = document.getElementById('btn-submit');
     form.addEventListener('submit', async function(e){
       e.preventDefault();
+      if (!validateForm()) return;
       if (!document.getElementById('in-rgpd').checked){
         msg.className = 'form-msg err';
         msg.textContent = 'Merci d\'accepter le traitement de vos informations avant l\'envoi.';
@@ -609,7 +521,7 @@
         const json = await res.json();
         if (json.success){
           msg.className = 'form-msg ok';
-          msg.textContent = 'Candidature reçue ! Le Comité FLORE l\'examine et vous répond sous 5 jours ouvrés. Un oubli ou une info à compléter ? Écrivez-nous sur Instagram (@flore.festival) ou à contact@flore-festival.fr.';
+          msg.textContent = 'Candidature reçue ! Le Comité FLORE l\'examine et revient vers vous. Un oubli ou une info à compléter ? Écrivez-nous sur Instagram (@flore.festival) ou à contact@flore-festival.fr.';
           btnSubmit.textContent = 'Candidature envoyée ✓';
         } else {
           throw new Error(json.message || 'Échec de l\'envoi (raison inconnue).');
@@ -623,11 +535,9 @@
       }
       msg.scrollIntoView({ behavior:'smooth', block:'center' });
     });
-
-    showStep(0);
   })();
 </script>
 <script src="/assets/transitions.js" defer></script>
-<script src="/legal.js?v=20260808" defer></script>
+<script src="/legal.js?v=20260810c" defer></script>
 </body>
 </html>

@@ -5,12 +5,12 @@
   "og_locale": "es_ES",
   "meta": {
     "title": "FLORE Festival 2027 · El festival 100% sin gluten y sin lactosa en Francia",
-    "description": "FLORE es el primer festival 100% sin gluten y sin lactosa de Francia. Fecha y lugar próximamente. Conciertos, zona gastronómica y bienestar, donde celíacos, intolerantes a la lactosa y todos los demás comen en la misma mesa.",
+    "description": "FLORE es el primer festival 100% sin gluten y sin lactosa de Francia. Sábado 17 de abril de 2027, en Ainterexpo, Bourg-en-Bresse. Conciertos, zona gastronómica y bienestar, donde todos comen en la misma mesa.",
     "keywords": "festival sin gluten España, festival sin gluten Francia, festival sin lactosa, festival para celiacos, evento sin gluten Europa, festival apto celiacos",
     "og_title": "FLORE Festival 2027 · 100% sin gluten y sin lactosa",
-    "og_description": "El primer festival 100% sin gluten y sin lactosa de Francia. Fecha y lugar próximamente. Donde todos comen en la misma mesa.",
+    "og_description": "El primer festival 100% sin gluten y sin lactosa de Francia. Sábado 17 de abril de 2027, Ainterexpo, Bourg-en-Bresse.",
     "og_image_alt": "FLORE Festival - el primer festival 100% sin gluten y sin lactosa",
-    "jsonld_description": "El primer festival 100% sin gluten y sin lactosa de Francia. Fecha y lugar por anunciar."
+    "jsonld_description": "El primer festival 100% sin gluten y sin lactosa de Francia, sábado 17 de abril de 2027 en Ainterexpo, Bourg-en-Bresse."
   },
   "nav": {
     "festival": "El festival",
@@ -28,10 +28,10 @@
     "sr_title": "FLORE Festival, el primer festival sin gluten y sin lactosa",
     "tagline": "Baila sin gluten, disfruta sin lactosa.",
     "lede": "Un festival donde por fin todos comen en la misma mesa. Conciertos, zona gastronómica y bienestar, todo 100% sin gluten y sin lactosa, sin concesiones.",
-    "countdown_intro": "Fecha, lugar y entradas: el anuncio llega pronto",
-    "cta_primary": "Avísame",
+    "countdown_intro": "Sábado 17 de abril de 2027 · Ainterexpo, Bourg-en-Bresse",
+    "cta_primary": "Consigue tu entrada",
     "cta_secondary": "Descubre el festival",
-    "florette_alt": "Florette, la mascota del FLORE Festival"
+    "florette_alt": "Los universos de FLORE Festival: escenario, food court, boutique y charlas"
   },
   "concept": {
     "kicker": "Un festival inclusivo",
@@ -43,13 +43,13 @@
         "icon": "🌾",
         "bg": "#FFF1CC",
         "title": "100% sin gluten",
-        "text": "Todo el recinto, zona gastronómica y bar incluidos, está garantizado sin gluten (por debajo de 20 ppm, el estándar más estricto). Seguro incluso para celíacos."
+        "text": "La zona gastronómica Jardin des Saveurs y nuestros bares están garantizados sin gluten (por debajo de 20 ppm, el estándar más estricto). Seguro incluso para celíacos."
       },
       {
         "icon": "🥛",
         "bg": "#E7F4FB",
         "title": "100% sin lactosa",
-        "text": "Cada producto lácteo es deslactosado o naturalmente sin lactosa, con opciones vegetales también. Sabor de verdad, sin lactosa."
+        "text": "La zona gastronómica Jardin des Saveurs y nuestros bares son totalmente sin lactosa, para disfrutar sin pensarlo dos veces."
       },
       {
         "icon": "🎶",
@@ -67,7 +67,7 @@
     "kicker": "Un concepto que no existe todavía en España",
     "title_pre": "El primero en su género, en ",
     "title_hl": "toda Europa",
-    "text": "FLORE nace en el este de Francia con una ambición clara: convertirse en la referencia europea para quienes viven con intolerancias, mucho más allá de sus propias fronteras. Si en España no existe todavía un festival así, este es el momento de descubrirlo desde el principio.",
+    "text": "FLORE nace en Ainterexpo, en Bourg-en-Bresse (este de Francia), con una ambición clara: convertirse en la referencia europea para quienes viven con intolerancias, mucho más allá de sus propias fronteras. Si en España no existe todavía un festival así, este es el momento de descubrirlo desde el principio.",
     "chips": [
       {
         "icon": "✨",
@@ -87,7 +87,7 @@
     "kicker": "Organiza tu visita",
     "title_pre": "Fácil de llegar, desde ",
     "title_hl": "cualquier lugar",
-    "text": "El lugar todavía no se ha anunciado, pero se elegirá para que sea fácilmente accesible en coche, tren y avión. Los detalles completos sobre el acceso llegarán junto con el anuncio."
+    "text": "Ainterexpo es fácil de alcanzar en coche, tren o avión, a unos 50 minutos de Lyon y 1h15 de Ginebra. Todos los detalles sobre cómo llegar (en francés) están en flore-festival.fr/infos-pratiques/."
   },
   "faq": {
     "kicker": "Preguntas frecuentes",
@@ -103,41 +103,59 @@
       },
       {
         "q": "¿Cuándo y dónde tendrá lugar?",
-        "a": "La fecha y el lugar exactos se anunciarán pronto. Apúntate a la lista prioritaria más abajo para saberlo antes que nadie, antes del anuncio público."
+        "a": "Sábado 17 de abril de 2027, en Ainterexpo, Bourg-en-Bresse, Francia, entre Lyon y Ginebra."
       },
       {
         "q": "¿Ya se venden las entradas?",
-        "a": "Todavía no. La lista prioritaria te garantiza acceso anticipado y un precio early-bird en cuanto abra la venta."
+        "a": "Sí. Las entradas ya están a la venta en nuestra taquilla oficial (en francés), con un Pase Día y un Pase Noche (18h a 22h)."
       },
       {
         "q": "¿La comida es realmente segura para celíacos?",
-        "a": "Sí. Todo el recinto, zona gastronómica y bar incluidos, sigue un estándar estricto por debajo de 20 ppm de gluten, el umbral reconocido para la celiaquía, con una preparación dedicada para evitar la contaminación cruzada."
+        "a": "Sí. Nuestra zona gastronómica (Jardin des Saveurs) y los bares siguen un estándar estricto por debajo de 20 ppm de gluten, el umbral reconocido para la celiaquía, con una preparación dedicada para evitar la contaminación cruzada."
       },
       {
         "q": "¿Tengo que viajar desde muy lejos para asistir?",
-        "a": "FLORE se celebra en el este de Francia. Todavía no existe un festival así en España, así que muchos asistentes vendrán de fuera: los detalles de acceso en coche, tren y avión se publicarán junto con el anuncio del lugar."
+        "a": "FLORE se celebra en Ainterexpo, a unos 50 minutos de Lyon y 1h15 de Ginebra, fácil de alcanzar en coche, tren o avión. Todavía no existe un festival así en España, así que muchos asistentes vendrán de fuera."
       }
     ]
   },
   "tickets": {
     "kicker": "Entradas",
-    "title_pre": "Únete a la ",
-    "title_em": "lista prioritaria",
-    "text": "Las entradas todavía no están a la venta. Apúntate para conseguir el precio early-bird y ser el primero en saber cuándo abre la venta.",
-    "email_placeholder": "tu@email.com",
-    "email_label": "Tu dirección de correo electrónico",
-    "submit": "Apuntarme",
-    "success": "Ya estás en la lista. ¡Nos vemos en 2027!",
-    "smallnote": "Fecha y lugar: anuncio próximamente 🌸",
-    "sending": "Enviando…",
-    "error": "Ha ocurrido un error. Inténtalo de nuevo o escribe a contact@flore-festival.fr.",
-    "from_name_label": "Lista prioritaria"
+    "title_pre": "Consigue tu ",
+    "title_em": "entrada",
+    "text": "Las entradas ya están a la venta en nuestra taquilla oficial. Pase Día o Pase Noche, tú eliges.",
+    "submit": "Entradas",
+    "smallnote": "Taquilla oficial · Weezevent 🌸",
+    "pass_day": "Pase Día",
+    "pass_evening": "Pase Noche",
+    "pass_day_time": "11h → 22h",
+    "pass_day_desc": "Todo: escenario, zona gastronómica, tienda y charlas, desde el primer concierto hasta el último set.",
+    "pass_day_price_old": "35 €",
+    "pass_day_price": "desde 29,99 €",
+    "pass_evening_time": "18h → 22h",
+    "pass_evening_desc": "Golden hour y noche de baile, si solo puedes venir a última hora del día.",
+    "pass_evening_price": "desde 19,99 €",
+    "card_cta": "Reservar este Pass →",
+    "pass_kids_tag": "🧒 Pase Infantil desde 5 € (6-14 años)",
+    "pass_infant_tag": "👶 Gratis menores de 6 años",
+    "drawer_close": "Cerrar la venta de entradas"
+  },
+  "pro": {
+    "title": "¿Una empresa fuera de Francia?",
+    "text": "¿Marca, distribuidor o socio de eventos interesado en un stand o una colaboración en FLORE? Escríbenos directamente, te responderemos."
   },
   "footer": {
     "about": "El primer festival 100% sin gluten y sin lactosa. Una producción de MG Entertainment, porque la fiesta debe estar abierta a todos.",
     "contact_heading": "Contacto",
     "lang_switch": "Site en français",
     "production_label": "Una producción de MG Entertainment.",
-    "country_label": "Francia"
+    "country_label": "Francia",
+    "newsletter_label": "Mantente al día de las novedades de FLORE",
+    "newsletter_placeholder": "tu@email.com",
+    "newsletter_submit": "Suscribirme",
+    "newsletter_success": "¡Suscrito/a, hasta pronto!",
+    "legal_mentions": "Aviso legal",
+    "legal_privacy": "Privacidad y cookies",
+    "legal_cgv": "Condiciones de venta"
   }
 }

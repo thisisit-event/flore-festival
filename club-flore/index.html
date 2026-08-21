@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club FLORE · Le cercle des créateurs sans gluten & sans lactose</title>
+<meta name="description" content="Tu crées du contenu autour du sans gluten et du sans lactose ? Rejoins le club flore, la communauté de créateurs proche de FLORE Festival, le 1er festival 100% sans gluten et sans lactose de France.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#2D5479">
+<link rel="canonical" href="https://flore-festival.fr/club-flore/">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="FLORE Festival">
+<meta property="og:title" content="Club FLORE · Le cercle des créateurs sans gluten & sans lactose">
+<meta property="og:description" content="Tu crées du contenu autour du sans gluten et du sans lactose ? Rejoins le club flore, la communauté de créateurs proche de FLORE Festival.">
+<meta property="og:url" content="https://flore-festival.fr/club-flore/">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Club FLORE · Le cercle des créateurs sans gluten & sans lactose">
+<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
+
+<link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css?v=20260821d">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Accueil","item":"https://flore-festival.fr/"},
+    {"@type":"ListItem","position":2,"name":"Club FLORE","item":"https://flore-festival.fr/club-flore/"}
+  ]
+}
+</script>
+
+<style>
+  .art-hero-inner{max-width:740px;position:relative;z-index:2}
+  .page-hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);color:#fff;margin:16px 0 18px;line-height:1.05}
+  .page-hero h1 em{font-style:normal;color:var(--sun)}
+  .page-hero p{font-size:1.08rem;color:rgba(255,255,255,.94);max-width:42em;margin-bottom:16px}
+  .page-hero .btn-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
+
+  .sec-sub{text-align:center;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 26px}
+
+  @media(min-width:1025px){#pourquoi .public-grid>*{flex-basis:calc(25% - 15px)}}
+
+  .manifesto-box{background:var(--navy,#0B1832);color:#fff;border-radius:var(--r-lg);padding:34px 38px;margin-top:36px;text-align:center}
+  .manifesto-box h3{font-size:1.4rem;color:#fff;margin-bottom:10px}
+  .manifesto-box p{color:rgba(255,255,255,.88);max-width:56em;margin:0 auto;font-size:1rem;line-height:1.6}
+
+  .wiz-sheet{background:#fff}
+
+  .f-row{display:grid;gap:16px;margin-bottom:16px}
+  .f-row.two{grid-template-columns:1fr 1fr}
+  @media(max-width:640px){.f-row.two{grid-template-columns:1fr}}
+  .f-field{display:flex;flex-direction:column;gap:5px}
+  .f-field label{font-size:.78rem;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+  .f-field .hint{font-size:.78rem;color:var(--ink-soft);font-weight:500;text-transform:none}
+  .f-field input,.f-field textarea{border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:var(--ink);background:#fafcfe;transition:border-color .18s;width:100%;max-width:100%}
+  .f-field input:focus,.f-field textarea:focus{outline:none;border-color:var(--sky)}
+  .f-field textarea{min-height:100px;resize:vertical}
+  .f-required{color:#E5484D;margin-left:2px}
+  .chip-grid{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px}
+  .chip{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#f0f7fc;border:1.5px solid var(--line);border-radius:100px;padding:9px 16px;transition:all .18s}
+  .chip input{display:none}
+  .chip:has(input:checked){background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+  .consent-row{display:flex;align-items:flex-start;gap:12px;background:#f0f7fc;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer;margin-top:6px}
+  .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
+  .consent-row span{font-size:.9rem;color:var(--ink);line-height:1.5}
+  .btn-submit-form{background:var(--ink);color:#fff;border:none;font:inherit;font-weight:800;padding:14px 30px;border-radius:100px;cursor:pointer;transition:background .2s;width:100%;margin-top:20px}
+  .btn-submit-form:hover{background:var(--navy)}
+  .btn-submit-form:disabled{opacity:.6;cursor:default}
+  .form-msg{display:none;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:.92rem;font-weight:600}
+  .form-msg.ok{background:#e6f6ec;color:#1e7a43;display:block}
+  .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
+  .btn-spinner{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;opacity:.85;border-radius:50%;animation:btnspin .7s linear infinite;vertical-align:-2px;margin-right:2px}
+  @keyframes btnspin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="clouds" aria-hidden="true">
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cloud" viewBox="0 0 230 110">
+      <g fill="currentColor">
+        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
+        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
+        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
+      </g>
+    </symbol>
+    <symbol id="daisy" viewBox="0 0 100 100">
+      <g transform="translate(50 50)" fill="currentColor">
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
+      </g>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
+    </symbol>  </defs>
+</svg>
+
+<!-- ===================== NAV ===================== -->
+<div id="site-nav"></div>
+<script src="/assets/gate.js?v=3"></script>
+<script src="/assets/nav.js?v=20260811l"></script>
+
+<!-- ===================== HERO ===================== -->
+<header class="page-hero" style="--hero-img:url('https://images.unsplash.com/photo-1555939594-58d7cb561404?w=1600&q=80');--hero-pos:50%">
+  <div class="wrap">
+    <div class="art-hero-inner">
+      <span class="kicker on-dark">club flore</span>
+      <h1>Rejoins le <em>club flore</em></h1>
+      <p>Tu crées du contenu autour du sans gluten et du sans lactose ? Programme gratuit ouvert aux créateurs de contenu sans gluten / sans lactose (soumis à validation du comité FLORE). Le club flore réunit les voix qui font vivre cette communauté au quotidien, avec un accès privilégié au premier festival 100% sans gluten et sans lactose de France.</p>
+      <div class="btn-row">
+        <a href="#pourquoi" class="btn btn-sun">Découvrir le club</a>
+        <a href="#candidature" class="btn btn-ghost-w">Demander à rejoindre le club</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== POURQUOI REJOINDRE ===================== -->
+<section class="sec" id="pourquoi">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Pourquoi rejoindre</span>
+      <h2>Une vitrine engagée, <span class="hl">pas un deal commercial</span></h2>
+    </div>
+    <div class="public-grid">
+      <div class="value-card" data-aos="fade-up">
+        <div class="v-ic" style="background:#E4F2DA">🌱</div>
+        <h3>Une communauté qui te ressemble</h3>
+        <p>Le club flore réunit celles et ceux qui parlent vraiment de sans gluten et de sans lactose au quotidien, pas juste de food en général.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="v-ic" style="background:#FFF1CC">🎟️</div>
+        <h3>Un programme gratuit</h3>
+        <p>Aucun frais, aucune contrepartie commerciale attendue. Chaque candidature est étudiée par le Comité FLORE avant validation.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="v-ic" style="background:#E7F4FB">🤝</div>
+        <h3>Une vraie relation</h3>
+        <p>Pas d'obligations lourdes ni de contrat figé : on construit ensemble, selon qui tu es et ce que tu fais.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="v-ic" style="background:#FCE2E9">🌸</div>
+        <h3>Rejoins l'histoire dès l'édition 1</h3>
+        <p>Le club flore se construit maintenant, avec ses tout premiers membres. Une place à prendre avant que tout le monde en parle.</p>
+      </div>
+    </div>
+    <div class="manifesto-box" data-aos="fade-up">
+      <h3>Démarche associative, sans condition contraignante</h3>
+      <p>C'est un espace pour les créateurs qui vivent vraiment le sans gluten et le sans lactose, et qui ont envie d'en parler avec sincérité, à leur façon. Aucun contrat figé, aucune obligation lourde. FLORE est une association : le club flore est une vitrine et un lieu de rassemblement, pas une marque qui cherche du deal d'influenceurs ou du sponsoring déguisé.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CE QUI EST INCLUS ===================== -->
+<section class="sec" id="inclus" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ce qui est inclus</span>
+      <h2>Concrètement, <span class="hl">ça donne quoi</span></h2>
+    </div>
+    <div class="public-grid">
+      <div class="value-card" data-aos="fade-up">
+        <div class="v-ic" style="background:#E4F2DA">🎁</div>
+        <h3>Des places à offrir</h3>
+        <p>Un dépôt de places FLORE à faire gagner directement auprès de ta communauté.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="v-ic" style="background:#FFF1CC">🔖</div>
+        <h3>Ton propre code promo</h3>
+        <p>Un code personnalisé pour faire profiter ton audience d'une réduction sur la billetterie.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="v-ic" style="background:#E7F4FB">🌸</div>
+        <h3>Ta place au festival</h3>
+        <p>Une invitation gratuite pour toi, avec accès à un espace club flore dédié sur place.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="v-ic" style="background:#FCE2E9">🤍</div>
+        <h3>Des rencontres organisées</h3>
+        <p>La possibilité d'organiser un meetup avec tes abonné·es directement sur le festival.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CANDIDATURE ===================== -->
+<section class="sec wiz-sheet" id="candidature">
+  <div class="wrap">
+    <div class="wiz-head" data-aos="fade-up" style="max-width:640px;margin:0 auto 30px;text-align:center">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Candidater</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.5rem);color:var(--ink);margin:8px 0 8px">Rejoins le club flore</h2>
+      <p style="color:var(--ink-soft);font-size:1rem">Quelques informations suffisent pour qu'on découvre qui tu es. On revient vers toi directement pour en discuter.</p>
+    </div>
+
+    <form id="club-form" novalidate style="max-width:640px;margin:0 auto" data-aos="fade-up">
+      <input type="hidden" name="access_key" value="14559476-1ed3-4665-a2fc-3c6c5233ad1e">
+      <input type="hidden" name="subject" value="Candidature club flore">
+      <input type="hidden" name="from_name" value="Formulaire club flore">
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <div class="f-row two">
+        <div class="f-field"><label>Nom / pseudo <span class="f-required">*</span></label><input type="text" id="in-nom" name="nom" autocomplete="name" required></div>
+        <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" id="in-email" name="email" autocomplete="email" required></div>
+      </div>
+      <div class="f-row">
+        <div class="f-field">
+          <label>Plateforme principale</label>
+          <div class="chip-grid">
+            <label class="chip"><input type="radio" name="plateforme" value="Instagram"><span>Instagram</span></label>
+            <label class="chip"><input type="radio" name="plateforme" value="TikTok"><span>TikTok</span></label>
+            <label class="chip"><input type="radio" name="plateforme" value="YouTube"><span>YouTube</span></label>
+            <label class="chip"><input type="radio" name="plateforme" value="Blog"><span>Blog</span></label>
+            <label class="chip"><input type="radio" name="plateforme" value="Autre"><span>Autre</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="f-row two">
+        <div class="f-field"><label>Lien / compte principal <span class="f-required">*</span></label><input type="text" name="lien_principal" placeholder="@toncompte ou lien" required></div>
+        <div class="f-field"><label>Nombre d'abonnés (ordre de grandeur)</label><input type="text" name="abonnes" placeholder="Ex. 8 000"></div>
+      </div>
+      <div class="f-row">
+        <div class="f-field"><label>Parle-nous de ton contenu autour du sans gluten / sans lactose <span class="f-required">*</span></label><textarea name="contenu" placeholder="Ton univers, ta communauté, ce qui te tient à cœur" required></textarea></div>
+      </div>
+      <div class="f-row">
+        <div class="f-field"><label>Un message à ajouter ?</label><textarea name="message" placeholder="Facultatif"></textarea></div>
+      </div>
+
+      <label class="consent-row">
+        <input type="checkbox" id="in-rgpd">
+        <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
+      </label>
+
+      <button type="submit" class="btn-submit-form" id="btn-submit">Demander à rejoindre le club →</button>
+      <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Tu peux aussi écrire directement à <a href="mailto:contact@flore-festival.fr" style="color:var(--sky-deep);font-weight:700">contact@flore-festival.fr</a>.</p>
+      <div class="form-msg" id="form-msg"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<div id="site-footer"></div>
+<script src="/assets/footer.js?v=20260821a"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70, disable: function(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } });
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  (function(){
+    const form = document.getElementById('club-form');
+    const msg = document.getElementById('form-msg');
+    const btnSubmit = document.getElementById('btn-submit');
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if (!document.getElementById('in-rgpd').checked){
+        msg.className = 'form-msg err';
+        msg.textContent = 'Merci d\'accepter le traitement de vos informations avant l\'envoi.';
+        return;
+      }
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> Envoi en cours…';
+      try {
+        const data = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:data });
+        const json = await res.json();
+        if (json.success){
+          msg.className = 'form-msg ok';
+          msg.textContent = 'Candidature reçue ! On revient vers toi rapidement.';
+          btnSubmit.textContent = 'Candidature envoyée ✓';
+        } else {
+          throw new Error(json.message || 'Échec de l\'envoi (raison inconnue).');
+        }
+      } catch(err) {
+        msg.className = 'form-msg err';
+        const detail = (err && err.message) ? err.message : 'erreur inconnue';
+        msg.textContent = 'Envoi impossible (' + detail + '). Écris-nous à contact@flore-festival.fr si ça persiste.';
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = 'Envoyer ma candidature →';
+      }
+      msg.scrollIntoView({ behavior:'smooth', block:'center' });
+    });
+  })();
+</script>
+<script src="/assets/transitions.js" defer></script>
+<script src="/legal.js?v=20260810c" defer></script>
+</body>
+</html>

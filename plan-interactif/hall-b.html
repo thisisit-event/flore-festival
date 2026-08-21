@@ -7,11 +7,20 @@
 <title>Plan interactif · Hall B · FLORE</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://flore-festival.fr/plan-interactif/hall-b.html">
-<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/flore.css?v=20260805c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLORE Festival">
+<meta property="og:title" content="Plan interactif · Hall B · FLORE">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/flore.css?v=20260821d">
 <style>
   /* Page interne, pas encore reliée au site public (pas de lien nav, noindex).
      Prête à être branchée au moment du reveal du lieu. */
@@ -32,8 +41,8 @@
   .plan-zone{cursor:pointer;stroke:#fff;stroke-width:2;transition:opacity .15s,filter .15s}
   .plan-zone:hover{opacity:.85;filter:brightness(1.06)}
   .plan-zone.active{stroke:var(--ink);stroke-width:4}
-  .plan-label{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;fill:#fff;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
-  .plan-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;fill:#fff;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
+  .plan-label{font-family:'Telegraf',sans-serif;font-weight:700;fill:#fff;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
+  .plan-num{font-family:'Telegraf',sans-serif;font-weight:800;fill:#fff;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
 
   .plan-legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
   .plan-legend span{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;color:var(--ink-soft);font-weight:600}
@@ -74,13 +83,14 @@
 </svg>
 
 <div id="site-nav"></div>
-<script src="/assets/nav.js?v=20260704b"></script>
+<script src="/assets/gate.js?v=3"></script>
+<script src="/assets/nav.js?v=20260811l"></script>
 
 <div class="plan-sheet">
   <div class="wrap">
     <div class="plan-head">
       <div>
-        <h1>Plan interactif — Hall B</h1>
+        <h1>Plan interactif · Hall B</h1>
         <p>Clique une zone ou un stand pour voir le détail. Schéma indicatif (proportions approximatives, pas à l'échelle au centimètre près).</p>
       </div>
       <div class="plan-switch">
@@ -138,31 +148,10 @@
   </div>
 </div>
 
-<footer class="footer">
-  <div class="f-stars"></div>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
-        <p class="about">Le premier festival 100 % sans gluten et sans lactose. Une production de MG Entertainment.</p>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="/#billetterie">Billetterie</a></li>
-          <li><button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button></li>
-          <li><button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment.</span>
-    </div>
-  </div>
-</footer>
+<div id="site-footer"></div>
+<script src="/assets/footer.js?v=20260821a"></script>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
   const nav = document.getElementById('nav');
   const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
@@ -201,7 +190,7 @@
     return {
       title:'Bloc Boutique #'+n, tag:'Boutique', color:'#DAEF52',
       desc:'40m × 4m, stands dos à dos (2 rangées de 2m). Jusqu\'à 20 grands stands (8m²) ou 40 petits (4m²) sur ce bloc selon la demande.',
-      fields:{ 'Dimensions':'40m × 4m (160m²)', 'Petit stand':'2m × 2m — 199€', 'Grand stand':'2m × 4m — 299€' }
+      fields:{ 'Dimensions':'40m × 4m (160m²)', 'Petit stand':'2m × 2m · 199€', 'Grand stand':'2m × 4m · 299€' }
     };
   }
   function partnerInfo(n, tier){
@@ -253,7 +242,7 @@
     const lbl=document.createElementNS(svgNS,'text');
     lbl.setAttribute('class','plan-label'); lbl.setAttribute('x',220); lbl.setAttribute('y',y+20);
     lbl.setAttribute('font-size','11'); lbl.setAttribute('fill','#5f7d12');
-    lbl.textContent='🛍️ Boutique — bloc '+(i+1)+' (dos à dos)';
+    lbl.textContent='🛍️ Boutique · bloc '+(i+1)+' (dos à dos)';
     lbl.style.pointerEvents='none';
     boutiqueG.appendChild(lbl);
   });
@@ -314,6 +303,6 @@
   });
 </script>
 <script src="/assets/transitions.js" defer></script>
-<script src="/legal.js?v=20260808" defer></script>
+<script src="/legal.js?v=20260810c" defer></script>
 </body>
 </html>

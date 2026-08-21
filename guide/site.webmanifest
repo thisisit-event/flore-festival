@@ -1,0 +1,12 @@
+{
+  "name": "Guide FLORE",
+  "short_name": "Guide FLORE",
+  "description": "La carte des adresses sans gluten et sans lactose, validées par le Comité FLORE.",
+  "start_url": "/guide/",
+  "display": "standalone",
+  "background_color": "#2D5479",
+  "theme_color": "#2D5479",
+  "icons": [
+    { "src": "/guide/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jouer à FLORE · Candidature artiste musical</title>
+<meta name="description" content="Musiciens, groupes, DJ : proposez-vous pour la Scène FLORE, le 1er festival 100 % sans gluten et sans lactose.">
+<!-- NOINDEX TEMPORAIRE embargo reveal date/lieu : a retirer demain 22/08 a 18h (repasser "index, follow, max-image-preview:large") -->
+<meta name="robots" content="noindex, follow, max-image-preview:large">
+<meta name="theme-color" content="#2D5479">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="FLORE Festival">
+<meta property="og:title" content="Jouer à FLORE · Candidature artiste musical">
+<meta property="og:description" content="Musiciens, groupes, DJ : proposez-vous pour la Scène FLORE, le 1er festival 100 % sans gluten et sans lactose.">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jouer à FLORE · Candidature artiste musical">
+<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css?v=20260821d">
+<style>
+  /* ===== Wizard (mêmes conventions que /exposants/, /hebergement/, /guide/inscription/) ===== */
+  .wiz-sheet{background:#fff;padding-top:0}
+  .wiz-head h2{font-size:clamp(1.9rem,4vw,2.5rem);color:var(--ink);margin:8px 0 8px}
+  .wiz-head p{color:var(--ink-soft);font-size:1rem;max-width:44em;margin:0 0 28px}
+
+  .wiz-steplabel{font-size:.8rem;font-weight:700;color:var(--sky-deep);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+
+  .wiz-block{padding-top:36px;margin-top:36px;border-top:1.5px solid var(--line)}
+  .wiz-block:first-of-type{padding-top:0;margin-top:0;border-top:none}
+
+  .f-row{display:grid;gap:16px;margin-bottom:16px}
+  .f-row.two{grid-template-columns:1fr 1fr}
+  .f-row.three{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:640px){.f-row.two,.f-row.three{grid-template-columns:1fr}}
+  .f-field{display:flex;flex-direction:column;gap:5px;position:relative}
+  .f-field label{font-size:.78rem;font-weight:700;color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+  .f-field .hint{font-size:.78rem;color:var(--ink-soft);font-weight:500;text-transform:none}
+  .f-field input,.f-field textarea,.f-field select{border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit;font-size:.95rem;color:var(--ink);background:#fafcfe;transition:border-color .18s;width:100%;max-width:100%}
+  .f-field input:focus,.f-field textarea:focus,.f-field select:focus{outline:none;border-color:var(--sky)}
+  .f-field textarea{min-height:90px;resize:vertical}
+  .f-required{color:#E5484D;margin-left:2px}
+
+  .chip-grid{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px}
+  .chip{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#f0f7fc;border:1.5px solid var(--line);border-radius:100px;padding:9px 16px;transition:all .18s}
+  .chip input{display:none}
+  .chip:has(input:checked){background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+
+  .yn-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .yn-row:last-of-type{border-bottom:none}
+  .yn-row .q{font-size:.94rem;color:var(--ink);font-weight:600;max-width:65%}
+  .yn-toggle{display:flex;gap:8px}
+  .yn-toggle button{border:1.5px solid var(--line);background:#fff;border-radius:100px;padding:8px 18px;font:inherit;font-weight:700;font-size:.86rem;color:var(--ink-soft);cursor:pointer;transition:all .18s}
+  .yn-toggle button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+  .draft-banner{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:16px;padding:14px 18px;margin-bottom:22px;font-size:.9rem;color:var(--ink);font-weight:600}
+  .draft-banner-actions{display:flex;gap:10px}
+  .draft-banner-actions button{border-radius:100px;padding:8px 16px;font:inherit;font-weight:700;font-size:.84rem;cursor:pointer;border:1.5px solid var(--line)}
+  .draft-resume{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .draft-discard{background:#fff;color:var(--ink-soft)}
+
+  .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
+  .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
+  .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0}
+
+  .consent-row{display:flex;align-items:flex-start;gap:12px;background:#f0f7fc;border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;cursor:pointer}
+  .consent-row input[type=checkbox]{width:20px;height:20px;flex:0 0 auto;margin-top:2px;accent-color:var(--sky-deep);cursor:pointer}
+  .consent-row span{font-size:.9rem;color:var(--ink);line-height:1.5}
+
+  .btn-submit-wiz{background:var(--ink);color:#fff;border:none;font:inherit;font-weight:800;padding:14px 30px;border-radius:100px;cursor:pointer;transition:background .2s}
+  .btn-submit-wiz:hover{background:var(--navy)}
+  .btn-submit-wiz:disabled{opacity:.6;cursor:default}
+  .form-msg{display:none;border-radius:12px;padding:14px 18px;margin-top:14px;font-size:.92rem;font-weight:600}
+  .form-msg.ok{background:#e6f6ec;color:#1e7a43;display:block}
+  .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
+  .btn-spinner{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;opacity:.85;border-radius:50%;animation:btnspin .7s linear infinite;vertical-align:-2px;margin-right:2px}
+  @keyframes btnspin{to{transform:rotate(360deg)}}
+
+  /* ===== Hero ===== */
+  .art-hero-inner{max-width:740px;position:relative;z-index:2}
+  .page-hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);color:#fff;margin:16px 0 18px;line-height:1.05}
+  .page-hero h1 em{font-style:normal;color:var(--sun)}
+  .page-hero p{font-size:1.08rem;color:rgba(255,255,255,.94);max-width:42em;margin-bottom:16px}
+  .page-hero .btn-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:22px}
+  .page-hero .btn-row .btn{white-space:normal;text-align:center;max-width:100%}
+  .art-note{display:inline-flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 16px;font-size:.86rem;color:rgba(255,255,255,.92);margin-top:16px;max-width:42em}
+
+  .sec-sub{text-align:center;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 26px}
+</style>
+</head>
+<body>
+
+<div class="sky-bg"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="clouds" aria-hidden="true">
+  <svg aria-hidden="true" class="cloud cA"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cB"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cC"><use href="#cloud"/></svg>
+  <svg aria-hidden="true" class="cloud cD"><use href="#cloud"/></svg>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cloud" viewBox="0 0 230 110">
+      <g fill="currentColor">
+        <circle cx="62" cy="66" r="40"/><circle cx="108" cy="50" r="50"/>
+        <circle cx="158" cy="62" r="42"/><circle cx="196" cy="74" r="30"/>
+        <circle cx="32" cy="78" r="28"/><rect x="30" y="64" width="170" height="40" rx="20"/>
+      </g>
+    </symbol>
+    <symbol id="daisy" viewBox="0 0 100 100">
+      <g transform="translate(50 50)" fill="currentColor">
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
+      </g>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
+    </symbol>  </defs>
+</svg>
+
+<!-- ===================== NAV ===================== -->
+<div id="site-nav"></div>
+<script src="/assets/gate.js?v=3"></script>
+<script src="/assets/nav.js?v=20260811l"></script>
+
+<!-- ===================== HERO ===================== -->
+<header class="page-hero" style="--hero-img:url('https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=1600&q=80');--hero-pos:45%;padding-bottom:56px">
+  <div class="wrap">
+    <div class="art-hero-inner">
+      <span class="kicker on-dark">Jouer à FLORE</span>
+      <h1>Montez sur la <em>Scène FLORE</em></h1>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== CANDIDATURE (wizard) ===================== -->
+<section class="sec wiz-sheet" id="candidature" style="padding-top:80px">
+  <div class="wrap">
+    <div class="wiz-head" data-aos="fade-up">
+      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Candidature</span>
+      <h2>Proposez-vous pour la Scène FLORE</h2>
+      <p>Quelques minutes pour nous transmettre votre dossier. L'équipe FLORE Festival étudie chaque proposition et revient vers vous pour en discuter, rien n'est figé à l'envoi.</p>
+    </div>
+
+    <form id="wiz-form" novalidate>
+      <input type="hidden" name="access_key" value="3d26a9a5-43d1-4627-834a-c51303531e23">
+      <input type="hidden" name="subject" value="Candidature artiste musical FLORE (Scène FLORE)">
+      <input type="hidden" name="from_name" value="Formulaire Artistes FLORE">
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Vous</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Parlez-nous de vous</h3>
+        <div class="f-row two">
+          <div class="f-field"><label>Nom / nom de scène <span class="f-required">*</span></label><input type="text" name="nom_artiste" id="in-nom" autocomplete="name" required></div>
+          <div class="f-field"><label>Structure / label (si applicable)</label><input type="text" name="structure" autocomplete="organization"></div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" id="in-email" name="email" autocomplete="email" required></div>
+          <div class="f-field"><label>Téléphone</label><input type="tel" name="telephone" autocomplete="tel"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Liens (SoundCloud, Spotify, Instagram, site...)</label><textarea name="liens" placeholder="Un lien par ligne suffit"></textarea></div>
+        </div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Votre proposition</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Quelques précisions</h3>
+        <div class="f-row two">
+          <div class="f-field"><label>Genre musical / style</label><input type="text" name="sc_genre" placeholder="Électro, live band, chanson, world..."></div>
+          <div class="f-field"><label>Format</label><input type="text" name="sc_format" placeholder="Solo, duo, groupe (combien de personnes ?)"></div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>Durée de set possible</label><input type="text" name="sc_duree" placeholder="Ex. 45 min, 1h..."></div>
+          <div class="f-field">
+            <label>Lien vidéo d'un live</label>
+            <span class="hint">Un extrait, même court, nous permet d'évaluer votre énergie sur scène : fortement recommandé, pro ou amateur.</span>
+            <input type="url" name="lien_live" placeholder="YouTube, Instagram, TikTok...">
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Expérience scénique</label><input type="text" name="sc_experience" placeholder="Dates, salles ou festivals déjà joués, ou vos premières fois, si vous démarrez"></div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Pourquoi jouer à FLORE ?</label><textarea name="sc_motivation" placeholder="Quelques lignes suffisent"></textarea></div>
+        </div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Conditions</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Parlons conditions</h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:20px">FLORE est une structure indépendante au budget encadré. Soyez le plus précis et réaliste possible, ça nous aide à construire une collaboration sereine.</p>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label>Statut de votre structure</label>
+            <div class="chip-grid">
+              <label class="chip"><input type="radio" name="statut_structure" value="Association / amateurs"><span>Association / amateurs</span></label>
+              <label class="chip"><input type="radio" name="statut_structure" value="Indépendant / en structuration"><span>Indépendant / en structuration</span></label>
+              <label class="chip"><input type="radio" name="statut_structure" value="Professionnel (intermittence / label / tourneur)"><span>Professionnel (intermittence / label / tourneur)</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="f-row" style="margin-top:6px">
+          <div class="f-field">
+            <label>Rémunération envisagée pour un set</label>
+            <div class="chip-grid">
+              <label class="chip"><input type="radio" name="cachet_type" value="Session découverte (défraiement repas/boissons + transport si possible)"><span>Session découverte (défraiement)</span></label>
+              <label class="chip"><input type="radio" name="cachet_type" value="Petit cachet / participation forfaitaire"><span>Petit cachet / participation forfaitaire</span></label>
+              <label class="chip"><input type="radio" name="cachet_type" value="Tarif pro habituel"><span>Tarif pro habituel</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="f-row" style="margin-top:6px">
+          <div class="f-field"><label>Si applicable, précisez votre montant</label><input type="text" name="sc_cachet" placeholder="Ordre de grandeur"></div>
+        </div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Disponibilité &amp; envoi</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Le jour J</h3>
+        <div class="info-box" style="margin-top:0">
+          <h4>Samedi 17 avril 2027, Ainterexpo (Bourg-en-Bresse)</h4>
+          <p>Les balances/sound checks ont lieu uniquement entre 8h et 11h le jour même (sous réserve des horaires définitifs Ainterexpo), pas de créneau la veille. À garder en tête pour votre organisation.</p>
+        </div>
+        <div class="yn-row">
+          <span class="q">Êtes-vous disponible le 17 avril 2027 ?</span>
+          <div class="yn-toggle" data-field="disponibilite"><button type="button" data-val="Oui">Oui</button><button type="button" data-val="À confirmer">À confirmer</button></div>
+        </div>
+        <input type="hidden" name="disponibilite">
+        <div class="f-row" style="margin-top:16px">
+          <div class="f-field"><label>Remarques (optionnel)</label><textarea name="disponibilite_notes" placeholder="Contraintes, dates à éviter, ce que vous voulez ajouter..."></textarea></div>
+        </div>
+
+        <div class="info-box">
+          <h4>Comment ça se passe après l'envoi</h4>
+          <p>L'équipe FLORE Festival étudie chaque proposition et revient vers vous pour en discuter directement : cachet, rider technique, transport, hébergement. Rien n'est décidé automatiquement à l'envoi de ce formulaire.</p>
+        </div>
+
+        <label class="consent-row" style="margin-top:20px">
+          <input type="checkbox" id="in-rgpd">
+          <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
+        </label>
+
+        <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma candidature →</button>
+        <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Un oubli après l'envoi ? Écrivez-nous à contact@flore-festival.fr.</p>
+        <div class="form-msg" id="wiz-msg"></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<div id="site-footer"></div>
+<script src="/assets/footer.js?v=20260821a"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70, disable: function(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } });
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  (function(){
+    const form = document.getElementById('wiz-form');
+
+    function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    function validateForm(){
+      const required = ['in-nom','in-email'];
+      for (const id of required){
+        if (!document.getElementById(id).value.trim()){
+          alert('Merci de compléter les champs obligatoires avant l\'envoi.');
+          document.getElementById(id).focus();
+          document.getElementById(id).scrollIntoView({ behavior:'smooth', block:'center' });
+          return false;
+        }
+      }
+      if (!isValidEmail(document.getElementById('in-email').value.trim())){
+        alert('Merci d\'indiquer une adresse email valide.');
+        document.getElementById('in-email').focus();
+        return false;
+      }
+      if (!form.querySelector('input[name=statut_structure]:checked')){
+        alert('Merci d\'indiquer le statut de votre structure.');
+        return false;
+      }
+      if (!form.querySelector('input[name=cachet_type]:checked')){
+        alert('Merci d\'indiquer la rémunération envisagée.');
+        return false;
+      }
+      return true;
+    }
+
+    // ---- Toggles Oui/Non ----
+    document.querySelectorAll('.yn-toggle').forEach(function(toggle){
+      const field = toggle.dataset.field;
+      const hidden = form.querySelector('input[type=hidden][name="' + field + '"]');
+      toggle.querySelectorAll('button').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          toggle.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); });
+          btn.classList.add('on');
+          hidden.value = btn.dataset.val;
+        });
+      });
+    });
+
+    // ---- Soumission ----
+    const msg = document.getElementById('wiz-msg');
+    const btnSubmit = document.getElementById('btn-submit');
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if (!validateForm()) return;
+      if (!document.getElementById('in-rgpd').checked){
+        msg.className = 'form-msg err';
+        msg.textContent = 'Merci d\'accepter le traitement de vos informations avant l\'envoi.';
+        return;
+      }
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> Envoi en cours…';
+      try {
+        const data = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', { method:'POST', body:data });
+        const json = await res.json();
+        if (json.success){
+          msg.className = 'form-msg ok';
+          msg.textContent = 'Candidature reçue ! On revient vers vous pour en discuter.';
+          btnSubmit.textContent = 'Candidature envoyée ✓';
+          clearDraft();
+        } else {
+          throw new Error(json.message || 'Échec de l\'envoi (raison inconnue).');
+        }
+      } catch(err) {
+        msg.className = 'form-msg err';
+        const detail = (err && err.message) ? err.message : 'erreur inconnue';
+        msg.textContent = 'Envoi impossible (' + detail + '). Écrivez-nous à contact@flore-festival.fr si ça persiste.';
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = 'Envoyer ma candidature →';
+      }
+      msg.scrollIntoView({ behavior:'smooth', block:'center' });
+    });
+
+    // ---- Sauvegarde de brouillon (localStorage) : évite de tout reperdre en cas de fermeture accidentelle ----
+    const DRAFT_KEY = 'flore_draft_artistes';
+    function saveDraft(){
+      const data = {};
+      form.querySelectorAll('input[name], textarea[name], select[name]').forEach(function(el){
+        if (el.name === 'botcheck') return;
+        if (el.type === 'checkbox') {
+          if (!data[el.name]) data[el.name] = [];
+          if (el.checked) data[el.name].push(el.value);
+        } else if (el.type === 'radio') {
+          if (el.checked) data[el.name] = el.value;
+        } else {
+          data[el.name] = el.value;
+        }
+      });
+      try { localStorage.setItem(DRAFT_KEY, JSON.stringify(data)); } catch(e){}
+    }
+    function clearDraft(){ try { localStorage.removeItem(DRAFT_KEY); } catch(e){} }
+    function applyDraft(data){
+      Object.keys(data).forEach(function(name){
+        if (name.charAt(0) === '_') return;
+        const els = form.querySelectorAll('[name="' + name + '"]');
+        if (!els.length) return;
+        const val = data[name];
+        if (els[0].type === 'checkbox') {
+          const arr = Array.isArray(val) ? val : [val];
+          els.forEach(function(el){ el.checked = arr.indexOf(el.value) !== -1; });
+        } else if (els[0].type === 'radio') {
+          els.forEach(function(el){ el.checked = (el.value === val); });
+        } else {
+          els[0].value = val;
+        }
+      });
+      document.querySelectorAll('.yn-toggle').forEach(function(toggle){
+        const field = toggle.dataset.field;
+        const hidden = form.querySelector('input[type=hidden][name="' + field + '"]');
+        if (hidden && hidden.value) {
+          toggle.querySelectorAll('button').forEach(function(b){ b.classList.toggle('on', b.dataset.val === hidden.value); });
+        }
+      });
+    }
+    form.addEventListener('input', saveDraft);
+    form.addEventListener('change', saveDraft);
+
+    (function(){
+      let saved = null;
+      try { saved = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null'); } catch(e){}
+      const hasContent = saved && Object.keys(saved).some(function(k){ return k.charAt(0) !== '_' && saved[k] && saved[k].length; });
+      if (hasContent){
+        const banner = document.createElement('div');
+        banner.className = 'draft-banner';
+        banner.innerHTML = '<span>🕓 Une candidature commencée a été retrouvée sur cet appareil.</span><div class="draft-banner-actions"><button type="button" class="draft-resume">Reprendre</button><button type="button" class="draft-discard">Recommencer</button></div>';
+        form.parentNode.insertBefore(banner, form);
+        banner.querySelector('.draft-resume').addEventListener('click', function(){
+          applyDraft(saved);
+          banner.remove();
+        });
+        banner.querySelector('.draft-discard').addEventListener('click', function(){
+          clearDraft();
+          banner.remove();
+        });
+      }
+    })();
+  })();
+</script>
+<script src="/assets/transitions.js" defer></script>
+<script src="/legal.js?v=20260810c" defer></script>
+</body>
+</html>

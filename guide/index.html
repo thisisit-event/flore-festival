@@ -8,25 +8,26 @@
 <meta name="description" content="La carte interactive des restaurants, boulangeries, épiceries et marques sans gluten et sans lactose, validés par le Comité FLORE. Filtrez par allergène, trouvez une adresse près de chez vous.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://flore-festival.fr/guide/">
-<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="icon" href="/guide/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/guide/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/guide/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/guide/apple-touch-icon.png">
+<link rel="manifest" href="/guide/site.webmanifest">
 <meta property="og:title" content="Le Guide FLORE · La carte du sans gluten et sans lactose">
 <meta property="og:description" content="Restaurants, boulangeries, épiceries et marques sans gluten et sans lactose, validés par le Comité FLORE.">
 <meta property="og:url" content="https://flore-festival.fr/guide/">
-<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Le Guide FLORE - carte du sans gluten et sans lactose">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Le Guide FLORE · La carte du sans gluten et sans lactose">
 <meta name="twitter:description" content="La carte interactive des adresses sans gluten et sans lactose, validées par le Comité FLORE.">
-<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
 <meta name="twitter:image:alt" content="FLORE Festival - logo">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="/assets/flore.css?v=20260805c">
+<link rel="stylesheet" href="/assets/flore.css?v=20260821d">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -99,75 +100,52 @@
   .gt-locate.on{background:#15395B;border-color:#15395B;color:#fff}
   .gt-locate.loading{opacity:.6;pointer-events:none}
 
-  /* ===== Bascule Liste / Carte (mobile) ===== */
-  .guide-view-toggle{display:none}
-  @media(max-width:900px){
-    .guide-view-toggle{display:flex;gap:6px;margin-bottom:14px;background:rgba(255,255,255,.55);padding:5px;border-radius:100px}
-    .gvt-btn{flex:1;border:none;background:none;padding:11px;border-radius:100px;font:inherit;font-size:.86rem;font-weight:700;color:#fff;cursor:pointer;transition:all .18s}
-    .gvt-btn.on{background:#fff;color:#15395B;box-shadow:0 4px 12px rgba(21,57,91,.14)}
-  }
-
   .gp-cta{display:flex;align-items:center;gap:10px;background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:14px;padding:12px 16px;margin-bottom:14px;text-decoration:none;color:#15395B;font-size:.88rem;line-height:1.4;transition:all .18s}
   .gp-cta:hover{border-color:var(--sun-deep);background:#fdf6d8}
   .gp-cta-ic{font-size:1.2rem;flex:0 0 auto}
   .gp-cta strong{color:#15395B}
 
-  /* ===== Vue façon Airbnb : fiches à gauche (colonne fixe, scroll
-     vertical interne), carte à droite (prend le reste de la largeur),
-     les deux visibles ensemble sur desktop. Sur mobile, un seul des deux
-     à la fois (toggle Carte/Liste), voir plus bas. ===== */
+  /* ===== Vue façon Google Maps : carte pleine largeur en haut, fiches
+     établissements dans un bandeau qui défile horizontalement en dessous.
+     Carte et liste toujours visibles ensemble, sur tous les écrans
+     (remplace l'ancienne vue Airbnb colonne fixe + bascule mobile,
+     2026-08-11). ===== */
   .guide-split{display:flex;flex-direction:column;gap:16px}
-  @media(min-width:901px){.guide-split{display:grid;grid-template-columns:420px 1fr;gap:20px;align-items:stretch}}
+  .guide-map-wrap{order:1;position:static}
+  .guide-list-outer{order:2;background:rgba(255,255,255,.4);border-radius:24px;padding:14px 10px}
+  .guide-list{display:flex;flex-direction:row;gap:14px;overflow-x:auto;padding:4px 4px 10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .guide-list::-webkit-scrollbar{height:8px}
+  .guide-list::-webkit-scrollbar-thumb{background:rgba(21,57,91,.18);border-radius:10px}
 
-  .guide-map-wrap{position:static}
-  .guide-list-outer{background:rgba(255,255,255,.4);border-radius:24px;padding:10px}
-  .guide-list{display:flex;flex-direction:column;gap:14px}
-  @media(min-width:901px){.guide-list{height:100%;overflow-y:auto;padding-right:4px}}
-
-  @media(max-width:900px){
-    .guide-map-wrap{order:1}
-    .guide-list-outer{order:2}
-    .guide-split.view-list .guide-map-wrap{display:none}
-    .guide-split.view-map .guide-list-outer{display:none}
-  }
-  #flore-map{height:560px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
-  @media(min-width:901px){#flore-map{height:min(72vh,780px)}}
+  #flore-map{height:min(52vh,460px);min-height:340px;border-radius:24px;box-shadow:0 20px 56px rgba(21,57,91,.18);z-index:1}
   .gm-reset{position:absolute;top:14px;right:14px;z-index:500;background:#fff;border:none;border-radius:100px;padding:9px 16px;font:inherit;font-size:.82rem;font-weight:700;color:#15395B;box-shadow:0 6px 18px rgba(21,57,91,.22);cursor:pointer;transition:transform .15s}
   .gm-reset:hover{transform:translateY(-2px)}
-  @media(max-width:900px){#flore-map{height:calc(100vh - 320px);min-height:380px}}
 
-  /* ===== Mode plein écran mobile (façon Google Maps) : la carte occupe
-     tout l'écran, la recherche/les filtres flottent par-dessus. ===== */
-  @media(max-width:900px){
-    body.guide-map-full{overflow:hidden}
-    body.guide-map-full .guide-section{padding:0}
-    body.guide-map-full .guide-map-wrap{position:fixed;inset:0;z-index:50}
-    body.guide-map-full #flore-map{height:100vh;border-radius:0;box-shadow:none}
-    body.guide-map-full .guide-search-panel{
-      position:fixed;top:78px;left:12px;right:12px;z-index:90;margin:0;
-      max-height:calc(100vh - 160px);overflow-y:auto;
-      -webkit-overflow-scrolling:touch;
-    }
-    body.guide-map-full .leaflet-top{top:80px}
-    body.guide-map-full .gm-reset{top:84px}
-  }
+  /* Habillage des contrôles Leaflet, pour matcher l'identité arrondie/douce du site */
+  .leaflet-control-zoom{border:none!important;border-radius:14px!important;overflow:hidden;box-shadow:0 6px 18px rgba(21,57,91,.22)!important}
+  .leaflet-control-zoom a{width:36px!important;height:36px!important;line-height:36px!important;color:#15395B!important;font-size:1.1rem!important}
+  .leaflet-control-zoom a:hover{background:var(--sun-pale)!important}
+  .leaflet-popup-content-wrapper{border-radius:16px!important;box-shadow:0 16px 36px rgba(21,57,91,.22)!important}
+  .leaflet-popup-content{margin:14px 16px!important}
+  .leaflet-popup-tip{box-shadow:0 4px 10px rgba(21,57,91,.1)!important}
 
-  .guide-card{display:block;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 8px 26px rgba(21,57,91,.1);border:2px solid transparent;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .guide-card{display:flex;flex-direction:column;flex:0 0 288px;height:268px;scroll-snap-align:start;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 8px 26px rgba(21,57,91,.1);border:2px solid transparent;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;overflow:hidden}
+  .guide-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#DAEF52,#1FA9A0)}
   .guide-card[hidden]{display:none}
-  .guide-card:hover,.guide-card.is-active{transform:translateY(-3px);border-color:#DAEF52;box-shadow:0 16px 36px rgba(21,57,91,.18)}
-  .gc-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .guide-card:hover,.guide-card.is-active{transform:translateY(-4px);border-color:#DAEF52;box-shadow:0 18px 38px rgba(21,57,91,.2)}
+  .gc-top{display:flex;align-items:center;gap:9px;margin-bottom:10px}
   .pin-gluten{background:#DAEF52}
   .pin-lactose{background:#1FA9A0}
   .pin-bicolore{background:linear-gradient(135deg,#DAEF52 50%,#1FA9A0 50%)}
   .gc-pin{width:14px;height:14px;border-radius:50%;flex:0 0 auto;border:2px solid #fff;box-shadow:0 0 0 1px #e4edf5}
-  .gc-type{font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#7c93a3}
-  .guide-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.08rem;color:#15395B;margin:0 0 6px}
-  .gc-status{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-  .gc-status span{background:#f0f7fc;border-radius:100px;padding:4px 10px;font-size:.76rem;font-weight:600;color:#2d4a5e}
-  .gc-desc{font-size:.87rem;color:#4a6070;line-height:1.55;margin:0 0 10px}
-  .gc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .gc-loc{font-size:.82rem;color:#5C7993;font-weight:600}
-  .gc-cta{font-size:.82rem;font-weight:700;color:#3F93C4}
+  .gc-type{font-size:.74rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#7c93a3}
+  .guide-card h3{font-family:'Telegraf',sans-serif;font-size:1.1rem;color:#15395B;margin:0 0 8px;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .gc-status{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .gc-status span{background:#f0f7fc;border-radius:100px;padding:4px 10px;font-size:.74rem;font-weight:600;color:#2d4a5e;white-space:nowrap}
+  .gc-desc{font-size:.86rem;color:#4a6070;line-height:1.5;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .gc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px}
+  .gc-loc{font-size:.8rem;color:#5C7993;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .gc-cta{font-size:.82rem;font-weight:700;color:#3F93C4;flex:0 0 auto}
 
   .guide-card-ghost{border:2px dashed #cddce6;box-shadow:none;background:rgba(255,255,255,.55)}
   .guide-card-ghost:hover{border-color:#DAEF52;box-shadow:0 10px 26px rgba(21,57,91,.1);background:#fff}
@@ -229,7 +207,8 @@
 </svg>
 
 <div id="site-nav"></div>
-<script src="/assets/nav.js?v=20260704b"></script>
+<script src="/assets/gate.js?v=3"></script>
+<script src="/assets/nav.js?v=20260811l"></script>
 
 <!-- HERO -->
 <header class="sec" id="top" style="padding-top:118px;padding-bottom:20px">
@@ -258,10 +237,6 @@
       <div class="guide-suggest" id="guide-suggest" hidden role="listbox"></div>
 
       <div class="guide-panel-body" id="guide-panel-body" hidden>
-        <div class="guide-view-toggle" id="guide-view-toggle">
-          <button type="button" class="gvt-btn on" data-view="map">🗺️ Carte</button>
-          <button type="button" class="gvt-btn" data-view="list">📋 Liste</button>
-        </div>
 
         <a href="/guide/inscription/" class="gp-cta">
           <span class="gp-cta-ic">✨</span>
@@ -306,7 +281,7 @@
       viennent de assets/data/guide-etablissements.json (fetch). À chaque établissement
       validé, il faut mettre à jour LES DEUX : voir README.md, section "Guide FLORE".
     -->
-    <div class="guide-split view-map">
+    <div class="guide-split">
       <div class="guide-list-outer">
       <div class="guide-list" id="guide-list">
         <a class="guide-card" href="/guide/flore-festival/"
@@ -527,50 +502,16 @@
   </div>
 </section>
 
-<footer class="footer">
-  <div class="f-stars"></div>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
-        <p class="about">Le premier festival 100 % sans gluten et sans lactose. Une production de MG Entertainment.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
-          </a>
-        </div>
-      </div>
-      <div>
-        <h5>Le Guide</h5>
-        <ul>
-          <li><a href="/guide/">La carte interactive</a></li>
-          <li><a href="/guide/inscription/">Rejoindre le Guide</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="/a-propos/">Qui sommes-nous</a></li>
-          <li><a href="/#billetterie">Billetterie</a></li>
-          <li><button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button></li>
-          <li><button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year">2026</span> FLORE Festival · Une production MG Entertainment.</span>
-      <span>France · Dansez sans gluten, savourez sans lactose.</span>
-    </div>
-  </div>
-</footer>
+<div id="site-footer"></div>
+<script src="/assets/footer.js?v=20260821a"></script>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
+  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70, disable: function(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } });
   document.getElementById('year').textContent = new Date().getFullYear();
   const nav = document.getElementById('nav');
-  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30 || document.body.classList.contains('guide-map-full'));
+  const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
 
@@ -590,8 +531,6 @@
     const cards = Array.prototype.slice.call(document.querySelectorAll('.guide-card:not(.guide-card-ghost)'));
     const btnLocate = document.getElementById('btn-locate');
     const btnMapReset = document.getElementById('btn-map-reset');
-    const viewToggle = document.getElementById('guide-view-toggle');
-    const splitEl = document.querySelector('.guide-split');
     const catsWrap = document.getElementById('guide-categories');
     const catsFade = document.querySelector('.gc-fade');
 
@@ -631,7 +570,7 @@
 
     function ficheHtml(item){
       let html = '<div class="fiche-pop">';
-      html += '<h4 style="font-family:\'Bricolage Grotesque\',sans-serif;margin:0 0 4px">' + item.nom + '</h4>';
+      html += '<h4 style="font-family:\'Telegraf\',sans-serif;margin:0 0 4px">' + item.nom + '</h4>';
       html += '<div style="font-size:.78rem;color:#7c93a3;font-weight:600;margin-bottom:6px">' + item.type + '</div>';
       html += '<div style="font-size:.82rem;color:#4a6070;line-height:1.5">' + statutTexte(item) + '</div>';
       if(item.slug) html += '<a href="/guide/' + item.slug + '/" style="display:inline-block;margin-top:8px;font-weight:700;color:#3F93C4">Voir la fiche complète →</a>';
@@ -810,9 +749,6 @@
       render();
       highlightCard(slug, { openMarker: true });
       if(map && markersBySlug[slug]) map.setView(markersBySlug[slug].getLatLng(), 12);
-      if(viewToggle && window.innerWidth <= 900){
-        setView('map');
-      }
     }
 
     suggestBox.addEventListener('mousedown', function(e){
@@ -911,33 +847,10 @@
       updateFade();
     }
 
-    // ---- Bascule Liste / Carte (mobile) : la carte occupe alors tout
-    // l'écran, façon Google Maps, avec la recherche/les filtres flottant
-    // par-dessus (voir CSS body.guide-map-full).
-    function updateFullscreen(v){
-      const isMobile = window.innerWidth <= 900;
-      document.body.classList.toggle('guide-map-full', isMobile && v === 'map');
-      if(typeof onScroll === 'function') onScroll();
-    }
-    function setView(v){
-      if(!splitEl) return;
-      splitEl.classList.remove('view-list', 'view-map');
-      splitEl.classList.add('view-' + v);
-      if(viewToggle){
-        viewToggle.querySelectorAll('.gvt-btn').forEach(function(b){ b.classList.toggle('on', b.dataset.view === v); });
-      }
-      updateFullscreen(v);
-      if(v === 'map' && map) setTimeout(function(){ map.invalidateSize(); }, 260);
-    }
-    if(viewToggle){
-      viewToggle.querySelectorAll('.gvt-btn').forEach(function(btn){
-        btn.addEventListener('click', function(){ setView(btn.dataset.view); });
-      });
-    }
-    updateFullscreen('map');
+    // Carte et bandeau de fiches toujours visibles ensemble : juste besoin de
+    // notifier Leaflet des changements de taille du conteneur (resize fenêtre).
     window.addEventListener('resize', function(){
-      const active = splitEl && splitEl.classList.contains('view-map') ? 'map' : 'list';
-      updateFullscreen(active);
+      if(map) map.invalidateSize();
     });
 
     // ---- Recentrer la carte sur tous les résultats visibles ----
@@ -950,8 +863,7 @@
     }
     if(btnMapReset) btnMapReset.addEventListener('click', fitMapToMarkers);
 
-    // ---- Le compteur de résultats ouvre la carte filtrée (mobile : replie
-    // le panneau qui la recouvre ; tous supports : recentre sur les résultats) ----
+    // ---- Le compteur de résultats replie le panneau et recentre la carte sur les résultats ----
     if(guideCount){
       guideCount.addEventListener('click', function(){
         if(panelBodyEl && !panelBodyEl.hidden){
@@ -961,7 +873,6 @@
             btnPanelExpand.setAttribute('aria-expanded', 'false');
           }
         }
-        setView('map');
         fitMapToMarkers();
       });
     }
@@ -1010,9 +921,9 @@
 
     try {
       map = L.map('flore-map', { scrollWheelZoom:true, touchZoom:true }).setView([46.6, 2.4], 6);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        subdomains: 'abc',
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
         maxZoom: 19
       }).addTo(map);
       markerLayer = L.layerGroup().addTo(map);
@@ -1049,6 +960,6 @@
   })();
 </script>
 <script src="/assets/transitions.js" defer></script>
-<script src="/legal.js?v=20260808" defer></script>
+<script src="/legal.js?v=20260810c" defer></script>
 </body>
 </html>

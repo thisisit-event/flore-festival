@@ -23,12 +23,12 @@
     '.lgl-close{position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border:none;border-radius:50%;background:var(--sky-pale,#E7F4FB);color:var(--ink,#15395B);font-size:1.6rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .2s,transform .2s}',
     '.lgl-close:hover{background:var(--sun,#DAEF52);transform:rotate(90deg)}',
     '.lgl-body{overflow-y:auto;padding:44px 38px 34px;-webkit-overflow-scrolling:touch}',
-    '.lgl-kicker{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun-deep,#92A824);margin-bottom:10px}',
-    '.lgl-body h2{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:800;font-size:1.85rem;line-height:1.1;letter-spacing:-.02em;color:var(--ink,#15395B);margin-bottom:12px}',
-    '.lgl-body h3{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:1.06rem;color:var(--sky-deep,#2E7FB8);margin:22px 0 6px}',
-    '.lgl-body p{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.95rem;line-height:1.62;color:var(--ink-soft,#5C7993);margin-bottom:10px}',
+    '.lgl-kicker{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun-deep,#92A824);margin-bottom:10px}',
+    '.lgl-body h2{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:800;font-size:1.85rem;line-height:1.1;letter-spacing:-.02em;color:var(--ink,#15395B);margin-bottom:12px}',
+    '.lgl-body h3{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:1.06rem;color:var(--sky-deep,#2E7FB8);margin:22px 0 6px}',
+    '.lgl-body p{font-family:\'Telegraf\',system-ui,sans-serif;font-size:.95rem;line-height:1.62;color:var(--ink-soft,#5C7993);margin-bottom:10px}',
     '.lgl-body ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:6px 0 12px}',
-    '.lgl-body li{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.95rem;line-height:1.6;color:var(--ink-soft,#5C7993);padding-left:18px;position:relative}',
+    '.lgl-body li{font-family:\'Telegraf\',system-ui,sans-serif;font-size:.95rem;line-height:1.6;color:var(--ink-soft,#5C7993);padding-left:18px;position:relative}',
     '.lgl-body li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--sun,#DAEF52)}',
     '.lgl-body strong{color:var(--ink,#15395B);font-weight:700}',
     '.lgl-body a{color:var(--sky-deep,#2E7FB8);text-decoration:underline;font-weight:600}',
@@ -39,18 +39,18 @@
     '.lgl-cookie.show{transform:translateX(0)}',
     '.lgl-cookie .ck-top{display:flex;align-items:center;gap:9px;margin-bottom:7px}',
     '.lgl-cookie .ck-emoji{font-size:1.45rem;line-height:1}',
-    '.lgl-cookie h4{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:800;font-size:1.08rem;color:var(--ink,#15395B)}',
-    '.lgl-cookie p{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.86rem;line-height:1.55;color:var(--ink-soft,#5C7993);margin-bottom:14px}',
+    '.lgl-cookie h4{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:800;font-size:1.08rem;color:var(--ink,#15395B)}',
+    '.lgl-cookie p{font-family:\'Telegraf\',system-ui,sans-serif;font-size:.86rem;line-height:1.55;color:var(--ink-soft,#5C7993);margin-bottom:14px}',
     '.lgl-cookie .ck-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}',
-    '.lgl-cookie .ck-ok{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:var(--ink,#15395B);color:var(--white,#fff);border:none;cursor:pointer;padding:11px 22px;border-radius:100px;transition:transform .2s,background .2s}',
+    '.lgl-cookie .ck-ok{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:var(--ink,#15395B);color:var(--white,#fff);border:none;cursor:pointer;padding:11px 22px;border-radius:100px;transition:transform .2s,background .2s}',
     '.lgl-cookie .ck-ok:hover{transform:translateY(-2px);background:var(--navy,#0B1832)}',
-    '.lgl-cookie .ck-decline{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:none;color:var(--ink-soft,#5C7993);border:1px solid rgba(21,57,91,.18);cursor:pointer;padding:10px 18px;border-radius:100px;transition:background .2s}',
+    '.lgl-cookie .ck-decline{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:none;color:var(--ink-soft,#5C7993);border:1px solid rgba(21,57,91,.18);cursor:pointer;padding:10px 18px;border-radius:100px;transition:background .2s}',
     '.lgl-cookie .ck-decline:hover{background:rgba(21,57,91,.06)}',
-    '.lgl-cookie .ck-more{font-family:\'DM Sans\',system-ui,sans-serif;font-size:.84rem;font-weight:600;color:var(--ink-soft,#5C7993);background:none;border:none;cursor:pointer;text-decoration:underline;width:100%;text-align:center;margin-top:2px}',
+    '.lgl-cookie .ck-more{font-family:\'Telegraf\',system-ui,sans-serif;font-size:.84rem;font-weight:600;color:var(--ink-soft,#5C7993);background:none;border:none;cursor:pointer;text-decoration:underline;width:100%;text-align:center;margin-top:2px}',
     'body.lgl-locked{overflow:hidden}',
     '@media(max-width:480px){.lgl-cookie{left:14px;right:14px;bottom:14px;width:auto}.lgl-body{padding:42px 22px 28px}}',
     '@media(prefers-reduced-motion:reduce){.lgl-overlay,.lgl-card,.lgl-cookie{transition:none}.lgl-close:hover{transform:none}}',
-    '.lgl-manage-cookies{font-family:\'Bricolage Grotesque\',system-ui,sans-serif;font-weight:700;font-size:.88rem;background:var(--sun,#DAEF52);color:var(--ink,#15395B);border:none;cursor:pointer;padding:10px 20px;border-radius:100px;transition:transform .2s,background .2s}',
+    '.lgl-manage-cookies{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:.88rem;background:var(--sun,#DAEF52);color:var(--ink,#15395B);border:none;cursor:pointer;padding:10px 20px;border-radius:100px;transition:transform .2s,background .2s}',
     '.lgl-manage-cookies:hover{transform:translateY(-2px);background:var(--sun-deep,#92A824)}'
   ].join('');
 
@@ -66,7 +66,6 @@
     'N° RNA : W012014876.<br>' +
     'SIREN : 889 266 037.<br>' +
     'SIRET : 889 266 037 00023.<br>' +
-    'Téléphone : 07 44 98 00 15.<br>' +
     'E-mail : <a href="mailto:contact@mgentertainment.fr">contact@mgentertainment.fr</a><br>' +
     '</p>' +
 
@@ -82,7 +81,7 @@
     '<p>L\'ensemble des contenus de ce site (textes, visuels, illustrations, identité graphique « FLORE », mascotte « Florette » et logo) est la propriété exclusive de MG Entertainment, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>' +
 
     '<h3>Crédits et ressources</h3>' +
-    '<p>Polices d\'écriture : Bricolage Grotesque et DM Sans, fournies via Google Fonts. Animations au défilement : bibliothèque AOS (Animate On Scroll). Illustrations originales (mascotte Florette, motifs floraux) : MG Entertainment.</p>' +
+    '<p>Police d\'écriture : Telegraf. Animations au défilement : bibliothèque AOS (Animate On Scroll). Illustrations originales (mascotte Florette, motifs floraux) : MG Entertainment.</p>' +
 
     '<h3>Responsabilité</h3>' +
     '<p>MG Entertainment s\'efforce d\'assurer l\'exactitude des informations publiées (lieu, dates, tarifs, programmation). Celles-ci sont données à titre indicatif et susceptibles d\'évoluer ; les informations définitives seront communiquées avant l\'événement.</p>' +
@@ -120,11 +119,43 @@
     '<ul>' +
       '<li><strong>Google Analytics</strong> et <strong>Pixel Meta</strong> : déposés uniquement si vous cliquez « Accepter » sur le bandeau cookies. Vous pouvez refuser sans que cela affecte votre navigation.</li>' +
       '<li><strong>Stockage local</strong> : nous mémorisons, sur votre appareil, votre choix (accepté/refusé) pour ne pas vous redemander à chaque visite. Cette donnée reste dans votre navigateur.</li>' +
-      '<li><strong>Ressources externes</strong> : les polices d\'écriture (Google Fonts) et la bibliothèque d\'animations (AOS) sont chargées depuis des serveurs tiers, indépendamment de votre choix ci-dessus. Ceux-ci peuvent recevoir votre adresse IP, technique nécessaire pour livrer les fichiers, sans aucun suivi de votre navigation.</li>' +
+      '<li><strong>Ressources externes</strong> : la bibliothèque d\'animations (AOS) et le module d\'affichage de notre fil Instagram (<strong>SnapWidget</strong>) sont chargés depuis des serveurs tiers, indépendamment de votre choix ci-dessus. Ceux-ci peuvent recevoir votre adresse IP, technique nécessaire pour livrer les fichiers ou le contenu, sans aucun suivi de votre navigation de notre part.</li>' +
     '</ul>' +
     '<p><button type="button" class="lgl-manage-cookies">Modifier mon choix sur les cookies</button></p>' +
 
-    '<p class="lgl-updated">Dernière mise à jour : 8 août 2026.</p>';
+    '<p class="lgl-updated">Dernière mise à jour : 10 août 2026.</p>';
+
+  /* ---------- Conditions générales de vente (billetterie) ---------- */
+  var CGV =
+    '<div class="lgl-kicker">Billetterie</div>' +
+    '<h2 id="lgl-cgv-title">Conditions générales de vente</h2>' +
+    '<p>Les présentes conditions régissent la vente des billets d\'accès au festival FLORE, organisé par MG Entertainment, association loi 1901.</p>' +
+
+    '<h3>1. Objet et vendeur</h3>' +
+    '<p>La billetterie du festival FLORE est assurée par notre prestataire <strong>Weezevent</strong>, plateforme de billetterie en ligne. MG Entertainment reste le vendeur et l\'organisateur de l\'événement ; Weezevent agit en tant que prestataire technique de paiement et d\'émission des billets.</p>' +
+
+    '<h3>2. Prix</h3>' +
+    '<p>Les prix des billets sont indiqués en euros, toutes taxes comprises (TTC). Ils peuvent inclure des frais de service, clairement affichés dans le panier avant validation du paiement. Le Pass Journée est proposé en tarif Prévente dans la limite des places disponibles, puis au tarif plein une fois ce contingent épuisé.</p>' +
+
+    '<h3>3. Commande et paiement</h3>' +
+    '<p>La commande est finalisée après acceptation des présentes conditions et paiement intégral par carte bancaire, via l\'interface sécurisée de Weezevent. Une confirmation de commande et les billets sont envoyés par e-mail à l\'adresse renseignée lors de l\'achat.</p>' +
+
+    '<h3>4. Droit de rétractation</h3>' +
+    '<p>Conformément à l\'article L221-28 du Code de la consommation, les prestations de loisirs fournies à une date déterminée ne bénéficient pas du droit de rétractation de 14 jours applicable aux achats à distance.</p>' +
+
+    '<h3>5. Annulation, report ou modification</h3>' +
+    '<p>En cas d\'annulation du festival par l\'organisateur, les billets sont intégralement remboursés. En cas de report, les billets déjà acquis restent valables pour la nouvelle date ; un remboursement peut être proposé selon les circonstances. Hors annulation ou report par l\'organisateur, les billets ne sont ni repris ni échangés, sauf disposition contraire prévue par la loi.</p>' +
+
+    '<h3>6. Accès au festival</h3>' +
+    '<p>L\'accès au site se fait sur présentation du billet (format papier ou numérique) et d\'une pièce d\'identité si demandée. Toute personne dont le comportement compromet la sécurité ou le bon déroulement de l\'événement pourra se voir refuser l\'accès ou être invitée à quitter les lieux, sans remboursement.</p>' +
+
+    '<h3>7. Responsabilité</h3>' +
+    '<p>L\'organisateur se réserve le droit de modifier la programmation ou les horaires en cas de nécessité, sans que cela ouvre droit à remboursement, dès lors que l\'événement se tient. MG Entertainment ne saurait être tenue responsable des dommages liés à un cas de force majeure ou au non-respect du règlement intérieur du festival par un visiteur.</p>' +
+
+    '<h3>8. Droit applicable</h3>' +
+    '<p>Les présentes conditions sont soumises au droit français. Pour toute question relative à votre commande : <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>.</p>' +
+
+    '<p class="lgl-updated">Dernière mise à jour : 10 août 2026.</p>';
 
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
@@ -150,14 +181,14 @@
     '</div>';
 
   /* Nouvelle clé (v2) : l'ancienne "flore_cookie_notice_v1" ne voulait dire
-     que "j'ai vu le bandeau" (aucun tracking n'existait alors) — elle ne peut
+     que "j'ai vu le bandeau" (aucun tracking n'existait alors), elle ne peut
      pas être réutilisée comme un vrai consentement à Google Analytics. */
   var STORE_KEY = 'flore_cookie_consent_v2';
   var GA_ID = 'G-PGW3GQF49M';
   var META_PIXEL_ID = '1061377453086854';
   var lastFocus = null;
 
-  /* Charge Google Analytics uniquement après un consentement explicite —
+  /* Charge Google Analytics uniquement après un consentement explicite,
      jamais au chargement de la page tant que l'utilisateur n'a pas cliqué "Accepter". */
   function loadGA() {
     if (window.__floreGaLoaded) return;
@@ -239,7 +270,8 @@
 
     var modals = {
       mentions: buildModal('lgl-ov-mentions', 'lgl-mentions-title', MENTIONS),
-      confidentialite: buildModal('lgl-ov-confidentialite', 'lgl-confid-title', CONFID)
+      confidentialite: buildModal('lgl-ov-confidentialite', 'lgl-confid-title', CONFID),
+      cgv: buildModal('lgl-ov-cgv', 'lgl-cgv-title', CGV)
     };
 
     /* Ouverture, fermeture (bouton, fond, touche Échap) */

@@ -5,12 +5,12 @@
   "og_locale": "en_GB",
   "meta": {
     "title": "FLORE Festival 2027 · 100% gluten-free & lactose-free festival in France",
-    "description": "FLORE is France's first 100% gluten-free and lactose-free festival, easily reachable from Switzerland, Italy and Germany. Date and venue coming soon. Concerts, food court and wellbeing where everyone eats at the same table.",
+    "description": "FLORE is France's first 100% gluten-free and lactose-free festival. Saturday 17 April 2027, at Ainterexpo, Bourg-en-Bresse, easily reachable from Switzerland, Italy and Germany. Concerts, food court and wellbeing, where everyone eats at the same table.",
     "keywords": "gluten free festival France, lactose free festival Europe, coeliac festival, gluten free music festival, allergy friendly festival Europe",
     "og_title": "FLORE Festival 2027 · 100% gluten-free & lactose-free",
-    "og_description": "France's first 100% gluten-free and lactose-free festival. Date and venue coming soon. Where everyone eats at the same table.",
+    "og_description": "France's first 100% gluten-free and lactose-free festival. Saturday 17 April 2027, Ainterexpo, Bourg-en-Bresse. Where everyone eats at the same table.",
     "og_image_alt": "FLORE Festival - first 100% gluten-free and lactose-free festival",
-    "jsonld_description": "France's first 100% gluten-free and lactose-free festival. Date and venue to be announced."
+    "jsonld_description": "France's first 100% gluten-free and lactose-free festival, Saturday 17 April 2027 at Ainterexpo, Bourg-en-Bresse."
   },
   "nav": {
     "festival": "The festival",
@@ -28,10 +28,10 @@
     "sr_title": "FLORE Festival, the first gluten-free and lactose-free festival",
     "tagline": "Dance gluten-free, savour lactose-free.",
     "lede": "A festival where everyone finally eats at the same table. Concerts, food court and wellbeing, all of it 100% gluten-free and lactose-free, no compromise.",
-    "countdown_intro": "Date, place & tickets: the announcement is coming soon",
-    "cta_primary": "Get notified",
+    "countdown_intro": "Saturday 17 April 2027 · Ainterexpo, Bourg-en-Bresse",
+    "cta_primary": "Get my ticket",
     "cta_secondary": "Discover the festival",
-    "florette_alt": "Florette, the FLORE Festival mascot"
+    "florette_alt": "The universes of FLORE Festival: stage, food court, boutique and talks"
   },
   "concept": {
     "kicker": "An inclusive festival",
@@ -42,14 +42,14 @@
       {
         "icon": "🌾",
         "bg": "#FFF1CC",
-        "title": "100% gluten-free",
-        "text": "The whole site, food court and bar included, is guaranteed gluten-free (below 20 ppm, the strictest standard). Safe even for coeliacs."
+        "title": "100% gluten‑free",
+        "text": "The Jardin des Saveurs food court and our bars are guaranteed gluten-free (below 20 ppm, the strictest standard). Safe even for coeliacs."
       },
       {
         "icon": "🥛",
         "bg": "#E7F4FB",
-        "title": "100% lactose-free",
-        "text": "Every dairy product is lactose-free or naturally without lactose, plus plant-based options. Real taste, no lactose."
+        "title": "100% lactose‑free",
+        "text": "The Jardin des Saveurs food court and our bars are entirely lactose-free, so you can enjoy without a second thought."
       },
       {
         "icon": "🎶",
@@ -67,7 +67,7 @@
     "kicker": "At the heart of Europe",
     "title_pre": "A crossroads, not just a ",
     "title_hl": "corner of France",
-    "text": "The venue is being chosen in eastern France, in a region built for travellers from all directions: an easy reach from Switzerland, northern Italy and southern Germany, as well as the rest of France.",
+    "text": "FLORE takes place at Ainterexpo, in Bourg-en-Bresse: a region built for travellers from all directions, an easy reach from Switzerland, northern Italy and southern Germany, as well as the rest of France.",
     "chips": [
       {
         "icon": "🇨🇭",
@@ -87,7 +87,7 @@
     "kicker": "Plan your visit",
     "title_pre": "Easy to reach, from ",
     "title_hl": "anywhere",
-    "text": "The venue isn't announced yet, but it's being chosen to stay easy to reach by car, train and plane, from France and its neighbouring countries alike. Full access details will follow the announcement."
+    "text": "Ainterexpo is easy to reach by car, train or plane, about 50 minutes from Lyon and 1h15 from Geneva. Full details on getting there (in French) are on flore-festival.fr/infos-pratiques/."
   },
   "faq": {
     "kicker": "FAQ",
@@ -103,41 +103,59 @@
       },
       {
         "q": "When and where will it take place?",
-        "a": "The exact date and venue will be announced soon. Sign up to the priority list below to be the first to know, before it's public."
+        "a": "Saturday 17 April 2027, at Ainterexpo in Bourg-en-Bresse, France, between Lyon and Geneva."
       },
       {
         "q": "Are tickets on sale yet?",
-        "a": "Not yet. The priority list gives you early access and an early-bird price as soon as the box office opens."
+        "a": "Yes, tickets are on sale now on our official box office (in French), with a Day Pass and an Evening Pass (6pm to 10pm)."
       },
       {
         "q": "Is the food really safe for coeliacs?",
-        "a": "Yes. The whole site, food court and bar included, follows a strict below-20ppm gluten standard, the threshold recognised for coeliac disease, with dedicated preparation to avoid cross-contamination."
+        "a": "Yes. Our food court (Jardin des Saveurs) and bars follow a strict below-20ppm gluten standard, the threshold recognised for coeliac disease, with dedicated preparation to avoid cross-contamination."
       },
       {
         "q": "Do I need to travel far to get there?",
-        "a": "No. The venue is being chosen in a region easily reached from Switzerland, northern Italy, southern Germany and all of France, by car, train or plane."
+        "a": "No. Ainterexpo is about 50 minutes from Lyon and 1h15 from Geneva, easily reached by car, train or plane."
       }
     ]
   },
   "tickets": {
     "kicker": "Tickets",
-    "title_pre": "Join the ",
-    "title_em": "priority list",
-    "text": "Tickets aren't on sale yet. Sign up to get the early-bird price and be the first to know when the box office opens.",
-    "email_placeholder": "your@email.com",
-    "email_label": "Your email address",
-    "submit": "Join the list",
-    "success": "You're on the list. See you in 2027!",
-    "smallnote": "Date & venue: announcement coming soon 🌸",
-    "sending": "Sending…",
-    "error": "Sorry, something went wrong. Please try again or email contact@flore-festival.fr.",
-    "from_name_label": "Priority list"
+    "title_pre": "Get your ",
+    "title_em": "ticket",
+    "text": "Tickets are on sale now on our official box office. Choose the Day Pass or the Evening Pass, whichever suits you best.",
+    "submit": "Ticketing",
+    "smallnote": "Official box office · Weezevent 🌸",
+    "pass_day": "Day Pass",
+    "pass_evening": "Evening Pass",
+    "pass_day_time": "11am → 10pm",
+    "pass_day_desc": "Everything: stage, food court, shop and wellbeing talks, from the first act to the last set.",
+    "pass_day_price_old": "€35",
+    "pass_day_price": "from €29.99",
+    "pass_evening_time": "6pm → 10pm",
+    "pass_evening_desc": "Golden hour and an evening of dancing, if you can only make it later in the day.",
+    "pass_evening_price": "from €19.99",
+    "card_cta": "Book this Pass →",
+    "pass_kids_tag": "🧒 Kids Pass from €5 (ages 6-14)",
+    "pass_infant_tag": "👶 Free under 6",
+    "drawer_close": "Close ticketing"
+  },
+  "pro": {
+    "title": "A business outside France?",
+    "text": "Foreign brand, distributor or event partner interested in a stand or a partnership at FLORE? Write to us directly, we'll get back to you."
   },
   "footer": {
     "about": "The first 100% gluten-free and lactose-free festival. A MG Entertainment production, because the party should be open to everyone.",
     "contact_heading": "Contact",
     "lang_switch": "Site en français",
     "production_label": "A MG Entertainment production.",
-    "country_label": "France"
+    "country_label": "France",
+    "newsletter_label": "Stay updated on FLORE announcements",
+    "newsletter_placeholder": "your@email.com",
+    "newsletter_submit": "Subscribe",
+    "newsletter_success": "Subscribed, see you soon!",
+    "legal_mentions": "Legal notice",
+    "legal_privacy": "Privacy & cookies",
+    "legal_cgv": "Terms of sale"
   }
 }

@@ -39,11 +39,22 @@ LANGUAGES = {
 # pas générée par ce script, mais qui doit apparaître dans le sélecteur
 # de chaque page langue.
 LANGUAGE_LABELS = {
-    "fr": ("🇫🇷", "Français", "/"),
-    "en": ("🇬🇧", "English", "/en/"),
-    "it": ("🇮🇹", "Italiano", "/italia/"),
-    "de": ("🇩🇪", "Deutsch", "/deutschland/"),
-    "es": ("🇪🇸", "Español", "/espana/"),
+    "fr": ("france", "Français", "/"),
+    "en": ("angleterre", "English", "/en/"),
+    "it": ("italia", "Italiano", "/italia/"),
+    "de": ("allemagne", "Deutsch", "/deutschland/"),
+    "es": ("espagne", "Español", "/espana/"),
+}
+
+# Locale du widget Weezevent (paramètre ?locale= de l'iframe billetterie).
+# Vérifié en direct le 09/08 : les 5 valeurs fonctionnent, y compris de-DE
+# (non documenté explicitement par Weezevent mais confirmé par test réel :
+# l'iframe et les noms de billets se traduisent bien, ex. "TAGESTICKETS").
+WEEZEVENT_LOCALES = {
+    "en": "en-GB",
+    "it": "it-IT",
+    "de": "de-DE",
+    "es": "es-ES",
 }
 
 
@@ -51,13 +62,17 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+def flag_img(country):
+    return f'<img class="lang-flag" src="https://enjoylife.b-cdn.net/Flore/picto-flore-{country}.png" alt="" loading="lazy">'
+
+
 def build_lang_dropdown_html(current_code):
     items = []
     for code in ["fr"] + list(LANGUAGES.keys()):
         if code == current_code:
             continue
-        flag, name, path = LANGUAGE_LABELS[code]
-        items.append(f'            <a href="{path}">{flag} {name}</a>')
+        country, name, path = LANGUAGE_LABELS[code]
+        items.append(f'            <a href="{path}">{flag_img(country)} {name}</a>')
     return "\n".join(items)
 
 
@@ -66,8 +81,8 @@ def build_mobile_lang_links_html(current_code):
     for code in ["fr"] + list(LANGUAGES.keys()):
         if code == current_code:
             continue
-        flag, name, path = LANGUAGE_LABELS[code]
-        items.append(f'  <a class="m-sub" href="{path}">{flag} {name}</a>')
+        country, name, path = LANGUAGE_LABELS[code]
+        items.append(f'  <a class="m-sub" href="{path}">{flag_img(country)} {name}</a>')
     return "\n".join(items)
 
 
@@ -160,6 +175,8 @@ def render(content, hreflang_block):
         "{{NAV_OTHER_LANGUAGES_LABEL}}": esc(content["nav"]["other_languages_label"]),
         "{{LANG_DROPDOWN_HTML}}": build_lang_dropdown_html(content["lang_code"]),
         "{{MOBILE_LANG_LINKS_HTML}}": build_mobile_lang_links_html(content["lang_code"]),
+        "{{CURRENT_LANG_FLAG_HTML}}": flag_img(LANGUAGE_LABELS[content["lang_code"]][0]),
+        "{{WEEZEVENT_LOCALE}}": WEEZEVENT_LOCALES[content["lang_code"]],
         "{{HERO_TAG}}": esc(content["hero"]["tag"]),
         "{{HERO_SR_TITLE}}": esc(content["hero"]["sr_title"]),
         "{{HERO_TAGLINE}}": esc(content["hero"]["tagline"]),
@@ -191,20 +208,36 @@ def render(content, hreflang_block):
         "{{TICKETS_TITLE_PRE}}": esc(content["tickets"]["title_pre"]),
         "{{TICKETS_TITLE_EM}}": esc(content["tickets"]["title_em"]),
         "{{TICKETS_TEXT}}": esc(content["tickets"]["text"]),
-        "{{TICKETS_EMAIL_PLACEHOLDER}}": esc(content["tickets"]["email_placeholder"]),
-        "{{TICKETS_EMAIL_LABEL}}": esc(content["tickets"]["email_label"]),
         "{{TICKETS_SUBMIT}}": esc(content["tickets"]["submit"]),
-        "{{TICKETS_SUCCESS}}": esc(content["tickets"]["success"]),
         "{{TICKETS_SMALLNOTE}}": esc(content["tickets"]["smallnote"]),
-        "{{TICKETS_SENDING}}": content["tickets"]["sending"],
-        "{{TICKETS_ERROR}}": content["tickets"]["error"].replace('"', "&quot;"),
-        "{{TICKETS_FROM_NAME_LABEL}}": esc(content["tickets"]["from_name_label"]),
+        "{{PASS_DAY_LABEL}}": esc(content["tickets"]["pass_day"]),
+        "{{PASS_EVENING_LABEL}}": esc(content["tickets"]["pass_evening"]),
+        "{{PASS_DAY_TIME}}": esc(content["tickets"]["pass_day_time"]),
+        "{{PASS_DAY_DESC}}": esc(content["tickets"]["pass_day_desc"]),
+        "{{PASS_DAY_PRICE_OLD}}": esc(content["tickets"]["pass_day_price_old"]),
+        "{{PASS_DAY_PRICE}}": esc(content["tickets"]["pass_day_price"]),
+        "{{PASS_EVENING_TIME}}": esc(content["tickets"]["pass_evening_time"]),
+        "{{PASS_EVENING_DESC}}": esc(content["tickets"]["pass_evening_desc"]),
+        "{{PASS_EVENING_PRICE}}": esc(content["tickets"]["pass_evening_price"]),
+        "{{PASS_CARD_CTA}}": esc(content["tickets"]["card_cta"]),
+        "{{PASS_KIDS_TAG}}": esc(content["tickets"]["pass_kids_tag"]),
+        "{{PASS_INFANT_TAG}}": esc(content["tickets"]["pass_infant_tag"]),
+        "{{DRAWER_CLOSE_LABEL}}": esc(content["tickets"]["drawer_close"]),
+        "{{PRO_TITLE}}": esc(content["pro"]["title"]),
+        "{{PRO_TEXT}}": esc(content["pro"]["text"]),
         "{{LANG_CODE_UPPER}}": content["lang_code"].upper(),
         "{{FOOTER_ABOUT}}": esc(content["footer"]["about"]),
         "{{FOOTER_CONTACT_HEADING}}": esc(content["footer"]["contact_heading"]),
         "{{FOOTER_LANG_SWITCH}}": esc(content["footer"]["lang_switch"]),
         "{{FOOTER_PRODUCTION_LABEL}}": esc(content["footer"]["production_label"]),
         "{{FOOTER_COUNTRY_LABEL}}": esc(content["footer"]["country_label"]),
+        "{{FOOTER_NEWSLETTER_LABEL}}": esc(content["footer"]["newsletter_label"]),
+        "{{FOOTER_NEWSLETTER_PLACEHOLDER}}": esc(content["footer"]["newsletter_placeholder"]),
+        "{{FOOTER_NEWSLETTER_SUBMIT}}": esc(content["footer"]["newsletter_submit"]),
+        "{{FOOTER_NEWSLETTER_SUCCESS}}": esc(content["footer"]["newsletter_success"]),
+        "{{FOOTER_LEGAL_MENTIONS}}": esc(content["footer"]["legal_mentions"]),
+        "{{FOOTER_LEGAL_PRIVACY}}": esc(content["footer"]["legal_privacy"]),
+        "{{FOOTER_LEGAL_CGV}}": esc(content["footer"]["legal_cgv"]),
     }
     for token, value in replacements.items():
         html = html.replace(token, value)

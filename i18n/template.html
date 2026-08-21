@@ -7,13 +7,17 @@
 <meta name="description" content="{{META_DESCRIPTION}}">
 <meta name="keywords" content="{{META_KEYWORDS}}">
 <meta name="author" content="MG Entertainment">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<!-- NOINDEX TEMPORAIRE embargo reveal date/lieu : a retirer demain 22/08 a 18h (repasser "index, follow, max-image-preview:large") -->
+<meta name="robots" content="noindex, follow, max-image-preview:large">
 <meta name="theme-color" content="#2D5479">
 <link rel="canonical" href="{{CANONICAL_URL}}">
 {{HREFLANG_BLOCK}}
 
-<link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
-<link rel="apple-touch-icon" href="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="{{OG_LOCALE}}">
@@ -22,32 +26,39 @@
 <meta property="og:title" content="{{OG_TITLE}}">
 <meta property="og:description" content="{{OG_DESCRIPTION}}">
 <meta property="og:url" content="{{CANONICAL_URL}}">
-<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{{OG_IMAGE_ALT}}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{OG_TITLE}}">
 <meta name="twitter:description" content="{{OG_DESCRIPTION}}">
-<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png">
+<meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
 <meta name="twitter:image:alt" content="FLORE Festival - logo">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://widget.weezevent.com">
+<link rel="preconnect" href="https://www.weezevent.com">
+<link rel="preconnect" href="https://api.weezevent.com">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="/assets/flore.css?v=20260805c">
+<link rel="stylesheet" href="/assets/flore.css?v=20260821d">
+<style>
+  .pro-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:var(--r-lg);padding:34px 38px;text-align:center;max-width:700px;margin:0 auto}
+  .pro-box h3{font-size:1.3rem;color:var(--ink);margin-bottom:10px}
+  .pro-box p{color:var(--ink-soft);font-size:.98rem;line-height:1.6;margin:0 0 20px}
+</style>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Festival",
   "name": "FLORE Festival 2027",
+  "startDate": "2027-04-17T11:00:00+02:00",
+  "endDate": "2027-04-17T22:00:00+02:00",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "description": "{{JSONLD_DESCRIPTION}}",
-  "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressCountry": "FR" } },
+  "location": { "@type": "Place", "name": "Ainterexpo", "address": { "@type": "PostalAddress", "streetAddress": "25 avenue du Maréchal Juin", "addressLocality": "Bourg-en-Bresse", "postalCode": "01000", "addressCountry": "FR" } },
   "image": "https://enjoylife.b-cdn.net/Flore/picto-flore-logo.png",
   "organizer": {"@type":"Organization","name":"MG Entertainment"},
   "inLanguage": "{{HTML_LANG}}"
@@ -57,6 +68,7 @@
 </head>
 <body>
 
+<script src="/assets/gate.js?v=3"></script>
 <div class="sky-bg"></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="clouds" aria-hidden="true">
@@ -100,12 +112,12 @@
         <a href="#gluten">{{NAV_GLUTEN}}</a>
         <a href="#visit">{{NAV_VISIT}}</a>
         <a href="#faq">{{NAV_FAQ}}</a>
-        <div class="nav-item"><button class="nav-trigger" aria-expanded="false">🌐 {{LANG_CODE_UPPER}} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="nav-item"><button class="nav-trigger" aria-expanded="false">{{CURRENT_LANG_FLAG_HTML}} {{LANG_CODE_UPPER}} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="dropdown dd-right">
 {{LANG_DROPDOWN_HTML}}
           </div>
         </div>
-        <a href="#tickets" class="btn btn-sun">{{NAV_TICKETS}}</a>
+        <button type="button" class="btn btn-sun" data-open-drawer>{{NAV_TICKETS}}</button>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="{{NAV_MENU_LABEL}}"><span></span><span></span><span></span></button>
     </div>
@@ -118,17 +130,13 @@
   <a class="m-sub" href="#gluten">{{NAV_GLUTEN}}</a>
   <a class="m-sub" href="#visit">{{NAV_VISIT}}</a>
   <a class="m-sub" href="#faq">{{NAV_FAQ}}</a>
-  <a class="m-sub" href="#tickets">{{NAV_TICKETS}}</a>
+  <button type="button" class="btn btn-sun" data-open-drawer>{{NAV_TICKETS}}</button>
   <span class="m-label">{{NAV_OTHER_LANGUAGES_LABEL}}</span>
 {{MOBILE_LANG_LINKS_HTML}}
 </div>
 
 <!-- ===================== HERO ===================== -->
 <header class="hero" id="home">
-  <div class="sun"><div class="rays"></div><div class="core"></div></div>
-  <svg aria-hidden="true" class="h-cloud hc1"><use href="#cloud"/></svg>
-  <svg aria-hidden="true" class="h-cloud hc2"><use href="#cloud"/></svg>
-  <svg aria-hidden="true" class="h-cloud hc3"><use href="#cloud"/></svg>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-text" data-aos="fade-up">
@@ -140,9 +148,9 @@
         <div class="cd-intro"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{HERO_COUNTDOWN_INTRO}}</div>
 
         <div class="hero-cta">
-          <a href="#tickets" class="btn btn-sun">{{HERO_CTA_PRIMARY}}
+          <button type="button" class="btn btn-sun" data-open-drawer>{{HERO_CTA_PRIMARY}}
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
+          </button>
           <a href="#festival" class="btn btn-ghost-w">{{HERO_CTA_SECONDARY}}</a>
         </div>
       </div>
@@ -153,7 +161,7 @@
           <svg aria-hidden="true" class="daisy d-float hd1"><use href="#daisy"/></svg>
           <svg aria-hidden="true" class="daisy d-float hd2"><use href="#daisy"/></svg>
           <svg aria-hidden="true" class="daisy d-float hd3"><use href="#daisy"/></svg>
-          <img class="florette-svg" src="/assets/florette.png" alt="{{HERO_FLORETTE_ALT}}">
+          <img class="florette-svg" src="https://enjoylife.b-cdn.net/Flore/illustration-flore-festival.png" alt="{{HERO_FLORETTE_ALT}}">
         </div>
       </div>
     </div>
@@ -227,22 +235,127 @@
       <div class="cta-stars"></div>
       <div class="set-sun"></div>
       <div class="inner">
-        <span class="kicker center on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{TICKETS_KICKER}}</span>
-        <h2 style="margin-top:14px">{{TICKETS_TITLE_PRE}}<em>{{TICKETS_TITLE_EM}}</em></h2>
-        <p>{{TICKETS_TEXT}}</p>
-        <form class="signup" id="signupForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
-          <input type="hidden" name="subject" value="🌼 FLORE Newsletter · New {{LANG_CODE_UPPER}} signup">
-          <input type="hidden" name="from_name" value="FLORE Festival · {{TICKETS_FROM_NAME_LABEL}} ({{LANG_CODE_UPPER}})">
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="email" name="email" placeholder="{{TICKETS_EMAIL_PLACEHOLDER}}" required aria-label="{{TICKETS_EMAIL_LABEL}}">
-          <button type="submit" class="btn btn-ink">{{TICKETS_SUBMIT}}</button>
-        </form>
-        <div id="signupSuccess" class="signup-success" hidden>
-          <svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{TICKETS_SUCCESS}}
+        <div class="billet-split">
+          <div class="billet-text">
+            <span class="kicker center on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{TICKETS_KICKER}}</span>
+            <h2 style="margin-top:14px">{{TICKETS_TITLE_PRE}}<em>{{TICKETS_TITLE_EM}}</em></h2>
+            <p>{{TICKETS_TEXT}}</p>
+            <div class="pass-cards">
+              <div class="pass-card">
+                <span class="pass-ic">🌞</span>
+                <div class="pass-card-head"><h3>{{PASS_DAY_LABEL}}</h3><span class="pass-time">{{PASS_DAY_TIME}}</span></div>
+                <p>{{PASS_DAY_DESC}}</p>
+                <span class="pass-price"><span class="pass-price-old">{{PASS_DAY_PRICE_OLD}}</span>{{PASS_DAY_PRICE}}</span>
+                <button type="button" class="pass-card-cta" data-open-drawer>{{PASS_CARD_CTA}}</button>
+              </div>
+              <div class="pass-card">
+                <span class="pass-ic">🌙</span>
+                <div class="pass-card-head"><h3>{{PASS_EVENING_LABEL}}</h3><span class="pass-time">{{PASS_EVENING_TIME}}</span></div>
+                <p>{{PASS_EVENING_DESC}}</p>
+                <span class="pass-price">{{PASS_EVENING_PRICE}}</span>
+                <button type="button" class="pass-card-cta" data-open-drawer>{{PASS_CARD_CTA}}</button>
+              </div>
+            </div>
+            <div class="tags" style="margin-top:16px">
+              <span class="tag-pill">{{PASS_KIDS_TAG}}</span>
+              <span class="tag-pill">{{PASS_INFANT_TAG}}</span>
+            </div>
+          </div>
         </div>
-        <p class="smallnote">{{TICKETS_SMALLNOTE}}</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticket-drawer-backdrop" id="ticketDrawerBackdrop"></div>
+<div class="ticket-drawer" id="ticketDrawer" role="dialog" aria-modal="true" aria-label="{{TICKETS_KICKER}}">
+  <button type="button" class="ticket-drawer-close" id="ticketDrawerClose" aria-label="{{DRAWER_CLOSE_LABEL}}">✕</button>
+  <div class="ticket-drawer-inner">
+    <div class="weez-widget-block" id="billetterie-widget">
+      <div class="weez-skeleton" id="weez-skeleton" aria-hidden="true">
+        <div class="weez-skeleton-bar" style="width:45%"></div>
+        <div class="weez-skeleton-card"></div>
+        <div class="weez-skeleton-card"></div>
+        <div class="weez-skeleton-bar" style="width:30%"></div>
+      </div>
+      <a title="Weezevent ticketing"
+         href="https://widget.weezevent.com/ticket/E2235763/?code=15099&amp;locale={{WEEZEVENT_LOCALE}}&amp;width_auto=1&amp;color_primary=0032FA"
+         class="weezevent-widget-integration"
+         data-src="https://widget.weezevent.com/ticket/E2235763/?code=15099&amp;locale={{WEEZEVENT_LOCALE}}&amp;width_auto=1&amp;color_primary=0032FA"
+         data-id="2235763"
+         data-resize="1"
+         data-width_auto="1"
+         data-noscroll="0"
+         data-use-container="yes"
+         data-type="neo"
+         target="_blank">{{TICKETS_SUBMIT}}</a>
+    </div>
+    <p class="smallnote" style="margin-top:16px">{{TICKETS_SMALLNOTE}}</p>
+  </div>
+</div>
+<script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>
+<script>
+  (function(){
+    var skeleton = document.getElementById('weez-skeleton');
+    var container = document.getElementById('billetterie-widget');
+    if (!skeleton || !container) return;
+    var hidden = false;
+    function hideSkeleton(){
+      if (hidden) return;
+      hidden = true;
+      skeleton.classList.add('is-hidden');
+      setTimeout(function(){ skeleton.remove(); }, 300);
+    }
+    // Le postMessage "resize" du widget correspond a son propre ecran de
+    // chargement interne (memes dimensions que le vrai contenu), pas au vrai
+    // contenu (billets) : ne pas s'y fier. "WEEZ_GAT_QUESTION" (leur sync
+    // Analytics interne) se declenche en revanche a quelques dizaines de ms
+    // du vrai contenu affiche, verifie empiriquement sur plusieurs essais :
+    // c'est un signal fiable de fin de rendu, contrairement a resize.
+    window.addEventListener('message', function(e){
+      if (typeof e.origin !== 'string' || e.origin.indexOf('weezevent.com') === -1) return;
+      if (e.data && e.data.message === 'WEEZ_GAT_QUESTION') hideSkeleton();
+    });
+    setTimeout(hideSkeleton, 10000);
+  })();
+</script>
+<script>
+  (function(){
+    var drawer = document.getElementById('ticketDrawer');
+    var backdrop = document.getElementById('ticketDrawerBackdrop');
+    var closeBtn = document.getElementById('ticketDrawerClose');
+    function openDrawer(){
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      window.dispatchEvent(new Event('resize'));
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('click', function(e){
+      var trigger = e.target.closest('[data-open-drawer]');
+      if (!trigger) return;
+      e.preventDefault();
+      openDrawer();
+    });
+    if (backdrop) backdrop.addEventListener('click', closeDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') closeDrawer();
+    });
+  })();
+</script>
+
+<!-- ===================== PRO / FOREIGN BUSINESS CONTACT ===================== -->
+<section class="sec" id="pro" style="padding-top:0">
+  <div class="wrap">
+    <div class="pro-box" data-aos="fade-up">
+      <h3>{{PRO_TITLE}}</h3>
+      <p>{{PRO_TEXT}}</p>
+      <a href="mailto:contact@flore-festival.fr" class="btn btn-ink">contact@flore-festival.fr</a>
     </div>
   </div>
 </section>
@@ -256,7 +369,7 @@
         <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
         <p class="about">{{FOOTER_ABOUT}}</p>
         <div class="socials">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <a href="https://www.instagram.com/flore.festival/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
           </a>
         </div>
@@ -269,27 +382,67 @@
           <li><a href="#visit">{{NAV_VISIT}}</a></li>
           <li><a href="#faq">{{NAV_FAQ}}</a></li>
           <li><a href="#tickets">{{NAV_TICKETS}}</a></li>
-          <li><a href="/">🇫🇷 {{FOOTER_LANG_SWITCH}}</a></li>
+          <li><a href="/"><img class="lang-flag" src="https://enjoylife.b-cdn.net/Flore/picto-flore-france.png" alt="" loading="lazy"> {{FOOTER_LANG_SWITCH}}</a></li>
         </ul>
       </div>
       <div>
         <h5>{{FOOTER_CONTACT_HEADING}}</h5>
         <ul>
-          <li><a href="tel:+33744980015">+33 7 44 98 00 15</a></li>
+          <li><a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></li>
         </ul>
       </div>
     </div>
+    <div class="footer-newsletter-row">
+      <span class="fnr-label"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{FOOTER_NEWSLETTER_LABEL}}</span>
+      <form id="footerSignupForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+        <input type="hidden" name="subject" value="🌼 FLORE Newsletter · {{LANG_CODE_UPPER}}">
+        <input type="hidden" name="from_name" value="Footer FLORE {{LANG_CODE_UPPER}}">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="email" name="email" placeholder="{{FOOTER_NEWSLETTER_PLACEHOLDER}}" required aria-label="Email">
+        <button type="submit">{{FOOTER_NEWSLETTER_SUBMIT}}</button>
+      </form>
+      <div id="footerSignupSuccess" class="signup-success-mini" hidden><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{FOOTER_NEWSLETTER_SUCCESS}}</div>
+    </div>
     <div class="footer-bottom">
-      <span>© <span id="year">2026</span> FLORE Festival · {{FOOTER_PRODUCTION_LABEL}}</span>
-      <span>{{FOOTER_COUNTRY_LABEL}} · {{HERO_TAGLINE}}</span>
+      <div class="footer-bottom-copy">
+        <span>© <span id="year">2026</span> Flore Festival · {{FOOTER_PRODUCTION_LABEL}}</span>
+        <span>{{FOOTER_COUNTRY_LABEL}} · {{HERO_TAGLINE}}</span>
+      </div>
+      <div class="footer-legal-mini">
+        <button type="button" class="lgl-link" data-legal="mentions">{{FOOTER_LEGAL_MENTIONS}}</button>
+        <button type="button" class="lgl-link" data-legal="confidentialite">{{FOOTER_LEGAL_PRIVACY}}</button>
+        <button type="button" class="lgl-link" data-legal="cgv">{{FOOTER_LEGAL_CGV}}</button>
+      </div>
     </div>
   </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70 });
+  AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70, disable: function(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } });
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const footerSignupForm = document.getElementById('footerSignupForm');
+  if (footerSignupForm) {
+    footerSignupForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = footerSignupForm.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      fetch(footerSignupForm.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(footerSignupForm)
+      }).then(res => res.json()).then(data => {
+        if (data.success) {
+          footerSignupForm.hidden = true;
+          document.getElementById('footerSignupSuccess').hidden = false;
+        } else {
+          btn.disabled = false;
+        }
+      }).catch(() => { btn.disabled = false; });
+    });
+  }
 
   const nav = document.getElementById('nav');
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
@@ -302,7 +455,7 @@
     menu.classList.toggle('open');
     document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
   });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menu.querySelectorAll('a, button').forEach(a => a.addEventListener('click', () => {
     menu.classList.remove('open');
     document.body.style.overflow = '';
   }));
@@ -316,28 +469,8 @@
     });
   });
 
-  const signupForm = document.getElementById('signupForm');
-  const signupSuccess = document.getElementById('signupSuccess');
-  if (signupForm) {
-    signupForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      const btn = signupForm.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.disabled = true; btn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> {{TICKETS_SENDING}}';
-      try {
-        const data = new FormData(signupForm);
-        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
-        const json = await res.json();
-        if (json.success) { signupForm.hidden = true; signupSuccess.hidden = false; if (window.floreBurst) { const r = signupSuccess.getBoundingClientRect(); window.floreBurst(r.left + r.width/2, r.top + r.height/2, 16); } }
-        else { throw new Error(json.message || 'Error'); }
-      } catch (err) {
-        btn.disabled = false; btn.textContent = original;
-        alert("{{TICKETS_ERROR}}");
-      }
-    });
-  }
 </script>
 <script src="/assets/transitions.js" defer></script>
-<script src="/legal.js?v=20260808" defer></script>
+<script src="/legal.js?v=20260810c" defer></script>
 </body>
 </html>

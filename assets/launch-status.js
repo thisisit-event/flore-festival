@@ -8,7 +8,7 @@
    Ne contient et ne doit JAMAIS contenir aucune donnée sous embargo
    elle-même (pas de date, pas de lieu, pas de prix) : uniquement un
    statut. Ce fichier est public (dépôt GitHub public), donc rien
-   ici ne doit être sensible en soi — seul un statut "prelaunch" ou
+   ici ne doit être sensible en soi, seul un statut "prelaunch" ou
    "launch" est exposé, ce qui ne révèle rien.
 
    Bascule STRICTEMENT MANUELLE. Ne jamais programmer une bascule
@@ -24,7 +24,7 @@
      </script>
 */
 window.FLORE_LAUNCH = {
-  status: 'prelaunch', // 'prelaunch' | 'launch' — à changer ici, à la main, une fois validé par MG Entertainment
+  status: 'prelaunch', // 'prelaunch' | 'launch', à changer ici, à la main, une fois validé par MG Entertainment
   isLive: function () {
     return this.status === 'launch';
   }
