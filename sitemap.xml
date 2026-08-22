@@ -4,7 +4,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://flore-festival.fr/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/"/>
@@ -256,6 +256,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/sejour/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/exposants/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/artistes/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/artistes/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/partenaires/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/partenaires/"/>
+  </url>
+  <url>
+    <loc>https://flore-festival.fr/club-flore/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/club-flore/"/>
   </url>
   <url>
     <loc>https://flore-festival.fr/guide/inscription/</loc>
