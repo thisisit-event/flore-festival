@@ -35,7 +35,7 @@
   // Picto billet flottant à côté du burger, mobile uniquement (voir .nav-ticket-mobile) :
   // accès à la billetterie visible en permanence, même tout en haut de page,
   // sans avoir à ouvrir le menu. Même logique home/autre page que billetBtn.
-  var ticketIco = '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a1.5 1.5 0 0 0 0 3V15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1.5a1.5 1.5 0 0 0 0-3V9z"/><path d="M14 6.5v11"/></svg>';
+  var ticketIco = '<img src="https://enjoylife.b-cdn.net/Flore/picto-flore-ticket.png" alt="" aria-hidden="true">';
   var billetIconBtn = onHome
     ? '<button type="button" class="nav-ticket-mobile" data-open-drawer aria-label="Billetterie">' + ticketIco + '</button>'
     : '<a href="' + h('billetterie') + '" class="nav-ticket-mobile" aria-label="Billetterie">' + ticketIco + '</a>';
@@ -120,8 +120,8 @@
             '</div></div>' +
           billetBtn +
         '</div>' +
-        billetIconBtn +
-        '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>' +
+        '<div class="nav-mobile-actions">' + billetIconBtn +
+          '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button></div>' +
       '</div></div></nav>' +
       '<div class="mobile-menu" id="mobileMenu">' +
         billetBtn +
@@ -180,8 +180,8 @@
           '</div></div>' +
         billetBtn +
       '</div>' +
-      billetIconBtn +
-      '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>' +
+      '<div class="nav-mobile-actions">' + billetIconBtn +
+        '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button></div>' +
     '</div></div></nav>' +
     '<div class="mobile-menu" id="mobileMenu">' +
       billetBtn +
