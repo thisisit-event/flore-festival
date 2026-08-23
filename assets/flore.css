@@ -324,14 +324,16 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .value-card h3{font-size:1.32rem;color:var(--ink);margin-bottom:7px}
 .value-card p{font-size:.95rem;color:var(--ink-soft)}
 
-/* ===== Carte de France (communauté) ===== */
-.france-map-wrap{max-width:620px;margin:0 auto}
+/* ===== Carte de France + voisins (communauté) ===== */
+.france-map-wrap{max-width:700px;margin:0 auto}
 .france-map{width:100%;height:auto;display:block;overflow:visible}
 .france-map .dept{fill:var(--sky-pale);stroke:var(--white);stroke-width:1.3;transition:fill .4s var(--ease)}
 .france-map .dept.active{fill:var(--sun-pale)}
-.france-map .dept-pin{filter:drop-shadow(0 3px 6px rgba(21,57,91,.25));transform-box:fill-box;transform-origin:center;animation:deptPinIn .5s var(--ease) backwards}
+.france-map .country{fill:rgba(255,255,255,.55);stroke:var(--sky-soft);stroke-width:1;stroke-dasharray:3 2;transition:fill .4s var(--ease)}
+.france-map .country.active{fill:var(--sun-pale)}
+.france-map .dept-pin,.france-map .country-pin{filter:drop-shadow(0 3px 6px rgba(21,57,91,.25));transform-box:fill-box;transform-origin:center;animation:deptPinIn .5s var(--ease) backwards}
 @keyframes deptPinIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.france-map .dept-pin{animation:none}}
+@media(prefers-reduced-motion:reduce){.france-map .dept-pin,.france-map .country-pin{animation:none}}
 
 /* ===== Lieu ===== */
 .lieu-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
