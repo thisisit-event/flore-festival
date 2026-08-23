@@ -116,13 +116,13 @@
         '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>' +
       '</div></div></nav>' +
       '<div class="mobile-menu" id="mobileMenu">' +
+        billetBtn +
         '<a class="m-sub" href="/">🌱 Le Festival FLORE</a>' +
         '<span class="m-label">Autres langues</span>' +
         '<a class="m-sub" href="/en/">' + flag('angleterre') + ' English</a>' +
         '<a class="m-sub" href="/italia/">' + flag('italia') + ' Italiano</a>' +
         '<a class="m-sub" href="/deutschland/">' + flag('allemagne') + ' Deutsch</a>' +
         '<a class="m-sub" href="/espana/">' + flag('espagne') + ' Español</a>' +
-        billetBtn +
       '</div>';
     var mountLite = document.getElementById('site-nav');
     if (mountLite) mountLite.outerHTML = navLite;
@@ -175,6 +175,7 @@
       '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>' +
     '</div></div></nav>' +
     '<div class="mobile-menu" id="mobileMenu">' +
+      billetBtn +
       '<span class="m-label">Le festival</span>' +
       '<a class="m-sub" href="' + h('festival') + '">Le concept</a>' +
       '<a class="m-sub" href="' + h('espaces') + '">Les espaces</a>' +
@@ -201,7 +202,6 @@
       '<a class="m-sub" href="/exposants/">' + proIco('picto-flore-jardin.png') + 'Réserver un stand</a>' +
       '<a class="m-sub" href="/artistes/">' + proIco('picto-flore-musique.png') + 'Candidature artiste</a>' +
       '<a class="m-sub" href="/club-flore/">' + proIco('picto-flore-bienveillance.png') + 'Rejoindre le club flore</a>' +
-      billetBtn +
     '</div>';
 
   var mount = document.getElementById('site-nav');
