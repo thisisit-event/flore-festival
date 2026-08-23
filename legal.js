@@ -77,6 +77,11 @@
     '88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.<br>' +
     '<a href="https://github.com" target="_blank" rel="noopener">github.com</a></p>' +
 
+    '<h3>Nom de domaine</h3>' +
+    '<p>Le nom de domaine flore-festival.fr est enregistré auprès de <strong>Infomaniak Network SA</strong>.<br>' +
+    'Rue Eugène-Marziano 25, 1227 Genève, Suisse.<br>' +
+    '<a href="https://www.infomaniak.com" target="_blank" rel="noopener">infomaniak.com</a></p>' +
+
     '<h3>Propriété intellectuelle</h3>' +
     '<p>L\'ensemble des contenus de ce site (textes, visuels, illustrations, identité graphique « FLORE », mascotte « Florette » et logo) est la propriété exclusive de MG Entertainment, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>' +
 
