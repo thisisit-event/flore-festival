@@ -357,10 +357,10 @@
   /* Pour la Suisse, la Belgique et l'Espagne, on a assez de données pour
      replacer le pin sur la vraie ville/zone d'où viennent les acheteurs
      (équivalent d'un "département" quand le pays n'a pas cette structure) au
-     lieu du centre géométrique du pays entier. L'Italie reste sur son centre
-     de pays : le seul billet "IT" a un code postal identique à une ville
-     française (69100 Villeurbanne), probablement une erreur de saisie sur le
-     champ pays plutôt qu'un vrai acheteur italien localisable. */
+     lieu du centre géométrique du pays entier. Pour l'Italie, le seul code
+     postal disponible (69100) est identique à une ville française
+     (Villeurbanne), donc pas localisable avec certitude : pin posé sur Milan
+     par défaut plutôt que sur le centre géométrique du pays. */
   var CITY_PINS = [
     {code: "CH", x: 499.4, y: 240.2}, // Genève
     {code: "CH", x: 515.2, y: 225.9}, // Lausanne
@@ -370,7 +370,8 @@
     {code: "CH", x: 524.8, y: 204.5}, // Neuchâtel
     {code: "BE", x: 441.4, y: 29.3},  // Bruxelles
     {code: "BE", x: 481.1, y: 39.2},  // Liège
-    {code: "ES", x: 356.3, y: 466.3}  // Vilanova i la Geltrú
+    {code: "ES", x: 356.3, y: 466.3}, // Vilanova i la Geltrú
+    {code: "IT", x: 598.0, y: 273.8}  // Milan
   ];
 
   var svg = document.getElementById('franceMap');
