@@ -144,18 +144,22 @@
     '<p>Conformément à l\'article L221-28 du Code de la consommation, les prestations de loisirs fournies à une date déterminée ne bénéficient pas du droit de rétractation de 14 jours applicable aux achats à distance.</p>' +
 
     '<h3>5. Annulation, report ou modification</h3>' +
-    '<p>En cas d\'annulation du festival par l\'organisateur, les billets sont intégralement remboursés. En cas de report, les billets déjà acquis restent valables pour la nouvelle date ; un remboursement peut être proposé selon les circonstances. Hors annulation ou report par l\'organisateur, les billets ne sont ni repris ni échangés, sauf disposition contraire prévue par la loi.</p>' +
+    '<p>En cas d\'annulation du festival par l\'organisateur, les billets sont intégralement remboursés. En cas de report, les billets déjà acquis restent valables pour la nouvelle date ; un remboursement peut être proposé selon les circonstances. Hors annulation ou report par l\'organisateur, les billets ne sont ni repris ni échangés, sauf disposition contraire prévue par la loi ou souscription à l\'assurance annulation optionnelle décrite à l\'article 6.</p>' +
 
-    '<h3>6. Accès au festival</h3>' +
+    '<h3>6. Assurance annulation (optionnelle)</h3>' +
+    '<p>Une assurance annulation optionnelle, proposée lors de l\'achat et gérée par le prestataire tiers <strong>Protect Group</strong>, peut être souscrite en complément du billet. Il s\'agit d\'une assurance contre certains imprévus graves et justifiables, et non d\'un droit de rétractation ni d\'une possibilité d\'annulation pour simple changement d\'avis, indisponibilité ou erreur de date.</p>' +
+    '<p>Les motifs couverts, les justificatifs exigés et la procédure complète de demande sont définis par les conditions générales de remboursement de Protect Group, communiquées dans l\'e-mail de confirmation de commande. Toute demande de remboursement au titre de cette assurance s\'effectue directement auprès de Protect Group ; l\'organisateur ne gère pas ces demandes et n\'intervient pas dans leur traitement.</p>' +
+
+    '<h3>7. Accès au festival</h3>' +
     '<p>L\'accès au site se fait sur présentation du billet (format papier ou numérique) et d\'une pièce d\'identité si demandée. Toute personne dont le comportement compromet la sécurité ou le bon déroulement de l\'événement pourra se voir refuser l\'accès ou être invitée à quitter les lieux, sans remboursement.</p>' +
 
-    '<h3>7. Responsabilité</h3>' +
+    '<h3>8. Responsabilité</h3>' +
     '<p>L\'organisateur se réserve le droit de modifier la programmation ou les horaires en cas de nécessité, sans que cela ouvre droit à remboursement, dès lors que l\'événement se tient. MG Entertainment ne saurait être tenue responsable des dommages liés à un cas de force majeure ou au non-respect du règlement intérieur du festival par un visiteur.</p>' +
 
-    '<h3>8. Droit applicable</h3>' +
+    '<h3>9. Droit applicable</h3>' +
     '<p>Les présentes conditions sont soumises au droit français. Pour toute question relative à votre commande : <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>.</p>' +
 
-    '<p class="lgl-updated">Dernière mise à jour : 10 août 2026.</p>';
+    '<p class="lgl-updated">Dernière mise à jour : 23 août 2026.</p>';
 
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
