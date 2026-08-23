@@ -327,6 +327,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 /* ===== Carte de France + voisins (communauté) ===== */
 .france-map-wrap{max-width:700px;margin:0 auto}
 .france-map-viewport{position:relative;overflow:hidden;border-radius:var(--r-lg);touch-action:pan-y}
+.france-map-viewport.is-fullscreen{position:fixed;inset:0;z-index:2000;border-radius:0;background:var(--sky-deep);display:flex;align-items:center;justify-content:center;padding:20px}
+.france-map-viewport.is-fullscreen .france-map{width:auto;height:auto;max-width:100%;max-height:100%}
 .france-map{width:100%;height:auto;display:block;cursor:grab;transform-origin:0 0}
 .france-map-viewport.dragging .france-map{cursor:grabbing}
 .france-map-zoom{position:absolute;top:14px;right:14px;z-index:2;display:flex;flex-direction:column;gap:8px}

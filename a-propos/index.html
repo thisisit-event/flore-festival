@@ -37,7 +37,7 @@
 
 <link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="/assets/flore.css?v=20260823p">
+<link rel="stylesheet" href="/assets/flore.css?v=20260823q">
 <style>@media(min-width:900px){#valeurs .public-grid>*,#lexique .public-grid>*{flex-basis:calc(25% - 15px)}}</style>
 
 <script type="application/ld+json">
@@ -164,6 +164,10 @@
         </button>
         <button type="button" class="fmz-btn fmz-reset" id="fmZoomReset" aria-label="Réinitialiser le zoom">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-6h6"/></svg>
+        </button>
+        <button type="button" class="fmz-btn" id="fmFullscreen" aria-label="Plein écran">
+          <svg class="fmz-expand-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
+          <svg class="fmz-compress-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M9 3v4a2 2 0 0 1-2 2H3M15 3v4a2 2 0 0 0 2 2h4M21 15h-4a2 2 0 0 0-2 2v4M3 15h4a2 2 0 0 1 2 2v4"/></svg>
         </button>
       </div>
       <svg class="france-map" id="franceMap" viewBox="0 0 900 726.7" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte de France et pays voisins où la communauté FLORE est présente">
@@ -596,6 +600,37 @@
     if (zoomResetBtn) zoomResetBtn.addEventListener('click', function () {
       scale = 1; tx = 0; ty = 0; applyTransform();
     });
+
+    /* Plein écran "maison" (position:fixed sur le viewport) plutôt que
+       l'API Fullscreen native : bien plus fiable sur mobile (Safari iOS
+       gère mal la Fullscreen API sur un simple <div>). Le viewport est
+       déplacé directement dans <body> le temps du plein écran : sinon
+       position:fixed reste piégé dans .france-map-wrap, qui porte une
+       transform résiduelle posée par AOS (matrix identité, mais ça suffit
+       à créer un containing block pour les descendants fixed). */
+    var fsBtn = document.getElementById('fmFullscreen');
+    if (fsBtn) {
+      var expandIc = fsBtn.querySelector('.fmz-expand-ic');
+      var compressIc = fsBtn.querySelector('.fmz-compress-ic');
+      var fsAnchor = document.createComment('france-map-anchor');
+      viewport.parentNode.insertBefore(fsAnchor, viewport);
+      function setFullscreen(on) {
+        viewport.classList.toggle('is-fullscreen', on);
+        document.body.style.overflow = on ? 'hidden' : '';
+        expandIc.style.display = on ? 'none' : '';
+        compressIc.style.display = on ? '' : 'none';
+        fsBtn.setAttribute('aria-label', on ? 'Quitter le plein écran' : 'Plein écran');
+        if (on) document.body.appendChild(viewport);
+        else fsAnchor.parentNode.insertBefore(viewport, fsAnchor.nextSibling);
+        scale = 1; tx = 0; ty = 0; applyTransform();
+      }
+      fsBtn.addEventListener('click', function () {
+        setFullscreen(!viewport.classList.contains('is-fullscreen'));
+      });
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && viewport.classList.contains('is-fullscreen')) setFullscreen(false);
+      });
+    }
 
     var dragging = false, startX = 0, startY = 0, startTx = 0, startTy = 0;
     function dragStart(x, y) {
