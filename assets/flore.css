@@ -326,7 +326,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 
 /* ===== Carte de France + voisins (communauté) ===== */
 .france-map-wrap{max-width:700px;margin:0 auto}
-.france-map{width:100%;height:auto;display:block;overflow:visible}
+.france-map-viewport{position:relative;overflow:hidden;border-radius:var(--r-lg);touch-action:pan-y}
+.france-map{width:100%;height:auto;display:block;cursor:grab;transform-origin:0 0}
+.france-map-viewport.dragging .france-map{cursor:grabbing}
+.france-map-zoom{position:absolute;top:14px;right:14px;z-index:2;display:flex;flex-direction:column;gap:8px}
+.fmz-btn{width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.92);color:var(--ink);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s var(--ease),transform .2s var(--ease)}
+.fmz-btn svg{width:18px;height:18px}
+.fmz-btn:hover{background:var(--white);transform:scale(1.06)}
+.fmz-btn:active{transform:scale(.95)}
+.fmz-reset svg{width:15px;height:15px}
 .france-map .dept{fill:var(--sky-pale);stroke:var(--white);stroke-width:1.3;transition:fill .4s var(--ease)}
 .france-map .dept.active{fill:var(--sun-pale)}
 .france-map .country{fill:rgba(255,255,255,.55);stroke:var(--sky-soft);stroke-width:1;stroke-dasharray:3 2;transition:fill .4s var(--ease)}
