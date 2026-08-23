@@ -110,16 +110,21 @@
       '<li><strong>Contact direct</strong> : si vous nous écrivez, nous conservons votre message le temps nécessaire pour vous répondre.</li>' +
     '</ul>' +
 
-    '<h3>3. Finalité et base légale</h3>' +
-    '<p>Vos données servent uniquement à répondre à votre demande, instruire votre candidature ou vous informer de l\'ouverture de la billetterie, sur la base de votre consentement ou de l\'exécution de mesures précontractuelles. Elles ne sont ni vendues, ni cédées, ni transmises à des tiers à des fins commerciales.</p>' +
+    '<h3>3. Billetterie (Weezevent)</h3>' +
+    '<p>Lorsque vous achetez un billet, vos informations (nom, prénom, e-mail, adresse postale/pays, et selon le mode de paiement choisi les données nécessaires à la transaction) sont collectées et traitées par notre prestataire de billetterie <strong>Weezevent</strong>, qui agit comme sous-traitant pour le compte de MG Entertainment (responsable du traitement). Ces données servent à traiter votre commande, vous envoyer vos billets, gérer le contrôle d\'accès le jour de l\'événement et, si vous l\'avez accepté, vous informer des prochaines éditions.</p>' +
+    '<p>Nous pouvons publier des statistiques agrégées et anonymisées issues de ces données (par exemple, la répartition géographique de nos acheteurs par département ou par pays), sans qu\'aucun billet ni acheteur ne soit identifiable individuellement.</p>' +
+    '<p>Le traitement de vos données par Weezevent est également régi par leurs propres conditions, consultables sur <a href="https://www.weezevent.com" target="_blank" rel="noopener">weezevent.com</a>.</p>' +
 
-    '<h3>4. Durée de conservation</h3>' +
-    '<p>Les échanges par e-mail et les candidatures sont conservés le temps nécessaire à leur traitement, puis supprimés. Pour les inscriptions à l\'actualité du festival : jusqu\'à votre demande de désinscription.</p>' +
+    '<h3>4. Finalité et base légale</h3>' +
+    '<p>Vos données servent uniquement à répondre à votre demande, instruire votre candidature, traiter votre commande de billets ou vous informer de l\'ouverture de la billetterie, sur la base de votre consentement, de l\'exécution du contrat de vente ou de mesures précontractuelles. Elles ne sont ni vendues, ni cédées, ni transmises à des tiers à des fins commerciales.</p>' +
 
-    '<h3>5. Vos droits</h3>' +
+    '<h3>5. Durée de conservation</h3>' +
+    '<p>Les échanges par e-mail et les candidatures sont conservés le temps nécessaire à leur traitement, puis supprimés. Pour les inscriptions à l\'actualité du festival : jusqu\'à votre demande de désinscription. Pour les données de billetterie : le temps nécessaire à l\'organisation de l\'événement et aux obligations comptables légales, selon les conditions de conservation propres à Weezevent.</p>' +
+
+    '<h3>6. Vos droits</h3>' +
     '<p>Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification, d\'effacement, d\'opposition et de portabilité de vos données. Pour les exercer, écrivez à <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>' +
 
-    '<h3>6. Cookies et traceurs</h3>' +
+    '<h3>7. Cookies et traceurs</h3>' +
     '<p>Ce site ne fait aucun profilage à des fins autres que la mesure d\'audience et publicitaire décrites ici, et ne revend jamais vos données. Avec votre consentement, il utilise <strong>Google Analytics</strong> (comprendre de façon anonymisée comment le site est visité : pages consultées, provenance, appareil) et le <strong>Pixel Meta</strong> (Facebook/Instagram), qui mesure l\'efficacité de nos publications et campagnes sur ces réseaux.</p>' +
     '<ul>' +
       '<li><strong>Google Analytics</strong> et <strong>Pixel Meta</strong> : déposés uniquement si vous cliquez « Accepter » sur le bandeau cookies. Vous pouvez refuser sans que cela affecte votre navigation.</li>' +
@@ -128,7 +133,7 @@
     '</ul>' +
     '<p><button type="button" class="lgl-manage-cookies">Modifier mon choix sur les cookies</button></p>' +
 
-    '<p class="lgl-updated">Dernière mise à jour : 10 août 2026.</p>';
+    '<p class="lgl-updated">Dernière mise à jour : 23 août 2026.</p>';
 
   /* ---------- Conditions générales de vente (billetterie) ---------- */
   var CGV =
