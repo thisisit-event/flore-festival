@@ -110,10 +110,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2.5px;background:var(--sun);border-radius:2px;transition:width .25s var(--ease)}
 .nav-links a:not(.btn):hover::after{width:100%}
 .nav-mobile-actions{display:none;align-items:center;gap:10px}
-.nav-ticket-mobile{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;text-decoration:none;transition:background .2s var(--ease),transform .2s var(--ease);flex:none}
-.nav-ticket-mobile img{width:20px;height:20px;object-fit:contain;display:block}
-.nav-ticket-mobile:hover{background:rgba(255,255,255,.28);transform:translateY(-1px)}
-.nav.scrolled .nav-ticket-mobile{background:rgba(21,57,91,.08);border-color:rgba(21,57,91,.18)}
+.nav-ticket-mobile{display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:transform .2s var(--ease);flex:none}
+.nav-ticket-mobile img{width:38px;height:38px;object-fit:contain;display:block}
+.nav-ticket-mobile:hover{transform:translateY(-1px)}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:101}
 .nav-toggle span{display:block;width:26px;height:2.6px;background:var(--white);border-radius:3px;transition:.3s var(--ease)}
 .nav.scrolled .nav-toggle span{background:var(--ink)}
