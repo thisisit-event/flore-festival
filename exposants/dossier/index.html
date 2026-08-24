@@ -36,6 +36,7 @@
   /* ===== Modèle 0€ ===== */
   .model-block{background:linear-gradient(135deg,var(--ink) 0%,var(--sky-deep) 100%);border-radius:var(--r-lg);padding:44px 40px;color:#fff;position:relative;overflow:hidden}
   .model-block::after{content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(218,239,82,.22) 0,transparent 70%)}
+  .model-eyebrow{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun);margin:0 0 10px;position:relative}
   .model-top{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:20px;position:relative}
   .model-price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:4.6rem;line-height:1;color:var(--sun)}
   .model-top h2{color:#fff;font-size:1.4rem;max-width:26ch;margin:0}
@@ -213,11 +214,12 @@
 <section class="sec" id="modele" style="padding-top:0">
   <div class="wrap">
     <div class="model-block" data-aos="fade-up">
+      <p class="model-eyebrow">Le prix des précurseurs</p>
       <div class="model-top">
         <span class="model-price">0€</span>
         <h2>C'est le prix d'un emplacement stand chez FLORE</h2>
       </div>
-      <p>FLORE ne prend aucune marge sur votre présence au festival. L'emplacement est offert — vous ne payez que ce que vous consommez réellement, directement au tarif d'Ainterexpo, notre lieu d'accueil.</p>
+      <p>FLORE se lance à l'aveugle : première édition, aucun track record, une vraie prise de risque partagée entre nous et vous. C'est précisément pour ça que l'accès est offert — pas parce qu'on n'accorde pas de valeur à votre présence, mais parce que ceux qui nous rejoignent maintenant sont des précurseurs, et que ça se mérite.</p>
       <div class="model-rule">
         <span class="n">1</span>
         <p><strong>Emplacement stand nu offert</strong> — Jardin des Saveurs (9m²) ou Boutique (4-8m²), sans redevance FLORE.</p>
@@ -229,6 +231,10 @@
       <div class="model-rule">
         <span class="n">3</span>
         <p><strong>Une seule condition</strong> — une caution de dédit de 100€HT, restituée intégralement, qui protège l'organisation en cas d'absence non justifiée.</p>
+      </div>
+      <div class="model-rule">
+        <span class="n">4</span>
+        <p><strong>Un choix, une fois le festival passé</strong> — si votre chiffre d'affaires sur place vous a satisfait, vous pourrez choisir de laisser votre caution à l'association pour financer son développement. Entièrement volontaire : par défaut, elle vous est intégralement restituée.</p>
       </div>
     </div>
   </div>
