@@ -113,6 +113,14 @@
   .chip{display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink-soft);background:#f0f7fc;border:1.5px solid var(--line);border-radius:100px;padding:9px 16px;transition:all .18s}
   .chip input{display:none}
   .chip:has(input:checked){background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+  .ck-list{display:grid;gap:10px;margin:6px 0 4px}
+  .ck-list.options-grid{grid-template-columns:1fr 1fr}
+  @media(max-width:640px){.ck-list.options-grid{grid-template-columns:1fr}}
+  .ck-item{display:flex;align-items:center;gap:12px;cursor:pointer;background:#f7fafc;border:1.5px solid var(--line);border-radius:14px;padding:13px 16px;transition:border-color .15s,background .15s}
+  .ck-item input{width:20px;height:20px;flex:0 0 auto;accent-color:var(--sky-deep);cursor:pointer}
+  .ck-item span{font-size:.92rem;color:var(--ink);line-height:1.4;display:flex;justify-content:space-between;flex:1;gap:10px}
+  .ck-item span b{color:var(--sky-deep);white-space:nowrap}
+  .ck-item:has(input:checked){background:var(--sun-pale);border-color:var(--sun-deep)}
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -183,7 +191,7 @@
       <p>Le modèle, les deux formats, les tarifs exacts et la candidature en ligne — tout ce dont vous avez besoin pour décider, suite à notre échange.</p>
       <div class="price-hero"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><strong>0 €</strong><span>de marge FLORE sur votre stand</span></div>
       <div class="btn-row">
-        <a href="#candidature" class="btn btn-sun">Déposer ma candidature</a>
+        <a href="#candidature" class="btn btn-sun">Composer mon stand</a>
         <a href="#modele" class="btn btn-ghost-w">Voir le modèle en détail</a>
       </div>
     </div>
@@ -222,7 +230,6 @@
         <span class="n">3</span>
         <p><strong>Une seule condition</strong> — une caution de dédit de 100€HT, restituée intégralement, qui protège l'organisation en cas d'absence non justifiée.</p>
       </div>
-      <div class="model-caveat">⚠️ À savoir pour le Jardin des Saveurs : un stand chaud a besoin d'électricité forte puissance et d'eau, obligatoires pour l'hygiène — ce n'est donc pas "gratuit" en pratique pour ce format, mais transparent au centime près sur ce que vous consommez réellement.</div>
     </div>
   </div>
 </section>
@@ -371,106 +378,81 @@
   </div>
 </section>
 
-<!-- ===================== CANDIDATURE (wizard) ===================== -->
+<!-- ===================== COMMANDE (panier d'options) ===================== -->
 <section class="sec wiz-sheet" id="candidature">
   <div class="wrap">
     <div class="wiz-head" data-aos="fade-up">
-      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Candidature</span>
-      <h2>Déposez votre candidature</h2>
-      <p>Un formulaire court : qui vous êtes, ce que vous proposez, le format qui vous intéresse. On cale le reste ensemble juste après.</p>
+      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Étape suivante</span>
+      <h2>Composez votre stand</h2>
+      <p>Vous avez déjà candidaté et échangé avec l'équipe FLORE — ici, on passe au concret : le format retenu et les options techniques dont vous avez besoin. Rien à réapprendre, juste vos courses.</p>
     </div>
 
-    <form id="wiz-form" novalidate>
+    <form id="order-form" novalidate>
       <input type="hidden" name="access_key" value="c2d43217-2206-4a51-b17b-da27a8844e27">
-      <input type="hidden" name="subject" value="Candidature exposant FLORE — Dossier détaillé">
-      <input type="hidden" name="from_name" value="Formulaire Dossier Exposant FLORE">
+      <input type="hidden" name="subject" value="Commande options exposant FLORE — Dossier détaillé">
+      <input type="hidden" name="from_name" value="Formulaire Options Exposant FLORE">
       <input type="checkbox" name="botcheck" style="display:none">
 
       <div class="wiz-block">
         <div class="wiz-steplabel">Votre format</div>
-        <h3 style="color:var(--ink);margin-bottom:6px">Quel format vous intéresse ? <span class="f-optional" style="font-size:.78rem">(un choix principal)</span></h3>
+        <h3 style="color:var(--ink);margin-bottom:16px">Quel format avez-vous retenu ? <span class="f-required">*</span></h3>
         <div class="chip-grid">
-          <label class="chip"><input type="radio" name="format" value="Jardin des Saveurs"><span>🍽️ Jardin des Saveurs</span></label>
+          <label class="chip"><input type="radio" name="format" value="Jardin des Saveurs" required><span>🍽️ Jardin des Saveurs</span></label>
           <label class="chip"><input type="radio" name="format" value="Boutique FLORE"><span>🛍️ Boutique FLORE</span></label>
           <label class="chip"><input type="radio" name="format" value="Stand Premium VIP"><span>⭐ Stand Premium VIP</span></label>
-          <label class="chip"><input type="radio" name="format" value="Je ne sais pas encore"><span>🤔 Je ne sais pas encore</span></label>
-        </div>
-
-        <h3 style="color:var(--ink);margin:26px 0 6px">Votre offre concerne... <span class="f-optional" style="font-size:.78rem">(plusieurs choix possibles)</span></h3>
-        <div class="chip-grid">
-          <label class="chip"><input type="checkbox" name="lien_thematique[]" value="Sans gluten"><span>🌾 Sans gluten</span></label>
-          <label class="chip"><input type="checkbox" name="lien_thematique[]" value="Sans lactose"><span>🥛 Sans lactose</span></label>
-          <label class="chip"><input type="checkbox" name="lien_thematique[]" value="Sans gluten et sans lactose"><span>🌾🥛 Sans gluten et sans lactose</span></label>
-          <label class="chip"><input type="checkbox" name="lien_thematique[]" value="Vegan"><span>🌱 Vegan</span></label>
         </div>
       </div>
 
       <div class="wiz-block">
-        <div class="wiz-steplabel">Votre structure</div>
-        <h3 style="color:var(--ink);margin-bottom:16px">Qui êtes-vous</h3>
-        <div class="f-row two">
-          <div class="f-field"><label>Prénom <span class="f-required">*</span></label><input type="text" name="prenom" id="in-prenom" autocomplete="given-name" required></div>
-          <div class="f-field"><label>Nom <span class="f-required">*</span></label><input type="text" name="nom" id="in-nom-contact" autocomplete="family-name" required></div>
+        <div class="wiz-steplabel">Vos options</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Cochez ce dont vous avez besoin <span class="f-optional" style="font-size:.78rem">(facultatif — vous pouvez aussi tout apporter vous-même)</span></h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Facturé au tarif réel Ainterexpo, en direct — rien ne passe par FLORE.</p>
+        <div class="ck-list options-grid">
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Table pliante — 14€"><span>Table pliante <b>14 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Chaise coque — 4€"><span>Chaise coque <b>4 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Pack Mobilier Duo (1 table + 2 chaises) — 40€"><span>Pack Duo (1 table + 2 chaises) <b>40 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Pack Mobilier Famille (2 tables + 4 chaises) — 75€"><span>Pack Famille (2 tables + 4 chaises) <b>75 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Mange-debout — 50€"><span>Mange-debout <b>50 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Tabouret haut de bar — 38€"><span>Tabouret haut de bar <b>38 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Comptoir d'accueil (1m) — 90€"><span>Comptoir d'accueil (1m) <b>90 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Moquette au m² — 8€/m²"><span>Moquette au m² <b>8 €/m²</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Cloison supplémentaire — 30€/ml"><span>Cloison supplémentaire <b>30 €/ml</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Porte avec clé — 71€"><span>Porte avec clé (réserve) <b>71 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Prise monophasé (1-4kW) — 60-240€"><span>Prise monophasé (1-4kW) <b>60-240 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Triphasé forte puissance (4-15kW) — 170-270€"><span>Triphasé forte puissance (cuisson) <b>170-270 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Eau froide et évacuation — 150€"><span>Eau froide &amp; évacuation <b>150 €</b></span></label>
+          <label class="ck-item"><input type="checkbox" name="options[]" value="Manutention (15 min) — 55€"><span>Manutention (15 min) <b>55 €</b></span></label>
         </div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Pour vous identifier</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Vos coordonnées</h3>
         <div class="f-row two">
-          <div class="f-field"><label>Nom de l'entreprise / marque <span class="f-required">*</span></label><input type="text" name="nom_entreprise" id="in-nom" autocomplete="organization" required></div>
-          <div class="f-field"><label>SIRET <span class="f-optional">(facultatif)</span></label><input type="text" id="in-siret" name="siret" placeholder="14 chiffres" inputmode="numeric"></div>
+          <div class="f-field"><label>Nom de la structure <span class="f-required">*</span></label><input type="text" name="nom_entreprise" id="in-nom" autocomplete="organization" required></div>
+          <div class="f-field"><label>Nom et prénom <span class="f-required">*</span></label><input type="text" name="contact" id="in-contact" autocomplete="name" required></div>
         </div>
         <div class="f-row">
-          <div class="f-field" style="position:relative">
-            <label>Adresse <span class="f-required">*</span></label>
-            <input type="text" id="in-adresse" name="adresse" placeholder="Commencez à taper, choisissez dans la liste..." autocomplete="off" required>
-            <div class="addr-suggest" id="addr-suggest" hidden></div>
-          </div>
+          <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" name="email" id="in-email" autocomplete="email" required></div>
         </div>
-        <div class="f-row two">
-          <div class="f-field"><label>Ville</label><input type="text" id="in-ville" name="ville" autocomplete="address-level2"></div>
-          <div class="f-field"><label>Code postal</label><input type="text" id="in-cp" name="code_postal" autocomplete="postal-code"></div>
-        </div>
-        <div class="f-row two">
-          <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" id="in-email" name="email" autocomplete="email" required></div>
-          <div class="f-field"><label>Téléphone</label><input type="tel" name="telephone" autocomplete="tel"></div>
-        </div>
-        <div class="f-row three">
-          <div class="f-field"><label>Site web <span class="f-optional">(facultatif)</span></label><input type="url" name="site_web" placeholder="https://" autocomplete="url"></div>
-          <div class="f-field"><label>Instagram <span class="f-optional">(facultatif)</span></label><input type="text" name="instagram" placeholder="@votrecompte"></div>
-          <div class="f-field"><label>TikTok <span class="f-optional">(facultatif)</span></label><input type="text" name="tiktok" placeholder="@votrecompte"></div>
+        <div class="f-row" style="margin-top:4px">
+          <div class="f-field"><label>Remarque <span class="f-optional">(facultatif)</span></label><textarea name="remarque" placeholder="Une précision sur votre commande ? On en discute si besoin."></textarea></div>
         </div>
       </div>
 
       <div class="wiz-block">
-        <div class="wiz-steplabel">Votre offre</div>
-        <h3 style="color:var(--ink);margin-bottom:16px">Que proposez-vous ?</h3>
-        <div class="f-row">
-          <div class="f-field"><label>Qui êtes-vous, que proposez-vous ? <span class="f-required">*</span></label><textarea id="in-description" name="description" placeholder="Racontez-nous votre projet : qui vous êtes, ce que vous proposez, ce qui vous rend unique..." required></textarea></div>
-        </div>
-        <div class="f-row" id="menu-field-wrap">
-          <div class="f-field"><label>Votre menu <span class="f-optional">(pour un stand food)</span></label><textarea name="menu" placeholder="Listez les plats / produits que vous prévoyez pour le festival..."></textarea></div>
-          <div class="f-field"><label>Lien vers votre carte <span class="f-optional">(facultatif)</span></label><input type="url" name="lien_carte" placeholder="https://... (carte, menu, tarifs)"></div>
-        </div>
-        <div class="f-row" style="margin-top:4px">
-          <div class="f-field"><label>Options techniques envisagées <span class="f-optional">(facultatif, voir grille tarifaire ci-dessus)</span></label><textarea name="besoins_specifiques" placeholder="Ex : électricité triphasé, eau, mange-debout... on confirme ensemble après votre candidature."></textarea></div>
-        </div>
-        <div class="f-row" style="margin-top:4px">
-          <div class="f-field"><label>Portfolio / document <span class="f-optional">(facultatif)</span></label><input type="url" name="lien_portfolio" placeholder="Lien vers un book, portfolio, catalogue, présentation..."></div>
-        </div>
-      </div>
-
-      <div class="wiz-block">
-        <div class="wiz-steplabel">Engagements &amp; envoi</div>
-        <h3 style="color:var(--ink);margin-bottom:16px">Derniers points avant l'envoi</h3>
-
+        <div class="wiz-steplabel">Envoi</div>
         <div class="info-box">
           <h4>Comment ça se passe après l'envoi</h4>
-          <p>Le Comité FLORE réunit les candidatures et prendra rendez-vous avec vous pour caler ensemble tous les détails (options techniques, dates de paiement, besoins pratiques).</p>
+          <p>L'équipe FLORE confirme votre commande et revient vers vous pour les modalités de paiement des options choisies, directement auprès d'Ainterexpo.</p>
         </div>
 
         <label class="consent-row" style="margin-top:20px">
           <input type="checkbox" id="in-rgpd">
-          <span>J'accepte que mes informations soient utilisées pour le traitement de ma candidature par MG Entertainment / FLORE Festival.</span>
+          <span>J'accepte que mes informations soient utilisées pour le traitement de ma commande par MG Entertainment / FLORE Festival.</span>
         </label>
 
-        <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma candidature →</button>
+        <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma commande →</button>
         <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Un oubli après l'envoi ? Écrivez-nous à contact@flore-festival.fr.</p>
         <div class="form-msg" id="wiz-msg"></div>
       </div>
@@ -491,104 +473,31 @@
   window.addEventListener('scroll', onScroll, { passive:true });
 
   (function(){
-    const form = document.getElementById('wiz-form');
+    const form = document.getElementById('order-form');
 
     function isValidEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
     function validateForm(){
-      if (!form.querySelector('[name="lien_thematique[]"]:checked')){
-        alert('Merci d\'indiquer ce que concerne votre offre.');
+      if (!form.querySelector('[name="format"]:checked')){
+        alert('Merci de choisir le format retenu.');
         return false;
       }
-      const required = ['in-prenom','in-nom-contact','in-nom','in-adresse','in-email'];
+      const required = ['in-nom','in-contact','in-email'];
       for (const id of required){
         if (!document.getElementById(id).value.trim()){
-          alert('Merci de compléter les champs obligatoires (structure) avant l\'envoi.');
+          alert('Merci de compléter vos coordonnées avant l\'envoi.');
           document.getElementById(id).focus();
           document.getElementById(id).scrollIntoView({ behavior:'smooth', block:'center' });
           return false;
         }
-      }
-      const siretVal = document.getElementById('in-siret').value.replace(/\s/g,'');
-      if (siretVal && !/^\d{14}$/.test(siretVal)){
-        alert('Merci d\'indiquer un SIRET valide (14 chiffres) ou de laisser le champ vide.');
-        document.getElementById('in-siret').focus();
-        return false;
       }
       if (!isValidEmail(document.getElementById('in-email').value.trim())){
         alert('Merci d\'indiquer une adresse email valide.');
         document.getElementById('in-email').focus();
         return false;
       }
-      if (!document.getElementById('in-description').value.trim()){
-        alert('Merci de nous dire ce que vous proposez.');
-        document.getElementById('in-description').focus();
-        document.getElementById('in-description').scrollIntoView({ behavior:'smooth', block:'center' });
-        return false;
-      }
       return true;
     }
-
-    // ---- Autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
-    const inAdresse = document.getElementById('in-adresse');
-    const addrSuggest = document.getElementById('addr-suggest');
-    let addrDebounce = null;
-    let addrAbort = null;
-    let addrActiveIndex = -1;
-
-    function hideAddrSuggest(){
-      addrSuggest.hidden = true;
-      addrSuggest.innerHTML = '';
-      addrActiveIndex = -1;
-    }
-
-    function selectAddrFeature(f){
-      const p = f.properties;
-      inAdresse.value = p.name || p.label || inAdresse.value;
-      if (p.city) document.getElementById('in-ville').value = p.city;
-      if (p.postcode) document.getElementById('in-cp').value = p.postcode;
-      hideAddrSuggest();
-    }
-
-    inAdresse.addEventListener('input', function(){
-      const q = inAdresse.value.trim();
-      clearTimeout(addrDebounce);
-      if (q.length < 3){ hideAddrSuggest(); return; }
-      addrDebounce = setTimeout(function(){
-        if (addrAbort) addrAbort.abort();
-        addrAbort = new AbortController();
-        fetch('https://api-adresse.data.gouv.fr/search/?q=' + encodeURIComponent(q) + '&limit=5', { signal: addrAbort.signal })
-          .then(function(r){ return r.json(); })
-          .then(function(data){
-            const feats = (data && data.features) || [];
-            if (!feats.length){ hideAddrSuggest(); return; }
-            addrSuggest.innerHTML = feats.map(function(f, i){
-              return '<div class="as-item" data-idx="' + i + '">' + f.properties.label + '</div>';
-            }).join('');
-            addrSuggest.hidden = false;
-            addrActiveIndex = -1;
-            addrSuggest.querySelectorAll('.as-item').forEach(function(el, i){
-              el.addEventListener('mousedown', function(){ selectAddrFeature(feats[i]); });
-            });
-            addrSuggest._features = feats;
-          })
-          .catch(function(){ /* API indisponible : le champ reste utilisable en saisie libre */ });
-      }, 250);
-    });
-
-    inAdresse.addEventListener('keydown', function(e){
-      const items = Array.prototype.slice.call(addrSuggest.querySelectorAll('.as-item'));
-      if (addrSuggest.hidden || !items.length) return;
-      if (e.key === 'ArrowDown'){ e.preventDefault(); addrActiveIndex = Math.min(addrActiveIndex + 1, items.length - 1); }
-      else if (e.key === 'ArrowUp'){ e.preventDefault(); addrActiveIndex = Math.max(addrActiveIndex - 1, 0); }
-      else if (e.key === 'Enter'){
-        if (addrActiveIndex >= 0){ e.preventDefault(); selectAddrFeature(addrSuggest._features[addrActiveIndex]); }
-        return;
-      } else if (e.key === 'Escape'){ hideAddrSuggest(); return; }
-      else { return; }
-      items.forEach(function(it, i){ it.classList.toggle('is-active', i === addrActiveIndex); });
-    });
-    inAdresse.addEventListener('blur', function(){ setTimeout(hideAddrSuggest, 150); });
 
     // ---- Soumission ----
     const msg = document.getElementById('wiz-msg');
@@ -609,8 +518,8 @@
         const json = await res.json();
         if (json.success){
           msg.className = 'form-msg ok';
-          msg.textContent = 'Candidature reçue ! Le Comité FLORE l\'examine et revient vers vous pour caler les détails.';
-          btnSubmit.textContent = 'Candidature envoyée ✓';
+          msg.textContent = 'Commande reçue ! L\'équipe FLORE revient vers vous pour les modalités de paiement.';
+          btnSubmit.textContent = 'Commande envoyée ✓';
         } else {
           throw new Error(json.message || 'Échec de l\'envoi (raison inconnue).');
         }
@@ -619,7 +528,7 @@
         const detail = (err && err.message) ? err.message : 'erreur inconnue';
         msg.textContent = 'Envoi impossible (' + detail + '). Écrivez-nous à contact@flore-festival.fr si ça persiste.';
         btnSubmit.disabled = false;
-        btnSubmit.textContent = 'Envoyer ma candidature →';
+        btnSubmit.textContent = 'Envoyer ma commande →';
       }
       msg.scrollIntoView({ behavior:'smooth', block:'center' });
     });
