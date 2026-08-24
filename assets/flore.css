@@ -227,8 +227,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .hero-meta .item small{display:block;font-size:.62rem;color:rgba(255,255,255,.8);font-family:'Telegraf',sans-serif;font-weight:600;letter-spacing:.07em;text-transform:uppercase}
 .hero-meta .item b{font-family:'Telegraf',sans-serif;font-weight:700;font-size:.92rem;color:var(--white)}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:0}
-.hero-cal-link{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-family:'Telegraf',sans-serif;font-weight:600;font-size:.86rem;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;transition:color .2s,border-color .2s}
-.hero-cal-link:hover{color:#fff;border-color:#fff}
 .hero-cta .btn{padding:13px 24px;font-size:.92rem}
 
 /* Florette · colonne droite, hauteur intégrée */
