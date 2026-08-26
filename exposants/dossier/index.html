@@ -283,6 +283,13 @@
   .degust-card p span{color:var(--ink-soft);font-weight:600}
   @media(max-width:760px){.degust-grid{grid-template-columns:1fr}}
 
+  /* ===== Animations FLORE ===== */
+  .case-abc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .case-abc-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:22px}
+  .case-abc-card > p:first-of-type{color:var(--ink);font-size:.92rem;margin:14px 0 16px;max-width:none;line-height:1.5}
+  .case-abc-reco{font-size:.84rem;font-weight:700;margin:0;padding:8px 12px;border-radius:10px;max-width:none}
+  @media(max-width:760px){.case-abc-grid{grid-template-columns:1fr}}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -968,7 +975,50 @@
   </div>
 </section>
 
-<span id="animations" class="section-anchor"></span>
+<!-- ===================== ANIMATIONS FLORE ===================== -->
+<section class="sec" id="animations" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Expérience public</span>
+      <h2>Animations FLORE</h2>
+      <p>Une activité retenue pour enrichir l'expérience du public — pas pour vendre.</p>
+    </div>
+
+    <div class="tag-row" data-aos="fade-up" style="justify-content:center">
+      <span>Massage</span><span>Maquillage</span><span>Activité enfant</span><span>Découverte</span><span>Initiation</span><span>Mini-conférence</span><span>Atelier</span><span>Démonstration</span><span>Bien-être</span>
+    </div>
+
+    <div class="rule-abs" data-aos="fade-up" style="margin-top:36px;padding:32px 24px">
+      <p class="rule-abs-and" style="font-size:clamp(1.3rem,3.4vw,1.9rem)">Espace gratuit FLORE = expérience principale gratuite pour le public</p>
+    </div>
+
+    <div class="info-box" data-aos="fade-up">
+      <h4>Animation et vente</h4>
+      <p>Après validation, une animation gratuite peut aussi présenter ses produits ou vendre des produits complémentaires. Mais si l'objectif principal devient commercial, l'activité relève alors de la catégorie Exposant.</p>
+    </div>
+
+    <div class="sec-head center" data-aos="fade-up" style="margin-top:40px">
+      <h3 class="h-sub" style="text-align:center">Exemple concret : le maquillage</h3>
+    </div>
+    <div class="case-abc-grid" data-aos="fade-up">
+      <div class="case-abc-card">
+        <span class="format-tag">Cas A</span>
+        <p>Maquillage découverte gratuit toute la journée, faible vente.</p>
+        <p class="case-abc-reco uc-reco--animation">→ Animation FLORE possible</p>
+      </div>
+      <div class="case-abc-card">
+        <span class="format-tag">Cas B</span>
+        <p>Marque de maquillage qui vient principalement vendre.</p>
+        <p class="case-abc-reco uc-reco--exposant">→ Exposant</p>
+      </div>
+      <div class="case-abc-card">
+        <span class="format-tag">Cas C</span>
+        <p>Petite marque qui vend et propose une vraie animation gratuite.</p>
+        <p class="case-abc-reco uc-reco--pionnier">→ Exposant avec Tarif Accompagnement possible</p>
+      </div>
+    </div>
+  </div>
+</section>
 <span id="partenaires" class="section-anchor"></span>
 <span id="installation" class="section-anchor"></span>
 
