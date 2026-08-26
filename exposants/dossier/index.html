@@ -177,6 +177,36 @@
     .diag-card{padding:26px 20px}
     .yn-row{flex-direction:column}
   }
+
+  /* ===== Comparateur des statuts ===== */
+  .status-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .status-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:24px 22px}
+  .status-card h3{font-size:1.1rem;color:var(--ink);margin:10px 0 16px}
+  .status-card ul{list-style:none;margin:0;padding:0}
+  .status-card li{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.85rem}
+  .status-card li:last-child{border-bottom:none;padding-bottom:0}
+  .status-card li strong{color:var(--sky-deep);font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+  .status-card li span{color:var(--ink);font-weight:600}
+  @media(max-width:960px){.status-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.status-grid{grid-template-columns:1fr}}
+
+  /* ===== Cas d'usage ===== */
+  .usecase-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .usecase-item{display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(0,30,80,.06);padding:16px 20px}
+  .uc-case{flex:1 1 auto;font-size:.9rem;color:var(--ink);font-weight:700}
+  .uc-arrow{flex:none;color:var(--sky-deep);font-weight:800}
+  .uc-reco{flex:1 1 auto;font-size:.82rem;font-weight:700;padding:6px 12px;border-radius:100px;text-align:center}
+  .uc-reco--pionnier{background:var(--sun-pale);color:var(--sun-deep)}
+  .uc-reco--exposant{background:var(--sky-pale);color:var(--sky-deep)}
+  .uc-reco--animation{background:#DCF3EE;color:#1e7a6a}
+  .uc-reco--partenaire{background:#E7F4FB;color:var(--sky-deep)}
+  .uc-reco--mixte{background:#f0f0f0;color:var(--ink-soft)}
+  @media(max-width:760px){
+    .usecase-grid{grid-template-columns:1fr}
+    .usecase-item{flex-wrap:wrap}
+    .uc-reco{flex:1 1 100%}
+  }
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -466,6 +496,82 @@
           <button type="button" class="btn btn-ghost" id="diagRestart">Refaire le diagnostic</button>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMPARATEUR DES STATUTS ===================== -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Vue d'ensemble</span>
+      <h2>Les 4 statuts en un coup d'œil</h2>
+      <p>Le Tarif Accompagnement n'est pas un 5<sup>e</sup> statut : c'est un tarif exceptionnel possible pour certains exposants commerciaux de petite taille.</p>
+    </div>
+    <div class="status-grid">
+      <div class="status-card" data-aos="fade-up">
+        <span class="format-tag">Sur sélection</span>
+        <h3>Pionnier</h3>
+        <ul>
+          <li><strong>Pourquoi</strong><span>Valeur apportée à FLORE</span></li>
+          <li><strong>Espace</strong><span>Pris en charge</span></li>
+          <li><strong>Vente</strong><span>Oui</span></li>
+          <li><strong>Commission</strong><span>0 %</span></li>
+          <li><strong>Animation gratuite</strong><span>Possible</span></li>
+          <li><strong>Sélection</strong><span>FLORE</span></li>
+        </ul>
+      </div>
+      <div class="status-card" data-aos="fade-up" data-aos-delay="60">
+        <span class="format-tag">Payant</span>
+        <h3>Exposant</h3>
+        <ul>
+          <li><strong>Pourquoi</strong><span>Vente / marketing</span></li>
+          <li><strong>Espace</strong><span>Payant</span></li>
+          <li><strong>Vente</strong><span>Oui</span></li>
+          <li><strong>Commission</strong><span>0 %</span></li>
+        </ul>
+      </div>
+      <div class="status-card" data-aos="fade-up" data-aos-delay="120">
+        <span class="format-tag">Sous condition</span>
+        <h3>Animation</h3>
+        <ul>
+          <li><strong>Pourquoi</strong><span>Expérience public</span></li>
+          <li><strong>Espace</strong><span>Pris en charge si validation</span></li>
+          <li><strong>Condition</strong><span>Animation principale gratuite</span></li>
+        </ul>
+      </div>
+      <div class="status-card" data-aos="fade-up" data-aos-delay="180">
+        <span class="format-tag">Sur devis</span>
+        <h3>Partenaire</h3>
+        <ul>
+          <li><strong>Pourquoi</strong><span>Visibilité / image / activation</span></li>
+          <li><strong>Budget</strong><span>À partir de 2 000 €</span></li>
+          <li><strong>Espace</strong><span>Inclus selon package</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAS D'USAGE ===================== -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Concrètement</span>
+      <h2>Des exemples pour vous situer</h2>
+      <p>Le diagnostic reste la référence, mais voici des profils types pour vous faire une première idée.</p>
+    </div>
+    <div class="usecase-grid" data-aos="fade-up">
+      <div class="usecase-item"><span class="uc-case">Pizzaiolo indépendant ultra-spécialisé</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--pionnier">Pionnier possible</span></div>
+      <div class="usecase-item"><span class="uc-case">Artisane seule très connue de la communauté</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--pionnier">Pionnier possible</span></div>
+      <div class="usecase-item"><span class="uc-case">Petite marque niche de 5 personnes</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant ou accompagnement selon situation</span></div>
+      <div class="usecase-item"><span class="uc-case">Marque structurée avec gamme SG/SL</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant payant</span></div>
+      <div class="usecase-item"><span class="uc-case">Grande marque</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--partenaire">Premium / partenaire</span></div>
+      <div class="usecase-item"><span class="uc-case">Application scan gluten</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--mixte">Selon modèle économique : Pionnier / exposant / partenaire</span></div>
+      <div class="usecase-item"><span class="uc-case">Masseuses avec expérience gratuite</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--animation">Animation</span></div>
+      <div class="usecase-item"><span class="uc-case">Masseuses vendant des séances</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant</span></div>
+      <div class="usecase-item"><span class="uc-case">Maquillage : vente + animation gratuite</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant avec accompagnement possible</span></div>
+      <div class="usecase-item"><span class="uc-case">Association cœliaque</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--mixte">Acteur écosystème / invitation possible selon stratégie FLORE</span></div>
     </div>
   </div>
 </section>
