@@ -31,7 +31,31 @@
   .price-hero{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.35);color:#fff;border-radius:100px;padding:11px 24px}
   .price-hero strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.2rem}
   .price-hero span{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.9)}
+
+  /* ===== Sous-nav "sticky" =====
+     position:sticky natif est cassé sur cette page : html a overflow-x:hidden
+     (nécessaire au clip des éléments décoratifs qui débordent, ex. nuages),
+     ce qui fait de html un scroll-container au sens CSS et piège tout
+     descendant sticky (jamais épinglé, suit le scroll 1:1). On réimplémente
+     donc l'épinglage en JS avec position:fixed, comme le fait déjà .nav. */
+  html{scroll-behavior:smooth}
+  .dossier-subnav{position:relative;z-index:60;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 16px rgba(0,30,80,.05)}
+  .dossier-subnav.is-pinned{position:fixed;left:0;right:0}
+  .dossier-subnav-spacer{display:none}
+  .dossier-subnav-spacer.is-active{display:block}
+  .subnav-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding:12px 0}
+  .subnav-tabs::-webkit-scrollbar{display:none}
+  .subnav-tab{flex:none;font-size:.86rem;font-weight:700;color:var(--ink-soft);padding:9px 16px;border-radius:100px;white-space:nowrap;transition:all .15s}
+  .subnav-tab:hover{color:var(--ink);background:var(--sky-pale)}
+  .subnav-tab.active{color:var(--ink);background:var(--sun)}
+  .subnav-select{display:none;width:100%;margin:10px 0;border:1.5px solid var(--line);border-radius:11px;padding:11px 14px;font:inherit;font-weight:700;font-size:.9rem;color:var(--ink);background:#fafcfe}
+  @media(max-width:900px){
+    .subnav-tabs{display:none}
+    .subnav-select{display:block}
+  }
   .sec-sub{text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sky-deep);margin:0 0 26px}
+  /* Ancre de section sans impact visuel/layout (grilles, flex...) : cible de scroll pour la sous-nav. */
+  .section-anchor{position:absolute;width:0;height:0;overflow:hidden}
 
   /* ===== Modèle 0€ ===== */
   .model-block{background:linear-gradient(135deg,var(--ink) 0%,var(--sky-deep) 100%);border-radius:var(--r-lg);padding:44px 40px;color:#fff;position:relative;overflow:hidden}
@@ -189,25 +213,61 @@
 <div id="site-nav"></div>
 <script src="/assets/gate-exposant.js?v=1"></script>
 <script src="/assets/nav.js?v=20260823c"></script>
+<script src="/exposants/dossier/config.js?v=1"></script>
 
 <!-- ===================== HERO ===================== -->
 <header class="page-hero" id="intro" style="--hero-img:url('https://images.unsplash.com/photo-1555939594-58d7cb561404?w=1600&q=80');--hero-pos:50%">
   <div class="wrap">
     <div class="art-hero-inner" data-aos="fade-up">
-      <span class="kicker on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Dossier exposant · édition 1</span>
-      <h1>L'offre exposant FLORE, <em>en détail</em></h1>
-      <p>Le modèle, les deux formats, les tarifs exacts et la candidature en ligne — tout ce dont vous avez besoin pour décider, suite à notre échange.</p>
-      <div class="price-hero"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><strong>0 €</strong><span>de marge FLORE sur votre stand</span></div>
+      <span class="kicker on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Édition fondatrice 2027</span>
+      <h1>Rejoignez l'<em>édition fondatrice</em> de FLORE</h1>
+      <p>Exposez, faites découvrir votre savoir-faire, animez une expérience ou associez votre marque au premier rendez-vous musical &amp; gourmand construit autour du sans gluten et du sans lactose.</p>
+      <div class="price-hero"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><strong>0 %</strong><span>de commission sur vos ventes</span></div>
       <div class="btn-row">
-        <a href="#candidature" class="btn btn-sun">Composer mon stand</a>
-        <a href="#modele" class="btn btn-ghost-w">Voir le modèle en détail</a>
+        <a href="#profil" class="btn btn-sun">Trouver mon offre</a>
+        <a href="#partenaires" class="btn btn-ghost-w">Devenir partenaire</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ===================== LE CONCEPT ===================== -->
-<section class="sec">
+<!-- ===================== SOUS-NAV STICKY ===================== -->
+<nav class="dossier-subnav" id="dossierSubnav" aria-label="Navigation du dossier exposant">
+  <div class="wrap">
+    <div class="subnav-tabs" id="subnavTabs">
+      <a href="#vue-ensemble" class="subnav-tab" data-target="vue-ensemble">Vue d'ensemble</a>
+      <a href="#profil" class="subnav-tab" data-target="profil">Quel profil&nbsp;?</a>
+      <a href="#tarifs" class="subnav-tab" data-target="tarifs">Offres &amp; tarifs</a>
+      <a href="#pionniers" class="subnav-tab" data-target="pionniers">Pionniers</a>
+      <a href="#jardin" class="subnav-tab" data-target="jardin">Jardin</a>
+      <a href="#boutique" class="subnav-tab" data-target="boutique">Boutique</a>
+      <a href="#animations" class="subnav-tab" data-target="animations">Animations</a>
+      <a href="#partenaires" class="subnav-tab" data-target="partenaires">Partenaires</a>
+      <a href="#technique" class="subnav-tab" data-target="technique">Technique</a>
+      <a href="#installation" class="subnav-tab" data-target="installation">Installation</a>
+      <a href="#candidature" class="subnav-tab" data-target="candidature">Candidature</a>
+      <a href="#faq" class="subnav-tab" data-target="faq">FAQ</a>
+    </div>
+    <select class="subnav-select" id="subnavSelect" aria-label="Aller à une section du dossier">
+      <option value="vue-ensemble">Vue d'ensemble</option>
+      <option value="profil">Quel profil ?</option>
+      <option value="tarifs">Offres &amp; tarifs</option>
+      <option value="pionniers">Pionniers</option>
+      <option value="jardin">Jardin</option>
+      <option value="boutique">Boutique</option>
+      <option value="animations">Animations</option>
+      <option value="partenaires">Partenaires</option>
+      <option value="technique">Technique</option>
+      <option value="installation">Installation</option>
+      <option value="candidature">Candidature</option>
+      <option value="faq">FAQ</option>
+    </select>
+  </div>
+</nav>
+<div class="dossier-subnav-spacer" id="subnavSpacer"></div>
+
+<!-- ===================== LE CONCEPT / VUE D'ENSEMBLE ===================== -->
+<section class="sec" id="vue-ensemble">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le concept</span>
@@ -216,6 +276,9 @@
     </div>
   </div>
 </section>
+
+<span id="profil" class="section-anchor"></span>
+<span id="pionniers" class="section-anchor"></span>
 
 <!-- ===================== MODELE 0 EUROS ===================== -->
 <section class="sec" id="modele" style="padding-top:0">
@@ -248,7 +311,7 @@
 </section>
 
 <!-- ===================== FORMATS ===================== -->
-<section class="sec" style="padding-top:0">
+<section class="sec" id="jardin" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Deux formats</span>
@@ -272,6 +335,7 @@
           </ul>
         </div>
       </div>
+      <span id="boutique" class="section-anchor"></span>
       <div class="format-card" data-aos="fade-up" data-aos-delay="80">
         <div class="format-head">
           <span class="format-tag">Boutique</span>
@@ -297,7 +361,7 @@
 </section>
 
 <!-- ===================== GRILLE TARIFAIRE ===================== -->
-<section class="sec" style="padding-top:0">
+<section class="sec" id="tarifs" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Grille tarifaire</span>
@@ -330,6 +394,10 @@
     <p class="table-note">Tarifs Ainterexpo transmis directement par leurs services techniques — facturation en direct, sans intermédiaire FLORE.</p>
   </div>
 </section>
+
+<span id="technique" class="section-anchor"></span>
+<span id="animations" class="section-anchor"></span>
+<span id="partenaires" class="section-anchor"></span>
 
 <!-- ===================== AMBASSADEUR ===================== -->
 <section class="sec" style="padding-top:0">
@@ -374,6 +442,8 @@
     </div>
   </div>
 </section>
+
+<span id="installation" class="section-anchor"></span>
 
 <!-- ===================== LE CADRE ===================== -->
 <section class="sec" style="padding-top:0">
@@ -522,6 +592,8 @@
   </div>
 </section>
 
+<span id="faq" class="section-anchor"></span>
+
 <!-- ===================== FOOTER (partagé) ===================== -->
 <div id="site-footer"></div>
 <script src="/assets/footer.js?v=20260821a"></script>
@@ -533,6 +605,79 @@
   const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
+
+  (function(){
+    const subnav = document.getElementById('dossierSubnav');
+    const spacer = document.getElementById('subnavSpacer');
+    const targets = ['vue-ensemble','profil','tarifs','pionniers','jardin','boutique','animations','partenaires','technique','installation','candidature','faq'];
+    const tabs = {};
+    document.querySelectorAll('.subnav-tab').forEach(function(a){ tabs[a.dataset.target] = a; });
+    const select = document.getElementById('subnavSelect');
+    const observedEls = targets.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+
+    // Position du sous-nav en flux normal (non épinglé), mesurée hors pin :
+    // seul repère fiable pour décider quand basculer en position:fixed.
+    let subnavStaticTop = 0;
+    function measureStaticTop(){
+      const wasPinned = subnav.classList.contains('is-pinned');
+      if (wasPinned) subnav.classList.remove('is-pinned');
+      subnavStaticTop = subnav.getBoundingClientRect().top + window.scrollY;
+      if (wasPinned) subnav.classList.add('is-pinned');
+    }
+    measureStaticTop();
+
+    function positionSubnav(){
+      if (!nav || !subnav) return;
+      const offset = nav.offsetHeight;
+      const shouldPin = window.scrollY + offset >= subnavStaticTop;
+      if (shouldPin && !subnav.classList.contains('is-pinned')){
+        spacer.style.height = subnav.offsetHeight + 'px';
+        spacer.classList.add('is-active');
+        subnav.classList.add('is-pinned');
+      } else if (!shouldPin && subnav.classList.contains('is-pinned')){
+        subnav.classList.remove('is-pinned');
+        spacer.classList.remove('is-active');
+      }
+      subnav.style.top = offset + 'px';
+      const totalOffset = offset + subnav.offsetHeight + 16;
+      observedEls.forEach(function(el){ el.style.scrollMarginTop = totalOffset + 'px'; });
+    }
+    positionSubnav();
+    window.addEventListener('resize', function(){ measureStaticTop(); positionSubnav(); }, { passive:true });
+    window.addEventListener('scroll', positionSubnav, { passive:true });
+
+    // scrollIntoView() sur l'onglet remonterait aussi la fenêtre (ancêtre non
+    // scrollable sur l'axe vertical) et casserait le scroll en cours vers la
+    // section cible : on ajuste seulement le scrollLeft du conteneur d'onglets.
+    function centerTabInView(tabEl){
+      const container = document.getElementById('subnavTabs');
+      if (!container || !tabEl) return;
+      const target = tabEl.offsetLeft - (container.clientWidth - tabEl.clientWidth) / 2;
+      container.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    }
+
+    function setActive(id){
+      Object.keys(tabs).forEach(function(k){ tabs[k].classList.toggle('active', k === id); });
+      if (select && select.value !== id) select.value = id;
+      centerTabInView(tabs[id]);
+    }
+
+    if ('IntersectionObserver' in window && observedEls.length){
+      const io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+      observedEls.forEach(function(el){ io.observe(el); });
+    }
+
+    if (select){
+      select.addEventListener('change', function(){
+        const el = document.getElementById(select.value);
+        if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+      });
+    }
+  })();
 
   (function(){
     const form = document.getElementById('order-form');
