@@ -611,6 +611,13 @@
 
 <script>
 (function(){
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav && nav.classList.toggle('scrolled', window.scrollY > 30); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+})();
+
+(function(){
   var form = document.getElementById('hb-form');
 
   // Autocomplétion adresse (API Adresse gouv.fr, gratuite, sans clé)
