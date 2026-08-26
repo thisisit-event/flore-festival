@@ -340,6 +340,11 @@
   .status-dot--red{background:#c0392b}
   .status-legend p{margin:0;color:var(--ink-soft);font-size:.82rem;max-width:none}
 
+  /* ===== Passeport Gourmand (teaser) ===== */
+  .passport-teaser{background:#fff;border:1.5px dashed var(--sky);border-radius:var(--r-lg);padding:24px 26px;margin-top:24px;text-align:center}
+  .passport-teaser h4{font-size:1.05rem;color:var(--ink);margin:10px 0 10px}
+  .passport-teaser p{color:var(--ink-soft);font-size:.9rem;max-width:52ch;margin:0 auto;line-height:1.6}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -949,6 +954,12 @@
         <h4>Stock &amp; horaires 11h–22h</h4>
         <p>Le Jardin fonctionne sans interruption de 11h à 22h — une rupture massive en milieu d'après-midi compromet l'expérience. Répartition indicative des ventes : 30&nbsp;% (11h–14h), 35&nbsp;% (14h–18h), 35&nbsp;% (18h–22h). Un produit de secours prévalidé est recommandé. Fermer, démonter ou quitter le stand avant 22h n'est pas possible, même en rupture.</p>
       </div>
+    </div>
+
+    <div class="passport-teaser" id="passportTeaser" data-aos="fade-up">
+      <span class="format-tag">Bientôt</span>
+      <h4>Passeport Gourmand</h4>
+      <p id="passportText">Un parcours ludique à travers les stands du Jardin : un tampon à chaque dégustation, une récompense à la clé une fois le parcours complété. Mécanique et modalités précisées avant l'ouverture des candidatures.</p>
     </div>
   </div>
 </section>
@@ -1711,6 +1722,16 @@
     }
     document.getElementById('elecAddRow').addEventListener('click', addElecRow);
     addElecRow();
+  })();
+
+  (function(){
+    // Mécanique pilotée par config.passport plutôt que codée en dur (doc §51) :
+    // tant que passport.enabled est false, le texte reste un teaser générique.
+    const p = window.FLORE_EXHIBITOR_CONFIG && window.FLORE_EXHIBITOR_CONFIG.passport;
+    const el = document.getElementById('passportText');
+    if (p && el && p.enabled){
+      el.textContent = p.participatingStandCount + ' stands, ' + p.requiredStamps + ' tampons, 1 parcours gourmand. Récompense : ' + p.rewardDescription + '.';
+    }
   })();
 
   (function(){
