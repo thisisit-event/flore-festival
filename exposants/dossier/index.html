@@ -207,6 +207,32 @@
     .uc-reco{flex:1 1 100%}
   }
 
+  /* ===== Pionniers ===== */
+  .h-sub{font-size:1.1rem;color:var(--ink);margin:0 0 16px}
+  .crit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .crit-item{background:var(--sky-pale);border-radius:16px;padding:20px 18px}
+  .crit-item h4{font-size:.94rem;color:var(--ink);margin:0 0 6px}
+  .crit-item p{font-size:.82rem;color:var(--ink-soft);margin:0;max-width:none;line-height:1.5}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px}
+  .tag-row span{background:#f0f7fc;border-radius:100px;padding:8px 16px;font-size:.85rem;color:var(--ink);font-weight:600}
+  .pio-charge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pio-charge-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:24px;text-align:center}
+  .pio-price-row{display:flex;align-items:baseline;justify-content:center;gap:12px;margin:14px 0 4px}
+  .pio-old-price{font-size:1rem;color:var(--ink-soft);text-decoration:line-through}
+  .pio-new-price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:var(--sun-deep)}
+  .pio-charge-card p{margin:0;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--sky-deep)}
+  .pio-cols{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;margin-top:44px;align-items:start}
+  .pio-deposit-row{display:flex;gap:16px;margin-bottom:14px}
+  .pio-deposit-row > div{flex:1;background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:14px;padding:16px 18px;text-align:center}
+  .pio-deposit-row strong{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--sky-deep);margin-bottom:4px}
+  .pio-deposit-row span{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink)}
+  @media(max-width:860px){
+    .crit-grid{grid-template-columns:1fr 1fr}
+    .pio-charge-grid{grid-template-columns:1fr}
+    .pio-cols{grid-template-columns:1fr;gap:28px}
+  }
+  @media(max-width:520px){.crit-grid{grid-template-columns:1fr}}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -576,34 +602,88 @@
   </div>
 </section>
 
-<span id="pionniers" class="section-anchor"></span>
-
-<!-- ===================== MODELE 0 EUROS ===================== -->
-<section class="sec" id="modele" style="padding-top:0">
+<!-- ===================== PIONNIERS ===================== -->
+<section class="sec" id="pionniers" style="padding-top:0">
   <div class="wrap">
-    <div class="model-block" data-aos="fade-up">
-      <p class="model-eyebrow">Le prix des précurseurs</p>
-      <div class="model-top">
-        <span class="model-price">0€</span>
-        <h2>C'est le prix d'un emplacement stand chez FLORE</h2>
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Statut sur sélection</span>
+      <h2>Cercle des Pionniers FLORE</h2>
+      <p class="sec-sub" style="margin-top:-8px">Édition fondatrice 2027</p>
+      <p>Le Pionnier n'est pas un exposant qui a négocié un rabais. C'est un acteur sélectionné parce que sa présence contribue à construire l'identité et la qualité de la première édition.</p>
+    </div>
+
+    <div class="crit-grid" data-aos="fade-up">
+      <div class="crit-item"><h4>Légitimité</h4><p>Une place naturelle dans l'univers sans gluten / sans lactose.</p></div>
+      <div class="crit-item"><h4>Histoire</h4><p>Un parcours, une activité déjà installée et reconnue.</p></div>
+      <div class="crit-item"><h4>Spécialisation</h4><p>Une offre entièrement dédiée, pas une gamme annexe.</p></div>
+      <div class="crit-item"><h4>Rareté</h4><p>Un savoir-faire difficile à remplacer ou à retrouver ailleurs.</p></div>
+      <div class="crit-item"><h4>Valeur pour le public</h4><p>Une vraie contribution à l'expérience des festivaliers.</p></div>
+      <div class="crit-item"><h4>Capacité économique</h4><p>Une structure pour qui le coût de venue pèse réellement.</p></div>
+      <div class="crit-item"><h4>Coût réel de participation</h4><p>Déplacement, structure, temps : un investissement concret.</p></div>
+      <div class="crit-item"><h4>Capacité d'ambassadeur</h4><p>Une communauté ou une audience prête à relayer FLORE.</p></div>
+    </div>
+
+    <div class="tag-row" data-aos="fade-up" style="margin-top:36px;justify-content:center">
+      <span>Indépendante dans les Cévennes</span><span>Pizzaiolo solo spécialisé</span><span>Petite boulangerie historique</span><span>Pâtisserie spécialisée</span><span>Petite marque pionnière</span><span>Artisan ultra-niche</span><span>Acteur connu et attendu de la communauté</span>
+    </div>
+
+    <div class="pio-charge-grid" data-aos="fade-up" style="margin-top:40px">
+      <div class="pio-charge-card">
+        <span class="format-tag">Boutique 2×2</span>
+        <div class="pio-price-row"><span class="pio-old-price">290 € HT</span><span class="pio-new-price">0 €</span></div>
+        <p>Pionnier</p>
       </div>
-      <p>FLORE se lance à l'aveugle : première édition, aucun track record, une vraie prise de risque partagée entre nous et vous. C'est précisément pour ça que l'accès est offert à notre cœur de cible — pas parce qu'on n'accorde pas de valeur à votre présence, mais parce que ceux qui nous rejoignent maintenant sont des précurseurs, et que ça se mérite.</p>
+      <div class="pio-charge-card">
+        <span class="format-tag">Boutique 2×4</span>
+        <div class="pio-price-row"><span class="pio-old-price">490 € HT</span><span class="pio-new-price">0 €</span></div>
+        <p>Pionnier</p>
+      </div>
+      <div class="pio-charge-card">
+        <span class="format-tag">Jardin 3×3</span>
+        <div class="pio-price-row"><span class="pio-old-price">490 € HT</span><span class="pio-new-price">0 €</span></div>
+        <p>Pionnier</p>
+      </div>
+    </div>
+    <p class="table-note" style="text-align:center">L'emplacement est pris en charge par FLORE — cela ne veut pas dire que tous les coûts de participation sont gratuits.</p>
+
+    <div class="pio-cols" data-aos="fade-up">
+      <div>
+        <h3 class="h-sub">Ce qui reste à votre charge</h3>
+        <div class="tag-row">
+          <span>Électricité</span><span>Eau</span><span>Mobilier</span><span>Froid</span><span>Cuisson</span><span>Équipements</span><span>Stockage</span><span>Transport</span><span>Hébergement</span><span>Manutention</span><span>Prestations spécifiques</span>
+        </div>
+      </div>
+      <div>
+        <h3 class="h-sub">Caution Pionnier</h3>
+        <div class="pio-deposit-row">
+          <div><strong>Boutique</strong><span>250 €</span></div>
+          <div><strong>Jardin</strong><span>350 €</span></div>
+        </div>
+        <p class="table-note">Caution remboursable — pas un prix caché. Conditions exactes renvoyées au contrat.</p>
+      </div>
+    </div>
+
+    <div class="model-block" data-aos="fade-up" style="margin-top:40px">
+      <p class="model-eyebrow">En contrepartie</p>
+      <div class="model-top"><h2 style="margin:0">Pionnier, c'est aussi Ambassadeur</h2></div>
+      <p>Devenir Pionnier, c'est entrer dans un partenariat moral et promotionnel avec FLORE — pas seulement obtenir un emplacement.</p>
       <div class="model-rule">
         <span class="n">1</span>
-        <p><strong>Le Jardin des Saveurs (9m²) est intégralement offert</strong> — c'est notre cœur de cible (offres food sans gluten et/ou sans lactose), sans redevance FLORE. La Boutique, elle, reste à un tarif fixe très accessible (voir la section formats ci-dessous) : elle touche un public plus large, hors du cœur de cible sans gluten/sans lactose.</p>
+        <p><strong>Vous annoncez votre participation</strong> — relais sur vos propres réseaux, utilisation du visuel officiel, identification FLORE.</p>
       </div>
       <div class="model-rule">
         <span class="n">2</span>
-        <p><strong>Options techniques à la carte pour le Jardin des Saveurs</strong> — table, chaise, électricité, eau : uniquement ce dont vous avez besoin, facturé au tarif réel Ainterexpo, sans intermédiaire ni marge FLORE.</p>
+        <p><strong>Vous existez dans notre communication</strong> — lien ou code Ambassadeur, portrait, et une seconde publication selon le calendrier de l'édition.</p>
       </div>
       <div class="model-rule">
         <span class="n">3</span>
-        <p><strong>Une seule condition</strong> — une caution de dédit de 100€HT, restituée intégralement, qui protège l'organisation en cas d'absence non justifiée.</p>
+        <p><strong>Aucune garantie de billets</strong> — l'Ambassadeur relaie et valorise, il ne s'engage pas sur un volume de ventes.</p>
       </div>
-      <div class="model-rule">
-        <span class="n">4</span>
-        <p><strong>Un choix, une fois le festival passé</strong> — si votre chiffre d'affaires sur place vous a satisfait, vous pourrez choisir de laisser votre caution à l'association pour financer son développement. Entièrement volontaire : par défaut, elle vous est intégralement restituée.</p>
-      </div>
+    </div>
+
+    <div class="btn-row" style="justify-content:center;margin-top:32px" data-aos="fade-up">
+      <a href="#profil" class="btn btn-ghost">Vérifier mon éligibilité</a>
+      <a href="#candidature" class="btn btn-sun">Candidater comme Pionnier</a>
     </div>
   </div>
 </section>
