@@ -345,6 +345,15 @@
   .passport-teaser h4{font-size:1.05rem;color:var(--ink);margin:10px 0 10px}
   .passport-teaser p{color:var(--ink-soft);font-size:.9rem;max-width:52ch;margin:0 auto;line-height:1.6}
 
+  /* ===== Candidature : timeline + récap ===== */
+  .timeline-strip{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+  .timeline-strip span{flex:1 1 auto;text-align:center;background:var(--sky-pale);color:var(--sky-deep);font-size:.74rem;font-weight:700;padding:8px 6px;border-radius:10px;white-space:nowrap}
+  .recap-card{background:var(--sky-pale);border-radius:var(--r-lg);padding:22px 24px}
+  .recap-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(21,57,91,.1)}
+  .recap-row span{color:var(--ink-soft);font-size:.9rem}
+  .recap-row strong{color:var(--ink);font-family:'Bricolage Grotesque',sans-serif}
+  @media(max-width:760px){.timeline-strip span{flex:1 1 30%;font-size:.68rem}}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -1227,83 +1236,91 @@
 <section class="sec wiz-sheet" id="candidature">
   <div class="wrap">
     <div class="wiz-head" data-aos="fade-up">
-      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Étape suivante</span>
-      <h2>Composez votre stand</h2>
-      <p>Vous avez déjà candidaté et échangé avec l'équipe FLORE — ici, on passe au concret : le format retenu et les options techniques dont vous avez besoin. Rien à réapprendre, juste vos courses.</p>
+      <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Candidature</span>
+      <h2>Déposez votre dossier</h2>
+      <p>12 étapes qui séparent le diagnostic du festival — ce formulaire couvre les 3 premières : profil, dossier, envoi. La suite se joue avec l'équipe FLORE.</p>
+    </div>
+
+    <div class="timeline-strip" data-aos="fade-up">
+      <span>1. Profil</span><span>2. Dossier</span><span>3. Étude FLORE</span><span>4. Statut déterminé</span><span>5. Offre &amp; contrat</span><span>6. Acompte / caution</span><span>7. Technique</span><span>8. Alimentaire (Jardin)</span><span>9. Publication</span><span>10. Montage</span><span>11. Contrôle</span><span>12. Festival</span>
     </div>
 
     <form id="order-form" novalidate>
       <input type="hidden" name="access_key" value="c2d43217-2206-4a51-b17b-da27a8844e27">
-      <input type="hidden" name="subject" value="Commande options exposant FLORE — Dossier détaillé">
-      <input type="hidden" name="from_name" value="Formulaire Options Exposant FLORE">
+      <input type="hidden" name="subject" value="Candidature exposant FLORE — Dossier détaillé">
+      <input type="hidden" name="from_name" value="Formulaire Candidature Exposant FLORE">
       <input type="checkbox" name="botcheck" style="display:none">
 
       <div class="wiz-block">
-        <div class="wiz-steplabel">Votre format</div>
-        <h3 style="color:var(--ink);margin-bottom:16px">Quel format avez-vous retenu ? <span class="f-required">*</span></h3>
+        <div class="wiz-steplabel">Étape 1 · Orientation</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Avez-vous fait le diagnostic&nbsp;?</h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Il donne une recommandation indicative — la qualification définitive reste faite par l'équipe FLORE après étude de ce dossier.</p>
+        <div class="btn-row"><a href="#profil" class="btn btn-ghost">Faire ou refaire le diagnostic</a></div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Étape 2 · Participation</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Quel format visez-vous ? <span class="f-required">*</span></h3>
         <div class="chip-grid">
-          <label class="chip"><input type="radio" name="format" value="Jardin des Saveurs" required><span>🍽️ Jardin des Saveurs (offert)</span></label>
-          <label class="chip"><input type="radio" name="format" value="Boutique FLORE"><span>🛍️ Boutique FLORE (dès 99€)</span></label>
-          <label class="chip"><input type="radio" name="format" value="Stand Premium VIP"><span>⭐ Stand Premium VIP (sur devis)</span></label>
+          <label class="chip"><input type="radio" name="format" value="Pionnier" required><span>🌱 Pionnier (sur invitation)</span></label>
+          <label class="chip"><input type="radio" name="format" value="Jardin des Saveurs"><span>🍽️ Jardin des Saveurs</span></label>
+          <label class="chip"><input type="radio" name="format" value="Boutique FLORE"><span>🛍️ Boutique FLORE</span></label>
+          <label class="chip"><input type="radio" name="format" value="Animation"><span>🎈 Animation</span></label>
+          <label class="chip"><input type="radio" name="format" value="Partenaire"><span>🤝 Partenaire</span></label>
+          <label class="chip"><input type="radio" name="format" value="Premium"><span>⭐ Premium</span></label>
         </div>
       </div>
 
-      <div class="wiz-block" id="jardin-options-block" hidden>
-        <div class="wiz-steplabel">Vos options</div>
-        <h3 style="color:var(--ink);margin-bottom:6px">Cochez ce dont vous avez besoin <span class="f-optional" style="font-size:.78rem">(facultatif — vous pouvez aussi tout apporter vous-même)</span></h3>
-        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Le stand est offert. Facturé au tarif réel Ainterexpo, en direct — rien ne passe par FLORE.</p>
-        <div class="ck-list options-grid">
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Table pliante — 14€" data-price="14"><span>Table pliante <b>14 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Chaise coque — 4€" data-price="4"><span>Chaise coque <b>4 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Pack Mobilier Duo (1 table + 2 chaises) — 40€" data-price="40"><span>Pack Duo (1 table + 2 chaises) <b>40 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Pack Mobilier Famille (2 tables + 4 chaises) — 75€" data-price="75"><span>Pack Famille (2 tables + 4 chaises) <b>75 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Mange-debout — 50€" data-price="50"><span>Mange-debout <b>50 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Tabouret haut de bar — 38€" data-price="38"><span>Tabouret haut de bar <b>38 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Comptoir d'accueil (1m) — 90€" data-price="90"><span>Comptoir d'accueil (1m) <b>90 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Moquette au m² — 8€/m²" data-price="8" data-approx="1"><span>Moquette au m² <b>8 €/m²</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Cloison supplémentaire — 30€/ml" data-price="30" data-approx="1"><span>Cloison supplémentaire <b>30 €/ml</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Porte avec clé — 71€" data-price="71"><span>Porte avec clé (réserve) <b>71 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Prise monophasé (1-4kW) — 60-240€" data-price="60" data-approx="1"><span>Prise monophasé (1-4kW) <b>60-240 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Triphasé forte puissance (4-15kW) — 170-270€" data-price="170" data-approx="1"><span>Triphasé forte puissance (cuisson) <b>170-270 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Eau froide et évacuation — 150€" data-price="150"><span>Eau froide &amp; évacuation <b>150 €</b></span></label>
-          <label class="ck-item"><input type="checkbox" name="options[]" value="Manutention (15 min) — 55€" data-price="55"><span>Manutention (15 min) <b>55 €</b></span></label>
+      <div class="wiz-block" id="pionnier-code-block" hidden>
+        <div class="f-row">
+          <div class="f-field"><label>Code / référence d'invitation <span class="f-required">*</span></label><input type="text" id="in-code-pionnier" name="code_pionnier" placeholder="Communiqué par l'équipe FLORE"></div>
+        </div>
+        <p class="table-note" style="margin-bottom:16px">Le statut Pionnier n'est jamais auto-déclaré : sans code d'invitation valide, votre dossier est étudié comme une candidature Exposant classique.</p>
+        <div class="chip-grid">
+          <label class="chip"><input type="radio" name="pionnier_espace" value="Jardin des Saveurs"><span>🍽️ Pour le Jardin des Saveurs</span></label>
+          <label class="chip"><input type="radio" name="pionnier_espace" value="Boutique FLORE"><span>🛍️ Pour la Boutique</span></label>
         </div>
       </div>
 
       <div class="wiz-block" id="boutique-size-block" hidden>
         <div class="wiz-steplabel">Votre taille de stand</div>
-        <h3 style="color:var(--ink);margin-bottom:6px">Quelle taille pour votre stand Boutique ? <span class="f-optional" style="font-size:.78rem">(tarif fixe, structure/table/nappe incluses)</span></h3>
+        <h3 style="color:var(--ink);margin-bottom:6px">Quelle taille pour votre stand Boutique&nbsp;? <span class="f-optional" style="font-size:.78rem">(espace nu, hors options techniques)</span></h3>
         <div class="ck-list" style="grid-template-columns:1fr 1fr" id="boutique-size-grid">
-          <label class="ck-item"><input type="radio" name="boutique_size" value="2×2m (4m²) — 99€" data-price="99"><span>2×2m (4m²) <b>99 €</b></span></label>
-          <label class="ck-item"><input type="radio" name="boutique_size" value="4×2m (8m²) — 149€" data-price="149"><span>4×2m (8m²) <b>149 €</b></span></label>
+          <label class="ck-item"><input type="radio" name="boutique_size" value="Boutique Découverte 2×2 (4m²) — 290€" data-price="290"><span>Boutique Découverte 2×2 (4m²) <b>290 €</b></span></label>
+          <label class="ck-item"><input type="radio" name="boutique_size" value="Boutique Marque 2×4 (8m²) — 490€" data-price="490"><span>Boutique Marque 2×4 (8m²) <b>490 €</b></span></label>
         </div>
       </div>
 
       <div class="wiz-block" id="premium-note-block" hidden>
         <div class="info-box">
-          <h4>Stand Premium VIP</h4>
-          <p>Ce format se construit sur devis, selon vos besoins et l'emplacement souhaité. L'équipe FLORE vous recontacte directement après l'envoi de ce formulaire pour en discuter.</p>
+          <h4>Premium / Partenaire / Animation</h4>
+          <p>Ces formats se construisent sur devis ou après validation, selon vos besoins. L'équipe FLORE vous recontacte directement après l'envoi de ce dossier pour en discuter.</p>
         </div>
       </div>
 
       <div class="wiz-block" id="cart-total-block" hidden>
         <div class="cart-total" id="cart-total">
-          <span>Total estimé</span>
+          <span>Total estimatif de l'espace</span>
           <strong id="cart-total-value">0 €</strong>
         </div>
-        <p class="cart-note" id="cart-note" hidden>Estimation basse : les tarifs marqués d'une fourchette (électricité, moquette, cloison) dépendent de vos besoins exacts, confirmés avec Ainterexpo.</p>
+        <p class="cart-note">Estimation uniquement, hors options techniques (renseignées plus bas). Les tarifs définitifs sont confirmés après validation de votre dossier et de vos besoins.</p>
       </div>
 
       <div class="wiz-block">
-        <div class="wiz-steplabel">Infos légales</div>
-        <h3 style="color:var(--ink);margin-bottom:16px">Pour la facturation Ainterexpo</h3>
+        <div class="wiz-steplabel">Étape 3 · Entreprise</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Votre structure</h3>
         <div class="f-row two">
+          <div class="f-field"><label>Nom commercial <span class="f-required">*</span></label><input type="text" name="nom_commercial" id="in-nom-commercial" required></div>
           <div class="f-field"><label>Raison sociale <span class="f-required">*</span></label><input type="text" name="nom_entreprise" id="in-nom" autocomplete="organization" required></div>
+        </div>
+        <div class="f-row three">
+          <div class="f-field"><label>Forme juridique</label><input type="text" name="forme_juridique" placeholder="SARL, auto-entreprise..."></div>
+          <div class="f-field"><label>SIREN</label><input type="text" name="siren" placeholder="9 chiffres" inputmode="numeric"></div>
           <div class="f-field"><label>SIRET <span class="f-required">*</span></label><input type="text" id="in-siret" name="siret" placeholder="14 chiffres" inputmode="numeric" required></div>
         </div>
         <div class="f-row">
           <div class="f-field" style="position:relative">
-            <label>Adresse de facturation <span class="f-required">*</span></label>
+            <label>Adresse du siège / facturation <span class="f-required">*</span></label>
             <input type="text" id="in-adresse" name="adresse" placeholder="Commencez à taper, choisissez dans la liste..." autocomplete="off" required>
             <div class="addr-suggest" id="addr-suggest" hidden></div>
           </div>
@@ -1312,17 +1329,111 @@
           <div class="f-field"><label>Ville</label><input type="text" id="in-ville" name="ville" autocomplete="address-level2"></div>
           <div class="f-field"><label>Code postal</label><input type="text" id="in-cp" name="code_postal" autocomplete="postal-code"></div>
         </div>
+        <div class="f-row two">
+          <div class="f-field"><label>Représentant légal <span class="f-required">*</span></label><input type="text" name="representant_legal" id="in-contact" required></div>
+          <div class="f-field"><label>Responsable du dossier <span class="f-optional">(si différent)</span></label><input type="text" name="responsable_dossier"></div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>Téléphone <span class="f-required">*</span></label><input type="tel" name="telephone" id="in-tel" required></div>
+          <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" name="email" id="in-email" autocomplete="email" required></div>
+        </div>
+        <div class="f-row two">
+          <div class="f-field"><label>Site web <span class="f-optional">(facultatif)</span></label><input type="url" name="site" placeholder="https://"></div>
+          <div class="f-field"><label>Réseaux sociaux <span class="f-optional">(facultatif)</span></label><input type="text" name="reseaux" placeholder="@votrecompte"></div>
+        </div>
       </div>
 
       <div class="wiz-block">
-        <div class="wiz-steplabel">Pour vous identifier</div>
-        <h3 style="color:var(--ink);margin-bottom:16px">Vos coordonnées</h3>
-        <div class="f-row two">
-          <div class="f-field"><label>Nom et prénom <span class="f-required">*</span></label><input type="text" name="contact" id="in-contact" autocomplete="name" required></div>
-          <div class="f-field"><label>E-mail <span class="f-required">*</span></label><input type="email" name="email" id="in-email" autocomplete="email" required></div>
+        <div class="wiz-steplabel">Étape 4 · Activité</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Votre activité</h3>
+        <div class="f-row">
+          <div class="f-field"><label>Décrivez votre activité <span class="f-required">*</span></label><textarea name="description_activite" placeholder="Ce que vous faites, depuis quand, votre lien avec le sans gluten / sans lactose, ce que vous voulez apporter à FLORE." required></textarea></div>
         </div>
-        <div class="f-row" style="margin-top:4px">
-          <div class="f-field"><label>Remarque <span class="f-optional">(facultatif)</span></label><textarea name="remarque" placeholder="Une précision sur votre commande ? On en discute si besoin."></textarea></div>
+        <div class="f-row three">
+          <div class="f-field"><label>Ancienneté de l'activité</label><input type="text" name="anciennete" placeholder="Ex. 3 ans"></div>
+          <div class="f-field"><label>Effectif</label><input type="text" name="effectif" placeholder="Ex. solo, 5 personnes..."></div>
+          <div class="f-field"><label>Objectif principal à FLORE</label><input type="text" name="objectif_principal" placeholder="Vendre, faire connaître, tester..."></div>
+        </div>
+        <div class="f-row">
+          <div class="f-field"><label>Chiffre d'affaires annuel approximatif <span class="f-optional">(confidentiel — utile si vous visez le Tarif Accompagnement ou le statut Pionnier)</span></label>
+            <select name="ca_annuel">
+              <option value="">Préfère ne pas répondre</option>
+              <option>Activité en lancement / pas encore de CA</option>
+              <option>Moins de 50 000 €</option>
+              <option>50 000 à 150 000 €</option>
+              <option>150 000 à 500 000 €</option>
+              <option>500 000 € à 1 M€</option>
+              <option>1 M€ à 2 M€</option>
+              <option>Plus de 2 M€</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="wiz-block" id="jardin-carte-block" hidden>
+        <div class="wiz-steplabel">Étape 5 · Carte &amp; production (Jardin des Saveurs)</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Votre carte</h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Pour chaque recette : nom, prix normal, prix portion découverte, ingrédients principaux, allergènes, fournisseurs, méthode de préparation. Aucun produit non déclaré ici ne pourra être servi sans validation préalable du Comité.</p>
+        <div class="f-row">
+          <div class="f-field"><textarea name="carte_jardin" placeholder="Ex. Crêpe jambon-fromage — 6€ / portion découverte 3€ — farine de riz X, jambon Y (sans lactose), fromage sans lactose Z — allergènes : œuf — préparée sur plancha dédiée." style="min-height:140px"></textarea></div>
+        </div>
+        <h3 style="color:var(--ink);margin:20px 0 6px">Stock &amp; contamination croisée</h3>
+        <div class="f-row">
+          <div class="f-field"><textarea name="stock_contamination" placeholder="Portions prévues, capacité horaire, produit de secours, lieu de préparation, matériel dédié, procédure de nettoyage, mesures anti-contamination."></textarea></div>
+        </div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Étape 6 · Technique</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Vos besoins techniques</h3>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-bottom:16px">Le détail et les tarifs par option sont dans la section <a href="#technique" style="color:var(--sky-deep);font-weight:700">Technique</a>. Listez ici ce dont vous pensez avoir besoin — l'équipe technique vérifie et confirme avec vous.</p>
+        <div class="f-row">
+          <div class="f-field"><textarea name="besoins_techniques" placeholder="Mobilier, électricité (appareils + puissance), eau, structure/cloison, manutention, besoin spécial (praticable, machine à fumée...)."></textarea></div>
+        </div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Étape 7 · Documents</div>
+        <h3 style="color:var(--ink);margin-bottom:6px">Justificatifs</h3>
+        <div class="info-box">
+          <p>Merci d'envoyer directement par e-mail à <a href="mailto:contact@flore-festival.fr" style="color:var(--ink);font-weight:700">contact@flore-festival.fr</a> (objet : nom de votre structure) : attestation RC Pro adaptée à votre activité, documents sanitaires réglementaires si votre métier est concerné, et — pour le Jardin — le PV de classement au feu M1 de votre structure/tente si applicable.</p>
+        </div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Étape 8 · Engagements</div>
+        <h3 style="color:var(--ink);margin-bottom:16px">Ce que vous acceptez</h3>
+        <div class="ck-list">
+          <label class="ck-item"><input type="checkbox" name="engagements[]" value="Informations exactes"><span>Les informations fournies dans ce dossier sont exactes.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements[]" value="Règlement intérieur"><span>Je m'engage à respecter le règlement intérieur de FLORE et d'Ainterexpo.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements[]" value="Horaires et présence continue"><span>Je respecte les horaires d'installation, d'ouverture et la présence continue de 11h à 22h.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements[]" value="Validation technique"><span>Je sais que mes besoins techniques doivent être validés avant confirmation.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements[]" value="Vente et prix"><span>Mes prix seront affichés en euros TTC, conformes à la réglementation applicable.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements[]" value="Communication"><span>J'accepte les modalités de communication et, le cas échéant, le mécanisme Ambassadeur.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements[]" value="Interdiction sous-location"><span>Je ne partagerai, ne sous-louerai et n'ajouterai aucune marque non déclarée sur mon espace.</span></label>
+        </div>
+      </div>
+
+      <div class="wiz-block" id="jardin-engagements-block" hidden>
+        <h3 style="color:var(--ink);margin-bottom:16px">Engagements spécifiques Jardin des Saveurs</h3>
+        <div class="ck-list">
+          <label class="ck-item"><input type="checkbox" name="engagements_jardin[]" value="Sans gluten ET sans lactose"><span>Ma carte est intégralement sans gluten <strong>et</strong> sans lactose, sans exception.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements_jardin[]" value="Ingrédients et contamination"><span>Je respecte les exigences d'ingrédients et de contamination croisée détaillées dans la section Jardin.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements_jardin[]" value="Allergènes"><span>Je fournis une matrice allergènes complète.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements_jardin[]" value="Contrôle Comité"><span>J'accepte le contrôle du Comité FLORE le samedi matin, avant ouverture.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements_jardin[]" value="Stock et horaires"><span>Mon stock est dimensionné pour tenir de 11h à 22h sans rupture massive.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements_jardin[]" value="Portion découverte"><span>Je propose une portion découverte, conforme à la zone de prix recommandée.</span></label>
+          <label class="ck-item"><input type="checkbox" name="engagements_jardin[]" value="Produit non déclaré"><span>Je n'utilise aucun produit non déclaré et non validé au préalable.</span></label>
+        </div>
+      </div>
+
+      <div class="wiz-block">
+        <div class="wiz-steplabel">Récapitulatif</div>
+        <div class="recap-card" id="recapCard">
+          <div class="recap-row"><span>Format demandé</span><strong id="recapFormat">—</strong></div>
+          <div class="recap-row"><span>Prix indicatif de l'espace</span><strong id="recapPrice">—</strong></div>
+          <div class="recap-row"><span>Caution associée</span><strong id="recapDeposit">—</strong></div>
+          <p class="table-note">Récapitulatif indicatif. Documents manquants et détails techniques sont vérifiés par l'équipe FLORE après réception.</p>
         </div>
       </div>
 
@@ -1330,19 +1441,19 @@
         <div class="wiz-steplabel">Envoi</div>
         <div class="info-box">
           <h4>Comment ça se passe après l'envoi</h4>
-          <p>L'équipe FLORE confirme votre commande et revient vers vous pour les modalités de paiement des options choisies, directement auprès d'Ainterexpo.</p>
+          <p>Vous recevez un dossier reçu — pas une confirmation de stand. L'équipe FLORE étudie votre candidature, détermine votre statut, puis revient vers vous avec une offre et un contrat.</p>
         </div>
 
         <label class="consent-row" style="margin-top:20px">
           <input type="checkbox" id="in-honneur">
-          <span>Je certifie sur l'honneur l'exactitude des informations fournies ci-dessus.</span>
+          <span>Je certifie sur l'honneur l'exactitude des informations fournies ci-dessus. Une candidature validée par FLORE ne constitue pas un agrément administratif ou sanitaire.</span>
         </label>
         <label class="consent-row" style="margin-top:10px">
           <input type="checkbox" id="in-rgpd">
-          <span>J'accepte que mes informations soient utilisées pour le traitement de ma commande par MG Entertainment / FLORE Festival.</span>
+          <span>J'accepte que mes informations soient utilisées pour le traitement de mon dossier par MG Entertainment / FLORE Festival.</span>
         </label>
 
-        <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer ma commande — <span id="btn-total">0 €</span> →</button>
+        <button type="submit" class="btn-submit-wiz" id="btn-submit" style="width:100%;margin-top:20px">Envoyer mon dossier de candidature →</button>
         <p style="color:var(--ink-soft);font-size:.84rem;text-align:center;margin-top:12px">Un oubli après l'envoi ? Écrivez-nous à contact@flore-festival.fr.</p>
         <div class="form-msg" id="wiz-msg"></div>
       </div>
@@ -1742,14 +1853,26 @@
     function validateForm(){
       const formatChecked = form.querySelector('[name="format"]:checked');
       if (!formatChecked){
-        alert('Merci de choisir le format retenu.');
+        alert('Merci de choisir le format visé.');
         return false;
       }
-      if (formatChecked.value === 'Boutique FLORE' && !form.querySelector('[name="boutique_size"]:checked')){
+      const val = formatChecked.value;
+      if (val === 'Pionnier'){
+        if (!document.getElementById('in-code-pionnier').value.trim()){
+          alert('Merci d\'indiquer le code d\'invitation Pionnier — sans code, choisissez Jardin des Saveurs ou Boutique FLORE.');
+          document.getElementById('in-code-pionnier').focus();
+          return false;
+        }
+        if (!form.querySelector('[name="pionnier_espace"]:checked')){
+          alert('Merci de préciser si votre invitation Pionnier concerne le Jardin des Saveurs ou la Boutique.');
+          return false;
+        }
+      }
+      if (val === 'Boutique FLORE' && !form.querySelector('[name="boutique_size"]:checked')){
         alert('Merci de choisir la taille de votre stand Boutique.');
         return false;
       }
-      const required = ['in-nom','in-siret','in-adresse','in-contact','in-email'];
+      const required = ['in-nom-commercial','in-nom','in-siret','in-adresse','in-contact','in-tel','in-email'];
       for (const id of required){
         if (!document.getElementById(id).value.trim()){
           alert('Merci de compléter les champs obligatoires avant l\'envoi.');
@@ -1769,6 +1892,12 @@
         document.getElementById('in-email').focus();
         return false;
       }
+      if (!document.querySelector('[name="description_activite"]').value.trim()){
+        alert('Merci de décrire brièvement votre activité.');
+        document.querySelector('[name="description_activite"]').focus();
+        document.querySelector('[name="description_activite"]').scrollIntoView({ behavior:'smooth', block:'center' });
+        return false;
+      }
       if (!document.getElementById('in-honneur').checked){
         alert('Merci de certifier sur l\'honneur l\'exactitude des informations avant l\'envoi.');
         return false;
@@ -1777,48 +1906,63 @@
     }
 
     // ---- Bascule des blocs selon le format retenu ----
-    const jardinBlock = document.getElementById('jardin-options-block');
+    const pionnierCodeBlock = document.getElementById('pionnier-code-block');
     const boutiqueBlock = document.getElementById('boutique-size-block');
     const premiumBlock = document.getElementById('premium-note-block');
     const cartBlock = document.getElementById('cart-total-block');
+    const jardinCarteBlock = document.getElementById('jardin-carte-block');
+    const jardinEngagementsBlock = document.getElementById('jardin-engagements-block');
     function onFormatChange(){
       const val = (form.querySelector('[name="format"]:checked') || {}).value;
-      jardinBlock.hidden = val !== 'Jardin des Saveurs';
-      boutiqueBlock.hidden = val !== 'Boutique FLORE';
-      premiumBlock.hidden = val !== 'Stand Premium VIP';
-      cartBlock.hidden = (val !== 'Jardin des Saveurs' && val !== 'Boutique FLORE');
+      const isJardin = val === 'Jardin des Saveurs';
+      const isBoutique = val === 'Boutique FLORE';
+      const isPionnier = val === 'Pionnier';
+      pionnierCodeBlock.hidden = !isPionnier;
+      boutiqueBlock.hidden = !isBoutique;
+      premiumBlock.hidden = !(val === 'Premium' || val === 'Partenaire' || val === 'Animation');
+      cartBlock.hidden = !(isJardin || isBoutique || isPionnier);
+      jardinCarteBlock.hidden = !isJardin;
+      jardinEngagementsBlock.hidden = !isJardin;
       updateCart();
+      updateRecap();
     }
     form.querySelectorAll('[name="format"]').forEach(function(r){ r.addEventListener('change', onFormatChange); });
 
     // ---- Panier : total en direct ----
     const cartValue = document.getElementById('cart-total-value');
-    const btnTotal = document.getElementById('btn-total');
-    const cartNote = document.getElementById('cart-note');
+    function currentPionnierEspace(){ return (form.querySelector('[name="pionnier_espace"]:checked') || {}).value; }
     function updateCart(){
       const val = (form.querySelector('[name="format"]:checked') || {}).value;
-      let total = 0;
-      let hasApprox = false;
       let label;
-      if (val === 'Jardin des Saveurs'){
-        form.querySelectorAll('[name="options[]"]:checked').forEach(function(cb){
-          total += parseFloat(cb.dataset.price || 0);
-          if (cb.dataset.approx) hasApprox = true;
-        });
-        label = (hasApprox ? 'dès ' : '') + total + ' €';
+      if (val === 'Pionnier'){
+        label = currentPionnierEspace() ? '0 €' : '—';
+      } else if (val === 'Jardin des Saveurs'){
+        label = '490 € HT';
       } else if (val === 'Boutique FLORE'){
         const sizeChecked = form.querySelector('[name="boutique_size"]:checked');
-        total = sizeChecked ? parseFloat(sizeChecked.dataset.price || 0) : 0;
-        label = sizeChecked ? total + ' €' : '—';
+        label = sizeChecked ? parseFloat(sizeChecked.dataset.price || 0) + ' € HT' : '—';
       } else {
         label = 'sur devis';
       }
       cartValue.textContent = label;
-      btnTotal.textContent = label;
-      cartNote.hidden = !hasApprox;
     }
-    form.querySelectorAll('[name="options[]"], [name="boutique_size"]').forEach(function(cb){ cb.addEventListener('change', updateCart); });
+    form.querySelectorAll('[name="boutique_size"], [name="pionnier_espace"]').forEach(function(cb){ cb.addEventListener('change', function(){ updateCart(); updateRecap(); }); });
+    document.getElementById('in-code-pionnier').addEventListener('input', updateRecap);
+
+    // ---- Récapitulatif en direct ----
+    function updateRecap(){
+      const val = (form.querySelector('[name="format"]:checked') || {}).value || '—';
+      document.getElementById('recapFormat').textContent = val === 'Pionnier' && currentPionnierEspace()
+        ? 'Pionnier — ' + currentPionnierEspace()
+        : val;
+      document.getElementById('recapPrice').textContent = cartValue.textContent || '—';
+      let deposit = '—';
+      if (val === 'Pionnier') deposit = currentPionnierEspace() === 'Jardin des Saveurs' ? '350 € (remboursable)' : (currentPionnierEspace() === 'Boutique FLORE' ? '250 € (remboursable)' : '—');
+      else if (val === 'Animation') deposit = '150 € (remboursable)';
+      document.getElementById('recapDeposit').textContent = deposit;
+    }
     updateCart();
+    updateRecap();
 
     // ---- Autocomplétion d'adresse (API Adresse gouv.fr, gratuite, sans clé) ----
     const inAdresse = document.getElementById('in-adresse');
@@ -1900,8 +2044,8 @@
         const json = await res.json();
         if (json.success){
           msg.className = 'form-msg ok';
-          msg.textContent = 'Commande reçue ! L\'équipe FLORE revient vers vous pour les modalités de paiement.';
-          btnSubmit.textContent = 'Commande envoyée ✓';
+          msg.textContent = 'Dossier reçu ! Prochaines étapes : étude de votre candidature, détermination de votre statut, puis proposition et contrat de l\'équipe FLORE.';
+          btnSubmit.textContent = 'Dossier envoyé ✓';
         } else {
           throw new Error(json.message || 'Échec de l\'envoi (raison inconnue).');
         }
@@ -1910,7 +2054,7 @@
         const detail = (err && err.message) ? err.message : 'erreur inconnue';
         msg.textContent = 'Envoi impossible (' + detail + '). Écrivez-nous à contact@flore-festival.fr si ça persiste.';
         btnSubmit.disabled = false;
-        btnSubmit.textContent = 'Envoyer ma commande →';
+        btnSubmit.textContent = 'Envoyer mon dossier de candidature →';
       }
       msg.scrollIntoView({ behavior:'smooth', block:'center' });
     });
