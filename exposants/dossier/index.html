@@ -300,6 +300,31 @@
   .sponsor-desc{color:var(--ink-soft);font-size:.86rem;margin:0;max-width:none;line-height:1.5}
   @media(max-width:860px){.sponsor-grid{grid-template-columns:1fr}}
 
+  /* ===== Technique : personnaliser mon espace ===== */
+  .opt-cat-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
+  .opt-cat-tab{border:1.5px solid var(--line);background:#fff;border-radius:100px;padding:10px 18px;font:inherit;font-weight:700;font-size:.88rem;color:var(--ink-soft);cursor:pointer;transition:all .15s}
+  .opt-cat-tab:hover{border-color:var(--sky)}
+  .opt-cat-tab.is-active{background:var(--sun);border-color:var(--sun-deep);color:var(--ink)}
+  .opt-panel{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:28px}
+  .opt-badge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--sky-deep);background:var(--sky-pale);padding:2px 9px;border-radius:100px;margin-left:8px}
+  .opt-empty{color:var(--ink-soft);font-size:.9rem;text-align:center;padding:20px 0;margin:0;max-width:none}
+  .estimator-block{margin-top:20px;background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:22px 24px}
+  .estimator-block .cart-total{margin-top:0}
+
+  .elec-calc{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:28px;margin-top:32px}
+  .elec-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:center}
+  .elec-row input{min-width:0;width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:.9rem;color:var(--ink);background:#fafcfe}
+  .elec-row-remove{border:none;background:none;color:var(--ink-soft);font-size:1.1rem;cursor:pointer;padding:4px 8px}
+  .elec-total{display:flex;align-items:center;justify-content:space-between;background:var(--sky-pale);border-radius:14px;padding:14px 20px;margin:16px 0;font-weight:700;color:var(--ink);flex-wrap:wrap;gap:8px}
+  .elec-total strong{font-family:'Bricolage Grotesque',sans-serif;color:var(--sky-deep)}
+  @media(max-width:640px){
+    .elec-row{grid-template-columns:1fr 1fr;grid-template-areas:"name name" "qty watt" "remove remove"}
+    .elec-row .elec-name{grid-area:name}
+    .elec-row .elec-qty{grid-area:qty}
+    .elec-row .elec-watt{grid-area:watt}
+    .elec-row .elec-row-remove{grid-area:remove;justify-self:end}
+  }
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -950,38 +975,54 @@
   </div>
 </section>
 
-<!-- ===================== GRILLE TARIFAIRE (options techniques — contenu provisoire, reconstruit en Phase 10) ===================== -->
+<!-- ===================== TECHNIQUE : PERSONNALISER MON ESPACE ===================== -->
 <section class="sec" id="technique" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Grille tarifaire</span>
-      <h2>Options techniques, au tarif réel Ainterexpo</h2>
-      <p>Aucune option n'est imposée — vous ne commandez que ce dont vous avez réellement besoin.</p>
+      <h2>Personnalisez votre espace</h2>
+      <p>Le stand de base est volontairement nu, afin de ne pas faire payer à tous des équipements dont seuls certains ont besoin. Les tarifs marqués « indicatif » seront confirmés lors de la validation de votre dossier et de vos besoins.</p>
     </div>
-    <div class="table-wrap" data-aos="fade-up">
-      <table class="tarif-table">
-        <thead>
-          <tr><th>Prestation</th><th>Précisions</th><th>Tarif HT</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Table pliante (1,80×0,80m)</td><td>Facturée dès la 1ère unité</td><td class="price-cell">14 €</td></tr>
-          <tr><td>Chaise coque</td><td>Facturée dès la 1ère unité</td><td class="price-cell">4 €</td></tr>
-          <tr><td>Pack Mobilier Duo</td><td>1 table + 2 chaises</td><td class="price-cell">40 €</td></tr>
-          <tr><td>Pack Mobilier Famille</td><td>2 tables + 4 chaises</td><td class="price-cell">75 €</td></tr>
-          <tr><td>Mange-debout</td><td>Restauration rapide / dégustation debout</td><td class="price-cell">50 €</td></tr>
-          <tr><td>Tabouret haut de bar</td><td>Assise comptoir / mange-debout</td><td class="price-cell">38 €</td></tr>
-          <tr><td>Comptoir d'accueil (1m)</td><td>Présentation et accueil</td><td class="price-cell">90 €</td></tr>
-          <tr><td>Moquette au m²</td><td>Coloris au choix</td><td class="price-cell">8 € / m²</td></tr>
-          <tr><td>Cloison supplémentaire</td><td>Au mètre linéaire</td><td class="price-cell">30 € / ml</td></tr>
-          <tr><td>Porte avec clé</td><td>Accès sécurisé réserve arrière-stand</td><td class="price-cell">71 €</td></tr>
-          <tr><td>Prise monophasé (1 à 4 kW)</td><td>Éclairage, caisse, petit matériel</td><td class="price-cell">60 à 240 €</td></tr>
-          <tr><td>Triphasé forte puissance (4 à 15 kW)</td><td>Obligatoire pour la cuisson</td><td class="price-cell">170 à 270 €</td></tr>
-          <tr><td>Eau froide &amp; évacuation</td><td>Obligatoire pour métiers de bouche</td><td class="price-cell">150 €</td></tr>
-          <tr><td>Manutention (15 min)</td><td>Chariot élévateur sur demande</td><td class="price-cell">55 €</td></tr>
-        </tbody>
-      </table>
+
+    <div class="opt-cat-tabs" id="optCatTabs" data-aos="fade-up">
+      <button type="button" class="opt-cat-tab" data-cat="mobilier">Mobilier</button>
+      <button type="button" class="opt-cat-tab" data-cat="electricite">Électricité</button>
+      <button type="button" class="opt-cat-tab" data-cat="eau">Eau</button>
+      <button type="button" class="opt-cat-tab" data-cat="standHabillage">Stand &amp; habillage</button>
+      <button type="button" class="opt-cat-tab" data-cat="manutention">Manutention</button>
+      <button type="button" class="opt-cat-tab" data-cat="techniqueSpecial">Technique spécifique</button>
     </div>
-    <p class="table-note">Tarifs Ainterexpo transmis directement par leurs services techniques — facturation en direct, sans intermédiaire FLORE.</p>
+
+    <div class="opt-panel" data-aos="fade-up">
+      <div class="ck-list options-grid" id="optList"></div>
+      <p class="table-note" id="optCatNote" hidden>Deux grilles de mobilier coexistent (standard et Fermob) tant que la source du conflit tarifaire n'est pas clarifiée avec le prestataire — les deux sont indiquées, aucune n'est masquée.</p>
+    </div>
+
+    <div class="estimator-block" data-aos="fade-up">
+      <div class="cart-total"><span>Estimation des options cochées</span><strong id="estimTotal">0 €</strong></div>
+      <p class="cart-note">Estimation uniquement, hors prix de l'espace nu (voir Offres &amp; tarifs). Les commandes techniques et tarifs définitifs sont confirmés après validation de votre dossier.</p>
+    </div>
+
+    <div class="elec-calc" data-aos="fade-up">
+      <h3 class="h-sub">Calculateur électrique</h3>
+      <p class="dim-text">Listez vos appareils pour estimer votre besoin en puissance — la demande réelle est vérifiée par l'équipe technique.</p>
+      <div id="elecRows"></div>
+      <button type="button" class="btn btn-ghost" id="elecAddRow">+ Ajouter un appareil</button>
+      <div class="elec-total">
+        <span>Puissance totale demandée</span>
+        <strong><span id="elecTotalW">0</span>&nbsp;W · <span id="elecTotalKw">0</span>&nbsp;kW</strong>
+      </div>
+      <p class="table-note">Plafond indicatif : 20&nbsp;kW cumulés par espace. Toute demande importante fait l'objet d'une validation technique spécifique.</p>
+    </div>
+
+    <div class="crit-grid" data-aos="fade-up" style="margin-top:40px">
+      <div class="crit-item"><h4>Gaz</h4><p>Sans gaz par défaut. Toute demande est étudiée au cas par cas, sous validation technique et sécurité.</p></div>
+      <div class="crit-item"><h4>Cuisson</h4><p>Barbecue et feu de bois interdits. Plancha : hotte autonome obligatoire. Friteuse : extinction adaptée, huiles récupérées, rien laissé après exploitation.</p></div>
+      <div class="crit-item"><h4>Structures</h4><p>Hall A sans point d'accroche : structure autoportée au sol. Seuil indiqué 6,20&nbsp;m. Toute grande structure nécessite une validation technique.</p></div>
+      <div class="crit-item"><h4>Fumée / brouillard</h4><p>Possible selon la machine utilisée, validation au cas par cas.</p></div>
+      <div class="crit-item"><h4>Repiquage son</h4><p>Possibilité de repiquage son halls A/B pour un micro. Rien de plus sans étude technique.</p></div>
+      <div class="crit-item"><h4>Plonge collective</h4><p>Une plonge collective avec évier est envisagée — conditions à définir avec l'organisation, non garantie à ce stade.</p></div>
+    </div>
   </div>
 </section>
 
@@ -1510,6 +1551,92 @@
     });
 
     render();
+  })();
+
+  (function(){
+    const cfg = window.FLORE_EXHIBITOR_CONFIG;
+    const optList = document.getElementById('optList');
+    const catNote = document.getElementById('optCatNote');
+    const tabs = document.querySelectorAll('.opt-cat-tab');
+    if (!cfg || !optList || !tabs.length) return;
+
+    const CAT_LABELS = {
+      mobilier: 'Mobilier', mobilierFermob: 'Mobilier Fermob', electricite: 'Électricité',
+      eau: 'Eau', standHabillage: 'Stand & habillage', manutention: 'Manutention', techniqueSpecial: 'Technique spécifique'
+    };
+
+    function optionsFor(cat){
+      const cats = cat === 'mobilier' ? ['mobilier', 'mobilierFermob'] : [cat];
+      return cfg.technicalOptions.filter(function(o){ return cats.indexOf(o.category) !== -1 && o.public !== false; });
+    }
+
+    function renderCat(cat){
+      const items = optionsFor(cat);
+      if (!items.length){
+        optList.innerHTML = '<p class="opt-empty">Aucune option publique dans cette catégorie pour le moment.</p>';
+        catNote.hidden = true;
+        return;
+      }
+      optList.innerHTML = items.map(function(o){
+        const badge = o.status === 'provisional' ? '<span class="opt-badge">Tarif indicatif</span>' : '';
+        const family = o.category === 'mobilierFermob' ? ' <span class="opt-badge">Fermob</span>' : '';
+        return '<label class="ck-item"><input type="checkbox" data-price="' + o.price + '" data-opt-id="' + o.id + '"><span>' + o.label + family + badge + '<b>' + o.price.toLocaleString('fr-FR') + ' ' + o.unit + '</b></span></label>';
+      }).join('');
+      catNote.hidden = cat !== 'mobilier' || !items.some(function(o){ return o.category === 'mobilierFermob'; });
+      optList.querySelectorAll('input[type=checkbox]').forEach(function(cb){ cb.addEventListener('change', updateEstimate); });
+    }
+
+    const estimTotal = document.getElementById('estimTotal');
+    function updateEstimate(){
+      let total = 0;
+      document.querySelectorAll('#optList input:checked').forEach(function(cb){ total += parseFloat(cb.dataset.price || 0); });
+      estimTotal.textContent = total.toLocaleString('fr-FR') + ' €';
+    }
+
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){ t.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+        renderCat(tab.dataset.cat);
+        updateEstimate();
+      });
+    });
+    tabs[0].classList.add('is-active');
+    renderCat(tabs[0].dataset.cat);
+
+    // ---- Calculateur électrique ----
+    const elecRows = document.getElementById('elecRows');
+    const elecTotalW = document.getElementById('elecTotalW');
+    const elecTotalKw = document.getElementById('elecTotalKw');
+    let elecRowCount = 0;
+
+    function updateElecTotal(){
+      let totalW = 0;
+      elecRows.querySelectorAll('.elec-row').forEach(function(row){
+        const qty = parseFloat(row.querySelector('.elec-qty').value) || 0;
+        const watt = parseFloat(row.querySelector('.elec-watt').value) || 0;
+        totalW += qty * watt;
+      });
+      elecTotalW.textContent = totalW.toLocaleString('fr-FR');
+      elecTotalKw.textContent = (totalW / 1000).toLocaleString('fr-FR', { maximumFractionDigits: 2 });
+    }
+
+    function addElecRow(){
+      elecRowCount++;
+      const row = document.createElement('div');
+      row.className = 'elec-row';
+      row.innerHTML =
+        '<input type="text" placeholder="Nom de l\'appareil (ex. plancha)" class="elec-name">' +
+        '<input type="number" min="0" placeholder="Qté" class="elec-qty" value="1">' +
+        '<input type="number" min="0" placeholder="Watts (unité)" class="elec-watt">' +
+        '<button type="button" class="elec-row-remove" aria-label="Retirer cet appareil">✕</button>';
+      elecRows.appendChild(row);
+      row.querySelector('.elec-qty').addEventListener('input', updateElecTotal);
+      row.querySelector('.elec-watt').addEventListener('input', updateElecTotal);
+      row.querySelector('.elec-row-remove').addEventListener('click', function(){ row.remove(); updateElecTotal(); });
+    }
+    document.getElementById('elecAddRow').addEventListener('click', addElecRow);
+    addElecRow();
   })();
 
   (function(){
