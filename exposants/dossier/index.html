@@ -153,6 +153,30 @@
   .cart-total span{font-size:.9rem;color:rgba(255,255,255,.8)}
   .cart-total strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.4rem;color:var(--sun)}
   .cart-note{font-size:.82rem;color:var(--ink-soft);margin-top:10px}
+
+  /* ===== Diagnostic profil ===== */
+  .diag-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:36px 40px}
+  .diag-progress{height:6px;background:var(--line);border-radius:100px;overflow:hidden;margin-bottom:14px}
+  .diag-progress-bar{height:100%;background:var(--sun);border-radius:100px;transition:width .3s var(--ease,ease)}
+  .diag-steplabel{font-size:.8rem;font-weight:700;color:var(--sky-deep);letter-spacing:.04em;text-transform:uppercase;margin-bottom:20px}
+  .diag-step h3{font-size:1.2rem;color:var(--ink);margin:0 0 16px}
+  .diag-step-hint{color:var(--ink-soft);font-size:.88rem;margin:-8px 0 16px}
+  .yn-row{display:flex;gap:10px}
+  .yn-btn{flex:1;border:1.5px solid var(--line);background:#f7fafc;border-radius:14px;padding:14px 20px;font:inherit;font-weight:700;font-size:.95rem;color:var(--ink-soft);cursor:pointer;transition:all .18s}
+  .yn-btn.is-selected{background:var(--sun-pale);border-color:var(--sun-deep);color:var(--ink)}
+  .diag-nav{display:flex;justify-content:space-between;gap:12px;margin-top:32px;padding-top:24px;border-top:1.5px solid var(--line)}
+  .diag-nav[hidden]{display:none}
+  .diag-nav .btn:disabled{opacity:.4;cursor:default;pointer-events:none}
+  .diag-result{text-align:center}
+  .diag-result-eyebrow{display:block;font-size:.8rem;font-weight:700;color:var(--sky-deep);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+  .diag-result h3{font-size:1.6rem;color:var(--ink);margin:0 0 14px}
+  .diag-result > p{color:var(--ink-soft);font-size:1rem;max-width:52ch;margin:0 auto 22px;line-height:1.6}
+  .diag-result .info-box{text-align:left}
+  .diag-result .btn-row{justify-content:center}
+  @media(max-width:640px){
+    .diag-card{padding:26px 20px}
+    .yn-row{flex-direction:column}
+  }
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -277,7 +301,175 @@
   </div>
 </section>
 
-<span id="profil" class="section-anchor"></span>
+<!-- ===================== DIAGNOSTIC PROFIL ===================== -->
+<section class="sec" id="profil" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Diagnostic</span>
+      <h2>Quel profil FLORE êtes-vous&nbsp;?</h2>
+      <p>Répondez à quelques questions et découvrez le type de participation qui correspond le mieux à votre projet.</p>
+    </div>
+
+    <div class="diag-card" data-aos="fade-up">
+      <div class="diag-progress"><div class="diag-progress-bar" id="diagProgressBar"></div></div>
+      <div class="diag-steplabel" id="diagStepLabel">Question 1 sur 9</div>
+
+      <div class="diag-step" data-step="0">
+        <h3>Quel est votre objectif principal à FLORE&nbsp;?</h3>
+        <div class="chip-grid" data-field="objectif">
+          <label class="chip"><input type="radio" name="objectif" value="vendre"><span>Vendre mes produits</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="notoriete"><span>Faire connaître ma marque</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="degustation"><span>Faire tester / déguster</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="clients"><span>Recruter des clients</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="utilisateurs"><span>Recruter des utilisateurs</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="experience-gratuite"><span>Proposer gratuitement une expérience</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="sensibiliser"><span>Transmettre / sensibiliser</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="association"><span>Faire connaître une association</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="image"><span>Associer mon entreprise à l'image de FLORE</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="partenaire"><span>Devenir partenaire</span></label>
+          <label class="chip"><input type="radio" name="objectif" value="autre"><span>Autre</span></label>
+        </div>
+      </div>
+
+      <div class="diag-step" data-step="1" hidden>
+        <h3>Quelle est votre activité principale&nbsp;?</h3>
+        <div class="chip-grid" data-field="activite">
+          <label class="chip"><input type="radio" name="activite" value="restauration"><span>Restauration</span></label>
+          <label class="chip"><input type="radio" name="activite" value="food-truck"><span>Food truck</span></label>
+          <label class="chip"><input type="radio" name="activite" value="patisserie"><span>Pâtisserie</span></label>
+          <label class="chip"><input type="radio" name="activite" value="boulangerie"><span>Boulangerie</span></label>
+          <label class="chip"><input type="radio" name="activite" value="epicerie"><span>Épicerie</span></label>
+          <label class="chip"><input type="radio" name="activite" value="marque-alimentaire"><span>Marque alimentaire</span></label>
+          <label class="chip"><input type="radio" name="activite" value="boissons"><span>Boissons</span></label>
+          <label class="chip"><input type="radio" name="activite" value="application"><span>Application</span></label>
+          <label class="chip"><input type="radio" name="activite" value="service"><span>Service</span></label>
+          <label class="chip"><input type="radio" name="activite" value="sante"><span>Santé / accompagnement</span></label>
+          <label class="chip"><input type="radio" name="activite" value="association"><span>Association</span></label>
+          <label class="chip"><input type="radio" name="activite" value="atelier"><span>Atelier</span></label>
+          <label class="chip"><input type="radio" name="activite" value="animation"><span>Animation</span></label>
+          <label class="chip"><input type="radio" name="activite" value="cosmetique"><span>Cosmétique</span></label>
+          <label class="chip"><input type="radio" name="activite" value="bien-etre"><span>Bien-être</span></label>
+          <label class="chip"><input type="radio" name="activite" value="equipement"><span>Équipement</span></label>
+          <label class="chip"><input type="radio" name="activite" value="edition"><span>Édition</span></label>
+          <label class="chip"><input type="radio" name="activite" value="autre"><span>Autre</span></label>
+        </div>
+      </div>
+
+      <div class="diag-step" data-step="2" hidden>
+        <h3>Quel est votre lien avec l'univers FLORE&nbsp;?</h3>
+        <div class="ck-list" data-field="lien">
+          <label class="ck-item"><input type="radio" name="lien" value="dediee-sg-sl"><span>Mon activité est entièrement dédiée au sans gluten <strong>et</strong> sans lactose</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="dediee-sg"><span>Entièrement sans gluten</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="dediee-sl"><span>Entièrement sans lactose</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="gamme-importante"><span>Une partie importante de ma gamme</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="gamme-specifique"><span>Une gamme spécifique seulement</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="coeliaque"><span>Activité liée à la maladie cœliaque</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="intolerances"><span>Activité liée aux intolérances</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="digestif"><span>Activité liée aux problématiques digestives / intestinales</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="service-communaute"><span>Service directement utile à cette communauté</span></label>
+          <label class="ck-item"><input type="radio" name="lien" value="complementaire"><span>Activité complémentaire mais non spécialisée</span></label>
+        </div>
+      </div>
+
+      <div class="diag-step" data-step="3" hidden>
+        <h3>Depuis combien de temps existe votre activité&nbsp;?</h3>
+        <div class="chip-grid" data-field="anciennete">
+          <label class="chip"><input type="radio" name="anciennete" value="moins-1"><span>Moins d'un an</span></label>
+          <label class="chip"><input type="radio" name="anciennete" value="1-3"><span>1 à 3 ans</span></label>
+          <label class="chip"><input type="radio" name="anciennete" value="3-5"><span>3 à 5 ans</span></label>
+          <label class="chip"><input type="radio" name="anciennete" value="5-10"><span>5 à 10 ans</span></label>
+          <label class="chip"><input type="radio" name="anciennete" value="plus-10"><span>Plus de 10 ans</span></label>
+        </div>
+      </div>
+
+      <div class="diag-step" data-step="4" hidden>
+        <h3>Taille de votre structure</h3>
+        <div class="chip-grid" data-field="taille">
+          <label class="chip"><input type="radio" name="taille" value="solo"><span>Indépendant·e / solo</span></label>
+          <label class="chip"><input type="radio" name="taille" value="2-5"><span>2 à 5 personnes</span></label>
+          <label class="chip"><input type="radio" name="taille" value="6-10"><span>6 à 10</span></label>
+          <label class="chip"><input type="radio" name="taille" value="11-25"><span>11 à 25</span></label>
+          <label class="chip"><input type="radio" name="taille" value="26-50"><span>26 à 50</span></label>
+          <label class="chip"><input type="radio" name="taille" value="plus-50"><span>Plus de 50</span></label>
+        </div>
+      </div>
+
+      <div class="diag-step" data-step="5" hidden>
+        <h3>Votre présence à FLORE nécessite-t-elle des coûts importants&nbsp;?</h3>
+        <p class="diag-step-hint">Cochez tout ce qui s'applique.</p>
+        <div class="ck-list options-grid" data-field="couts">
+          <label class="ck-item"><input type="checkbox" name="couts" value="transport"><span>Transport</span></label>
+          <label class="ck-item"><input type="checkbox" name="couts" value="hebergement"><span>Hébergement</span></label>
+          <label class="ck-item"><input type="checkbox" name="couts" value="fermeture"><span>Fermeture d'un commerce</span></label>
+          <label class="ck-item"><input type="checkbox" name="couts" value="froid"><span>Chaîne du froid</span></label>
+          <label class="ck-item"><input type="checkbox" name="couts" value="personnel"><span>Personnel</span></label>
+          <label class="ck-item"><input type="checkbox" name="couts" value="production"><span>Production spéciale</span></label>
+          <label class="ck-item"><input type="checkbox" name="couts" value="aucun" id="diagCoutsAucun"><span>Aucun coût majeur</span></label>
+        </div>
+      </div>
+
+      <div class="diag-step" data-step="6" hidden>
+        <h3>Venez-vous principalement pour vendre&nbsp;?</h3>
+        <div class="yn-row" data-field="vente">
+          <button type="button" class="yn-btn" data-val="oui">Oui</button>
+          <button type="button" class="yn-btn" data-val="non">Non</button>
+        </div>
+        <h3 style="margin-top:28px">Proposez-vous une animation gratuite au public&nbsp;?</h3>
+        <div class="yn-row" data-field="animation_gratuite">
+          <button type="button" class="yn-btn" data-val="oui">Oui</button>
+          <button type="button" class="yn-btn" data-val="non">Non</button>
+        </div>
+      </div>
+
+      <div class="diag-step" data-step="7" hidden>
+        <h3>Disposez-vous d'un budget marketing / événementiel&nbsp;?</h3>
+        <div class="chip-grid" data-field="budget">
+          <label class="chip"><input type="radio" name="budget" value="aucun"><span>Aucun</span></label>
+          <label class="chip"><input type="radio" name="budget" value="0-250"><span>Moins de 250 €</span></label>
+          <label class="chip"><input type="radio" name="budget" value="250-500"><span>250 à 500 €</span></label>
+          <label class="chip"><input type="radio" name="budget" value="500-1000"><span>500 à 1 000 €</span></label>
+          <label class="chip"><input type="radio" name="budget" value="1000-2000"><span>1 000 à 2 000 €</span></label>
+          <label class="chip"><input type="radio" name="budget" value="2000-5000"><span>2 000 à 5 000 €</span></label>
+          <label class="chip"><input type="radio" name="budget" value="plus-5000"><span>Plus de 5 000 €</span></label>
+        </div>
+      </div>
+
+      <div class="diag-step" data-step="8" hidden id="diagCaStep">
+        <h3>Chiffre d'affaires annuel approximatif</h3>
+        <p class="diag-step-hint">Information confidentielle, utilisée uniquement pour étudier la capacité économique de votre structure — cette question n'apparaît que parce que votre profil pourrait relever d'un accompagnement.</p>
+        <div class="chip-grid" data-field="ca">
+          <label class="chip"><input type="radio" name="ca" value="lancement"><span>Activité en lancement / pas encore de CA</span></label>
+          <label class="chip"><input type="radio" name="ca" value="0-50k"><span>Moins de 50 000 €</span></label>
+          <label class="chip"><input type="radio" name="ca" value="50-150k"><span>50 000 à 150 000 €</span></label>
+          <label class="chip"><input type="radio" name="ca" value="150-500k"><span>150 000 à 500 000 €</span></label>
+          <label class="chip"><input type="radio" name="ca" value="500k-1m"><span>500 000 € à 1 M€</span></label>
+          <label class="chip"><input type="radio" name="ca" value="1-2m"><span>1 M€ à 2 M€</span></label>
+          <label class="chip"><input type="radio" name="ca" value="plus-2m"><span>Plus de 2 M€</span></label>
+          <label class="chip"><input type="radio" name="ca" value="prefere-pas"><span>Préfère ne pas répondre</span></label>
+        </div>
+      </div>
+
+      <div class="diag-nav">
+        <button type="button" class="btn btn-ghost" id="diagBack" disabled>← Précédent</button>
+        <button type="button" class="btn-submit-wiz" id="diagNext">Suivant →</button>
+      </div>
+
+      <div class="diag-result" id="diagResult" hidden>
+        <span class="diag-result-eyebrow" id="diagResultEyebrow">Votre profil recommandé</span>
+        <h3 id="diagResultTitle">—</h3>
+        <p id="diagResultText"></p>
+        <div class="info-box">
+          <p>La qualification définitive reste effectuée par l'équipe FLORE après étude de la candidature — cette recommandation est indicative.</p>
+        </div>
+        <div class="btn-row" style="margin-top:20px">
+          <a href="#tarifs" class="btn btn-sun">Voir les tarifs</a>
+          <button type="button" class="btn btn-ghost" id="diagRestart">Refaire le diagnostic</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <span id="pionniers" class="section-anchor"></span>
 
 <!-- ===================== MODELE 0 EUROS ===================== -->
@@ -677,6 +869,207 @@
         if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
       });
     }
+  })();
+
+  (function(){
+    const card = document.querySelector('.diag-card');
+    if (!card) return;
+    const steps = Array.prototype.slice.call(card.querySelectorAll('.diag-step'));
+    const caStep = document.getElementById('diagCaStep');
+    const progressBar = document.getElementById('diagProgressBar');
+    const stepLabel = document.getElementById('diagStepLabel');
+    const btnBack = document.getElementById('diagBack');
+    const btnNext = document.getElementById('diagNext');
+    const nav = card.querySelector('.diag-nav');
+    const result = document.getElementById('diagResult');
+    const answers = {};
+    let current = 0;
+    let showCa = false;
+
+    function activeSteps(){ return showCa ? steps : steps.filter(function(s){ return s !== caStep; }); }
+
+    function isAnswered(step){
+      const field = step.dataset.step === '6' ? null : step.querySelector('[data-field]');
+      if (step.dataset.step === '6'){
+        return !!answers.vente && !!answers.animation_gratuite;
+      }
+      if (!field) return true;
+      const name = field.dataset.field;
+      if (field.querySelectorAll('input[type=checkbox]').length){
+        return true; // les cases à cocher sont facultatives (y compris "aucun")
+      }
+      return !!answers[name];
+    }
+
+    function render(){
+      const list = activeSteps();
+      list.forEach(function(s, i){ s.hidden = i !== current; });
+      steps.forEach(function(s){ if (list.indexOf(s) === -1) s.hidden = true; });
+      progressBar.style.width = (((current + 1) / list.length) * 100) + '%';
+      stepLabel.textContent = 'Question ' + (current + 1) + ' sur ' + list.length;
+      btnBack.disabled = current === 0;
+      btnNext.textContent = current === list.length - 1 ? 'Voir mon profil →' : 'Suivant →';
+    }
+
+    function computeRecommendation(){
+      const objectif = answers.objectif;
+      const lien = answers.lien;
+      const anciennete = answers.anciennete;
+      const taille = answers.taille;
+      const couts = answers.couts || [];
+      const budget = answers.budget;
+      const vente = answers.vente === 'oui';
+      const animGratuite = answers.animation_gratuite === 'oui';
+
+      const isVenteObjectif = ['vendre', 'clients', 'utilisateurs'].indexOf(objectif) !== -1;
+      const isPartenaireObjectif = objectif === 'partenaire' || objectif === 'image';
+      const isExperienceObjectif = ['degustation', 'experience-gratuite', 'sensibiliser', 'association'].indexOf(objectif) !== -1;
+
+      const fortSpecialisation = ['dediee-sg-sl', 'dediee-sg', 'dediee-sl', 'coeliaque', 'intolerances', 'digestif', 'service-communaute'].indexOf(lien) !== -1;
+      const activiteHistorique = ['5-10', 'plus-10'].indexOf(anciennete) !== -1;
+      const petiteStructure = ['solo', '2-5'].indexOf(taille) !== -1;
+      const coutsImportants = couts.length > 0 && couts.indexOf('aucun') === -1;
+      const budgetEleve = ['2000-5000', 'plus-5000'].indexOf(budget) !== -1;
+
+      const partenaireThreshold = (window.FLORE_EXHIBITOR_CONFIG && window.FLORE_EXHIBITOR_CONFIG.sponsorPackages[0].price) || 2000;
+
+      let pionnierScore = 0;
+      if (fortSpecialisation) pionnierScore += 2;
+      if (activiteHistorique) pionnierScore += 1;
+      if (petiteStructure) pionnierScore += 1;
+      if (coutsImportants) pionnierScore += 1;
+
+      if (isPartenaireObjectif || budgetEleve){
+        return {
+          key: 'partenaire',
+          title: 'Partenariat FLORE',
+          text: 'Votre profil correspond davantage à un partenariat qu\'à un stand exposant : visibilité, activation et rayonnement auprès de la communauté FLORE, à partir de ' + partenaireThreshold.toLocaleString('fr-FR') + ' € HT.',
+          needsCa: false
+        };
+      }
+      if (pionnierScore >= 3){
+        return {
+          key: 'pionnier',
+          title: 'Votre profil pourrait correspondre au Cercle des Pionniers',
+          text: 'Forte spécialisation sans gluten/sans lactose, légitimité et coûts de venue réels : votre projet coche plusieurs critères du programme Pionniers. Le statut Pionnier est attribué exclusivement après sélection par FLORE et dans la limite des invitations encore disponibles.',
+          needsCa: true
+        };
+      }
+      if (isExperienceObjectif && animGratuite && !vente){
+        return {
+          key: 'animation',
+          title: 'Animation FLORE',
+          text: 'Votre objectif principal est l\'expérience proposée au public plutôt que la vente : ce format correspond à une Animation FLORE. Règle à connaître : quand FLORE met l\'espace à disposition, l\'animation principale doit rester gratuite pour les festivaliers.',
+          needsCa: false
+        };
+      }
+      if (vente && animGratuite){
+        return {
+          key: 'hybride',
+          title: 'Exposant avec activation / animation',
+          text: 'Vous pouvez vendre vos produits tout en proposant une expérience gratuite en parallèle. Selon votre situation, un Tarif Accompagnement peut être étudié.',
+          needsCa: true
+        };
+      }
+      if (isVenteObjectif && petiteStructure && fortSpecialisation){
+        return {
+          key: 'accompagnement',
+          title: 'Exposant — Tarif Accompagnement potentiellement adapté',
+          text: 'Structure de petite taille, forte cohérence avec l\'univers FLORE : votre profil peut être éligible au Tarif Accompagnement, attribué sur sélection et dans la limite des emplacements prévus.',
+          needsCa: true
+        };
+      }
+      return {
+        key: 'exposant',
+        title: 'Exposant FLORE',
+        text: 'Votre projet correspond à un stand exposant classique : Boutique, Jardin des Saveurs (si restauration compatible) ou Premium selon vos besoins.',
+        needsCa: false
+      };
+    }
+
+    function showResult(){
+      const reco = computeRecommendation();
+      nav.hidden = true;
+      steps.forEach(function(s){ s.hidden = true; });
+      result.hidden = false;
+      document.getElementById('diagResultTitle').textContent = reco.title;
+      document.getElementById('diagResultText').textContent = reco.text;
+      progressBar.style.width = '100%';
+      stepLabel.textContent = 'Résultat';
+    }
+
+    function collectStep(step){
+      const field = step.querySelector('[data-field]');
+      if (!field) return;
+      const name = field.dataset.field;
+      if (name === 'couts'){
+        answers.couts = Array.prototype.slice.call(field.querySelectorAll('input:checked')).map(function(i){ return i.value; });
+        return;
+      }
+      const checked = field.querySelector('input:checked');
+      if (checked) answers[name] = checked.value;
+    }
+
+    steps.forEach(function(step){
+      step.addEventListener('change', function(){ collectStep(step); });
+      const ynRows = step.querySelectorAll('.yn-row');
+      ynRows.forEach(function(row){
+        const field = row.dataset.field;
+        row.querySelectorAll('.yn-btn').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            row.querySelectorAll('.yn-btn').forEach(function(b){ b.classList.remove('is-selected'); });
+            btn.classList.add('is-selected');
+            answers[field] = btn.dataset.val;
+          });
+        });
+      });
+    });
+
+    btnNext.addEventListener('click', function(){
+      const list = activeSteps();
+      const step = list[current];
+      collectStep(step);
+      if (!isAnswered(step)){
+        alert('Merci de répondre avant de continuer.');
+        return;
+      }
+      if (current === list.length - 1){
+        // Décide d'afficher ou non la question CA juste avant le résultat,
+        // une fois qu'on a assez de réponses pour savoir si elle est utile.
+        if (!showCa){
+          const reco = computeRecommendation();
+          if (reco.needsCa){
+            showCa = true;
+            current = list.length; // la case CA devient la nouvelle dernière étape
+            render();
+            return;
+          }
+        }
+        showResult();
+        return;
+      }
+      current++;
+      render();
+    });
+
+    btnBack.addEventListener('click', function(){
+      if (current === 0) return;
+      current--;
+      render();
+    });
+
+    document.getElementById('diagRestart').addEventListener('click', function(){
+      current = 0;
+      showCa = false;
+      Object.keys(answers).forEach(function(k){ delete answers[k]; });
+      card.querySelectorAll('input:checked').forEach(function(i){ i.checked = false; });
+      card.querySelectorAll('.yn-btn.is-selected').forEach(function(b){ b.classList.remove('is-selected'); });
+      result.hidden = true;
+      nav.hidden = false;
+      render();
+    });
+
+    render();
   })();
 
   (function(){
