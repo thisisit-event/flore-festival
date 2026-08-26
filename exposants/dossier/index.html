@@ -325,6 +325,21 @@
     .elec-row .elec-row-remove{grid-area:remove;justify-self:end}
   }
 
+  /* ===== Installation & contrôle ===== */
+  .control-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .control-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:22px}
+  .control-card h4{font-size:1.02rem;color:var(--ink);margin:10px 0 14px}
+  .control-card .tag-row span{font-size:.8rem;padding:6px 12px}
+  @media(max-width:860px){.control-grid{grid-template-columns:1fr}}
+
+  .status-legend{display:flex;flex-wrap:wrap;align-items:center;gap:20px;background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:20px 24px;margin-top:24px}
+  .status-legend > div{display:flex;align-items:center;gap:8px;font-size:.86rem;font-weight:700;color:var(--ink)}
+  .status-dot{width:12px;height:12px;border-radius:50%;flex:none}
+  .status-dot--green{background:#2e9e5b}
+  .status-dot--orange{background:#e0913a}
+  .status-dot--red{background:#c0392b}
+  .status-legend p{margin:0;color:var(--ink-soft);font-size:.82rem;max-width:none}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -1116,7 +1131,66 @@
     </div>
   </div>
 </section>
-<span id="installation" class="section-anchor"></span>
+<!-- ===================== INSTALLATION & CONTRÔLE ===================== -->
+<section class="sec" id="installation" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Montage &amp; contrôle</span>
+      <h2>Installation</h2>
+      <p>Vendredi 16 avril 2027, après-midi — accès au site pour Jardin, Boutique, installations lourdes, mobilier, technique, froid, stands et décoration. Horaires exacts à confirmer avec Ainterexpo.</p>
+    </div>
+
+    <div class="info-box" data-aos="fade-up">
+      <h4>Denrées le vendredi</h4>
+      <p>Un restaurateur n'est jamais obligé de laisser des produits périssables sur place toute la nuit — cela dépend du froid disponible, de la sécurité du site, de l'électricité nocturne et des règles propres à Ainterexpo.</p>
+    </div>
+
+    <h3 class="h-sub" style="text-align:center;margin-top:40px">Samedi matin — planning indicatif</h3>
+    <div class="ambass-row" data-aos="fade-up">
+      <div class="ambass-step"><div class="j">07h00–08h30</div><p>Installation finale / produits frais</p></div>
+      <div class="ambass-step"><div class="j">08h30</div><p>Présence obligatoire au Jardin des Saveurs</p></div>
+      <div class="ambass-step"><div class="j">08h30–10h00</div><p>Contrôle Comité FLORE</p></div>
+      <div class="ambass-step"><div class="j">10h00–10h30</div><p>Corrections éventuelles</p></div>
+      <div class="ambass-step"><div class="j">10h30</div><p>Stands opérationnels</p></div>
+      <div class="ambass-step"><div class="j">11h00</div><p>Ouverture au public</p></div>
+    </div>
+
+    <h3 class="h-sub" style="text-align:center;margin-top:44px">Le contrôle du Comité FLORE, par catégorie</h3>
+    <div class="control-grid" data-aos="fade-up">
+      <div class="control-card">
+        <span class="format-tag">Priorité n°1</span>
+        <h4>Jardin des Saveurs</h4>
+        <div class="tag-row">
+          <span>Produits</span><span>Références</span><span>Emballages</span><span>Recettes</span><span>Ingrédients</span><span>Fournisseurs</span><span>Contamination</span><span>Froid</span><span>Hygiène</span><span>Allergènes</span><span>Portion découverte</span><span>Stock</span><span>Prix</span>
+        </div>
+      </div>
+      <div class="control-card">
+        <span class="format-tag">Contrôle plus léger</span>
+        <h4>Boutique FLORE</h4>
+        <div class="tag-row">
+          <span>Identité</span><span>Produits</span><span>Cohérence</span><span>Dégustation</span><span>Signalétique</span><span>Sécurité</span><span>Absence de marque non déclarée</span>
+        </div>
+      </div>
+      <div class="control-card">
+        <span class="format-tag">Installation légère</span>
+        <h4>Animations</h4>
+        <p class="dim-text">Peuvent arriver le jour J si elles n'ont pas d'installation lourde — mais toujours prêtes avant l'ouverture au public.</p>
+      </div>
+    </div>
+
+    <div class="status-legend" data-aos="fade-up">
+      <div><span class="status-dot status-dot--green"></span>Validé</div>
+      <div><span class="status-dot status-dot--orange"></span>Correction demandée</div>
+      <div><span class="status-dot status-dot--red"></span>Pas d'autorisation de servir</div>
+      <p>Statut interne au Comité FLORE, utilisé uniquement pendant le contrôle du samedi matin.</p>
+    </div>
+
+    <div class="rule-abs" data-aos="fade-up" style="margin-top:40px;padding:32px 24px">
+      <p class="rule-abs-and" style="font-size:clamp(1.2rem,3vw,1.7rem)">De 11h à 22h : aucun montage, démontage, départ, sortie de matériel, véhicule ou fermeture volontaire</p>
+      <p class="rule-abs-note">Exception : urgence, sécurité, ou autorisation explicite de FLORE.</p>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== LE CADRE ===================== -->
 <section class="sec" style="padding-top:0">
