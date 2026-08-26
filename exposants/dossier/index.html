@@ -273,6 +273,16 @@
   .dont-list li::before{content:"✕";color:#c0392b;font-weight:800;flex-shrink:0}
   @media(max-width:760px){.jardin-cols{grid-template-columns:1fr}}
 
+  /* ===== Boutique FLORE ===== */
+  .degust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .degust-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:24px 22px;border:1.5px solid transparent}
+  .degust-card--ok{border-color:var(--sun-deep);background:var(--sun-pale)}
+  .degust-card h4{font-size:.98rem;color:var(--ink);margin:0 0 16px;line-height:1.4}
+  .degust-card p{display:flex;justify-content:space-between;gap:10px;margin:0;padding:8px 0;border-top:1px solid var(--line);font-weight:700;color:var(--ink);font-size:.9rem}
+  .degust-card p:first-of-type{border-top:none}
+  .degust-card p span{color:var(--ink-soft);font-weight:600}
+  @media(max-width:760px){.degust-grid{grid-template-columns:1fr}}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -886,7 +896,42 @@
   </div>
 </section>
 
-<span id="boutique" class="section-anchor"></span>
+<!-- ===================== BOUTIQUE FLORE ===================== -->
+<section class="sec" id="boutique" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>L'écosystème FLORE</span>
+      <h2>Boutique FLORE</h2>
+      <p>Là où le Jardin est strictement réservé au sans gluten <strong>et</strong> sans lactose simultané, la Boutique ouvre à tout l'écosystème qui gravite autour — sans gluten, sans lactose, ou les deux.</p>
+    </div>
+
+    <div class="tag-row" data-aos="fade-up" style="justify-content:center">
+      <span>Sans gluten</span><span>Sans lactose</span><span>Les deux</span><span>Produits emballés</span><span>Applications</span><span>Services</span><span>Associations</span><span>Ateliers</span><span>Livres</span><span>Santé</span><span>Cuisine</span><span>Équipement</span><span>Maladie cœliaque</span><span>Intolérances</span><span>Problématiques digestives</span><span>Solutions du quotidien</span>
+    </div>
+
+    <div class="sec-head center" data-aos="fade-up" style="margin-top:44px">
+      <h3 class="h-sub" style="text-align:center">Dégustation en Boutique</h3>
+      <p>La vente de produits emballés reste toujours possible. Seule la dégustation sur place dépend de la conformité du produit.</p>
+    </div>
+    <div class="degust-grid" data-aos="fade-up">
+      <div class="degust-card degust-card--ok">
+        <h4>Produit sans gluten <strong>et</strong> sans lactose</h4>
+        <p><span>Vente</span> Oui</p>
+        <p><span>Dégustation</span> Oui</p>
+      </div>
+      <div class="degust-card">
+        <h4>Produit sans gluten, pas sans lactose</h4>
+        <p><span>Vente emballée</span> Oui</p>
+        <p><span>Dégustation</span> Non</p>
+      </div>
+      <div class="degust-card">
+        <h4>Produit sans lactose, pas sans gluten</h4>
+        <p><span>Vente emballée</span> Oui</p>
+        <p><span>Dégustation</span> Non</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== GRILLE TARIFAIRE (options techniques — contenu provisoire, reconstruit en Phase 10) ===================== -->
 <section class="sec" id="technique" style="padding-top:0">
