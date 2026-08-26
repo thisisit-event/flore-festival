@@ -290,6 +290,16 @@
   .case-abc-reco{font-size:.84rem;font-weight:700;margin:0;padding:8px 12px;border-radius:10px;max-width:none}
   @media(max-width:760px){.case-abc-grid{grid-template-columns:1fr}}
 
+  /* ===== Partenaires ===== */
+  .sponsor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .sponsor-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:28px 24px;text-align:center;border:1.5px solid transparent}
+  .sponsor-card--mid{border-color:var(--sun-deep)}
+  .sponsor-card h3{font-size:1.1rem;color:var(--ink);margin:10px 0 8px}
+  .sponsor-price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.8rem;color:var(--sky-deep);margin:0 0 10px}
+  .sponsor-price span{font-size:.85rem;font-weight:600;color:var(--ink-soft)}
+  .sponsor-desc{color:var(--ink-soft);font-size:.86rem;margin:0;max-width:none;line-height:1.5}
+  @media(max-width:860px){.sponsor-grid{grid-template-columns:1fr}}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -1019,7 +1029,52 @@
     </div>
   </div>
 </section>
-<span id="partenaires" class="section-anchor"></span>
+<!-- ===================== PARTENAIRES ===================== -->
+<section class="sec" id="partenaires" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Sur devis</span>
+      <h2>Devenir partenaire</h2>
+      <p>Un partenariat FLORE se pense en visibilité, image et activation — pas comme un gros stand exposant.</p>
+    </div>
+    <div class="sponsor-grid" data-aos="fade-up">
+      <div class="sponsor-card">
+        <h3>Partenaire</h3>
+        <p class="sponsor-price">2 000 € <span>HT</span></p>
+        <p class="sponsor-desc">Petites structures, premier niveau de visibilité auprès de la communauté FLORE.</p>
+      </div>
+      <div class="sponsor-card sponsor-card--mid">
+        <span class="format-tag">Palier intermédiaire</span>
+        <h3>Partenaire Officiel</h3>
+        <p class="sponsor-price">4 000 € <span>HT</span></p>
+        <p class="sponsor-desc">Visibilité renforcée, activation plus poussée sur l'ensemble de l'édition.</p>
+      </div>
+      <div class="sponsor-card">
+        <h3>Partenaire Majeur</h3>
+        <p class="sponsor-price">6 000 € <span>HT</span></p>
+        <p class="sponsor-desc">Palier le plus engageant, présence maximale dans l'univers FLORE.</p>
+      </div>
+    </div>
+
+    <div class="info-box" data-aos="fade-up">
+      <h4>Stand partenaire</h4>
+      <p>Chaque palier inclut un espace exposant nu dans le cadre du partenariat — jamais présenté comme un « stand gratuit ». La taille précise de l'espace inclus selon le palier est précisée directement avec l'équipe FLORE.</p>
+    </div>
+
+    <div class="accomp-block" data-aos="fade-up">
+      <span class="format-tag">Sur devis</span>
+      <h3>Naming</h3>
+      <p>Associer votre marque au nom d'un espace de l'édition — possible en complément d'un partenariat, toujours sur devis. Ce n'est jamais automatiquement inclus dans le palier Majeur.</p>
+      <div class="tag-row">
+        <span>Scène</span><span>Jardin des Saveurs</span><span>Boutique FLORE</span><span>Espace atelier</span><span>Espace famille</span><span>Autre espace majeur</span>
+      </div>
+    </div>
+
+    <div class="btn-row" style="justify-content:center;margin-top:32px" data-aos="fade-up">
+      <a href="mailto:contact@flore-festival.fr?subject=Partenariat%20FLORE" class="btn btn-sun">Discuter d'un partenariat</a>
+    </div>
+  </div>
+</section>
 <span id="installation" class="section-anchor"></span>
 
 <!-- ===================== LE CADRE ===================== -->
