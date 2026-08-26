@@ -259,6 +259,20 @@
   .accomp-arrow{color:var(--sun-deep);font-weight:800}
   .accomp-new{font-weight:800;color:var(--sun-deep);font-size:1rem}
 
+  /* ===== Jardin des Saveurs ===== */
+  .rule-abs{text-align:center;background:linear-gradient(135deg,var(--ink) 0%,var(--sky-deep) 100%);border-radius:var(--r-lg);padding:40px 24px;color:#fff}
+  .rule-abs-and{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(1.8rem,5vw,3rem);margin:0;line-height:1.15}
+  .rule-abs-join{font-size:1rem;font-weight:700;color:var(--sun);margin:6px 0;letter-spacing:.1em}
+  .rule-abs-note{margin:14px 0 0;color:rgba(255,255,255,.8);font-size:.9rem}
+  .jardin-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px;align-items:start}
+  .jardin-cols > div{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:26px 28px}
+  .jardin-cols > .info-box{background:var(--sun-pale);box-shadow:none}
+  .dim-text{color:var(--ink-soft);font-size:.92rem;margin:0 0 14px;max-width:none}
+  .dont-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .dont-list li{display:flex;gap:10px;font-size:.9rem;color:var(--ink);line-height:1.5}
+  .dont-list li::before{content:"✕";color:#c0392b;font-weight:800;flex-shrink:0}
+  @media(max-width:760px){.jardin-cols{grid-template-columns:1fr}}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -797,55 +811,82 @@
   </div>
 </section>
 
-<!-- ===================== FORMATS ===================== -->
+<!-- ===================== JARDIN DES SAVEURS ===================== -->
 <section class="sec" id="jardin" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Deux formats</span>
-      <h2>Trouvez votre place chez FLORE</h2>
-      <p>Deux univers complémentaires, pensés pour rester fidèles à l'esprit festival — jamais un salon professionnel déguisé.</p>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>La restauration de FLORE</span>
+      <h2>Jardin des Saveurs</h2>
+      <p>9m² (3×3m), cuisine sur place, face à la scène.</p>
     </div>
-    <div class="formats-grid">
-      <div class="format-card" data-aos="fade-up">
-        <div class="format-head">
-          <span class="format-tag">Food court · cœur de cible</span>
-          <h3>Le Jardin des Saveurs</h3>
-          <span class="format-size">9m² (3×3m) · cuisine sur place</span>
-          <span class="format-price format-price--free">Offert</span>
-        </div>
-        <div class="format-body">
-          <ul>
-            <li><strong>Structure prise en charge par FLORE</strong> — bloc de tentes blanches homogène, vous apportez votre matériel de cuisson/présentation.</li>
-            <li><strong>Format dégustation</strong> — une portion découverte entre 3€ et 5€, pensée pour un parcours multi-stands.</li>
-            <li>Cuisine festival classique (chaud ou froid) — crêpes, burgers, churros, pizzas...</li>
-            <li>Vente de boissons non incluse — exclusivité des bars FLORE, même pour les stands froids.</li>
-          </ul>
+
+    <div class="rule-abs" data-aos="fade-up">
+      <p class="rule-abs-and">SANS GLUTEN</p>
+      <p class="rule-abs-join">ET</p>
+      <p class="rule-abs-and">SANS LACTOSE</p>
+      <p class="rule-abs-note">Simultanément. Jamais « et/ou ».</p>
+    </div>
+
+    <div class="jardin-cols" data-aos="fade-up">
+      <div>
+        <h3 class="h-sub">Ce qui relève du Jardin</h3>
+        <p class="dim-text">Tout ce qui est préparé, cuit, assemblé, réchauffé, servi, dégusté ou consommé sur place.</p>
+        <div class="tag-row">
+          <span>Pizza</span><span>Burger</span><span>Crêpe</span><span>Viande</span><span>Pâtisserie</span><span>Street-food</span><span>Plat</span><span>Dessert</span><span>Boisson préparée</span>
         </div>
       </div>
-      <span id="boutique" class="section-anchor"></span>
-      <div class="format-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="format-head">
-          <span class="format-tag">Boutique</span>
-          <h3>La Boutique FLORE</h3>
-          <span class="format-size">4 à 8m² · produits emballés</span>
-          <span class="format-price">Dès 99 €</span>
-        </div>
-        <div class="format-body">
-          <ul>
-            <li><strong>Tarif fixe selon la taille</strong> — 99€ le stand 2×2m (4m²), 149€ le stand 4×2m (8m²). Structure, table et nappe FLORE incluses.</li>
-            <li>Produits secs, cosmétiques, épicerie fine et boissons emballées (hors prêt-à-boire).</li>
-            <li>Délimitation au sol simple, aucune cloison imposée — carte blanche sur votre mise en scène.</li>
-            <li>Critère d'accès assoupli : sans gluten <strong>ou</strong> sans lactose suffit.</li>
-          </ul>
-        </div>
+      <div>
+        <h3 class="h-sub">Interdit sur un stand Jardin</h3>
+        <ul class="dont-list">
+          <li>Sans gluten seulement</li>
+          <li>Sans lactose seulement</li>
+          <li>Carte mixte</li>
+          <li>Un produit contenant du gluten vendu sur le même stand</li>
+          <li>Un produit contenant du lactose vendu sur le même stand</li>
+        </ul>
       </div>
     </div>
-    <div class="vip-note" data-aos="fade-up">
-      <span class="badge">Sur devis</span>
-      <p><strong>Stand Premium VIP</strong> (12 à 16m²) — emplacements prioritaires en entrée ou en angle. Seule offre d'emplacement avec redevance, à discuter selon vos besoins.</p>
+
+    <div class="model-block" data-aos="fade-up" style="margin-top:40px">
+      <p class="model-eyebrow">Contrôle qualité</p>
+      <div class="model-top"><h2 style="margin:0">Le Jardin, priorité de contrôle n°1</h2></div>
+      <p>Le Comité FLORE vérifie la conformité au cahier des charges interne de l'association. Il n'est pas une administration, un organisme public, une certification officielle, ni un remplacement des contrôles réglementaires.</p>
+      <div class="model-rule">
+        <span class="n">1</span>
+        <p><strong>Sans gluten</strong> — le formulaire de candidature collecte les éléments nécessaires à la vérification. FLORE n'écrit jamais « zéro risque » ni « zéro trace garantie », et ne se présente pas comme certificateur.</p>
+      </div>
+      <div class="model-rule">
+        <span class="n">2</span>
+        <p><strong>Sans lactose</strong> — sans lactose ne signifie pas nécessairement sans lait ni sans protéines de lait. Les deux ne doivent jamais être confondus.</p>
+      </div>
+      <div class="model-rule">
+        <span class="n">3</span>
+        <p><strong>Allergènes</strong> — chaque restaurateur fournit une matrice allergènes. FLORE ne se présente jamais comme « sans allergènes ».</p>
+      </div>
+      <div class="model-rule">
+        <span class="n">4</span>
+        <p><strong>Contamination croisée</strong> — le dossier de candidature détaille lieu de préparation, matériel, surfaces, fours, friteuses, planchas, ustensiles, stockage, transport, procédure de nettoyage et mesures anti-contamination.</p>
+      </div>
+      <div class="model-rule">
+        <span class="n">5</span>
+        <p><strong>Produit non déclaré</strong> — pas de validation, pas de service. Une nouvelle sauce, farine, fournisseur, ingrédient ou recette n'est jamais utilisé avant validation par le Comité.</p>
+      </div>
+    </div>
+
+    <div class="jardin-cols" data-aos="fade-up" style="margin-top:40px">
+      <div class="info-box" style="margin:0">
+        <h4>Portion découverte obligatoire</h4>
+        <p>Chaque restaurateur propose au minimum une portion découverte, pour permettre au visiteur de goûter plusieurs stands dans la journée. Zone de prix recommandée : 2 à 4&nbsp;€ TTC, jusqu'à 5&nbsp;€ TTC après validation si le coût matière l'exige.</p>
+      </div>
+      <div class="info-box" style="margin:0">
+        <h4>Stock &amp; horaires 11h–22h</h4>
+        <p>Le Jardin fonctionne sans interruption de 11h à 22h — une rupture massive en milieu d'après-midi compromet l'expérience. Répartition indicative des ventes : 30&nbsp;% (11h–14h), 35&nbsp;% (14h–18h), 35&nbsp;% (18h–22h). Un produit de secours prévalidé est recommandé. Fermer, démonter ou quitter le stand avant 22h n'est pas possible, même en rupture.</p>
+      </div>
     </div>
   </div>
 </section>
+
+<span id="boutique" class="section-anchor"></span>
 
 <!-- ===================== GRILLE TARIFAIRE (options techniques — contenu provisoire, reconstruit en Phase 10) ===================== -->
 <section class="sec" id="technique" style="padding-top:0">
@@ -884,51 +925,6 @@
 
 <span id="animations" class="section-anchor"></span>
 <span id="partenaires" class="section-anchor"></span>
-
-<!-- ===================== AMBASSADEUR ===================== -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>En échange</span>
-      <h2>Le mécanisme Ambassadeur</h2>
-      <p>En contrepartie d'un emplacement offert, chaque exposant relaie le festival auprès de sa propre communauté.</p>
-    </div>
-    <div class="ambass-row">
-      <div class="ambass-step" data-aos="fade-up"><div class="j">J-30</div><p>Premier relais officiel sur vos réseaux — présentation de votre participation à FLORE.</p></div>
-      <div class="ambass-step" data-aos="fade-up" data-aos-delay="60"><div class="j">J-15</div><p>Deuxième relais — on chauffe l'audience à mesure que le festival approche.</p></div>
-      <div class="ambass-step" data-aos="fade-up" data-aos-delay="120"><div class="j">J-7</div><p>Dernier rappel avant le grand jour, pour capter les décisions de dernière minute.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== EXIGENCE ===================== -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Exigence</span>
-      <h2>Le sans gluten et sans lactose, garanti</h2>
-      <p>FLORE engage sa réputation sur cette promesse — elle est vérifiée, pas seulement déclarée.</p>
-    </div>
-    <div class="public-grid">
-      <div class="value-card" data-aos="fade-up">
-        <div class="v-ic" style="background:#FFF1CC">📝</div>
-        <h3>Déclaration sur l'honneur</h3>
-        <p>Chaque exposant garantit l'absence de contamination croisée gluten &amp; lactose, fiches techniques à l'appui.</p>
-      </div>
-      <div class="value-card" data-aos="fade-up" data-aos-delay="60">
-        <div class="v-ic" style="background:#E7F4FB">✅</div>
-        <h3>Commission de contrôle</h3>
-        <p>Une commission terrain vérifie chaque stand avant l'ouverture — sticker « Validé FLORE » à la clé.</p>
-      </div>
-      <div class="value-card" data-aos="fade-up" data-aos-delay="120">
-        <div class="v-ic" style="background:#DCF3EE">🛡️</div>
-        <h3>RC Pro obligatoire</h3>
-        <p>Attestation de responsabilité civile professionnelle exigée pour tous les exposants du Jardin des Saveurs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <span id="installation" class="section-anchor"></span>
 
 <!-- ===================== LE CADRE ===================== -->
