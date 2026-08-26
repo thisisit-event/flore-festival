@@ -67,6 +67,14 @@
   .why-card h3{font-size:1.08rem;color:var(--ink);margin-bottom:8px}
   .why-card p{font-size:.92rem;color:var(--ink-soft);line-height:1.6}
 
+  .stat-row{display:flex;gap:18px;flex-wrap:wrap;margin:26px 0 10px}
+  .stat-item{flex:1 1 240px;background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:20px 24px;display:flex;flex-direction:column;gap:4px}
+  .stat-item strong{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.3rem;color:var(--sky-deep);line-height:1}
+  .stat-item strong span{font-size:1.15rem;font-weight:700;color:var(--ink-soft)}
+  .stat-item .stat-label{font-size:.86rem;color:var(--ink-soft);font-weight:600;line-height:1.4}
+  .stat-caption{font-size:.85rem;color:var(--ink-soft);font-style:italic;margin:0 0 24px}
+  @media(max-width:680px){.stat-row{gap:14px}.stat-item{padding:18px 20px}}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:24px 26px;margin-top:20px}
   .info-box p{color:var(--ink-soft);font-size:.94rem;line-height:1.65;margin:0}
   .info-box p+p{margin-top:12px}
@@ -468,6 +476,19 @@
     <div class="wrap">
       <h2>Pourquoi devenir partenaire ?</h2>
       <p class="lead">En rejoignant notre réseau, vous gagnez en visibilité auprès d'une clientèle ciblée, en recherche active d'un hébergement adapté, avant même l'événement. En quelques mois, notre communauté est passée d'une centaine d'abonnés à plus de 9&nbsp;000 personnes, et nous attendons plusieurs milliers de festivaliers venus de toute la France et des pays limitrophes.</p>
+
+      <div class="stat-row">
+        <div class="stat-item">
+          <strong>59<span>/96</span></strong>
+          <span class="stat-label">départements français déjà représentés parmi les acheteurs</span>
+        </div>
+        <div class="stat-item">
+          <strong>5</strong>
+          <span class="stat-label">pays différents : France, Suisse, Belgique, Italie, Espagne</span>
+        </div>
+      </div>
+      <p class="stat-caption">Et ce n'est qu'un instantané des trois premiers jours de vente des billets : une bonne partie de vos futurs clients viendra donc de loin, avec une vraie nuit sur place à prévoir.</p>
+
       <div class="why-grid">
         <div class="why-card">
           <span class="ic">📋</span>
