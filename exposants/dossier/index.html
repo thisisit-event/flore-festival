@@ -233,6 +233,32 @@
   }
   @media(max-width:520px){.crit-grid{grid-template-columns:1fr}}
 
+  /* ===== Tarifs espaces nus ===== */
+  .base-price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .base-price-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:26px 22px;text-align:center}
+  .base-price-size{color:var(--ink-soft);font-size:.86rem;font-weight:600;margin:12px 0 6px}
+  .base-price-amount{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.7rem;color:var(--ink);margin:0}
+  .base-price-amount span{font-size:.9rem;font-weight:600;color:var(--ink-soft)}
+  @media(max-width:860px){.base-price-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.base-price-grid{grid-template-columns:1fr}}
+
+  .comm-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:26px;position:relative}
+  .comm-h{font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sun);margin:0 0 12px}
+  .comm-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+  .comm-list li{font-size:.92rem;color:rgba(255,255,255,.9);padding-left:22px;position:relative}
+  .comm-list li::before{content:"✓";position:absolute;left:0;color:var(--sun);font-weight:800}
+  .comm-list--no li::before{content:"✕";color:rgba(255,255,255,.5)}
+  @media(max-width:640px){.comm-cols{grid-template-columns:1fr;gap:20px}}
+
+  .accomp-block{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:32px 34px;margin-top:32px}
+  .accomp-block h3{font-size:1.2rem;color:var(--ink);margin:10px 0 10px}
+  .accomp-grid{display:flex;flex-direction:column;gap:10px;margin:18px 0}
+  .accomp-row{display:flex;align-items:center;gap:14px;background:var(--sun-pale);border-radius:12px;padding:12px 18px;flex-wrap:wrap}
+  .accomp-label{flex:1 1 140px;font-weight:700;color:var(--ink);font-size:.92rem}
+  .accomp-old{color:var(--ink-soft);text-decoration:line-through;font-size:.88rem}
+  .accomp-arrow{color:var(--sun-deep);font-weight:800}
+  .accomp-new{font-weight:800;color:var(--sun-deep);font-size:1rem}
+
   .info-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:18px;padding:22px 24px;margin:22px 0}
   .info-box h4{font-size:1.02rem;color:var(--ink);margin:0 0 8px}
   .info-box p{color:var(--ink-soft);font-size:.9rem;line-height:1.6;margin:0;max-width:none}
@@ -688,6 +714,89 @@
   </div>
 </section>
 
+<!-- ===================== TARIFS ESPACES NUS ===================== -->
+<section class="sec" id="tarifs" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Exposant commercial</span>
+      <h2>Tarifs des espaces nus</h2>
+      <p>Tout professionnel qui vient principalement vendre, tester, prospecter, communiquer, recruter ou lancer une activité achète normalement son espace.</p>
+    </div>
+    <div class="base-price-grid" data-aos="fade-up">
+      <div class="base-price-card">
+        <span class="format-tag">Boutique Découverte</span>
+        <p class="base-price-size">2 × 2 m · 4 m²</p>
+        <p class="base-price-amount">290 € <span>HT</span></p>
+      </div>
+      <div class="base-price-card">
+        <span class="format-tag">Boutique Marque</span>
+        <p class="base-price-size">2 × 4 m · 8 m²</p>
+        <p class="base-price-amount">490 € <span>HT</span></p>
+      </div>
+      <div class="base-price-card">
+        <span class="format-tag">Jardin des Saveurs</span>
+        <p class="base-price-size">3 × 3 m · 9 m²</p>
+        <p class="base-price-amount">490 € <span>HT</span></p>
+      </div>
+      <div class="base-price-card">
+        <span class="format-tag">Premium</span>
+        <p class="base-price-size">Sur mesure</p>
+        <p class="base-price-amount">Dès 790 € <span>HT</span></p>
+      </div>
+    </div>
+    <div class="info-box" data-aos="fade-up">
+      <h4>Construisez uniquement l'espace dont vous avez besoin</h4>
+      <p>Le stand de base est volontairement nu, afin de ne pas faire payer à tous des équipements dont seuls certains ont besoin. Le détail des options techniques (mobilier, électricité, eau...) se trouve dans la section Technique.</p>
+    </div>
+
+    <div class="model-block" data-aos="fade-up">
+      <p class="model-eyebrow">Modèle de vente d'espace</p>
+      <div class="model-top"><h2 style="margin:0">0&nbsp;% de commission sur vos ventes</h2></div>
+      <p>FLORE ne fonctionne pas sur commission : vous payez votre espace, le reste vous appartient.</p>
+      <div class="comm-cols">
+        <div>
+          <h4 class="comm-h">L'exposant</h4>
+          <ul class="comm-list">
+            <li>Paie son espace</li>
+            <li>Encaisse directement</li>
+            <li>Conserve 100&nbsp;% de ses ventes</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="comm-h">FLORE</h4>
+          <ul class="comm-list comm-list--no">
+            <li>Ne prend aucun pourcentage</li>
+            <li>Ne centralise pas l'argent</li>
+            <li>Ne fournit pas automatiquement la caisse</li>
+            <li>N'intervient pas dans la transaction client / exposant</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accomp-block" data-aos="fade-up">
+      <span class="format-tag">Sur sélection uniquement</span>
+      <h3>Tarif Accompagnement</h3>
+      <p>Pour les petites structures à forte pertinence, dont la capacité financière ne permet pas d'accéder au tarif normal. Ce n'est pas un 5<sup>e</sup> statut : c'est un tarif exceptionnel sur certains exposants commerciaux de petite taille, en nombre limité.</p>
+      <div class="accomp-grid">
+        <div class="accomp-row">
+          <span class="accomp-label">Boutique 2×2</span>
+          <span class="accomp-old">290 € HT</span>
+          <span class="accomp-arrow">→</span>
+          <span class="accomp-new">190 € HT</span>
+        </div>
+        <div class="accomp-row">
+          <span class="accomp-label">Jardin</span>
+          <span class="accomp-old">490 € HT</span>
+          <span class="accomp-arrow">→</span>
+          <span class="accomp-new">dès 290 € HT</span>
+        </div>
+      </div>
+      <p class="table-note">Conditions : petite structure, forte pertinence, capacité financière réduite, nombre limité, possible contribution gratuite à l'expérience.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== FORMATS ===================== -->
 <section class="sec" id="jardin" style="padding-top:0">
   <div class="wrap">
@@ -738,8 +847,8 @@
   </div>
 </section>
 
-<!-- ===================== GRILLE TARIFAIRE ===================== -->
-<section class="sec" id="tarifs" style="padding-top:0">
+<!-- ===================== GRILLE TARIFAIRE (options techniques — contenu provisoire, reconstruit en Phase 10) ===================== -->
+<section class="sec" id="technique" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Grille tarifaire</span>
@@ -773,7 +882,6 @@
   </div>
 </section>
 
-<span id="technique" class="section-anchor"></span>
 <span id="animations" class="section-anchor"></span>
 <span id="partenaires" class="section-anchor"></span>
 
