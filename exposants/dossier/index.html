@@ -64,6 +64,13 @@
   .offer-includes li{font-size:.86rem;color:var(--ink);padding-left:22px;position:relative;line-height:1.4}
   .offer-includes li::before{content:"✓";position:absolute;left:0;color:var(--sun-deep);font-weight:800}
   .offer-flex{margin:0;font-size:.8rem;color:var(--ink-soft);line-height:1.5;padding-top:14px;border-top:1px solid var(--line)}
+  .offer-sim{background:var(--sky-pale);border-radius:14px;padding:14px 16px;margin:0 0 14px}
+  .offer-sim-label{display:block;font-size:.74rem;font-weight:700;color:var(--sky-deep);letter-spacing:.02em;margin-bottom:10px}
+  .offer-sim-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.8rem;color:var(--ink-soft)}
+  .offer-sim-row strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;font-weight:800;color:var(--ink)}
+  .offer-sim-row--flore{margin-top:6px}
+  .offer-sim-row--flore strong{color:var(--sun-deep)}
+  .offer-sim-range{width:100%;margin:8px 0 2px;accent-color:var(--sky-deep);cursor:pointer}
   @media(max-width:960px){.offer-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.offer-grid{grid-template-columns:1fr}}
 
@@ -168,7 +175,13 @@
           <li>Structure de base</li>
           <li>Électricité de base</li>
         </ul>
-        <p class="offer-flex">Vous choisissez votre participation — on en discute pendant l'appel.</p>
+        <div class="offer-sim" data-price="350">
+          <span class="offer-sim-label">Combien voulez-vous mettre&nbsp;?</span>
+          <div class="offer-sim-row"><span>Vous mettez</span><strong class="sim-you">350 €</strong></div>
+          <input type="range" class="offer-sim-range" min="100" max="350" step="10" value="350" aria-label="Montant que vous souhaitez mettre pour ce stand">
+          <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
+        </div>
+        <p class="offer-flex">Curseur indicatif — on affine ensemble pendant l'appel.</p>
       </div>
 
       <div class="offer-card">
@@ -182,7 +195,13 @@
           <li>Structure de base</li>
           <li>Électricité de base</li>
         </ul>
-        <p class="offer-flex">Vous choisissez votre participation — on en discute pendant l'appel.</p>
+        <div class="offer-sim" data-price="550">
+          <span class="offer-sim-label">Combien voulez-vous mettre&nbsp;?</span>
+          <div class="offer-sim-row"><span>Vous mettez</span><strong class="sim-you">550 €</strong></div>
+          <input type="range" class="offer-sim-range" min="150" max="550" step="10" value="550" aria-label="Montant que vous souhaitez mettre pour ce stand">
+          <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
+        </div>
+        <p class="offer-flex">Curseur indicatif — on affine ensemble pendant l'appel.</p>
       </div>
 
       <div class="offer-card offer-card--highlight">
@@ -197,7 +216,13 @@
           <li>Tente + structure</li>
           <li>Électricité dédiée</li>
         </ul>
-        <p class="offer-flex">Vous choisissez votre participation — on en discute pendant l'appel.</p>
+        <div class="offer-sim" data-price="490">
+          <span class="offer-sim-label">Combien voulez-vous mettre&nbsp;?</span>
+          <div class="offer-sim-row"><span>Vous mettez</span><strong class="sim-you">490 €</strong></div>
+          <input type="range" class="offer-sim-range" min="150" max="490" step="10" value="490" aria-label="Montant que vous souhaitez mettre pour ce stand">
+          <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
+        </div>
+        <p class="offer-flex">Curseur indicatif — on affine ensemble pendant l'appel.</p>
       </div>
 
       <div class="offer-card">
@@ -211,13 +236,13 @@
           <li>Aménagement sur-mesure</li>
           <li>Étudié avec vous</li>
         </ul>
-        <p class="offer-flex">Sur devis — on en parle pendant l'appel.</p>
+        <p class="offer-flex">Sur devis — le tarif libre s'applique aussi ici, on en parle pendant l'appel.</p>
       </div>
     </div>
 
     <div class="info-box" data-aos="fade-up">
       <h4>Un tarif indicatif, pas un couperet</h4>
-      <p>Le montant affiché est la valeur réelle du stand — pas un minimum obligatoire. Pendant l'appel, vous nous dites ce qui est juste pour votre budget, et l'association complète la différence pour que ça reste possible pour vous. Besoin de plus que le mobilier/structure/électricité de base (eau, manutention, forte puissance...) ? On en parle directement pendant l'appel.</p>
+      <p>Le montant affiché est la valeur réelle du stand — pas un minimum obligatoire. Bougez le curseur pour voir ce que l'association complète pour vous. Pendant l'appel, on affine ensemble ce qui est juste pour votre budget. Besoin de plus que le mobilier/structure/électricité de base (eau, manutention, forte puissance...) ? On en parle directement pendant l'appel.</p>
     </div>
 
     <div class="model-block" data-aos="fade-up">
@@ -307,6 +332,26 @@
   const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
+
+  (function(){
+    // Simulateur "tarif libre" par carte : le curseur fixe ce que l'exposant
+    // met, FLORE complète toujours jusqu'au tarif de référence affiché.
+    document.querySelectorAll('.offer-sim').forEach(function(sim){
+      const price = parseFloat(sim.dataset.price);
+      const range = sim.querySelector('.offer-sim-range');
+      const youEl = sim.querySelector('.sim-you');
+      const floreEl = sim.querySelector('.sim-flore');
+      if (!range || !youEl || !floreEl || isNaN(price)) return;
+      function update(){
+        const you = parseFloat(range.value);
+        const flore = Math.max(0, price - you);
+        youEl.textContent = you.toLocaleString('fr-FR') + ' €';
+        floreEl.textContent = flore.toLocaleString('fr-FR') + ' €';
+      }
+      range.addEventListener('input', update);
+      update();
+    });
+  })();
 
 </script>
 <script src="/legal.js?v=20260823c" defer></script>
