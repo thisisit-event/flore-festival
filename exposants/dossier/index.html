@@ -192,7 +192,7 @@
   }
 
   /* ===== Comparateur des statuts ===== */
-  .status-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .status-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:24px 22px}
   .status-card h3{font-size:1.1rem;color:var(--ink);margin:10px 0 16px}
   .status-card ul{list-style:none;margin:0;padding:0}
@@ -220,7 +220,6 @@
     .uc-reco{flex:1 1 100%}
   }
 
-  /* ===== Pionniers ===== */
   .h-sub{font-size:1.1rem;color:var(--ink);margin:0 0 16px}
   .crit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .crit-item{background:var(--sky-pale);border-radius:16px;padding:20px 18px}
@@ -231,29 +230,32 @@
   .pio-charge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .pio-charge-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:24px;text-align:center}
   .pio-price-row{display:flex;align-items:baseline;justify-content:center;gap:12px;margin:14px 0 4px}
-  .pio-old-price{font-size:1rem;color:var(--ink-soft);text-decoration:line-through}
   .pio-new-price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:var(--sun-deep)}
   .pio-charge-card p{margin:0;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--sky-deep)}
-  .pio-cols{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;margin-top:44px;align-items:start}
-  .pio-deposit-row{display:flex;gap:16px;margin-bottom:14px}
-  .pio-deposit-row > div{flex:1;background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:14px;padding:16px 18px;text-align:center}
-  .pio-deposit-row strong{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--sky-deep);margin-bottom:4px}
-  .pio-deposit-row span{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink)}
+  .accomp-block{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:32px 34px;margin-top:32px}
+  .accomp-block h3{font-size:1.2rem;color:var(--ink);margin:10px 0 10px}
   @media(max-width:860px){
     .crit-grid{grid-template-columns:1fr 1fr}
     .pio-charge-grid{grid-template-columns:1fr}
-    .pio-cols{grid-template-columns:1fr;gap:28px}
   }
   @media(max-width:520px){.crit-grid{grid-template-columns:1fr}}
 
-  /* ===== Tarifs espaces nus ===== */
-  .base-price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .base-price-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:26px 22px;text-align:center}
-  .base-price-size{color:var(--ink-soft);font-size:.86rem;font-weight:600;margin:12px 0 6px}
-  .base-price-amount{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.7rem;color:var(--ink);margin:0}
-  .base-price-amount span{font-size:.9rem;font-weight:600;color:var(--ink-soft)}
-  @media(max-width:860px){.base-price-grid{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.base-price-grid{grid-template-columns:1fr}}
+  /* ===== Tarifs : 4 offres ===== */
+  .offer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .offer-card{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:28px 24px;display:flex;flex-direction:column;position:relative;border:1.5px solid transparent}
+  .offer-card--highlight{border-color:var(--sun-deep);background:linear-gradient(180deg,var(--sun-pale) 0%,#fff 140px)}
+  .offer-badge{position:absolute;top:-13px;left:24px;background:var(--sun-deep);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px}
+  .offer-card-ic{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:1.6rem}
+  .offer-card-ic img{width:32px;height:32px;object-fit:contain}
+  .offer-card h3{font-size:1.02rem;color:var(--ink-soft);font-weight:700;margin:0 0 14px}
+  .offer-price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:var(--ink);margin:0 0 16px}
+  .offer-price span{font-size:.9rem;font-weight:600;color:var(--ink-soft)}
+  .offer-includes{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:9px;flex:1}
+  .offer-includes li{font-size:.86rem;color:var(--ink);padding-left:22px;position:relative;line-height:1.4}
+  .offer-includes li::before{content:"✓";position:absolute;left:0;color:var(--sun-deep);font-weight:800}
+  .offer-flex{margin:0;font-size:.8rem;color:var(--ink-soft);line-height:1.5;padding-top:14px;border-top:1px solid var(--line)}
+  @media(max-width:960px){.offer-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.offer-grid{grid-template-columns:1fr}}
 
   .comm-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:26px;position:relative}
   .comm-h{font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sun);margin:0 0 12px}
@@ -262,15 +264,6 @@
   .comm-list li::before{content:"✓";position:absolute;left:0;color:var(--sun);font-weight:800}
   .comm-list--no li::before{content:"✕";color:rgba(255,255,255,.5)}
   @media(max-width:640px){.comm-cols{grid-template-columns:1fr;gap:20px}}
-
-  .accomp-block{background:#fff;border-radius:var(--r-lg);box-shadow:0 10px 30px rgba(0,30,80,.08);padding:32px 34px;margin-top:32px}
-  .accomp-block h3{font-size:1.2rem;color:var(--ink);margin:10px 0 10px}
-  .accomp-grid{display:flex;flex-direction:column;gap:10px;margin:18px 0}
-  .accomp-row{display:flex;align-items:center;gap:14px;background:var(--sun-pale);border-radius:12px;padding:12px 18px;flex-wrap:wrap}
-  .accomp-label{flex:1 1 140px;font-weight:700;color:var(--ink);font-size:.92rem}
-  .accomp-old{color:var(--ink-soft);text-decoration:line-through;font-size:.88rem}
-  .accomp-arrow{color:var(--sun-deep);font-weight:800}
-  .accomp-new{font-weight:800;color:var(--sun-deep);font-size:1rem}
 
   /* ===== Jardin des Saveurs ===== */
   .rule-abs{text-align:center;background:linear-gradient(135deg,var(--ink) 0%,var(--sky-deep) 100%);border-radius:var(--r-lg);padding:40px 24px;color:#fff}
@@ -452,7 +445,6 @@
       <option value="vue-ensemble">Vue d'ensemble</option>
       <option value="profil">Quel profil ?</option>
       <option value="tarifs">Offres &amp; tarifs</option>
-      <option value="pionniers">Pionniers</option>
       <option value="jardin">Jardin</option>
       <option value="boutique">Boutique</option>
       <option value="animations">Animations</option>
@@ -472,7 +464,6 @@
     <a href="#vue-ensemble" data-target="vue-ensemble">Vue d'ensemble</a>
     <a href="#profil" data-target="profil">Quel profil&nbsp;?</a>
     <a href="#tarifs" data-target="tarifs">Offres &amp; tarifs</a>
-    <a href="#pionniers" data-target="pionniers">Pionniers</a>
     <a href="#jardin" data-target="jardin">Jardin</a>
     <a href="#boutique" data-target="boutique">Boutique</a>
     <a href="#animations" data-target="animations">Animations</a>
@@ -669,22 +660,10 @@
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Vue d'ensemble</span>
-      <h2>Les 4 statuts en un coup d'œil</h2>
-      <p>Le Tarif Accompagnement n'est pas un 5<sup>e</sup> statut : c'est un tarif exceptionnel possible pour certains exposants commerciaux de petite taille.</p>
+      <h2>Les 3 statuts en un coup d'œil</h2>
+      <p>Peu importe votre budget : le tarif de votre stand s'ajuste selon vos moyens, l'association complète la différence.</p>
     </div>
     <div class="status-grid">
-      <div class="status-card" data-aos="fade-up">
-        <span class="format-tag">Sur sélection</span>
-        <h3>Pionnier</h3>
-        <ul>
-          <li><strong>Pourquoi</strong><span>Valeur apportée à FLORE</span></li>
-          <li><strong>Espace</strong><span>Pris en charge</span></li>
-          <li><strong>Vente</strong><span>Oui</span></li>
-          <li><strong>Commission</strong><span>0 %</span></li>
-          <li><strong>Animation gratuite</strong><span>Possible</span></li>
-          <li><strong>Sélection</strong><span>FLORE</span></li>
-        </ul>
-      </div>
       <div class="status-card" data-aos="fade-up" data-aos-delay="60">
         <span class="format-tag">Payant</span>
         <h3>Exposant</h3>
@@ -726,139 +705,87 @@
       <p>Le diagnostic reste la référence, mais voici des profils types pour vous faire une première idée.</p>
     </div>
     <div class="usecase-grid" data-aos="fade-up">
-      <div class="usecase-item"><span class="uc-case">Pizzaiolo indépendant ultra-spécialisé</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--pionnier">Pionnier possible</span></div>
-      <div class="usecase-item"><span class="uc-case">Artisane seule très connue de la communauté</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--pionnier">Pionnier possible</span></div>
-      <div class="usecase-item"><span class="uc-case">Petite marque niche de 5 personnes</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant ou accompagnement selon situation</span></div>
+      <div class="usecase-item"><span class="uc-case">Pizzaiolo indépendant ultra-spécialisé</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--pionnier">Jardin des Saveurs, tarif libre</span></div>
+      <div class="usecase-item"><span class="uc-case">Artisane seule très connue de la communauté</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--pionnier">Exposant, tarif libre</span></div>
+      <div class="usecase-item"><span class="uc-case">Petite marque niche de 5 personnes</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant, tarif libre selon ses moyens</span></div>
       <div class="usecase-item"><span class="uc-case">Marque structurée avec gamme SG/SL</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant payant</span></div>
       <div class="usecase-item"><span class="uc-case">Grande marque</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--partenaire">Premium / partenaire</span></div>
-      <div class="usecase-item"><span class="uc-case">Application scan gluten</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--mixte">Selon modèle économique : Pionnier / exposant / partenaire</span></div>
+      <div class="usecase-item"><span class="uc-case">Application scan gluten</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--mixte">Selon l'échelle : Exposant, tarif libre, ou Partenaire</span></div>
       <div class="usecase-item"><span class="uc-case">Masseuses avec expérience gratuite</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--animation">Animation</span></div>
       <div class="usecase-item"><span class="uc-case">Masseuses vendant des séances</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant</span></div>
-      <div class="usecase-item"><span class="uc-case">Maquillage : vente + animation gratuite</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant avec accompagnement possible</span></div>
-      <div class="usecase-item"><span class="uc-case">Association cœliaque</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--mixte">Acteur écosystème / invitation possible selon stratégie FLORE</span></div>
+      <div class="usecase-item"><span class="uc-case">Maquillage : vente + animation gratuite</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--exposant">Exposant, tarif libre selon ses moyens</span></div>
+      <div class="usecase-item"><span class="uc-case">Association cœliaque</span><span class="uc-arrow">→</span><span class="uc-reco uc-reco--mixte">Acteur écosystème, tarif libre selon stratégie FLORE</span></div>
     </div>
   </div>
 </section>
 
-<!-- ===================== PIONNIERS ===================== -->
-<section class="sec" id="pionniers" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Statut sur sélection</span>
-      <h2>Cercle des Pionniers FLORE</h2>
-      <p class="sec-sub" style="margin-top:-8px">Édition fondatrice 2027</p>
-      <p>Le Pionnier n'est pas un exposant qui a négocié un rabais. C'est un acteur sélectionné parce que sa présence contribue à construire l'identité et la qualité de la première édition.</p>
-    </div>
-
-    <div class="crit-grid" data-aos="fade-up">
-      <div class="crit-item"><h4>Légitimité</h4><p>Une place naturelle dans l'univers sans gluten / sans lactose.</p></div>
-      <div class="crit-item"><h4>Histoire</h4><p>Un parcours, une activité déjà installée et reconnue.</p></div>
-      <div class="crit-item"><h4>Spécialisation</h4><p>Une offre entièrement dédiée, pas une gamme annexe.</p></div>
-      <div class="crit-item"><h4>Rareté</h4><p>Un savoir-faire difficile à remplacer ou à retrouver ailleurs.</p></div>
-      <div class="crit-item"><h4>Valeur pour le public</h4><p>Une vraie contribution à l'expérience des festivaliers.</p></div>
-      <div class="crit-item"><h4>Capacité économique</h4><p>Une structure pour qui le coût de venue pèse réellement.</p></div>
-      <div class="crit-item"><h4>Coût réel de participation</h4><p>Déplacement, structure, temps : un investissement concret.</p></div>
-      <div class="crit-item"><h4>Capacité d'ambassadeur</h4><p>Une communauté ou une audience prête à relayer FLORE.</p></div>
-    </div>
-
-    <div class="tag-row" data-aos="fade-up" style="margin-top:36px;justify-content:center">
-      <span>Indépendante dans les Cévennes</span><span>Pizzaiolo solo spécialisé</span><span>Petite boulangerie historique</span><span>Pâtisserie spécialisée</span><span>Petite marque pionnière</span><span>Artisan ultra-niche</span><span>Acteur connu et attendu de la communauté</span>
-    </div>
-
-    <div class="pio-charge-grid" data-aos="fade-up" style="margin-top:40px">
-      <div class="pio-charge-card">
-        <span class="format-tag">Boutique 2×2</span>
-        <div class="pio-price-row"><span class="pio-old-price">350 € HT</span><span class="pio-new-price">0 €</span></div>
-        <p>Pionnier</p>
-      </div>
-      <div class="pio-charge-card">
-        <span class="format-tag">Boutique 2×4</span>
-        <div class="pio-price-row"><span class="pio-old-price">550 € HT</span><span class="pio-new-price">0 €</span></div>
-        <p>Pionnier</p>
-      </div>
-      <div class="pio-charge-card">
-        <span class="format-tag">Jardin 3×3</span>
-        <div class="pio-price-row"><span class="pio-old-price">490 € HT</span><span class="pio-new-price">0 €</span></div>
-        <p>Pionnier</p>
-      </div>
-    </div>
-    <p class="table-note" style="text-align:center;color:rgba(255,255,255,.75)">L'emplacement est pris en charge par FLORE — cela ne veut pas dire que tous les coûts de participation sont gratuits.</p>
-
-    <div class="pio-cols" data-aos="fade-up">
-      <div>
-        <h3 class="h-sub">Ce qui reste à votre charge</h3>
-        <div class="tag-row">
-          <span>Électricité</span><span>Eau</span><span>Mobilier</span><span>Froid</span><span>Cuisson</span><span>Équipements</span><span>Stockage</span><span>Transport</span><span>Hébergement</span><span>Manutention</span><span>Prestations spécifiques</span>
-        </div>
-      </div>
-      <div>
-        <h3 class="h-sub">Caution Pionnier</h3>
-        <div class="pio-deposit-row">
-          <div><strong>Boutique</strong><span>250 €</span></div>
-          <div><strong>Jardin</strong><span>350 €</span></div>
-        </div>
-        <p class="table-note" style="color:rgba(255,255,255,.75)">Caution remboursable — pas un prix caché. Conditions exactes renvoyées au contrat.</p>
-      </div>
-    </div>
-
-    <div class="model-block" data-aos="fade-up" style="margin-top:40px">
-      <p class="model-eyebrow">En contrepartie</p>
-      <div class="model-top"><h2 style="margin:0">Pionnier, c'est aussi Ambassadeur</h2></div>
-      <p>Devenir Pionnier, c'est entrer dans un partenariat moral et promotionnel avec FLORE — pas seulement obtenir un emplacement.</p>
-      <div class="model-rule">
-        <span class="n">1</span>
-        <p><strong>Vous annoncez votre participation</strong> — relais sur vos propres réseaux, utilisation du visuel officiel, identification FLORE.</p>
-      </div>
-      <div class="model-rule">
-        <span class="n">2</span>
-        <p><strong>Vous existez dans notre communication</strong> — lien ou code Ambassadeur, portrait, et une seconde publication selon le calendrier de l'édition.</p>
-      </div>
-      <div class="model-rule">
-        <span class="n">3</span>
-        <p><strong>Aucune garantie de billets</strong> — l'Ambassadeur relaie et valorise, il ne s'engage pas sur un volume de ventes.</p>
-      </div>
-    </div>
-
-    <div class="btn-row" style="justify-content:center;margin-top:32px" data-aos="fade-up">
-      <a href="#profil" class="btn btn-ghost">Vérifier mon éligibilité</a>
-      <a href="#candidature" class="btn btn-sun">Réserver un appel Pionnier</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TARIFS ESPACES NUS ===================== -->
+<!-- ===================== TARIFS : 4 OFFRES ===================== -->
 <section class="sec" id="tarifs" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Exposant commercial</span>
-      <h2>Tarifs des espaces nus</h2>
-      <p>Tout professionnel qui vient principalement vendre, tester, prospecter, communiquer, recruter ou lancer une activité achète normalement son espace.</p>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Choisissez votre stand</span>
+      <h2>4 offres, tout inclus</h2>
+      <p>Mobilier, structure et électricité de base sont déjà dans le prix. Vous choisissez ce que vous mettez selon vos moyens — l'association fait l'effort de compléter la différence, pour que FLORE reste accessible à tous.</p>
     </div>
-    <div class="base-price-grid" data-aos="fade-up">
-      <div class="base-price-card">
+
+    <div class="offer-grid" data-aos="fade-up">
+      <div class="offer-card">
+        <div class="offer-card-ic" style="background:#F7FBD0"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="" loading="lazy"></div>
         <span class="format-tag">Boutique Découverte</span>
-        <p class="base-price-size">2 × 2 m · 4 m²</p>
-        <p class="base-price-amount">350 € <span>HT</span></p>
+        <h3>2 × 2 m · 4 m²</h3>
+        <p class="offer-price">350 € <span>HT</span></p>
+        <ul class="offer-includes">
+          <li>Mobilier de base</li>
+          <li>Structure de base</li>
+          <li>Électricité de base</li>
+        </ul>
+        <p class="offer-flex">Vous choisissez votre participation — on en discute pendant l'appel.</p>
       </div>
-      <div class="base-price-card">
+
+      <div class="offer-card">
+        <div class="offer-card-ic" style="background:#F7FBD0"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="" loading="lazy"></div>
         <span class="format-tag">Boutique Marque</span>
-        <p class="base-price-size">2 × 4 m · 8 m²</p>
-        <p class="base-price-amount">550 € <span>HT</span></p>
+        <h3>2 × 4 m · 8 m²</h3>
+        <p class="offer-price">550 € <span>HT</span></p>
+        <ul class="offer-includes">
+          <li>Mobilier de base</li>
+          <li>Structure de base</li>
+          <li>Électricité de base</li>
+        </ul>
+        <p class="offer-flex">Vous choisissez votre participation — on en discute pendant l'appel.</p>
       </div>
-      <div class="base-price-card">
+
+      <div class="offer-card offer-card--highlight">
+        <span class="offer-badge">Cœur de cible</span>
+        <div class="offer-card-ic" style="background:#DCF3EE"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="" loading="lazy"></div>
         <span class="format-tag">Jardin des Saveurs</span>
-        <p class="base-price-size">3 × 3 m · 9 m²</p>
-        <p class="base-price-amount">490 € <span>HT</span></p>
+        <h3>3 × 3 m · 9 m²</h3>
+        <p class="offer-price">490 € <span>HT</span></p>
+        <ul class="offer-includes">
+          <li>Mobilier de base</li>
+          <li>Tente + structure</li>
+          <li>Électricité dédiée</li>
+        </ul>
+        <p class="offer-flex">Vous choisissez votre participation — on en discute pendant l'appel.</p>
       </div>
-      <div class="base-price-card">
+
+      <div class="offer-card">
+        <div class="offer-card-ic" style="background:#E7F4FB">⭐</div>
         <span class="format-tag">Premium</span>
-        <p class="base-price-size">Sur mesure</p>
-        <p class="base-price-amount">Dès 790 € <span>HT</span></p>
+        <h3>Sur mesure</h3>
+        <p class="offer-price">Dès 790 € <span>HT</span></p>
+        <ul class="offer-includes">
+          <li>Emplacement prioritaire</li>
+          <li>Aménagement sur-mesure</li>
+          <li>Étudié avec vous</li>
+        </ul>
+        <p class="offer-flex">Sur devis — on en parle pendant l'appel.</p>
       </div>
     </div>
+
     <div class="info-box" data-aos="fade-up">
-      <h4>Construisez uniquement l'espace dont vous avez besoin</h4>
-      <p>Le stand de base est volontairement nu, afin de ne pas faire payer à tous des équipements dont seuls certains ont besoin. Le détail des options techniques (mobilier, électricité, eau...) se trouve dans la section Technique.</p>
+      <h4>Un tarif indicatif, pas un couperet</h4>
+      <p>Le montant affiché est la valeur réelle du stand — pas un minimum obligatoire. Pendant l'appel, vous nous dites ce qui est juste pour votre budget, et l'association complète la différence pour que ça reste possible pour vous. Besoin de plus que le mobilier/structure/électricité de base (eau, manutention, forte puissance...) ? Le détail est dans la section Technique.</p>
     </div>
 
     <div class="model-block" data-aos="fade-up">
@@ -884,27 +811,6 @@
           </ul>
         </div>
       </div>
-    </div>
-
-    <div class="accomp-block" data-aos="fade-up">
-      <span class="format-tag">Sur sélection uniquement</span>
-      <h3>Tarif Accompagnement</h3>
-      <p>Pour les petites structures à forte pertinence, dont la capacité financière ne permet pas d'accéder au tarif normal. Ce n'est pas un 5<sup>e</sup> statut : c'est un tarif exceptionnel sur certains exposants commerciaux de petite taille, en nombre limité.</p>
-      <div class="accomp-grid">
-        <div class="accomp-row">
-          <span class="accomp-label">Boutique 2×2</span>
-          <span class="accomp-old">350 € HT</span>
-          <span class="accomp-arrow">→</span>
-          <span class="accomp-new">190 € HT</span>
-        </div>
-        <div class="accomp-row">
-          <span class="accomp-label">Jardin</span>
-          <span class="accomp-old">490 € HT</span>
-          <span class="accomp-arrow">→</span>
-          <span class="accomp-new">dès 290 € HT</span>
-        </div>
-      </div>
-      <p class="table-note">Conditions : petite structure, forte pertinence, capacité financière réduite, nombre limité, possible contribution gratuite à l'expérience.</p>
     </div>
   </div>
 </section>
@@ -1117,7 +1023,7 @@
       <div class="case-abc-card">
         <span class="format-tag">Cas C</span>
         <p>Petite marque qui vend et propose une vraie animation gratuite.</p>
-        <p class="case-abc-reco uc-reco--pionnier">→ Exposant avec Tarif Accompagnement possible</p>
+        <p class="case-abc-reco uc-reco--pionnier">→ Exposant, tarif libre selon ses moyens</p>
       </div>
     </div>
   </div>
@@ -1258,12 +1164,12 @@
     <h3 class="h-sub" style="text-align:center;margin-top:40px">Cautions</h3>
     <div class="pio-charge-grid" data-aos="fade-up">
       <div class="pio-charge-card">
-        <span class="format-tag">Pionnier Boutique</span>
+        <span class="format-tag">Boutique</span>
         <div class="pio-price-row"><span class="pio-new-price" style="font-size:1.5rem">250 €</span></div>
         <p>Remboursable</p>
       </div>
       <div class="pio-charge-card">
-        <span class="format-tag">Pionnier Jardin</span>
+        <span class="format-tag">Jardin</span>
         <div class="pio-price-row"><span class="pio-new-price" style="font-size:1.5rem">350 €</span></div>
         <p>Remboursable</p>
       </div>
@@ -1289,7 +1195,7 @@
 
     <div class="info-box" data-aos="fade-up">
       <h4>Une candidature validée n'est pas un agrément</h4>
-      <p>Une candidature validée par FLORE ne constitue pas un agrément administratif ou sanitaire. Pour les applications et services santé : leur statut dépend de leur objectif (petite solution communautaire → Pionnier possible, startup en acquisition d'utilisateurs → Exposant, entreprise importante → Premium/partenaire). FLORE ne valide aucun diagnostic, traitement ou promesse thérapeutique — chaque professionnel reste responsable de ses propres communications.</p>
+      <p>Une candidature validée par FLORE ne constitue pas un agrément administratif ou sanitaire. Pour les applications et services santé : leur statut dépend de leur objectif (petite solution communautaire → Exposant, tarif libre selon ses moyens, startup en acquisition d'utilisateurs → Exposant, entreprise importante → Premium/partenaire). FLORE ne valide aucun diagnostic, traitement ou promesse thérapeutique — chaque professionnel reste responsable de ses propres communications.</p>
     </div>
 
     <div class="rules-card" data-aos="fade-up" style="margin-top:24px">
@@ -1361,20 +1267,16 @@
         <div class="faq-a">Non. 0&nbsp;%. FLORE vend un espace, jamais un pourcentage sur vos ventes.</div>
       </details>
       <details class="faq-item">
-        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Pourquoi les Pionniers ne paient-ils pas&nbsp;?</summary>
-        <div class="faq-a">Parce que FLORE investit volontairement dans certains acteurs essentiels à l'expérience de l'édition fondatrice.</div>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Le tarif affiché est-il obligatoire&nbsp;?</summary>
+        <div class="faq-a">Non — c'est la valeur réelle du stand, pas un minimum imposé. Vous nous dites ce qui est juste pour votre budget pendant l'appel, et l'association complète la différence.</div>
       </details>
       <details class="faq-item">
-        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Comment devenir Pionnier&nbsp;?</summary>
-        <div class="faq-a">Uniquement par sélection et invitation de FLORE — ce n'est jamais un statut qu'on s'auto-déclare.</div>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Comment on décide de ce qu'on met&nbsp;?</summary>
+        <div class="faq-a">On en discute ensemble pendant l'appel — pas de barème caché, juste ce qui vous semble raisonnable au vu de vos moyens.</div>
       </details>
       <details class="faq-item">
-        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Puis-je demander le Tarif Accompagnement&nbsp;?</summary>
-        <div class="faq-a">Oui, sur dossier — c'est étudié au cas par cas, dans la limite des places prévues.</div>
-      </details>
-      <details class="faq-item">
-        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Je suis une grande entreprise, puis-je être Pionnier&nbsp;?</summary>
-        <div class="faq-a">C'est un statut exceptionnel, jamais déterminé uniquement par la taille de votre structure. Ce qui compte, c'est la valeur stratégique de votre présence et le besoin réel de soutien.</div>
+        <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Je suis une grande entreprise, je dois quand même payer le tarif plein&nbsp;?</summary>
+        <div class="faq-a">Le tarif libre s'adresse à toutes les structures, mais une entreprise avec des moyens confortables est évidemment invitée à payer le prix affiché en entier, voire plus.</div>
       </details>
 
       <span class="faq-cat">Animations &amp; vente</span>
@@ -1482,7 +1384,7 @@
     const subnav = document.getElementById('dossierSubnav');
     const spacer = document.getElementById('subnavSpacer');
     const sidebar = document.getElementById('dossierSidebar');
-    const targets = ['vue-ensemble','profil','tarifs','pionniers','jardin','boutique','animations','partenaires','technique','installation','candidature','faq'];
+    const targets = ['vue-ensemble','profil','tarifs','jardin','boutique','animations','partenaires','technique','installation','candidature','faq'];
     const links = {};
     document.querySelectorAll('#sidebarList a').forEach(function(a){ links[a.dataset.target] = a; });
     const select = document.getElementById('subnavSelect');
@@ -1631,26 +1533,12 @@
 
       const partenaireThreshold = (window.FLORE_EXHIBITOR_CONFIG && window.FLORE_EXHIBITOR_CONFIG.sponsorPackages[0].price) || 2000;
 
-      let pionnierScore = 0;
-      if (fortSpecialisation) pionnierScore += 2;
-      if (activiteHistorique) pionnierScore += 1;
-      if (petiteStructure) pionnierScore += 1;
-      if (coutsImportants) pionnierScore += 1;
-
       if (isPartenaireObjectif || budgetEleve){
         return {
           key: 'partenaire',
           title: 'Partenariat FLORE',
           text: 'Votre profil correspond davantage à un partenariat qu\'à un stand exposant : visibilité, activation et rayonnement auprès de la communauté FLORE, à partir de ' + partenaireThreshold.toLocaleString('fr-FR') + ' € HT.',
           needsCa: false
-        };
-      }
-      if (pionnierScore >= 3){
-        return {
-          key: 'pionnier',
-          title: 'Votre profil pourrait correspondre au Cercle des Pionniers',
-          text: 'Forte spécialisation sans gluten/sans lactose, légitimité et coûts de venue réels : votre projet coche plusieurs critères du programme Pionniers. Le statut Pionnier est attribué exclusivement après sélection par FLORE et dans la limite des invitations encore disponibles.',
-          needsCa: true
         };
       }
       if (isExperienceObjectif && animGratuite && !vente){
@@ -1665,22 +1553,22 @@
         return {
           key: 'hybride',
           title: 'Exposant avec activation / animation',
-          text: 'Vous pouvez vendre vos produits tout en proposant une expérience gratuite en parallèle. Selon votre situation, un Tarif Accompagnement peut être étudié.',
-          needsCa: true
+          text: 'Vous pouvez vendre vos produits tout en proposant une expérience gratuite en parallèle. Le tarif de votre stand s\'ajuste selon vos moyens — on en discute pendant l\'appel.',
+          needsCa: false
         };
       }
       if (isVenteObjectif && petiteStructure && fortSpecialisation){
         return {
-          key: 'accompagnement',
-          title: 'Exposant — Tarif Accompagnement potentiellement adapté',
-          text: 'Structure de petite taille, forte cohérence avec l\'univers FLORE : votre profil peut être éligible au Tarif Accompagnement, attribué sur sélection et dans la limite des emplacements prévus.',
-          needsCa: true
+          key: 'exposant-niche',
+          title: 'Exposant FLORE — Jardin des Saveurs ou Boutique',
+          text: 'Structure de petite taille, forte cohérence avec l\'univers sans gluten/sans lactose : votre profil correspond bien à FLORE. Le tarif de votre stand s\'ajuste selon vos moyens — l\'association complète la différence pour que ça reste accessible.',
+          needsCa: false
         };
       }
       return {
         key: 'exposant',
         title: 'Exposant FLORE',
-        text: 'Votre projet correspond à un stand exposant classique : Boutique, Jardin des Saveurs (si restauration compatible) ou Premium selon vos besoins.',
+        text: 'Votre projet correspond à un stand exposant classique : Boutique, Jardin des Saveurs (si restauration compatible) ou Premium selon vos besoins. Le tarif affiché est indicatif — vous choisissez votre participation pendant l\'appel.',
         needsCa: false
       };
     }
