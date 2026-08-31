@@ -98,6 +98,12 @@
   .form-msg.err{background:#fbeaea;color:#c0392b;display:block}
 
   .sec-sub{text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.88);margin:0 0 26px}
+
+  /* Le CTA flottant "Réserver ma place" (nav.js) cible la billetterie et ne
+     se masque qu'en présence de #accueil/#billetterie (absents ici) — sur
+     cette page B2B il resterait affiché en permanence et recouvrirait le
+     calendrier Calendly en mobile. Non pertinent ici : masqué. */
+  #mobileCtaFloat{display:none !important}
 </style>
 </head>
 <body>

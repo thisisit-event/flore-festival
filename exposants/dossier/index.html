@@ -94,6 +94,12 @@
   @media(max-width:760px){
     .model-block{padding:32px 24px}
   }
+
+  /* Le CTA flottant "Réserver ma place" (nav.js) cible la billetterie et ne
+     se masque qu'en présence de #accueil/#billetterie (absents ici) — sur
+     cette page B2B il resterait affiché en permanence et recouvrirait le
+     calendrier Calendly en mobile. Non pertinent ici : masqué. */
+  #mobileCtaFloat{display:none !important}
 </style>
 </head>
 <body>
@@ -155,7 +161,7 @@
 </header>
 
 <!-- ===================== TARIFS : 4 OFFRES ===================== -->
-<section class="sec" id="tarifs" style="padding-top:0">
+<section class="sec" id="tarifs" style="padding-top:64px">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
       <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Choisissez votre stand</span>
