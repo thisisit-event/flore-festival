@@ -27,23 +27,26 @@ window.FLORE_EXHIBITOR_CONFIG = {
   },
 
   // Prix publics des espaces nus (hors options techniques).
+  // Jardin volontairement gardé accessible (cœur de cible à remplir en priorité) ;
+  // Boutique remontée (catégorie hors-niche, offre abondante sur le marché,
+  // écart 2×2/2×4 gardé sous le double pour inciter au plus grand format).
   basePrices: {
-    boutiqueDecouverte: { id: 'boutique-2x2', label: 'Boutique Découverte', size: '2 × 2 m', area: '4 m²', price: 290 },
-    boutiqueMarque:     { id: 'boutique-2x4', label: 'Boutique Marque',     size: '2 × 4 m', area: '8 m²', price: 490 },
+    boutiqueDecouverte: { id: 'boutique-2x2', label: 'Boutique Découverte', size: '2 × 2 m', area: '4 m²', price: 350 },
+    boutiqueMarque:     { id: 'boutique-2x4', label: 'Boutique Marque',     size: '2 × 4 m', area: '8 m²', price: 550 },
     jardin:             { id: 'jardin-3x3',   label: 'Jardin des Saveurs', size: '3 × 3 m', area: '9 m²', price: 490 },
     premium:            { id: 'premium',      label: 'Premium',           size: 'Sur mesure', area: null, price: 790, priceLabel: 'à partir de 790 € HT' }
   },
 
   // Sur sélection uniquement — jamais auto-attribué (voir doc §11/§28).
   accompanimentPrices: {
-    boutiqueDecouverte: { publicPrice: 290, price: 190 },
+    boutiqueDecouverte: { publicPrice: 350, price: 190 },
     jardin:              { publicPrice: 490, price: 290, priceLabel: 'à partir de 290 € HT' }
   },
 
   // Statut attribué exclusivement par FLORE après sélection (doc §13/§22).
   pioneer: {
-    boutiqueDecouverte: { publicPrice: 290, price: 0 },
-    boutiqueMarque:      { publicPrice: 490, price: 0 },
+    boutiqueDecouverte: { publicPrice: 350, price: 0 },
+    boutiqueMarque:      { publicPrice: 550, price: 0 },
     jardin:              { publicPrice: 490, price: 0 }
   },
 
