@@ -76,9 +76,9 @@
   .offer-perks-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
   .offer-perks-list li{font-size:.8rem;color:var(--ink-soft);padding-left:22px;position:relative;opacity:.4;transition:opacity .3s ease,color .3s ease}
   .offer-perks-list li::before{content:"○";position:absolute;left:0;top:0;color:var(--line);transition:color .3s ease}
-  .offer-perks.is-unlocked .offer-perks-status{color:var(--sun-deep)}
-  .offer-perks.is-unlocked .offer-perks-list li{opacity:1;color:var(--ink)}
-  .offer-perks.is-unlocked .offer-perks-list li::before{content:"✓";color:var(--sun-deep);font-weight:800}
+  .offer-perks-status.is-complete{color:var(--sun-deep)}
+  .offer-perks-list li.is-unlocked{opacity:1;color:var(--ink)}
+  .offer-perks-list li.is-unlocked::before{content:"✓";color:var(--sun-deep);font-weight:800}
   @media(max-width:960px){.offer-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.offer-grid{grid-template-columns:1fr}}
 
@@ -196,12 +196,12 @@
           <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
         </div>
         <div class="offer-perks">
-          <p class="offer-perks-status">Au tarif plein, débloquez</p>
+          <p class="offer-perks-status">0/4 avantages débloqués</p>
           <ul class="offer-perks-list">
-            <li>Priorité de réservation édition 2</li>
-            <li>Meilleur emplacement dans le hall</li>
-            <li>Logo sur le plan officiel</li>
-            <li>Accès au tirage au sort (2 places)</li>
+            <li data-unlock-at="160">Logo sur le plan officiel</li>
+            <li data-unlock-at="230">Accès au tirage au sort (2 places)</li>
+            <li data-unlock-at="290">Meilleur emplacement dans le hall</li>
+            <li data-unlock-at="350">Priorité de réservation édition 2</li>
           </ul>
         </div>
         <p class="offer-flex">Curseur indicatif — on affine ensemble pendant l'appel.</p>
@@ -225,12 +225,12 @@
           <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
         </div>
         <div class="offer-perks">
-          <p class="offer-perks-status">Au tarif plein, débloquez</p>
+          <p class="offer-perks-status">0/4 avantages débloqués</p>
           <ul class="offer-perks-list">
-            <li>Priorité de réservation édition 2</li>
-            <li>Meilleur emplacement dans le hall</li>
-            <li>Logo sur le plan officiel</li>
-            <li>Accès au tirage au sort (2 places)</li>
+            <li data-unlock-at="250">Logo sur le plan officiel</li>
+            <li data-unlock-at="350">Accès au tirage au sort (2 places)</li>
+            <li data-unlock-at="450">Meilleur emplacement dans le hall</li>
+            <li data-unlock-at="550">Priorité de réservation édition 2</li>
           </ul>
         </div>
         <p class="offer-flex">Curseur indicatif — on affine ensemble pendant l'appel.</p>
@@ -255,12 +255,12 @@
           <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
         </div>
         <div class="offer-perks">
-          <p class="offer-perks-status">Au tarif plein, débloquez</p>
+          <p class="offer-perks-status">0/4 avantages débloqués</p>
           <ul class="offer-perks-list">
-            <li>Priorité de réservation édition 2</li>
-            <li>Meilleur emplacement dans le hall</li>
-            <li>Logo sur le plan officiel</li>
-            <li>Accès au tirage au sort (2 places)</li>
+            <li data-unlock-at="240">Logo sur le plan officiel</li>
+            <li data-unlock-at="320">Accès au tirage au sort (2 places)</li>
+            <li data-unlock-at="410">Meilleur emplacement dans le hall</li>
+            <li data-unlock-at="490">Priorité de réservation édition 2</li>
           </ul>
         </div>
         <p class="offer-flex">Curseur indicatif — on affine ensemble pendant l'appel.</p>
@@ -277,13 +277,13 @@
           <li>Aménagement sur-mesure</li>
           <li>Étudié avec vous</li>
         </ul>
-        <div class="offer-perks is-unlocked">
-          <p class="offer-perks-status">Avantages inclus</p>
+        <div class="offer-perks">
+          <p class="offer-perks-status is-complete">4/4 avantages inclus</p>
           <ul class="offer-perks-list">
-            <li>Priorité de réservation édition 2</li>
-            <li>Meilleur emplacement dans le hall</li>
-            <li>Logo sur le plan officiel</li>
-            <li>Accès au tirage au sort (2 places)</li>
+            <li class="is-unlocked">Logo sur le plan officiel</li>
+            <li class="is-unlocked">Accès au tirage au sort (2 places)</li>
+            <li class="is-unlocked">Meilleur emplacement dans le hall</li>
+            <li class="is-unlocked">Priorité de réservation édition 2</li>
           </ul>
         </div>
         <p class="offer-flex">Sur devis — le tarif libre s'applique aussi ici, on en parle pendant l'appel.</p>
@@ -292,7 +292,7 @@
 
     <div class="info-box" data-aos="fade-up">
       <h4>Un tarif indicatif, pas un couperet</h4>
-      <p>Le montant affiché est la valeur réelle du stand — pas un minimum obligatoire. Bougez le curseur pour voir ce que l'association complète pour vous, et les avantages exposant qui se débloquent au tarif plein. Pendant l'appel, on affine ensemble ce qui est juste pour votre budget. Besoin de plus que le mobilier/structure/électricité de base (eau, manutention, forte puissance...) ? On en parle directement pendant l'appel.</p>
+      <p>Le montant affiché est la valeur réelle du stand — pas un minimum obligatoire. Bougez le curseur pour voir ce que l'association complète pour vous, et les avantages exposant qui se débloquent progressivement à mesure que vous montez. Pendant l'appel, on affine ensemble ce qui est juste pour votre budget. Besoin de plus que le mobilier/structure/électricité de base (eau, manutention, forte puissance...) ? On en parle directement pendant l'appel.</p>
     </div>
 
     <div class="model-block" data-aos="fade-up">
@@ -394,16 +394,32 @@
       const card = sim.closest('.offer-card');
       const perks = card ? card.querySelector('.offer-perks') : null;
       const perksStatus = perks ? perks.querySelector('.offer-perks-status') : null;
+      const perkItems = perks ? Array.prototype.slice.call(perks.querySelectorAll('.offer-perks-list li')) : [];
       if (!range || !youEl || !floreEl || isNaN(price)) return;
       function update(){
         const you = parseFloat(range.value);
         const flore = Math.max(0, price - you);
         youEl.textContent = you.toLocaleString('fr-FR') + ' €';
         floreEl.textContent = flore.toLocaleString('fr-FR') + ' €';
-        if (perks){
-          const unlocked = you >= price;
-          perks.classList.toggle('is-unlocked', unlocked);
-          if (perksStatus) perksStatus.textContent = unlocked ? 'Débloqué — merci pour votre soutien' : 'Au tarif plein, débloquez';
+        if (perkItems.length){
+          // Déblocage progressif : chaque avantage a son propre palier
+          // (data-unlock-at), pas tout-ou-rien au tarif plein.
+          let unlockedCount = 0;
+          let nextThreshold = null;
+          perkItems.forEach(function(li){
+            const threshold = parseFloat(li.dataset.unlockAt);
+            const isUnlocked = you >= threshold;
+            li.classList.toggle('is-unlocked', isUnlocked);
+            if (isUnlocked) unlockedCount++;
+            else if (nextThreshold === null) nextThreshold = threshold;
+          });
+          if (perksStatus){
+            const allUnlocked = unlockedCount === perkItems.length;
+            perksStatus.classList.toggle('is-complete', allUnlocked);
+            perksStatus.textContent = allUnlocked
+              ? unlockedCount + '/' + perkItems.length + ' avantages débloqués — merci pour votre soutien'
+              : unlockedCount + '/' + perkItems.length + ' avantages débloqués · prochain à ' + nextThreshold.toLocaleString('fr-FR') + ' €';
+          }
         }
       }
       range.addEventListener('input', update);
