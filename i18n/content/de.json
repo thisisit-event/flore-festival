@@ -87,7 +87,7 @@
     "kicker": "Anreise planen",
     "title_pre": "Einfach erreichbar, von ",
     "title_hl": "überall",
-    "text": "Ainterexpo ist gut mit Auto, Zug oder Flugzeug erreichbar, etwa 50 Minuten von Lyon und 1h15 von Genf entfernt. Alle Details zur Anreise (auf Französisch) findest du auf flore-festival.fr/infos-pratiques/."
+    "text": "Mit dem Auto über die Autobahnen A40/A39. Mit dem Zug ist der Bahnhof Bourg-en-Bresse direkt mit Lyon, Genf und Paris verbunden. Mit dem Flugzeug sind die nächsten Flughäfen Lyon-Saint Exupéry (ca. 50 Minuten) und Genf (ca. 1h15). Alle Details zur Anreise auf flore-festival.fr/infos-pratiques/."
   },
   "faq": {
     "kicker": "FAQ",
@@ -107,7 +107,11 @@
       },
       {
         "q": "Sind Tickets schon erhältlich?",
-        "a": "Ja. Tickets sind jetzt über unseren offiziellen Vorverkauf erhältlich (auf Französisch), mit Tagesticket und Abendticket (18 bis 22 Uhr)."
+        "a": "Ja. Tickets sind jetzt über unseren offiziellen Vorverkauf erhältlich, mit Tagesticket und Abendticket (18 bis 22 Uhr)."
+      },
+      {
+        "q": "Ist Essen und Trinken im Ticket enthalten?",
+        "a": "Nein: wie bei jedem Festival, Konzert oder Freizeitpark gibt dein Ticket Zugang zum Gelände (Bühne, Shop, Talks), aber der Jardin des Saveurs und die Bars werden separat vor Ort bezahlt. Genau das erlaubt uns, den Ticketpreis so zugänglich zu halten: wir arbeiten mit jedem Aussteller an fairen Preisen, damit du mehrere Stände genießen kannst, ohne dein Budget zu sprengen."
       },
       {
         "q": "Ist das Essen wirklich sicher für Menschen mit Zöliakie?",

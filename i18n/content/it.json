@@ -87,7 +87,7 @@
     "kicker": "Organizza la visita",
     "title_pre": "Facile da raggiungere, da ",
     "title_hl": "ovunque",
-    "text": "Ainterexpo è facile da raggiungere in auto, treno o aereo, a circa 50 minuti da Lione e 1h15 da Ginevra. Tutti i dettagli sull'accesso (in francese) sono su flore-festival.fr/infos-pratiques/."
+    "text": "In auto, tramite le autostrade A40/A39. In treno, la stazione di Bourg-en-Bresse è collegata direttamente a Lione, Ginevra e Parigi. In aereo, gli aeroporti più vicini sono Lione-Saint Exupéry (circa 50 minuti) e Ginevra (circa 1h15). Percorso completo su flore-festival.fr/infos-pratiques/."
   },
   "faq": {
     "kicker": "Domande frequenti",
@@ -107,7 +107,11 @@
       },
       {
         "q": "I biglietti sono già in vendita?",
-        "a": "Sì. I biglietti sono già in vendita sulla nostra biglietteria ufficiale (in francese), con un Pass Giornata e un Pass Serata (18-22)."
+        "a": "Sì. I biglietti sono già in vendita sulla nostra biglietteria ufficiale, con un Pass Giornata e un Pass Serata (18-22)."
+      },
+      {
+        "q": "Il biglietto include cibo e bevande?",
+        "a": "No: come in qualsiasi festival, concerto o parco divertimenti, il biglietto dà accesso al sito (palco, boutique, conferenze), ma il food court Jardin des Saveurs e i bar si pagano a parte, sul posto. È proprio questo che ci permette di mantenere un prezzo del biglietto così accessibile: lavoriamo con ogni espositore per garantire prezzi ragionevoli, così puoi provare più stand senza spendere una fortuna."
       },
       {
         "q": "Il cibo è davvero sicuro per i celiaci?",
