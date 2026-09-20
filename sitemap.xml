@@ -265,6 +265,13 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/exposants/"/>
   </url>
   <url>
+    <loc>https://flore-festival.fr/hebergement/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://flore-festival.fr/hebergement/"/>
+  </url>
+  <url>
     <loc>https://flore-festival.fr/artistes/</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
