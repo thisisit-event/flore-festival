@@ -145,14 +145,24 @@
   .leaflet-popup-content{margin:14px 16px!important;font-family:'Telegraf',sans-serif}
   .leaflet-popup-tip{box-shadow:0 4px 10px rgba(21,57,91,.1)!important}
 
-  .dog-card{padding:0 26px 32px !important;overflow:visible}
-  .dog-photo{position:relative;margin:0 -26px 34px}
-  .dog-photo-crop{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:var(--r-md) var(--r-md) 0 0}
-  .dog-photo-crop img{width:100%;height:100%;object-fit:cover;object-position:57% 45%}
-  @media(max-width:640px){.dog-photo-crop{aspect-ratio:4/3}.dog-photo-crop img{object-position:57% 42%}}
-  .dog-badge{position:absolute;left:20px;bottom:-22px;width:56px;height:56px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:var(--shadow-sm);background:#0B1832}
+  .dog-card{padding:0 !important}
+  .dog-photo{position:relative}
+  .dog-photo-crop{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:var(--r-md) var(--r-md) 0 0}
+  .dog-photo-crop img{width:100%;height:100%;object-fit:cover;object-position:57% 42%}
+  .dog-badge{position:absolute;left:20px;bottom:-22px;width:56px;height:56px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:var(--shadow-sm);background:#0B1832;z-index:2}
   .dog-badge img{position:absolute;left:-230%;top:-33.33%;width:350.33%;max-width:none}
+  .dog-price{position:absolute;top:14px;right:14px;background:var(--sun);color:var(--navy);font-family:'Telegraf',sans-serif;font-weight:800;font-size:1.05rem;line-height:1;border-radius:100px;padding:10px 16px;box-shadow:var(--shadow-sm);z-index:2;text-align:center}
+  .dog-price span{display:block;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--sun-deep);margin-top:3px}
+  .dog-content{padding:34px 26px 32px}
   .dog-card h3{margin-top:6px}
+
+  @media(min-width:641px){
+    #loger .dog-card{flex-direction:row;align-items:stretch;flex-basis:100%;max-width:100%}
+    .dog-photo{flex:0 0 44%;max-width:44%}
+    .dog-photo-crop{aspect-ratio:auto;height:360px;border-radius:var(--r-md) 0 0 var(--r-md)}
+    .dog-content{flex:1;display:flex;flex-direction:column;padding:30px 30px 30px 34px}
+    .dog-content .v-links{margin-top:auto;padding-top:16px}
+  }
 </style>
 
 <!-- ===================== ACCÈS & TRANSPORT ===================== -->
@@ -262,12 +272,15 @@
           <div class="dog-badge">
             <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/Colo%20chiens/BonnesPattes-recto--BDV%20CLASS_8%2C5x5%2C5%20cm_aq_FR-2---1-bleu%20copie(1).jpg" alt="" loading="lazy">
           </div>
+          <div class="dog-price">15&nbsp;€<span>/ jour</span></div>
         </div>
+        <div class="dog-content">
         <h3>Une pension pour votre chien, le temps de la fête</h3>
-        <p>Vous venez de loin en famille et votre chien fait partie du voyage&nbsp;? Chez <strong>Bonnes Pattes de l'Ain</strong>, à Monthieux, à deux pas d'Ainterexpo, Gwenaëlle l'accueille pour la journée dans sa maison familiale&nbsp;: un hectare pour courir, des copains à quatre pattes, une baignade s'il fait chaud. Vous profitez de FLORE l'esprit tranquille, il vous raconte sa journée le soir. 15&nbsp;€ la journée, sur réservation par SMS.</p>
+        <p>Vous venez de loin en famille et votre chien fait partie du voyage&nbsp;? Chez <strong>Bonnes Pattes de l'Ain</strong>, à Monthieux, à deux pas d'Ainterexpo, Gwenaëlle l'accueille pour la journée dans sa maison familiale&nbsp;: un hectare pour courir, des copains à quatre pattes, une baignade s'il fait chaud. Vous profitez de FLORE l'esprit tranquille, il vous raconte sa journée le soir, sur simple réservation par SMS.</p>
         <div class="v-links">
           <a class="v-link v-link-primary" href="https://www.bonnespattesdelain.fr" target="_blank" rel="noopener">bonnespattesdelain.fr</a>
           <a class="v-link v-link-ghost" href="sms:0695051722">SMS 06 95 05 17 22</a>
+        </div>
         </div>
       </div>
     </div>
