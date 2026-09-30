@@ -147,8 +147,9 @@
 
   .dog-card{padding:0 26px 32px !important;overflow:visible}
   .dog-photo{position:relative;margin:0 -26px 34px}
-  .dog-photo-crop{position:relative;aspect-ratio:395/220;overflow:hidden;border-radius:var(--r-md) var(--r-md) 0 0}
-  .dog-photo-crop img{position:absolute;left:0;top:-209.09%;width:266.08%;max-width:none}
+  .dog-photo-crop{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:var(--r-md) var(--r-md) 0 0}
+  .dog-photo-crop img{width:100%;height:100%;object-fit:cover;object-position:57% 45%}
+  @media(max-width:640px){.dog-photo-crop{aspect-ratio:4/3}.dog-photo-crop img{object-position:57% 42%}}
   .dog-badge{position:absolute;left:20px;bottom:-22px;width:56px;height:56px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:var(--shadow-sm);background:#0B1832}
   .dog-badge img{position:absolute;left:-230%;top:-33.33%;width:350.33%;max-width:none}
   .dog-card h3{margin-top:6px}
@@ -256,7 +257,7 @@
       <div class="value-card dog-card" data-aos="fade-up" data-aos-delay="180">
         <div class="dog-photo">
           <div class="dog-photo-crop">
-            <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/Colo%20chiens/BonnesPattes-verso--BDV%20CLASS_8%2C5x5%2C5%20cm_aq_FR-2---1%20copie(1).jpg" alt="Chiens et chats accueillis chez Bonnes Pattes de l'Ain" loading="lazy">
+            <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/Colo%20chiens/bonnespattes.jpg" alt="Gwenaëlle et son chien, Bonnes Pattes de l'Ain" loading="lazy">
           </div>
           <div class="dog-badge">
             <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/Colo%20chiens/BonnesPattes-recto--BDV%20CLASS_8%2C5x5%2C5%20cm_aq_FR-2---1-bleu%20copie(1).jpg" alt="" loading="lazy">
