@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prolonge ton week-end · FLORE Festival 2027</title>
-<meta name="description" content="Envie de prolonger le festival en week-end ? Le guide des activités et hébergements autour de Bourg-en-Bresse (Ain) arrive bientôt.">
+<meta name="description" content="Envie de prolonger le festival en week-end ? Lacs, villages, grottes et grands espaces : le guide des activités autour de Bourg-en-Bresse (Ain).">
 <meta name="keywords" content="festival week-end, prolonger festival, séjour festival, festival sans gluten">
 <meta name="author" content="MG Entertainment">
 <meta name="robots" content="index, follow">
@@ -21,7 +21,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="FLORE Festival">
 <meta property="og:title" content="Prolonge ton week-end · FLORE Festival 2027">
-<meta property="og:description" content="Le guide des activités et hébergements autour de Bourg-en-Bresse (Ain) arrive bientôt.">
+<meta property="og:description" content="Lacs, villages, grottes et grands espaces : le guide des activités autour de Bourg-en-Bresse (Ain).">
 <meta property="og:url" content="https://flore-festival.fr/sejour/">
 <meta property="og:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
 <meta property="og:image:width" content="1200">
@@ -29,7 +29,7 @@
 <meta property="og:image:alt" content="FLORE Festival - prolonge ton week-end">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Prolonge ton week-end · FLORE Festival 2027">
-<meta name="twitter:description" content="Le guide des activités et hébergements autour de Bourg-en-Bresse (Ain) arrive bientôt.">
+<meta name="twitter:description" content="Lacs, villages, grottes et grands espaces : le guide des activités autour de Bourg-en-Bresse (Ain).">
 <meta name="twitter:image" content="https://enjoylife.b-cdn.net/Flore/flore-festival-site.png">
 <link rel="alternate" hreflang="fr" href="https://flore-festival.fr/sejour/">
 <link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
@@ -138,20 +138,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .mobile-menu .btn{margin-top:24px;justify-content:center}
 
 /* Hero */
-.dhero{min-height:62vh;display:flex;align-items:center;padding:150px 0 80px;background:linear-gradient(180deg,rgba(21,57,91,.35) 0%,rgba(11,24,50,.82) 75%),url('https://enjoylife.b-cdn.net/Flore/Images%20/bourg-en-bresse%20-%20parc%20de%20loisirs%20de%20bouvent%20-%20flore%20festival.jpg') center 55%/cover;overflow:hidden;color:#fff;border-radius:0 0 var(--r-xl) var(--r-xl)}
+.dhero{min-height:auto;display:flex;align-items:center;padding:150px 0 80px;background:linear-gradient(165deg,var(--sky) 0%,var(--sky-deep) 100%);overflow:hidden;color:#fff;border-radius:0 0 var(--r-xl) var(--r-xl)}
 .sun-deco{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,var(--sun) 42%,rgba(218,239,82,.3) 60%,transparent 75%)}
 .dhero .sun-deco{top:-110px;right:-80px;width:360px;height:360px}
 .dhero .daisy-bg{position:absolute;color:rgba(255,255,255,.14)}
 .dhero .pd1{bottom:40px;left:5%;width:110px}
 .dhero .pd2{top:20%;right:10%;width:78px}
-.dhero-inner{max-width:740px;position:relative;z-index:2}
-.dhero h1{font-size:clamp(2.4rem,5.8vw,4.2rem);color:#fff;margin:16px 0 18px;line-height:1.02}
+.dhero-split{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;position:relative;z-index:2}
+.dhero-inner{max-width:560px}
+.dhero h1{font-size:clamp(2.4rem,5.8vw,4rem);color:#fff;margin:16px 0 18px;line-height:1.02}
 .dhero h1 em{font-style:normal;color:var(--sun)}
 .dhero p{font-size:1.12rem;color:rgba(255,255,255,.94);max-width:38em;margin-bottom:26px}
 .dhero .btn-row{display:flex;gap:13px;flex-wrap:wrap}
 .dhero .meta-row{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px;font-family:'Telegraf',sans-serif;font-weight:500;font-size:.92rem;color:rgba(255,255,255,.85)}
 .dhero .meta-row .m{display:inline-flex;align-items:center;gap:7px}
 .dhero .meta-row svg{width:18px;height:18px;color:var(--sun)}
+.dhero .st-visual{min-height:360px}
+@media(max-width:900px){.dhero-split{grid-template-columns:1fr;gap:28px}.dhero .st-visual{min-height:260px}}
 
 /* Sections */
 .sec{padding:84px 0}
@@ -171,21 +174,30 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* Activity cards */
-.act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
 @media(max-width:980px){.act-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.act-grid{grid-template-columns:1fr}}
 .act-card{background:#fff;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column}
 .act-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
-.act-img{aspect-ratio:16/10;background-size:cover;background-position:center;position:relative;background-color:var(--sky-pale);box-shadow:inset 0 -60px 80px rgba(11,24,50,.22)}
-.act-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(11,24,50,.4) 100%)}
-.act-img .a-tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 12px;border-radius:100px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;z-index:1}
+.act-img{aspect-ratio:660/746;position:relative;background-color:var(--sky-pale);box-shadow:inset 0 -60px 80px rgba(11,24,50,.22);overflow:hidden}
+.act-img img{width:100%;height:100%;object-fit:cover;display:block}
+.act-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(11,24,50,.4) 100%);z-index:1}
+.act-img .a-tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 12px;border-radius:100px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;z-index:2}
 .act-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
-.act-meta{display:flex;align-items:center;gap:10px;font-family:'Telegraf',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:6px}
+.act-meta{display:flex;align-items:center;gap:6px;font-family:'Telegraf',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:8px}
+.act-meta svg{flex-shrink:0}
 .act-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--sky-deep);opacity:.5}
 .act-card h3{font-family:'Telegraf',sans-serif;font-size:1.35rem;color:var(--ink);margin-bottom:10px;line-height:1.18}
 .act-card p{color:var(--ink-soft);font-size:.92rem;line-height:1.55;margin-bottom:14px;flex:1}
 .act-link{font-family:'Telegraf',sans-serif;font-weight:700;color:var(--sky-deep);font-size:.85rem;text-decoration:none;border-bottom:2px solid transparent;align-self:flex-start;letter-spacing:.02em;transition:border-color .2s;padding:6px 0;min-height:24px;display:inline-flex;align-items:center}
 .act-link:hover{border-bottom-color:var(--sky-deep)}
+.act-more{margin-top:auto}
+.act-more summary{cursor:pointer;font-family:'Telegraf',sans-serif;font-weight:700;color:var(--sky-deep);font-size:.85rem;list-style:none;display:inline-flex;align-items:center;gap:7px;padding:8px 0;min-height:24px}
+.act-more summary::-webkit-details-marker{display:none}
+.act-more summary::before{content:"+";font-size:1.15rem;line-height:1;width:16px;text-align:center;transition:transform .25s var(--ease)}
+.act-more[open] summary::before{content:"−"}
+.act-more .act-story{font-size:.88rem;color:var(--ink-soft);line-height:1.65;margin-top:6px;padding-top:12px;border-top:1px solid var(--line)}
+.act-more .act-link{margin-top:4px}
 
 /* Final CTA */
 .final-cta{padding:90px 60px;text-align:center;background:linear-gradient(165deg,var(--sky),var(--sky-deep));color:#fff;overflow:hidden;border-radius:var(--r-xl);max-width:1320px;margin:60px auto;box-shadow:0 32px 70px rgba(11,24,50,.22)}
@@ -320,28 +332,163 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   <svg aria-hidden="true" class="daisy daisy-bg pd1"><use href="#daisy"/></svg>
   <svg aria-hidden="true" class="daisy daisy-bg pd2"><use href="#daisy"/></svg>
   <div class="wrap">
-    <div class="dhero-inner" data-aos="fade-up">
-      <span class="kicker on-blue"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
-      <h1>FLORE, un samedi.<br>Et si tu restais <em>un peu plus</em> ?</h1>
-      <p>On prépare un guide d'activités et d'hébergements de charme autour de Bourg-en-Bresse pour prolonger ton festival en week-end. Il arrive bientôt.</p>
-      <div class="btn-row">
-        <a href="/#billetterie" class="btn btn-sun">Réserver ma place</a>
-        <a href="/" class="btn btn-ghost-w">Retour à l'accueil</a>
+    <div class="dhero-split">
+      <div class="dhero-inner" data-aos="fade-up">
+        <span class="kicker on-blue"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Reste pour le week-end</span>
+        <h1>FLORE, un samedi.<br>Et si tu restais <em>un peu plus</em> ?</h1>
+        <p>Samedi, c'est FLORE. Et si tu restais un peu plus pour découvrir l'Ain ? Lacs, villages médiévaux, grottes et grands espaces : de quoi faire un vrai week-end, pas juste une journée de festival.</p>
+        <div class="btn-row">
+          <a href="/#billetterie" class="btn btn-sun">Réserver ma place</a>
+          <a href="/" class="btn btn-ghost-w">Retour à l'accueil</a>
+        </div>
+      </div>
+      <div class="st-visual" aria-hidden="true" data-aos="fade-up" data-aos-delay="100">
+        <div class="st-card st-card-1" style="background:linear-gradient(0deg,rgba(11,24,50,.75),rgba(11,24,50,.05) 60%),url('https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-pe%CC%81rouges.png') center/cover"><span>Patrimoine</span></div>
+        <div class="st-card st-card-2" style="background:linear-gradient(0deg,rgba(11,24,50,.75),rgba(11,24,50,.05) 60%),url('https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-lacbleu.png') center/cover"><span>Nature</span></div>
+        <div class="st-card st-card-3" style="background:linear-gradient(0deg,rgba(11,24,50,.75),rgba(11,24,50,.05) 60%),url('https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-parcdesoiseaux.png') center/cover"><span>En famille</span></div>
+        <div class="st-card st-card-4" style="background:linear-gradient(0deg,rgba(11,24,50,.75),rgba(11,24,50,.05) 60%),url('https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-dombes.png') center/cover"><span>Grands espaces</span></div>
       </div>
     </div>
   </div>
 </header>
 
+<!-- ACTIVITÉS AUTOUR DU FESTIVAL -->
+<section class="sec" id="activites">
+  <div class="wrap">
+    <div class="sec-head" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Autour de Bourg-en-Bresse</span>
+      <h2>De quoi faire <span class="hl">un vrai week-end</span></h2>
+      <p>L'Ain regorge de lacs, de villages et de grands espaces à deux pas d'Ainterexpo. De quoi prolonger la journée FLORE en vraie escapade.</p>
+    </div>
+    <div class="act-grid">
+
+      <div class="act-card" data-aos="fade-up">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-bouvent.png" alt="Un arbre et un banc en bois au bord de la plage de sable du lac de Bouvent" loading="lazy"><span class="a-tag">Juste à côté</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>5 min depuis Ainterexpo</span>
+          <h3>Lac de Bouvent</h3>
+          <p>À deux pas d'Ainterexpo&nbsp;: plage, grandes pelouses et ombre pour souffler avant ou après le festival.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">C'est le vrai terrain de jeu des habitants de Bourg-en-Bresse&nbsp;: on y vient se baigner l'été, pique-niquer ou juste s'allonger dans l'herbe. Le tour du lac se fait tranquillement à pied en moins d'une heure, poussette ou vélo bienvenus. Pratique pour une famille qui vient de loin&nbsp;: c'est littéralement à quelques minutes à pied d'Ainterexpo, l'endroit parfait pour souffler avant de reprendre la route.</p></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-centre-bourg-en-bresse.png" alt="Ruelle pavée et façades colorées du centre historique de Bourg-en-Bresse" loading="lazy"><span class="a-tag">Ville</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>10 min depuis Ainterexpo</span>
+          <h3>Centre-ville de Bourg-en-Bresse</h3>
+          <p>Rues piétonnes, l'incontournable monastère royal de Brou, terrasses et petites boutiques à flâner à pied.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Le joyau de la ville, c'est le monastère royal de Brou&nbsp;: une église flamboyante construite au début du 16e&nbsp;siècle par Marguerite d'Autriche en mémoire de son mari Philibert le Beau, l'une des plus belles réussites de l'art gothique flamboyant en France. Autour, les ruelles à colombages du vieux Bourg se prêtent bien à une balade digestive. Et puisqu'on est dans l'Ain&nbsp;: c'est ici qu'est née la volaille de Bresse, la seule au monde à avoir sa propre appellation d'origine contrôlée, de quoi épater les enfants autant que les grands-parents à table.</p></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-chateaudechazey.png" alt="Le château de Chazey et son parc avec vue dégagée sur la vallée de l'Ain" loading="lazy"><span class="a-tag">Patrimoine</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>40 min depuis Ainterexpo</span>
+          <h3>Château de Chazey</h3>
+          <p>Un beau parc et une vue imprenable sur toute la plaine de l'Ain, parfait pour une balade tranquille.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Un parc à l'anglaise qui s'ouvre sur un panorama à couper le souffle sur toute la vallée de l'Ain&nbsp;: parfait pour une pause pique-nique en hauteur, loin de l'agitation. Les enfants adorent généralement courir sur les grandes pelouses pendant que les parents profitent de la vue. Un bon compromis entre nature et patrimoine pour une sortie d'une heure ou deux, sans prise de tête.</p></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-dombes.png" alt="Un des mille étangs de la Dombes, reflet d'arbres sur l'eau calme" loading="lazy"><span class="a-tag">Nature</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>15 min depuis Ainterexpo</span>
+          <h3>Les étangs de la Dombes</h3>
+          <p>Un territoire unique fait de mille étangs, royaume des oiseaux et des balades au calme entre eau et roseaux.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">La Dombes, ce sont plus d'un millier d'étangs créés au fil des siècles par les moines pour l'élevage du poisson, un paysage unique qu'on ne retrouve nulle part ailleurs dans la région. Aujourd'hui c'est devenu un paradis pour les oiseaux migrateurs, hérons et cigognes compris, et pour les familles qui aiment observer la nature sans se presser. Quelques heures de balade au fil de l'eau suffisent à comprendre pourquoi ce territoire est si particulier.</p></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-grottedelabalme.png" alt="Entrée rocheuse de la grotte de la Balme, dans la falaise" loading="lazy"><span class="a-tag">Curiosité</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>45 min depuis Ainterexpo</span>
+          <h3>Grotte de la Balme</h3>
+          <p>Une grotte spectaculaire creusée dans la roche, à explorer en famille pour une après-midi hors du temps.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Une grotte visitée depuis des siècles&nbsp;: la légende raconte que François&nbsp;Ier lui-même s'y serait aventuré, et que le célèbre bandit Mandrin y aurait trouvé refuge au 18e&nbsp;siècle. Aujourd'hui on la visite en toute sécurité, entre stalactites et galeries impressionnantes, de quoi fasciner petits et grands. Comptez une bonne heure de visite, idéal pour une sortie en famille à l'abri de la chaleur ou de la pluie.</p></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-hauteville.png" alt="Paysage de plateau et grands espaces verts autour de Hauteville" loading="lazy"><span class="a-tag">Grand air</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>55 min depuis Ainterexpo</span>
+          <h3>Hauteville</h3>
+          <p>Un plateau d'altitude entre forêts et grands espaces, pour prendre un vrai bol d'air loin de la vallée.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Perché sur le plateau du Bugey, Hauteville-Lompnes a longtemps été réputé pour son air pur&nbsp;: au début du 20e&nbsp;siècle, on y envoyait les malades se soigner dans des sanatoriums, à l'époque où l'altitude et le grand air étaient considérés comme un vrai remède. Aujourd'hui, c'est un terrain de jeu pour les amoureux de nature, entre forêts, sentiers et grands espaces. Une bonne option pour une famille qui veut vraiment changer d'air et prendre de la hauteur, au sens propre.</p></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-lacbleu.png" alt="L'eau turquoise du Lac Bleu d'Ambérieu entourée de falaises" loading="lazy"><span class="a-tag">Nature</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>35 min depuis Ainterexpo</span>
+          <h3>Lac Bleu d'Ambérieu</h3>
+          <p>Une ancienne carrière devenue un lac aux eaux turquoise surprenantes, niché au pied de la montagne.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Une ancienne carrière abandonnée, envahie par une eau d'un bleu turquoise presque irréel, qui en a fait l'un des spots les plus photographiés de la région. Un lieu étonnant à découvrir en famille, même si la baignade y est généralement déconseillée (l'eau y est très fraîche et profonde)&nbsp;: on vient surtout pour la balade et la photo souvenir.</p></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-meximieux-pe%CC%81rouges.png" alt="Sentier au bord de l'étang de Meximieux, sur le chemin vers Pérouges" loading="lazy"><span class="a-tag">Balade</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>35 min depuis Ainterexpo</span>
+          <h3>Étang de Meximieux</h3>
+          <p>Une balade au bord de l'eau qui mène tout droit aux pavés de Pérouges, à quelques kilomètres de là.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Un sentier tranquille qui longe l'étang de Meximieux avant de grimper doucement jusqu'aux portes de Pérouges. Une façon agréable d'arriver au village médiéval autrement qu'en voiture, et de faire tourner les jambes des enfants avant de crapahuter dans les ruelles pavées. Comptez environ une heure de marche sans se presser.</p></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-parcdesoiseaux.png" alt="Oiseaux exotiques en liberté dans la végétation du Parc des Oiseaux" loading="lazy"><span class="a-tag">En famille</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>35 min depuis Ainterexpo</span>
+          <h3>Parc des Oiseaux</h3>
+          <p>Un parc animalier parmi les plus beaux d'Europe, à la rencontre d'oiseaux venus du monde entier.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Des manchots aux flamants roses en passant par les rapaces en démonstration de vol libre, c'est une journée entière de découverte assurée pour toute la famille. Niché en plein cœur de la Dombes, c'est aussi l'occasion de découvrir ce territoire si particulier fait d'étangs. Prévoyez une vraie journée, pas juste une heure&nbsp;: il y a largement de quoi occuper petits et grands.</p><a href="https://www.parcdesoiseaux.com/" target="_blank" rel="noopener" class="act-link">Le site du parc →</a></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-pe%CC%81rouges.png" alt="Ruelle pavée et façades en pierre de la cité médiévale de Pérouges" loading="lazy"><span class="a-tag">Incontournable</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>35 min depuis Ainterexpo</span>
+          <h3>Pérouges</h3>
+          <p>Un village médiéval classé parmi les plus beaux de France&nbsp;: ruelles pavées, remparts, et la fameuse galette à partager.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Un village tellement bien conservé qu'il a servi de décor à plusieurs films historiques. Classé parmi les plus beaux villages de France, on s'y perd avec plaisir dans les ruelles pavées et sous les remparts. À ne surtout pas manquer&nbsp;: la fameuse galette de Pérouges, une spécialité sucrée du village à partager en terrasse, c'est un peu le rituel local.</p><a href="https://perouges.fr/tourisme/" target="_blank" rel="noopener" class="act-link">Cité médiévale de Pérouges →</a></details>
+        </div>
+      </div>
+
+      <div class="act-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="act-img"><img src="https://enjoylife.b-cdn.net/Flore/Images%20/flore-festival-rivieredain.png" alt="Les eaux claires et les berges boisées de la rivière d'Ain" loading="lazy"><span class="a-tag">Nature</span></div>
+        <div class="act-body">
+          <span class="act-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>20 min depuis Ainterexpo</span>
+          <h3>Rivière d'Ain</h3>
+          <p>Des eaux claires et sauvages, parfaites pour une baignade, un canoë ou juste les pieds dans l'eau.</p>
+          <details class="act-more"><summary>En savoir plus</summary><p class="act-story">Une des rivières les plus sauvages et préservées de France, réputée pour ses eaux claires et ses reflets turquoise. L'été, c'est l'endroit rêvé pour une baignade, une descente en canoë ou simplement tremper les pieds à l'ombre des falaises. Un vrai bol d'air pour une famille qui veut se rafraîchir après une journée de festival.</p></details>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="sun-deco"></div>
   <div class="wrap inner">
-    <span class="kicker on-blue center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Première étape</span>
-    <h2>Ton séjour commence par le festival.</h2>
-    <p>Avant de penser à l'hébergement ou aux activités autour de Bourg-en-Bresse, réserve ta place pour le samedi 17 avril 2027.</p>
-    <a href="/#billetterie" class="btn btn-sun">Réserver ma place
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </a>
+    <span class="kicker on-blue center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Avant de partir à l'aventure</span>
+    <h2>Un vrai week-end commence par une place pour le samedi.</h2>
+    <p>Réserve ta place pour le 17 avril 2027, trouve où dormir sur place, et le reste du week-end est à toi.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a href="/#billetterie" class="btn btn-sun">Réserver ma place
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/infos-pratiques/#loger" class="btn btn-ghost-w">Trouver un hébergement</a>
+    </div>
   </div>
 </section>
 
