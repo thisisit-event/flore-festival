@@ -1198,9 +1198,9 @@
   try {
     var situeZoom = window.innerWidth < 640 ? 5 : 6;
     var situeMap = L.map('situe-map', { scrollWheelZoom:false, touchZoom:true, zoomControl:true }).setView([46.1883, 5.2465], situeZoom);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abc',
       maxZoom: 19
     }).addTo(situeMap);
     var situeIcon = L.divIcon({
