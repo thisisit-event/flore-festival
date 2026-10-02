@@ -51,6 +51,10 @@
   .expo-note{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:16px 18px;font-size:.86rem;color:rgba(255,255,255,.92);line-height:1.55;margin:22px 0 4px}
   .expo-note strong{color:#fff}
   .expo-hero-cal{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);padding:10px;height:560px;overflow:auto}
+  .expo-hero-cal.is-paused{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 32px}
+  .expo-hero-cal.is-paused .ehc-ic{font-size:2.4rem;margin-bottom:14px}
+  .expo-hero-cal.is-paused h3{font-size:1.3rem;color:var(--ink);margin-bottom:10px}
+  .expo-hero-cal.is-paused p{color:var(--ink-soft);font-size:.92rem;line-height:1.55;margin-bottom:22px}
   @media(max-width:900px){
     #intro.page-hero{padding:120px 0 30px}
     .expo-hero-grid{grid-template-columns:1fr}
@@ -166,23 +170,22 @@
       <div class="art-hero-inner" data-aos="fade-up">
         <span class="kicker on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Devenir exposant</span>
         <h1>Participez au <em>plus grand rendez-vous</em> sans gluten &amp; sans lactose de France</h1>
-        <p>Des milliers de festivaliers venus de toute la France et des pays limitrophes. Jardin des Saveurs, Boutique ou stand Premium : réservez un appel de 30 minutes, on cale le reste ensemble à l'oral.</p>
+        <p>Des milliers de festivaliers venus de toute la France et des pays limitrophes. Jardin des Saveurs, Boutique ou stand Premium : écrivez-nous en nous présentant votre projet, on revient vers vous.</p>
         <div class="expo-note">
-          <strong>Cet appel s'adresse uniquement aux entreprises qui souhaitent un espace (stand) ou devenir partenaire de FLORE.</strong> Pour toute autre demande (artiste, presse, bénévolat, etc.), écrivez-nous plutôt à contact@flore-festival.fr. Avant l'appel, tenez à portée de main : qui vous êtes, ce que vous proposez, et si ça touche au sans gluten, au sans lactose ou à une autre cause qui vous tient à cœur.
+          <strong>Cette prise de contact s'adresse uniquement aux entreprises qui souhaitent un espace (stand) ou devenir partenaire de FLORE.</strong> Pour toute autre demande (artiste, presse, bénévolat, etc.), écrivez-nous plutôt à contact@flore-festival.fr. Dans votre message, précisez : qui vous êtes, ce que vous proposez, et si ça touche au sans gluten, au sans lactose ou à une autre cause qui vous tient à cœur.
         </div>
         <div class="btn-row">
           <a href="#avantages" class="btn btn-ghost-w">Voir les avantages</a>
         </div>
       </div>
 
-      <div class="expo-hero-cal" data-aos="fade-up">
-        <!-- Début de widget en ligne Calendly -->
-        <div class="calendly-inline-widget" data-url="https://calendly.com/flore-festival/30min?hide_gdpr_banner=1" style="min-width:280px;height:100%;"></div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        <!-- Fin de widget en ligne Calendly -->
+      <div class="expo-hero-cal is-paused" data-aos="fade-up">
+        <div class="ehc-ic">📬</div>
+        <h3>On traite la première vague</h3>
+        <p>On est en train de traiter les premières demandes d'exposants reçues. La prise de rendez-vous rouvrira bientôt. En attendant, écrivez-nous en précisant votre projet, on revient vers vous.</p>
+        <a href="mailto:contact@flore-festival.fr" class="btn btn-sun">contact@flore-festival.fr</a>
       </div>
     </div>
-    <p style="color:rgba(255,255,255,.75);font-size:.82rem;text-align:center;margin-top:14px">Un empêchement ou une question avant de réserver ? Écrivez-nous à <a href="mailto:contact@flore-festival.fr" style="color:#fff;text-decoration:underline">contact@flore-festival.fr</a>.</p>
   </div>
 </header>
 
@@ -241,7 +244,7 @@
     </div>
 
     <div style="text-align:center;margin-top:34px" data-aos="fade-up">
-      <a href="#candidature" class="btn btn-sun">Réserver un appel →</a>
+      <a href="mailto:contact@flore-festival.fr" class="btn btn-sun">Nous écrire →</a>
     </div>
   </div>
 </section>
