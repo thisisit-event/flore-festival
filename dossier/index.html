@@ -60,9 +60,24 @@
   .doc-viewer-head .dvh-dl svg{width:14px;height:14px}
   .doc-viewer-head .dvh-dl span{display:none}
   @media(min-width:560px){.doc-viewer-head .dvh-dl span{display:inline}}
-  .doc-pages{background:#e7eef3}
-  .doc-pages img{display:block;width:100%;height:auto}
-  .doc-pages img + img{border-top:1px solid rgba(21,57,91,.08)}
+  .slide-stage{position:relative;aspect-ratio:16/9;background:#e7eef3;overflow:hidden;
+    touch-action:pan-y}
+  .slide-stage img{display:block;width:100%;height:100%;object-fit:contain;background:#e7eef3;
+    cursor:pointer;user-select:none;-webkit-user-drag:none}
+  .slide-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;
+    border-radius:50%;background:rgba(21,57,91,.55);color:#fff;border:0;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:background .15s,opacity .15s}
+  .slide-arrow:hover{background:rgba(21,57,91,.82)}
+  .slide-arrow:disabled{opacity:0;pointer-events:none}
+  .slide-arrow svg{width:20px;height:20px}
+  .slide-prev{left:14px}
+  .slide-next{right:14px}
+  .slide-counter{position:absolute;right:14px;bottom:14px;background:rgba(21,57,91,.65);color:#fff;
+    font-family:'Telegraf',sans-serif;font-size:.76rem;font-weight:600;padding:5px 12px;
+    border-radius:100px;font-variant-numeric:tabular-nums}
+  .slide-progress-track{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(21,57,91,.12)}
+  .slide-progress{height:100%;width:5.88%;background:var(--sun);transition:width .25s ease}
+  @media(max-width:560px){.slide-arrow{width:34px;height:34px}.slide-arrow svg{width:16px;height:16px}}
 </style>
 </head>
 <body>
@@ -130,27 +145,82 @@
         <span>Télécharger</span>
       </a>
     </div>
-    <div class="doc-pages">
-    <img src="/dossier/pages/page-01.jpg" alt="Dossier de présentation FLORE Festival 2027, page 1 sur 17" width="1640" height="923" loading="eager">
-    <img src="/dossier/pages/page-02.jpg" alt="Dossier de présentation FLORE Festival 2027, page 2 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-03.jpg" alt="Dossier de présentation FLORE Festival 2027, page 3 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-04.jpg" alt="Dossier de présentation FLORE Festival 2027, page 4 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-05.jpg" alt="Dossier de présentation FLORE Festival 2027, page 5 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-06.jpg" alt="Dossier de présentation FLORE Festival 2027, page 6 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-07.jpg" alt="Dossier de présentation FLORE Festival 2027, page 7 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-08.jpg" alt="Dossier de présentation FLORE Festival 2027, page 8 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-09.jpg" alt="Dossier de présentation FLORE Festival 2027, page 9 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-10.jpg" alt="Dossier de présentation FLORE Festival 2027, page 10 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-11.jpg" alt="Dossier de présentation FLORE Festival 2027, page 11 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-12.jpg" alt="Dossier de présentation FLORE Festival 2027, page 12 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-13.jpg" alt="Dossier de présentation FLORE Festival 2027, page 13 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-14.jpg" alt="Dossier de présentation FLORE Festival 2027, page 14 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-15.jpg" alt="Dossier de présentation FLORE Festival 2027, page 15 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-16.jpg" alt="Dossier de présentation FLORE Festival 2027, page 16 sur 17" width="1640" height="923" loading="lazy">
-    <img src="/dossier/pages/page-17.jpg" alt="Dossier de présentation FLORE Festival 2027, page 17 sur 17" width="1640" height="923" loading="lazy">
+    <div class="slide-stage" id="slideStage">
+      <img id="slideImg" src="/dossier/pages/page-01.jpg" alt="Dossier de présentation FLORE Festival 2027, page 1 sur 17" width="1640" height="923">
+      <button class="slide-arrow slide-prev" id="slidePrev" type="button" aria-label="Page précédente" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="slide-arrow slide-next" id="slideNext" type="button" aria-label="Page suivante">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <span class="slide-counter" id="slideCounter">1 / 17</span>
+      <div class="slide-progress-track"><div class="slide-progress" id="slideProgress"></div></div>
     </div>
   </div>
 </div>
+
+<script>
+(function(){
+  var TOTAL = 17;
+  var current = 1;
+  var img = document.getElementById('slideImg');
+  var counter = document.getElementById('slideCounter');
+  var progress = document.getElementById('slideProgress');
+  var prevBtn = document.getElementById('slidePrev');
+  var nextBtn = document.getElementById('slideNext');
+  var stage = document.getElementById('slideStage');
+
+  function srcFor(n){ return '/dossier/pages/page-' + String(n).padStart(2,'0') + '.jpg'; }
+
+  function preload(n){
+    if(n < 1 || n > TOTAL) return;
+    var im = new Image();
+    im.src = srcFor(n);
+  }
+
+  function render(){
+    img.src = srcFor(current);
+    img.alt = 'Dossier de présentation FLORE Festival 2027, page ' + current + ' sur ' + TOTAL;
+    counter.textContent = current + ' / ' + TOTAL;
+    progress.style.width = (current / TOTAL * 100) + '%';
+    prevBtn.disabled = current === 1;
+    nextBtn.disabled = current === TOTAL;
+    preload(current + 1);
+    preload(current - 1);
+  }
+
+  function go(delta){
+    var next = current + delta;
+    if(next < 1 || next > TOTAL) return;
+    current = next;
+    render();
+  }
+
+  prevBtn.addEventListener('click', function(){ go(-1); });
+  nextBtn.addEventListener('click', function(){ go(1); });
+
+  img.addEventListener('click', function(e){
+    var ratio = e.offsetX / img.clientWidth;
+    go(ratio < 0.3 ? -1 : 1);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft') go(-1);
+    if(e.key === 'ArrowRight') go(1);
+  });
+
+  var touchStartX = 0;
+  stage.addEventListener('touchstart', function(e){
+    touchStartX = e.touches[0].clientX;
+  }, {passive:true});
+  stage.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+  }, {passive:true});
+
+  preload(2);
+})();
+</script>
 
 <div id="site-footer"></div>
 <script src="/assets/footer.js?v=20261004a"></script>
