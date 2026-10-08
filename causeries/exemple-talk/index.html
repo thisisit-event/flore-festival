@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[TEST] Titre de la causerie · FLORE Festival</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2D5479">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
+<link rel="stylesheet" href="/assets/flore.css?v=20261004c">
+<style>
+  .hero2{position:relative;padding:170px 0 60px;overflow:hidden;background:linear-gradient(165deg,var(--sky-deep) 0%,var(--dusk) 55%,var(--navy) 100%)}
+  @media(max-width:640px){.hero2{padding:140px 0 40px}}
+  .hero2 .wrap{max-width:760px}
+  .h2-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:rgba(255,255,255,.75);padding:7px 16px;border-radius:100px;margin-bottom:18px}
+  .h2-title{font-size:clamp(2rem,5.5vw,3.4rem);color:#fff;line-height:1.05;margin:0 0 16px;text-wrap:balance}
+  .h2-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .h2-tag{font-size:.78rem;font-weight:700;color:var(--navy);background:rgba(255,255,255,.75);padding:5px 14px;border-radius:100px}
+  .h2-meta{display:flex;flex-wrap:wrap;gap:10px 22px;color:#fff;font-weight:700;font-size:.95rem}
+  .h2-meta span{display:flex;align-items:center;gap:8px}
+  .h2-meta svg{width:18px;height:18px}
+
+  .sec2{background:#fff;padding:56px 0 0}
+  .sec2 .wrap{max-width:760px}
+  .sec2-kicker{display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:14px}
+  .sec2 p{font-size:1.05rem;line-height:1.75;color:var(--ink-soft)}
+
+  .speakers{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+  .speaker{display:flex;align-items:center;gap:14px;background:var(--sky-pale);border-radius:16px;padding:14px 18px}
+  .speaker .ph{flex:none;width:52px;height:52px;border-radius:50%;background:linear-gradient(160deg,var(--sky-soft),var(--sky));display:flex;align-items:center;justify-content:center;color:var(--sky-deep);font-weight:800}
+  .speaker .nom{font-weight:800;color:var(--ink)}
+  .speaker .role{font-size:.85rem;color:var(--ink-soft)}
+
+  .replay-card{background:#121212;border-radius:var(--r-md);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#7a7a7a;margin-top:16px}
+  .replay-card svg{width:44px;height:44px;opacity:.6}
+  .replay-card span{font-size:.82rem;font-weight:700}
+  .replay-card iframe{width:100%;height:100%;border:0;border-radius:var(--r-md)}
+
+  .close-btn{position:fixed;top:114px;right:18px;z-index:150;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);color:var(--navy)}
+  .close-btn svg{width:20px;height:20px}
+  @media(max-width:640px){.close-btn{top:108px;right:14px;width:40px;height:40px}}
+
+  .back-btn{position:fixed;top:114px;left:18px;z-index:150;display:flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 16px;border-radius:100px;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);box-shadow:var(--shadow);color:var(--navy);font-weight:800;font-size:.88rem}
+  .back-btn svg{width:18px;height:18px}
+  @media(max-width:640px){.back-btn{top:108px;left:14px;height:40px;padding:0 14px 0 12px}.back-btn span{display:none}}
+
+  .cta-row{margin:36px 0 60px}
+  .cta{display:inline-flex;align-items:center;gap:8px;background:var(--sun);color:var(--navy);font-weight:800;font-size:.95rem;padding:15px 28px;border-radius:100px}
+
+  .test-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--navy);color:#fff;text-align:center;padding:10px 16px;font-size:.85rem;font-weight:700}
+  .test-banner span{color:var(--sun)}
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="/assets/gate.js?v=3"></script>
+<script src="/assets/nav.js?v=20261004b"></script>
+
+<a href="/programme/" class="back-btn" aria-label="Retour au programme">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  <span>Retour</span>
+</a>
+<a href="/programme/" class="close-btn" aria-label="Fermer et revenir au programme">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+</a>
+
+<header class="hero2">
+  <div class="wrap">
+    <span class="h2-kicker">🎤 Causerie</span>
+    <h1 class="h2-title" id="c-titre">Titre de la causerie</h1>
+    <div class="h2-tags" id="c-tags"></div>
+    <div class="h2-meta">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span id="c-heure-lieu">14h00 · Auditorium</span></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Samedi 17 avril 2027</span>
+    </div>
+  </div>
+</header>
+
+<section class="sec2">
+  <div class="wrap">
+    <div class="sec2-kicker">✦ À propos</div>
+    <p id="c-description">Description courte de la causerie.</p>
+
+    <div class="speakers" id="c-speakers"></div>
+
+    <div class="sec2-kicker" style="margin-top:36px">▶ Revoir</div>
+    <div class="replay-card" id="c-replay">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span>Replay disponible après le festival</span>
+    </div>
+
+    <div class="cta-row">
+      <a href="/programme/" class="cta">Voir tout le programme &rarr;</a>
+    </div>
+  </div>
+</section>
+
+
+<script>
+(function(){
+  var SLUG = 'exemple-talk';
+  fetch('/assets/data/talks.json?v=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(talks){
+      var a = talks.find(function(x){ return x.slug === SLUG; });
+      if(!a) return;
+
+      document.title = a.titre + ' · FLORE Festival';
+      document.getElementById('c-titre').textContent = a.titre;
+      document.getElementById('c-heure-lieu').textContent = a.heure + ' · ' + a.lieu;
+      document.getElementById('c-description').textContent = a.description;
+
+      var tagsEl = document.getElementById('c-tags');
+      (a.tags || []).forEach(function(g){
+        var span = document.createElement('span');
+        span.className = 'h2-tag';
+        span.textContent = g;
+        tagsEl.appendChild(span);
+      });
+
+      var spEl = document.getElementById('c-speakers');
+      (a.intervenants || []).forEach(function(sp){
+        var initiales = sp.nom.split(' ').map(function(w){ return w[0]; }).join('').slice(0,2);
+        var div = document.createElement('div');
+        div.className = 'speaker';
+        div.innerHTML = '<div class="ph">'+initiales+'</div><div><div class="nom">'+sp.nom+'</div><div class="role">'+(sp.role||'')+'</div></div>';
+        spEl.appendChild(div);
+      });
+
+      if(a.replay_url){
+        var m = a.replay_url.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{11})/);
+        if(m){
+          document.getElementById('c-replay').innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/'+m[1]+'" title="Replay" allowfullscreen loading="lazy"></iframe>';
+        }
+      }
+    })
+    .catch(function(err){ console.warn('Impossible de charger talks.json', err); });
+})();
+
+var navEl = document.getElementById('nav');
+var onScroll = function(){ navEl && navEl.classList.toggle('scrolled', window.scrollY > 30); };
+onScroll();
+window.addEventListener('scroll', onScroll, { passive:true });
+</script>
+
+</body>
+</html>

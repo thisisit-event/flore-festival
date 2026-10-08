@@ -147,14 +147,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .dropdown a .lang-flag{margin-right:2px}
 .nav.scrolled .nav-trigger{color:var(--ink)}
 
-/* "Espace Pro" : bouton ghost glassmorphism, distinct du bouton plein Billetterie.
+/* "Programme" : bouton ghost glassmorphism, distinct du bouton plein Billetterie,
+   pour rester visible malgré une nav déjà dense (ex Espace Pro, déplacé en footer).
    Sur le hero (nav flottant sur la photo/dégradé) : verre blanc translucide flouté.
    Une fois la nav scrollée (fond blanc plein) : même logique mais teintée bleu FLORE,
    pour rester lisible sur fond clair. */
-.nav-espace-pro{background:rgba(255,255,255,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.5);border-radius:100px;padding:15px 30px;font-size:1rem;font-weight:700}
-.nav-espace-pro:hover{background:rgba(255,255,255,.28)}
-.nav.scrolled .nav-espace-pro{background:rgba(46,127,184,.1);border-color:rgba(46,127,184,.35)}
-.nav.scrolled .nav-espace-pro:hover{background:rgba(46,127,184,.18)}
+.nav-highlight{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,.5);border-radius:100px;padding:13px 22px;font-size:.95rem;line-height:1.3;font-weight:700;color:var(--white);text-decoration:none;white-space:nowrap;transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease)}
+.nav-highlight:hover{background:rgba(255,255,255,.28)}
+.nav-highlight::after{display:none!important}
+.nav.scrolled .nav-highlight{background:rgba(46,127,184,.1);border-color:rgba(46,127,184,.35);color:var(--ink)}
+.nav.scrolled .nav-highlight:hover{background:rgba(46,127,184,.18)}
+
+/* Variante compacte : même bouton, à côté du billet et du burger sur mobile */
+.nav-highlight-mobile{height:38px;padding:0 16px;font-size:.82rem}
 .nav-trigger svg{width:10px;height:10px;transition:transform .25s var(--ease)}
 .nav-item:hover .nav-trigger svg,.nav-item:focus-within .nav-trigger svg{transform:rotate(180deg)}
 .dropdown{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(8px);min-width:236px;background:#fff;border-radius:18px;box-shadow:0 22px 50px rgba(21,57,91,.2);padding:9px;display:flex;flex-direction:column;gap:1px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s var(--ease),transform .22s var(--ease);z-index:60}

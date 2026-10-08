@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "exemple-talk",
+    "titre": "Titre de la causerie",
+    "heure": "14h00",
+    "lieu": "Auditorium",
+    "tags": ["Bien-être", "Nutrition"],
+    "description": "Description courte de la causerie : le sujet abordé, pourquoi il compte, ce que le public en retire.",
+    "intervenants": [
+      { "nom": "Nom Intervenant", "role": "Diététicienne" }
+    ],
+    "replay_url": ""
+  }
+]

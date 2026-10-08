@@ -47,6 +47,21 @@
     '.lgl-cookie .ck-decline{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:none;color:var(--ink-soft,#5C7993);border:1px solid rgba(21,57,91,.18);cursor:pointer;padding:10px 18px;border-radius:100px;transition:background .2s}',
     '.lgl-cookie .ck-decline:hover{background:rgba(21,57,91,.06)}',
     '.lgl-cookie .ck-more{font-family:\'Telegraf\',system-ui,sans-serif;font-size:.84rem;font-weight:600;color:var(--ink-soft,#5C7993);background:none;border:none;cursor:pointer;text-decoration:underline;width:100%;text-align:center;margin-top:2px}',
+    '.lgl-cookie .ck-custom{margin-top:14px;padding-top:14px;border-top:1px solid rgba(21,57,91,.1);display:flex;flex-direction:column;gap:14px}',
+    '.lgl-cookie .ck-custom[hidden]{display:none}',
+    '.lgl-cookie .ck-toggle{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}',
+    '.lgl-cookie .ck-toggle-text strong{display:block;font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:.86rem;color:var(--ink,#15395B)}',
+    '.lgl-cookie .ck-toggle-text small{display:block;font-size:.78rem;line-height:1.4;color:var(--ink-soft,#5C7993);margin-top:2px}',
+    '.lgl-cookie .ck-switch{position:relative;flex:none;width:38px;height:22px;margin-top:2px}',
+    '.lgl-cookie .ck-switch input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;z-index:1}',
+    '.lgl-cookie .ck-switch .ck-track{position:absolute;inset:0;background:rgba(21,57,91,.18);border-radius:100px;transition:background .2s}',
+    '.lgl-cookie .ck-switch .ck-thumb{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(11,24,50,.3);transition:transform .2s}',
+    '.lgl-cookie .ck-switch input:checked ~ .ck-track{background:var(--sky-deep,#2E7FB8)}',
+    '.lgl-cookie .ck-switch input:checked ~ .ck-thumb{transform:translateX(16px)}',
+    '.lgl-cookie .ck-switch input:disabled{cursor:not-allowed}',
+    '.lgl-cookie .ck-switch input:disabled ~ .ck-track{opacity:.5}',
+    '.lgl-cookie .ck-save{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:.88rem;background:var(--ink,#15395B);color:var(--white,#fff);border:none;cursor:pointer;padding:10px 20px;border-radius:100px;align-self:flex-start;transition:background .2s,transform .2s}',
+    '.lgl-cookie .ck-save:hover{background:var(--navy,#0B1832);transform:translateY(-2px)}',
     'body.lgl-locked{overflow:hidden}',
     '@media(max-width:480px){.lgl-cookie{left:14px;right:14px;bottom:14px;width:auto}.lgl-body{padding:42px 22px 28px}}',
     '@media(prefers-reduced-motion:reduce){.lgl-overlay,.lgl-card,.lgl-cookie{transition:none}.lgl-close:hover{transform:none}}',
@@ -174,14 +189,36 @@
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
   var COOKIE_I18N = {
-    fr: { title: 'On reste léger', text: 'Nous utilisons des cookies pour mesurer l\'audience et améliorer votre expérience sur le site du FLORE Festival.', accept: 'Tout accepter', decline: 'Refuser', more: 'Personnaliser', aria: 'Information cookies' },
-    en: { title: 'Keeping it light', text: 'We use cookies to measure audience and improve your experience on the FLORE Festival website.', accept: 'Accept all', decline: 'Decline', more: 'Customize', aria: 'Cookie information' },
-    it: { title: 'Restiamo leggeri', text: 'Utilizziamo cookie per misurare il pubblico e migliorare la tua esperienza sul sito di FLORE Festival.', accept: 'Accetta tutto', decline: 'Rifiuta', more: 'Personalizza', aria: 'Informazioni sui cookie' },
-    de: { title: 'Wir bleiben leicht', text: 'Wir verwenden Cookies, um die Reichweite zu messen und Ihre Erfahrung auf der Website des FLORE Festival zu verbessern.', accept: 'Alle akzeptieren', decline: 'Ablehnen', more: 'Anpassen', aria: 'Cookie-Informationen' },
-    es: { title: 'Mantenemos la ligereza', text: 'Utilizamos cookies para medir la audiencia y mejorar tu experiencia en el sitio de FLORE Festival.', accept: 'Aceptar todo', decline: 'Rechazar', more: 'Personalizar', aria: 'Información sobre cookies' }
+    fr: { title: 'On reste léger', text: 'Nous utilisons des cookies pour mesurer l\'audience et améliorer votre expérience sur le site du FLORE Festival.', accept: 'Tout accepter', decline: 'Refuser', more: 'Personnaliser', aria: 'Information cookies',
+      analyticsTitle: 'Mesure d\'audience', analyticsDesc: 'Google Analytics, pour comprendre anonymement comment le site est visité.',
+      marketingTitle: 'Publicité &amp; réseaux sociaux', marketingDesc: 'Pixel Meta, pour mesurer l\'efficacité de nos publications Facebook/Instagram.',
+      save: 'Enregistrer mes préférences' },
+    en: { title: 'Keeping it light', text: 'We use cookies to measure audience and improve your experience on the FLORE Festival website.', accept: 'Accept all', decline: 'Decline', more: 'Customize', aria: 'Cookie information',
+      analyticsTitle: 'Audience measurement', analyticsDesc: 'Google Analytics, to anonymously understand how the site is visited.',
+      marketingTitle: 'Advertising &amp; social media', marketingDesc: 'Meta Pixel, to measure the effectiveness of our Facebook/Instagram posts.',
+      save: 'Save my preferences' },
+    it: { title: 'Restiamo leggeri', text: 'Utilizziamo cookie per misurare il pubblico e migliorare la tua esperienza sul sito di FLORE Festival.', accept: 'Accetta tutto', decline: 'Rifiuta', more: 'Personalizza', aria: 'Informazioni sui cookie',
+      analyticsTitle: 'Misurazione del pubblico', analyticsDesc: 'Google Analytics, per capire in modo anonimo come viene visitato il sito.',
+      marketingTitle: 'Pubblicità e social media', marketingDesc: 'Pixel Meta, per misurare l\'efficacia dei nostri post Facebook/Instagram.',
+      save: 'Salva le mie preferenze' },
+    de: { title: 'Wir bleiben leicht', text: 'Wir verwenden Cookies, um die Reichweite zu messen und Ihre Erfahrung auf der Website des FLORE Festival zu verbessern.', accept: 'Alle akzeptieren', decline: 'Ablehnen', more: 'Anpassen', aria: 'Cookie-Informationen',
+      analyticsTitle: 'Reichweitenmessung', analyticsDesc: 'Google Analytics, um anonym zu verstehen, wie die Website besucht wird.',
+      marketingTitle: 'Werbung &amp; soziale Medien', marketingDesc: 'Meta-Pixel, um die Wirksamkeit unserer Facebook-/Instagram-Beiträge zu messen.',
+      save: 'Meine Einstellungen speichern' },
+    es: { title: 'Mantenemos la ligereza', text: 'Utilizamos cookies para medir la audiencia y mejorar tu experiencia en el sitio de FLORE Festival.', accept: 'Aceptar todo', decline: 'Rechazar', more: 'Personalizar', aria: 'Información sobre cookies',
+      analyticsTitle: 'Medición de audiencia', analyticsDesc: 'Google Analytics, para entender de forma anónima cómo se visita el sitio.',
+      marketingTitle: 'Publicidad y redes sociales', marketingDesc: 'Píxel de Meta, para medir la eficacia de nuestras publicaciones en Facebook/Instagram.',
+      save: 'Guardar mis preferencias' }
   };
   var cookieLang = (document.documentElement.lang || 'fr').slice(0, 2).toLowerCase();
   var ct = COOKIE_I18N[cookieLang] || COOKIE_I18N.fr;
+  function toggleRow(id, title, desc) {
+    return '<label class="ck-toggle" for="' + id + '">' +
+      '<span class="ck-toggle-text"><strong>' + title + '</strong><small>' + desc + '</small></span>' +
+      '<span class="ck-switch"><input type="checkbox" id="' + id + '"><span class="ck-track"></span><span class="ck-thumb"></span></span>' +
+    '</label>';
+  }
+
   var COOKIE =
     '<div class="ck-top">' +
       '<span class="ck-emoji" aria-hidden="true">🍪</span>' +
@@ -191,13 +228,20 @@
     '<div class="ck-row">' +
       '<button type="button" class="ck-ok" data-choice="granted">' + ct.accept + '</button>' +
       '<button type="button" class="ck-decline" data-choice="denied">' + ct.decline + '</button>' +
-      '<button type="button" class="ck-more" data-legal="confidentialite">' + ct.more + '</button>' +
+      '<button type="button" class="ck-more" id="ck-more-btn">' + ct.more + '</button>' +
+    '</div>' +
+    '<div class="ck-custom" id="ck-custom" hidden>' +
+      toggleRow('ck-analytics', ct.analyticsTitle, ct.analyticsDesc) +
+      toggleRow('ck-marketing', ct.marketingTitle, ct.marketingDesc) +
+      '<button type="button" class="ck-save" id="ck-save-btn">' + ct.save + '</button>' +
     '</div>';
 
-  /* Nouvelle clé (v2) : l'ancienne "flore_cookie_notice_v1" ne voulait dire
-     que "j'ai vu le bandeau" (aucun tracking n'existait alors), elle ne peut
-     pas être réutilisée comme un vrai consentement à Google Analytics. */
-  var STORE_KEY = 'flore_cookie_consent_v2';
+  /* Clé v3 : consentement désormais détaillé par finalité (analytics / marketing),
+     plutôt qu'un seul choix "granted/denied" qui liait Google Analytics et le
+     Pixel Meta ensemble. L'ancienne clé v2 est migrée automatiquement ci-dessous
+     (un "granted" v2 devient {analytics:true, marketing:true}, pas reperdu). */
+  var STORE_KEY = 'flore_cookie_consent_v3';
+  var LEGACY_STORE_KEY = 'flore_cookie_consent_v2';
   var GA_ID = 'G-PGW3GQF49M';
   var META_PIXEL_ID = '1061377453086854';
   var lastFocus = null;
@@ -234,12 +278,22 @@
     window.fbq('track', 'PageView');
   }
 
+  /* Renvoie {analytics:bool, marketing:bool} si un choix existe déjà, sinon null.
+     Migre silencieusement l'ancienne clé v2 (un seul choix granted/denied) vers
+     le nouveau format détaillé, pour ne pas reperdre le consentement déjà donné. */
   function getConsent() {
-    try { return localStorage.getItem(STORE_KEY); } catch (err) { return null; }
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (raw) return JSON.parse(raw);
+      var legacy = localStorage.getItem(LEGACY_STORE_KEY);
+      if (legacy === 'granted') return { analytics: true, marketing: true };
+      if (legacy === 'denied') return { analytics: false, marketing: false };
+      return null;
+    } catch (err) { return null; }
   }
 
   function setConsent(value) {
-    try { localStorage.setItem(STORE_KEY, value); } catch (err) {}
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(value)); } catch (err) {}
   }
 
   function buildModal(id, labelId, html) {
@@ -292,7 +346,7 @@
     document.addEventListener('click', function (e) {
       var manage = e.target.closest('.lgl-manage-cookies');
       if (manage) {
-        try { localStorage.removeItem(STORE_KEY); } catch (err) {}
+        try { localStorage.removeItem(STORE_KEY); localStorage.removeItem(LEGACY_STORE_KEY); } catch (err) {}
         window.location.reload();
         return;
       }
@@ -318,11 +372,14 @@
       if (open) closeModal(open);
     });
 
-    /* Bandeau cookies : choix mémorisé (granted/denied). Un consentement déjà
-       donné charge Google Analytics immédiatement, sans réafficher le bandeau. */
+    /* Bandeau cookies : choix mémorisé par finalité. Un consentement déjà donné
+       charge immédiatement les scripts correspondants, sans réafficher le bandeau. */
     var consent = getConsent();
-    if (consent === 'granted') { loadGA(); loadMetaPixel(); return; }
-    if (consent === 'denied') return;
+    if (consent) {
+      if (consent.analytics) loadGA();
+      if (consent.marketing) loadMetaPixel();
+      return;
+    }
 
     var banner = document.createElement('aside');
     banner.className = 'lgl-cookie';
@@ -331,15 +388,35 @@
     document.body.appendChild(banner);
     window.setTimeout(function () { banner.classList.add('show'); }, 700);
 
-    function respond(choice) {
-      setConsent(choice);
-      if (choice === 'granted') { loadGA(); loadMetaPixel(); }
+    function dismiss() {
       banner.classList.remove('show');
       window.setTimeout(function () { banner.remove(); }, 550);
     }
 
-    banner.querySelector('.ck-ok').addEventListener('click', function () { respond('granted'); });
-    banner.querySelector('.ck-decline').addEventListener('click', function () { respond('denied'); });
+    function respond(analytics, marketing) {
+      setConsent({ analytics: analytics, marketing: marketing });
+      if (analytics) loadGA();
+      if (marketing) loadMetaPixel();
+      dismiss();
+    }
+
+    banner.querySelector('.ck-ok').addEventListener('click', function () { respond(true, true); });
+    banner.querySelector('.ck-decline').addEventListener('click', function () { respond(false, false); });
+
+    /* "Personnaliser" déplie deux interrupteurs dans le bandeau même (plutôt que
+       de renvoyer vers le pavé juridique complet, qui ne permettait de rien
+       choisir) : décocher par défaut, chacun réglable indépendamment. */
+    var customPanel = banner.querySelector('#ck-custom');
+    banner.querySelector('#ck-more-btn').addEventListener('click', function () {
+      var willShow = customPanel.hidden;
+      customPanel.hidden = !willShow;
+      this.setAttribute('aria-expanded', willShow ? 'true' : 'false');
+    });
+    banner.querySelector('#ck-save-btn').addEventListener('click', function () {
+      var analytics = banner.querySelector('#ck-analytics').checked;
+      var marketing = banner.querySelector('#ck-marketing').checked;
+      respond(analytics, marketing);
+    });
   }
 
   if (document.readyState === 'loading') {

@@ -39,6 +39,9 @@
   var billetIconBtn = onHome
     ? '<button type="button" class="nav-ticket-mobile" data-open-drawer aria-label="Billetterie">' + ticketIco + '</button>'
     : '<a href="' + h('billetterie') + '" class="nav-ticket-mobile" aria-label="Billetterie">' + ticketIco + '</a>';
+  // Picto "programme" flottant à côté du billet, mobile uniquement : même
+  // traitement que billetIconBtn, accès direct à /programme/ sans ouvrir le menu.
+  var progIconBtn = '<a href="/programme/" class="nav-highlight nav-highlight-mobile">Programme</a>';
 
   // Ouverture/fermeture du menu mobile : centralisé ici (plutôt que dupliqué
   // par page) pour ne plus jamais l'oublier sur une nouvelle page.
@@ -148,8 +151,6 @@
           '<div class="dropdown mega">' +
             item(h('festival'), 'https://enjoylife.b-cdn.net/Flore/picto-flore-concept.png', 'Le concept', 'La promesse, en deux mots') +
             item(h('espaces'), 'https://enjoylife.b-cdn.net/Flore/picto-flore-espaces.png', 'Les espaces', 'Les 6 univers du festival') +
-            item(h('lineup'), 'https://enjoylife.b-cdn.net/Flore/picto-floor-scene.png', 'Le line-up', 'La programmation artistique') +
-            item(h('causeries'), 'https://enjoylife.b-cdn.net/Flore/picto-flore-lescauseries.png', 'Les causeries', 'Santé, bien-être &amp; échanges') +
             item(h('public'), 'https://enjoylife.b-cdn.net/Flore/picto-flore-public.png', 'Pour qui ?', 'Une fête pour tout le monde') +
             item('/a-propos/', 'https://enjoylife.b-cdn.net/Flore/picto-flore-equipe.png', 'Qui sommes-nous ?', 'L\'histoire &amp; l\'équipe') +
           '</div></div>' +
@@ -171,16 +172,10 @@
             '<a href="/deutschland/">' + flag('allemagne') + ' Deutsch</a>' +
             '<a href="/espana/">' + flag('espagne') + ' Español</a>' +
           '</div></div>' +
-        '<div class="nav-item"><button class="nav-trigger nav-espace-pro" aria-expanded="false">Espace Pro ' + caret + '</button>' +
-          '<div class="dropdown dd-right">' +
-            '<a href="/partenaires/">' + proIco('picto-flore-engages.png') + 'Devenir partenaire</a>' +
-            '<a href="/exposants/">' + proIco('picto-flore-jardin.png') + 'Réserver un stand</a>' +
-            '<a href="/artistes/">' + proIco('picto-flore-musique.png') + 'Candidature artiste</a>' +
-            '<a href="/club-flore/">' + proIco('picto-flore-bienveillance.png') + 'Rejoindre le club flore</a>' +
-          '</div></div>' +
+        '<a href="/programme/" class="nav-highlight"' + cur('/programme/') + '>Programme</a>' +
         billetBtn +
       '</div>' +
-      '<div class="nav-mobile-actions">' + billetIconBtn +
+      '<div class="nav-mobile-actions">' + billetIconBtn + progIconBtn +
         '<button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button></div>' +
     '</div></div></nav>' +
     '<div class="mobile-menu" id="mobileMenu">' +
@@ -188,8 +183,7 @@
       '<span class="m-label">Le festival</span>' +
       '<a class="m-sub" href="' + h('festival') + '">Le concept</a>' +
       '<a class="m-sub" href="' + h('espaces') + '">Les espaces</a>' +
-      '<a class="m-sub" href="' + h('lineup') + '">Le line-up</a>' +
-      '<a class="m-sub" href="' + h('causeries') + '">Les causeries</a>' +
+      '<a class="m-sub" href="/programme/">Le programme</a>' +
       '<a class="m-sub" href="' + h('public') + '">Pour qui ?</a>' +
       '<a class="m-sub" href="/a-propos/">Qui sommes-nous ?</a>' +
       '<a class="m-label" href="/infos-pratiques/">Préparer sa venue</a>' +

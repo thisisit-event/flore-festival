@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /dossier/
 
 Sitemap: https://flore-festival.fr/sitemap.xml

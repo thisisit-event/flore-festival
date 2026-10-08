@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[TEST] Kristina Moe Hals · FLORE Festival</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2D5479">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css?v=20261004c">
+<style>
+  /* ===== Page artiste : gabarit de test, v2 ===== */
+  .artist-hero{
+    position:relative;padding:170px 0 60px;overflow:hidden;
+    background:linear-gradient(165deg,var(--sky-deep) 0%,var(--dusk) 55%,var(--navy) 100%);
+  }
+  @media(max-width:640px){.artist-hero{padding:140px 0 40px}}
+  .artist-hero .wrap{position:relative;z-index:2}
+  .artist-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  @media(max-width:860px){.artist-grid{grid-template-columns:1fr;gap:32px}}
+
+  .artist-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:rgba(255,255,255,.55);padding:7px 16px;border-radius:100px;margin-bottom:18px}
+  .artist-name{font-size:clamp(2.6rem,7vw,5.2rem);color:#fff;line-height:.98;letter-spacing:-.02em;margin:0 0 18px;text-wrap:balance}
+  .artist-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .artist-tag{font-size:.78rem;font-weight:700;color:var(--navy);background:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.3);padding:5px 14px;border-radius:100px}
+  .artist-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:28px}
+  .artist-meta-item{display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:700;color:#fff}
+  .artist-meta-item svg{width:18px;height:18px;flex:none}
+  .artist-cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .artist-cta{display:inline-flex;align-items:center;gap:8px;background:var(--sun);color:var(--navy);font-weight:800;font-size:.95rem;padding:15px 28px;border-radius:100px;transition:transform .18s var(--ease)}
+  .artist-cta:hover{transform:translateY(-2px)}
+  .artist-share{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:#fff;font-weight:700;font-size:.88rem;padding:13px 20px;border-radius:100px;border:1.5px solid rgba(255,255,255,.35);cursor:pointer}
+  .artist-share svg{width:16px;height:16px}
+
+  .artist-photo-frame{position:relative;border-radius:28px;overflow:hidden;box-shadow:var(--shadow-lg);border:6px solid rgba(255,255,255,.6);aspect-ratio:4/5;background:linear-gradient(160deg,var(--sky-pale),var(--sky-soft));display:flex;align-items:center;justify-content:center}
+  .artist-photo-frame img{width:100%;height:100%;object-fit:cover}
+  .artist-photo-placeholder{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--sky-deep);text-align:center;padding:24px}
+  .artist-photo-placeholder svg{width:56px;height:56px;opacity:.6}
+  .artist-photo-placeholder span{font-size:.82rem;font-weight:700;color:var(--sky-deep)}
+
+  /* Bio */
+  .artist-bio{background:#fff;padding:72px 0 0}
+  .artist-bio .wrap{max-width:760px}
+  .artist-bio-kicker{display:flex;align-items:center;gap:10px;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--sky-deep);margin-bottom:14px}
+  .artist-bio h2{font-size:clamp(1.6rem,3vw,2.1rem);color:var(--ink);margin-bottom:18px}
+  .artist-bio p{font-size:1.05rem;line-height:1.75;color:var(--ink-soft);margin-bottom:16px}
+  .artist-bio p:last-child{margin-bottom:0}
+  .bio-more summary{cursor:pointer;font-family:'Telegraf',sans-serif;font-weight:700;color:var(--sky-deep);font-size:.92rem;list-style:none;display:inline-flex;align-items:center;gap:7px;padding:4px 0;margin:2px 0 4px}
+  .bio-more summary::-webkit-details-marker{display:none}
+  .bio-more summary::before{content:"+";font-size:1.2rem;line-height:1;width:14px;text-align:center}
+  .bio-more[open] summary::before{content:"−"}
+  .bio-more[open] summary{margin-bottom:12px}
+
+  /* Coup de coeur pull-quote */
+  .artist-quote{background:var(--sky-pale);border-radius:var(--r-lg);padding:32px 36px;margin:36px 0;display:flex;gap:18px;align-items:flex-start}
+  .artist-quote svg{width:30px;height:30px;flex:none;color:var(--sky-deep);opacity:.5}
+  .artist-quote p{font-size:1.12rem;font-style:italic;color:var(--ink);margin:0;line-height:1.6}
+  .artist-quote cite{display:block;margin-top:10px;font-size:.85rem;font-style:normal;font-weight:700;color:var(--sky-deep)}
+
+  /* Ecouter / Spotify */
+  .artist-listen{background:#fff;padding:56px 0 64px}
+  .artist-listen .wrap{max-width:760px}
+  .spotify-card{background:#121212;border-radius:var(--r-md);padding:24px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow)}
+  .spotify-card .sp-art{width:76px;height:76px;border-radius:10px;background:linear-gradient(160deg,#2a2a2a,#1a1a1a);display:flex;align-items:center;justify-content:center;flex:none}
+  .spotify-card .sp-art svg{width:32px;height:32px;color:#1DB954}
+  .spotify-card .sp-body{flex:1;min-width:0}
+  .spotify-card .sp-label{font-size:.72rem;font-weight:700;color:#1DB954;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .spotify-card .sp-title{color:#fff;font-weight:700;font-size:1rem;margin-bottom:2px}
+  .spotify-card .sp-sub{color:#b3b3b3;font-size:.85rem}
+  .spotify-card .sp-play{width:46px;height:46px;border-radius:50%;background:#1DB954;display:flex;align-items:center;justify-content:center;flex:none}
+  .spotify-card .sp-play svg{width:18px;height:18px;color:#121212;margin-left:2px}
+  .artist-listen .note{font-size:.82rem;color:var(--ink-soft);margin-top:10px}
+
+  .artist-links{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+  .artist-link{display:inline-flex;align-items:center;gap:8px;background:var(--sky-pale);color:var(--sky-deep);font-weight:700;font-size:.88rem;padding:10px 18px;border-radius:100px;border:1.5px solid var(--line)}
+
+  /* Autres artistes */
+  .artist-more{background:var(--sky-pale);padding:56px 0}
+  @media(max-width:900px){.artist-more{padding-bottom:100px}}
+  .artist-more .wrap{max-width:760px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .artist-more h3{font-size:1.15rem;color:var(--ink);margin-bottom:4px}
+  .artist-more p{color:var(--ink-soft);font-size:.92rem}
+  .artist-more a{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-weight:800;font-size:.9rem;padding:13px 22px;border-radius:100px;flex:none}
+
+  .test-banner{position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--navy);color:#fff;text-align:center;padding:10px 16px;font-size:.85rem;font-weight:700}
+  .test-banner span{color:var(--sun)}
+
+  /* Fermeture façon fenetre */
+  .artist-close{position:fixed;top:114px;right:18px;z-index:150;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);color:var(--navy);transition:transform .18s var(--ease)}
+  .artist-close:hover{transform:scale(1.08)}
+  .artist-close svg{width:20px;height:20px}
+  @media(max-width:640px){.artist-close{top:108px;right:14px;width:40px;height:40px}}
+
+  .back-btn{position:fixed;top:114px;left:18px;z-index:150;display:flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 16px;border-radius:100px;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);box-shadow:var(--shadow);color:var(--navy);font-weight:800;font-size:.88rem;transition:transform .18s var(--ease)}
+  .back-btn:hover{transform:translateX(-2px)}
+  .back-btn svg{width:18px;height:18px}
+  @media(max-width:640px){.back-btn{top:108px;left:14px;height:40px;padding:0 14px 0 12px}.back-btn span{display:none}}
+
+  /* Video */
+  .video-card{position:relative;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/9;background:#121212}
+  .video-card iframe{width:100%;height:100%;border:0;display:block}
+  .video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#7a7a7a}
+  .video-placeholder svg{width:44px;height:44px;opacity:.6}
+  .video-placeholder span{font-size:.82rem;font-weight:700}
+  #video-cards .video-card + .video-card-label{margin-top:28px}
+  #video-cards .video-card-label{font-size:.88rem;font-weight:700;color:var(--ink-soft);margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="/assets/gate.js?v=3"></script>
+<script src="/assets/nav.js?v=20261004b"></script>
+
+<a href="/programme/" class="back-btn" aria-label="Retour au programme">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  <span>Retour</span>
+</a>
+<a href="/programme/" class="artist-close" aria-label="Fermer et revenir au programme">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+</a>
+
+<header class="artist-hero" id="intro">
+  <div class="wrap">
+    <div class="artist-grid">
+      <div data-aos="fade-up">
+        <span class="artist-kicker">🌼 La Scène FLORE</span>
+        <h1 class="artist-name" id="art-nom">Nom de<br>l'artiste</h1>
+        <div class="artist-tags" id="art-tags"></div>
+        <div class="artist-meta">
+          <span class="artist-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <span id="art-heure-scene">16h30 · La Scène</span>
+          </span>
+          <span class="artist-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Samedi 17 avril 2027
+          </span>
+        </div>
+        <div class="artist-cta-row">
+          <a href="/#billetterie" class="artist-cta">Réserver ma place &rarr;</a>
+          <button class="artist-share" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+            Partager
+          </button>
+        </div>
+      </div>
+      <div class="artist-photo-frame" id="art-photo-frame" data-aos="fade-up" data-aos-delay="100">
+        <div class="artist-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Photo de l'artiste</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="artist-bio">
+  <div class="wrap">
+    <div class="artist-bio-kicker">✦ Portrait</div>
+    <h2 id="art-titre-bio">[Nom de l'artiste] à FLORE</h2>
+    <div id="art-bio"></div>
+
+    <div class="artist-quote" data-aos="fade-up">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 0 .6 0 .9-.1-.4 2-2 3.6-4 4v2c3.9-.5 7-3.9 7-8v-2c0-2.2-1.8-4-4-4zm10 0c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 0 .6 0 .9-.1-.4 2-2 3.6-4 4v2c3.9-.5 7-3.9 7-8v-2c0-2.2-1.8-4-4-4z"/></svg>
+      <p>
+        <span id="art-quote">Une phrase qui explique pourquoi l'équipe FLORE a eu un coup de cœur pour cet artiste, ce qui le rend spécial à leurs yeux.</span>
+        <cite>L'équipe FLORE</cite>
+      </p>
+    </div>
+
+    <div class="artist-bio-kicker" style="margin-top:36px">🎧 Écouter</div>
+    <div id="spotify-embed-wrap">
+      <a href="#" id="sp-card-link" class="spotify-card" style="text-decoration:none;cursor:default">
+        <div class="sp-art"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.6 14.4c-.2.3-.6.4-.9.2-2.5-1.5-5.6-1.9-9.3-1-.4.1-.7-.1-.8-.5-.1-.4.1-.7.5-.8 4-.9 7.5-.5 10.3 1.2.3.2.4.6.2.9zm1.2-2.7c-.2.4-.7.5-1.1.3-2.9-1.8-7.3-2.3-10.7-1.2-.4.1-.9-.1-1-.5-.1-.4.1-.9.5-1 3.9-1.2 8.7-.6 12 1.4.4.2.5.7.3 1zm.1-2.8C14.4 8.8 8.7 8.6 5.4 9.6c-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 3.8-1.2 10.1-.9 14 1.4.5.3.7.9.4 1.4-.3.5-.9.7-1.4.4z"/></svg></div>
+        <div class="sp-body">
+          <div class="sp-label">Spotify</div>
+          <div class="sp-title" id="sp-titre">Titre du dernier morceau</div>
+          <div class="sp-sub" id="sp-nom">Nom de l'artiste</div>
+        </div>
+        <div class="sp-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+      </a>
+      <p class="note" id="sp-note">Widget réel une fois le lien Spotify de l'artiste renseigné, aucune clé technique requise.</p>
+    </div>
+
+    <div class="artist-bio-kicker" style="margin-top:36px">▶ En vidéo</div>
+    <div id="video-cards"></div>
+  </div>
+</section>
+
+<section class="artist-listen">
+  <div class="wrap">
+    <div class="artist-links" id="art-links"></div>
+  </div>
+</section>
+
+<div class="artist-more">
+  <div class="wrap">
+    <div>
+      <h3>D'autres artistes à découvrir</h3>
+      <p>La programmation complète de FLORE se dévoile petit à petit.</p>
+    </div>
+    <a href="/artistes/">Voir tous les artistes &rarr;</a>
+  </div>
+</div>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:700,once:true,offset:40});</script>
+
+<script>
+(function(){
+  var SLUG = 'kristina-moe-hals'; // à changer sur chaque nouvelle fiche artiste
+  fetch('/assets/data/artistes.json?v=' + Date.now())
+    .then(function(r){ return r.json(); })
+    .then(function(artistes){
+      var a = artistes.find(function(x){ return x.slug === SLUG; });
+      if(!a) return;
+
+      document.title = a.nom + ' · FLORE Festival';
+      document.getElementById('art-nom').innerHTML = a.nom.replace(' ', '<br>');
+      document.getElementById('art-heure-scene').textContent = a.heure + ' · ' + a.scene;
+      document.getElementById('art-titre-bio').textContent = a.nom + ' à FLORE';
+
+      if(a.photo_url){
+        var photoFrame = document.getElementById('art-photo-frame');
+        photoFrame.innerHTML = '<img src="' + a.photo_url + '" alt="Photo de ' + a.nom + '" loading="lazy">';
+      }
+
+      var tagsEl = document.getElementById('art-tags');
+      (a.genres || []).forEach(function(g){
+        var span = document.createElement('span');
+        span.className = 'artist-tag';
+        span.textContent = g;
+        tagsEl.appendChild(span);
+      });
+
+      var bioEl = document.getElementById('art-bio');
+      var bioParas = a.bio || [];
+      if(bioParas.length){
+        var p0 = document.createElement('p');
+        p0.textContent = bioParas[0];
+        bioEl.appendChild(p0);
+        if(bioParas.length > 1){
+          var bioMore = document.createElement('details');
+          bioMore.className = 'bio-more';
+          var bioSummary = document.createElement('summary');
+          bioSummary.textContent = 'Voir plus';
+          bioMore.appendChild(bioSummary);
+          bioParas.slice(1).forEach(function(paragraphe){
+            var p = document.createElement('p');
+            p.textContent = paragraphe;
+            bioMore.appendChild(p);
+          });
+          bioMore.addEventListener('toggle', function(){
+            bioSummary.textContent = bioMore.open ? 'Voir moins' : 'Voir plus';
+          });
+          bioEl.appendChild(bioMore);
+        }
+      }
+
+      if(a.coup_de_coeur){
+        document.getElementById('art-quote').textContent = a.coup_de_coeur;
+      }
+
+      if(a.spotify_url){
+        var spMatch = a.spotify_url.match(/open\.spotify\.com\/(artist|track|album|playlist)\/([A-Za-z0-9]+)/);
+        if(spMatch){
+          var spHeight = spMatch[1] === 'track' ? 152 : 352;
+          document.getElementById('spotify-embed-wrap').innerHTML =
+            '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/' + spMatch[1] + '/' + spMatch[2] + '?utm_source=generator" width="100%" height="' + spHeight + '" frameBorder="0" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Spotify ' + a.nom + '"></iframe>';
+        }
+      }
+
+      // Vidéos : la vidéo principale + les videos_extra YouTube sont intégrées en lecteur direct,
+      // les liens non intégrables (Instagram, etc.) restent de simples liens.
+      function youtubeId(url){
+        var m = (url || '').match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+        return m ? m[1] : null;
+      }
+      var videoCardsEl = document.getElementById('video-cards');
+      var extraLinks = [];
+      function addVideoCard(url, label, nom){
+        var id = youtubeId(url);
+        if(!id) { extraLinks.push({ url: url, label: label }); return; }
+        if(label){
+          var lab = document.createElement('div');
+          lab.className = 'video-card-label';
+          lab.textContent = label;
+          videoCardsEl.appendChild(lab);
+        }
+        var card = document.createElement('div');
+        card.className = 'video-card';
+        card.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '" title="' + (label || 'Vidéo') + ' ' + nom + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+        videoCardsEl.appendChild(card);
+      }
+      if(a.youtube_url){
+        addVideoCard(a.youtube_url, null, a.nom);
+      } else {
+        videoCardsEl.innerHTML = '<div class="video-card"><div class="video-placeholder">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>' +
+          '<span>Vidéo bientôt disponible</span></div></div>';
+      }
+      (a.videos_extra || []).forEach(function(v){ addVideoCard(v.url, v.label, a.nom); });
+
+      var linksEl = document.getElementById('art-links');
+      function addLink(url, label){
+        if(!url) return;
+        var link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.className = 'artist-link';
+        link.textContent = label;
+        linksEl.appendChild(link);
+      }
+      addLink(a.website_url, '🌐 Site officiel');
+      addLink(a.instagram_url, '📷 Suivre sur Instagram');
+      addLink(a.tiktok_url, '🎬 Suivre sur TikTok');
+      addLink(a.deezer_url, '🎵 Écouter sur Deezer');
+      addLink(a.linktree_url, '🔗 Tous ses liens');
+      extraLinks.forEach(function(v){ addLink(v.url, '🎬 ' + v.label); });
+    })
+    .catch(function(err){ console.warn('Impossible de charger artistes.json', err); });
+})();
+
+var navEl = document.getElementById('nav');
+var onScroll = function(){ navEl && navEl.classList.toggle('scrolled', window.scrollY > 30); };
+onScroll();
+window.addEventListener('scroll', onScroll, { passive:true });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "exemple-exposant",
+    "nom": "Nom de la marque",
+    "zone": "Hall A",
+    "lieu": "Boutique · Hall A",
+    "categories": ["Sans gluten", "Snacking"],
+    "description": "Description courte de l'exposant : ce qu'il propose, pourquoi il a sa place à FLORE.",
+    "site_url": "",
+    "instagram_url": "",
+    "plan_url": "/plan-interactif/hall-b.html"
+  }
+]

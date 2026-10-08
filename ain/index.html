@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[TEST] FLORE · Le nouveau rendez-vous pop-rock de l'Ain</title>
+<meta name="description" content="Le 17 avril 2027 à Ainterexpo, Bourg-en-Bresse : une journée complète de concerts, food court et ambiance, entre Lyon et Genève.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2D5479">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/flore.css?v=20261004c">
+<style>
+  /* Nav minimale : pas de mega-menu, pas de lien "Sans gluten & lactose" visible
+     ici à dessein. Cette page sert de destination QR code pour l'affichage local
+     (posters neutres "pop-rock"), le thème SG/SL est révélé plus bas, pas en entrée. */
+  .lite-nav{position:fixed;top:0;left:0;right:0;z-index:1100;padding:18px 0}
+  .lite-nav .wrap{display:flex;align-items:center;justify-content:space-between}
+  .lite-nav .logo{display:flex;align-items:center;gap:9px}
+  .lite-nav .logo-img{height:34px;width:auto;display:block;filter:drop-shadow(0 2px 7px rgba(11,24,50,.22))}
+
+  .hero-dl-item{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:10px 16px;backdrop-filter:blur(6px);text-decoration:none;color:inherit}
+  .hero-datelieu{display:flex;gap:14px;flex-wrap:wrap;margin:20px 0 26px}
+  .hero-dl-ic{width:34px;height:34px;object-fit:contain;flex-shrink:0}
+  .hero-dl-label{display:block;font-size:.72rem;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:1px}
+  .hero-dl-item strong{display:block;color:#fff;font-size:1.02rem;line-height:1.2;font-family:'Telegraf',sans-serif}
+  .hero-dl-sub{display:block;font-size:.76rem;line-height:1.2;color:rgba(255,255,255,.78);margin-top:1px}
+  .hero-dl-sub-strong{color:var(--sun);font-size:1.06rem;line-height:1.2;font-weight:800;font-family:'Telegraf',sans-serif}
+  @media(max-width:640px){.hero-datelieu{flex-direction:column}}
+
+  .pitch{padding:90px 0;text-align:center}
+  .pitch .wrap{max-width:720px}
+  .pitch h2{font-size:clamp(1.7rem,3.6vw,2.3rem);color:var(--ink);margin-bottom:18px}
+  .pitch p{font-size:1.08rem;color:var(--ink-soft);line-height:1.65}
+
+  .reveal{background:var(--sky-pale);padding:64px 0;text-align:center}
+  .reveal .wrap{max-width:640px}
+  .reveal .r-ic{font-size:2.2rem;margin-bottom:14px}
+  .reveal h3{font-size:1.4rem;color:var(--ink);margin-bottom:12px}
+  .reveal p{font-size:1rem;color:var(--ink-soft);line-height:1.6}
+
+  .ain-final{padding:80px 0 100px;text-align:center}
+  .ain-final h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--ink);margin-bottom:14px}
+  .ain-final p{color:var(--ink-soft);font-size:1.05rem;margin-bottom:28px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="daisy" viewBox="0 0 100 100">
+      <g transform="translate(50 50)" fill="currentColor">
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-23" rx="8.6" ry="18" transform="rotate(315)"/>
+      </g>
+      <circle cx="50" cy="50" r="13.5" fill="#DAEF52"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="lite-nav">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="FLORE Festival, accueil">
+      <img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE">
+    </a>
+    <a href="/#billetterie" class="btn btn-sun">Réserver ma place</a>
+  </div>
+</header>
+
+<header class="hero" id="accueil">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text" data-aos="fade-up">
+        <span class="hero-tag"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Nouveau à Bourg-en-Bresse</span>
+        <h1><img src="/assets/logo-flore-white.png" alt="FLORE Festival 2027"></h1>
+        <p class="hero-tagline">Le nouveau rendez-vous pop-rock de l'Ain.</p>
+        <p class="lede">Concerts, food court et ambiance survoltée, le temps d'une journée complète à Ainterexpo.<br>Une vraie fête de printemps, à deux pas de chez toi.</p>
+
+        <div class="hero-datelieu" data-aos="fade-up">
+          <div class="hero-dl-item">
+            <img class="hero-dl-ic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-programmation.png" alt="">
+            <div>
+              <span class="hero-dl-label">Date</span>
+              <strong>Samedi 17 avril 2027</strong>
+              <span class="hero-dl-sub hero-dl-sub-strong">11h &rarr; 22h</span>
+            </div>
+          </div>
+          <div class="hero-dl-item">
+            <img class="hero-dl-ic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lieu.png" alt="">
+            <div>
+              <span class="hero-dl-label">Lieu</span>
+              <strong>Ainterexpo, Bourg-en-Bresse</strong>
+              <span class="hero-dl-sub">Entre Lyon et Genève</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="/#billetterie" class="btn btn-sun">Réserver ma place
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/programme/" class="btn btn-ghost-w">Voir le programme</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
+        <div class="florette-wrap">
+          <img class="florette-svg" src="https://enjoylife.b-cdn.net/Flore/illustration-flore-festival.png" alt="Les univers du festival FLORE : scène, food court, boutique et causeries">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="pitch">
+  <div class="wrap">
+    <h2>C'est quoi, FLORE ?</h2>
+    <p>Une scène, un vrai food court, de la bonne musique et une ambiance de printemps, le temps d'une journée complète à Ainterexpo. Pas de prétention, juste une fête qu'on a envie de faire ensemble, entre Lyon et Genève.</p>
+  </div>
+</section>
+
+<section class="reveal" data-aos="fade-up">
+  <div class="wrap">
+    <div class="r-ic">🌼</div>
+    <h3>Et au fait...</h3>
+    <p>FLORE est aussi le premier festival 100 % sans gluten et sans lactose de France. Mais promis, tu n'as besoin de savoir que ça pour passer une super journée.</p>
+  </div>
+</section>
+
+<section class="ain-final">
+  <div class="wrap">
+    <h2>On se retrouve le 17 avril ?</h2>
+    <p>Prévente en cours, dans la limite des places disponibles.</p>
+    <a href="/#billetterie" class="btn btn-sun">Réserver ma place
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="/assets/footer.js?v=20261004a"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration:700,easing:'ease-out-cubic',once:true,offset:60,disable:function(){return window.matchMedia('(prefers-reduced-motion: reduce)').matches;}});</script>
+<script src="/legal.js?v=20261004b" defer></script>
+
+</body>
+</html>
