@@ -17,20 +17,27 @@
   .lite-nav .wrap{display:flex;align-items:center;justify-content:center}
   .lite-nav .logo-img{height:30px;width:auto;display:block;filter:drop-shadow(0 2px 7px rgba(11,24,50,.22))}
 
-  .doc-hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    padding:120px 24px;text-align:center;
+  .doc-hero{position:relative;display:flex;align-items:center;justify-content:center;
+    padding:130px 24px 48px;text-align:center;
     background:linear-gradient(168deg,#56A2D2 0%,#3F93C4 46%,#29688F 100%);overflow:hidden}
-  .doc-card{position:relative;z-index:2;max-width:620px}
+  .doc-card{position:relative;z-index:2;max-width:680px}
   .doc-kicker{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.18);
     border:1.5px solid rgba(255,255,255,.4);padding:8px 18px;border-radius:100px;
-    font-family:'Telegraf',sans-serif;font-weight:600;font-size:.82rem;color:#fff;margin-bottom:22px}
+    font-family:'Telegraf',sans-serif;font-weight:600;font-size:.82rem;color:#fff;margin-bottom:20px}
   .doc-kicker .daisy{width:16px;height:16px;flex-shrink:0}
-  .doc-card h1{font-size:clamp(2.2rem,5vw,3.2rem);color:#fff;margin-bottom:10px;line-height:1.05}
-  .doc-sub{font-family:'Telegraf',sans-serif;font-weight:700;color:var(--sun);font-size:1.1rem;margin-bottom:18px}
-  .doc-card p{color:rgba(255,255,255,.92);font-size:1.02rem;line-height:1.6;max-width:42em;
-    margin:0 auto 32px}
-  .doc-meta{color:rgba(255,255,255,.72);font-size:.86rem;margin-top:18px}
+  .doc-card h1{font-size:clamp(2rem,4.4vw,2.8rem);color:#fff;margin-bottom:8px;line-height:1.05}
+  .doc-sub{font-family:'Telegraf',sans-serif;font-weight:700;color:var(--sun);font-size:1.05rem;margin-bottom:14px}
+  .doc-card p{color:rgba(255,255,255,.92);font-size:1rem;line-height:1.6;max-width:42em;
+    margin:0 auto 24px}
   .doc-dl{display:inline-flex;align-items:center;gap:10px}
+  .doc-dl svg{width:16px;height:16px}
+
+  .doc-viewer-wrap{background:#fff;padding:0 24px 64px}
+  .doc-viewer{max-width:900px;margin:-32px auto 0;position:relative;z-index:3;
+    border-radius:var(--r-lg,24px);overflow:hidden;box-shadow:0 30px 70px rgba(11,24,50,.28);
+    background:#e7eef3}
+  .doc-viewer iframe{display:block;width:100%;height:82vh;border:0}
+  .doc-meta{color:var(--ink-soft);font-size:.86rem;text-align:center;margin-top:16px}
 </style>
 </head>
 <body>
@@ -67,13 +74,19 @@
     <h1>FLORE Festival</h1>
     <p class="doc-sub">Partenaires · Exposants · Médias</p>
     <p>Le premier festival musical &amp; gourmand 100&nbsp;% sans gluten et sans lactose. Samedi 17 avril 2027, Ainterexpo, Bourg-en-Bresse.</p>
-    <a class="btn btn-sun doc-dl" href="https://enjoylife.b-cdn.net/Flore/Partenaires/FLORE_2027_Presentation.pdf" target="_blank" rel="noopener">
-      Télécharger le dossier
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <a class="btn btn-sun doc-dl" href="https://enjoylife.b-cdn.net/Flore/Partenaires/FLORE_2027_Presentation.pdf" download>
+      Télécharger le PDF
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </a>
-    <p class="doc-meta">PDF · 3,5 Mo</p>
   </div>
 </section>
+
+<div class="doc-viewer-wrap">
+  <div class="doc-viewer">
+    <iframe src="https://docs.google.com/viewer?url=https%3A%2F%2Fenjoylife.b-cdn.net%2FFlore%2FPartenaires%2FFLORE_2027_Presentation.pdf&embedded=true" title="Dossier de présentation FLORE Festival 2027" loading="lazy"></iframe>
+  </div>
+  <p class="doc-meta">PDF · 3,5 Mo · consultable directement ci-dessus</p>
+</div>
 
 <div id="site-footer"></div>
 <script src="/assets/footer.js?v=20261004a"></script>
