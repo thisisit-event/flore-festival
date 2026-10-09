@@ -168,6 +168,13 @@
             '<a href="/deutschland/">' + flag('allemagne') + ' Deutsch</a>' +
             '<a href="/espana/">' + flag('espagne') + ' Español</a>' +
           '</div></div>' +
+        '<div class="nav-item"><button class="nav-trigger nav-espace-pro" aria-expanded="false">Espace Pro ' + caret + '</button>' +
+          '<div class="dropdown dd-right">' +
+            '<a href="/partenaires/">' + proIco('picto-flore-engages.png') + 'Devenir partenaire</a>' +
+            '<a href="/exposants/">' + proIco('picto-flore-jardin.png') + 'Réserver un stand</a>' +
+            '<a href="/artistes/">' + proIco('picto-flore-musique.png') + 'Candidature artiste</a>' +
+            '<a href="/club-flore/">' + proIco('picto-flore-bienveillance.png') + 'Rejoindre le club flore</a>' +
+          '</div></div>' +
         billetBtn +
       '</div>' +
       '<div class="nav-mobile-actions">' + billetIconBtn +

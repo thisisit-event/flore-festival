@@ -53,12 +53,12 @@
             '</ul>' +
           '</div>' +
           '<div>' +
-            '<h5>Espace Pro</h5>' +
+            '<h5>Nous rejoindre</h5>' +
             '<ul>' +
-              '<li><a href="/partenaires/">Devenir partenaire</a></li>' +
-              '<li><a href="/exposants/">Réserver un stand</a></li>' +
-              '<li><a href="/artistes/">Candidature artiste</a></li>' +
-              '<li><a href="/club-flore/">Rejoindre le club FLORE</a></li>' +
+              '<li><a href="/artistes/">Artistes</a></li>' +
+              '<li><a href="/exposants/">Exposants</a></li>' +
+              '<li><a href="/partenaires/">Partenaires</a></li>' +
+              '<li><a href="' + h('billetterie') + '">Billetterie</a></li>' +
             '</ul>' +
           '</div>' +
         '</div>' +
