@@ -36,6 +36,12 @@
   .doc-links{display:flex;align-items:center;justify-content:center;gap:10px}
   .doc-links a{display:inline-flex;align-items:center;gap:8px}
   .doc-links svg{width:16px;height:16px;flex-shrink:0}
+  @media(max-width:560px){
+    .doc-cta-row{flex-direction:column;align-items:stretch;gap:10px}
+    .doc-cta-row .doc-dl{width:100%}
+    .doc-links{flex-direction:column;width:100%;gap:10px}
+    .doc-links a{width:100%;white-space:nowrap}
+  }
 
   html{scroll-behavior:smooth}
   .doc-viewer-wrap{background:#fff;padding:0 24px 64px;scroll-margin-top:24px}
@@ -73,6 +79,17 @@
     border-radius:100px;font-variant-numeric:tabular-nums}
   .slide-progress-track{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(21,57,91,.12)}
   .slide-progress{height:100%;width:5.88%;background:var(--sun);transition:width .25s ease}
+  .slide-fs{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;
+    background:rgba(21,57,91,.55);color:#fff;border:0;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:background .15s}
+  .slide-fs:hover{background:rgba(21,57,91,.82)}
+  .slide-fs svg{width:16px;height:16px}
+  #slideStage.is-fs{position:fixed;inset:0;z-index:2000;aspect-ratio:auto;border-radius:0;background:#0c1622}
+  #slideStage.is-fs img{object-fit:contain;background:#0c1622}
+  #slideStage:fullscreen{width:100%;height:100%;background:#0c1622}
+  #slideStage:fullscreen img{object-fit:contain;background:#0c1622}
+  #slideStage:-webkit-full-screen{width:100%;height:100%;background:#0c1622}
+  #slideStage:-webkit-full-screen img{object-fit:contain;background:#0c1622}
   @media(max-width:560px){.slide-arrow{width:34px;height:34px}.slide-arrow svg{width:16px;height:16px}}
 </style>
 </head>
@@ -152,6 +169,9 @@
       </button>
       <span class="slide-counter" id="slideCounter">1 / 17</span>
       <div class="slide-progress-track"><div class="slide-progress" id="slideProgress"></div></div>
+      <button class="slide-fs" id="slideFs" type="button" aria-label="Plein écran">
+        <svg id="slideFsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      </button>
     </div>
   </div>
 </div>
@@ -214,6 +234,52 @@
     var dx = e.changedTouches[0].clientX - touchStartX;
     if(Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
   }, {passive:true});
+
+  var fsBtn = document.getElementById('slideFs');
+  var fsIcon = document.getElementById('slideFsIcon');
+  var EXPAND = 'M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3';
+  var COMPRESS = 'M9 3v3a2 2 0 0 1-2 2H4M15 3v3a2 2 0 0 0 2 2h3M21 15h-3a2 2 0 0 0-2 2v3M3 15h3a2 2 0 0 1 2 2v3';
+
+  function setFsIcon(active){
+    fsIcon.querySelector('path').setAttribute('d', active ? COMPRESS : EXPAND);
+    fsBtn.setAttribute('aria-label', active ? 'Quitter le plein écran' : 'Plein écran');
+  }
+
+  function isPseudoFs(){ return stage.classList.contains('is-fs'); }
+
+  function enterFs(){
+    if(stage.requestFullscreen){
+      stage.requestFullscreen().catch(function(){
+        stage.classList.add('is-fs');
+        document.body.style.overflow = 'hidden';
+        setFsIcon(true);
+      });
+    } else {
+      stage.classList.add('is-fs');
+      document.body.style.overflow = 'hidden';
+      setFsIcon(true);
+    }
+  }
+
+  function exitFs(){
+    if(document.fullscreenElement) document.exitFullscreen();
+    stage.classList.remove('is-fs');
+    document.body.style.overflow = '';
+    setFsIcon(false);
+  }
+
+  fsBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    (document.fullscreenElement || isPseudoFs()) ? exitFs() : enterFs();
+  });
+
+  document.addEventListener('fullscreenchange', function(){
+    setFsIcon(!!document.fullscreenElement);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && isPseudoFs()) exitFs();
+  });
 
   preload(2);
 })();
