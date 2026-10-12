@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/assets/flore.css?v=20261004c">
 <style>
   .lite-nav{position:fixed;top:0;left:0;right:0;z-index:1100;padding:22px 0}
+  body.doc-fs-active .lite-nav{display:none}
   .lite-nav .wrap{display:flex;align-items:center;justify-content:center}
   .lite-nav .logo-img{height:30px;width:auto;display:block;filter:drop-shadow(0 2px 7px rgba(11,24,50,.22))}
 
@@ -29,6 +30,7 @@
   .doc-sub{font-family:'Telegraf',sans-serif;font-weight:700;color:var(--sun);font-size:1.05rem;margin-bottom:14px}
   .doc-card p{color:rgba(255,255,255,.92);font-size:1rem;line-height:1.6;max-width:42em;
     margin:0 auto 24px}
+  .doc-strap{display:inline-block;color:#fff;font-weight:700;margin-bottom:8px}
   .doc-dl{display:inline-flex;align-items:center;gap:10px}
   .doc-dl svg{width:17px;height:17px;flex-shrink:0}
 
@@ -131,7 +133,7 @@
     <span class="doc-kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Dossier de présentation 2027</span>
     <h1>FLORE Festival</h1>
     <p class="doc-sub">Partenaires · Exposants · Médias</p>
-    <p>Le premier festival musical &amp; gourmand 100&nbsp;% sans gluten et sans lactose.<br>Samedi 17 avril 2027, Ainterexpo, Bourg-en-Bresse.</p>
+    <p><strong class="doc-strap">Le premier festival musical &amp; gourmand 100&nbsp;%<br>sans gluten et sans lactose.</strong><br>Samedi 17 avril 2027, Ainterexpo, Bourg-en-Bresse.</p>
     <div class="doc-cta-row">
       <a class="btn btn-sun doc-dl" href="#pdf-viewer">
         Voir le dossier de présentation
@@ -248,6 +250,10 @@
   function setFsIcon(active){
     fsIcon.querySelector('path').setAttribute('d', active ? CLOSE : EXPAND);
     fsBtn.setAttribute('aria-label', active ? 'Quitter le plein écran' : 'Plein écran');
+    // La nav fixe (z-index 1100) passe au-dessus du lecteur en repli CSS
+    // (iOS Safari notamment) car .doc-viewer crée son propre contexte
+    // d'empilement : la croix devient alors cliquée dans le vide.
+    document.body.classList.toggle('doc-fs-active', active);
   }
 
   function isPseudoFs(){ return stage.classList.contains('is-fs'); }
