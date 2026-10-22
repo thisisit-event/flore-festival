@@ -219,7 +219,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="/assets/flore.css?v=20261004c">
+<link rel="stylesheet" href="/assets/flore.css?v=20261022c">
 </head>
 <body>
 
@@ -300,7 +300,7 @@
           </button>
           <a href="#festival" class="btn btn-ghost-w">Découvrir le festival</a>
         </div>
-        <div class="hero-urgency" data-aos="fade-up" data-aos-delay="80">⚠️ Plus que 8 préventes disponibles</div>
+        <div class="hero-urgency" data-aos="fade-up" data-aos-delay="80">⚠️ Préventes épuisées</div>
       </div>
       <style>
         .hero-datelieu{display:flex;gap:14px;flex-wrap:wrap;margin:20px 0 26px}
@@ -315,10 +315,11 @@
         .hero-dl-sub-strong{color:var(--sun);font-size:1.06rem;line-height:1.2;font-weight:800;font-family:'Telegraf',sans-serif}
         .hero-dl-sub-strong--sm{font-size:.88rem}
         @media(max-width:640px){.hero-datelieu{flex-direction:column}.hero-dl-item{padding:11px 16px}}
-        .hero-urgency{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:7px 15px;border-radius:100px;background:rgba(218,239,82,.14);border:1px solid rgba(218,239,82,.5);color:var(--sun);font-size:.86rem;font-weight:700;animation:heroUrgencyPulse 2.6s ease-in-out infinite}
-        @keyframes heroUrgencyPulse{0%,100%{box-shadow:0 0 0 0 rgba(218,239,82,.35)}50%{box-shadow:0 0 0 6px rgba(218,239,82,0)}}
+        .hero-urgency{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:11px 22px;border-radius:100px;background:var(--ink);color:var(--sun);font-family:'Telegraf',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:.01em;box-shadow:0 10px 26px rgba(11,24,50,.35);animation:heroUrgencyPulse 2.6s ease-in-out infinite}
+        @keyframes heroUrgencyPulse{0%,100%{box-shadow:0 10px 26px rgba(11,24,50,.35),0 0 0 0 rgba(218,239,82,.4)}50%{box-shadow:0 10px 26px rgba(11,24,50,.35),0 0 0 9px rgba(218,239,82,0)}}
         @media(prefers-reduced-motion:reduce){.hero-urgency{animation:none}}
-        @media(min-width:900px){.hero-urgency{margin-top:22px}}
+        @media(min-width:900px){.hero-urgency{margin-top:24px}}
+        @media(max-width:480px){.hero-urgency{font-size:.94rem;padding:10px 18px}}
       </style>
 
       <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
@@ -844,52 +845,36 @@
   <button type="button" class="ticket-drawer-close" id="ticketDrawerClose" aria-label="Fermer la billetterie">✕</button>
   <div class="ticket-drawer-inner">
     <div class="weez-widget-block" id="billetterie-widget">
-      <div class="weez-skeleton" id="weez-skeleton" aria-hidden="true">
-        <div class="weez-skeleton-bar" style="width:45%"></div>
-        <div class="weez-skeleton-card"></div>
-        <div class="weez-skeleton-card"></div>
-        <div class="weez-skeleton-bar" style="width:30%"></div>
+      <div class="waitlist-panel">
+        <span class="waitlist-kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>FLORE 2027 · 1ère vague</span>
+        <h3 class="waitlist-title">Préventes complètes</h3>
+        <div class="waitlist-date">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+          <span class="wd-label">Billetterie grand public</span>
+          <strong class="wd-value">Samedi 5 décembre à 10h</strong>
+        </div>
+        <div class="waitlist-countdown" id="waitlistCountdown" aria-live="off">
+          <div class="wc-unit"><span class="wc-num" id="wcDays">00</span><span class="wc-label">jours</span></div>
+          <div class="wc-unit"><span class="wc-num" id="wcHours">00</span><span class="wc-label">heures</span></div>
+          <div class="wc-unit"><span class="wc-num" id="wcMin">00</span><span class="wc-label">min</span></div>
+          <div class="wc-unit"><span class="wc-num" id="wcSec">00</span><span class="wc-label">sec</span></div>
+        </div>
+        <p class="waitlist-desc">Inscris-toi pour être prévenu·e en priorité, avant tout le monde.</p>
+        <form id="waitlistForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="3ce2493f-5419-4d1e-9674-55885199d394">
+          <input type="hidden" name="subject" value="🎟️ FLORE Billetterie · Liste d'attente ouverture 5 décembre">
+          <input type="hidden" name="from_name" value="Liste d'attente FLORE">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="email" name="email" placeholder="ton@email.com" required aria-label="Adresse email">
+          <button type="submit">Me prévenir le 5 décembre
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </form>
+        <div id="waitlistSuccess" class="waitlist-success" hidden><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Inscrit·e ! Rendez-vous le 5 décembre à 10h.</div>
       </div>
-      <a title="Logiciel billetterie en ligne"
-         href="https://widget.weezevent.com/ticket/E2235763/?code=15099&amp;locale=fr-FR&amp;width_auto=1&amp;color_primary=0032FA"
-         class="weezevent-widget-integration"
-         data-src="https://widget.weezevent.com/ticket/E2235763/?code=15099&amp;locale=fr-FR&amp;width_auto=1&amp;color_primary=0032FA"
-         data-id="2235763"
-         data-resize="1"
-         data-width_auto="1"
-         data-noscroll="0"
-         data-use-container="yes"
-         data-type="neo"
-         target="_blank">Billetterie Weezevent</a>
     </div>
   </div>
 </div>
-<script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>
-<script>
-  (function(){
-    var skeleton = document.getElementById('weez-skeleton');
-    var container = document.getElementById('billetterie-widget');
-    if (!skeleton || !container) return;
-    var hidden = false;
-    function hideSkeleton(){
-      if (hidden) return;
-      hidden = true;
-      skeleton.classList.add('is-hidden');
-      setTimeout(function(){ skeleton.remove(); }, 300);
-    }
-    // Le postMessage "resize" du widget correspond a son propre ecran de
-    // chargement interne (memes dimensions que le vrai contenu), pas au vrai
-    // contenu (billets) : ne pas s'y fier. "WEEZ_GAT_QUESTION" (leur sync
-    // Analytics interne) se declenche en revanche a quelques dizaines de ms
-    // du vrai contenu affiche, verifie empiriquement sur plusieurs essais :
-    // c'est un signal fiable de fin de rendu, contrairement a resize.
-    window.addEventListener('message', function(e){
-      if (typeof e.origin !== 'string' || e.origin.indexOf('weezevent.com') === -1) return;
-      if (e.data && e.data.message === 'WEEZ_GAT_QUESTION') hideSkeleton();
-    });
-    setTimeout(hideSkeleton, 10000);
-  })();
-</script>
 <script>
   (function(){
     var drawer = document.getElementById('ticketDrawer');
@@ -899,8 +884,6 @@
       drawer.classList.add('open');
       backdrop.classList.add('open');
       document.body.style.overflow = 'hidden';
-      if (window.weez && typeof window.weez.resize === 'function') window.weez.resize();
-      window.dispatchEvent(new Event('resize'));
     }
     function closeDrawer(){
       drawer.classList.remove('open');
@@ -1099,7 +1082,7 @@
       <span class="faq-cat">Billetterie</span>
       <details class="faq-item">
         <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Comment réserver mon billet ?</summary>
-        <div class="faq-a">Directement en bas de page, via notre billetterie en ligne Weezevent. Le Pass Journée est disponible en tarif Prévente tant que les 1000 premières places durent, puis passe au tarif plein.</div>
+        <div class="faq-a">Les préventes sont complètes. La billetterie grand public ouvre le samedi 5 décembre à 10h : inscris-toi à la liste d'attente en bas de page pour être prévenu·e en priorité.</div>
       </details>
       <details class="faq-item">
         <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Quels sont les tarifs pour les enfants ?</summary>
@@ -1288,6 +1271,66 @@
         errEl.className = 'signup-error';
         errEl.textContent = "Désolée, l'envoi a échoué. Réessaye dans un instant ou écris à contact@flore-festival.fr.";
         signupForm.insertAdjacentElement('afterend', errEl);
+        btn.disabled = false;
+        btn.textContent = original;
+      }
+    });
+  }
+
+  // Compte à rebours jusqu'à l'ouverture de la billetterie grand public
+  (function(){
+    var target = new Date('2026-12-05T10:00:00+01:00').getTime();
+    var daysEl = document.getElementById('wcDays');
+    var hoursEl = document.getElementById('wcHours');
+    var minEl = document.getElementById('wcMin');
+    var secEl = document.getElementById('wcSec');
+    if (!daysEl) return;
+    var pad = function(n){ return String(Math.max(n, 0)).padStart(2, '0'); };
+    function tick(){
+      var diff = target - Date.now();
+      if (diff <= 0) {
+        daysEl.textContent = hoursEl.textContent = minEl.textContent = secEl.textContent = '00';
+        clearInterval(timer);
+        return;
+      }
+      var s = Math.floor(diff / 1000);
+      daysEl.textContent = pad(Math.floor(s / 86400));
+      hoursEl.textContent = pad(Math.floor((s % 86400) / 3600));
+      minEl.textContent = pad(Math.floor((s % 3600) / 60));
+      secEl.textContent = pad(s % 60);
+    }
+    tick();
+    var timer = setInterval(tick, 1000);
+  })();
+
+  // Liste d'attente billetterie (préventes complètes) via Web3Forms
+  const waitlistForm = document.getElementById('waitlistForm');
+  const waitlistSuccess = document.getElementById('waitlistSuccess');
+  if (waitlistForm) {
+    waitlistForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = waitlistForm.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span> Envoi…';
+      const oldErr = waitlistForm.parentElement.querySelector('.signup-error');
+      if (oldErr) oldErr.remove();
+      try {
+        const data = new FormData(waitlistForm);
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const json = await res.json();
+        if (json.success) {
+          waitlistForm.hidden = true;
+          waitlistSuccess.hidden = false;
+          if (window.floreBurst) { const r = waitlistSuccess.getBoundingClientRect(); window.floreBurst(r.left + r.width / 2, r.top + r.height / 2, 16); }
+        } else {
+          throw new Error(json.message || 'Erreur');
+        }
+      } catch (err) {
+        const errEl = document.createElement('p');
+        errEl.className = 'signup-error';
+        errEl.textContent = "Désolée, l'envoi a échoué. Réessaye dans un instant ou écris à contact@flore-festival.fr.";
+        waitlistForm.insertAdjacentElement('afterend', errEl);
         btn.disabled = false;
         btn.textContent = original;
       }

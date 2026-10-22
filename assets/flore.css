@@ -316,6 +316,43 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .weez-widget-block{background:#fff;border-radius:var(--r-lg);padding:20px;margin-top:28px;max-width:640px;margin-left:auto;margin-right:auto;box-shadow:0 20px 50px rgba(11,24,50,.25);position:relative;min-height:120px}
 @media(max-width:640px){.weez-widget-block{padding:14px;border-radius:var(--r-md,18px)}}
 
+#ticketDrawer{background:linear-gradient(165deg,#15395B 0%,#2E7FB8 52%,#56A2D2 100%)}
+.waitlist-panel{text-align:center;padding:32px 22px;border-radius:var(--r-lg,24px);
+  background:#fff;box-shadow:0 24px 60px rgba(11,24,50,.35)}
+.waitlist-kicker{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--sun);
+  font-family:'Telegraf',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:7px 16px;border-radius:100px;margin-bottom:16px}
+.waitlist-kicker .daisy{width:13px;height:13px;flex-shrink:0}
+.waitlist-title{font-size:clamp(1.7rem,4vw,2.2rem);font-weight:800;color:var(--ink);line-height:1.15;margin-bottom:16px}
+.waitlist-desc{color:var(--ink-soft);font-size:.94rem;line-height:1.55;max-width:30em;margin:0 auto 22px;text-wrap:balance}
+.waitlist-date{display:inline-grid;grid-template-columns:auto auto;column-gap:12px;row-gap:0;align-items:center;
+  background:var(--sky-pale);border:1px solid var(--sky-soft);
+  padding:12px 20px;border-radius:16px;margin-bottom:18px;text-align:left}
+.waitlist-date svg{grid-row:1/3;width:22px;height:22px;color:var(--sky-deep);flex-shrink:0}
+.wd-label{grid-column:2;color:var(--ink-soft);font-family:'Telegraf',sans-serif;font-size:.76rem;line-height:1.3}
+.wd-value{grid-column:2;color:var(--sky-deep);font-weight:800;font-size:.98rem;font-family:'Telegraf',sans-serif;line-height:1.3}
+@media(max-width:480px){.waitlist-date{padding:10px 16px}}
+.waitlist-countdown{display:flex;gap:8px;justify-content:center;margin-bottom:22px}
+.wc-unit{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--ink);
+  color:var(--sun);border-radius:12px;padding:10px 4px;min-width:58px;flex:1 1 0;max-width:72px}
+.wc-num{font-family:'Telegraf',sans-serif;font-weight:800;font-size:1.3rem;line-height:1;font-variant-numeric:tabular-nums}
+.wc-label{font-family:'Telegraf',sans-serif;font-size:.62rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
+@media(max-width:480px){.wc-unit{padding:8px 2px;min-width:0}.wc-num{font-size:1.1rem}}
+.waitlist-panel form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:420px;margin:0 auto}
+.waitlist-panel input[type=text],.waitlist-panel input[type=email]{flex:1 1 170px;padding:13px 16px;
+  border:1.5px solid var(--line);border-radius:100px;font-family:'Telegraf',sans-serif;font-size:.92rem;
+  color:var(--ink);background:#fff;transition:border-color .2s}
+.waitlist-panel input[type=text]:focus,.waitlist-panel input[type=email]:focus{outline:none;border-color:var(--sky)}
+.waitlist-panel button{flex:1 1 100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:'Telegraf',sans-serif;font-weight:700;font-size:.94rem;padding:14px 20px;border-radius:100px;
+  background:var(--sun);color:var(--ink);border:none;cursor:pointer;box-shadow:0 10px 26px rgba(146,168,36,.35);
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease)}
+.waitlist-panel button:hover{transform:translateY(-2px);background:var(--sun-deep);box-shadow:0 14px 32px rgba(146,168,36,.45)}
+.waitlist-panel button:disabled{opacity:.6;cursor:default;transform:none;box-shadow:none}
+.waitlist-success{display:none;align-items:center;justify-content:center;gap:8px;font-family:'Telegraf',sans-serif;font-weight:700;color:var(--sky-deep);font-size:.96rem;max-width:460px;margin:0 auto}
+.waitlist-success:not([hidden]){display:flex}
+.waitlist-success .daisy{width:16px;height:16px;color:var(--sun);flex-shrink:0}
+
 /* Skeleton affiché pendant le chargement du widget Weezevent (1-2s, iframe tierce) */
 .weez-skeleton{position:absolute;inset:0;display:flex;flex-direction:column;gap:14px;padding:20px;background:#fff;border-radius:inherit;opacity:1;transition:opacity .3s var(--ease);pointer-events:none}
 .weez-skeleton.is-hidden{opacity:0}
@@ -606,6 +643,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .ticket-drawer-backdrop{position:fixed;inset:0;background:rgba(11,24,50,.55);z-index:1200;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
 .ticket-drawer-backdrop.open{opacity:1;pointer-events:auto}
 .ticket-drawer{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(560px,100vw);background:var(--white);z-index:1201;box-shadow:-28px 0 70px rgba(11,24,50,.32);transform:translateX(100%);transition:transform .4s var(--ease);overflow-y:auto;padding:76px 28px 40px}
+#ticketDrawer .ticket-drawer-inner{min-height:calc(100vh - 116px);min-height:calc(100dvh - 116px);display:flex;align-items:center}
+#ticketDrawer .weez-widget-block{width:100%}
 .ticket-drawer.open{transform:translateX(0)}
 .ticket-drawer-close{position:fixed;top:18px;right:18px;z-index:1202;width:42px;height:42px;border-radius:50%;background:var(--white);border:none;box-shadow:0 8px 20px rgba(11,24,50,.22);font-size:1.15rem;color:var(--ink);cursor:pointer;transition:transform .2s var(--ease)}
 .ticket-drawer-close:hover{transform:scale(1.08)}
