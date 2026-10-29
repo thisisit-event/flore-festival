@@ -4,13 +4,13 @@
   "url_path": "/italia/",
   "og_locale": "it_IT",
   "meta": {
-    "title": "FLORE Festival 2027 · Il festival 100% senza glutine e senza lattosio, vicino all'Italia",
-    "description": "FLORE è il primo festival 100% senza glutine e senza lattosio di Francia, a poche ore dal Nord Italia. Sabato 17 aprile 2027, ad Ainterexpo, Bourg-en-Bresse. Concerti, food court e benessere, dove celiaci, intolleranti al lattosio e tutti gli altri mangiano allo stesso tavolo.",
+    "title": "FLORE Festival 2027 · Il festival senza glutine e senza lattosio, vicino all'Italia",
+    "description": "FLORE è il primo festival senza glutine e senza lattosio di Francia, a poche ore dal Nord Italia. Sabato 17 aprile 2027, ad Ainterexpo, Bourg-en-Bresse. Concerti, food court e benessere, dove celiaci, intolleranti al lattosio e tutti gli altri mangiano allo stesso tavolo.",
     "keywords": "festival senza glutine Italia, festival senza glutine Francia, festival senza lattosio, festival celiaci, evento per celiaci, festival senza glutine vicino Torino, festival senza glutine vicino Milano",
-    "og_title": "FLORE Festival 2027 · 100% senza glutine e senza lattosio",
-    "og_description": "Il primo festival 100% senza glutine e senza lattosio di Francia, a poche ore dal Nord Italia. Sabato 17 aprile 2027, Ainterexpo, Bourg-en-Bresse.",
-    "og_image_alt": "FLORE Festival - il primo festival 100% senza glutine e senza lattosio",
-    "jsonld_description": "Il primo festival 100% senza glutine e senza lattosio di Francia, sabato 17 aprile 2027 ad Ainterexpo, Bourg-en-Bresse."
+    "og_title": "FLORE Festival 2027 · senza glutine e senza lattosio",
+    "og_description": "Il primo festival senza glutine e senza lattosio di Francia, a poche ore dal Nord Italia. Sabato 17 aprile 2027, Ainterexpo, Bourg-en-Bresse.",
+    "og_image_alt": "FLORE Festival - il primo festival senza glutine e senza lattosio",
+    "jsonld_description": "Il primo festival senza glutine e senza lattosio di Francia, sabato 17 aprile 2027 ad Ainterexpo, Bourg-en-Bresse."
   },
   "nav": {
     "festival": "Il festival",
@@ -24,7 +24,7 @@
     "other_languages_label": "Altre lingue"
   },
   "hero": {
-    "tag": "Il primo festival 100% senza glutine e senza lattosio di Francia",
+    "tag": "Il primo festival senza glutine e senza lattosio di Francia",
     "sr_title": "FLORE Festival, il primo festival senza glutine e senza lattosio",
     "tagline": "Balla senza glutine, gusta senza lattosio.",
     "lede": "Un festival dove tutti finalmente mangiano allo stesso tavolo. Concerti, food court e benessere, tutto rigorosamente senza glutine e senza lattosio, senza compromessi.",
@@ -37,7 +37,7 @@
     "kicker": "Un festival inclusivo",
     "title_pre": "Un festival dove tutti possono finalmente ",
     "title_hl": "sbocciare",
-    "intro": "FLORE è il primo festival 100% senza glutine e senza lattosio. Concerti, DJ set, food court, bar e boutique: tutto ciò che amiamo di un festival, senza le solite rinunce. Una giornata intera per ballare, gustare e divertirsi, senza doverci pensare due volte.",
+    "intro": "FLORE è il primo festival senza glutine e senza lattosio. Concerti, DJ set, food court, bar e boutique: tutto ciò che amiamo di un festival, senza le solite rinunce. Una giornata intera per ballare, gustare e divertirsi, senza doverci pensare due volte.",
     "cards": [
       {
         "icon": "🌾",
@@ -61,7 +61,7 @@
   },
   "manifesto": {
     "tag": "La promessa",
-    "quote": "FLORE non è un festival per chi segue una dieta. È un festival, punto e basta, che si dà il caso sia 100% senza glutine e senza lattosio, così nessuno deve più scegliere tra divertirsi e mangiare in tutta tranquillità."
+    "quote": "FLORE non è un festival per chi segue una dieta. È un festival, punto e basta, che si dà il caso sia senza glutine e senza lattosio, così nessuno deve più scegliere tra divertirsi e mangiare in tutta tranquillità."
   },
   "geo": {
     "kicker": "Più vicino di quanto pensi",
@@ -99,7 +99,7 @@
       },
       {
         "q": "È un festival solo per intolleranti o celiaci?",
-        "a": "Assolutamente no. FLORE è un festival per tutti, che si dà il caso sia 100% senza glutine e senza lattosio. Line-up, cibo, atmosfera: un festival come un altro, semplicemente senza lo stress alimentare per chi ne ha bisogno."
+        "a": "Assolutamente no. FLORE è un festival per tutti, che si dà il caso sia senza glutine e senza lattosio. Line-up, cibo, atmosfera: un festival come un altro, semplicemente senza lo stress alimentare per chi ne ha bisogno."
       },
       {
         "q": "Quando e dove si svolgerà?",
@@ -149,7 +149,7 @@
     "text": "Marchio, distributore o partner estero interessato a uno stand o una partnership a FLORE? Scrivici direttamente, ti risponderemo."
   },
   "footer": {
-    "about": "Il primo festival 100% senza glutine e senza lattosio. Una produzione MG Entertainment, perché la festa dev'essere per tutti.",
+    "about": "Il primo festival senza glutine e senza lattosio. Una produzione MG Entertainment, perché la festa dev'essere per tutti.",
     "contact_heading": "Contatti",
     "lang_switch": "Site en français",
     "production_label": "Una produzione MG Entertainment.",

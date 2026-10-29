@@ -623,8 +623,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 
 /* Pass Journée / Pass Soirée : deux grandes cartes cliquables, point d'entrée principal de la billetterie */
 .pass-cards{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px}
-.pass-card{flex:1 1 260px;background:#fff;border-radius:24px;padding:28px 26px;box-shadow:0 10px 30px rgba(0,30,80,.08);transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.pass-card{flex:1 1 260px;background:#fff;border-radius:24px;padding:28px 26px;box-shadow:0 10px 30px rgba(0,30,80,.08);transition:transform .28s var(--ease),box-shadow .28s var(--ease);position:relative;overflow:hidden}
 .pass-card:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(0,30,80,.14)}
+.pass-card.is-complet{opacity:.92}
+.pass-complet-ribbon{position:absolute;top:16px;right:-32px;transform:rotate(40deg);background:var(--ink);color:var(--sun);
+  font-family:'Telegraf',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;
+  padding:5px 38px;box-shadow:0 4px 10px rgba(11,24,50,.25)}
+.tag-soldout{background:rgba(255,255,255,.92);color:var(--ink);border-color:transparent;font-weight:700}
 .pass-ic{font-size:2.2rem;line-height:1;display:block;margin-bottom:12px}
 .pass-card-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
 .pass-card-head h3{font-family:'Telegraf',sans-serif;font-size:1.24rem;color:#1e293b;margin:0}

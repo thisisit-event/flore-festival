@@ -4,13 +4,13 @@
   "url_path": "/deutschland/",
   "og_locale": "de_DE",
   "meta": {
-    "title": "FLORE Festival 2027 · Das 100% gluten- und laktosefreie Festival, nah an Süddeutschland",
-    "description": "FLORE ist Frankreichs erstes 100% glutenfreies und laktosefreies Festival, nur wenige Autostunden von Baden-Württemberg entfernt. Samstag, 17. April 2027, in Ainterexpo, Bourg-en-Bresse. Konzerte, Food Court und Wohlbefinden für alle an einem Tisch.",
+    "title": "FLORE Festival 2027 · Das gluten- und laktosefreie Festival, nah an Süddeutschland",
+    "description": "FLORE ist Frankreichs erstes glutenfreies und laktosefreies Festival, nur wenige Autostunden von Baden-Württemberg entfernt. Samstag, 17. April 2027, in Ainterexpo, Bourg-en-Bresse. Konzerte, Food Court und Wohlbefinden für alle an einem Tisch.",
     "keywords": "glutenfreies Festival Frankreich, laktosefreies Festival, Festival für Zöliakie, glutenfreies Musikfestival, Festival Freiburg Umgebung, Festival Basel Umgebung",
-    "og_title": "FLORE Festival 2027 · 100% glutenfrei und laktosefrei",
-    "og_description": "Frankreichs erstes 100% glutenfreies und laktosefreies Festival, nah an Süddeutschland. Samstag, 17. April 2027, Ainterexpo, Bourg-en-Bresse.",
-    "og_image_alt": "FLORE Festival - das erste 100% glutenfreie und laktosefreie Festival",
-    "jsonld_description": "Frankreichs erstes 100% glutenfreies und laktosefreies Festival, Samstag, 17. April 2027, in Ainterexpo, Bourg-en-Bresse."
+    "og_title": "FLORE Festival 2027 · glutenfrei und laktosefrei",
+    "og_description": "Frankreichs erstes glutenfreies und laktosefreies Festival, nah an Süddeutschland. Samstag, 17. April 2027, Ainterexpo, Bourg-en-Bresse.",
+    "og_image_alt": "FLORE Festival - das erste glutenfreie und laktosefreie Festival",
+    "jsonld_description": "Frankreichs erstes glutenfreies und laktosefreies Festival, Samstag, 17. April 2027, in Ainterexpo, Bourg-en-Bresse."
   },
   "nav": {
     "festival": "Das Festival",
@@ -24,10 +24,10 @@
     "other_languages_label": "Andere Sprachen"
   },
   "hero": {
-    "tag": "Frankreichs erstes 100% glutenfreies & laktosefreies Festival",
+    "tag": "Frankreichs erstes glutenfreies & laktosefreies Festival",
     "sr_title": "FLORE Festival, das erste glutenfreie und laktosefreie Festival",
     "tagline": "Tanzen ohne Gluten, genießen ohne Laktose.",
-    "lede": "Ein Festival, auf dem endlich alle am selben Tisch essen. Konzerte, Food Court und Wohlbefinden, alles 100% glutenfrei und laktosefrei, ohne Kompromisse.",
+    "lede": "Ein Festival, auf dem endlich alle am selben Tisch essen. Konzerte, Food Court und Wohlbefinden, Food Court und Bars 100% glutenfrei und laktosefrei, ohne Kompromisse.",
     "countdown_intro": "Samstag, 17. April 2027 · Ainterexpo, Bourg-en-Bresse",
     "cta_primary": "Ticket sichern",
     "cta_secondary": "Festival entdecken",
@@ -37,7 +37,7 @@
     "kicker": "Ein Festival für alle",
     "title_pre": "Ein Festival, auf dem endlich jeder ",
     "title_hl": "aufblühen",
-    "intro": "FLORE ist das erste 100% glutenfreie und laktosefreie Festival. Konzerte, DJ-Sets, Food Court, Bar und Shop: alles, was wir an einem Festival lieben, ohne die üblichen Einschränkungen. Ein ganzer Tag zum Tanzen, Genießen und Feiern, ohne zweimal nachzudenken.",
+    "intro": "FLORE ist das erste glutenfreie und laktosefreie Festival. Konzerte, DJ-Sets, Food Court, Bar und Shop: alles, was wir an einem Festival lieben, ohne die üblichen Einschränkungen. Ein ganzer Tag zum Tanzen, Genießen und Feiern, ohne zweimal nachzudenken.",
     "cards": [
       {
         "icon": "🌾",
@@ -61,7 +61,7 @@
   },
   "manifesto": {
     "tag": "Das Versprechen",
-    "quote": "FLORE ist kein Festival für Menschen auf Diät. Es ist ein Festival, Punkt, das zufällig 100% glutenfrei und laktosefrei ist, damit niemand mehr zwischen Feiern und sorgenfreiem Essen wählen muss."
+    "quote": "FLORE ist kein Festival für Menschen auf Diät. Es ist ein Festival, Punkt, das zufällig glutenfrei und laktosefrei ist, damit niemand mehr zwischen Feiern und sorgenfreiem Essen wählen muss."
   },
   "geo": {
     "kicker": "Näher als gedacht",
@@ -99,7 +99,7 @@
       },
       {
         "q": "Ist das Festival nur für Allergiker oder Zöliakiebetroffene?",
-        "a": "Überhaupt nicht. FLORE ist ein Festival für alle, das zufällig 100% glutenfrei und laktosefrei ist. Line-up, Essen, Atmosphäre: ein Festival wie jedes andere, nur ohne den üblichen Ernährungsstress für diejenigen, die ihn brauchen."
+        "a": "Überhaupt nicht. FLORE ist ein Festival für alle, das zufällig glutenfrei und laktosefrei ist. Line-up, Essen, Atmosphäre: ein Festival wie jedes andere, nur ohne den üblichen Ernährungsstress für diejenigen, die ihn brauchen."
       },
       {
         "q": "Wann und wo findet es statt?",
@@ -149,7 +149,7 @@
     "text": "Marke, Vertrieb oder Eventpartner aus dem Ausland, interessiert an einem Stand oder einer Partnerschaft bei FLORE? Schreiben Sie uns direkt, wir melden uns bei Ihnen."
   },
   "footer": {
-    "about": "Das erste 100% glutenfreie und laktosefreie Festival. Eine Produktion von MG Entertainment, denn die Party sollte für alle offen sein.",
+    "about": "Das erste glutenfreie und laktosefreie Festival. Eine Produktion von MG Entertainment, denn die Party sollte für alle offen sein.",
     "contact_heading": "Kontakt",
     "lang_switch": "Site en français",
     "production_label": "Eine Produktion von MG Entertainment.",
