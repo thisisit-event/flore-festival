@@ -231,7 +231,7 @@
           <form id="expo-question-form" class="expo-question-form">
             <textarea id="expo-question-input" class="expo-q-input" placeholder="Écrivez votre question ici…" maxlength="1000" required rows="3"></textarea>
             <div class="expo-action-form">
-              <input type="email" id="expo-question-contact" placeholder="Votre e-mail (si pas de réponse immédiate)" autocomplete="email">
+              <input type="email" id="expo-question-contact" placeholder="Votre e-mail" required autocomplete="email">
               <button type="submit" id="expo-question-submit">Envoyer</button>
             </div>
           </form>
@@ -385,10 +385,7 @@
           showMsg(questionMsg, data.reponse, "ok");
           questionForm.reset();
         } else {
-          var suffixe = contact
-            ? " On revient vers vous dès que possible."
-            : " Laissez un e-mail la prochaine fois pour qu'on puisse vous répondre directement.";
-          showMsg(questionMsg, data.reponse + suffixe, "escalade");
+          showMsg(questionMsg, data.reponse, "escalade");
           questionForm.reset();
         }
       } catch (err) {

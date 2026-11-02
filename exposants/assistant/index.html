@@ -88,10 +88,10 @@
       <input type="text" id="asst-nom" autocomplete="given-name">
     </div>
     <div style="flex:1 1 200px;min-width:0">
-      <label for="asst-contact">E-mail (optionnel)</label>
-      <input type="email" id="asst-contact" autocomplete="email">
+      <label for="asst-contact">E-mail</label>
+      <input type="email" id="asst-contact" autocomplete="email" required>
     </div>
-    <span class="asst-contact-note">Utile seulement si on ne trouve pas la réponse tout de suite, pour vous recontacter.</span>
+    <span class="asst-contact-note">Pour vous répondre si la réponse n'est pas immédiate.</span>
   </div>
 
   <div class="asst-chat" id="asst-chat"></div>
@@ -131,15 +131,20 @@
     var question = input.value.trim();
     if (!question) return;
 
+    var contact = contactField.value.trim();
+    if (!contact) {
+      contactField.focus();
+      contactField.reportValidity();
+      return;
+    }
+
     addMsg(question, "user");
     input.value = "";
     submitBtn.disabled = true;
     var attente = addMsg("…", "bot pending");
 
-    var contact = contactField.value.trim();
-    var payload = { question: question };
+    var payload = { question: question, contact_email: contact };
     if (nomField.value.trim()) payload.contact_nom = nomField.value.trim();
-    if (contact) payload.contact_email = contact;
 
     try {
       var res = await fetch(API_URL, {
