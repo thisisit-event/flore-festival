@@ -61,6 +61,37 @@
     .expo-hero-cal{height:640px}
   }
 
+  /* ===== Deux options claires : dossier par mail / question ===== */
+  .expo-actions{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);padding:22px;height:auto;overflow:visible;display:flex;flex-direction:column;gap:16px}
+  .expo-action{border-radius:18px;padding:20px 20px 22px;border:1.5px solid transparent;position:relative}
+  .expo-action.is-dossier{background:var(--sky-pale);border-color:var(--sky-soft)}
+  .expo-action.is-question{background:var(--sun-pale);border-color:var(--sun-deep);padding:26px 24px 28px;box-shadow:0 10px 26px rgba(146,168,36,.18)}
+  .expo-step{display:inline-block;font-family:'Telegraf',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sky-deep);background:rgba(255,255,255,.7);border-radius:100px;padding:4px 11px;margin-bottom:10px}
+  .expo-step-q{color:var(--sun-deep);background:#fff}
+  .expo-action-ic{width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(21,57,91,.12);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:12px}
+  .expo-action-ic-lg{width:48px;height:48px;font-size:1.35rem}
+  .expo-action h3{font-size:1.14rem;color:var(--ink);margin:0 0 6px;font-weight:800}
+  .expo-action.is-question h3{font-size:1.3rem}
+  .expo-action p{color:var(--ink);opacity:.75;font-size:.88rem;line-height:1.5;margin:0 0 16px}
+  .expo-action.is-question p{opacity:.85}
+  .expo-action.is-question p strong{opacity:1;color:var(--ink)}
+  .expo-action-form{display:flex;gap:9px;flex-wrap:wrap}
+  .expo-action-form input{flex:1 1 160px;min-width:0;border:1.5px solid rgba(21,57,91,.22);border-radius:10px;padding:12px 14px;font:inherit;font-size:.92rem;color:var(--ink);background:#fff}
+  .expo-question-form{display:flex;flex-direction:column;gap:9px}
+  .expo-q-input{width:100%;border:1.5px solid rgba(21,57,91,.22);border-radius:10px;padding:12px 14px;font:inherit;font-size:.92rem;color:var(--ink);background:#fff;resize:vertical;min-height:72px}
+  .expo-q-input:focus{outline:none;border-color:var(--sun-deep)}
+  .expo-action-form input:focus{outline:none;border-color:var(--sky-deep)}
+  .expo-action-form input::placeholder,.expo-q-input::placeholder{color:var(--ink-soft)}
+  .expo-action-form button{flex:0 0 auto;background:var(--ink);color:#fff;border:none;border-radius:10px;padding:12px 22px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:background .18s,transform .18s}
+  .expo-action-form button:hover{background:var(--navy);transform:translateY(-1px)}
+  .expo-action-form button:disabled{opacity:.55;cursor:default;transform:none}
+  .expo-msg{font-size:.85rem;font-weight:600;margin-top:10px;display:none;border-radius:10px;padding:10px 13px;line-height:1.5}
+  .expo-msg.show{display:block}
+  .expo-msg.ok{background:#fff;color:#1e7a43;border:1.5px solid #bfe3cc}
+  .expo-msg.err{background:#fff;color:#c0392b;border:1.5px solid #f3c4c4}
+  .expo-msg.pending{background:#fff;color:var(--ink-soft);border:1.5px solid rgba(21,57,91,.15)}
+  .expo-msg.escalade{background:#fff;color:var(--ink);border:1.5px solid var(--sun-deep)}
+
   /* ===== Wizard de candidature ===== */
   .wiz-sheet{background:#fff}
   .wiz-head h2{font-size:clamp(1.9rem,4vw,2.5rem);color:var(--ink);margin:8px 0 8px}
@@ -179,11 +210,33 @@
         </div>
       </div>
 
-      <div class="expo-hero-cal is-paused" data-aos="fade-up">
-        <div class="ehc-ic">📬</div>
-        <h3>On traite la première vague</h3>
-        <p>On est en train de traiter les premières demandes d'exposants reçues. La prise de rendez-vous rouvrira bientôt. En attendant, écrivez-nous en précisant votre projet, on revient vers vous.</p>
-        <a href="mailto:contact@flore-festival.fr" class="btn btn-sun">contact@flore-festival.fr</a>
+      <div class="expo-actions" data-aos="fade-up">
+        <div class="expo-action is-dossier">
+          <span class="expo-step">Étape 1</span>
+          <div class="expo-action-ic">📄</div>
+          <h3>Recevoir le dossier d'inscription</h3>
+          <p>On vous envoie par mail le dossier d'inscription à remplir et le guide exposant qui l'accompagne.</p>
+          <form class="expo-action-form" id="expo-dossier-form">
+            <input type="email" id="expo-dossier-email" placeholder="Votre e-mail" required autocomplete="email">
+            <button type="submit" id="expo-dossier-submit">Recevoir</button>
+          </form>
+          <div class="expo-msg" id="expo-dossier-msg"></div>
+        </div>
+
+        <div class="expo-action is-question">
+          <span class="expo-step expo-step-q">Étape 2 · Échange uniquement</span>
+          <div class="expo-action-ic expo-action-ic-lg">💬</div>
+          <h3>Une question ? C'est ici.</h3>
+          <p>Stand, électricité, montage, produits, règles : écrivez-la, on vous répond directement ou on vous recontacte rapidement.<br><strong>Cet espace sert uniquement à échanger.</strong> Une fois votre dossier rempli, renvoyez-le par e-mail à contact@flore-festival.fr, pas ici.</p>
+          <form id="expo-question-form" class="expo-question-form">
+            <textarea id="expo-question-input" class="expo-q-input" placeholder="Écrivez votre question ici…" maxlength="1000" required rows="3"></textarea>
+            <div class="expo-action-form">
+              <input type="email" id="expo-question-contact" placeholder="Votre e-mail (si pas de réponse immédiate)" autocomplete="email">
+              <button type="submit" id="expo-question-submit">Envoyer</button>
+            </div>
+          </form>
+          <div class="expo-msg" id="expo-question-msg"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -221,7 +274,7 @@
       <div class="value-card" data-aos="fade-up">
         <div class="v-ic" style="background:#DCF3EE"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="" style="width:32px;height:32px;object-fit:contain"></div>
         <h3>Le Jardin des Saveurs</h3>
-        <p>Le stand chaud de festival, sous tente, face à la scène. Une spécialité par stand (burger, crêpe, gaufre, tacos, bowl, pâtes, pizza...) pour que les festivaliers puissent enchaîner plusieurs stands dans la journée.</p>
+        <p>Le stand chaud de festival, face à la scène. Une spécialité par stand (burger, crêpe, gaufre, tacos, bowl, pâtes, pizza...) pour que les festivaliers puissent enchaîner plusieurs stands dans la journée.</p>
       </div>
       <div class="value-card" data-aos="fade-up" data-aos-delay="60">
         <div class="v-ic" style="background:#F7FBD0"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="" style="width:32px;height:32px;object-fit:contain"></div>
@@ -260,6 +313,92 @@
   const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
+</script>
+<script>
+(function(){
+  var API_BASE = "https://flore-admin.morgan-thisisit.workers.dev";
+
+  function showMsg(el, text, cls){
+    el.textContent = text;
+    el.className = "expo-msg show " + cls;
+  }
+
+  var dossierForm = document.getElementById("expo-dossier-form");
+  var dossierEmail = document.getElementById("expo-dossier-email");
+  var dossierSubmit = document.getElementById("expo-dossier-submit");
+  var dossierMsg = document.getElementById("expo-dossier-msg");
+
+  if (dossierForm) {
+    dossierForm.addEventListener("submit", async function(e){
+      e.preventDefault();
+      var email = dossierEmail.value.trim();
+      if (!email) return;
+      dossierSubmit.disabled = true;
+      showMsg(dossierMsg, "Envoi en cours…", "pending");
+      try {
+        var res = await fetch(API_BASE + "/dossier/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email, consentement: true }),
+        });
+        var data = await res.json();
+        if (!res.ok) {
+          showMsg(dossierMsg, data.error || "Une erreur est survenue, réessayez.", "err");
+        } else {
+          showMsg(dossierMsg, data.message || "C'est envoyé, vérifiez votre boîte mail (et vos spams).", "ok");
+          dossierForm.reset();
+        }
+      } catch (err) {
+        showMsg(dossierMsg, "Connexion impossible, réessayez dans un instant.", "err");
+      } finally {
+        dossierSubmit.disabled = false;
+      }
+    });
+  }
+
+  var questionForm = document.getElementById("expo-question-form");
+  var questionInput = document.getElementById("expo-question-input");
+  var questionContact = document.getElementById("expo-question-contact");
+  var questionSubmit = document.getElementById("expo-question-submit");
+  var questionMsg = document.getElementById("expo-question-msg");
+
+  if (questionForm) {
+    questionForm.addEventListener("submit", async function(e){
+      e.preventDefault();
+      var question = questionInput.value.trim();
+      if (!question) return;
+      questionSubmit.disabled = true;
+      showMsg(questionMsg, "…", "pending");
+      var payload = { question: question };
+      var contact = questionContact.value.trim();
+      if (contact) payload.contact_email = contact;
+      try {
+        var res = await fetch(API_BASE + "/assistant/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        var data = await res.json();
+        if (!res.ok) {
+          showMsg(questionMsg, data.error || "Une erreur est survenue, réessayez.", "err");
+        } else if (data.trouve_dans_docs) {
+          showMsg(questionMsg, data.reponse, "ok");
+          questionForm.reset();
+        } else {
+          var suffixe = contact
+            ? " On revient vers vous dès que possible."
+            : " Laissez un e-mail la prochaine fois pour qu'on puisse vous répondre directement.";
+          showMsg(questionMsg, data.reponse + suffixe, "escalade");
+          questionForm.reset();
+        }
+      } catch (err) {
+        showMsg(questionMsg, "Connexion impossible, réessayez dans un instant.", "err");
+      } finally {
+        questionSubmit.disabled = false;
+      }
+    });
+  }
+})();
 </script>
 <script src="/legal.js?v=20261004b" defer></script>
 </body>
