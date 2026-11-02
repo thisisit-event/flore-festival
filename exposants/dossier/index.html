@@ -57,28 +57,10 @@
   .offer-card-ic{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:1.6rem}
   .offer-card-ic img{width:32px;height:32px;object-fit:contain}
   .offer-card h3{font-size:1.02rem;color:var(--ink-soft);font-weight:700;margin:0 0 14px}
-  .offer-price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2rem;color:var(--ink);margin:0 0 16px}
-  .offer-price span{font-size:.9rem;font-weight:600;color:var(--ink-soft)}
   .offer-for{margin:0 0 18px;font-size:.84rem;color:var(--ink-soft);line-height:1.5}
-  .offer-includes{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:9px;flex:1}
+  .offer-includes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;flex:1}
   .offer-includes li{font-size:.86rem;color:var(--ink);padding-left:22px;position:relative;line-height:1.4}
   .offer-includes li::before{content:"✓";position:absolute;left:0;color:var(--sun-deep);font-weight:800}
-  .offer-flex{margin:0;font-size:.8rem;color:var(--ink-soft);line-height:1.5;padding-top:14px;border-top:1px solid var(--line)}
-  .offer-sim{background:var(--sky-pale);border-radius:14px;padding:14px 16px;margin:0 0 14px}
-  .offer-sim-label{display:block;font-size:.74rem;font-weight:700;color:var(--sky-deep);letter-spacing:.02em;margin-bottom:10px}
-  .offer-sim-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.8rem;color:var(--ink-soft)}
-  .offer-sim-row strong{font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;font-weight:800;color:var(--ink)}
-  .offer-sim-row--flore{margin-top:6px}
-  .offer-sim-row--flore strong{color:var(--sun-deep)}
-  .offer-sim-range{width:100%;margin:8px 0 2px;accent-color:var(--sky-deep);cursor:pointer}
-  .offer-perks{margin:0 0 14px}
-  .offer-perks-status{font-size:.72rem;font-weight:700;color:var(--ink-soft);letter-spacing:.02em;margin:0 0 8px;transition:color .3s ease}
-  .offer-perks-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
-  .offer-perks-list li{font-size:.8rem;color:var(--ink-soft);padding-left:22px;position:relative;opacity:.4;transition:opacity .3s ease,color .3s ease}
-  .offer-perks-list li::before{content:"○";position:absolute;left:0;top:0;color:var(--line);transition:color .3s ease}
-  .offer-perks-status.is-complete{color:var(--sun-deep)}
-  .offer-perks-list li.is-unlocked{opacity:1;color:var(--ink)}
-  .offer-perks-list li.is-unlocked::before{content:"✓";color:var(--sun-deep);font-weight:800}
   @media(max-width:960px){.offer-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.offer-grid{grid-template-columns:1fr}}
 
@@ -177,9 +159,9 @@
 <section class="sec" id="tarifs" style="padding-top:64px">
   <div class="wrap">
     <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Choisissez votre stand</span>
-      <h2>4 offres, tout inclus</h2>
-      <p>Mobilier, structure et électricité de base sont déjà dans le prix. Vous choisissez ce que vous mettez selon vos moyens, l'association fait l'effort de compléter la différence, pour que FLORE reste accessible à tous.</p>
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Choisissez votre format</span>
+      <h2>4 formats, tout inclus</h2>
+      <p>Mobilier, structure et électricité de base sont déjà dans le prix. Le tarif précis de chaque format, ainsi que la participation solidaire pour les acteurs du sans gluten et/ou du sans lactose, est détaillé dans le dossier d'inscription.</p>
     </div>
 
     <div class="offer-grid" data-aos="fade-up">
@@ -187,58 +169,24 @@
         <div class="offer-card-ic" style="background:#F7FBD0"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="" loading="lazy"></div>
         <span class="format-tag">Boutique Découverte</span>
         <h3>2 × 2 m · 4 m²</h3>
-        <p class="offer-price">590 € <span>HT</span></p>
         <p class="offer-for">Pour une première fois, un test, une petite structure.</p>
         <ul class="offer-includes">
           <li>Mobilier de base</li>
           <li>Structure de base</li>
           <li>Électricité de base</li>
         </ul>
-        <div class="offer-sim" data-price="590">
-          <span class="offer-sim-label">Combien voulez-vous mettre&nbsp;?</span>
-          <div class="offer-sim-row"><span>Vous mettez</span><strong class="sim-you">590 €</strong></div>
-          <input type="range" class="offer-sim-range" min="200" max="590" step="10" value="590" aria-label="Montant que vous souhaitez mettre pour ce stand">
-          <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
-        </div>
-        <div class="offer-perks">
-          <p class="offer-perks-status">0/4 avantages débloqués</p>
-          <ul class="offer-perks-list">
-            <li data-unlock-at="300">Logo sur le plan officiel</li>
-            <li data-unlock-at="400">Accès au tirage au sort (2 places)</li>
-            <li data-unlock-at="500">Meilleur emplacement dans le hall</li>
-            <li data-unlock-at="590">Priorité de réservation édition 2</li>
-          </ul>
-        </div>
-        <p class="offer-flex">Curseur indicatif, on affine ensemble pendant l'appel.</p>
       </div>
 
       <div class="offer-card">
         <div class="offer-card-ic" style="background:#F7FBD0"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="" loading="lazy"></div>
         <span class="format-tag">Boutique Marque</span>
         <h3>2 × 3 m · 6 m²</h3>
-        <p class="offer-price">750 € <span>HT</span></p>
         <p class="offer-for">Pour une marque installée qui veut plus d'espace et de visibilité.</p>
         <ul class="offer-includes">
           <li>Mobilier de base</li>
           <li>Structure de base</li>
           <li>Électricité de base</li>
         </ul>
-        <div class="offer-sim" data-price="750">
-          <span class="offer-sim-label">Combien voulez-vous mettre&nbsp;?</span>
-          <div class="offer-sim-row"><span>Vous mettez</span><strong class="sim-you">750 €</strong></div>
-          <input type="range" class="offer-sim-range" min="250" max="750" step="10" value="750" aria-label="Montant que vous souhaitez mettre pour ce stand">
-          <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
-        </div>
-        <div class="offer-perks">
-          <p class="offer-perks-status">0/4 avantages débloqués</p>
-          <ul class="offer-perks-list">
-            <li data-unlock-at="350">Logo sur le plan officiel</li>
-            <li data-unlock-at="500">Accès au tirage au sort (2 places)</li>
-            <li data-unlock-at="650">Meilleur emplacement dans le hall</li>
-            <li data-unlock-at="750">Priorité de réservation édition 2</li>
-          </ul>
-        </div>
-        <p class="offer-flex">Curseur indicatif, on affine ensemble pendant l'appel.</p>
       </div>
 
       <div class="offer-card offer-card--highlight">
@@ -246,59 +194,31 @@
         <div class="offer-card-ic" style="background:#DCF3EE"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="" loading="lazy"></div>
         <span class="format-tag">Jardin des Saveurs</span>
         <h3>3 × 3 m · 9 m²</h3>
-        <p class="offer-price">990 € <span>HT</span></p>
         <p class="offer-for">Pour la restauration sans gluten et/ou sans lactose.</p>
         <ul class="offer-includes">
           <li>Mobilier de base</li>
           <li>Tente + structure</li>
           <li>Électricité dédiée</li>
         </ul>
-        <div class="offer-sim" data-price="990">
-          <span class="offer-sim-label">Combien voulez-vous mettre&nbsp;?</span>
-          <div class="offer-sim-row"><span>Vous mettez</span><strong class="sim-you">990 €</strong></div>
-          <input type="range" class="offer-sim-range" min="500" max="990" step="10" value="990" aria-label="Montant que vous souhaitez mettre pour ce stand">
-          <div class="offer-sim-row offer-sim-row--flore"><span>FLORE complète</span><strong class="sim-flore">0 €</strong></div>
-        </div>
-        <div class="offer-perks">
-          <p class="offer-perks-status">0/4 avantages débloqués</p>
-          <ul class="offer-perks-list">
-            <li data-unlock-at="600">Logo sur le plan officiel</li>
-            <li data-unlock-at="720">Accès au tirage au sort (2 places)</li>
-            <li data-unlock-at="850">Meilleur emplacement dans le hall</li>
-            <li data-unlock-at="990">Priorité de réservation édition 2</li>
-          </ul>
-        </div>
-        <p class="offer-flex">Curseur indicatif, on affine ensemble pendant l'appel.</p>
       </div>
 
       <div class="offer-card">
         <div class="offer-card-ic" style="background:#E7F4FB">⭐</div>
         <span class="format-tag">Premium</span>
         <h3>Sur mesure</h3>
-        <p class="offer-price">Dès 1 490 € <span>HT</span></p>
         <p class="offer-for">Pour une présence forte : grande marque, emplacement stratégique.</p>
         <ul class="offer-includes">
           <li>Emplacement prioritaire</li>
           <li>Aménagement sur-mesure</li>
           <li>Étudié avec vous</li>
         </ul>
-        <div class="offer-perks">
-          <p class="offer-perks-status is-complete">4/4 avantages inclus</p>
-          <ul class="offer-perks-list">
-            <li class="is-unlocked">Logo sur le plan officiel</li>
-            <li class="is-unlocked">Accès au tirage au sort (2 places)</li>
-            <li class="is-unlocked">Meilleur emplacement dans le hall</li>
-            <li class="is-unlocked">Priorité de réservation édition 2</li>
-          </ul>
-        </div>
-        <p class="offer-flex">Sur devis, le tarif libre s'applique aussi ici, on en parle pendant l'appel.</p>
       </div>
     </div>
 
     <div class="info-box" data-aos="fade-up">
-      <h4>Un tarif indicatif, pas un couperet</h4>
-      <p>Le montant affiché est la valeur réelle du stand, pas un minimum obligatoire. Bougez le curseur pour voir ce que l'association complète pour vous, et les avantages exposant qui se débloquent progressivement à mesure que vous montez. Le montant que vous proposez reste une base de discussion, validée ensemble avec l'association avant la confirmation définitive de votre stand, pas un choix automatique et figé. Pendant l'appel, on affine ensemble ce qui est juste pour votre budget. Besoin de plus que le mobilier/structure/électricité de base (eau, manutention, forte puissance...) ? On en parle directement pendant l'appel.</p>
-      <p style="margin-top:14px">Contribuer au-delà du minimum, ce n'est pas seulement payer votre emplacement : c'est soutenir directement le projet associatif FLORE et sa production, une édition fondatrice portée par une petite équipe. L'association prend en charge la différence sur chaque stand et cherche activement des partenaires pour financer le reste.</p>
+      <h4>Le détail des tarifs est dans le dossier d'inscription</h4>
+      <p>Chaque format a un tarif de référence, tout compris. Si votre structure, acteur du sans gluten et/ou du sans lactose, ne peut pas le supporter cette année, une participation réduite existe : l'association prend le reste à sa charge sur les recettes du festival, dans la limite d'une enveloppe solidaire plafonnée, attribuée dans l'ordre d'arrivée des dossiers complets avec acompte.</p>
+      <p style="margin-top:14px">Les montants précis par format et par niveau de participation sont dans le dossier d'inscription. Demandez-le via l'assistant en bas de page, ou directement par mail.</p>
     </div>
 
     <div class="model-block" data-aos="fade-up">
@@ -388,51 +308,6 @@
   const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 30);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive:true });
-
-  (function(){
-    // Simulateur "tarif libre" par carte : le curseur fixe ce que l'exposant
-    // met, FLORE complète toujours jusqu'au tarif de référence affiché.
-    document.querySelectorAll('.offer-sim').forEach(function(sim){
-      const price = parseFloat(sim.dataset.price);
-      const range = sim.querySelector('.offer-sim-range');
-      const youEl = sim.querySelector('.sim-you');
-      const floreEl = sim.querySelector('.sim-flore');
-      const card = sim.closest('.offer-card');
-      const perks = card ? card.querySelector('.offer-perks') : null;
-      const perksStatus = perks ? perks.querySelector('.offer-perks-status') : null;
-      const perkItems = perks ? Array.prototype.slice.call(perks.querySelectorAll('.offer-perks-list li')) : [];
-      if (!range || !youEl || !floreEl || isNaN(price)) return;
-      function update(){
-        const you = parseFloat(range.value);
-        const flore = Math.max(0, price - you);
-        youEl.textContent = you.toLocaleString('fr-FR') + ' €';
-        floreEl.textContent = flore.toLocaleString('fr-FR') + ' €';
-        if (perkItems.length){
-          // Déblocage progressif : chaque avantage a son propre palier
-          // (data-unlock-at), pas tout-ou-rien au tarif plein.
-          let unlockedCount = 0;
-          let nextThreshold = null;
-          perkItems.forEach(function(li){
-            const threshold = parseFloat(li.dataset.unlockAt);
-            const isUnlocked = you >= threshold;
-            li.classList.toggle('is-unlocked', isUnlocked);
-            if (isUnlocked) unlockedCount++;
-            else if (nextThreshold === null) nextThreshold = threshold;
-          });
-          if (perksStatus){
-            const allUnlocked = unlockedCount === perkItems.length;
-            perksStatus.classList.toggle('is-complete', allUnlocked);
-            perksStatus.textContent = allUnlocked
-              ? unlockedCount + '/' + perkItems.length + ' avantages débloqués, merci pour votre soutien'
-              : unlockedCount + '/' + perkItems.length + ' avantages débloqués · prochain à ' + nextThreshold.toLocaleString('fr-FR') + ' €';
-          }
-        }
-      }
-      range.addEventListener('input', update);
-      update();
-    });
-  })();
-
 </script>
 <script src="/legal.js?v=20261004b" defer></script>
 </body>

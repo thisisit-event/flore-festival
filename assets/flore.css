@@ -339,6 +339,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .wc-label{font-family:'Telegraf',sans-serif;font-size:.62rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.04em;margin-top:3px}
 @media(max-width:480px){.wc-unit{padding:8px 2px;min-width:0}.wc-num{font-size:1.1rem}}
 .waitlist-panel form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:420px;margin:0 auto}
+.waitlist-panel form[hidden]{display:none}
 .waitlist-panel input[type=text],.waitlist-panel input[type=email]{flex:1 1 170px;padding:13px 16px;
   border:1.5px solid var(--line);border-radius:100px;font-family:'Telegraf',sans-serif;font-size:.92rem;
   color:var(--ink);background:#fff;transition:border-color .2s}
