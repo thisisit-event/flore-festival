@@ -21,34 +21,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/flore.css?v=20261004c">
 <style>
-  .asst-wrap{max-width:720px;margin:0 auto;padding:130px 20px 40px}
-  .asst-head{text-align:center;margin-bottom:22px}
-  .asst-head h1{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--ink);margin-bottom:8px}
-  .asst-head p{color:var(--ink-soft);font-size:.96rem;max-width:42em;margin:0 auto}
+  .asst-page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px 20px 60px}
+  .asst-wrap{max-width:640px;margin:0 auto;width:100%}
+  .asst-head{text-align:center;margin-bottom:28px}
+  .asst-head h1{font-size:clamp(1.9rem,4.4vw,2.6rem);color:var(--ink);margin-bottom:10px}
+  .asst-head p{color:var(--ink-soft);font-size:1rem;max-width:42em;margin:0 auto}
 
-  .asst-contact{display:flex;gap:10px;flex-wrap:wrap;background:var(--sky-pale);border:1px solid var(--sky-soft);
-    border-radius:16px;padding:14px 16px;margin-bottom:18px}
-  .asst-contact label{font-family:'Telegraf',sans-serif;font-size:.74rem;color:var(--ink-soft);display:block;margin-bottom:4px}
-  .asst-contact input{flex:1 1 140px;min-width:0;border:1.5px solid var(--line);border-radius:10px;padding:9px 11px;
-    font-size:.9rem;color:var(--ink);background:#fff}
-  .asst-contact input:focus{outline:none;border-color:var(--sky)}
-  .asst-contact-note{flex:1 1 100%;font-size:.76rem;color:var(--ink-soft);margin-top:2px}
-
-  .asst-chat{display:flex;flex-direction:column;gap:12px;min-height:200px;margin-bottom:18px}
-  .asst-msg{max-width:84%;padding:12px 16px;border-radius:18px;font-size:.94rem;line-height:1.5}
-  .asst-msg.user{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:4px}
-  .asst-msg.bot{align-self:flex-start;background:var(--sky-pale);color:var(--ink);border-bottom-left-radius:4px}
-  .asst-msg.bot.escalade{background:#FFF1CC}
-  .asst-msg.pending{opacity:.6}
-  .asst-form-row{display:flex;gap:10px;position:sticky;bottom:16px;background:#fff;padding:10px;
-    border-radius:100px;box-shadow:0 10px 30px rgba(21,57,91,.12);border:1.5px solid var(--line)}
-  .asst-form-row input{flex:1;border:none;outline:none;font-size:.96rem;padding:8px 10px;color:var(--ink)}
-  .asst-form-row button{background:var(--sun);color:var(--ink);border:none;border-radius:100px;
-    padding:10px 20px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.9rem;cursor:pointer;
+  .ask-card{background:#fff;border-radius:24px;box-shadow:0 20px 50px rgba(21,57,91,.14);border:1.5px solid var(--line);
+    padding:22px 24px;margin-bottom:28px}
+  .ask-input{width:100%;border:none;outline:none;resize:none;font:inherit;font-size:1.08rem;color:var(--ink);
+    background:transparent;min-height:64px;line-height:1.5}
+  .ask-input::placeholder{color:var(--ink-soft)}
+  .ask-divider{height:1px;background:var(--line);margin:14px 0}
+  .ask-contact-row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+  .ask-field{flex:1 1 150px;min-width:0}
+  .ask-field label{font-family:'Telegraf',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:5px}
+  .ask-field input{width:100%;border:none;border-bottom:1.5px solid var(--line);border-radius:0;padding:4px 2px 7px;
+    font-size:.92rem;color:var(--ink);background:transparent}
+  .ask-field input:focus{outline:none;border-color:var(--sky-deep)}
+  .ask-submit{flex:0 0 auto;background:var(--sun);color:var(--ink);border:none;border-radius:100px;
+    padding:12px 26px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.92rem;cursor:pointer;
     white-space:nowrap;transition:transform .2s,background .2s}
-  .asst-form-row button:hover{background:var(--sun-deep);transform:translateY(-1px)}
-  .asst-form-row button:disabled{opacity:.5;cursor:default;transform:none}
-  @media(max-width:560px){.asst-wrap{padding:118px 16px 24px}.asst-msg{max-width:92%}}
+  .ask-submit:hover{background:var(--sun-deep);transform:translateY(-1px)}
+  .ask-submit:disabled{opacity:.5;cursor:default;transform:none}
+
+  .asst-chat{display:flex;flex-direction:column;gap:14px}
+  .asst-exchange{background:#fff;border-radius:18px;border:1.5px solid var(--line);padding:18px 20px;
+    box-shadow:0 6px 18px rgba(21,57,91,.06)}
+  .asst-q{font-size:.78rem;font-weight:700;letter-spacing:.02em;color:var(--sky-deep);margin-bottom:8px}
+  .asst-a{font-size:.96rem;line-height:1.55;color:var(--ink)}
+  .asst-exchange.escalade{background:#FFF9E8;border-color:#F0E2A6}
+  .asst-exchange.pending .asst-a{opacity:.55}
+  @media(max-width:560px){.asst-page{padding:118px 16px 40px}.ask-card{padding:18px 18px;border-radius:20px}}
 </style>
 </head>
 <body>
@@ -75,6 +80,7 @@
 <script src="/assets/gate.js?v=3"></script>
 <script src="/assets/nav.js?v=20261004b"></script>
 
+<div class="asst-page">
 <div class="asst-wrap">
   <div class="asst-head">
     <span class="kicker center"><svg aria-hidden="true" class="daisy" style="width:16px;height:16px"><use href="#daisy"/></svg>Assistant FLORE Exposants</span>
@@ -82,24 +88,26 @@
     <p>Stand, électricité, montage, produits, règles : posez votre question sur votre participation à FLORE, on vous répond directement ou on vous recontacte rapidement.</p>
   </div>
 
-  <div class="asst-contact">
-    <div style="flex:1 1 140px;min-width:0">
-      <label for="asst-nom">Prénom (optionnel)</label>
-      <input type="text" id="asst-nom" autocomplete="given-name">
+  <form id="asst-form">
+    <div class="ask-card">
+      <textarea class="ask-input" id="asst-input" placeholder="Écrivez votre question ici…" maxlength="1000" required rows="2"></textarea>
+      <div class="ask-divider"></div>
+      <div class="ask-contact-row">
+        <div class="ask-field">
+          <label for="asst-nom">Prénom (optionnel)</label>
+          <input type="text" id="asst-nom" autocomplete="given-name">
+        </div>
+        <div class="ask-field">
+          <label for="asst-contact">E-mail</label>
+          <input type="email" id="asst-contact" autocomplete="email" required>
+        </div>
+        <button type="submit" class="ask-submit" id="asst-submit">Envoyer</button>
+      </div>
     </div>
-    <div style="flex:1 1 200px;min-width:0">
-      <label for="asst-contact">E-mail</label>
-      <input type="email" id="asst-contact" autocomplete="email" required>
-    </div>
-    <span class="asst-contact-note">Pour vous répondre si la réponse n'est pas immédiate.</span>
-  </div>
+  </form>
 
   <div class="asst-chat" id="asst-chat"></div>
-
-  <form class="asst-form-row" id="asst-form">
-    <input type="text" id="asst-input" placeholder="Votre question…" maxlength="1000" required autocomplete="off">
-    <button type="submit" id="asst-submit">Envoyer</button>
-  </form>
+</div>
 </div>
 
 <div id="site-footer"></div>
@@ -117,13 +125,20 @@
   var nomField = document.getElementById("asst-nom");
   var contactField = document.getElementById("asst-contact");
 
-  function addMsg(text, cls){
+  function addExchange(question){
     var el = document.createElement("div");
-    el.className = "asst-msg " + cls;
-    el.textContent = text;
-    chat.appendChild(el);
-    el.scrollIntoView({ behavior: "smooth", block: "end" });
-    return el;
+    el.className = "asst-exchange pending";
+    var q = document.createElement("div");
+    q.className = "asst-q";
+    q.textContent = question;
+    var a = document.createElement("div");
+    a.className = "asst-a";
+    a.textContent = "…";
+    el.appendChild(q);
+    el.appendChild(a);
+    chat.insertBefore(el, chat.firstChild);
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    return { el: el, a: a };
   }
 
   form.addEventListener("submit", async function(e){
@@ -138,10 +153,9 @@
       return;
     }
 
-    addMsg(question, "user");
     input.value = "";
     submitBtn.disabled = true;
-    var attente = addMsg("…", "bot pending");
+    var exchange = addExchange(question);
 
     var payload = { question: question, contact_email: contact };
     if (nomField.value.trim()) payload.contact_nom = nomField.value.trim();
@@ -153,15 +167,18 @@
         body: JSON.stringify(payload),
       });
       var data = await res.json();
-      attente.remove();
+      exchange.el.classList.remove("pending");
       if (!res.ok) {
-        addMsg(data.error || "Une erreur est survenue, réessayez dans un instant.", "bot escalade");
+        exchange.a.textContent = data.error || "Une erreur est survenue, réessayez dans un instant.";
+        exchange.el.classList.add("escalade");
       } else {
-        addMsg(data.reponse, data.trouve_dans_docs ? "bot" : "bot escalade");
+        exchange.a.textContent = data.reponse;
+        if (!data.trouve_dans_docs) exchange.el.classList.add("escalade");
       }
     } catch (err) {
-      attente.remove();
-      addMsg("Connexion impossible, réessayez dans un instant.", "bot escalade");
+      exchange.el.classList.remove("pending");
+      exchange.a.textContent = "Connexion impossible, réessayez dans un instant.";
+      exchange.el.classList.add("escalade");
     } finally {
       submitBtn.disabled = false;
       input.focus();
