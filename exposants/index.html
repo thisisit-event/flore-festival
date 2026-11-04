@@ -85,9 +85,6 @@
   .expo-action-form button{flex:0 0 auto;background:var(--ink);color:#fff;border:none;border-radius:10px;padding:12px 22px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:background .18s,transform .18s}
   .expo-action-form button:hover{background:var(--navy);transform:translateY(-1px)}
   .expo-action-form button:disabled{opacity:.55;cursor:default;transform:none}
-  .expo-extra-docs{display:flex;flex-direction:column;gap:6px;margin-top:12px}
-  .expo-check{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:var(--ink);opacity:.85;cursor:pointer;line-height:1.4}
-  .expo-check input{margin-top:3px;flex:0 0 auto}
   .expo-msg{font-size:.85rem;font-weight:600;margin-top:10px;display:none;border-radius:10px;padding:10px 13px;line-height:1.5}
   .expo-msg.show{display:block}
   .expo-msg.ok{background:#fff;color:#1e7a43;border:1.5px solid #bfe3cc}
@@ -223,10 +220,6 @@
             <input type="email" id="expo-dossier-email" placeholder="Votre e-mail" required autocomplete="email">
             <button type="submit" id="expo-dossier-submit">Recevoir</button>
           </form>
-          <div class="expo-extra-docs">
-            <label class="expo-check"><input type="checkbox" id="expo-dossier-cocon"> Aussi intéressé(e) par <strong>Le Cocon</strong> (espace calme, bénévoles)</label>
-            <label class="expo-check"><input type="checkbox" id="expo-dossier-club"> Aussi intéressé(e) par le <strong>Club FLORE</strong> (créateurs de contenu)</label>
-          </div>
           <div class="expo-msg" id="expo-dossier-msg"></div>
           <p style="margin:12px 0 0;font-size:.8rem"><a href="/exposants/fichiers/FLORE_Guide_securite_exposant.pdf" target="_blank" rel="noopener" style="color:var(--sky-deep);font-weight:700">Consulter directement le guide de sécurité (PDF) →</a></p>
         </div>
@@ -335,8 +328,6 @@
   var dossierEmail = document.getElementById("expo-dossier-email");
   var dossierSubmit = document.getElementById("expo-dossier-submit");
   var dossierMsg = document.getElementById("expo-dossier-msg");
-  var dossierCocon = document.getElementById("expo-dossier-cocon");
-  var dossierClub = document.getElementById("expo-dossier-club");
 
   if (dossierForm) {
     dossierForm.addEventListener("submit", async function(e){
@@ -349,12 +340,7 @@
         var res = await fetch(API_BASE + "/dossier/send", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: email,
-            consentement: true,
-            cocon: dossierCocon ? dossierCocon.checked : false,
-            club: dossierClub ? dossierClub.checked : false,
-          }),
+          body: JSON.stringify({ email: email, consentement: true }),
         });
         var data = await res.json();
         if (!res.ok) {
