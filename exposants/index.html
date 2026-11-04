@@ -85,6 +85,9 @@
   .expo-action-form button{flex:0 0 auto;background:var(--ink);color:#fff;border:none;border-radius:10px;padding:12px 22px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:background .18s,transform .18s}
   .expo-action-form button:hover{background:var(--navy);transform:translateY(-1px)}
   .expo-action-form button:disabled{opacity:.55;cursor:default;transform:none}
+  .expo-extra-docs{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+  .expo-check{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:var(--ink);opacity:.85;cursor:pointer;line-height:1.4}
+  .expo-check input{margin-top:3px;flex:0 0 auto}
   .expo-msg{font-size:.85rem;font-weight:600;margin-top:10px;display:none;border-radius:10px;padding:10px 13px;line-height:1.5}
   .expo-msg.show{display:block}
   .expo-msg.ok{background:#fff;color:#1e7a43;border:1.5px solid #bfe3cc}
@@ -214,9 +217,17 @@
         <div class="expo-action is-dossier">
           <span class="expo-step">Étape 1</span>
           <div class="expo-action-ic">📄</div>
-          <h3>Demander le dossier d'inscription</h3>
-          <p>Écrivez-nous à <a href="mailto:contact@flore-festival.fr" style="color:var(--sky-deep);font-weight:700">contact@flore-festival.fr</a> en expliquant votre projet : qui vous êtes, ce que vous proposez, et si ça touche au sans gluten ou au sans lactose. On vous répond avec le dossier d'inscription et le guide exposant à remplir.</p>
-          <a href="mailto:contact@flore-festival.fr" class="btn btn-sun">Écrire à contact@flore-festival.fr →</a>
+          <h3>Recevoir le dossier d'inscription</h3>
+          <p>On vous envoie par mail le dossier d'inscription à remplir et le guide exposant qui l'accompagne.</p>
+          <form class="expo-action-form" id="expo-dossier-form">
+            <input type="email" id="expo-dossier-email" placeholder="Votre e-mail" required autocomplete="email">
+            <button type="submit" id="expo-dossier-submit">Recevoir</button>
+          </form>
+          <div class="expo-extra-docs">
+            <label class="expo-check"><input type="checkbox" id="expo-dossier-cocon"> Aussi intéressé(e) par <strong>Le Cocon</strong> (espace calme, bénévoles)</label>
+            <label class="expo-check"><input type="checkbox" id="expo-dossier-club"> Aussi intéressé(e) par le <strong>Club FLORE</strong> (créateurs de contenu)</label>
+          </div>
+          <div class="expo-msg" id="expo-dossier-msg"></div>
           <p style="margin:12px 0 0;font-size:.8rem"><a href="/exposants/fichiers/FLORE_Guide_securite_exposant.pdf" target="_blank" rel="noopener" style="color:var(--sky-deep);font-weight:700">Consulter directement le guide de sécurité (PDF) →</a></p>
         </div>
 
@@ -318,6 +329,46 @@
   function showMsg(el, text, cls){
     el.textContent = text;
     el.className = "expo-msg show " + cls;
+  }
+
+  var dossierForm = document.getElementById("expo-dossier-form");
+  var dossierEmail = document.getElementById("expo-dossier-email");
+  var dossierSubmit = document.getElementById("expo-dossier-submit");
+  var dossierMsg = document.getElementById("expo-dossier-msg");
+  var dossierCocon = document.getElementById("expo-dossier-cocon");
+  var dossierClub = document.getElementById("expo-dossier-club");
+
+  if (dossierForm) {
+    dossierForm.addEventListener("submit", async function(e){
+      e.preventDefault();
+      var email = dossierEmail.value.trim();
+      if (!email) return;
+      dossierSubmit.disabled = true;
+      showMsg(dossierMsg, "Envoi en cours…", "pending");
+      try {
+        var res = await fetch(API_BASE + "/dossier/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: email,
+            consentement: true,
+            cocon: dossierCocon ? dossierCocon.checked : false,
+            club: dossierClub ? dossierClub.checked : false,
+          }),
+        });
+        var data = await res.json();
+        if (!res.ok) {
+          showMsg(dossierMsg, data.error || "Une erreur est survenue, réessayez.", "err");
+        } else {
+          showMsg(dossierMsg, data.message || "C'est envoyé, vérifiez votre boîte mail (et vos spams).", "ok");
+          dossierForm.reset();
+        }
+      } catch (err) {
+        showMsg(dossierMsg, "Connexion impossible, réessayez dans un instant.", "err");
+      } finally {
+        dossierSubmit.disabled = false;
+      }
+    });
   }
 
   var questionForm = document.getElementById("expo-question-form");
