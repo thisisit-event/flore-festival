@@ -852,6 +852,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   .hero-meta .item small{font-size:.62rem}
   .hero-meta .item b{font-size:.92rem}
 }
+@media(max-width:640px){
+  .hero-visual{display:none}
+}
 @media(max-width:1024px){
   .nav-links{display:none}
   .nav-toggle{display:block}
