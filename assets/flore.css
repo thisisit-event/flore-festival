@@ -855,11 +855,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 @media(max-width:640px){
   .hero-visual{display:none}
 }
-@media(max-width:1180px){
-  /* Le lien Programme ajouté à la nav desktop ne tenait plus sur une ligne
-     entre 1024px et ~1190px (texte des menus qui se repliait sur 2 lignes) :
-     seuil remonté pour que le menu complet n'apparaisse que là où il tient
-     toujours sur une seule ligne, jamais dans un état coupé entre les deux. */
+@media(max-width:1060px){
   .nav-links{display:none}
   .nav-toggle{display:block}
   .nav-mobile-actions{display:flex}

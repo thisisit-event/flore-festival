@@ -167,6 +167,7 @@ if (location.hash) {
             item(h('espaces'), 'https://enjoylife.b-cdn.net/Flore/picto-flore-espaces.png', 'Les espaces', 'Les 6 univers du festival') +
             item(h('public'), 'https://enjoylife.b-cdn.net/Flore/picto-flore-public.png', 'Pour qui ?', 'Une fête pour tout le monde') +
             item('/a-propos/', 'https://enjoylife.b-cdn.net/Flore/picto-flore-equipe.png', 'Qui sommes-nous ?', 'L\'histoire &amp; l\'équipe') +
+            item('/sans-gluten-sans-lactose/', 'https://enjoylife.b-cdn.net/Flore/picto-flore-gluten.png', 'Sans gluten &amp; lactose', 'Notre engagement santé') +
           '</div></div>' +
         '<div class="nav-item"><a class="nav-trigger" href="/infos-pratiques/">Préparer sa venue ' + caret + '</a>' +
           '<div class="dropdown mega">' +
@@ -177,7 +178,6 @@ if (location.hash) {
             item('/infos-pratiques/#securite', 'https://enjoylife.b-cdn.net/Flore/picto-flore-medical.png', 'Sécurité &amp; prévention', 'Dispositif &amp; écoute') +
             item('/sejour/', 'https://enjoylife.b-cdn.net/Flore/picto-flore-weekend.png', 'Le week-end', 'Prolonger la fête dans l\'Ain') +
           '</div></div>' +
-        '<a href="/sans-gluten-sans-lactose/"' + cur('/sans-gluten-sans-lactose/') + '>Sans gluten &amp; lactose</a>' +
         '<a href="' + h('faq') + '">FAQ</a>' +
         '<div class="nav-item"><button class="nav-trigger" aria-expanded="false">' + flag('france') + ' FR ' + caret + '</button>' +
           '<div class="dropdown dd-right">' +
@@ -193,7 +193,7 @@ if (location.hash) {
             '<a href="/artistes/">' + proIco('picto-flore-musique.png') + 'Candidature artiste</a>' +
             '<a href="/club-flore/">' + proIco('picto-flore-bienveillance.png') + 'Rejoindre le club flore</a>' +
           '</div></div>' +
-        '<a href="/programme/"' + cur('/programme/') + '>Programme</a>' +
+        '<a href="/programme/" class="nav-highlight"' + cur('/programme/') + '>Programme</a>' +
         billetBtn +
       '</div>' +
       '<div class="nav-mobile-actions">' + billetIconBtn + progIconBtn +
