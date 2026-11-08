@@ -14,7 +14,17 @@
   /* Page app blanche à plat : pas le fond ciel animé des autres pages, qui ressortait
      dans la zone réservée à la barre d'onglets fixe du bas sur mobile. */
   body{background:#fff}
-  @media(max-width:759px){ body{padding-bottom:82px} }
+  @media(max-width:759px){
+    body{padding-bottom:82px}
+    /* flore.css met overflow-x:hidden sur html/body, ce qui leur crée un
+       conteneur de scroll implicite (overflow-y:auto promu par la spec) :
+       sur iOS Safari, ça casse position:fixed, qui se recalcule alors par
+       rapport au contenu de la page (donc hors écran dès qu'une carte
+       allonge la page) au lieu du vrai viewport. C'est pour ça que la barre
+       d'onglets du bas disparaît sur Tout/Concerts (page haute) mais pas sur
+       les onglets vides. On neutralise ça uniquement sur cette page. */
+    html, body{overflow-x:visible}
+  }
 
   /* Le CTA billetterie flottant global ne sait pas se masquer sans #accueil/#billetterie
      sur cette page, et percute la barre d'onglets : on le retire ici, la barre du
