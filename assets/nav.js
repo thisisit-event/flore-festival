@@ -193,7 +193,7 @@ if (location.hash) {
             '<a href="/artistes/">' + proIco('picto-flore-musique.png') + 'Candidature artiste</a>' +
             '<a href="/club-flore/">' + proIco('picto-flore-bienveillance.png') + 'Rejoindre le club flore</a>' +
           '</div></div>' +
-        '<a href="/programme/" class="nav-highlight"' + cur('/programme/') + '>Programme</a>' +
+        '<a href="/programme/"' + cur('/programme/') + '>Programme</a>' +
         billetBtn +
       '</div>' +
       '<div class="nav-mobile-actions">' + billetIconBtn + progIconBtn +

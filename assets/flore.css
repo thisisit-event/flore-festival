@@ -104,7 +104,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 .nav.scrolled .logo-light{display:none}
 .nav.scrolled .logo-dark{display:block;filter:brightness(0) invert(47%) sepia(64%) saturate(560%) hue-rotate(174deg) brightness(95%) contrast(90%)}
 .footer .logo-img{height:40px;filter:none}
-.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links{display:flex;align-items:center;gap:24px}
 .nav-links a:not(.btn){font-weight:600;font-size:.96rem;color:var(--white);position:relative;transition:color .25s}
 .nav.scrolled .nav-links a:not(.btn){color:var(--ink)}
 .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2.5px;background:var(--sun);border-radius:2px;transition:width .25s var(--ease)}
@@ -855,7 +855,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 @media(max-width:640px){
   .hero-visual{display:none}
 }
-@media(max-width:1024px){
+@media(max-width:1180px){
+  /* Le lien Programme ajouté à la nav desktop ne tenait plus sur une ligne
+     entre 1024px et ~1190px (texte des menus qui se repliait sur 2 lignes) :
+     seuil remonté pour que le menu complet n'apparaisse que là où il tient
+     toujours sur une seule ligne, jamais dans un état coupé entre les deux. */
   .nav-links{display:none}
   .nav-toggle{display:block}
   .nav-mobile-actions{display:flex}
