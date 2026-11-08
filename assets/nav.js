@@ -1,3 +1,17 @@
+/* Avec un lien du type /page/#ancre, le navigateur scroll jusqu'à l'ancre dès
+   le chargement. Comme html{scroll-behavior:smooth} est actif partout, ce saut
+   initial s'anime au lieu d'être instantané, et le toggle "scrolled" de la nav
+   (qui déclenche sa propre transition de fond/forme) se déclenche pendant ce
+   scroll animé au lieu d'être déjà dans son état final à l'affichage : la nav
+   se "déplie" visiblement au chargement. On désactive le smooth scroll le
+   temps de ce saut initial uniquement, avant que le navigateur ne l'effectue. */
+if (location.hash) {
+  document.documentElement.style.scrollBehavior = 'auto';
+  window.addEventListener('load', function () {
+    setTimeout(function () { document.documentElement.style.scrollBehavior = ''; }, 50);
+  });
+}
+
 /* FLORE Festival · navigation partagée (méga-menu) injectée sur toutes les pages FR.
    Une seule source : modifier le menu ici se répercute partout. */
 (function () {
