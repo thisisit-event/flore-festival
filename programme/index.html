@@ -93,7 +93,11 @@
   .app-tab .count{position:absolute;top:-6px;right:-8px;background:#E5484D;color:#fff;font-size:.6rem;font-weight:800;min-width:15px;height:15px;border-radius:100px;display:flex;align-items:center;justify-content:center;padding:0 3px}
 
   @media(max-width:759px){
-    .app-tabbar{position:fixed;bottom:0;left:0;right:0;z-index:150;background:#fff;border-top:1.5px solid var(--line);box-shadow:0 -8px 24px rgba(11,24,50,.08);padding-bottom:env(safe-area-inset-bottom);gap:0}
+    /* -webkit-transform force une couche de composition séparée : évite un bug
+       iOS Safari où les éléments position:fixed disparaissent/se repositionnent
+       mal sur une page assez haute pour scroller, quand la barre d'adresse se
+       rétracte pendant le scroll. */
+    .app-tabbar{position:fixed;bottom:0;left:0;right:0;z-index:150;background:#fff;border-top:1.5px solid var(--line);box-shadow:0 -8px 24px rgba(11,24,50,.08);padding-bottom:env(safe-area-inset-bottom);gap:0;-webkit-transform:translateZ(0);transform:translateZ(0)}
     .app-tab{flex:1;flex-direction:column;gap:3px;padding:10px 4px 8px;border-radius:0;font-size:.68rem}
     .app-tab:hover{background:none}
     .app-tab.is-active{background:none}
