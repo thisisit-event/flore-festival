@@ -23,6 +23,7 @@
   @media(max-width:860px){.artist-grid{grid-template-columns:1fr;gap:32px}}
 
   .artist-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:rgba(255,255,255,.55);padding:7px 16px;border-radius:100px;margin-bottom:18px}
+  .artist-kicker-logo{height:18px;width:auto;display:block}
   .artist-name{font-size:clamp(2.6rem,7vw,5.2rem);color:#fff;line-height:.98;letter-spacing:-.02em;margin:0 0 18px;text-wrap:balance}
   .artist-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
   .artist-tag{font-size:.78rem;font-weight:700;color:var(--navy);background:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.3);padding:5px 14px;border-radius:100px}
@@ -127,7 +128,7 @@
   <div class="wrap">
     <div class="artist-grid">
       <div data-aos="fade-up">
-        <span class="artist-kicker">🌼 La Scène Schär</span>
+        <span class="artist-kicker"><img src="/assets/schar-logo-short-blanc.png" alt="" class="artist-kicker-logo">La Scène Schär</span>
         <h1 class="artist-name" id="art-nom">Nom de<br>l'artiste</h1>
         <div class="artist-tags" id="art-tags"></div>
         <div class="artist-meta">
