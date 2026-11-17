@@ -95,7 +95,7 @@
     "items": [
       {
         "q": "Cos'è esattamente il FLORE Festival?",
-        "a": "FLORE è un festival di musica e gastronomia di una giornata, interamente senza glutine e senza lattosio: concerti, food court, boutique e spazi benessere, tutto sullo stesso sito, tutto sicuro da mangiare e bere senza pensarci due volte."
+        "a": "FLORE è un festival di musica e gastronomia di una giornata, interamente senza glutine e senza lattosio: concerti, food court, boutique e spazi benessere, tutto sullo stesso sito, con ogni stand alimentare controllato prima dell'apertura."
       },
       {
         "q": "È un festival solo per intolleranti o celiaci?",
@@ -107,7 +107,7 @@
       },
       {
         "q": "I biglietti sono già in vendita?",
-        "a": "Sì. I biglietti sono già in vendita sulla nostra biglietteria ufficiale, con un Pass Giornata e un Pass Serata (18-22)."
+        "a": "Le prevendite sono esaurite. La vendita generale apre sabato 5 dicembre alle 10:00 (ora di Parigi), con un Pass Giornata e un Pass Serata (18-22). Iscriviti alla lista d'attesa nella sezione Biglietti per essere avvisato per primo."
       },
       {
         "q": "Il biglietto include cibo e bevande?",
@@ -115,7 +115,7 @@
       },
       {
         "q": "Il cibo è davvero sicuro per i celiaci?",
-        "a": "Sì. Il nostro food court (Jardin des Saveurs) e i bar rispettano uno standard rigoroso sotto i 20 ppm di glutine, la soglia riconosciuta per la celiachia, con una preparazione dedicata per evitare ogni contaminazione crociata."
+        "a": "È proprio questa l'idea. Il nostro food court (Jardin des Saveurs) e i bar rispettano uno standard rigoroso sotto i 20 ppm di glutine, la soglia riconosciuta per la celiachia, con una preparazione dedicata e ogni stand controllato prima dell'apertura per evitare la contaminazione crociata."
       },
       {
         "q": "Devo venire da lontano per partecipare?",
@@ -127,7 +127,7 @@
     "kicker": "Biglietti",
     "title_pre": "Prendi il ",
     "title_em": "biglietto",
-    "text": "I biglietti sono già in vendita sulla nostra biglietteria ufficiale. Pass Giornata o Pass Serata, a te la scelta.",
+    "text": "Le prevendite sono esaurite. La vendita generale apre sabato 5 dicembre alle 10:00 (ora di Parigi): iscriviti alla lista d'attesa per essere tra i primi a saperlo.",
     "submit": "Biglietteria",
     "smallnote": "Biglietteria ufficiale · Weezevent 🌸",
     "pass_day": "Pass Giornata",
@@ -139,10 +139,24 @@
     "pass_evening_time": "18:00 → 22:00",
     "pass_evening_desc": "Golden hour e serata danzante, se puoi venire solo nel tardo pomeriggio.",
     "pass_evening_price": "da 19,99 €",
-    "card_cta": "Prenota questo Pass →",
+    "card_cta": "Iscriviti alla lista d'attesa →",
     "pass_kids_tag": "🧒 Pass Bambini da 5 € (6-14 anni)",
     "pass_infant_tag": "👶 Gratis sotto i 6 anni",
-    "drawer_close": "Chiudi la biglietteria"
+    "drawer_close": "Chiudi la biglietteria",
+    "soldout_ribbon": "Esaurito",
+    "soldout_tag": "🔴 Prevendite esaurite",
+    "wl_title": "Prevendite esaurite",
+    "wl_date_label": "Vendita generale",
+    "wl_date_value": "Sabato 5 dicembre, ore 10:00 (ora di Parigi)",
+    "wl_days": "giorni",
+    "wl_hours": "ore",
+    "wl_min": "min",
+    "wl_sec": "sec",
+    "wl_desc": "Iscriviti e ti avviseremo prima di tutti.",
+    "wl_submit": "Avvisami il 5 dicembre",
+    "wl_legal": "La tua email serve solo ad avvisarti dell'apertura della biglietteria e delle novità di FLORE. Puoi annullare l'iscrizione in qualsiasi momento.",
+    "wl_success": "Sei in lista! Ci vediamo il 5 dicembre alle 10:00.",
+    "wl_error": "Spiacenti, l'invio non è riuscito. Riprova tra poco o scrivi a contact@flore-festival.fr."
   },
   "pro": {
     "title": "Un'azienda fuori dalla Francia?",
@@ -160,6 +174,7 @@
     "newsletter_success": "Iscritto/a, a presto!",
     "legal_mentions": "Note legali",
     "legal_privacy": "Privacy e cookie",
-    "legal_cgv": "Condizioni di vendita"
+    "legal_cgv": "Condizioni di vendita",
+    "newsletter_legal": "Puoi annullare l'iscrizione in qualsiasi momento."
   }
 }

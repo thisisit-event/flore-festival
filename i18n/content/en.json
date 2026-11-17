@@ -95,7 +95,7 @@
     "items": [
       {
         "q": "What exactly is FLORE Festival?",
-        "a": "FLORE is a one-day music and food festival, entirely gluten-free and lactose-free: concerts, a food court, a shop and wellbeing spaces, all on one site, all safe to eat and drink without a second thought."
+        "a": "FLORE is a one-day music and food festival, entirely gluten-free and lactose-free: concerts, a food court, a shop and wellbeing spaces, all on one site, with every food stall checked before opening."
       },
       {
         "q": "Is it only for people with allergies or intolerances?",
@@ -107,7 +107,7 @@
       },
       {
         "q": "Are tickets on sale yet?",
-        "a": "Yes, tickets are on sale now on our official box office, with a Day Pass and an Evening Pass (6pm to 10pm)."
+        "a": "Presales are sold out. General sale opens on Saturday 5 December at 10am (Paris time), with a Day Pass and an Evening Pass (6pm to 10pm). Join the waiting list in the Tickets section to be notified first."
       },
       {
         "q": "Does the ticket include food and drinks?",
@@ -115,7 +115,7 @@
       },
       {
         "q": "Is the food really safe for coeliacs?",
-        "a": "Yes. Our food court (Jardin des Saveurs) and bars follow a strict below-20ppm gluten standard, the threshold recognised for coeliac disease, with dedicated preparation to avoid cross-contamination."
+        "a": "That's the whole idea. Our food court (Jardin des Saveurs) and bars follow a strict below-20 ppm gluten standard, the threshold recognised for coeliac disease, with dedicated preparation and every stall checked before opening to avoid cross-contamination."
       },
       {
         "q": "Do I need to travel far to get there?",
@@ -127,7 +127,7 @@
     "kicker": "Tickets",
     "title_pre": "Get your ",
     "title_em": "ticket",
-    "text": "Tickets are on sale now on our official box office. Choose the Day Pass or the Evening Pass, whichever suits you best.",
+    "text": "Presales are sold out. General sale opens on Saturday 5 December at 10am (Paris time): join the waiting list to be the first to know.",
     "submit": "Ticketing",
     "smallnote": "Official box office · Weezevent 🌸",
     "pass_day": "Day Pass",
@@ -139,10 +139,24 @@
     "pass_evening_time": "6pm → 10pm",
     "pass_evening_desc": "Golden hour and an evening of dancing, if you can only make it later in the day.",
     "pass_evening_price": "from €19.99",
-    "card_cta": "Book this Pass →",
+    "card_cta": "Join the waiting list →",
     "pass_kids_tag": "🧒 Kids Pass from €5 (ages 6-14)",
     "pass_infant_tag": "👶 Free under 6",
-    "drawer_close": "Close ticketing"
+    "drawer_close": "Close ticketing",
+    "soldout_ribbon": "Sold out",
+    "soldout_tag": "🔴 Presales sold out",
+    "wl_title": "Presales sold out",
+    "wl_date_label": "General sale",
+    "wl_date_value": "Saturday 5 December, 10am (Paris time)",
+    "wl_days": "days",
+    "wl_hours": "hours",
+    "wl_min": "min",
+    "wl_sec": "sec",
+    "wl_desc": "Sign up and we'll let you know before anyone else.",
+    "wl_submit": "Notify me on 5 December",
+    "wl_legal": "Your email is only used to tell you when ticketing opens and to share FLORE news. Unsubscribe at any time.",
+    "wl_success": "You're on the list! See you on 5 December at 10am.",
+    "wl_error": "Sorry, something went wrong. Please try again in a moment or email contact@flore-festival.fr."
   },
   "pro": {
     "title": "A business outside France?",
@@ -160,6 +174,7 @@
     "newsletter_success": "Subscribed, see you soon!",
     "legal_mentions": "Legal notice",
     "legal_privacy": "Privacy & cookies",
-    "legal_cgv": "Terms of sale"
+    "legal_cgv": "Terms of sale",
+    "newsletter_legal": "Unsubscribe at any time."
   }
 }

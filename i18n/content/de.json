@@ -95,7 +95,7 @@
     "items": [
       {
         "q": "Was genau ist das FLORE Festival?",
-        "a": "FLORE ist ein eintägiges Musik- und Food-Festival, komplett glutenfrei und laktosefrei: Konzerte, ein Food Court, ein Shop und Wohlfühlbereiche, alles an einem Ort, alles bedenkenlos zu essen und zu trinken."
+        "a": "FLORE ist ein eintägiges Musik- und Food-Festival, komplett glutenfrei und laktosefrei: Konzerte, ein Food Court, ein Shop und Wohlfühlbereiche, alles an einem Ort, jeder Essensstand wird vor der Öffnung kontrolliert."
       },
       {
         "q": "Ist das Festival nur für Allergiker oder Zöliakiebetroffene?",
@@ -107,7 +107,7 @@
       },
       {
         "q": "Sind Tickets schon erhältlich?",
-        "a": "Ja. Tickets sind jetzt über unseren offiziellen Vorverkauf erhältlich, mit Tagesticket und Abendticket (18 bis 22 Uhr)."
+        "a": "Der Vorverkauf ist ausverkauft. Der allgemeine Verkauf startet am Samstag, 5. Dezember, um 10 Uhr (Pariser Zeit), mit Tagesticket und Abendticket (18 bis 22 Uhr). Trag dich im Bereich Tickets in die Warteliste ein, um als Erste:r Bescheid zu bekommen."
       },
       {
         "q": "Ist Essen und Trinken im Ticket enthalten?",
@@ -115,7 +115,7 @@
       },
       {
         "q": "Ist das Essen wirklich sicher für Menschen mit Zöliakie?",
-        "a": "Ja. Unser Food Court (Jardin des Saveurs) und die Bars halten einen strengen Standard unter 20 ppm Gluten ein, die anerkannte Schwelle für Zöliakie, mit dedizierter Zubereitung zur Vermeidung von Kreuzkontamination."
+        "a": "Genau darum geht es. Unser Food Court (Jardin des Saveurs) und die Bars halten einen strengen Standard unter 20 ppm Gluten ein, die anerkannte Schwelle für Zöliakie, mit dedizierter Zubereitung und Kontrolle jedes Stands vor der Öffnung, um Kreuzkontamination zu vermeiden."
       },
       {
         "q": "Muss ich von weit her anreisen?",
@@ -127,7 +127,7 @@
     "kicker": "Tickets",
     "title_pre": "Hol dir dein ",
     "title_em": "Ticket",
-    "text": "Tickets sind jetzt über unseren offiziellen Vorverkauf erhältlich. Tagesticket oder Abendticket, ganz wie du magst.",
+    "text": "Der Vorverkauf ist ausverkauft. Der allgemeine Verkauf startet am Samstag, 5. Dezember, um 10 Uhr (Pariser Zeit): Trag dich in die Warteliste ein, um es als Erste:r zu erfahren.",
     "submit": "Ticketverkauf",
     "smallnote": "Offizieller Vorverkauf · Weezevent 🌸",
     "pass_day": "Tagesticket",
@@ -139,10 +139,24 @@
     "pass_evening_time": "18 → 22 Uhr",
     "pass_evening_desc": "Golden Hour und Tanzabend, falls du erst später am Tag kommen kannst.",
     "pass_evening_price": "ab 19,99 €",
-    "card_cta": "Dieses Pass buchen →",
+    "card_cta": "Auf die Warteliste →",
     "pass_kids_tag": "🧒 Kinderticket ab 5 € (6-14 Jahre)",
     "pass_infant_tag": "👶 Kostenlos unter 6 Jahren",
-    "drawer_close": "Ticketverkauf schließen"
+    "drawer_close": "Ticketverkauf schließen",
+    "soldout_ribbon": "Ausverkauft",
+    "soldout_tag": "🔴 Vorverkauf ausverkauft",
+    "wl_title": "Vorverkauf ausverkauft",
+    "wl_date_label": "Allgemeiner Verkauf",
+    "wl_date_value": "Samstag, 5. Dezember, 10 Uhr (Pariser Zeit)",
+    "wl_days": "Tage",
+    "wl_hours": "Std.",
+    "wl_min": "Min.",
+    "wl_sec": "Sek.",
+    "wl_desc": "Trag dich ein, wir sagen dir vor allen anderen Bescheid.",
+    "wl_submit": "Am 5. Dezember benachrichtigen",
+    "wl_legal": "Deine E-Mail-Adresse dient nur dazu, dich über den Start des Ticketverkaufs und Neuigkeiten von FLORE zu informieren. Abmeldung jederzeit möglich.",
+    "wl_success": "Du stehst auf der Liste! Bis zum 5. Dezember um 10 Uhr.",
+    "wl_error": "Leider ist das Senden fehlgeschlagen. Bitte versuch es gleich noch einmal oder schreib an contact@flore-festival.fr."
   },
   "pro": {
     "title": "Ein Unternehmen außerhalb Frankreichs?",
@@ -160,6 +174,7 @@
     "newsletter_success": "Angemeldet, bis bald!",
     "legal_mentions": "Impressum",
     "legal_privacy": "Datenschutz & Cookies",
-    "legal_cgv": "Allgemeine Geschäftsbedingungen"
+    "legal_cgv": "Allgemeine Geschäftsbedingungen",
+    "newsletter_legal": "Abmeldung jederzeit möglich."
   }
 }

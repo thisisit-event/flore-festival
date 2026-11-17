@@ -95,7 +95,7 @@
     "items": [
       {
         "q": "¿Qué es exactamente el FLORE Festival?",
-        "a": "FLORE es un festival de música y gastronomía de un día, completamente sin gluten y sin lactosa: conciertos, una zona gastronómica, una tienda y espacios de bienestar, todo en un mismo recinto, todo seguro para comer y beber sin pensarlo dos veces."
+        "a": "FLORE es un festival de música y gastronomía de un día, completamente sin gluten y sin lactosa: conciertos, una zona gastronómica, una tienda y espacios de bienestar, todo en un mismo recinto, con cada puesto de comida controlado antes de abrir."
       },
       {
         "q": "¿Es un festival solo para intolerantes o celíacos?",
@@ -107,7 +107,7 @@
       },
       {
         "q": "¿Ya se venden las entradas?",
-        "a": "Sí. Las entradas ya están a la venta en nuestra taquilla oficial, con un Pase Día y un Pase Noche (18h a 22h)."
+        "a": "La preventa está agotada. La venta general abre el sábado 5 de diciembre a las 10:00 (hora de París), con un Pase Día y un Pase Noche (18h a 22h). Apúntate a la lista de espera en la sección Entradas para enterarte el primero."
       },
       {
         "q": "¿La entrada incluye comida y bebida?",
@@ -115,7 +115,7 @@
       },
       {
         "q": "¿La comida es realmente segura para celíacos?",
-        "a": "Sí. Nuestra zona gastronómica (Jardin des Saveurs) y los bares siguen un estándar estricto por debajo de 20 ppm de gluten, el umbral reconocido para la celiaquía, con una preparación dedicada para evitar la contaminación cruzada."
+        "a": "Esa es justamente la idea. Nuestra zona gastronómica (Jardin des Saveurs) y los bares siguen un estándar estricto por debajo de 20 ppm de gluten, el umbral reconocido para la celiaquía, con una preparación dedicada y cada puesto controlado antes de abrir para evitar la contaminación cruzada."
       },
       {
         "q": "¿Tengo que viajar desde muy lejos para asistir?",
@@ -127,7 +127,7 @@
     "kicker": "Entradas",
     "title_pre": "Consigue tu ",
     "title_em": "entrada",
-    "text": "Las entradas ya están a la venta en nuestra taquilla oficial. Pase Día o Pase Noche, tú eliges.",
+    "text": "La preventa está agotada. La venta general abre el sábado 5 de diciembre a las 10:00 (hora de París): apúntate a la lista de espera para ser de los primeros en saberlo.",
     "submit": "Entradas",
     "smallnote": "Taquilla oficial · Weezevent 🌸",
     "pass_day": "Pase Día",
@@ -139,10 +139,24 @@
     "pass_evening_time": "18h → 22h",
     "pass_evening_desc": "Golden hour y noche de baile, si solo puedes venir a última hora del día.",
     "pass_evening_price": "desde 19,99 €",
-    "card_cta": "Reservar este Pass →",
+    "card_cta": "Apuntarme a la lista de espera →",
     "pass_kids_tag": "🧒 Pase Infantil desde 5 € (6-14 años)",
     "pass_infant_tag": "👶 Gratis menores de 6 años",
-    "drawer_close": "Cerrar la venta de entradas"
+    "drawer_close": "Cerrar la venta de entradas",
+    "soldout_ribbon": "Agotado",
+    "soldout_tag": "🔴 Preventa agotada",
+    "wl_title": "Preventa agotada",
+    "wl_date_label": "Venta general",
+    "wl_date_value": "Sábado 5 de diciembre, 10:00 (hora de París)",
+    "wl_days": "días",
+    "wl_hours": "horas",
+    "wl_min": "min",
+    "wl_sec": "seg",
+    "wl_desc": "Apúntate y te avisaremos antes que a nadie.",
+    "wl_submit": "Avisarme el 5 de diciembre",
+    "wl_legal": "Tu email solo sirve para avisarte de la apertura de la taquilla y de las novedades de FLORE. Puedes darte de baja en cualquier momento.",
+    "wl_success": "¡Estás en la lista! Nos vemos el 5 de diciembre a las 10:00.",
+    "wl_error": "Lo sentimos, el envío ha fallado. Inténtalo de nuevo en un momento o escribe a contact@flore-festival.fr."
   },
   "pro": {
     "title": "¿Una empresa fuera de Francia?",
@@ -160,6 +174,7 @@
     "newsletter_success": "¡Suscrito/a, hasta pronto!",
     "legal_mentions": "Aviso legal",
     "legal_privacy": "Privacidad y cookies",
-    "legal_cgv": "Condiciones de venta"
+    "legal_cgv": "Condiciones de venta",
+    "newsletter_legal": "Puedes darte de baja en cualquier momento."
   }
 }
