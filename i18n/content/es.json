@@ -107,7 +107,7 @@
       },
       {
         "q": "¿Ya se venden las entradas?",
-        "a": "La preventa está agotada. La venta general abre el sábado 5 de diciembre a las 10:00 (hora de París), con un Pase Día y un Pase Noche (18h a 22h). Apúntate a la lista de espera en la sección Entradas para enterarte el primero."
+        "a": "La preventa está agotada. La venta general abre el sábado 5 de diciembre a las 10:00 (hora de París), con un Pase Día y un Pase Noche (18h a 22h). Apúntate a la lista de espera con el botón Consigue tu entrada para enterarte el primero."
       },
       {
         "q": "¿La entrada incluye comida y bebida?",
@@ -176,5 +176,224 @@
     "legal_privacy": "Privacidad y cookies",
     "legal_cgv": "Condiciones de venta",
     "newsletter_legal": "Puedes darte de baja en cualquier momento."
+  },
+  "home": {
+    "nav_spaces": "Los espacios",
+    "nav_lineup": "Cartel",
+    "hero": {
+      "lede": "Conciertos, zona gastronómica y bienestar, durante un día. Todo lo que te gusta de un festival, sin renunciar a nada.",
+      "date_label": "Fecha",
+      "date_value": "Sábado 17 de abril de 2027",
+      "date_time": "11:00 → 22:00",
+      "add_cal": "+ Añadir al calendario",
+      "place_label": "Lugar",
+      "place_value": "Ainterexpo, Bourg-en-Bresse",
+      "place_sub": "Entre Lyon y Ginebra",
+      "see_map": "Ver en el mapa →",
+      "urgency": "⚠️ Preventa agotada",
+      "flower_alt": "Margaritas, la flor emblemática de FLORE Festival"
+    },
+    "situe": {
+      "map_label": "Ubicación de FLORE Festival, Ainterexpo, Bourg-en-Bresse",
+      "kicker": "El gran día se acerca",
+      "title": "Sábado 17 de abril de 2027",
+      "loc": "📍 Ainterexpo, Bourg-en-Bresse, entre Lyon y Ginebra",
+      "loc2": "Recinto cubierto · aparcamiento gratuito",
+      "days": "días",
+      "hours": "horas",
+      "min": "min",
+      "sec": "seg"
+    },
+    "partners": {
+      "kicker": "Hacen posible FLORE",
+      "more": "Todos nuestros socios →",
+      "lead": "Patrocinador fundador",
+      "official": "Socio oficial",
+      "media": "Socio de medios"
+    },
+    "values": {
+      "kicker": "Nuestra revolución inclusiva",
+      "title_pre": "Un festival donde todos por fin pueden ",
+      "title_hl": "florecer",
+      "intro_html": "FLORE es <strong>el primer festival 100 % sin gluten y sin lactosa</strong>: conciertos y el Jardin des Saveurs, una zona gastronómica y un bar donde puedes pedirlo todo con los ojos cerrados. Un verdadero día de fiesta, para quienes nunca tuvieron elección y para todos los demás.",
+      "cards": [
+        {
+          "t": "100 % sin gluten",
+          "d": "El Jardin des Saveurs y los bares, sin gluten y controlados puesto por puesto."
+        },
+        {
+          "t": "100 % sin lactosa",
+          "d": "El Jardin des Saveurs y los bares, totalmente sin lactosa, para disfrutar sin preocupaciones."
+        },
+        {
+          "t": "Música y zona gastronómica",
+          "d": "Conciertos en directo, food trucks y bar. El verdadero ambiente de festival, sin concesiones."
+        },
+        {
+          "t": "Salud y bienestar",
+          "d": "Charlas de salud, expertos y un entorno seguro y amable donde todos se sienten bien."
+        }
+      ]
+    },
+    "espaces": {
+      "kicker": "Los espacios",
+      "title_pre": "Seis grandes ",
+      "title_hl": "universos",
+      "intro": "Un día, seis universos: se baila, se prueba, se descubre, se conversa, se respira y se descansa. Ábrelos para descubrirlos.",
+      "items": [
+        {
+          "kicker": "El corazón del festival",
+          "p": "El escenario musical del festival: conciertos en directo y una pista de pie, con una zona de asientos para tomar aire.",
+          "li": [
+            "Conciertos en directo todo el día",
+            "Pista de pie y zona de asientos"
+          ]
+        },
+        {
+          "kicker": "La zona gastronómica",
+          "p": "La zona gastronómica del festival, con su bar de cervezas. Todo lo que te gusta encontrar en un festival, solo que aquí <strong>puedes pedirlo todo con los ojos cerrados</strong>.",
+          "li": [
+            "Food trucks y puestos golosos",
+            "Bar central: cervezas sin gluten",
+            "Dulce, salado, goloso: ambiente de food court sin concesiones",
+            "Raciones mini de degustación en cada puesto, para probarlo todo sin gastar demasiado"
+          ]
+        },
+        {
+          "kicker": "El espacio de expositores",
+          "p": "El espacio de las marcas y profesionales del sin gluten y sin lactosa. Productos, apps, talleres de cocina, profesionales de la salud... <strong>todo un ecosistema para descubrir y probar en el lugar</strong>.",
+          "li": [
+            "Productos, marcas y apps sin gluten y sin lactosa",
+            "Talleres de cocina y encuentros con profesionales de la salud",
+            "Todo lo que ayuda en el día a día con una intolerancia o un trastorno intestinal"
+          ]
+        },
+        {
+          "kicker": "El rincón del bienestar",
+          "p": "Un espacio acogedor de conversaciones y charlas sobre salud y bienestar, en un ambiente cercano.",
+          "li": [
+            "Charlas y conversaciones de salud durante todo el día",
+            "Profesionales de la salud y expertos invitados",
+            "Un formato íntimo y amable",
+            "Entrada libre, hasta completar aforo"
+          ]
+        },
+        {
+          "kicker": "La pausa tranquila",
+          "p": "Un rincón más tranquilo para comer con calma, charlar y recargar energía entre dos momentos fuertes del día.",
+          "li": [
+            "Mesas y asientos para descansar",
+            "Encuentros con socios y expositores",
+            "Una pausa entre dos conciertos"
+          ]
+        },
+        {
+          "kicker": "La zona segura",
+          "p": "Un espacio tranquilo para respirar, lejos del ruido y la multitud. Pensado para quienes lo necesitan: hipersensibilidad, cansancio, ansiedad o simplemente ganas de un descanso.",
+          "li": [
+            "Zona tranquila alejada de la multitud",
+            "Acompañamiento si lo necesitas",
+            "Hipersensibilidad, cansancio, ansiedad: bienvenidos"
+          ]
+        }
+      ]
+    },
+    "journee": {
+      "kicker": "Recorrido de ejemplo · no es el programa oficial",
+      "title_pre": "De 11:00 a 22:00, ",
+      "title_hl": "un día que se cuenta",
+      "intro": "Aquí tienes, a modo de ejemplo, el día imaginado de un festivalero, no un programa oficial ni horarios fijos. En realidad, cada uno circula libremente entre el Escenario, el Jardin des Saveurs, las Causeries, la Boutique y el Salon, a su ritmo.",
+      "hint": "Desliza para vivir el día",
+      "rows": [
+        {
+          "time": "Llegada",
+          "tag": "Apertura",
+          "title": "Se abren las puertas",
+          "text": "Primeros pasos en el recinto: te orientas y descubres el ambiente."
+        },
+        {
+          "time": "Mañana",
+          "tag": "Scène FLORE",
+          "title": "Primer concierto",
+          "text": "La Scène FLORE cobra vida con los primeros artistas del día."
+        },
+        {
+          "time": "Mediodía",
+          "tag": "Jardin des Saveurs",
+          "title": "A la mesa",
+          "text": "Rumbo al Jardin des Saveurs para un almuerzo 100 % sin gluten y sin lactosa."
+        },
+        {
+          "time": "Tarde",
+          "tag": "Les Causeries",
+          "title": "Un momento para conversar",
+          "text": "Charlas y testimonios sobre salud y bienestar, en un ambiente íntimo."
+        },
+        {
+          "time": "Tarde",
+          "tag": "La Boutique FLORE",
+          "title": "Paseo goloso",
+          "text": "Descubres la Boutique FLORE y los puestos de los socios, entre dos degustaciones."
+        },
+        {
+          "time": "Final de la tarde",
+          "tag": "Le Salon FLORE",
+          "title": "Pequeña pausa",
+          "text": "Una merienda en el Salon FLORE, para descansar y recargar energía antes de la noche."
+        },
+        {
+          "time": "Noche",
+          "tag": "Gran noche",
+          "title": "Empieza la noche",
+          "text": "Conciertos, zona gastronómica y ambiente festivo hasta el cierre."
+        }
+      ]
+    },
+    "lineup": {
+      "kicker": "Cartel",
+      "title_pre": "El cartel ",
+      "title_hl": "se desvela",
+      "intro": "Los artistas se anuncian a lo largo de las semanas, primero en Instagram.",
+      "cta": "Ver el programa completo →"
+    },
+    "audience": {
+      "kicker": "¿Para quién?",
+      "title_pre": "Una comunidad que ",
+      "title_hl": "se te parece",
+      "intro": "FLORE reúne a una comunidad comprometida y amable, en busca de eventos festivos y verdaderamente inclusivos.",
+      "chips": [
+        "Amantes de la música",
+        "Curiosos y golosos",
+        "Familias y amigos",
+        "Festivaleros comprometidos",
+        "Intolerantes y celíacos",
+        "Atentos al bienestar"
+      ]
+    },
+    "footer": {
+      "nl_title": "Las novedades de FLORE, en primicia",
+      "nl_desc": "Cartel, entradas, novedades: una newsletter, nunca spam.",
+      "brand_text": "El primer festival 100 % sin gluten y sin lactosa.",
+      "event_date": "Sábado 17 de abril de 2027, de 11:00 a 22:00",
+      "event_place": "Ainterexpo, Bourg-en-Bresse, Francia",
+      "col_festival": "El festival",
+      "l_concept": "El concepto",
+      "l_spaces": "Los espacios",
+      "l_lineup": "Cartel",
+      "l_partners": "Nuestros socios",
+      "col_info": "Información práctica",
+      "l_visit": "Cómo llegar",
+      "l_faq": "Preguntas frecuentes",
+      "col_join": "Participa",
+      "l_tickets": "Entradas",
+      "l_exhib": "Expositores",
+      "l_artists": "Artistas",
+      "l_partner": "Hazte socio",
+      "col_contact": "Contacto",
+      "l_write": "Escríbenos",
+      "l_press": "Área de prensa",
+      "copyright": "FLORE Festival · Una producción de MG Entertainment, asociación sin ánimo de lucro",
+      "lang_aria": "Idioma del sitio"
+    }
   }
 }

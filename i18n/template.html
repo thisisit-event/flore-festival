@@ -37,6 +37,7 @@
 
 <link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/flore.css?v=20261117c">
 <style>
   .pro-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:var(--r-lg);padding:34px 38px;text-align:center;max-width:700px;margin:0 auto}
@@ -105,7 +106,8 @@
       <a href="{{URL_PATH}}" class="logo" aria-label="FLORE Festival, home"><img class="logo-img logo-light" src="/assets/logo-flore-white.png" alt="FLORE"><img class="logo-img logo-dark" src="/assets/logo-flore-black.png" alt="" aria-hidden="true"></a>
       <div class="nav-links">
         <a href="#festival">{{NAV_FESTIVAL}}</a>
-        <a href="#gluten">{{NAV_GLUTEN}}</a>
+        <a href="#espaces">{{t:home.nav_spaces}}</a>
+        <a href="#lineup">{{t:home.nav_lineup}}</a>
         <a href="#visit">{{NAV_VISIT}}</a>
         <a href="#faq">{{NAV_FAQ}}</a>
         <div class="nav-item"><button class="nav-trigger" aria-expanded="false">{{CURRENT_LANG_FLAG_HTML}} {{LANG_CODE_UPPER}} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -123,7 +125,8 @@
 <div class="mobile-menu" id="mobileMenu">
   <span class="m-label">Festival</span>
   <a class="m-sub" href="#festival">{{NAV_FESTIVAL}}</a>
-  <a class="m-sub" href="#gluten">{{NAV_GLUTEN}}</a>
+  <a class="m-sub" href="#espaces">{{t:home.nav_spaces}}</a>
+  <a class="m-sub" href="#lineup">{{t:home.nav_lineup}}</a>
   <a class="m-sub" href="#visit">{{NAV_VISIT}}</a>
   <a class="m-sub" href="#faq">{{NAV_FAQ}}</a>
   <button type="button" class="btn btn-sun" data-open-drawer>{{NAV_TICKETS}}</button>
@@ -139,9 +142,28 @@
         <span class="hero-tag"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{HERO_TAG}}</span>
         <h1><img src="/assets/logo-flore-white.png" alt="FLORE Festival 2027"><span class="sr-only">{{HERO_SR_TITLE}}</span></h1>
         <p class="hero-tagline">{{HERO_TAGLINE}}</p>
-        <p class="lede">{{HERO_LEDE}}</p>
+        <p class="lede">{{t:home.hero.lede}}</p>
 
-        <div class="cd-intro"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{HERO_COUNTDOWN_INTRO}}</div>
+        <div class="hero-datelieu" data-aos="fade-up">
+          <a class="hero-dl-item hero-dl-link" href="data:text/calendar;charset=utf8,BEGIN%3AVCALENDAR%0D%0AVERSION%3A2.0%0D%0APRODID%3A-//FLORE%20Festival//FR%0D%0ABEGIN%3AVEVENT%0D%0AUID%3Aflore-festival-2027%40flore-festival.fr%0D%0ADTSTAMP%3A20260811T000000Z%0D%0ADTSTART%3A20270417T090000Z%0D%0ADTEND%3A20270417T200000Z%0D%0ASUMMARY%3AFLORE%20Festival%202027%0D%0ADESCRIPTION%3ALe%20premier%20festival%20sans%20gluten%20et%20sans%20lactose.%0D%0ALOCATION%3AAinterexpo%5C%2C%2025%20avenue%20du%20Marechal%20Juin%5C%2C%2001000%20Bourg-en-Bresse%0D%0AEND%3AVEVENT%0D%0AEND%3AVCALENDAR%0D%0A" download="FLORE-Festival-2027.ics">
+            <span class="hero-dl-corner">{{t:home.hero.add_cal}}</span>
+            <img class="hero-dl-ic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-programmation.png" alt="">
+            <div>
+              <span class="hero-dl-label">{{t:home.hero.date_label}}</span>
+              <strong>{{t:home.hero.date_value}}</strong>
+              <span class="hero-dl-sub hero-dl-sub-strong">{{t:home.hero.date_time}}</span>
+            </div>
+          </a>
+          <a class="hero-dl-item hero-dl-link" href="#situe">
+            <span class="hero-dl-corner">{{t:home.hero.see_map}}</span>
+            <img class="hero-dl-ic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lieu.png" alt="">
+            <div>
+              <span class="hero-dl-label">{{t:home.hero.place_label}}</span>
+              <strong>{{t:home.hero.place_value}}</strong>
+              <span class="hero-dl-sub"><span class="hero-dl-sub-strong hero-dl-sub-strong--sm">{{t:home.hero.place_sub}}</span></span>
+            </div>
+          </a>
+        </div>
 
         <div class="hero-cta">
           <button type="button" class="btn btn-sun" data-open-drawer>{{HERO_CTA_PRIMARY}}
@@ -149,43 +171,499 @@
           </button>
           <a href="#festival" class="btn btn-ghost-w">{{HERO_CTA_SECONDARY}}</a>
         </div>
+        <div class="hero-urgency" data-aos="fade-up" data-aos-delay="80">{{t:home.hero.urgency}}</div>
       </div>
+      <style>
+        .hero-datelieu{display:flex;gap:14px;flex-wrap:wrap;margin:20px 0 26px}
+        .hero-dl-item{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:10px 16px;backdrop-filter:blur(6px);text-decoration:none;color:inherit}
+        .hero-dl-link{position:relative;transition:background .25s var(--ease),transform .25s var(--ease);cursor:pointer}
+        .hero-dl-link:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+        .hero-dl-corner{position:absolute;top:7px;right:12px;font-size:.66rem;font-weight:700;color:rgba(255,255,255,.75);white-space:nowrap}
+        .hero-dl-ic{width:34px;height:34px;object-fit:contain;flex-shrink:0}
+        .hero-dl-label{display:block;font-size:.72rem;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:1px}
+        .hero-dl-item strong{display:block;color:#fff;font-size:1.02rem;line-height:1.2;font-family:'Telegraf',sans-serif}
+        .hero-dl-sub{display:block;font-size:.76rem;line-height:1.2;color:rgba(255,255,255,.78);margin-top:1px}
+        .hero-dl-sub-strong{color:var(--sun);font-size:1.06rem;line-height:1.2;font-weight:800;font-family:'Telegraf',sans-serif}
+        .hero-dl-sub-strong--sm{font-size:.88rem}
+        @media(max-width:640px){.hero-datelieu{flex-direction:column}.hero-dl-item{padding:11px 16px}}
+        .hero-urgency{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:11px 22px;border-radius:100px;background:var(--ink);color:var(--sun);font-family:'Telegraf',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:.01em;box-shadow:0 10px 26px rgba(11,24,50,.35);animation:heroUrgencyPulse 2.6s ease-in-out infinite}
+        @keyframes heroUrgencyPulse{0%,100%{box-shadow:0 10px 26px rgba(11,24,50,.35),0 0 0 0 rgba(218,239,82,.4)}50%{box-shadow:0 10px 26px rgba(11,24,50,.35),0 0 0 9px rgba(218,239,82,0)}}
+        @media(prefers-reduced-motion:reduce){.hero-urgency{animation:none}}
+        @media(min-width:900px){.hero-urgency{margin-top:24px}}
+        @media(max-width:480px){.hero-urgency{font-size:.94rem;padding:10px 18px}}
+        .tg-break{display:none}
+        @media(max-width:480px){
+          .tg-break{display:block}
+          .lede-break{display:none}
+          .hero-urgency{width:100%;justify-content:center}
+        }
+      </style>
 
-      <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
-        <div class="florette-wrap">
-          <div class="halo"></div>
-          <svg aria-hidden="true" class="daisy d-float hd1"><use href="#daisy"/></svg>
-          <svg aria-hidden="true" class="daisy d-float hd2"><use href="#daisy"/></svg>
-          <svg aria-hidden="true" class="daisy d-float hd3"><use href="#daisy"/></svg>
-          <img class="florette-svg" src="https://enjoylife.b-cdn.net/Flore/illustration-flore-festival.png" alt="{{HERO_FLORETTE_ALT}}">
+      <div class="hero-visual" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="hero-flower" data-aos="zoom-in" data-aos-delay="150">
+    <div class="florette-wrap">
+      <div class="halo"></div>
+      <img class="florette-svg" src="https://enjoylife.b-cdn.net/Flore/flower-flore-festival.png" alt="{{t:home.hero.flower_alt}}">
+    </div>
+  </div>
+  <div class="hero-schar-badge" aria-hidden="true">
+    <img src="/assets/schar-ruban-flore.png" alt="">
+  </div>
+  <div class="hero-schar-badge hero-schar-badge--mobile" aria-hidden="true">
+    <img src="/assets/schar-ruban-flore.png" alt="">
+  </div>
+  <style>
+    .hero .hero-visual{width:440px}
+    .hero-flower{position:absolute;right:3%;bottom:0;width:clamp(420px,52vw,860px);z-index:1;pointer-events:none}
+    .hero-flower .florette-wrap{width:100%;max-width:none;aspect-ratio:1;position:relative;display:grid;place-items:end center}
+    .hero-flower .florette-svg{width:100%;max-width:none;height:auto;animation:none}
+    @media(max-width:640px){.hero-flower{display:none}}
+    .hero-schar-badge{position:absolute;right:64px;bottom:0;width:clamp(54px,6vw,76px);z-index:2;pointer-events:none}
+    .hero-schar-badge img{width:100%;height:auto;display:block}
+    .hero-schar-badge--mobile{display:none;bottom:0;width:58px}
+    @media(max-width:640px){
+      .hero-schar-badge:not(.hero-schar-badge--mobile){display:none}
+      .hero-schar-badge--mobile{display:block;right:30px}
+      .hero-urgency{width:auto!important;justify-content:flex-start!important}
+    }
+  </style>
+</header>
+
+<!-- ===================== SITUE-TOI + COMPTE A REBOURS ===================== -->
+<section class="sec situe-sec" id="situe" style="padding-top:44px;padding-bottom:44px">
+  <div class="wrap">
+    <div class="situe-grid">
+      <div class="situe-map-card">
+        <div id="situe-map" aria-label="{{t:home.situe.map_label}}"></div>
+      </div>
+      <div class="situe-cd-card">
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.situe.kicker}}</span>
+        <h3>{{t:home.situe.title}}</h3>
+        <p class="situe-loc">{{t:home.situe.loc}}<br>{{t:home.situe.loc2}}</p>
+        <div class="cd-row" id="cd-row">
+          <div class="cd-item"><span class="cd-num" id="cd-days">–</span><span class="cd-label">{{t:home.situe.days}}</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-hours">–</span><span class="cd-label">{{t:home.situe.hours}}</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-min">–</span><span class="cd-label">{{t:home.situe.min}}</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-sec">–</span><span class="cd-label">{{t:home.situe.sec}}</span></div>
+        </div>
+        <button type="button" class="btn btn-sun" data-open-drawer style="margin-top:22px">{{HERO_CTA_PRIMARY}}
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <style>
+    .situe-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:stretch}
+    .situe-map-card{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);min-height:280px}
+    #situe-map{width:100%;height:100%;min-height:280px}
+    .situe-cd-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:32px 30px}
+    .situe-cd-card h3{font-size:1.5rem;color:var(--ink);margin:8px 0 10px}
+    .situe-loc{color:var(--ink-soft);font-size:.94rem;margin:0 0 22px}
+    .cd-row{display:flex;gap:10px}
+    .cd-item{flex:1;background:var(--sky-pale);border-radius:14px;padding:14px 6px;text-align:center}
+    .cd-num{display:block;font-family:'Telegraf',sans-serif;font-weight:800;font-size:1.7rem;color:var(--sky-deep);line-height:1;font-variant-numeric:tabular-nums}
+    .cd-label{display:block;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px}
+    @media(max-width:860px){.situe-grid{grid-template-columns:1fr}.situe-map-card{min-height:240px}}
+  </style>
+</section>
+
+<!-- ===================== PARTENAIRES ===================== -->
+<section class="sponsors-strip">
+  <div class="wrap">
+    <div class="sponsors-card">
+      <div class="sponsors-head">
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.partners.kicker}}</span>
+        <a href="/partenaires/" class="sponsors-more">{{t:home.partners.more}}</a>
+      </div>
+      <div class="sponsors-body">
+        <a class="sponsor-tile sponsor-tile--lead" href="https://www.schaer.com/fr-fr" target="_blank" rel="noopener">
+          <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/schar-logo-off-reverse-flore-festival.png" alt="Schär" style="--h:84px"></span>
+          <span class="sponsor-tier">{{t:home.partners.lead}}</span>
+        </a>
+        <div class="sponsors-rest">
+          <div class="sponsors-rest-track">
+            <a class="sponsor-tile" href="https://www.rbsansglutenpizza.com/" target="_blank" rel="noopener">
+              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/sans-gluten-pizza-logo-flore-festival.png" alt="Sans Gluten Pizza" style="--h:103px"></span>
+              <span class="sponsor-tier">{{t:home.partners.official}}</span>
+            </a>
+            <a class="sponsor-tile" href="https://www.radioscoop.com/" target="_blank" rel="noopener">
+              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/LOGO-RADIO-SCOOP-vect-RVB-2018.png" alt="Radio Scoop" style="--h:84px"></span>
+              <span class="sponsor-tier">{{t:home.partners.media}}</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</header>
+  <style>
+    /* Collé sous le bloc compte à rebours : même écart (24px) qu'entre la carte et le compte à rebours */
+    .sponsors-strip{padding:0 0 26px;margin-top:-20px}
+    .sponsors-card{background:#fff;border-radius:var(--r-lg);padding:28px 30px 30px;box-shadow:var(--shadow-sm)}
+    .sponsors-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;margin-bottom:22px}
+    .sponsors-head .kicker{color:var(--ink)}
+    .sponsors-head .kicker svg.daisy{color:var(--sun-deep)}
+    .sponsors-more{font-size:.88rem;font-weight:700;color:var(--sky-deep);text-decoration:none;transition:color .2s var(--ease)}
+    .sponsors-more:hover{color:var(--ink)}
+    /* Mode fixe (moins de 4 partenaires) : toutes les tuiles, Schär compris, dans une seule grille
+       à colonnes égales. display:contents fait des tuiles de la bande des cellules directes de la grille. */
+    .sponsors-body{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:16px}
+    .sponsors-rest,.sponsors-rest-track{display:contents}
+    /* Mode mouvement (activé par le script dès 4 partenaires) : Schär fixe, les autres dans une bande */
+    .sponsors-body.is-moving{display:flex;align-items:stretch}
+    .sponsors-body.is-moving .sponsor-tile--lead{flex:0 0 250px}
+    .sponsors-body.is-moving .sponsors-rest{display:flex;flex:1;min-width:0}
+    /* Mode défilement (activé par le script) : piste = 2 moitiés identiques, translateX(-50%) boucle sans à-coup.
+       Marge à droite de chaque tuile plutôt qu'un gap, sinon les deux moitiés n'ont pas exactement la même largeur. */
+    .sponsors-rest.is-marquee{overflow:hidden;padding:4px 0 12px;margin:-4px 0 -12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent)}
+    .sponsors-rest.is-marquee .sponsors-rest-track{flex:none;display:flex;gap:0;width:max-content;animation:sponsorsDefile var(--dur,30s) linear infinite}
+    .sponsors-rest.is-marquee .sponsor-tile{flex:0 0 220px;margin-right:16px}
+    .sponsors-rest.is-marquee:hover .sponsors-rest-track,.sponsors-rest.is-marquee:focus-within .sponsors-rest-track{animation-play-state:paused}
+    @keyframes sponsorsDefile{to{transform:translateX(-50%)}}
+    /* Animations désactivées par l'utilisateur : bande qu'on fait glisser à la main */
+    .sponsors-rest.is-scroll{overflow-x:auto;scroll-snap-type:x mandatory}
+    .sponsors-rest.is-scroll .sponsors-rest-track{flex:none;display:flex;width:max-content}
+    .sponsors-rest.is-scroll .sponsor-tile{flex:0 0 200px;scroll-snap-align:start}
+    .sponsor-tile{display:flex;flex-direction:column;align-items:center;gap:16px;padding:22px 18px 20px;border:1px solid var(--line);border-radius:var(--r-md);text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+    .sponsor-tile:hover{transform:translateY(-3px);border-color:var(--sky-mid);box-shadow:var(--shadow-sm)}
+    .sponsor-logo{height:104px;display:flex;align-items:center;justify-content:center}
+    /* --h compense la marge transparente propre à chaque fichier : le dessin visible fait la même hauteur partout */
+    .sponsor-logo img{height:var(--h);width:auto;display:block}
+    .sponsor-tier{font-family:'Telegraf',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.07em;line-height:1.3;text-align:center;text-transform:uppercase;color:var(--ink-soft);background:var(--sky-pale);padding:6px 12px;border-radius:100px;max-width:100%}
+    .sponsor-tile--lead .sponsor-tier{background:var(--sun);color:var(--ink)}
+    @media(min-width:641px) and (max-width:900px){
+      .sponsors-body{gap:12px}
+      .sponsors-body.is-moving .sponsor-tile--lead{flex-basis:190px}
+      .sponsor-tile{padding:18px 10px 16px}
+      .sponsor-logo{height:90px}
+      .sponsor-logo img{height:calc(var(--h) * .86)}
+      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
+      .sponsors-rest.is-marquee .sponsor-tile{flex-basis:180px;margin-right:12px}
+    }
+    @media(max-width:640px){
+      .sponsors-card{padding:24px 18px 20px}
+      .sponsors-head{flex-direction:column;justify-content:center;text-align:center}
+      .sponsors-body{grid-auto-flow:row;grid-template-columns:1fr 1fr;gap:12px}
+      .sponsor-tile--lead{grid-column:1/-1}
+      .sponsors-body.is-moving{flex-direction:column}
+      .sponsors-body.is-moving .sponsor-tile--lead{flex:none}
+      .sponsor-tile{padding:18px 10px 16px;gap:12px}
+      .sponsor-logo{height:80px}
+      .sponsor-logo img{height:calc(var(--h) * .76)}
+      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
+      .sponsors-rest.is-marquee .sponsor-tile{flex-basis:150px;margin-right:12px}
+    }
+  </style>
+  <script>
+    (function(){
+      var rest = document.querySelector('.sponsors-rest');
+      if (!rest) return;
+      var track = rest.querySelector('.sponsors-rest-track');
+      var originals = [].slice.call(track.children);
+      // Le défilement ne démarre qu'à partir de 4 partenaires dans la bande (sinon trop répétitif).
+      // ?defilement dans l'URL force l'aperçu, pour tester avant d'avoir 4 partenaires.
+      var force = /[?&]defilement\b/.test(location.search);
+      if (originals.length < 4 && !force) return;
+      rest.parentNode.classList.add('is-moving');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { rest.classList.add('is-scroll'); return; }
+      rest.classList.add('is-marquee');
+
+      function clone(el){
+        var c = el.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        c.setAttribute('tabindex', '-1');
+        return c;
+      }
+      function build(){
+        track.innerHTML = '';
+        originals.forEach(function(el){ track.appendChild(el); });
+        var first = originals[0];
+        var unit = first.getBoundingClientRect().width + parseFloat(getComputedStyle(first).marginRight);
+        var setW = unit * originals.length;
+        // Une moitié de piste doit dépasser la largeur visible, sinon un trou apparaît pendant la boucle
+        var reps = Math.max(1, Math.ceil(rest.clientWidth / setW));
+        for (var r = 1; r < reps; r++) originals.forEach(function(el){ track.appendChild(clone(el)); });
+        var half = track.children.length;
+        for (var i = 0; i < half; i++) track.appendChild(clone(track.children[i]));
+        track.style.setProperty('--dur', (setW * reps / 40) + 's');
+      }
+      build();
+      var t;
+      window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(build, 200); });
+    })();
+  </script>
+</section>
+
 
 <!-- ===================== CONCEPT ===================== -->
 <section class="sec" id="festival">
   <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{CONCEPT_KICKER}}</span>
-      <h2>{{CONCEPT_TITLE_PRE}}<span class="hl">{{CONCEPT_TITLE_HL}}</span></h2>
-      <p>{{CONCEPT_INTRO}}</p>
+    <div class="sec-head center" data-aos="fade-up" style="margin-bottom:44px">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.values.kicker}}</span>
+      <h2>{{t:home.values.title_pre}}<span class="hl">{{t:home.values.title_hl}}</span></h2>
+      <p>{{h:home.values.intro_html}}</p>
     </div>
-    <div class="public-grid">
-{{CONCEPT_CARDS_HTML}}
+    <div class="values">
+      <div class="value-card" data-aos="fade-up">
+        <div class="v-ic" style="background:#FFF1CC"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-gluten.png" alt="" loading="lazy"></div>
+        <h3>{{t:home.values.cards.0.t}}</h3>
+        <p>{{t:home.values.cards.0.d}}</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="v-ic" style="background:#E7F4FB"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-lactose.png" alt="" loading="lazy"></div>
+        <h3>{{t:home.values.cards.1.t}}</h3>
+        <p>{{t:home.values.cards.1.d}}</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="v-ic" style="background:#FCE2E9"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-musique.png" alt="" loading="lazy"></div>
+        <h3>{{t:home.values.cards.2.t}}</h3>
+        <p>{{t:home.values.cards.2.d}}</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="v-ic" style="background:#E4F2DA"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-bienveillance.png" alt="" loading="lazy"></div>
+        <h3>{{t:home.values.cards.3.t}}</h3>
+        <p>{{t:home.values.cards.3.d}}</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== GLUTEN / PROMISE ===================== -->
-<section class="sec" id="gluten" style="padding-top:0">
+<!-- ===================== ESPACES ===================== -->
+<section class="sec" id="espaces">
   <div class="wrap">
-    <div class="manifesto" data-aos="fade-up" style="max-width:900px;margin:0 auto;text-align:center">
-      <span class="tag" style="justify-content:center"><svg aria-hidden="true" class="daisy" style="width:16px;height:16px"><use href="#daisy"/></svg>{{MANIFESTO_TAG}}</span>
-      <blockquote>{{MANIFESTO_QUOTE}}</blockquote>
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.kicker}}</span>
+      <h2>{{t:home.espaces.title_pre}}<span class="hl">{{t:home.espaces.title_hl}}</span></h2>
+      <p>{{t:home.espaces.intro}}</p>
+    </div>
+    <div class="espaces-grid">
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-floor-scene.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">{{t:home.espaces.items.0.kicker}}</span><h3>La Scène Flore</h3></span></summary>
+        <div class="e-body">
+          <p>{{h:home.espaces.items.0.p}}</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.0.li.0}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.0.li.1}}</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">{{t:home.espaces.items.1.kicker}}</span><h3>Le Jardin des Saveurs</h3></span></summary>
+        <div class="e-body">
+          <p>{{h:home.espaces.items.1.p}}</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.1.li.0}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.1.li.1}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.1.li.2}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.1.li.3}}</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">{{t:home.espaces.items.2.kicker}}</span><h3>La Boutique Flore</h3></span></summary>
+        <div class="e-body">
+          <p>{{h:home.espaces.items.2.p}}</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.2.li.0}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.2.li.1}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.2.li.2}}</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lescauseries.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">{{t:home.espaces.items.3.kicker}}</span><h3>Les Causeries Flore</h3></span></summary>
+        <div class="e-body">
+          <p>{{h:home.espaces.items.3.p}}</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.3.li.0}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.3.li.1}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.3.li.2}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.3.li.3}}</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-floor-lesalon.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">{{t:home.espaces.items.4.kicker}}</span><h3>Le Salon Flore</h3></span></summary>
+        <div class="e-body">
+          <p>{{h:home.espaces.items.4.p}}</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.4.li.0}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.4.li.1}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.4.li.2}}</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lecocon.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">{{t:home.espaces.items.5.kicker}}</span><h3>Le Cocon Flore</h3></span></summary>
+        <div class="e-body">
+          <p>{{h:home.espaces.items.5.p}}</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.5.li.0}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.5.li.1}}</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.espaces.items.5.li.2}}</li>
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
+  <style>
+    #espaces .espaces-grid{grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+    #espaces .espace-card{padding:0}
+    #espaces .espace-card:hover{transform:none}
+    #espaces .espace-card summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:16px 20px}
+    #espaces .espace-card summary::-webkit-details-marker{display:none}
+    #espaces .espace-card summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2.6px solid var(--sky);border-bottom:2.6px solid var(--sky);transform:rotate(45deg);transition:transform .3s var(--ease);flex-shrink:0}
+    #espaces .espace-card[open] summary::after{transform:rotate(-135deg)}
+    #espaces .espace-card .e-pic{width:64px;height:64px;margin:0;flex:none}
+    #espaces .e-head{display:flex;flex-direction:column;min-width:0}
+    #espaces .espace-card h3{font-size:1.2rem;margin:2px 0 0}
+    #espaces .e-body{padding:0 22px 22px}
+    @media(max-width:900px){#espaces .espaces-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){#espaces .espaces-grid{grid-template-columns:1fr}}
+  </style>
+</section>
+
+<!-- ===================== UNE JOURNÉE À FLORE ===================== -->
+<section class="sec" id="journee" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.journee.kicker}}</span>
+      <h2>{{t:home.journee.title_pre}}<span class="hl">{{t:home.journee.title_hl}}</span></h2>
+      <p>{{t:home.journee.intro}}</p>
+    </div>
+    <div class="timeline story" data-aos="fade-up">
+      <div class="tl-row">
+        <div class="tl-time">{{t:home.journee.rows.0.time}}</div>
+        <div class="tl-card">
+          <span class="tl-tag">{{t:home.journee.rows.0.tag}}</span>
+          <h4>{{t:home.journee.rows.0.title}}</h4>
+          <p>{{t:home.journee.rows.0.text}}</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">{{t:home.journee.rows.1.time}}</div>
+        <div class="tl-card">
+          <span class="tl-tag">{{t:home.journee.rows.1.tag}}</span>
+          <h4>{{t:home.journee.rows.1.title}}</h4>
+          <p>{{t:home.journee.rows.1.text}}</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">{{t:home.journee.rows.2.time}}</div>
+        <div class="tl-card">
+          <span class="tl-tag">{{t:home.journee.rows.2.tag}}</span>
+          <h4>{{t:home.journee.rows.2.title}}</h4>
+          <p>{{t:home.journee.rows.2.text}}</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">{{t:home.journee.rows.3.time}}</div>
+        <div class="tl-card">
+          <span class="tl-tag">{{t:home.journee.rows.3.tag}}</span>
+          <h4>{{t:home.journee.rows.3.title}}</h4>
+          <p>{{t:home.journee.rows.3.text}}</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">{{t:home.journee.rows.4.time}}</div>
+        <div class="tl-card">
+          <span class="tl-tag">{{t:home.journee.rows.4.tag}}</span>
+          <h4>{{t:home.journee.rows.4.title}}</h4>
+          <p>{{t:home.journee.rows.4.text}}</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time tl-time-night">{{t:home.journee.rows.5.time}}</div>
+        <div class="tl-card">
+          <span class="tl-tag">{{t:home.journee.rows.5.tag}}</span>
+          <h4>{{t:home.journee.rows.5.title}}</h4>
+          <p>{{t:home.journee.rows.5.text}}</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time tl-time-night">{{t:home.journee.rows.6.time}}</div>
+        <div class="tl-card">
+          <span class="tl-tag">{{t:home.journee.rows.6.tag}}</span>
+          <h4>{{t:home.journee.rows.6.title}}</h4>
+          <p>{{t:home.journee.rows.6.text}}</p>
+        </div>
+      </div>
+    </div>
+    <p class="story-hint"><span>←</span> {{t:home.journee.hint}} <span>→</span></p>
+  </div>
+</section>
+
+<!-- ===================== LINE-UP ===================== -->
+<section class="sec" id="lineup">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.lineup.kicker}}</span>
+      <h2>{{t:home.lineup.title_pre}}<span class="hl">{{t:home.lineup.title_hl}}</span></h2>
+      <p>{{t:home.lineup.intro}}</p>
+    </div>
+    <div class="lineup-artists" id="lineupArtists"></div>
+    <div style="text-align:center;margin-top:30px">
+      <a href="/programme/" class="btn btn-sun">{{t:home.lineup.cta}}</a>
+    </div>
+  </div>
+  <style>
+    .lineup-artists{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+    .lineup-artists:empty{display:none}
+    .la-card{position:relative;display:block;width:250px;aspect-ratio:3/4;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow);text-decoration:none}
+    .la-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+    .la-card:hover img{transform:scale(1.05)}
+    .la-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,24,50,.85),rgba(11,24,50,0) 55%)}
+    .la-info{position:absolute;left:20px;right:20px;bottom:18px;z-index:1;display:flex;flex-direction:column;gap:4px}
+    .la-name{font-family:'Telegraf',sans-serif;font-weight:800;font-size:1.5rem;line-height:1.1;color:#fff}
+    .la-genre{font-size:.8rem;font-weight:600;color:var(--sun)}
+    @media(max-width:640px){.la-card{width:min(260px,80vw)}}
+  </style>
+  <script>
+    (function(){
+      var box = document.getElementById('lineupArtists');
+      if (!box || !window.fetch) return;
+      fetch('/assets/data/artistes.json').then(function(r){ return r.json(); }).then(function(list){
+        (list || []).forEach(function(a){
+          var card = document.createElement('a');
+          card.className = 'la-card';
+          card.href = '/artistes/' + a.slug + '/';
+          var img = document.createElement('img');
+          img.src = a.photo_url; img.alt = a.nom; img.loading = 'lazy';
+          var info = document.createElement('span'); info.className = 'la-info';
+          var name = document.createElement('span'); name.className = 'la-name'; name.textContent = a.nom;
+          var genre = document.createElement('span'); genre.className = 'la-genre'; genre.textContent = (a.genres || []).join(' · ');
+          info.appendChild(name); info.appendChild(genre);
+          card.appendChild(img); card.appendChild(info);
+          box.appendChild(card);
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</section>
+
+<!-- ===================== PUBLIC ===================== -->
+<section class="sec" id="public">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{t:home.audience.kicker}}</span>
+      <h2>{{t:home.audience.title_pre}}<span class="hl">{{t:home.audience.title_hl}}</span></h2>
+      <p>{{t:home.audience.intro}}</p>
+    </div>
+    <div class="aud-chips" data-aos="fade-up">
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-musique.png" alt="" loading="lazy">{{t:home.audience.chips.0}}</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="" loading="lazy">{{t:home.audience.chips.1}}</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-famille.png" alt="" loading="lazy">{{t:home.audience.chips.2}}</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-engages.png" alt="" loading="lazy">{{t:home.audience.chips.3}}</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-intolerants.png" alt="" loading="lazy">{{t:home.audience.chips.4}}</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-bienveillance.png" alt="" loading="lazy">{{t:home.audience.chips.5}}</span>
+    </div>
+  </div>
+  <style>
+    .aud-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:920px;margin:0 auto}
+    .aud-chip{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:100px;padding:9px 20px 9px 10px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.95rem;color:var(--ink);box-shadow:var(--shadow-sm)}
+    .aud-chip img{width:34px;height:34px;object-fit:contain}
+  </style>
 </section>
 
 <!-- ===================== GEO / WHY THIS COUNTRY ===================== -->
@@ -220,50 +698,6 @@
     </div>
     <div class="faq-list" style="max-width:780px;margin:0 auto">
 {{FAQ_ITEMS_HTML}}
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TICKETS ===================== -->
-<section class="sec" id="tickets" style="padding-top:0">
-  <div class="wrap">
-    <div class="cta-card" data-aos="fade-up">
-      <div class="cta-stars"></div>
-      <div class="set-sun"></div>
-      <div class="inner">
-        <div class="billet-split">
-          <div class="billet-text">
-            <span class="kicker center on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{TICKETS_KICKER}}</span>
-            <h2 style="margin-top:14px">{{TICKETS_TITLE_PRE}}<em>{{TICKETS_TITLE_EM}}</em></h2>
-            <p>{{TICKETS_TEXT}}</p>
-            <div class="tags" style="margin-top:16px">
-              <span class="tag-pill tag-soldout">{{TICKETS_SOLDOUT_TAG}}</span>
-            </div>
-            <div class="pass-cards">
-              <div class="pass-card is-complet">
-                <span class="pass-complet-ribbon">{{TICKETS_SOLDOUT}}</span>
-                <span class="pass-ic">🌞</span>
-                <div class="pass-card-head"><h3>{{PASS_DAY_LABEL}}</h3><span class="pass-time">{{PASS_DAY_TIME}}</span></div>
-                <p>{{PASS_DAY_DESC}}</p>
-                <span class="pass-price"><span class="pass-price-old">{{PASS_DAY_PRICE_OLD}}</span>{{PASS_DAY_PRICE}}</span>
-                <button type="button" class="pass-card-cta" data-open-drawer>{{PASS_CARD_CTA}}</button>
-              </div>
-              <div class="pass-card is-complet">
-                <span class="pass-complet-ribbon">{{TICKETS_SOLDOUT}}</span>
-                <span class="pass-ic">🌙</span>
-                <div class="pass-card-head"><h3>{{PASS_EVENING_LABEL}}</h3><span class="pass-time">{{PASS_EVENING_TIME}}</span></div>
-                <p>{{PASS_EVENING_DESC}}</p>
-                <span class="pass-price">{{PASS_EVENING_PRICE}}</span>
-                <button type="button" class="pass-card-cta" data-open-drawer>{{PASS_CARD_CTA}}</button>
-              </div>
-            </div>
-            <div class="tags" style="margin-top:16px">
-              <span class="tag-pill">{{PASS_KIDS_TAG}}</span>
-              <span class="tag-pill">{{PASS_INFANT_TAG}}</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -388,65 +822,127 @@
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="f-stars"></div>
+<footer class="sf">
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
-        <p class="about">{{FOOTER_ABOUT}}</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/flore.festival/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
-          </a>
-        </div>
+    <div class="sf-top">
+      <div class="sf-nl-text">
+        <h3>{{t:home.footer.nl_title}}</h3>
+        <p>{{t:home.footer.nl_desc}}</p>
       </div>
-      <div>
-        <h5>Festival</h5>
-        <ul>
-          <li><a href="#festival">{{NAV_FESTIVAL}}</a></li>
-          <li><a href="#gluten">{{NAV_GLUTEN}}</a></li>
-          <li><a href="#visit">{{NAV_VISIT}}</a></li>
-          <li><a href="#faq">{{NAV_FAQ}}</a></li>
-          <li><a href="#tickets">{{NAV_TICKETS}}</a></li>
-          <li><a href="/"><img class="lang-flag" src="https://enjoylife.b-cdn.net/Flore/picto-flore-france.png" alt="" loading="lazy"> {{FOOTER_LANG_SWITCH}}</a></li>
+      <div class="sf-nl">
+        <form id="footerSignupForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+          <input type="hidden" name="subject" value="🌼 FLORE Newsletter · {{LANG_CODE_UPPER}}">
+          <input type="hidden" name="from_name" value="Footer FLORE {{LANG_CODE_UPPER}}">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="email" name="email" placeholder="{{FOOTER_NEWSLETTER_PLACEHOLDER}}" required aria-label="Email">
+          <button type="submit">{{FOOTER_NEWSLETTER_SUBMIT}}</button>
+        </form>
+        <p class="sf-nl-legal">{{FOOTER_NEWSLETTER_LEGAL}} <button type="button" class="lgl-link" data-legal="confidentialite">{{FOOTER_LEGAL_PRIVACY}}</button></p>
+        <div id="footerSignupSuccess" class="sf-nl-ok" hidden><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{FOOTER_NEWSLETTER_SUCCESS}}</div>
+      </div>
+    </div>
+    <div class="sf-main">
+      <div class="sf-brand">
+        <a href="{{URL_PATH}}" class="sf-logo" aria-label="FLORE Festival"><img src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></a>
+        <p>{{t:home.footer.brand_text}}</p>
+        <ul class="sf-event">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>{{t:home.footer.event_date}}</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>{{t:home.footer.event_place}}</li>
         </ul>
+        <div class="sf-social"><a href="https://www.instagram.com/flore.festival/" target="_blank" rel="noopener" aria-label="Instagram FLORE Festival"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></div>
       </div>
-      <div>
-        <h5>{{FOOTER_CONTACT_HEADING}}</h5>
+      <nav class="sf-col" aria-label="{{t:home.footer.col_festival}}">
+        <h4>{{t:home.footer.col_festival}}</h4>
         <ul>
-          <li><a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></li>
+          <li><a href="#festival">{{t:home.footer.l_concept}}</a></li>
+          <li><a href="#espaces">{{t:home.footer.l_spaces}}</a></li>
+          <li><a href="#lineup">{{t:home.footer.l_lineup}}</a></li>
+          <li><a href="/partenaires/">{{t:home.footer.l_partners}}</a></li>
+        </ul>
+      </nav>
+      <nav class="sf-col" aria-label="{{t:home.footer.col_info}}">
+        <h4>{{t:home.footer.col_info}}</h4>
+        <ul>
+          <li><a href="#visit">{{t:home.footer.l_visit}}</a></li>
+          <li><a href="#faq">{{t:home.footer.l_faq}}</a></li>
+          <li><a href="/">{{FOOTER_LANG_SWITCH}}</a></li>
+        </ul>
+      </nav>
+      <nav class="sf-col" aria-label="{{t:home.footer.col_join}}">
+        <h4>{{t:home.footer.col_join}}</h4>
+        <ul>
+          <li><a href="#" data-open-drawer>{{t:home.footer.l_tickets}}</a></li>
+          <li><a href="/exposants/">{{t:home.footer.l_exhib}}</a></li>
+          <li><a href="/artistes/">{{t:home.footer.l_artists}}</a></li>
+          <li><a href="/partenaires/#devenir-partenaire">{{t:home.footer.l_partner}}</a></li>
+        </ul>
+      </nav>
+      <div class="sf-col">
+        <h4>{{t:home.footer.col_contact}}</h4>
+        <ul>
+          <li><a class="sf-mail" href="mailto:contact@flore-festival.fr"><span class="sf-mail-full">contact@flore-festival.fr</span><span class="sf-mail-short">{{t:home.footer.l_write}}</span></a></li>
+          <li><a href="/presse/">{{t:home.footer.l_press}}</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-newsletter-row">
-      <span class="fnr-label"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{FOOTER_NEWSLETTER_LABEL}}</span>
-      <form id="footerSignupForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
-        <input type="hidden" name="subject" value="🌼 FLORE Newsletter · {{LANG_CODE_UPPER}}">
-        <input type="hidden" name="from_name" value="Footer FLORE {{LANG_CODE_UPPER}}">
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="email" name="email" placeholder="{{FOOTER_NEWSLETTER_PLACEHOLDER}}" required aria-label="Email">
-        <button type="submit">{{FOOTER_NEWSLETTER_SUBMIT}}</button>
-      </form>
-      <p style="flex-basis:100%;text-align:center;font-size:.76rem;color:rgba(255,255,255,.55);margin:0">{{FOOTER_NEWSLETTER_LEGAL}} <button type="button" class="lgl-link" data-legal="confidentialite" style="display:inline;min-height:0;padding:0;font:inherit;color:inherit;text-decoration:underline">{{FOOTER_LEGAL_PRIVACY}}</button></p>
-      <div id="footerSignupSuccess" class="signup-success-mini" hidden><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>{{FOOTER_NEWSLETTER_SUCCESS}}</div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-copy">
-        <span>© <span id="year">2026</span> Flore Festival · {{FOOTER_PRODUCTION_LABEL}}</span>
-        <span>{{FOOTER_COUNTRY_LABEL}} · {{HERO_TAGLINE}}</span>
-      </div>
-      <div class="footer-legal-mini">
+    <div class="sf-bottom">
+      <p>© <span id="year">2026</span> {{t:home.footer.copyright}}</p>
+      <div class="sf-legal">
         <button type="button" class="lgl-link" data-legal="mentions">{{FOOTER_LEGAL_MENTIONS}}</button>
         <button type="button" class="lgl-link" data-legal="confidentialite">{{FOOTER_LEGAL_PRIVACY}}</button>
         <button type="button" class="lgl-link" data-legal="cgv">{{FOOTER_LEGAL_CGV}}</button>
       </div>
+      <div class="sf-lang" aria-label="{{t:home.footer.lang_aria}}"><a href="/" lang="fr" title="Français"{{CUR_FR}}>FR</a><a href="/en/" lang="en" title="English"{{CUR_EN}}>EN</a><a href="/italia/" lang="it" title="Italiano"{{CUR_IT}}>IT</a><a href="/deutschland/" lang="de" title="Deutsch"{{CUR_DE}}>DE</a><a href="/espana/" lang="es" title="Español"{{CUR_ES}}>ES</a></div>
     </div>
   </div>
 </footer>
 
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // ---- Carte "où en France" (zoom large) + compte à rebours vers le 17 avril 2027 ----
+  try {
+    var situeZoom = window.innerWidth < 640 ? 5 : 6;
+    var situeMap = L.map('situe-map', { scrollWheelZoom:false, touchZoom:true, zoomControl:true }).setView([46.1883, 5.2465], situeZoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abc',
+      maxZoom: 19
+    }).addTo(situeMap);
+    var situeIcon = L.divIcon({
+      className: '',
+      html: '<span style="display:block;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 3px 10px rgba(21,57,91,.35);background:#DAEF52"></span>',
+      iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-11]
+    });
+    L.marker([46.1883, 5.2465], { icon: situeIcon }).addTo(situeMap)
+      .bindPopup('<strong>FLORE Festival · Ainterexpo</strong><br>25 avenue du Maréchal Juin<br>01000 Bourg-en-Bresse').openPopup();
+  } catch (errMap) {
+    if (window.console) console.warn('Carte "situe-toi" indisponible.', errMap);
+  }
+
+  (function () {
+    var target = new Date('2027-04-17T11:00:00+02:00').getTime();
+    var elD = document.getElementById('cd-days'), elH = document.getElementById('cd-hours'),
+        elM = document.getElementById('cd-min'), elS = document.getElementById('cd-sec');
+    if (!elD) return;
+    function tick() {
+      var diff = target - Date.now();
+      if (diff < 0) diff = 0;
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      elD.textContent = d;
+      elH.textContent = String(h).padStart(2, '0');
+      elM.textContent = String(m).padStart(2, '0');
+      elS.textContent = String(s).padStart(2, '0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
 <script>
   AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70, disable: function(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } });
   document.getElementById('year').textContent = new Date().getFullYear();

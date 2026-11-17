@@ -42,6 +42,7 @@
 
 <link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
 <link rel="stylesheet" href="/assets/flore.css?v=20261117c">
 <style>
   .pro-box{background:var(--sun-pale);border:1.5px solid var(--sun);border-radius:var(--r-lg);padding:34px 38px;text-align:center;max-width:700px;margin:0 auto}
@@ -99,7 +100,7 @@
       "name": "Sind Tickets schon erhältlich?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Der Vorverkauf ist ausverkauft. Der allgemeine Verkauf startet am Samstag, 5. Dezember, um 10 Uhr (Pariser Zeit), mit Tagesticket und Abendticket (18 bis 22 Uhr). Trag dich im Bereich Tickets in die Warteliste ein, um als Erste:r Bescheid zu bekommen."
+        "text": "Der Vorverkauf ist ausverkauft. Der allgemeine Verkauf startet am Samstag, 5. Dezember, um 10 Uhr (Pariser Zeit), mit Tagesticket und Abendticket (18 bis 22 Uhr). Trag dich über den Button Ticket sichern in die Warteliste ein, um als Erstes Bescheid zu bekommen."
       }
     },
     {
@@ -173,7 +174,8 @@
       <a href="/deutschland/" class="logo" aria-label="FLORE Festival, home"><img class="logo-img logo-light" src="/assets/logo-flore-white.png" alt="FLORE"><img class="logo-img logo-dark" src="/assets/logo-flore-black.png" alt="" aria-hidden="true"></a>
       <div class="nav-links">
         <a href="#festival">Das Festival</a>
-        <a href="#gluten">Gluten- und laktosefrei</a>
+        <a href="#espaces">Die Bereiche</a>
+        <a href="#lineup">Line-up</a>
         <a href="#visit">Anreise planen</a>
         <a href="#faq">FAQ</a>
         <div class="nav-item"><button class="nav-trigger" aria-expanded="false"><img class="lang-flag" src="https://enjoylife.b-cdn.net/Flore/picto-flore-allemagne.png" alt="" loading="lazy"> DE <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -194,7 +196,8 @@
 <div class="mobile-menu" id="mobileMenu">
   <span class="m-label">Festival</span>
   <a class="m-sub" href="#festival">Das Festival</a>
-  <a class="m-sub" href="#gluten">Gluten- und laktosefrei</a>
+  <a class="m-sub" href="#espaces">Die Bereiche</a>
+  <a class="m-sub" href="#lineup">Line-up</a>
   <a class="m-sub" href="#visit">Anreise planen</a>
   <a class="m-sub" href="#faq">FAQ</a>
   <button type="button" class="btn btn-sun" data-open-drawer>Tickets</button>
@@ -213,9 +216,28 @@
         <span class="hero-tag"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Frankreichs erstes glutenfreies &amp; laktosefreies Festival</span>
         <h1><img src="/assets/logo-flore-white.png" alt="FLORE Festival 2027"><span class="sr-only">FLORE Festival, das erste glutenfreie und laktosefreie Festival</span></h1>
         <p class="hero-tagline">Tanzen ohne Gluten, genießen ohne Laktose.</p>
-        <p class="lede">Ein Festival, auf dem endlich alle am selben Tisch essen. Konzerte, Food Court und Wohlbefinden, Food Court und Bars 100% glutenfrei und laktosefrei, ohne Kompromisse.</p>
+        <p class="lede">Konzerte, Food Court und Wohlbefinden, einen ganzen Tag lang. Alles, was du an einem Festival liebst, ohne auf etwas zu verzichten.</p>
 
-        <div class="cd-intro"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Samstag, 17. April 2027 · Ainterexpo, Bourg-en-Bresse</div>
+        <div class="hero-datelieu" data-aos="fade-up">
+          <a class="hero-dl-item hero-dl-link" href="data:text/calendar;charset=utf8,BEGIN%3AVCALENDAR%0D%0AVERSION%3A2.0%0D%0APRODID%3A-//FLORE%20Festival//FR%0D%0ABEGIN%3AVEVENT%0D%0AUID%3Aflore-festival-2027%40flore-festival.fr%0D%0ADTSTAMP%3A20260811T000000Z%0D%0ADTSTART%3A20270417T090000Z%0D%0ADTEND%3A20270417T200000Z%0D%0ASUMMARY%3AFLORE%20Festival%202027%0D%0ADESCRIPTION%3ALe%20premier%20festival%20sans%20gluten%20et%20sans%20lactose.%0D%0ALOCATION%3AAinterexpo%5C%2C%2025%20avenue%20du%20Marechal%20Juin%5C%2C%2001000%20Bourg-en-Bresse%0D%0AEND%3AVEVENT%0D%0AEND%3AVCALENDAR%0D%0A" download="FLORE-Festival-2027.ics">
+            <span class="hero-dl-corner">+ Zum Kalender hinzufügen</span>
+            <img class="hero-dl-ic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-programmation.png" alt="">
+            <div>
+              <span class="hero-dl-label">Datum</span>
+              <strong>Samstag, 17. April 2027</strong>
+              <span class="hero-dl-sub hero-dl-sub-strong">11 → 22 Uhr</span>
+            </div>
+          </a>
+          <a class="hero-dl-item hero-dl-link" href="#situe">
+            <span class="hero-dl-corner">Auf der Karte ansehen →</span>
+            <img class="hero-dl-ic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lieu.png" alt="">
+            <div>
+              <span class="hero-dl-label">Ort</span>
+              <strong>Ainterexpo, Bourg-en-Bresse</strong>
+              <span class="hero-dl-sub"><span class="hero-dl-sub-strong hero-dl-sub-strong--sm">Zwischen Lyon und Genf</span></span>
+            </div>
+          </a>
+        </div>
 
         <div class="hero-cta">
           <button type="button" class="btn btn-sun" data-open-drawer>Ticket sichern
@@ -223,57 +245,499 @@
           </button>
           <a href="#festival" class="btn btn-ghost-w">Festival entdecken</a>
         </div>
+        <div class="hero-urgency" data-aos="fade-up" data-aos-delay="80">⚠️ Vorverkauf ausverkauft</div>
       </div>
+      <style>
+        .hero-datelieu{display:flex;gap:14px;flex-wrap:wrap;margin:20px 0 26px}
+        .hero-dl-item{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:10px 16px;backdrop-filter:blur(6px);text-decoration:none;color:inherit}
+        .hero-dl-link{position:relative;transition:background .25s var(--ease),transform .25s var(--ease);cursor:pointer}
+        .hero-dl-link:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+        .hero-dl-corner{position:absolute;top:7px;right:12px;font-size:.66rem;font-weight:700;color:rgba(255,255,255,.75);white-space:nowrap}
+        .hero-dl-ic{width:34px;height:34px;object-fit:contain;flex-shrink:0}
+        .hero-dl-label{display:block;font-size:.72rem;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:1px}
+        .hero-dl-item strong{display:block;color:#fff;font-size:1.02rem;line-height:1.2;font-family:'Telegraf',sans-serif}
+        .hero-dl-sub{display:block;font-size:.76rem;line-height:1.2;color:rgba(255,255,255,.78);margin-top:1px}
+        .hero-dl-sub-strong{color:var(--sun);font-size:1.06rem;line-height:1.2;font-weight:800;font-family:'Telegraf',sans-serif}
+        .hero-dl-sub-strong--sm{font-size:.88rem}
+        @media(max-width:640px){.hero-datelieu{flex-direction:column}.hero-dl-item{padding:11px 16px}}
+        .hero-urgency{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:11px 22px;border-radius:100px;background:var(--ink);color:var(--sun);font-family:'Telegraf',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:.01em;box-shadow:0 10px 26px rgba(11,24,50,.35);animation:heroUrgencyPulse 2.6s ease-in-out infinite}
+        @keyframes heroUrgencyPulse{0%,100%{box-shadow:0 10px 26px rgba(11,24,50,.35),0 0 0 0 rgba(218,239,82,.4)}50%{box-shadow:0 10px 26px rgba(11,24,50,.35),0 0 0 9px rgba(218,239,82,0)}}
+        @media(prefers-reduced-motion:reduce){.hero-urgency{animation:none}}
+        @media(min-width:900px){.hero-urgency{margin-top:24px}}
+        @media(max-width:480px){.hero-urgency{font-size:.94rem;padding:10px 18px}}
+        .tg-break{display:none}
+        @media(max-width:480px){
+          .tg-break{display:block}
+          .lede-break{display:none}
+          .hero-urgency{width:100%;justify-content:center}
+        }
+      </style>
 
-      <div class="hero-visual" data-aos="zoom-in" data-aos-delay="150">
-        <div class="florette-wrap">
-          <div class="halo"></div>
-          <svg aria-hidden="true" class="daisy d-float hd1"><use href="#daisy"/></svg>
-          <svg aria-hidden="true" class="daisy d-float hd2"><use href="#daisy"/></svg>
-          <svg aria-hidden="true" class="daisy d-float hd3"><use href="#daisy"/></svg>
-          <img class="florette-svg" src="https://enjoylife.b-cdn.net/Flore/illustration-flore-festival.png" alt="Die Erlebniswelten des FLORE Festivals: Bühne, Food Court, Boutique und Talks">
+      <div class="hero-visual" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="hero-flower" data-aos="zoom-in" data-aos-delay="150">
+    <div class="florette-wrap">
+      <div class="halo"></div>
+      <img class="florette-svg" src="https://enjoylife.b-cdn.net/Flore/flower-flore-festival.png" alt="Gänseblümchen, die Symbolblume des FLORE Festival">
+    </div>
+  </div>
+  <div class="hero-schar-badge" aria-hidden="true">
+    <img src="/assets/schar-ruban-flore.png" alt="">
+  </div>
+  <div class="hero-schar-badge hero-schar-badge--mobile" aria-hidden="true">
+    <img src="/assets/schar-ruban-flore.png" alt="">
+  </div>
+  <style>
+    .hero .hero-visual{width:440px}
+    .hero-flower{position:absolute;right:3%;bottom:0;width:clamp(420px,52vw,860px);z-index:1;pointer-events:none}
+    .hero-flower .florette-wrap{width:100%;max-width:none;aspect-ratio:1;position:relative;display:grid;place-items:end center}
+    .hero-flower .florette-svg{width:100%;max-width:none;height:auto;animation:none}
+    @media(max-width:640px){.hero-flower{display:none}}
+    .hero-schar-badge{position:absolute;right:64px;bottom:0;width:clamp(54px,6vw,76px);z-index:2;pointer-events:none}
+    .hero-schar-badge img{width:100%;height:auto;display:block}
+    .hero-schar-badge--mobile{display:none;bottom:0;width:58px}
+    @media(max-width:640px){
+      .hero-schar-badge:not(.hero-schar-badge--mobile){display:none}
+      .hero-schar-badge--mobile{display:block;right:30px}
+      .hero-urgency{width:auto!important;justify-content:flex-start!important}
+    }
+  </style>
+</header>
+
+<!-- ===================== SITUE-TOI + COMPTE A REBOURS ===================== -->
+<section class="sec situe-sec" id="situe" style="padding-top:44px;padding-bottom:44px">
+  <div class="wrap">
+    <div class="situe-grid">
+      <div class="situe-map-card">
+        <div id="situe-map" aria-label="Lage des FLORE Festival, Ainterexpo, Bourg-en-Bresse"></div>
+      </div>
+      <div class="situe-cd-card">
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Der große Tag rückt näher</span>
+        <h3>Samstag, 17. April 2027</h3>
+        <p class="situe-loc">📍 Ainterexpo, Bourg-en-Bresse, zwischen Lyon und Genf<br>Überdachtes Gelände · kostenloser Parkplatz</p>
+        <div class="cd-row" id="cd-row">
+          <div class="cd-item"><span class="cd-num" id="cd-days">–</span><span class="cd-label">Tage</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-hours">–</span><span class="cd-label">Std.</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-min">–</span><span class="cd-label">Min.</span></div>
+          <div class="cd-item"><span class="cd-num" id="cd-sec">–</span><span class="cd-label">Sek.</span></div>
+        </div>
+        <button type="button" class="btn btn-sun" data-open-drawer style="margin-top:22px">Ticket sichern
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <style>
+    .situe-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:stretch}
+    .situe-map-card{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);min-height:280px}
+    #situe-map{width:100%;height:100%;min-height:280px}
+    .situe-cd-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:32px 30px}
+    .situe-cd-card h3{font-size:1.5rem;color:var(--ink);margin:8px 0 10px}
+    .situe-loc{color:var(--ink-soft);font-size:.94rem;margin:0 0 22px}
+    .cd-row{display:flex;gap:10px}
+    .cd-item{flex:1;background:var(--sky-pale);border-radius:14px;padding:14px 6px;text-align:center}
+    .cd-num{display:block;font-family:'Telegraf',sans-serif;font-weight:800;font-size:1.7rem;color:var(--sky-deep);line-height:1;font-variant-numeric:tabular-nums}
+    .cd-label{display:block;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px}
+    @media(max-width:860px){.situe-grid{grid-template-columns:1fr}.situe-map-card{min-height:240px}}
+  </style>
+</section>
+
+<!-- ===================== PARTENAIRES ===================== -->
+<section class="sponsors-strip">
+  <div class="wrap">
+    <div class="sponsors-card">
+      <div class="sponsors-head">
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Sie machen FLORE möglich</span>
+        <a href="/partenaires/" class="sponsors-more">Alle unsere Partner →</a>
+      </div>
+      <div class="sponsors-body">
+        <a class="sponsor-tile sponsor-tile--lead" href="https://www.schaer.com/fr-fr" target="_blank" rel="noopener">
+          <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/schar-logo-off-reverse-flore-festival.png" alt="Schär" style="--h:84px"></span>
+          <span class="sponsor-tier">Gründungssponsor</span>
+        </a>
+        <div class="sponsors-rest">
+          <div class="sponsors-rest-track">
+            <a class="sponsor-tile" href="https://www.rbsansglutenpizza.com/" target="_blank" rel="noopener">
+              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/sans-gluten-pizza-logo-flore-festival.png" alt="Sans Gluten Pizza" style="--h:103px"></span>
+              <span class="sponsor-tier">Offizieller Partner</span>
+            </a>
+            <a class="sponsor-tile" href="https://www.radioscoop.com/" target="_blank" rel="noopener">
+              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/LOGO-RADIO-SCOOP-vect-RVB-2018.png" alt="Radio Scoop" style="--h:84px"></span>
+              <span class="sponsor-tier">Medienpartner</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</header>
+  <style>
+    /* Collé sous le bloc compte à rebours : même écart (24px) qu'entre la carte et le compte à rebours */
+    .sponsors-strip{padding:0 0 26px;margin-top:-20px}
+    .sponsors-card{background:#fff;border-radius:var(--r-lg);padding:28px 30px 30px;box-shadow:var(--shadow-sm)}
+    .sponsors-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;margin-bottom:22px}
+    .sponsors-head .kicker{color:var(--ink)}
+    .sponsors-head .kicker svg.daisy{color:var(--sun-deep)}
+    .sponsors-more{font-size:.88rem;font-weight:700;color:var(--sky-deep);text-decoration:none;transition:color .2s var(--ease)}
+    .sponsors-more:hover{color:var(--ink)}
+    /* Mode fixe (moins de 4 partenaires) : toutes les tuiles, Schär compris, dans une seule grille
+       à colonnes égales. display:contents fait des tuiles de la bande des cellules directes de la grille. */
+    .sponsors-body{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:16px}
+    .sponsors-rest,.sponsors-rest-track{display:contents}
+    /* Mode mouvement (activé par le script dès 4 partenaires) : Schär fixe, les autres dans une bande */
+    .sponsors-body.is-moving{display:flex;align-items:stretch}
+    .sponsors-body.is-moving .sponsor-tile--lead{flex:0 0 250px}
+    .sponsors-body.is-moving .sponsors-rest{display:flex;flex:1;min-width:0}
+    /* Mode défilement (activé par le script) : piste = 2 moitiés identiques, translateX(-50%) boucle sans à-coup.
+       Marge à droite de chaque tuile plutôt qu'un gap, sinon les deux moitiés n'ont pas exactement la même largeur. */
+    .sponsors-rest.is-marquee{overflow:hidden;padding:4px 0 12px;margin:-4px 0 -12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent)}
+    .sponsors-rest.is-marquee .sponsors-rest-track{flex:none;display:flex;gap:0;width:max-content;animation:sponsorsDefile var(--dur,30s) linear infinite}
+    .sponsors-rest.is-marquee .sponsor-tile{flex:0 0 220px;margin-right:16px}
+    .sponsors-rest.is-marquee:hover .sponsors-rest-track,.sponsors-rest.is-marquee:focus-within .sponsors-rest-track{animation-play-state:paused}
+    @keyframes sponsorsDefile{to{transform:translateX(-50%)}}
+    /* Animations désactivées par l'utilisateur : bande qu'on fait glisser à la main */
+    .sponsors-rest.is-scroll{overflow-x:auto;scroll-snap-type:x mandatory}
+    .sponsors-rest.is-scroll .sponsors-rest-track{flex:none;display:flex;width:max-content}
+    .sponsors-rest.is-scroll .sponsor-tile{flex:0 0 200px;scroll-snap-align:start}
+    .sponsor-tile{display:flex;flex-direction:column;align-items:center;gap:16px;padding:22px 18px 20px;border:1px solid var(--line);border-radius:var(--r-md);text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+    .sponsor-tile:hover{transform:translateY(-3px);border-color:var(--sky-mid);box-shadow:var(--shadow-sm)}
+    .sponsor-logo{height:104px;display:flex;align-items:center;justify-content:center}
+    /* --h compense la marge transparente propre à chaque fichier : le dessin visible fait la même hauteur partout */
+    .sponsor-logo img{height:var(--h);width:auto;display:block}
+    .sponsor-tier{font-family:'Telegraf',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.07em;line-height:1.3;text-align:center;text-transform:uppercase;color:var(--ink-soft);background:var(--sky-pale);padding:6px 12px;border-radius:100px;max-width:100%}
+    .sponsor-tile--lead .sponsor-tier{background:var(--sun);color:var(--ink)}
+    @media(min-width:641px) and (max-width:900px){
+      .sponsors-body{gap:12px}
+      .sponsors-body.is-moving .sponsor-tile--lead{flex-basis:190px}
+      .sponsor-tile{padding:18px 10px 16px}
+      .sponsor-logo{height:90px}
+      .sponsor-logo img{height:calc(var(--h) * .86)}
+      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
+      .sponsors-rest.is-marquee .sponsor-tile{flex-basis:180px;margin-right:12px}
+    }
+    @media(max-width:640px){
+      .sponsors-card{padding:24px 18px 20px}
+      .sponsors-head{flex-direction:column;justify-content:center;text-align:center}
+      .sponsors-body{grid-auto-flow:row;grid-template-columns:1fr 1fr;gap:12px}
+      .sponsor-tile--lead{grid-column:1/-1}
+      .sponsors-body.is-moving{flex-direction:column}
+      .sponsors-body.is-moving .sponsor-tile--lead{flex:none}
+      .sponsor-tile{padding:18px 10px 16px;gap:12px}
+      .sponsor-logo{height:80px}
+      .sponsor-logo img{height:calc(var(--h) * .76)}
+      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
+      .sponsors-rest.is-marquee .sponsor-tile{flex-basis:150px;margin-right:12px}
+    }
+  </style>
+  <script>
+    (function(){
+      var rest = document.querySelector('.sponsors-rest');
+      if (!rest) return;
+      var track = rest.querySelector('.sponsors-rest-track');
+      var originals = [].slice.call(track.children);
+      // Le défilement ne démarre qu'à partir de 4 partenaires dans la bande (sinon trop répétitif).
+      // ?defilement dans l'URL force l'aperçu, pour tester avant d'avoir 4 partenaires.
+      var force = /[?&]defilement\b/.test(location.search);
+      if (originals.length < 4 && !force) return;
+      rest.parentNode.classList.add('is-moving');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { rest.classList.add('is-scroll'); return; }
+      rest.classList.add('is-marquee');
+
+      function clone(el){
+        var c = el.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        c.setAttribute('tabindex', '-1');
+        return c;
+      }
+      function build(){
+        track.innerHTML = '';
+        originals.forEach(function(el){ track.appendChild(el); });
+        var first = originals[0];
+        var unit = first.getBoundingClientRect().width + parseFloat(getComputedStyle(first).marginRight);
+        var setW = unit * originals.length;
+        // Une moitié de piste doit dépasser la largeur visible, sinon un trou apparaît pendant la boucle
+        var reps = Math.max(1, Math.ceil(rest.clientWidth / setW));
+        for (var r = 1; r < reps; r++) originals.forEach(function(el){ track.appendChild(clone(el)); });
+        var half = track.children.length;
+        for (var i = 0; i < half; i++) track.appendChild(clone(track.children[i]));
+        track.style.setProperty('--dur', (setW * reps / 40) + 's');
+      }
+      build();
+      var t;
+      window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(build, 200); });
+    })();
+  </script>
+</section>
+
 
 <!-- ===================== CONCEPT ===================== -->
 <section class="sec" id="festival">
   <div class="wrap">
-    <div class="sec-head center" data-aos="fade-up">
-      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ein Festival für alle</span>
-      <h2>Ein Festival, auf dem endlich jeder <span class="hl">aufblühen</span></h2>
-      <p>FLORE ist das erste glutenfreie und laktosefreie Festival. Konzerte, Food Court, Bar und Shop: alles, was wir an einem Festival lieben, ohne die üblichen Einschränkungen. Ein ganzer Tag zum Tanzen, Genießen und Feiern, ohne zweimal nachzudenken.</p>
+    <div class="sec-head center" data-aos="fade-up" style="margin-bottom:44px">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Unsere inklusive Revolution</span>
+      <h2>Ein Festival, auf dem endlich alle <span class="hl">aufblühen</span></h2>
+      <p>FLORE ist <strong>das erste 100 % glutenfreie und laktosefreie Festival</strong>: Konzerte und der Jardin des Saveurs, ein Food Court und eine Bar, an denen du alles mit geschlossenen Augen bestellen kannst. Ein echter Festtag, für alle, die nie die Wahl hatten, und für alle anderen.</p>
     </div>
-    <div class="public-grid">
+    <div class="values">
       <div class="value-card" data-aos="fade-up">
-        <div class="v-ic" style="background:#FFF1CC">🌾</div>
-        <h3>100% glutenfrei</h3>
-        <p>Der Food Court Jardin des Saveurs und unsere Bars sind glutenfrei (unter 20 ppm, der strengste Standard) und werden Stand für Stand kontrolliert, auch mit Blick auf Menschen mit Zöliakie.</p>
+        <div class="v-ic" style="background:#FFF1CC"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-gluten.png" alt="" loading="lazy"></div>
+        <h3>100 % glutenfrei</h3>
+        <p>Der Jardin des Saveurs und die Bars, glutenfrei und Stand für Stand kontrolliert.</p>
       </div>
       <div class="value-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="v-ic" style="background:#E7F4FB">🥛</div>
-        <h3>100% laktosefrei</h3>
-        <p>Der Food Court Jardin des Saveurs und unsere Bars sind vollständig laktosefrei, zum Genießen ganz ohne Nachdenken.</p>
+        <div class="v-ic" style="background:#E7F4FB"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-lactose.png" alt="" loading="lazy"></div>
+        <h3>100 % laktosefrei</h3>
+        <p>Der Jardin des Saveurs und die Bars, komplett laktosefrei, für unbeschwerten Genuss.</p>
       </div>
       <div class="value-card" data-aos="fade-up" data-aos-delay="160">
-        <div class="v-ic" style="background:#FCE2E9">🎶</div>
+        <div class="v-ic" style="background:#FCE2E9"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-musique.png" alt="" loading="lazy"></div>
         <h3>Musik &amp; Food Court</h3>
         <p>Live-Konzerte, Food Trucks und eine Bar. Echtes Festivalfeeling, ohne Kompromisse.</p>
+      </div>
+      <div class="value-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="v-ic" style="background:#E4F2DA"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-bienveillance.png" alt="" loading="lazy"></div>
+        <h3>Gesundheit &amp; Wohlbefinden</h3>
+        <p>Gesundheitsvorträge, Fachleute und ein sicherer, wohlwollender Rahmen, in dem sich alle wohlfühlen.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== GLUTEN / PROMISE ===================== -->
-<section class="sec" id="gluten" style="padding-top:0">
+<!-- ===================== ESPACES ===================== -->
+<section class="sec" id="espaces">
   <div class="wrap">
-    <div class="manifesto" data-aos="fade-up" style="max-width:900px;margin:0 auto;text-align:center">
-      <span class="tag" style="justify-content:center"><svg aria-hidden="true" class="daisy" style="width:16px;height:16px"><use href="#daisy"/></svg>Das Versprechen</span>
-      <blockquote>FLORE ist kein Festival für Menschen auf Diät. Es ist ein Festival, Punkt, das zufällig glutenfrei und laktosefrei ist, damit niemand mehr zwischen Feiern und sorgenfreiem Essen wählen muss.</blockquote>
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Die Bereiche</span>
+      <h2>Sechs große <span class="hl">Welten</span></h2>
+      <p>Ein Tag, sechs Welten: tanzen, probieren, entdecken, austauschen, durchatmen und entspannen. Klapp sie auf, um sie zu entdecken.</p>
+    </div>
+    <div class="espaces-grid">
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-floor-scene.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">Das Herzstück</span><h3>La Scène Flore</h3></span></summary>
+        <div class="e-body">
+          <p>Die Musikbühne des Festivals: Live-Konzerte und ein Stehbereich, ergänzt durch einen Sitzbereich zum Durchatmen.</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Live-Konzerte den ganzen Tag</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Stehbereich &amp; Sitzbereich</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">Der Food Court</span><h3>Le Jardin des Saveurs</h3></span></summary>
+        <div class="e-body">
+          <p>Der Food Court des Festivals, mit Bierbar. Alles, was man auf einem Festival gerne findet, nur dass du hier <strong>alles mit geschlossenen Augen bestellen kannst</strong>.</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Food Trucks &amp; leckere Stände</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Zentrale Bar: glutenfreie Biere</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Süß, herzhaft, genussvoll: Food-Court-Feeling ohne Kompromisse</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Mini-Probierportionen an jedem Stand, um alles zu kosten, ohne viel auszugeben</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-boutiqueflore.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">Der Ausstellerbereich</span><h3>La Boutique Flore</h3></span></summary>
+        <div class="e-body">
+          <p>Der Bereich der Marken und Fachleute rund um glutenfrei und laktosefrei. Produkte, Apps, Kochworkshops, Gesundheitsfachleute... <strong>ein ganzes Ökosystem zum Entdecken und Ausprobieren vor Ort</strong>.</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Glutenfreie und laktosefreie Produkte, Marken &amp; Apps</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Kochworkshops &amp; Begegnungen mit Gesundheitsfachleuten</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Alles, was im Alltag mit einer Unverträglichkeit oder Darmbeschwerden hilft</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lescauseries.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">Die Wohlfühlecke</span><h3>Les Causeries Flore</h3></span></summary>
+        <div class="e-body">
+          <p>Ein gemütlicher Ort für Austausch und Vorträge rund um Gesundheit und Wohlbefinden, in geselliger Atmosphäre.</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Gesundheitsvorträge &amp; Gespräche den ganzen Tag</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Gesundheitsfachleute &amp; eingeladene Fachleute</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ein persönliches, wohlwollendes Format</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Freier Eintritt, solange Plätze frei sind</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-floor-lesalon.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">Die gemütliche Pause</span><h3>Le Salon Flore</h3></span></summary>
+        <div class="e-body">
+          <p>Eine ruhigere Ecke, um in Ruhe zu essen, zu plaudern und zwischen zwei Highlights neue Energie zu tanken.</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Tische und Sitzplätze zum Verschnaufen</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Begegnungen mit Partnern &amp; Ausstellern</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Eine Pause zwischen zwei Konzerten</li>
+          </ul>
+        </div>
+      </details>
+      <details class="espace-card" data-aos="fade-up">
+        <summary><img class="e-pic" src="https://enjoylife.b-cdn.net/Flore/picto-flore-lecocon.png" alt="" loading="lazy"><span class="e-head"><span class="e-kicker">Die Safe Zone</span><h3>Le Cocon Flore</h3></span></summary>
+        <div class="e-body">
+          <p>Ein ruhiger Ort zum Durchatmen, abseits von Lärm und Gedränge. Gedacht für alle, die es brauchen: Hochsensibilität, Müdigkeit, Angst oder einfach Lust auf eine Pause.</p>
+          <ul>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ruhiger Bereich abseits der Menge</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Begleitung bei Bedarf</li>
+            <li><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Hochsensibilität, Müdigkeit, Angst: herzlich willkommen</li>
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
+  <style>
+    #espaces .espaces-grid{grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+    #espaces .espace-card{padding:0}
+    #espaces .espace-card:hover{transform:none}
+    #espaces .espace-card summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:16px 20px}
+    #espaces .espace-card summary::-webkit-details-marker{display:none}
+    #espaces .espace-card summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2.6px solid var(--sky);border-bottom:2.6px solid var(--sky);transform:rotate(45deg);transition:transform .3s var(--ease);flex-shrink:0}
+    #espaces .espace-card[open] summary::after{transform:rotate(-135deg)}
+    #espaces .espace-card .e-pic{width:64px;height:64px;margin:0;flex:none}
+    #espaces .e-head{display:flex;flex-direction:column;min-width:0}
+    #espaces .espace-card h3{font-size:1.2rem;margin:2px 0 0}
+    #espaces .e-body{padding:0 22px 22px}
+    @media(max-width:900px){#espaces .espaces-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){#espaces .espaces-grid{grid-template-columns:1fr}}
+  </style>
+</section>
+
+<!-- ===================== UNE JOURNÉE À FLORE ===================== -->
+<section class="sec" id="journee" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Beispielroute · nicht das offizielle Programm</span>
+      <h2>Von 11 bis 22 Uhr, <span class="hl">ein Tag zum Erzählen</span></h2>
+      <p>Hier, als Beispiel, der erdachte Tag eines Festivalbesuchers, kein offizieller Zeitplan und keine festen Uhrzeiten. In Wirklichkeit bewegt sich jeder frei zwischen der Bühne, dem Jardin des Saveurs, den Causeries, der Boutique und dem Salon, im eigenen Tempo.</p>
+    </div>
+    <div class="timeline story" data-aos="fade-up">
+      <div class="tl-row">
+        <div class="tl-time">Ankunft</div>
+        <div class="tl-card">
+          <span class="tl-tag">Öffnung</span>
+          <h4>Die Türen öffnen sich</h4>
+          <p>Erste Schritte auf dem Gelände: sich orientieren und die Stimmung entdecken.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">Vormittag</div>
+        <div class="tl-card">
+          <span class="tl-tag">Scène FLORE</span>
+          <h4>Erstes Konzert</h4>
+          <p>Die Scène FLORE erwacht mit den ersten Artists des Tages.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">Mittag</div>
+        <div class="tl-card">
+          <span class="tl-tag">Jardin des Saveurs</span>
+          <h4>Ab zu Tisch</h4>
+          <p>Auf zum Jardin des Saveurs für ein 100 % glutenfreies und laktosefreies Mittagessen.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">Nachmittag</div>
+        <div class="tl-card">
+          <span class="tl-tag">Les Causeries</span>
+          <h4>Zeit für Austausch</h4>
+          <p>Vorträge und Erfahrungsberichte rund um Gesundheit und Wohlbefinden, in persönlicher Atmosphäre.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">Nachmittag</div>
+        <div class="tl-card">
+          <span class="tl-tag">La Boutique FLORE</span>
+          <h4>Genussvoller Bummel</h4>
+          <p>Die Boutique FLORE und die Partnerstände entdecken, zwischen zwei Kostproben.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time tl-time-night">Später Nachmittag</div>
+        <div class="tl-card">
+          <span class="tl-tag">Le Salon FLORE</span>
+          <h4>Kleine Pause</h4>
+          <p>Ein Snack im Salon FLORE, um durchzuatmen und Energie für den Abend zu tanken.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time tl-time-night">Abend</div>
+        <div class="tl-card">
+          <span class="tl-tag">Großer Abend</span>
+          <h4>Der Abend beginnt</h4>
+          <p>Konzerte, Food Court und Festivalstimmung bis zum Schluss.</p>
+        </div>
+      </div>
+    </div>
+    <p class="story-hint"><span>←</span> Wischen, um den Tag zu erleben <span>→</span></p>
+  </div>
+</section>
+
+<!-- ===================== LINE-UP ===================== -->
+<section class="sec" id="lineup">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Line-up</span>
+      <h2>Das Line-up <span class="hl">wird enthüllt</span></h2>
+      <p>Die Artists werden nach und nach angekündigt, zuerst auf Instagram.</p>
+    </div>
+    <div class="lineup-artists" id="lineupArtists"></div>
+    <div style="text-align:center;margin-top:30px">
+      <a href="/programme/" class="btn btn-sun">Das ganze Programm ansehen →</a>
+    </div>
+  </div>
+  <style>
+    .lineup-artists{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+    .lineup-artists:empty{display:none}
+    .la-card{position:relative;display:block;width:250px;aspect-ratio:3/4;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow);text-decoration:none}
+    .la-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+    .la-card:hover img{transform:scale(1.05)}
+    .la-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,24,50,.85),rgba(11,24,50,0) 55%)}
+    .la-info{position:absolute;left:20px;right:20px;bottom:18px;z-index:1;display:flex;flex-direction:column;gap:4px}
+    .la-name{font-family:'Telegraf',sans-serif;font-weight:800;font-size:1.5rem;line-height:1.1;color:#fff}
+    .la-genre{font-size:.8rem;font-weight:600;color:var(--sun)}
+    @media(max-width:640px){.la-card{width:min(260px,80vw)}}
+  </style>
+  <script>
+    (function(){
+      var box = document.getElementById('lineupArtists');
+      if (!box || !window.fetch) return;
+      fetch('/assets/data/artistes.json').then(function(r){ return r.json(); }).then(function(list){
+        (list || []).forEach(function(a){
+          var card = document.createElement('a');
+          card.className = 'la-card';
+          card.href = '/artistes/' + a.slug + '/';
+          var img = document.createElement('img');
+          img.src = a.photo_url; img.alt = a.nom; img.loading = 'lazy';
+          var info = document.createElement('span'); info.className = 'la-info';
+          var name = document.createElement('span'); name.className = 'la-name'; name.textContent = a.nom;
+          var genre = document.createElement('span'); genre.className = 'la-genre'; genre.textContent = (a.genres || []).join(' · ');
+          info.appendChild(name); info.appendChild(genre);
+          card.appendChild(img); card.appendChild(info);
+          box.appendChild(card);
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</section>
+
+<!-- ===================== PUBLIC ===================== -->
+<section class="sec" id="public">
+  <div class="wrap">
+    <div class="sec-head center" data-aos="fade-up">
+      <span class="kicker center"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Für wen?</span>
+      <h2>Eine Community, die <span class="hl">zu dir passt</span></h2>
+      <p>FLORE vereint eine engagierte, wohlwollende Community auf der Suche nach festlichen und wirklich inklusiven Events.</p>
+    </div>
+    <div class="aud-chips" data-aos="fade-up">
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-musique.png" alt="" loading="lazy">Musikfans</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-jardin.png" alt="" loading="lazy">Neugierige Genießer</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-famille.png" alt="" loading="lazy">Familien &amp; Freunde</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-engages.png" alt="" loading="lazy">Engagierte Festivalfans</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-intolerants.png" alt="" loading="lazy">Unverträglichkeiten &amp; Zöliakie</span>
+      <span class="aud-chip"><img src="https://enjoylife.b-cdn.net/Flore/picto-flore-bienveillance.png" alt="" loading="lazy">Wohlbefinden im Blick</span>
+    </div>
+  </div>
+  <style>
+    .aud-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:920px;margin:0 auto}
+    .aud-chip{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:100px;padding:9px 20px 9px 10px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.95rem;color:var(--ink);box-shadow:var(--shadow-sm)}
+    .aud-chip img{width:34px;height:34px;object-fit:contain}
+  </style>
 </section>
 
 <!-- ===================== GEO / WHY THIS COUNTRY ===================== -->
@@ -325,7 +789,7 @@
       </div>
       <div class="faq-item" data-aos="fade-up">
         <h3>Sind Tickets schon erhältlich?</h3>
-        <p>Der Vorverkauf ist ausverkauft. Der allgemeine Verkauf startet am Samstag, 5. Dezember, um 10 Uhr (Pariser Zeit), mit Tagesticket und Abendticket (18 bis 22 Uhr). Trag dich im Bereich Tickets in die Warteliste ein, um als Erste:r Bescheid zu bekommen.</p>
+        <p>Der Vorverkauf ist ausverkauft. Der allgemeine Verkauf startet am Samstag, 5. Dezember, um 10 Uhr (Pariser Zeit), mit Tagesticket und Abendticket (18 bis 22 Uhr). Trag dich über den Button Ticket sichern in die Warteliste ein, um als Erstes Bescheid zu bekommen.</p>
       </div>
       <div class="faq-item" data-aos="fade-up">
         <h3>Ist Essen und Trinken im Ticket enthalten?</h3>
@@ -338,50 +802,6 @@
       <div class="faq-item" data-aos="fade-up">
         <h3>Muss ich von weit her anreisen?</h3>
         <p>Nein. Ainterexpo liegt etwa 50 Minuten von Lyon und 1h15 von Genf entfernt, gut erreichbar mit Auto, Zug oder Flugzeug.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TICKETS ===================== -->
-<section class="sec" id="tickets" style="padding-top:0">
-  <div class="wrap">
-    <div class="cta-card" data-aos="fade-up">
-      <div class="cta-stars"></div>
-      <div class="set-sun"></div>
-      <div class="inner">
-        <div class="billet-split">
-          <div class="billet-text">
-            <span class="kicker center on-dark"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Tickets</span>
-            <h2 style="margin-top:14px">Hol dir dein <em>Ticket</em></h2>
-            <p>Der Vorverkauf ist ausverkauft. Der allgemeine Verkauf startet am Samstag, 5. Dezember, um 10 Uhr (Pariser Zeit): Trag dich in die Warteliste ein, um es als Erste:r zu erfahren.</p>
-            <div class="tags" style="margin-top:16px">
-              <span class="tag-pill tag-soldout">🔴 Vorverkauf ausverkauft</span>
-            </div>
-            <div class="pass-cards">
-              <div class="pass-card is-complet">
-                <span class="pass-complet-ribbon">Ausverkauft</span>
-                <span class="pass-ic">🌞</span>
-                <div class="pass-card-head"><h3>Tagesticket</h3><span class="pass-time">11 → 22 Uhr</span></div>
-                <p>Alles: Bühne, Food Court, Shop und Talks, vom ersten Konzert bis zum letzten Set.</p>
-                <span class="pass-price"><span class="pass-price-old">35 €</span>ab 29,99 €</span>
-                <button type="button" class="pass-card-cta" data-open-drawer>Auf die Warteliste →</button>
-              </div>
-              <div class="pass-card is-complet">
-                <span class="pass-complet-ribbon">Ausverkauft</span>
-                <span class="pass-ic">🌙</span>
-                <div class="pass-card-head"><h3>Abendticket</h3><span class="pass-time">18 → 22 Uhr</span></div>
-                <p>Golden Hour und Tanzabend, falls du erst später am Tag kommen kannst.</p>
-                <span class="pass-price">ab 19,99 €</span>
-                <button type="button" class="pass-card-cta" data-open-drawer>Auf die Warteliste →</button>
-              </div>
-            </div>
-            <div class="tags" style="margin-top:16px">
-              <span class="tag-pill">🧒 Kinderticket ab 5 € (6-14 Jahre)</span>
-              <span class="tag-pill">👶 Kostenlos unter 6 Jahren</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -507,65 +927,127 @@
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="f-stars"></div>
+<footer class="sf">
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="logo"><img class="logo-img" src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></div>
-        <p class="about">Das erste glutenfreie und laktosefreie Festival. Eine Produktion von MG Entertainment, denn die Party sollte für alle offen sein.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/flore.festival/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
-          </a>
-        </div>
+    <div class="sf-top">
+      <div class="sf-nl-text">
+        <h3>Die FLORE-News zuerst</h3>
+        <p>Line-up, Tickets, Neuigkeiten: ein Newsletter, niemals Spam.</p>
       </div>
-      <div>
-        <h5>Festival</h5>
+      <div class="sf-nl">
+        <form id="footerSignupForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
+          <input type="hidden" name="subject" value="🌼 FLORE Newsletter · DE">
+          <input type="hidden" name="from_name" value="Footer FLORE DE">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="email" name="email" placeholder="deine@email.com" required aria-label="Email">
+          <button type="submit">Anmelden</button>
+        </form>
+        <p class="sf-nl-legal">Abmeldung jederzeit möglich. <button type="button" class="lgl-link" data-legal="confidentialite">Datenschutz &amp; Cookies</button></p>
+        <div id="footerSignupSuccess" class="sf-nl-ok" hidden><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Angemeldet, bis bald!</div>
+      </div>
+    </div>
+    <div class="sf-main">
+      <div class="sf-brand">
+        <a href="/deutschland/" class="sf-logo" aria-label="FLORE Festival"><img src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></a>
+        <p>Das erste 100 % glutenfreie und laktosefreie Festival.</p>
+        <ul class="sf-event">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Samstag, 17. April 2027, 11 bis 22 Uhr</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Ainterexpo, Bourg-en-Bresse, Frankreich</li>
+        </ul>
+        <div class="sf-social"><a href="https://www.instagram.com/flore.festival/" target="_blank" rel="noopener" aria-label="Instagram FLORE Festival"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></div>
+      </div>
+      <nav class="sf-col" aria-label="Das Festival">
+        <h4>Das Festival</h4>
         <ul>
-          <li><a href="#festival">Das Festival</a></li>
-          <li><a href="#gluten">Gluten- und laktosefrei</a></li>
+          <li><a href="#festival">Das Konzept</a></li>
+          <li><a href="#espaces">Die Bereiche</a></li>
+          <li><a href="#lineup">Line-up</a></li>
+          <li><a href="/partenaires/">Unsere Partner</a></li>
+        </ul>
+      </nav>
+      <nav class="sf-col" aria-label="Praktische Infos">
+        <h4>Praktische Infos</h4>
+        <ul>
           <li><a href="#visit">Anreise planen</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#tickets">Tickets</a></li>
-          <li><a href="/"><img class="lang-flag" src="https://enjoylife.b-cdn.net/Flore/picto-flore-france.png" alt="" loading="lazy"> Site en français</a></li>
+          <li><a href="/">Site en français</a></li>
         </ul>
-      </div>
-      <div>
-        <h5>Kontakt</h5>
+      </nav>
+      <nav class="sf-col" aria-label="Mitmachen">
+        <h4>Mitmachen</h4>
         <ul>
-          <li><a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a></li>
+          <li><a href="#" data-open-drawer>Tickets</a></li>
+          <li><a href="/exposants/">Aussteller</a></li>
+          <li><a href="/artistes/">Artists</a></li>
+          <li><a href="/partenaires/#devenir-partenaire">Partner werden</a></li>
+        </ul>
+      </nav>
+      <div class="sf-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a class="sf-mail" href="mailto:contact@flore-festival.fr"><span class="sf-mail-full">contact@flore-festival.fr</span><span class="sf-mail-short">Schreib uns</span></a></li>
+          <li><a href="/presse/">Pressebereich</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-newsletter-row">
-      <span class="fnr-label"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Bleib über FLORE-Neuigkeiten informiert</span>
-      <form id="footerSignupForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="0a67bd04-221b-4244-b5cb-796ec8dca7a9">
-        <input type="hidden" name="subject" value="🌼 FLORE Newsletter · DE">
-        <input type="hidden" name="from_name" value="Footer FLORE DE">
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="email" name="email" placeholder="deine@email.com" required aria-label="Email">
-        <button type="submit">Anmelden</button>
-      </form>
-      <p style="flex-basis:100%;text-align:center;font-size:.76rem;color:rgba(255,255,255,.55);margin:0">Abmeldung jederzeit möglich. <button type="button" class="lgl-link" data-legal="confidentialite" style="display:inline;min-height:0;padding:0;font:inherit;color:inherit;text-decoration:underline">Datenschutz &amp; Cookies</button></p>
-      <div id="footerSignupSuccess" class="signup-success-mini" hidden><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Angemeldet, bis bald!</div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-copy">
-        <span>© <span id="year">2026</span> Flore Festival · Eine Produktion von MG Entertainment.</span>
-        <span>Frankreich · Tanzen ohne Gluten, genießen ohne Laktose.</span>
-      </div>
-      <div class="footer-legal-mini">
+    <div class="sf-bottom">
+      <p>© <span id="year">2026</span> FLORE Festival · Eine Produktion von MG Entertainment, gemeinnütziger Verein</p>
+      <div class="sf-legal">
         <button type="button" class="lgl-link" data-legal="mentions">Impressum</button>
         <button type="button" class="lgl-link" data-legal="confidentialite">Datenschutz &amp; Cookies</button>
         <button type="button" class="lgl-link" data-legal="cgv">Allgemeine Geschäftsbedingungen</button>
       </div>
+      <div class="sf-lang" aria-label="Sprache der Website"><a href="/" lang="fr" title="Français">FR</a><a href="/en/" lang="en" title="English">EN</a><a href="/italia/" lang="it" title="Italiano">IT</a><a href="/deutschland/" lang="de" title="Deutsch" aria-current="true">DE</a><a href="/espana/" lang="es" title="Español">ES</a></div>
     </div>
   </div>
 </footer>
 
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // ---- Carte "où en France" (zoom large) + compte à rebours vers le 17 avril 2027 ----
+  try {
+    var situeZoom = window.innerWidth < 640 ? 5 : 6;
+    var situeMap = L.map('situe-map', { scrollWheelZoom:false, touchZoom:true, zoomControl:true }).setView([46.1883, 5.2465], situeZoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abc',
+      maxZoom: 19
+    }).addTo(situeMap);
+    var situeIcon = L.divIcon({
+      className: '',
+      html: '<span style="display:block;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 3px 10px rgba(21,57,91,.35);background:#DAEF52"></span>',
+      iconSize: [22,22], iconAnchor: [11,11], popupAnchor: [0,-11]
+    });
+    L.marker([46.1883, 5.2465], { icon: situeIcon }).addTo(situeMap)
+      .bindPopup('<strong>FLORE Festival · Ainterexpo</strong><br>25 avenue du Maréchal Juin<br>01000 Bourg-en-Bresse').openPopup();
+  } catch (errMap) {
+    if (window.console) console.warn('Carte "situe-toi" indisponible.', errMap);
+  }
+
+  (function () {
+    var target = new Date('2027-04-17T11:00:00+02:00').getTime();
+    var elD = document.getElementById('cd-days'), elH = document.getElementById('cd-hours'),
+        elM = document.getElementById('cd-min'), elS = document.getElementById('cd-sec');
+    if (!elD) return;
+    function tick() {
+      var diff = target - Date.now();
+      if (diff < 0) diff = 0;
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      elD.textContent = d;
+      elH.textContent = String(h).padStart(2, '0');
+      elM.textContent = String(m).padStart(2, '0');
+      elS.textContent = String(s).padStart(2, '0');
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
 <script>
   AOS.init({ duration:720, easing:'ease-out-cubic', once:true, offset:70, disable: function(){ return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } });
   document.getElementById('year').textContent = new Date().getFullYear();

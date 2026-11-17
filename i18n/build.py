@@ -257,7 +257,19 @@ def render(content, hreflang_block):
     for token, value in replacements.items():
         html = html.replace(token, value)
 
-    leftover = re.findall(r"\{\{[A-Z_]+\}\}", html)
+    # Jetons génériques {{t:chemin.vers.cle}} (texte échappé) et {{h:...}} (HTML de confiance,
+    # pour quelques <strong>) : évite d'ajouter une ligne ici pour chaque nouvelle phrase traduite.
+    def lookup(path):
+        node = content
+        for part in path.split("."):
+            node = node[int(part)] if isinstance(node, list) else node[part]
+        return node
+    html = re.sub(r"\{\{t:([A-Za-z0-9_.]+)\}\}", lambda m: esc(lookup(m.group(1))), html)
+    html = re.sub(r"\{\{h:([A-Za-z0-9_.]+)\}\}", lambda m: lookup(m.group(1)), html)
+    for code in ("fr", "en", "it", "de", "es"):
+        html = html.replace("{{CUR_%s}}" % code.upper(), ' aria-current="true"' if code == content["lang_code"] else "")
+
+    leftover = re.findall(r"\{\{[A-Z_]+\}\}|\{\{[th]:[^}]*\}\}", html)
     if leftover:
         raise SystemExit(f"Tokens non remplacés dans le rendu {content['lang_code']}: {sorted(set(leftover))}")
     return html
