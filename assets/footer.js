@@ -39,7 +39,7 @@
             '<ul>' +
               '<li><a href="' + h('festival') + '">Le concept</a></li>' +
               '<li><a href="' + h('espaces') + '">Les espaces</a></li>' +
-              '<li><a href="' + h('florette') + '">Florette</a></li>' +
+              '<li><a href="/programme/">Le programme</a></li>' +
               '<li><a href="/a-propos/">Qui sommes-nous</a></li>' +
             '</ul>' +
           '</div>' +

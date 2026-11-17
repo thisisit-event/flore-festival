@@ -37,7 +37,7 @@
     "kicker": "Un festival inclusivo",
     "title_pre": "Un festival donde por fin todo el mundo puede ",
     "title_hl": "florecer",
-    "intro": "FLORE es el primer festival sin gluten y sin lactosa. Conciertos, DJ sets, zona gastronómica, bar y tienda: todo lo que nos encanta de un festival, sin las renuncias habituales. Un día entero para bailar, disfrutar y celebrar, sin pensarlo dos veces.",
+    "intro": "FLORE es el primer festival sin gluten y sin lactosa. Conciertos, zona gastronómica, bar y tienda: todo lo que nos encanta de un festival, sin las renuncias habituales. Un día entero para bailar, disfrutar y celebrar, sin pensarlo dos veces.",
     "cards": [
       {
         "icon": "🌾",
@@ -55,7 +55,7 @@
         "icon": "🎶",
         "bg": "#FCE2E9",
         "title": "Música y zona gastronómica",
-        "text": "Conciertos en directo, DJ sets, food trucks y un bar. El verdadero ambiente de festival, sin concesiones."
+        "text": "Conciertos en directo, food trucks y un bar. El verdadero ambiente de festival, sin concesiones."
       }
     ]
   },
@@ -95,7 +95,7 @@
     "items": [
       {
         "q": "¿Qué es exactamente el FLORE Festival?",
-        "a": "FLORE es un festival de música y gastronomía de un día, completamente sin gluten y sin lactosa: conciertos, DJ sets, una zona gastronómica, una tienda y espacios de bienestar, todo en un mismo recinto, todo seguro para comer y beber sin pensarlo dos veces."
+        "a": "FLORE es un festival de música y gastronomía de un día, completamente sin gluten y sin lactosa: conciertos, una zona gastronómica, una tienda y espacios de bienestar, todo en un mismo recinto, todo seguro para comer y beber sin pensarlo dos veces."
       },
       {
         "q": "¿Es un festival solo para intolerantes o celíacos?",
