@@ -248,7 +248,7 @@
         <div class="weez-skeleton-card"></div>
         <div class="weez-skeleton-bar" style="width:30%"></div>
       </div>
-      <iframe id="haWidgetLight" allowtransparency="true" allow="payment" scrolling="auto" title="Faire un don à MG Entertainment sur HelloAsso" src="https://www.helloasso.com/associations/mg-entertainment/formulaires/1/widget?view=form" style="width: clamp(300px, 100%, 26rem); display:block; margin: 0 auto; border: none;" onload="window.addEventListener('message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidgetLight'); if (dataHeight > parseFloat(haWidgetElement.height || 0)) { haWidgetElement.height = dataHeight + 'px';} const sk = document.getElementById('don-skeleton'); if (sk) { sk.classList.add('is-hidden'); setTimeout(function(){ sk.remove(); }, 300); }})"></iframe>
+      <iframe id="haWidgetLight" allowtransparency="true" allow="payment" scrolling="auto" title="Faire un don à MG Entertainment sur HelloAsso" data-src="https://www.helloasso.com/associations/mg-entertainment/formulaires/1/widget?view=form" style="width: clamp(300px, 100%, 26rem); display:block; margin: 0 auto; border: none;" onload="window.addEventListener('message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidgetLight'); if (dataHeight > parseFloat(haWidgetElement.height || 0)) { haWidgetElement.height = dataHeight + 'px';} const sk = document.getElementById('don-skeleton'); if (sk) { sk.classList.add('is-hidden'); setTimeout(function(){ sk.remove(); }, 300); }})"></iframe>
     </div>
   </div>
 </div>
@@ -258,7 +258,27 @@
     var backdrop = document.getElementById('donDrawerBackdrop');
     var closeBtn = document.getElementById('donDrawerClose');
     if (!drawer || !backdrop) return;
+    // Le formulaire HelloAsso embarque ses propres traceurs (pixel Meta, Segment) : il ne se charge
+    // qu'à l'ouverture du tiroir, ou juste avant quand on approche du bouton, plus au chargement de la page.
+    var haLoaded = false;
+    function loadHa(){
+      if (haLoaded) return;
+      haLoaded = true;
+      var f = document.getElementById('haWidgetLight');
+      if (f && f.getAttribute('data-src')) f.src = f.getAttribute('data-src');
+      // Filet de sécurité : masque le skeleton même si le widget ne renvoie jamais de message
+      setTimeout(function(){
+        var sk = document.getElementById('don-skeleton');
+        if (sk) { sk.classList.add('is-hidden'); setTimeout(function(){ sk.remove(); }, 300); }
+      }, 6000);
+    }
+    ['pointerover', 'touchstart', 'focusin'].forEach(function(ev){
+      document.addEventListener(ev, function(e){
+        if (e.target.closest && e.target.closest('[data-open-don-drawer]')) loadHa();
+      }, { passive: true });
+    });
     function openDrawer(){
+      loadHa();
       drawer.classList.add('open');
       backdrop.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -279,10 +299,6 @@
     document.addEventListener('keydown', function(e){
       if (e.key === 'Escape') closeDrawer();
     });
-    setTimeout(function(){
-      var sk = document.getElementById('don-skeleton');
-      if (sk) { sk.classList.add('is-hidden'); setTimeout(function(){ sk.remove(); }, 300); }
-    }, 6000);
   })();
 </script>
 

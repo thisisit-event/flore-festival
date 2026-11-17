@@ -708,7 +708,17 @@
       <p>Ton billet finance la journée. Ton don, lui, aide à financer ce qui ne se voit pas toujours : l'accessibilité, la sécurité, Le Cocon, et une prochaine édition encore plus ambitieuse. Tout excédent est intégralement réinvesti dans FLORE.</p>
     </div>
     <div class="weez-widget-block" data-aos="fade-up">
-      <iframe id="haWidgetLight" allowtransparency="true" allow="payment" scrolling="auto" title="Faire un don à MG Entertainment sur HelloAsso" src="https://www.helloasso.com/associations/mg-entertainment/formulaires/1/widget?view=form" style="width: clamp(300px, 100%, 26rem); display:block; margin: 0 auto; border: none;" onload="window.addEventListener('message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidgetLight'); if (dataHeight > parseFloat(haWidgetElement.height || 0)) { haWidgetElement.height = dataHeight + 'px';}})"></iframe>
+      <iframe id="haWidgetLight" allowtransparency="true" allow="payment" scrolling="auto" title="Faire un don à MG Entertainment sur HelloAsso" data-src="https://www.helloasso.com/associations/mg-entertainment/formulaires/1/widget?view=form" style="width: clamp(300px, 100%, 26rem); display:block; margin: 0 auto; border: none;" onload="window.addEventListener('message', function(e) { const dataHeight = e.data.height; const haWidgetElement = document.getElementById('haWidgetLight'); if (dataHeight > parseFloat(haWidgetElement.height || 0)) { haWidgetElement.height = dataHeight + 'px';}})"></iframe>
+      <script>
+        // Le formulaire HelloAsso embarque ses propres traceurs : chargé seulement quand on approche de la section
+        (function(){
+          var f = document.getElementById('haWidgetLight');
+          function load(){ if (!f.src || f.src === 'about:blank') f.src = f.getAttribute('data-src'); }
+          if (!('IntersectionObserver' in window)) { load(); return; }
+          var io = new IntersectionObserver(function(en){ if (en[0].isIntersecting) { load(); io.disconnect(); } }, { rootMargin: '600px 0px' });
+          io.observe(f);
+        })();
+      </script>
     </div>
   </div>
 </section>
