@@ -388,17 +388,26 @@
     .sponsors-strip{padding:26px 0}
     .sponsors-card{background:#fff;border-radius:var(--r-lg);padding:28px 30px 30px;box-shadow:var(--shadow-sm)}
     .sponsors-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;margin-bottom:22px}
+    .sponsors-head .kicker{color:var(--ink)}
+    .sponsors-head .kicker svg.daisy{color:var(--sun-deep)}
     .sponsors-more{font-size:.88rem;font-weight:700;color:var(--sky-deep);text-decoration:none;transition:color .2s var(--ease)}
     .sponsors-more:hover{color:var(--ink)}
     /* Colonnes égales : la rangée remplit toujours la carte, quel que soit le nombre de sponsors */
-    .sponsors-tiles{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:16px}
+    .sponsors-tiles{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:16px}
     .sponsor-tile{display:flex;flex-direction:column;align-items:center;gap:16px;padding:22px 18px 20px;border:1px solid var(--line);border-radius:var(--r-md);text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
     .sponsor-tile:hover{transform:translateY(-3px);border-color:var(--sky-mid);box-shadow:var(--shadow-sm)}
     .sponsor-logo{height:104px;display:flex;align-items:center;justify-content:center}
     /* --h compense la marge transparente propre à chaque fichier : le dessin visible fait la même hauteur partout */
     .sponsor-logo img{height:var(--h);width:auto;display:block}
-    .sponsor-tier{font-family:'Telegraf',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);background:var(--sky-pale);padding:6px 12px;border-radius:100px;white-space:nowrap}
+    .sponsor-tier{font-family:'Telegraf',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.07em;line-height:1.3;text-align:center;text-transform:uppercase;color:var(--ink-soft);background:var(--sky-pale);padding:6px 12px;border-radius:100px;max-width:100%}
     .sponsor-tile--lead .sponsor-tier{background:var(--sun);color:var(--ink)}
+    @media(min-width:641px) and (max-width:900px){
+      .sponsors-tiles{gap:12px}
+      .sponsor-tile{padding:18px 10px 16px}
+      .sponsor-logo{height:90px}
+      .sponsor-logo img{height:calc(var(--h) * .86)}
+      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
+    }
     @media(max-width:640px){
       .sponsors-card{padding:24px 18px 20px}
       .sponsors-head{flex-direction:column;justify-content:center;text-align:center}
