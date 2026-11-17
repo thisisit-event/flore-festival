@@ -364,50 +364,48 @@
 <section class="sponsors-strip">
   <div class="wrap">
     <div class="sponsors-card">
-      <div class="sponsors-top">
-        <span class="sponsors-title">Partenaires</span>
-        <a href="/partenaires/" class="sponsors-top-link">Voir tous les partenaires →</a>
+      <div class="sponsors-head">
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ils rendent FLORE possible</span>
+        <a href="/partenaires/" class="sponsors-more">Tous nos partenaires →</a>
       </div>
-      <div class="sponsors-row">
-        <div class="sponsors-group sponsors-group--lead">
-          <span class="sponsors-group-label">Parrain fondateur</span>
-          <a href="https://www.schaer.com/fr-fr" target="_blank" rel="noopener" aria-label="Schär">
-            <img src="https://enjoylife.b-cdn.net/Flore/schar-logo-short-flore-festival.png" alt="Schär" style="height:80px">
-          </a>
-        </div>
-        <span class="sponsors-divider" aria-hidden="true"></span>
-        <div class="sponsors-group">
-          <span class="sponsors-group-label">Partenaire officiel</span>
-          <a href="https://www.rbsansglutenpizza.com/" target="_blank" rel="noopener" aria-label="Sans Gluten Pizza">
-            <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/sans-gluten-pizza-logo-flore-festival.png" alt="Sans Gluten Pizza" style="height:66px">
-          </a>
-        </div>
-        <span class="sponsors-divider" aria-hidden="true"></span>
-        <div class="sponsors-group">
-          <span class="sponsors-group-label">Partenaire média</span>
-          <a href="https://www.radioscoop.com/" target="_blank" rel="noopener" aria-label="Radio Scoop">
-            <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/LOGO-RADIO-SCOOP-vect-RVB-2018.png" alt="Radio Scoop" style="height:54px">
-          </a>
-        </div>
+      <div class="sponsors-tiles">
+        <a class="sponsor-tile sponsor-tile--lead" href="https://www.schaer.com/fr-fr" target="_blank" rel="noopener">
+          <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/schar-logo-off-reverse-flore-festival.png" alt="Schär" style="--h:84px"></span>
+          <span class="sponsor-tier">Parrain fondateur</span>
+        </a>
+        <a class="sponsor-tile" href="https://www.rbsansglutenpizza.com/" target="_blank" rel="noopener">
+          <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/sans-gluten-pizza-logo-flore-festival.png" alt="Sans Gluten Pizza" style="--h:103px"></span>
+          <span class="sponsor-tier">Partenaire officiel</span>
+        </a>
+        <a class="sponsor-tile" href="https://www.radioscoop.com/" target="_blank" rel="noopener">
+          <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/LOGO-RADIO-SCOOP-vect-RVB-2018.png" alt="Radio Scoop" style="--h:84px"></span>
+          <span class="sponsor-tier">Partenaire média</span>
+        </a>
       </div>
     </div>
   </div>
   <style>
     .sponsors-strip{padding:26px 0}
-    .sponsors-card{background:var(--ink);border-radius:var(--r-lg);padding:34px 36px 36px;box-shadow:var(--shadow-sm)}
-    .sponsors-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:16px;margin-bottom:34px;border-bottom:1px solid rgba(255,255,255,.14)}
-    .sponsors-title{flex:none;font-family:'Telegraf',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.02em;color:#fff;padding-bottom:10px;border-bottom:3px solid var(--sun)}
-    .sponsors-top-link{font-size:.84rem;font-weight:700;color:rgba(255,255,255,.72);text-decoration:none;transition:color .2s var(--ease)}
-    .sponsors-top-link:hover{color:#fff}
-    .sponsors-row{display:flex;align-items:flex-start;justify-content:center;flex-wrap:wrap;gap:0}
-    .sponsors-group{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:0 40px}
-    .sponsors-group-label{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55)}
-    .sponsors-group img{width:auto;max-width:150px;object-fit:contain;display:block}
-    .sponsors-divider{width:1px;align-self:stretch;background:rgba(255,255,255,.16)}
+    .sponsors-card{background:#fff;border-radius:var(--r-lg);padding:28px 30px 30px;box-shadow:var(--shadow-sm)}
+    .sponsors-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;margin-bottom:22px}
+    .sponsors-more{font-size:.88rem;font-weight:700;color:var(--sky-deep);text-decoration:none;transition:color .2s var(--ease)}
+    .sponsors-more:hover{color:var(--ink)}
+    /* Colonnes égales : la rangée remplit toujours la carte, quel que soit le nombre de sponsors */
+    .sponsors-tiles{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:16px}
+    .sponsor-tile{display:flex;flex-direction:column;align-items:center;gap:16px;padding:22px 18px 20px;border:1px solid var(--line);border-radius:var(--r-md);text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+    .sponsor-tile:hover{transform:translateY(-3px);border-color:var(--sky-mid);box-shadow:var(--shadow-sm)}
+    .sponsor-logo{height:104px;display:flex;align-items:center;justify-content:center}
+    /* --h compense la marge transparente propre à chaque fichier : le dessin visible fait la même hauteur partout */
+    .sponsor-logo img{height:var(--h);width:auto;display:block}
+    .sponsor-tier{font-family:'Telegraf',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);background:var(--sky-pale);padding:6px 12px;border-radius:100px;white-space:nowrap}
+    .sponsor-tile--lead .sponsor-tier{background:var(--sun);color:var(--ink)}
     @media(max-width:640px){
-      .sponsors-row{flex-direction:column;align-items:center;gap:28px}
-      .sponsors-divider{display:none}
-      .sponsors-group{padding:0!important;align-items:center;text-align:center}
+      .sponsors-card{padding:24px 18px 20px}
+      .sponsors-head{flex-direction:column;justify-content:center;text-align:center}
+      .sponsors-tiles{grid-auto-flow:row;grid-template-columns:1fr;gap:12px}
+      .sponsor-tile{padding:18px 16px 16px;gap:12px}
+      .sponsor-logo{height:80px}
+      .sponsor-logo img{height:calc(var(--h) * .76)}
     }
   </style>
 </section>
