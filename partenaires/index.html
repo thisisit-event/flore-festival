@@ -59,12 +59,17 @@
   .manifesto-box h3{font-size:1.4rem;color:#fff;margin-bottom:10px}
   .manifesto-box p{color:rgba(255,255,255,.88);max-width:56em;margin:0 auto;font-size:1rem;line-height:1.6}
 
-  .partner-logos-card{background:#fff;border-radius:var(--r-lg);padding:36px 40px;margin-top:20px;box-shadow:var(--shadow-sm);text-align:center}
-  .partner-logos-label{display:block;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:24px}
-  .partner-logos-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px}
-  .partner-logo-item{display:inline-flex;transition:transform .25s var(--ease)}
-  .partner-logo-item:hover{transform:translateY(-3px)}
-  .partner-logo-item img{height:88px;width:auto;max-width:280px;object-fit:contain}
+  .partners-showcase{background:#fff;border-radius:var(--r-lg);padding:40px 44px 44px;margin-top:20px;box-shadow:var(--shadow-sm)}
+  .partners-tier{margin-top:46px}
+  .partners-tier:first-child{margin-top:0}
+  .partners-tier-head{display:flex;align-items:flex-end;gap:16px;margin-bottom:24px}
+  .partners-tier-title{flex:none;font-family:'Telegraf',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);padding-bottom:10px;border-bottom:3px solid var(--sun-deep)}
+  .partners-tier-head::after{content:'';flex:1;height:1px;background:var(--line);margin-bottom:9px}
+  .partners-grid{display:grid;grid-template-columns:repeat(auto-fill,190px);gap:0}
+  .partners-cell{border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:26px 20px;height:148px;background:#fff;text-decoration:none;transition:background .2s var(--ease)}
+  .partners-cell:hover{background:var(--sky-pale)}
+  .partners-cell img{max-height:58px;max-width:80%;width:auto;object-fit:contain;display:block}
+  @media(max-width:600px){.partners-grid{grid-template-columns:1fr}}
 
   /* 3 paliers : réutilise le composant .tickets/.ticket existant (non-interactif ici) */
   .ticket{cursor:default}
@@ -197,12 +202,30 @@
       <h3>Soutenir un projet déjà porté par des milliers de personnes</h3>
       <p>Devenir partenaire de FLORE, c'est contribuer à faire naître une première édition déjà suivie par une communauté fortement mobilisée. Votre soutien participe directement à la production du festival, à sa programmation, à son accueil et à son développement.</p>
     </div>
-    <div class="partner-logos-card" data-aos="fade-up">
-      <span class="partner-logos-label">Ils nous accompagnent déjà</span>
-      <div class="partner-logos-row">
-        <a href="https://www.radioscoop.com/" target="_blank" rel="noopener" class="partner-logo-item" aria-label="Radio Scoop, partenaire média">
-          <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/LOGO-RADIO-SCOOP-vect-RVB-2018.png" alt="Radio Scoop">
-        </a>
+    <div class="partners-showcase" data-aos="fade-up">
+      <div class="partners-tier">
+        <div class="partners-tier-head"><span class="partners-tier-title">Parrain fondateur</span></div>
+        <div class="partners-grid">
+          <div class="partners-cell" aria-label="Schär, parrain fondateur">
+            <img src="https://enjoylife.b-cdn.net/Flore/schar-logo-off-reverse-flore-festival.png" alt="Schär">
+          </div>
+        </div>
+      </div>
+      <div class="partners-tier">
+        <div class="partners-tier-head"><span class="partners-tier-title">Partenaire officiel</span></div>
+        <div class="partners-grid">
+          <div class="partners-cell" aria-label="Sans Gluten Pizza, partenaire officiel">
+            <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/sans-gluten-pizza-logo-flore-festival.png" alt="Sans Gluten Pizza">
+          </div>
+        </div>
+      </div>
+      <div class="partners-tier">
+        <div class="partners-tier-head"><span class="partners-tier-title">Partenaire média</span></div>
+        <div class="partners-grid">
+          <a href="https://www.radioscoop.com/" target="_blank" rel="noopener" class="partners-cell" aria-label="Radio Scoop, partenaire média">
+            <img src="https://enjoylife.b-cdn.net/Flore/Partenaires/LOGO-RADIO-SCOOP-vect-RVB-2018.png" alt="Radio Scoop">
+          </a>
+        </div>
       </div>
     </div>
   </div>
