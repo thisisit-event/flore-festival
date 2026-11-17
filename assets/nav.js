@@ -168,6 +168,7 @@ if (location.hash) {
             item(h('public'), 'https://enjoylife.b-cdn.net/Flore/picto-flore-public.png', 'Pour qui ?', 'Une fête pour tout le monde') +
             item('/a-propos/', 'https://enjoylife.b-cdn.net/Flore/picto-flore-equipe.png', 'Qui sommes-nous ?', 'L\'histoire &amp; l\'équipe') +
             item('/sans-gluten-sans-lactose/', 'https://enjoylife.b-cdn.net/Flore/picto-flore-gluten.png', 'Sans gluten &amp; lactose', 'Notre engagement santé') +
+            item('/partenaires/', 'https://enjoylife.b-cdn.net/Flore/picto-flore-engages.png', 'Nos partenaires', 'Ils rendent FLORE possible') +
           '</div></div>' +
         '<div class="nav-item"><a class="nav-trigger" href="/infos-pratiques/">Préparer sa venue ' + caret + '</a>' +
           '<div class="dropdown mega">' +
@@ -188,7 +189,7 @@ if (location.hash) {
           '</div></div>' +
         '<div class="nav-item"><button class="nav-trigger nav-espace-pro" aria-expanded="false">Espace Pro ' + caret + '</button>' +
           '<div class="dropdown dd-right">' +
-            '<a href="/partenaires/">' + proIco('picto-flore-engages.png') + 'Devenir partenaire</a>' +
+            '<a href="/partenaires/#devenir-partenaire">' + proIco('picto-flore-engages.png') + 'Devenir partenaire</a>' +
             '<a href="/exposants/">' + proIco('picto-flore-jardin.png') + 'Réserver un stand</a>' +
             '<a href="/artistes/">' + proIco('picto-flore-musique.png') + 'Candidature artiste</a>' +
             '<a href="/club-flore/">' + proIco('picto-flore-bienveillance.png') + 'Rejoindre le club flore</a>' +
@@ -207,6 +208,7 @@ if (location.hash) {
       '<a class="m-sub" href="/programme/">Le programme</a>' +
       '<a class="m-sub" href="' + h('public') + '">Pour qui ?</a>' +
       '<a class="m-sub" href="/a-propos/">Qui sommes-nous ?</a>' +
+      '<a class="m-sub" href="/partenaires/">Nos partenaires</a>' +
       '<a class="m-label" href="/infos-pratiques/">Préparer sa venue</a>' +
       '<a class="m-sub" href="/infos-pratiques/#acces">Accès &amp; transport</a>' +
       '<a class="m-sub" href="/infos-pratiques/#loger">Se loger</a>' +
@@ -222,7 +224,7 @@ if (location.hash) {
       '<a class="m-sub" href="/deutschland/">' + flag('allemagne') + ' Deutsch</a>' +
       '<a class="m-sub" href="/espana/">' + flag('espagne') + ' Español</a>' +
       '<span class="m-label">Espace Pro</span>' +
-      '<a class="m-sub" href="/partenaires/">' + proIco('picto-flore-engages.png') + 'Devenir partenaire</a>' +
+      '<a class="m-sub" href="/partenaires/#devenir-partenaire">' + proIco('picto-flore-engages.png') + 'Devenir partenaire</a>' +
       '<a class="m-sub" href="/exposants/">' + proIco('picto-flore-jardin.png') + 'Réserver un stand</a>' +
       '<a class="m-sub" href="/artistes/">' + proIco('picto-flore-musique.png') + 'Candidature artiste</a>' +
       '<a class="m-sub" href="/club-flore/">' + proIco('picto-flore-bienveillance.png') + 'Rejoindre le club flore</a>' +
