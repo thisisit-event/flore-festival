@@ -82,6 +82,7 @@
     'N° RNA : W012014876.<br>' +
     'SIREN : 889 266 037.<br>' +
     'SIRET : 889 266 037 00023.<br>' +
+    'Téléphone : 07 44 98 00 15<br>' +
     'E-mail : <a href="mailto:contact@mgentertainment.fr">contact@mgentertainment.fr</a><br>' +
     '</p>' +
 
@@ -99,7 +100,7 @@
     '<a href="https://www.infomaniak.com" target="_blank" rel="noopener">infomaniak.com</a></p>' +
 
     '<h3>Propriété intellectuelle</h3>' +
-    '<p>L\'ensemble des contenus de ce site (textes, visuels, illustrations, identité graphique « FLORE », mascotte « Florette » et logo) est la propriété exclusive de MG Entertainment, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>' +
+    '<p>La marque « FLORE FESTIVAL » est déposée à l\'INPI par Morgan Spirli et exploitée par MG Entertainment avec son autorisation. Les autres contenus de ce site (textes, visuels, illustrations, identité graphique, mascotte « Florette » et logo) sont la propriété de MG Entertainment, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>' +
 
     '<h3>Crédits et ressources</h3>' +
     '<p>Police d\'écriture : Telegraf. Animations au défilement : bibliothèque AOS (Animate On Scroll). Carte : Leaflet, fonds de carte © contributeurs OpenStreetMap. Certaines photos d\'illustration : Unsplash. Illustrations originales (mascotte Florette, motifs floraux) : MG Entertainment.</p>' +
