@@ -360,131 +360,6 @@
   </style>
 </header>
 
-<!-- ===================== PARTENAIRES ===================== -->
-<section class="sponsors-strip">
-  <div class="wrap">
-    <div class="sponsors-card">
-      <div class="sponsors-head">
-        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ils rendent FLORE possible</span>
-        <a href="/partenaires/" class="sponsors-more">Tous nos partenaires →</a>
-      </div>
-      <div class="sponsors-body">
-        <a class="sponsor-tile sponsor-tile--lead" href="https://www.schaer.com/fr-fr" target="_blank" rel="noopener">
-          <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/schar-logo-off-reverse-flore-festival.png" alt="Schär" style="--h:84px"></span>
-          <span class="sponsor-tier">Parrain fondateur</span>
-        </a>
-        <div class="sponsors-rest">
-          <div class="sponsors-rest-track">
-            <a class="sponsor-tile" href="https://www.rbsansglutenpizza.com/" target="_blank" rel="noopener">
-              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/sans-gluten-pizza-logo-flore-festival.png" alt="Sans Gluten Pizza" style="--h:103px"></span>
-              <span class="sponsor-tier">Partenaire officiel</span>
-            </a>
-            <a class="sponsor-tile" href="https://www.radioscoop.com/" target="_blank" rel="noopener">
-              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/LOGO-RADIO-SCOOP-vect-RVB-2018.png" alt="Radio Scoop" style="--h:84px"></span>
-              <span class="sponsor-tier">Partenaire média</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <style>
-    .sponsors-strip{padding:26px 0}
-    .sponsors-card{background:#fff;border-radius:var(--r-lg);padding:28px 30px 30px;box-shadow:var(--shadow-sm)}
-    .sponsors-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;margin-bottom:22px}
-    .sponsors-head .kicker{color:var(--ink)}
-    .sponsors-head .kicker svg.daisy{color:var(--sun-deep)}
-    .sponsors-more{font-size:.88rem;font-weight:700;color:var(--sky-deep);text-decoration:none;transition:color .2s var(--ease)}
-    .sponsors-more:hover{color:var(--ink)}
-    /* Mode fixe (moins de 4 partenaires) : toutes les tuiles, Schär compris, dans une seule grille
-       à colonnes égales. display:contents fait des tuiles de la bande des cellules directes de la grille. */
-    .sponsors-body{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:16px}
-    .sponsors-rest,.sponsors-rest-track{display:contents}
-    /* Mode mouvement (activé par le script dès 4 partenaires) : Schär fixe, les autres dans une bande */
-    .sponsors-body.is-moving{display:flex;align-items:stretch}
-    .sponsors-body.is-moving .sponsor-tile--lead{flex:0 0 250px}
-    .sponsors-body.is-moving .sponsors-rest{display:flex;flex:1;min-width:0}
-    /* Mode défilement (activé par le script) : piste = 2 moitiés identiques, translateX(-50%) boucle sans à-coup.
-       Marge à droite de chaque tuile plutôt qu'un gap, sinon les deux moitiés n'ont pas exactement la même largeur. */
-    .sponsors-rest.is-marquee{overflow:hidden;padding:4px 0 12px;margin:-4px 0 -12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent)}
-    .sponsors-rest.is-marquee .sponsors-rest-track{flex:none;display:flex;gap:0;width:max-content;animation:sponsorsDefile var(--dur,30s) linear infinite}
-    .sponsors-rest.is-marquee .sponsor-tile{flex:0 0 220px;margin-right:16px}
-    .sponsors-rest.is-marquee:hover .sponsors-rest-track,.sponsors-rest.is-marquee:focus-within .sponsors-rest-track{animation-play-state:paused}
-    @keyframes sponsorsDefile{to{transform:translateX(-50%)}}
-    /* Animations désactivées par l'utilisateur : bande qu'on fait glisser à la main */
-    .sponsors-rest.is-scroll{overflow-x:auto;scroll-snap-type:x mandatory}
-    .sponsors-rest.is-scroll .sponsors-rest-track{flex:none;display:flex;width:max-content}
-    .sponsors-rest.is-scroll .sponsor-tile{flex:0 0 200px;scroll-snap-align:start}
-    .sponsor-tile{display:flex;flex-direction:column;align-items:center;gap:16px;padding:22px 18px 20px;border:1px solid var(--line);border-radius:var(--r-md);text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
-    .sponsor-tile:hover{transform:translateY(-3px);border-color:var(--sky-mid);box-shadow:var(--shadow-sm)}
-    .sponsor-logo{height:104px;display:flex;align-items:center;justify-content:center}
-    /* --h compense la marge transparente propre à chaque fichier : le dessin visible fait la même hauteur partout */
-    .sponsor-logo img{height:var(--h);width:auto;display:block}
-    .sponsor-tier{font-family:'Telegraf',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.07em;line-height:1.3;text-align:center;text-transform:uppercase;color:var(--ink-soft);background:var(--sky-pale);padding:6px 12px;border-radius:100px;max-width:100%}
-    .sponsor-tile--lead .sponsor-tier{background:var(--sun);color:var(--ink)}
-    @media(min-width:641px) and (max-width:900px){
-      .sponsors-body{gap:12px}
-      .sponsors-body.is-moving .sponsor-tile--lead{flex-basis:190px}
-      .sponsor-tile{padding:18px 10px 16px}
-      .sponsor-logo{height:90px}
-      .sponsor-logo img{height:calc(var(--h) * .86)}
-      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
-      .sponsors-rest.is-marquee .sponsor-tile{flex-basis:180px;margin-right:12px}
-    }
-    @media(max-width:640px){
-      .sponsors-card{padding:24px 18px 20px}
-      .sponsors-head{flex-direction:column;justify-content:center;text-align:center}
-      .sponsors-body{grid-auto-flow:row;grid-template-columns:1fr 1fr;gap:12px}
-      .sponsor-tile--lead{grid-column:1/-1}
-      .sponsors-body.is-moving{flex-direction:column}
-      .sponsors-body.is-moving .sponsor-tile--lead{flex:none}
-      .sponsor-tile{padding:18px 10px 16px;gap:12px}
-      .sponsor-logo{height:80px}
-      .sponsor-logo img{height:calc(var(--h) * .76)}
-      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
-      .sponsors-rest.is-marquee .sponsor-tile{flex-basis:150px;margin-right:12px}
-    }
-  </style>
-  <script>
-    (function(){
-      var rest = document.querySelector('.sponsors-rest');
-      if (!rest) return;
-      var track = rest.querySelector('.sponsors-rest-track');
-      var originals = [].slice.call(track.children);
-      // Le défilement ne démarre qu'à partir de 4 partenaires dans la bande (sinon trop répétitif).
-      // ?defilement dans l'URL force l'aperçu, pour tester avant d'avoir 4 partenaires.
-      var force = /[?&]defilement\b/.test(location.search);
-      if (originals.length < 4 && !force) return;
-      rest.parentNode.classList.add('is-moving');
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { rest.classList.add('is-scroll'); return; }
-      rest.classList.add('is-marquee');
-
-      function clone(el){
-        var c = el.cloneNode(true);
-        c.setAttribute('aria-hidden', 'true');
-        c.setAttribute('tabindex', '-1');
-        return c;
-      }
-      function build(){
-        track.innerHTML = '';
-        originals.forEach(function(el){ track.appendChild(el); });
-        var first = originals[0];
-        var unit = first.getBoundingClientRect().width + parseFloat(getComputedStyle(first).marginRight);
-        var setW = unit * originals.length;
-        // Une moitié de piste doit dépasser la largeur visible, sinon un trou apparaît pendant la boucle
-        var reps = Math.max(1, Math.ceil(rest.clientWidth / setW));
-        for (var r = 1; r < reps; r++) originals.forEach(function(el){ track.appendChild(clone(el)); });
-        var half = track.children.length;
-        for (var i = 0; i < half; i++) track.appendChild(clone(track.children[i]));
-        track.style.setProperty('--dur', (setW * reps / 40) + 's');
-      }
-      build();
-      var t;
-      window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(build, 200); });
-    })();
-  </script>
-</section>
-
 <!-- ===================== SITUE-TOI + COMPTE A REBOURS ===================== -->
 <section class="sec situe-sec" id="situe" style="padding-top:44px;padding-bottom:44px">
   <div class="wrap">
@@ -928,6 +803,131 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- ===================== PARTENAIRES ===================== -->
+<section class="sponsors-strip">
+  <div class="wrap">
+    <div class="sponsors-card">
+      <div class="sponsors-head">
+        <span class="kicker"><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Ils rendent FLORE possible</span>
+        <a href="/partenaires/" class="sponsors-more">Tous nos partenaires →</a>
+      </div>
+      <div class="sponsors-body">
+        <a class="sponsor-tile sponsor-tile--lead" href="https://www.schaer.com/fr-fr" target="_blank" rel="noopener">
+          <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/schar-logo-off-reverse-flore-festival.png" alt="Schär" style="--h:84px"></span>
+          <span class="sponsor-tier">Parrain fondateur</span>
+        </a>
+        <div class="sponsors-rest">
+          <div class="sponsors-rest-track">
+            <a class="sponsor-tile" href="https://www.rbsansglutenpizza.com/" target="_blank" rel="noopener">
+              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/sans-gluten-pizza-logo-flore-festival.png" alt="Sans Gluten Pizza" style="--h:103px"></span>
+              <span class="sponsor-tier">Partenaire officiel</span>
+            </a>
+            <a class="sponsor-tile" href="https://www.radioscoop.com/" target="_blank" rel="noopener">
+              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/LOGO-RADIO-SCOOP-vect-RVB-2018.png" alt="Radio Scoop" style="--h:84px"></span>
+              <span class="sponsor-tier">Partenaire média</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .sponsors-strip{padding:26px 0}
+    .sponsors-card{background:#fff;border-radius:var(--r-lg);padding:28px 30px 30px;box-shadow:var(--shadow-sm)}
+    .sponsors-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;margin-bottom:22px}
+    .sponsors-head .kicker{color:var(--ink)}
+    .sponsors-head .kicker svg.daisy{color:var(--sun-deep)}
+    .sponsors-more{font-size:.88rem;font-weight:700;color:var(--sky-deep);text-decoration:none;transition:color .2s var(--ease)}
+    .sponsors-more:hover{color:var(--ink)}
+    /* Mode fixe (moins de 4 partenaires) : toutes les tuiles, Schär compris, dans une seule grille
+       à colonnes égales. display:contents fait des tuiles de la bande des cellules directes de la grille. */
+    .sponsors-body{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:16px}
+    .sponsors-rest,.sponsors-rest-track{display:contents}
+    /* Mode mouvement (activé par le script dès 4 partenaires) : Schär fixe, les autres dans une bande */
+    .sponsors-body.is-moving{display:flex;align-items:stretch}
+    .sponsors-body.is-moving .sponsor-tile--lead{flex:0 0 250px}
+    .sponsors-body.is-moving .sponsors-rest{display:flex;flex:1;min-width:0}
+    /* Mode défilement (activé par le script) : piste = 2 moitiés identiques, translateX(-50%) boucle sans à-coup.
+       Marge à droite de chaque tuile plutôt qu'un gap, sinon les deux moitiés n'ont pas exactement la même largeur. */
+    .sponsors-rest.is-marquee{overflow:hidden;padding:4px 0 12px;margin:-4px 0 -12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent)}
+    .sponsors-rest.is-marquee .sponsors-rest-track{flex:none;display:flex;gap:0;width:max-content;animation:sponsorsDefile var(--dur,30s) linear infinite}
+    .sponsors-rest.is-marquee .sponsor-tile{flex:0 0 220px;margin-right:16px}
+    .sponsors-rest.is-marquee:hover .sponsors-rest-track,.sponsors-rest.is-marquee:focus-within .sponsors-rest-track{animation-play-state:paused}
+    @keyframes sponsorsDefile{to{transform:translateX(-50%)}}
+    /* Animations désactivées par l'utilisateur : bande qu'on fait glisser à la main */
+    .sponsors-rest.is-scroll{overflow-x:auto;scroll-snap-type:x mandatory}
+    .sponsors-rest.is-scroll .sponsors-rest-track{flex:none;display:flex;width:max-content}
+    .sponsors-rest.is-scroll .sponsor-tile{flex:0 0 200px;scroll-snap-align:start}
+    .sponsor-tile{display:flex;flex-direction:column;align-items:center;gap:16px;padding:22px 18px 20px;border:1px solid var(--line);border-radius:var(--r-md);text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+    .sponsor-tile:hover{transform:translateY(-3px);border-color:var(--sky-mid);box-shadow:var(--shadow-sm)}
+    .sponsor-logo{height:104px;display:flex;align-items:center;justify-content:center}
+    /* --h compense la marge transparente propre à chaque fichier : le dessin visible fait la même hauteur partout */
+    .sponsor-logo img{height:var(--h);width:auto;display:block}
+    .sponsor-tier{font-family:'Telegraf',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.07em;line-height:1.3;text-align:center;text-transform:uppercase;color:var(--ink-soft);background:var(--sky-pale);padding:6px 12px;border-radius:100px;max-width:100%}
+    .sponsor-tile--lead .sponsor-tier{background:var(--sun);color:var(--ink)}
+    @media(min-width:641px) and (max-width:900px){
+      .sponsors-body{gap:12px}
+      .sponsors-body.is-moving .sponsor-tile--lead{flex-basis:190px}
+      .sponsor-tile{padding:18px 10px 16px}
+      .sponsor-logo{height:90px}
+      .sponsor-logo img{height:calc(var(--h) * .86)}
+      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
+      .sponsors-rest.is-marquee .sponsor-tile{flex-basis:180px;margin-right:12px}
+    }
+    @media(max-width:640px){
+      .sponsors-card{padding:24px 18px 20px}
+      .sponsors-head{flex-direction:column;justify-content:center;text-align:center}
+      .sponsors-body{grid-auto-flow:row;grid-template-columns:1fr 1fr;gap:12px}
+      .sponsor-tile--lead{grid-column:1/-1}
+      .sponsors-body.is-moving{flex-direction:column}
+      .sponsors-body.is-moving .sponsor-tile--lead{flex:none}
+      .sponsor-tile{padding:18px 10px 16px;gap:12px}
+      .sponsor-logo{height:80px}
+      .sponsor-logo img{height:calc(var(--h) * .76)}
+      .sponsor-tier{font-size:.62rem;letter-spacing:.05em;padding:5px 10px}
+      .sponsors-rest.is-marquee .sponsor-tile{flex-basis:150px;margin-right:12px}
+    }
+  </style>
+  <script>
+    (function(){
+      var rest = document.querySelector('.sponsors-rest');
+      if (!rest) return;
+      var track = rest.querySelector('.sponsors-rest-track');
+      var originals = [].slice.call(track.children);
+      // Le défilement ne démarre qu'à partir de 4 partenaires dans la bande (sinon trop répétitif).
+      // ?defilement dans l'URL force l'aperçu, pour tester avant d'avoir 4 partenaires.
+      var force = /[?&]defilement\b/.test(location.search);
+      if (originals.length < 4 && !force) return;
+      rest.parentNode.classList.add('is-moving');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { rest.classList.add('is-scroll'); return; }
+      rest.classList.add('is-marquee');
+
+      function clone(el){
+        var c = el.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        c.setAttribute('tabindex', '-1');
+        return c;
+      }
+      function build(){
+        track.innerHTML = '';
+        originals.forEach(function(el){ track.appendChild(el); });
+        var first = originals[0];
+        var unit = first.getBoundingClientRect().width + parseFloat(getComputedStyle(first).marginRight);
+        var setW = unit * originals.length;
+        // Une moitié de piste doit dépasser la largeur visible, sinon un trou apparaît pendant la boucle
+        var reps = Math.max(1, Math.ceil(rest.clientWidth / setW));
+        for (var r = 1; r < reps; r++) originals.forEach(function(el){ track.appendChild(clone(el)); });
+        var half = track.children.length;
+        for (var i = 0; i < half; i++) track.appendChild(clone(track.children[i]));
+        track.style.setProperty('--dur', (setW * reps / 40) + 's');
+      }
+      build();
+      var t;
+      window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(build, 200); });
+    })();
+  </script>
 </section>
 
 <!-- ===================== CTA / BILLETTERIE (golden hour) ===================== -->
