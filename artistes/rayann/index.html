@@ -10,7 +10,7 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="/assets/flore.css?v=20261117b">
+<link rel="stylesheet" href="/assets/flore.css?v=20261117c">
 <style>
   /* ===== Page artiste : gabarit de test, v2 ===== */
   .artist-hero{
@@ -102,6 +102,18 @@
   /* Video */
   .video-card{position:relative;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/9;background:#121212}
   .video-card iframe{width:100%;height:100%;border:0;display:block}
+  .embed-gate{width:100%;border:0;cursor:pointer;display:flex;align-items:center;gap:16px;font:inherit;text-align:left;border-radius:12px}
+  .embed-gate-spotify{background:#121212;color:#fff;padding:0 24px}
+  .embed-gate-spotify .eg-play{background:#1DB954;color:#121212}
+  .embed-gate-yt{height:100%;position:relative;flex-direction:column;justify-content:center;background:#0B1832 center/cover no-repeat;color:#fff;padding:16px}
+  .embed-gate-yt::before{content:"";position:absolute;inset:0;background:rgba(11,24,50,.35);border-radius:inherit}
+  .embed-gate-yt .eg-play{background:#FF0033;color:#fff;position:relative}
+  .embed-gate-yt small{position:relative;font-size:.72rem;color:rgba(255,255,255,.85);text-align:center}
+  .eg-play{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;flex:none}
+  .eg-play svg{width:22px;height:22px;margin-left:3px}
+  .eg-txt{display:flex;flex-direction:column;gap:4px}
+  .eg-txt strong{font-size:1rem}
+  .eg-txt small{font-size:.76rem;color:#b3b3b3}
   .video-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#7a7a7a}
   .video-placeholder svg{width:44px;height:44px;opacity:.6}
   .video-placeholder span{font-size:.82rem;font-weight:700}
@@ -270,8 +282,15 @@
         var spMatch = a.spotify_url.match(/open\.spotify\.com\/(artist|track|album|playlist)\/([A-Za-z0-9]+)/);
         if(spMatch){
           var spHeight = spMatch[1] === 'track' ? 152 : 352;
-          document.getElementById('spotify-embed-wrap').innerHTML =
-            '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/' + spMatch[1] + '/' + spMatch[2] + '?utm_source=generator" width="100%" height="' + spHeight + '" frameBorder="0" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Spotify ' + a.nom + '"></iframe>';
+          // Lecteur Spotify chargé seulement au clic : il dépose ses propres traceurs
+          var spWrap = document.getElementById('spotify-embed-wrap');
+          var spSrc = 'https://open.spotify.com/embed/' + spMatch[1] + '/' + spMatch[2] + '?utm_source=generator';
+          spWrap.innerHTML = '<button type="button" class="embed-gate embed-gate-spotify" style="height:' + spHeight + 'px">' +
+            '<span class="eg-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>' +
+            '<span class="eg-txt"><strong>Écouter sur Spotify</strong><small>Le lecteur Spotify se charge au clic et peut déposer ses propres cookies.</small></span></button>';
+          spWrap.querySelector('button').addEventListener('click', function(){
+            spWrap.innerHTML = '<iframe style="border-radius:12px" src="' + spSrc + '" width="100%" height="' + spHeight + '" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Spotify ' + a.nom + '"></iframe>';
+          });
         }
       }
 
@@ -294,7 +313,13 @@
         }
         var card = document.createElement('div');
         card.className = 'video-card';
-        card.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '" title="' + (label || 'Vidéo') + ' ' + nom + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+        // Lecteur YouTube chargé seulement au clic : il dépose ses propres traceurs
+        card.innerHTML = '<button type="button" class="embed-gate embed-gate-yt" style="background-image:url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)" aria-label="Lire la vidéo ' + (label || '') + ' ' + nom + '">' +
+          '<span class="eg-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>' +
+          '<small>La vidéo YouTube se charge au clic et peut déposer ses propres cookies.</small></button>';
+        card.querySelector('button').addEventListener('click', function(){
+          card.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1" title="' + (label || 'Vidéo') + ' ' + nom + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        });
         videoCardsEl.appendChild(card);
       }
       if(a.youtube_url){
@@ -333,5 +358,8 @@ onScroll();
 window.addEventListener('scroll', onScroll, { passive:true });
 </script>
 
+<p class="legal-mini">© 2026 FLORE Festival · MG Entertainment · <button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button> · <button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button> · <button type="button" class="lgl-link" data-legal="cgv">CGV</button></p>
+<style>.legal-mini{display:block;width:fit-content;max-width:calc(100% - 32px);margin:28px auto 40px;padding:8px 18px;border-radius:100px;background:rgba(255,255,255,.88);color:#5C7993;font-size:.78rem;line-height:1.6;text-align:center;position:relative;z-index:2}.legal-mini .lgl-link{min-height:0;padding:0;display:inline;font-size:inherit;color:inherit;text-decoration:underline}@media(max-width:759px){.legal-mini{margin-bottom:110px;border-radius:18px}}</style>
+<script src="/legal.js?v=20261117" defer></script>
 </body>
 </html>

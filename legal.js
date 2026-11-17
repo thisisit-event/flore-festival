@@ -41,6 +41,7 @@
     '.lgl-cookie .ck-emoji{font-size:1.45rem;line-height:1}',
     '.lgl-cookie h4{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:800;font-size:1.08rem;color:var(--ink,#15395B)}',
     '.lgl-cookie p{font-family:\'Telegraf\',system-ui,sans-serif;font-size:.86rem;line-height:1.55;color:var(--ink-soft,#5C7993);margin-bottom:14px}',
+    '.lgl-cookie .ck-learn{background:none;border:none;padding:0;font:inherit;color:var(--sky-deep,#2E7FB8);font-weight:700;text-decoration:underline;cursor:pointer}',
     '.lgl-cookie .ck-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}',
     '.lgl-cookie .ck-ok{font-family:\'Telegraf\',system-ui,sans-serif;font-weight:700;font-size:.9rem;background:var(--ink,#15395B);color:var(--white,#fff);border:none;cursor:pointer;padding:11px 22px;border-radius:100px;transition:transform .2s,background .2s}',
     '.lgl-cookie .ck-ok:hover{transform:translateY(-2px);background:var(--navy,#0B1832)}',
@@ -101,7 +102,7 @@
     '<p>L\'ensemble des contenus de ce site (textes, visuels, illustrations, identité graphique « FLORE », mascotte « Florette » et logo) est la propriété exclusive de MG Entertainment, sauf mention contraire. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>' +
 
     '<h3>Crédits et ressources</h3>' +
-    '<p>Police d\'écriture : Telegraf. Animations au défilement : bibliothèque AOS (Animate On Scroll). Illustrations originales (mascotte Florette, motifs floraux) : MG Entertainment.</p>' +
+    '<p>Police d\'écriture : Telegraf. Animations au défilement : bibliothèque AOS (Animate On Scroll). Carte : Leaflet, fonds de carte © contributeurs OpenStreetMap. Certaines photos d\'illustration : Unsplash. Illustrations originales (mascotte Florette, motifs floraux) : MG Entertainment.</p>' +
 
     '<h3>Responsabilité</h3>' +
     '<p>MG Entertainment s\'efforce d\'assurer l\'exactitude des informations publiées (lieu, dates, tarifs, programmation). Celles-ci sont données à titre indicatif et susceptibles d\'évoluer ; les informations définitives seront communiquées avant l\'événement.</p>' +
@@ -115,40 +116,50 @@
     '<p>MG Entertainment attache de l\'importance à la protection de vos données. Cette page explique, en toute transparence, ce que le site collecte (très peu) et comment il fonctionne.</p>' +
 
     '<h3>1. Responsable du traitement</h3>' +
-    '<p>MG Entertainment, association loi 1901. Contact : <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>.</p>' +
+    '<p>MG Entertainment, association loi 1901, 7 rue Pierre Bernin, 01800 Meximieux. Contact : <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>.</p>' +
 
     '<h3>2. Données collectées</h3>' +
     '<p>Ce site est volontairement minimaliste. Selon le formulaire utilisé :</p>' +
     '<ul>' +
-      '<li><strong>Inscription à l\'actualité et formulaires de candidature</strong> (exposants, artistes, causeries, hébergement, guide FLORE...) : les informations que vous saisissez (nom, e-mail, et selon le formulaire téléphone, adresse, présentation de votre activité) sont transmises via notre prestataire technique <strong>Web3Forms</strong>, qui nous les fait parvenir par e-mail.</li>' +
-      '<li><strong>« Être prévenu·e »</strong> (certaines pages) : ce bouton ouvre votre logiciel de messagerie avec un e-mail pré-rempli. Votre adresse ne nous parvient que si vous décidez d\'envoyer cet e-mail.</li>' +
+      '<li><strong>Newsletter, liste d\'attente et formulaires de candidature</strong> (exposants, artistes, causeries, hébergement, Guide FLORE, Club FLORE...) : les informations que vous saisissez (nom, e-mail, et selon le formulaire téléphone, adresse, présentation de votre activité) sont transmises via notre prestataire technique <strong>Web3Forms</strong>, qui nous les fait parvenir par e-mail.</li>' +
       '<li><strong>Contact direct</strong> : si vous nous écrivez, nous conservons votre message le temps nécessaire pour vous répondre.</li>' +
+      '<li><strong>Dons</strong> : les dons sont collectés par <strong>HelloAsso</strong>, plateforme de paiement des associations, qui traite vos données (identité, coordonnées, paiement) selon ses propres conditions, consultables sur <a href="https://www.helloasso.com" target="_blank" rel="noopener">helloasso.com</a>. Le formulaire HelloAsso intégré au site ne se charge que lorsque vous ouvrez le module de don ou arrivez à la section dédiée.</li>' +
     '</ul>' +
 
     '<h3>3. Billetterie (Weezevent)</h3>' +
     '<p>Lorsque vous achetez un billet, vos informations (nom, prénom, e-mail, adresse postale/pays, et selon le mode de paiement choisi les données nécessaires à la transaction) sont collectées et traitées par notre prestataire de billetterie <strong>Weezevent</strong>, qui agit comme sous-traitant pour le compte de MG Entertainment (responsable du traitement). Ces données servent à traiter votre commande, vous envoyer vos billets, gérer le contrôle d\'accès le jour de l\'événement et, si vous l\'avez accepté, vous informer des prochaines éditions.</p>' +
+    '<p>Si vous souscrivez l\'assurance annulation optionnelle, les données nécessaires à votre couverture sont transmises à <strong>Protect Group</strong>, qui les traite selon ses propres conditions communiquées lors de la souscription.</p>' +
     '<p>Nous pouvons publier des statistiques agrégées et anonymisées issues de ces données (par exemple, la répartition géographique de nos acheteurs par département ou par pays), sans qu\'aucun billet ni acheteur ne soit identifiable individuellement.</p>' +
     '<p>Le traitement de vos données par Weezevent est également régi par leurs propres conditions, consultables sur <a href="https://www.weezevent.com" target="_blank" rel="noopener">weezevent.com</a>.</p>' +
 
-    '<h3>4. Finalité et base légale</h3>' +
-    '<p>Vos données servent uniquement à répondre à votre demande, instruire votre candidature, traiter votre commande de billets ou vous informer de l\'ouverture de la billetterie, sur la base de votre consentement, de l\'exécution du contrat de vente ou de mesures précontractuelles. Elles ne sont ni vendues, ni cédées, ni transmises à des tiers à des fins commerciales.</p>' +
+    '<h3>4. Finalités et bases légales</h3>' +
+    '<p>Vos données servent uniquement à répondre à votre demande, instruire votre candidature, traiter votre commande de billets ou de don, ou vous informer de l\'actualité du festival. Bases légales : votre consentement (newsletter, liste d\'attente, cookies de mesure et de publicité), l\'exécution du contrat ou de mesures précontractuelles (billetterie, candidatures), et nos obligations légales (comptabilité). Vos données ne sont ni vendues, ni cédées, ni transmises à des tiers à des fins commerciales.</p>' +
 
-    '<h3>5. Durée de conservation</h3>' +
-    '<p>Les échanges par e-mail et les candidatures sont conservés le temps nécessaire à leur traitement, puis supprimés. Pour les inscriptions à l\'actualité du festival : jusqu\'à votre demande de désinscription. Pour les données de billetterie : le temps nécessaire à l\'organisation de l\'événement et aux obligations comptables légales, selon les conditions de conservation propres à Weezevent.</p>' +
+    '<h3>5. Destinataires et transferts hors de l\'Union européenne</h3>' +
+    '<p>Vos données sont destinées à l\'équipe de MG Entertainment et à ses prestataires techniques, dans la limite de leurs missions : Web3Forms (formulaires), Weezevent (billetterie), HelloAsso (dons), GitHub (hébergement du site), Google (mesure d\'audience) et Meta (mesure publicitaire). Certains sont situés hors de l\'Union européenne, notamment aux États-Unis. Ces transferts sont encadrés par le cadre de protection des données UE-États-Unis (Data Privacy Framework) lorsque le prestataire y adhère, ou à défaut par les clauses contractuelles types de la Commission européenne.</p>' +
 
-    '<h3>6. Vos droits</h3>' +
-    '<p>Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification, d\'effacement, d\'opposition et de portabilité de vos données. Pour les exercer, écrivez à <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>' +
-
-    '<h3>7. Cookies et traceurs</h3>' +
-    '<p>Ce site ne fait aucun profilage à des fins autres que la mesure d\'audience et publicitaire décrites ici, et ne revend jamais vos données. Avec votre consentement, il utilise <strong>Google Analytics</strong> (comprendre de façon anonymisée comment le site est visité : pages consultées, provenance, appareil) et le <strong>Pixel Meta</strong> (Facebook/Instagram), qui mesure l\'efficacité de nos publications et campagnes sur ces réseaux.</p>' +
+    '<h3>6. Durée de conservation</h3>' +
     '<ul>' +
-      '<li><strong>Google Analytics</strong> et <strong>Pixel Meta</strong> : déposés uniquement si vous cliquez « Accepter » sur le bandeau cookies. Vous pouvez refuser sans que cela affecte votre navigation.</li>' +
-      '<li><strong>Stockage local</strong> : nous mémorisons, sur votre appareil, votre choix (accepté/refusé) pour ne pas vous redemander à chaque visite. Cette donnée reste dans votre navigateur.</li>' +
-      '<li><strong>Ressources externes</strong> : la bibliothèque d\'animations (AOS) et le module d\'affichage de notre fil Instagram (<strong>SnapWidget</strong>) sont chargés depuis des serveurs tiers, indépendamment de votre choix ci-dessus. Ceux-ci peuvent recevoir votre adresse IP, technique nécessaire pour livrer les fichiers ou le contenu, sans aucun suivi de votre navigation de notre part.</li>' +
+      '<li><strong>Candidatures et échanges par e-mail</strong> : le temps nécessaire à leur traitement, puis supprimés.</li>' +
+      '<li><strong>Newsletter et liste d\'attente</strong> : jusqu\'à votre désinscription, et au plus 3 ans après votre dernier contact avec nous.</li>' +
+      '<li><strong>Billetterie et dons</strong> : le temps nécessaire à l\'organisation de l\'événement, puis la durée imposée par nos obligations comptables (10 ans pour les pièces comptables).</li>' +
+      '<li><strong>Votre choix sur les cookies</strong> : 6 mois, après quoi il vous est redemandé. Les cookies de mesure et de publicité ont une durée de vie de 13 mois au maximum.</li>' +
+    '</ul>' +
+
+    '<h3>7. Vos droits</h3>' +
+    '<p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d\'un droit d\'accès, de rectification, d\'effacement, de limitation, d\'opposition et de portabilité de vos données, du droit de retirer votre consentement à tout moment, et du droit de définir des directives sur le sort de vos données après votre décès. Pour vous désinscrire ou exercer ces droits, écrivez à <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a> : nous répondons sous un mois. Vous pouvez également adresser une réclamation à la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>' +
+
+    '<h3>8. Cookies et traceurs</h3>' +
+    '<p>Ce site ne fait aucun profilage à des fins autres que la mesure d\'audience et publicitaire décrites ici, et ne revend jamais vos données. Avec votre consentement uniquement, il utilise <strong>Google Analytics</strong> (comprendre de façon anonymisée comment le site est visité : pages consultées, provenance, appareil) et le <strong>Pixel Meta</strong> (Facebook/Instagram), qui mesure l\'efficacité de nos publications et campagnes sur ces réseaux.</p>' +
+    '<ul>' +
+      '<li><strong>Google Analytics</strong> et <strong>Pixel Meta</strong> : déposés uniquement si vous les acceptez sur le bandeau cookies (tout accepter, ou un par un via « Personnaliser »). Refuser n\'affecte pas votre navigation.</li>' +
+      '<li><strong>Contenus intégrés</strong> : les lecteurs YouTube et Spotify des fiches artistes ne se chargent que si vous cliquez dessus. Ces services peuvent alors déposer leurs propres traceurs. Le formulaire de don HelloAsso suit la même logique (voir point 2).</li>' +
+      '<li><strong>Stockage local</strong> : nous mémorisons sur votre appareil votre choix sur les cookies, pour ne pas vous le redemander à chaque visite. Cette donnée reste dans votre navigateur.</li>' +
+      '<li><strong>Ressources techniques</strong> : pour afficher le site, certains fichiers sont chargés depuis des serveurs tiers : hébergement (GitHub Pages), images (bunny.net), bibliothèques d\'animation et de carte (unpkg), fonds de carte (OpenStreetMap), polices de caractères sur certaines pages (Google Fonts) et quelques photos (Unsplash). Ces serveurs reçoivent votre adresse IP, nécessaire pour vous transmettre les fichiers, sans traceur ni suivi de votre navigation de notre part.</li>' +
     '</ul>' +
     '<p><button type="button" class="lgl-manage-cookies">Modifier mon choix sur les cookies</button></p>' +
 
-    '<p class="lgl-updated">Dernière mise à jour : 23 août 2026.</p>';
+    '<p class="lgl-updated">Dernière mise à jour : 17 novembre 2026.</p>';
 
   /* ---------- Conditions générales de vente (billetterie) ---------- */
   var CGV =
@@ -157,7 +168,7 @@
     '<p>Les présentes conditions régissent la vente des billets d\'accès au festival FLORE, organisé par MG Entertainment, association loi 1901.</p>' +
 
     '<h3>1. Objet et vendeur</h3>' +
-    '<p>La billetterie du festival FLORE est assurée par notre prestataire <strong>Weezevent</strong>, plateforme de billetterie en ligne. MG Entertainment reste le vendeur et l\'organisateur de l\'événement ; Weezevent agit en tant que prestataire technique de paiement et d\'émission des billets.</p>' +
+    '<p>Le vendeur et organisateur du festival est <strong>MG Entertainment</strong>, association loi 1901, 7 rue Pierre Bernin, 01800 Meximieux, SIRET 889 266 037 00023, <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>. La billetterie est assurée par notre prestataire <strong>Weezevent</strong>, plateforme de billetterie en ligne, qui agit en tant que prestataire technique de paiement et d\'émission des billets.</p>' +
 
     '<h3>2. Prix</h3>' +
     '<p>Les prix des billets sont indiqués en euros, toutes taxes comprises (TTC). Ils peuvent inclure des frais de service, clairement affichés dans le panier avant validation du paiement. Le Pass Journée est proposé en tarif Prévente dans la limite des places disponibles, puis au tarif plein une fois ce contingent épuisé.</p>' +
@@ -178,34 +189,40 @@
     '<h3>7. Accès au festival</h3>' +
     '<p>L\'accès au site se fait sur présentation du billet (format papier ou numérique) et d\'une pièce d\'identité si demandée. Toute personne dont le comportement compromet la sécurité ou le bon déroulement de l\'événement pourra se voir refuser l\'accès ou être invitée à quitter les lieux, sans remboursement.</p>' +
 
-    '<h3>8. Responsabilité</h3>' +
+    '<h3>8. Revente des billets</h3>' +
+    '<p>Les billets sont strictement personnels à l\'acheteur ou à la personne qu\'il désigne. Conformément à l\'article 313-6-2 du Code pénal, la revente de billets de manière habituelle sans l\'autorisation de l\'organisateur est interdite. Un billet acquis en dehors de la billetterie officielle peut être refusé à l\'entrée.</p>' +
+
+    '<h3>9. Photos et vidéos</h3>' +
+    '<p>Le festival fait l\'objet de prises de vues (photos, vidéos) destinées à sa communication. En accédant au site, le public est informé qu\'il est susceptible d\'apparaître sur ces images, notamment dans des plans d\'ensemble. Toute personne qui ne souhaite pas apparaître sur une image où elle est identifiable peut le signaler à l\'équipe sur place ou à <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>.</p>' +
+
+    '<h3>10. Responsabilité</h3>' +
     '<p>L\'organisateur se réserve le droit de modifier la programmation ou les horaires en cas de nécessité, sans que cela ouvre droit à remboursement, dès lors que l\'événement se tient. MG Entertainment ne saurait être tenue responsable des dommages liés à un cas de force majeure ou au non-respect du règlement intérieur du festival par un visiteur.</p>' +
 
-    '<h3>9. Droit applicable</h3>' +
+    '<h3>11. Droit applicable</h3>' +
     '<p>Les présentes conditions sont soumises au droit français. Pour toute question relative à votre commande : <a href="mailto:contact@flore-festival.fr">contact@flore-festival.fr</a>.</p>' +
 
-    '<p class="lgl-updated">Dernière mise à jour : 23 août 2026.</p>';
+    '<p class="lgl-updated">Dernière mise à jour : 17 novembre 2026.</p>';
 
   /* ---------- Bandeau cookies (traduit, le reste des mentions/confidentialité
      reste en français : contenu juridique d'une entité française, cf. README) ---------- */
   var COOKIE_I18N = {
-    fr: { title: 'On reste léger', text: 'Nous utilisons des cookies pour mesurer l\'audience et améliorer votre expérience sur le site du FLORE Festival.', accept: 'Tout accepter', decline: 'Refuser', more: 'Personnaliser', aria: 'Information cookies',
+    fr: { title: 'On reste léger', text: 'Ces cookies nous aident à voir ce qui vous plaît sur le site et à faire connaître FLORE sur les réseaux, sans pub intrusive. Vous pouvez changer d\'avis à tout moment.', learn: 'En savoir plus', accept: 'Tout accepter', decline: 'Refuser', more: 'Personnaliser', aria: 'Information cookies',
       analyticsTitle: 'Mesure d\'audience', analyticsDesc: 'Google Analytics, pour comprendre anonymement comment le site est visité.',
       marketingTitle: 'Publicité &amp; réseaux sociaux', marketingDesc: 'Pixel Meta, pour mesurer l\'efficacité de nos publications Facebook/Instagram.',
       save: 'Enregistrer mes préférences' },
-    en: { title: 'Keeping it light', text: 'We use cookies to measure audience and improve your experience on the FLORE Festival website.', accept: 'Accept all', decline: 'Decline', more: 'Customize', aria: 'Cookie information',
+    en: { title: 'Keeping it light', text: 'These cookies help us see what you enjoy on the site and spread the word about FLORE on social media, without intrusive ads. You can change your mind at any time.', learn: 'Learn more', accept: 'Accept all', decline: 'Decline', more: 'Customize', aria: 'Cookie information',
       analyticsTitle: 'Audience measurement', analyticsDesc: 'Google Analytics, to anonymously understand how the site is visited.',
       marketingTitle: 'Advertising &amp; social media', marketingDesc: 'Meta Pixel, to measure the effectiveness of our Facebook/Instagram posts.',
       save: 'Save my preferences' },
-    it: { title: 'Restiamo leggeri', text: 'Utilizziamo cookie per misurare il pubblico e migliorare la tua esperienza sul sito di FLORE Festival.', accept: 'Accetta tutto', decline: 'Rifiuta', more: 'Personalizza', aria: 'Informazioni sui cookie',
+    it: { title: 'Restiamo leggeri', text: 'Questi cookie ci aiutano a capire cosa ti piace sul sito e a far conoscere FLORE sui social, senza pubblicità invadente. Puoi cambiare idea in qualsiasi momento.', learn: 'Scopri di più', accept: 'Accetta tutto', decline: 'Rifiuta', more: 'Personalizza', aria: 'Informazioni sui cookie',
       analyticsTitle: 'Misurazione del pubblico', analyticsDesc: 'Google Analytics, per capire in modo anonimo come viene visitato il sito.',
       marketingTitle: 'Pubblicità e social media', marketingDesc: 'Pixel Meta, per misurare l\'efficacia dei nostri post Facebook/Instagram.',
       save: 'Salva le mie preferenze' },
-    de: { title: 'Wir bleiben leicht', text: 'Wir verwenden Cookies, um die Reichweite zu messen und Ihre Erfahrung auf der Website des FLORE Festival zu verbessern.', accept: 'Alle akzeptieren', decline: 'Ablehnen', more: 'Anpassen', aria: 'Cookie-Informationen',
+    de: { title: 'Wir bleiben leicht', text: 'Diese Cookies helfen uns zu sehen, was Ihnen auf der Website gefällt, und FLORE in den sozialen Medien bekannt zu machen, ohne aufdringliche Werbung. Sie können Ihre Wahl jederzeit ändern.', learn: 'Mehr erfahren', accept: 'Alle akzeptieren', decline: 'Ablehnen', more: 'Anpassen', aria: 'Cookie-Informationen',
       analyticsTitle: 'Reichweitenmessung', analyticsDesc: 'Google Analytics, um anonym zu verstehen, wie die Website besucht wird.',
       marketingTitle: 'Werbung &amp; soziale Medien', marketingDesc: 'Meta-Pixel, um die Wirksamkeit unserer Facebook-/Instagram-Beiträge zu messen.',
       save: 'Meine Einstellungen speichern' },
-    es: { title: 'Mantenemos la ligereza', text: 'Utilizamos cookies para medir la audiencia y mejorar tu experiencia en el sitio de FLORE Festival.', accept: 'Aceptar todo', decline: 'Rechazar', more: 'Personalizar', aria: 'Información sobre cookies',
+    es: { title: 'Mantenemos la ligereza', text: 'Estas cookies nos ayudan a ver qué te gusta del sitio y a dar a conocer FLORE en redes sociales, sin publicidad invasiva. Puedes cambiar de opinión en cualquier momento.', learn: 'Más información', accept: 'Aceptar todo', decline: 'Rechazar', more: 'Personalizar', aria: 'Información sobre cookies',
       analyticsTitle: 'Medición de audiencia', analyticsDesc: 'Google Analytics, para entender de forma anónima cómo se visita el sitio.',
       marketingTitle: 'Publicidad y redes sociales', marketingDesc: 'Píxel de Meta, para medir la eficacia de nuestras publicaciones en Facebook/Instagram.',
       save: 'Guardar mis preferencias' }
@@ -224,7 +241,7 @@
       '<span class="ck-emoji" aria-hidden="true">🍪</span>' +
       '<h4>' + ct.title + '</h4>' +
     '</div>' +
-    '<p>' + ct.text + '</p>' +
+    '<p>' + ct.text + ' <button type="button" class="ck-learn" data-legal="confidentialite">' + ct.learn + '</button></p>' +
     '<div class="ck-row">' +
       '<button type="button" class="ck-ok" data-choice="granted">' + ct.accept + '</button>' +
       '<button type="button" class="ck-decline" data-choice="denied">' + ct.decline + '</button>' +
@@ -242,6 +259,7 @@
      (un "granted" v2 devient {analytics:true, marketing:true}, pas reperdu). */
   var STORE_KEY = 'flore_cookie_consent_v3';
   var LEGACY_STORE_KEY = 'flore_cookie_consent_v2';
+  var CONSENT_MAX_AGE = 1000 * 60 * 60 * 24 * 182; // 6 mois
   var GA_ID = 'G-PGW3GQF49M';
   var META_PIXEL_ID = '1061377453086854';
   var lastFocus = null;
@@ -284,16 +302,18 @@
   function getConsent() {
     try {
       var raw = localStorage.getItem(STORE_KEY);
-      if (raw) return JSON.parse(raw);
-      var legacy = localStorage.getItem(LEGACY_STORE_KEY);
-      if (legacy === 'granted') return { analytics: true, marketing: true };
-      if (legacy === 'denied') return { analytics: false, marketing: false };
-      return null;
+      if (!raw) return null;
+      var c = JSON.parse(raw);
+      // Choix conservé 6 mois puis redemandé (recommandation CNIL). Un choix sans date
+      // (ancien format) est redemandé une fois.
+      if (!c || !c.ts || Date.now() - c.ts > CONSENT_MAX_AGE) return null;
+      return c;
     } catch (err) { return null; }
   }
 
   function setConsent(value) {
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(value)); } catch (err) {}
+    value.ts = Date.now();
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(value)); localStorage.removeItem(LEGACY_STORE_KEY); } catch (err) {}
   }
 
   function buildModal(id, labelId, html) {

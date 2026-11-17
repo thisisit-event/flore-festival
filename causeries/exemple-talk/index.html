@@ -10,7 +10,7 @@
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://enjoylife.b-cdn.net" crossorigin>
-<link rel="stylesheet" href="/assets/flore.css?v=20261117b">
+<link rel="stylesheet" href="/assets/flore.css?v=20261117c">
 <style>
   .hero2{position:relative;padding:170px 0 60px;overflow:hidden;background:linear-gradient(165deg,var(--sky-deep) 0%,var(--dusk) 55%,var(--navy) 100%)}
   @media(max-width:640px){.hero2{padding:140px 0 40px}}
@@ -134,7 +134,10 @@
       if(a.replay_url){
         var m = a.replay_url.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{11})/);
         if(m){
-          document.getElementById('c-replay').innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/'+m[1]+'" title="Replay" allowfullscreen loading="lazy"></iframe>';
+          // Lecteur YouTube chargé seulement au clic : il dépose ses propres traceurs
+          var rp = document.getElementById('c-replay');
+          rp.innerHTML = '<button type="button" style="width:100%;height:100%;border:0;border-radius:12px;cursor:pointer;color:#fff;font:inherit;background:#0B1832 url(https://i.ytimg.com/vi/'+m[1]+'/hqdefault.jpg) center/cover no-repeat">▶ Lire le replay<br><small>La vidéo YouTube se charge au clic et peut déposer ses propres cookies.</small></button>';
+          rp.querySelector('button').addEventListener('click', function(){ rp.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/'+m[1]+'?autoplay=1" title="Replay" allowfullscreen allow="autoplay"></iframe>'; });
         }
       }
     })
@@ -147,5 +150,8 @@ onScroll();
 window.addEventListener('scroll', onScroll, { passive:true });
 </script>
 
+<p class="legal-mini">© 2026 FLORE Festival · MG Entertainment · <button type="button" class="lgl-link" data-legal="mentions">Mentions légales</button> · <button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité &amp; cookies</button> · <button type="button" class="lgl-link" data-legal="cgv">CGV</button></p>
+<style>.legal-mini{display:block;width:fit-content;max-width:calc(100% - 32px);margin:28px auto 40px;padding:8px 18px;border-radius:100px;background:rgba(255,255,255,.88);color:#5C7993;font-size:.78rem;line-height:1.6;text-align:center;position:relative;z-index:2}.legal-mini .lgl-link{min-height:0;padding:0;display:inline;font-size:inherit;color:inherit;text-decoration:underline}@media(max-width:759px){.legal-mini{margin-bottom:110px;border-radius:18px}}</style>
+<script src="/legal.js?v=20261117" defer></script>
 </body>
 </html>

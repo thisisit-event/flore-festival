@@ -45,6 +45,7 @@
               '<input type="email" name="email" placeholder="ton@email.com" required aria-label="Adresse email">' +
               '<button type="submit">S\'inscrire</button>' +
             '</form>' +
+            '<p class="sf-nl-legal">Désinscription à tout moment. <button type="button" class="lgl-link" data-legal="confidentialite">Confidentialité</button></p>' +
             '<div id="footerSignupSuccess" class="sf-nl-ok" hidden><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Inscrit·e, à bientôt !</div>' +
           '</div>' +
         '</div>' +
