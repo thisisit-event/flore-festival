@@ -969,7 +969,7 @@
     </div>
     <div class="faq-list" data-aos="fade-up" data-aos-delay="80">
       <details class="faq-group">
-        <summary><span class="fg-title">Le festival</span><span class="fg-count">5 questions</span></summary>
+        <summary><span class="fg-head"><span class="fg-title">Le festival</span><span class="fg-count">5 questions</span></span></summary>
         <div class="fg-items">
         <details class="faq-item">
         <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>C'est quoi, FLORE ?</summary>
@@ -994,7 +994,7 @@
         </div>
       </details>
       <details class="faq-group">
-        <summary><span class="fg-title">Sans gluten &amp; sans lactose</span><span class="fg-count">4 questions</span></summary>
+        <summary><span class="fg-head"><span class="fg-title">Sans gluten &amp; sans lactose</span><span class="fg-count">4 questions</span></span></summary>
         <div class="fg-items">
         <details class="faq-item">
         <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Tout est vraiment sans gluten et sans lactose ?</summary>
@@ -1015,7 +1015,7 @@
         </div>
       </details>
       <details class="faq-group">
-        <summary><span class="fg-title">Billetterie</span><span class="fg-count">6 questions</span></summary>
+        <summary><span class="fg-head"><span class="fg-title">Billetterie</span><span class="fg-count">6 questions</span></span></summary>
         <div class="fg-items">
         <details class="faq-item">
         <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Comment réserver mon billet ?</summary>
@@ -1044,7 +1044,7 @@
         </div>
       </details>
       <details class="faq-group">
-        <summary><span class="fg-title">Transports &amp; accès</span><span class="fg-count">4 questions</span></summary>
+        <summary><span class="fg-head"><span class="fg-title">Transports &amp; accès</span><span class="fg-count">4 questions</span></span></summary>
         <div class="fg-items">
         <details class="faq-item">
         <summary><svg aria-hidden="true" class="daisy"><use href="#daisy"/></svg>Comment venir à FLORE ?</summary>
@@ -1068,14 +1068,22 @@
   </div>
   <style>
     #faq .faq-list{gap:14px}
-    #faq .faq-group{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:var(--r-md);overflow:hidden}
-    #faq .faq-group>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:20px 24px;font-family:'Telegraf',sans-serif;color:#fff}
+    #faq .faq-group{background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow-sm);overflow:hidden}
+    #faq .faq-group>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:20px 24px;font-family:'Telegraf',sans-serif;color:var(--ink)}
     #faq .faq-group>summary::-webkit-details-marker{display:none}
-    #faq .faq-group>summary::after{content:"";margin-left:auto;width:11px;height:11px;border-right:2.8px solid #fff;border-bottom:2.8px solid #fff;transform:rotate(45deg);transition:transform .3s var(--ease);flex-shrink:0}
+    #faq .faq-group>summary::after{content:"";margin-left:auto;width:11px;height:11px;border-right:2.6px solid var(--sky);border-bottom:2.6px solid var(--sky);transform:rotate(45deg);transition:transform .3s var(--ease);flex-shrink:0}
     #faq .faq-group[open]>summary::after{transform:rotate(-135deg)}
     #faq .fg-title{font-weight:800;font-size:1.15rem}
-    #faq .fg-count{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.72)}
-    #faq .fg-items{display:flex;flex-direction:column;gap:10px;padding:0 14px 16px}
+    #faq .fg-count{font-size:.8rem;font-weight:600;color:var(--ink-soft)}
+    #faq .fg-items{display:flex;flex-direction:column;gap:8px;padding:0 14px 16px}
+    #faq .fg-items .faq-item{background:var(--sky-pale);box-shadow:none;padding:0}
+    #faq .fg-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 12px;min-width:0}
+    @media(max-width:640px){
+      #faq .faq-group>summary{padding:18px 18px}
+      #faq .fg-items{padding:0 10px 12px}
+      #faq .fg-items .faq-item summary{padding:16px 16px}
+      #faq .fg-items .faq-item .faq-a{padding:0 16px 18px 16px}
+    }
   </style>
 </section>
 
