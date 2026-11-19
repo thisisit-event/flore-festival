@@ -215,14 +215,14 @@
       "kicker": "Unsere inklusive Revolution",
       "title_pre": "Ein Festival, auf dem endlich alle ",
       "title_hl": "aufblühen",
-      "intro_html": "FLORE ist <strong>das erste 100 % glutenfreie und laktosefreie Festival</strong>: Konzerte und der Jardin des Saveurs, ein Food Court und eine Bar, an denen du alles mit geschlossenen Augen bestellen kannst. Ein echter Festtag, für alle, die nie die Wahl hatten, und für alle anderen.",
+      "intro_html": "FLORE ist <strong>das erste glutenfreie und laktosefreie Festival</strong>: Konzerte und der Jardin des Saveurs, ein Food Court und eine Bar, an denen du alles mit geschlossenen Augen bestellen kannst. Ein echter Festtag, für alle, die nie die Wahl hatten, und für alle anderen.",
       "cards": [
         {
-          "t": "100 % glutenfrei",
+          "t": "Glutenfrei",
           "d": "Der Jardin des Saveurs und die Bars, glutenfrei und Stand für Stand kontrolliert."
         },
         {
-          "t": "100 % laktosefrei",
+          "t": "Laktosefrei",
           "d": "Der Jardin des Saveurs und die Bars, komplett laktosefrei, für unbeschwerten Genuss."
         },
         {
@@ -321,7 +321,7 @@
           "time": "Mittag",
           "tag": "Jardin des Saveurs",
           "title": "Ab zu Tisch",
-          "text": "Auf zum Jardin des Saveurs für ein 100 % glutenfreies und laktosefreies Mittagessen."
+          "text": "Auf zum Jardin des Saveurs für ein glutenfreies und laktosefreies Mittagessen."
         },
         {
           "time": "Nachmittag",
@@ -373,7 +373,7 @@
     "footer": {
       "nl_title": "Die FLORE-News zuerst",
       "nl_desc": "Line-up, Tickets, Neuigkeiten: ein Newsletter, niemals Spam.",
-      "brand_text": "Das erste 100 % glutenfreie und laktosefreie Festival.",
+      "brand_text": "Das erste glutenfreie und laktosefreie Festival.",
       "event_date": "Samstag, 17. April 2027, 11 bis 22 Uhr",
       "event_place": "Ainterexpo, Bourg-en-Bresse, Frankreich",
       "col_festival": "Das Festival",

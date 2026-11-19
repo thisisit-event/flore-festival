@@ -52,7 +52,7 @@
         '<div class="sf-main">' +
           '<div class="sf-brand">' +
             '<a href="/" class="sf-logo" aria-label="FLORE Festival, accueil"><img src="/assets/logo-flore-white.png" alt="FLORE" loading="lazy"></a>' +
-            '<p>Le premier festival 100 % sans gluten et sans lactose.</p>' +
+            '<p>Le premier festival sans gluten et sans lactose.</p>' +
             '<ul class="sf-event">' +
               '<li>' + ico.cal + 'Samedi 17 avril 2027, de 11h à 22h</li>' +
               '<li>' + ico.pin + 'Ainterexpo, Bourg-en-Bresse</li>' +

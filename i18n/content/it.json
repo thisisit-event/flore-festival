@@ -215,14 +215,14 @@
       "kicker": "La nostra rivoluzione inclusiva",
       "title_pre": "Un festival dove tutti possono finalmente ",
       "title_hl": "sbocciare",
-      "intro_html": "FLORE è <strong>il primo festival 100% senza glutine e senza lattosio</strong>: concerti e il Jardin des Saveurs, un food court e un bar dove puoi ordinare tutto a occhi chiusi. Una vera giornata di festa, per chi non ha mai avuto scelta e per tutti gli altri.",
+      "intro_html": "FLORE è <strong>il primo festival senza glutine e senza lattosio</strong>: concerti e il Jardin des Saveurs, un food court e un bar dove puoi ordinare tutto a occhi chiusi. Una vera giornata di festa, per chi non ha mai avuto scelta e per tutti gli altri.",
       "cards": [
         {
-          "t": "100% senza glutine",
+          "t": "Senza glutine",
           "d": "Il Jardin des Saveurs e i bar, senza glutine e controllati stand per stand."
         },
         {
-          "t": "100% senza lattosio",
+          "t": "Senza lattosio",
           "d": "Il Jardin des Saveurs e i bar, interamente senza lattosio, per gustare senza pensieri."
         },
         {
@@ -321,7 +321,7 @@
           "time": "Mezzogiorno",
           "tag": "Jardin des Saveurs",
           "title": "A tavola",
-          "text": "Direzione Jardin des Saveurs per un pranzo 100% senza glutine e senza lattosio."
+          "text": "Direzione Jardin des Saveurs per un pranzo senza glutine e senza lattosio."
         },
         {
           "time": "Pomeriggio",
@@ -373,7 +373,7 @@
     "footer": {
       "nl_title": "Le novità di FLORE in anteprima",
       "nl_desc": "Programmazione, biglietteria, novità: una newsletter, mai spam.",
-      "brand_text": "Il primo festival 100% senza glutine e senza lattosio.",
+      "brand_text": "Il primo festival senza glutine e senza lattosio.",
       "event_date": "Sabato 17 aprile 2027, dalle 11 alle 22",
       "event_place": "Ainterexpo, Bourg-en-Bresse, Francia",
       "col_festival": "Il festival",
