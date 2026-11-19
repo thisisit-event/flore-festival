@@ -24,5 +24,30 @@
       "Ses chansons racontent des histoires personnelles, mais jamais seulement les siennes : RAYANN aime cette idée qu'une émotion très intime puisse finalement résonner chez beaucoup de monde. Sur scène, il retrouve cette même envie de partage, avec une musique sincère, spontanée et sans artifice."
     ],
     "coup_de_coeur": "Des frissons dans la salle à chacun de ses passages sur scène : RAYANN sait embarquer son public avec lui, pour des moments hors du temps."
+  },
+  {
+    "slug": "margo",
+    "nom": "MARGO",
+    "photo_url": "https://enjoylife.b-cdn.net/Flore/Images%20/Artistes/MARGO-FLORE-FESTIVAL.jpg",
+    "heure": "Horaire à venir",
+    "scene": "La Scène Schär",
+    "genres": [
+      "Pop",
+      "Piano-voix"
+    ],
+    "spotify_url": "",
+    "spotify_titre": "",
+    "instagram_url": "https://www.instagram.com/c_est_margo",
+    "tiktok_url": "https://www.tiktok.com/@c_est_margo",
+    "youtube_url": "https://www.youtube.com/watch?v=3IPAXygkp4o",
+    "videos_extra": [
+      { "label": "« Cette fois » (Anabel) · La Nuit des Amateurs", "url": "https://www.youtube.com/watch?v=zk6ACA3ecEU" }
+    ],
+    "bio": [
+      "Margo est autrice-compositrice-interprète, au timbre singulier et à l'identité atypique. Après avoir longtemps partagé son univers sur les réseaux sociaux à travers des reprises piano-voix, elle se lance aujourd'hui dans l'écriture et la composition de ses propres chansons, avec l'espoir de dévoiler un premier titre très prochainement.",
+      "Empathique et sensible, elle met en musique ses histoires et ses émotions, avec sa façon bien à elle de toucher celles et ceux qui l'écoutent. Ses mélodies restent en tête et donnent vie à un univers où les doutes et les peurs se chantent, faisant de chaque morceau un exutoire.",
+      "Ce festival sera l'occasion de faire découvrir des morceaux encore inédits, mais aussi de retrouver des reprises de chansons connues, revisitées à sa manière, avec l'envie de faire chanter et danser le public. Elle espère offrir un moment de partage et faire vibrer le festival."
+    ],
+    "coup_de_coeur": "Une voix qu'on reconnaît dès les premières notes : MARGO fait de chaque reprise un moment bien à elle, et on a hâte de découvrir ses premières chansons sur la scène de FLORE."
   }
 ]
