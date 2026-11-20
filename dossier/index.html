@@ -76,11 +76,11 @@
   .slide-arrow svg{width:20px;height:20px}
   .slide-prev{left:14px}
   .slide-next{right:14px}
-  .slide-counter{position:absolute;right:14px;bottom:14px;background:rgba(21,57,91,.65);color:#fff;
+  .slide-counter{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;background:rgba(21,57,91,.65);color:#fff;
     font-family:'Telegraf',sans-serif;font-size:.76rem;font-weight:600;padding:5px 12px;
     border-radius:100px;font-variant-numeric:tabular-nums}
   .slide-progress-track{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(21,57,91,.12)}
-  .slide-progress{height:100%;width:5.88%;background:var(--sun);transition:width .25s ease}
+  .slide-progress{height:100%;width:4.76%;background:var(--sun);transition:width .25s ease}
   .slide-fs{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;
     background:rgba(21,57,91,.55);color:#fff;border:0;cursor:pointer;
     display:flex;align-items:center;justify-content:center;transition:background .15s}
@@ -159,22 +159,22 @@
       <span class="dvh-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></span>
       <span class="dvh-txt">
         <strong>Dossier de présentation 2027</strong>
-        <span>PDF · 3,5 Mo</span>
+        <span>PDF · 8 Mo</span>
       </span>
-      <a class="dvh-dl" href="https://enjoylife.b-cdn.net/Flore/Partenaires/FLORE_2027_Presentation.pdf" download target="_blank" rel="noopener">
+      <a class="dvh-dl" href="/dossier/FLORE_2027_Presentation.pdf" download="FLORE_2027_Presentation.pdf">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         <span>Télécharger</span>
       </a>
     </div>
     <div class="slide-stage" id="slideStage">
-      <img id="slideImg" src="/dossier/pages/page-01.jpg" alt="Dossier de présentation FLORE Festival 2027, page 1 sur 17" width="1640" height="923">
+      <img id="slideImg" src="/dossier/pages/page-01.jpg" alt="Dossier de présentation FLORE Festival 2027, page 1 sur 21" width="1640" height="922">
       <button class="slide-arrow slide-prev" id="slidePrev" type="button" aria-label="Page précédente" disabled>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
       <button class="slide-arrow slide-next" id="slideNext" type="button" aria-label="Page suivante">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
       </button>
-      <span class="slide-counter" id="slideCounter">1 / 17</span>
+      <span class="slide-counter" id="slideCounter">1 / 21</span>
       <div class="slide-progress-track"><div class="slide-progress" id="slideProgress"></div></div>
       <button class="slide-fs" id="slideFs" type="button" aria-label="Plein écran">
         <svg id="slideFsIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
@@ -185,7 +185,7 @@
 
 <script>
 (function(){
-  var TOTAL = 17;
+  var TOTAL = 21;
   var current = 1;
   var img = document.getElementById('slideImg');
   var counter = document.getElementById('slideCounter');
