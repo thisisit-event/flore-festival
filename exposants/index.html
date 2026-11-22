@@ -61,36 +61,20 @@
     .expo-hero-cal{height:640px}
   }
 
-  /* ===== Deux options claires : dossier par mail / question ===== */
-  .expo-actions{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);padding:22px;height:auto;overflow:visible;display:flex;flex-direction:column;gap:16px}
-  .expo-action{border-radius:18px;padding:20px 20px 22px;border:1.5px solid transparent;position:relative}
-  .expo-action.is-dossier{background:var(--sky-pale);border-color:var(--sky-soft)}
-  .expo-action.is-question{background:var(--sun-pale);border-color:var(--sun-deep);padding:26px 24px 28px;box-shadow:0 10px 26px rgba(146,168,36,.18)}
-  .expo-step{display:inline-block;font-family:'Telegraf',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--sky-deep);background:rgba(255,255,255,.7);border-radius:100px;padding:4px 11px;margin-bottom:10px}
-  .expo-step-q{color:var(--sun-deep);background:#fff}
-  .expo-action-ic{width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(21,57,91,.12);display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:12px}
-  .expo-action-ic-lg{width:48px;height:48px;font-size:1.35rem}
-  .expo-action h3{font-size:1.14rem;color:var(--ink);margin:0 0 6px;font-weight:800}
-  .expo-action.is-question h3{font-size:1.3rem}
-  .expo-action p{color:var(--ink);opacity:.75;font-size:.88rem;line-height:1.5;margin:0 0 16px}
-  .expo-action.is-question p{opacity:.85}
-  .expo-action.is-question p strong{opacity:1;color:var(--ink)}
-  .expo-action-form{display:flex;gap:9px;flex-wrap:wrap}
-  .expo-action-form input{flex:1 1 160px;min-width:0;border:1.5px solid rgba(21,57,91,.22);border-radius:10px;padding:12px 14px;font:inherit;font-size:.92rem;color:var(--ink);background:#fff}
-  .expo-question-form{display:flex;flex-direction:column;gap:9px}
-  .expo-q-input{width:100%;border:1.5px solid rgba(21,57,91,.22);border-radius:10px;padding:12px 14px;font:inherit;font-size:.92rem;color:var(--ink);background:#fff;resize:vertical;min-height:72px}
-  .expo-q-input:focus{outline:none;border-color:var(--sun-deep)}
-  .expo-action-form input:focus{outline:none;border-color:var(--sky-deep)}
-  .expo-action-form input::placeholder,.expo-q-input::placeholder{color:var(--ink-soft)}
-  .expo-action-form button{flex:0 0 auto;background:var(--ink);color:#fff;border:none;border-radius:10px;padding:12px 22px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:background .18s,transform .18s}
-  .expo-action-form button:hover{background:var(--navy);transform:translateY(-1px)}
-  .expo-action-form button:disabled{opacity:.55;cursor:default;transform:none}
-  .expo-msg{font-size:.85rem;font-weight:600;margin-top:10px;display:none;border-radius:10px;padding:10px 13px;line-height:1.5}
-  .expo-msg.show{display:block}
-  .expo-msg.ok{background:#fff;color:#1e7a43;border:1.5px solid #bfe3cc}
-  .expo-msg.err{background:#fff;color:#c0392b;border:1.5px solid #f3c4c4}
-  .expo-msg.pending{background:#fff;color:var(--ink-soft);border:1.5px solid rgba(21,57,91,.15)}
-  .expo-msg.escalade{background:#fff;color:var(--ink);border:1.5px solid var(--sun-deep)}
+  /* ===== Dossier et guide : demande par e-mail ===== */
+  .expo-actions{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);padding:22px;height:auto;overflow:visible}
+  .expo-action{border-radius:18px;padding:28px 26px 30px;background:var(--sky-pale);border:1.5px solid var(--sky-soft)}
+  .expo-action-ic{width:48px;height:48px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(21,57,91,.12);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:14px}
+  .expo-action h3{font-size:1.3rem;color:var(--ink);margin:0 0 8px;font-weight:800;text-wrap:balance}
+  .expo-action p{color:var(--ink);opacity:.8;font-size:.92rem;line-height:1.55;margin:0 0 20px}
+  .expo-mail{display:flex;gap:9px;flex-wrap:wrap}
+  .expo-mail-btn{flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--ink);color:#fff;border-radius:12px;padding:14px 18px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.95rem;text-decoration:none;transition:background .18s,transform .18s;overflow-wrap:anywhere}
+  .expo-mail-btn:hover{background:var(--navy);transform:translateY(-1px)}
+  .expo-mail-copy{flex:0 0 auto;background:#fff;color:var(--ink);border:1.5px solid rgba(21,57,91,.22);border-radius:12px;padding:12px 16px;font-family:'Telegraf',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;transition:border-color .18s}
+  .expo-mail-copy:hover{border-color:var(--sky-deep)}
+  .expo-mail-btn:focus-visible,.expo-mail-copy:focus-visible{outline:3px solid var(--sky-deep);outline-offset:2px}
+  .expo-action .expo-mail-note{margin:14px 0 0;font-size:.82rem;opacity:.7}
+  @media(max-width:520px){.expo-mail-copy{flex:1 1 100%}}
 
   /* ===== Wizard de candidature ===== */
   .wiz-sheet{background:#fff}
@@ -203,7 +187,7 @@
         <h1>Participez au <em>plus grand rendez-vous</em> sans gluten &amp; sans lactose de France</h1>
         <p>Des milliers de festivaliers venus de toute la France et des pays limitrophes. Jardin des Saveurs, Boutique ou stand Premium : écrivez-nous en nous présentant votre projet, on revient vers vous.</p>
         <div class="expo-note">
-          <strong>Cette prise de contact s'adresse uniquement aux entreprises qui souhaitent un espace (stand) ou devenir partenaire de FLORE.</strong> Pour toute autre demande (artiste, presse, bénévolat, etc.), écrivez-nous plutôt à contact@flore-festival.fr. Dans votre message, précisez : qui vous êtes, ce que vous proposez, et si ça touche au sans gluten, au sans lactose ou à une autre cause qui vous tient à cœur.
+          <strong>Cette page s'adresse aux entreprises qui souhaitent un espace (stand) ou devenir partenaire de FLORE.</strong> Dans votre e-mail, précisez : qui vous êtes, ce que vous proposez, et si ça touche au sans gluten, au sans lactose ou à une autre cause qui vous tient à cœur.
         </div>
         <div class="btn-row">
           <a href="#avantages" class="btn btn-ghost-w">Voir les avantages</a>
@@ -211,33 +195,15 @@
       </div>
 
       <div class="expo-actions" data-aos="fade-up">
-        <div class="expo-action is-dossier">
-          <span class="expo-step">Étape 1</span>
-          <div class="expo-action-ic">📄</div>
-          <h3>Recevoir le dossier d'inscription</h3>
-          <p>On vous envoie par mail le dossier d'inscription à remplir et le guide exposant qui l'accompagne.</p>
-          <form class="expo-action-form" id="expo-dossier-form">
-            <input type="email" id="expo-dossier-email" placeholder="Votre e-mail" required autocomplete="email">
-            <button type="submit" id="expo-dossier-submit">Recevoir</button>
-          </form>
-          <div class="expo-msg" id="expo-dossier-msg"></div>
-          <p style="margin:12px 0 0;font-size:.8rem"><a href="/exposants/fichiers/FLORE_Guide_securite_exposant.pdf" target="_blank" rel="noopener" style="color:var(--sky-deep);font-weight:700">Consulter directement le guide de sécurité (PDF) →</a></p>
-          <p style="margin:10px 0 0;font-size:.8rem;opacity:.75">Ça peut sembler dense une fois reçu : pas de panique, on vous accompagne pas à pas, par téléphone si besoin.</p>
-        </div>
-
-        <div class="expo-action is-question" id="question">
-          <span class="expo-step expo-step-q">Étape 2 · Échange uniquement</span>
-          <div class="expo-action-ic expo-action-ic-lg">💬</div>
-          <h3>Une question ? C'est ici.</h3>
-          <p>Stand, électricité, montage, produits, règles : écrivez-la, on vous répond directement ou on vous recontacte rapidement.<br><strong>Cet espace sert uniquement à échanger.</strong> Une fois votre dossier rempli, renvoyez-le par e-mail à contact@flore-festival.fr, pas ici.</p>
-          <form id="expo-question-form" class="expo-question-form">
-            <textarea id="expo-question-input" class="expo-q-input" placeholder="Écrivez votre question ici…" maxlength="1000" required rows="3"></textarea>
-            <div class="expo-action-form">
-              <input type="email" id="expo-question-contact" placeholder="Votre e-mail" required autocomplete="email">
-              <button type="submit" id="expo-question-submit">Envoyer</button>
-            </div>
-          </form>
-          <div class="expo-msg" id="expo-question-msg"></div>
+        <div class="expo-action" id="contact-exposant">
+          <div class="expo-action-ic" aria-hidden="true">✉️</div>
+          <h3>Demandez le dossier et le guide par e-mail</h3>
+          <p>Écrivez-nous en présentant votre projet : on vous envoie le dossier d'inscription et le guide exposant, et on répond à toutes vos questions.</p>
+          <div class="expo-mail">
+            <a class="expo-mail-btn" href="mailto:contact@flore-festival.fr?subject=Dossier%20exposant%20FLORE%202027">contact@flore-festival.fr</a>
+            <button type="button" class="expo-mail-copy" id="expo-mail-copy" data-mail="contact@flore-festival.fr">Copier l'adresse</button>
+          </div>
+          <p class="expo-mail-note">On vous accompagne pas à pas, par téléphone si besoin.</p>
         </div>
       </div>
     </div>
@@ -299,7 +265,7 @@
     </div>
 
     <div style="text-align:center;margin-top:34px" data-aos="fade-up">
-      <a href="#question" class="btn btn-sun">Une question ? →</a>
+      <a href="#contact-exposant" class="btn btn-sun">Une question ? Écrivez-nous →</a>
     </div>
   </div>
 </section>
@@ -318,85 +284,17 @@
 </script>
 <script>
 (function(){
-  var API_BASE = "https://flore-admin.morgan-thisisit.workers.dev";
-
-  function showMsg(el, text, cls){
-    el.textContent = text;
-    el.className = "expo-msg show " + cls;
-  }
-
-  var dossierForm = document.getElementById("expo-dossier-form");
-  var dossierEmail = document.getElementById("expo-dossier-email");
-  var dossierSubmit = document.getElementById("expo-dossier-submit");
-  var dossierMsg = document.getElementById("expo-dossier-msg");
-
-  if (dossierForm) {
-    dossierForm.addEventListener("submit", async function(e){
-      e.preventDefault();
-      var email = dossierEmail.value.trim();
-      if (!email) return;
-      dossierSubmit.disabled = true;
-      showMsg(dossierMsg, "Envoi en cours…", "pending");
-      try {
-        var res = await fetch(API_BASE + "/dossier/send", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: email, consentement: true }),
-        });
-        var data = await res.json();
-        if (!res.ok) {
-          showMsg(dossierMsg, data.error || "Une erreur est survenue, réessayez.", "err");
-        } else {
-          showMsg(dossierMsg, data.message || "C'est envoyé, vérifiez votre boîte mail (et vos spams).", "ok");
-          dossierForm.reset();
-        }
-      } catch (err) {
-        showMsg(dossierMsg, "Connexion impossible, réessayez dans un instant.", "err");
-      } finally {
-        dossierSubmit.disabled = false;
-      }
-    });
-  }
-
-  var questionForm = document.getElementById("expo-question-form");
-  var questionInput = document.getElementById("expo-question-input");
-  var questionContact = document.getElementById("expo-question-contact");
-  var questionSubmit = document.getElementById("expo-question-submit");
-  var questionMsg = document.getElementById("expo-question-msg");
-
-  if (questionForm) {
-    questionForm.addEventListener("submit", async function(e){
-      e.preventDefault();
-      var question = questionInput.value.trim();
-      if (!question) return;
-      questionSubmit.disabled = true;
-      showMsg(questionMsg, "…", "pending");
-      var payload = { question: question };
-      var contact = questionContact.value.trim();
-      if (contact) payload.contact_email = contact;
-      try {
-        var res = await fetch(API_BASE + "/assistant/ask", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        var data = await res.json();
-        if (!res.ok) {
-          showMsg(questionMsg, data.error || "Une erreur est survenue, réessayez.", "err");
-        } else if (data.trouve_dans_docs) {
-          showMsg(questionMsg, data.reponse, "ok");
-          questionForm.reset();
-        } else {
-          showMsg(questionMsg, data.reponse, "escalade");
-          questionForm.reset();
-        }
-      } catch (err) {
-        showMsg(questionMsg, "Connexion impossible, réessayez dans un instant.", "err");
-      } finally {
-        questionSubmit.disabled = false;
-      }
-    });
-  }
+  var btn = document.getElementById("expo-mail-copy");
+  if (!btn) return;
+  btn.addEventListener("click", function(){
+    var mail = btn.getAttribute("data-mail");
+    function ok(){ btn.textContent = "Adresse copiée"; setTimeout(function(){ btn.textContent = "Copier l'adresse"; }, 2200); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(mail).then(ok, function(){ window.prompt("Adresse à copier :", mail); });
+    } else {
+      window.prompt("Adresse à copier :", mail);
+    }
+  });
 })();
 </script>
 <script src="/legal.js?v=20261117b" defer></script>
