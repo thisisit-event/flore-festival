@@ -358,6 +358,10 @@
         </a>
         <div class="sponsors-rest">
           <div class="sponsors-rest-track">
+            <a class="sponsor-tile" href="https://afdiag.fr/" target="_blank" rel="noopener">
+              <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/afdiag_rouge_sur_fond_transparent.png" alt="AFDIAG" style="--h:58px"></span>
+              <span class="sponsor-tier">Patrocinador</span>
+            </a>
             <a class="sponsor-tile" href="https://www.rbsansglutenpizza.com/" target="_blank" rel="noopener">
               <span class="sponsor-logo"><img src="https://enjoylife.b-cdn.net/Flore/Partenaires/sans-gluten-pizza-logo-flore-festival.png" alt="Sans Gluten Pizza" style="--h:103px"></span>
               <span class="sponsor-tier">Socio oficial</span>
@@ -420,6 +424,8 @@
       .sponsors-head{flex-direction:column;justify-content:center;text-align:center}
       .sponsors-body{grid-auto-flow:row;grid-template-columns:1fr 1fr;gap:12px}
       .sponsor-tile--lead{grid-column:1/-1}
+      /* Nombre impair de tuiles sous Schär : la dernière prend toute la largeur (pas de case vide à droite) */
+      .sponsors-rest-track > .sponsor-tile:last-child:nth-child(odd){grid-column:1/-1}
       .sponsors-body.is-moving{flex-direction:column}
       .sponsors-body.is-moving .sponsor-tile--lead{flex:none}
       .sponsor-tile{padding:18px 10px 16px;gap:12px}
